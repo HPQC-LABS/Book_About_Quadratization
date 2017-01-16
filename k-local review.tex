@@ -1,0 +1,903 @@
+%% LyX 2.2.0 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english,notitlepage,showpacs,preprintnumbers,amsmath,amssymb,aps,nofootinbib,12pt]{revtex4-1}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\setcounter{secnumdepth}{3}
+\usepackage{color}
+\usepackage{verbatim}
+\usepackage{units}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\PassOptionsToPackage{normalem}{ulem}
+\usepackage{ulem}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{microtype}
+\usepackage{xspace}
+\usepackage{amsfonts}
+\usepackage{palatino}
+\usepackage[]{algorithm2e}
+\usepackage{MnSymbol}
+\usepackage{bbm}
+%\usepackage{hyperref}
+%\usepackage[hyphenbreaks]{breakurl1}
+\usepackage{url}
+\usepackage{ragged2e}
+\edef\UrlBreaks{\do\-\UrlBreaks}% after loading url or hyperref
+\usepackage{accents} % needed for \underbar that's same as \bar (\underaccent)
+\usepackage{microtype}
+
+\usepackage{color}
+
+\newcommand*{\mathcolor}{}
+\def\mathcolor#1#{\mathcoloraux{#1}}
+\newcommand*{\mathcoloraux}[3]{%
+  \protect\leavevmode
+  \begingroup
+    \color#1{#2}#3%
+  \endgroup
+}
+
+%% Set space of itemize environment
+\usepackage{enumitem} % Used for setting height of itemize environments
+\setlist[itemize]{topsep=0pt}%topsep=0pt
+
+\newcommand{\hi}{$H_{\rm init}$\xspace}
+\newcommand{\hf}{$H_{\rm final}$\xspace}
+
+%% Set formatting of headers
+\newcommand{\secspace}{\vspace{2mm}}
+
+\newcommand{\summarysec}{\secspace\emph{\textbf{Summary}}}
+\newcommand{\prossec}{\secspace\emph{\textbf{Pros}}}
+\newcommand{\conssec}{\secspace\emph{\textbf{Cons}}}
+\newcommand{\costsec}{\secspace\emph{\textbf{Cost}}}
+\newcommand{\examplesec}{\secspace\emph{\textbf{Example}}}
+\newcommand{\refsec}{\secspace\emph{\textbf{Bibliography}}}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+
+\title{Quadratization in Pseudo-Boolean Optimization and Adiabatic Quantum
+Computing}
+
+\author{Richard Tanburn$^{1,\,}$}
+\email{richard.tanburn@hertford.ox.ac.uk}
+
+
+\affiliation{$^{1}$Oxford University, Mathematical Institute, OX2 6GG, Oxford,
+UK. }
+
+\author{Nikesh S. Dattani$^{2,3}$}
+\email{dattani.nike@gmail.com}
+\affiliation{$^{2}$Oxford University, Physical and Theoretical Chemistry Laboratory, OX1 3BW, Oxford, UK,}
+
+
+\begin{abstract}
+There is a ridiculous amount of literature in so many different places, in communities that do not talk to each other, and do not even understand each other's language.
+\end{abstract}
+
+\maketitle
+
+
+\title{\tableofcontents{}}
+
+\section{Introduction}
+
+\textbf{\emph{Every}} computation can be done by minimizing a Hamiltonian
+of the form:
+
+\begin{equation}
+H = \sum_{i}^{n} \left( a_{i}z_{i}+b_{i}x_{i} \right) + \sum_{ij}^{n} \left( a_{ij} z_{i}z_{j}+b_{ij}x_{i}x_{j} \right),\label{eq:XZ+Z}
+\end{equation}
+where the $z$ and $x$ variables denote the Pauli matrices:
+\begin{equation}
+z\equiv\begin{pmatrix}1 & 0\\
+0 & -1
+\end{pmatrix},\,x\equiv\begin{pmatrix}0 & 1\\
+1 & 0
+\end{pmatrix},
+\end{equation}
+the $a$ and $b$ coefficients are complex numbers; and the Appendix will teach any unfamiliar readers how to interpret this notation.
+
+We know that every computation can be done this way because the minimization can be done by adiabatic quantum computation (AQC), and it has been proven in at least two different ways \cite{Mizel2007,Aharonov2008} that AQC can simulate any circuit-based quantum computation with at most polynomial overhead, and we know that circuit-based quantum computation can simulate any classical computation with at most polynomial overhead.
+If we remove all the terms in Eq. \ref{eq:XZ+Z} that have $x$ operators, we get an Ising Hamiltonian that is quadratic:
+\[
+H=\sum_{i}^{n}a_{i}z_{i}+\sum_{ij}^{n}a_{ij}z_{i}z_{j},\label{eq:ZZ+Z}
+\]
+and we no longer know of any proof that \textbf{\emph{any}} computation\cite{Gaitan2012,Bian2013} can be done by minimizing such a Hamiltonian with only polynomial overhead compared to circuit-based quantum computation or even classical computation, but plenty of very interesting problems can still be formulated as the minimization or approximate minimization of a quadratic Ising Hamiltonian, such as neural network training \cite{Altaisky2016}, computerized image denoising \cite{Ishikawa2009,Ishikawa2011,Ishikawa2014,Anthony2015}, integer factorization \cite{Dattani2015b}, and Ramsey number determination \cite{Gaitan2012,Bian2013}, just to name a few.
+However unlike Eq. \ref{eq:XZ+Z}, plenty of devices that can minimize Ising Hamiltonians already exist, and with further restrictions on the $a$ coefficients, D-Wave has made devices with $n=2048$, and this number has doubled every year since [...], a phenomenon analogous to Moore's law of classical computer growth, which has become known as Rose's Law.
+
+Furthermore,\textbf{\emph{ no classical computer has ever been able to minimize certain quadratic Ising Hamiltonians faster than the D-Wave machines to date [...]}}, so being able to turn computations into the form of Eq. \ref{eq:ZZ+Z} appears to be promising in terms of demonstrating the first useful application of quantum supremacy (which is the term used for quantum devices outperforming classical computation devices).
+Moreover, for problems like neural networks and computerized image denoising, the best known classical computation algorithms also work by turning the problems into minimizations of Ising Hamiltonians, so even if you are happy with continuing to only use classical computer and have no interest in using quantum annealing devices, turning a problem into an Ising Hamiltonian minimization problem can be very powerful for some computations.
+
+For neural networks, image denoising, integer factorization, and Ramsey number determination, it is rather easy to turn the problem into the form:
+
+\begin{equation}
+H=\sum_{i}^{n}a_{i}z_{i}+\sum_{ij}^{n}a_{ij}z_{i}z_{j}+\sum_{ijk}^{n}a_{ijk}z_{i}z_{j}z_{k}+\sum_{ijkl}^{n}a_{ijkl}z_{i}z_{j}z_{k}z_{l}\ldots,\label{eq:Z+ZZ+ZZZ+ZZZZ...}
+\end{equation}
+but then \textbf{\emph{quadratizing}} Eq. \ref{eq:Z+ZZ+ZZZ+ZZZZ...} into the Ising form often requires the introduction of auxiliary variables, and since minimizing Eq. \ref{eq:Z+ZZ+ZZZ+ZZZZ...} often has cost $\mathcal{O}(2^{n})$, it is often extremely desirable to do the quadratization with \textbf{\emph{as few auxiliary variables as possible}}.
+Apart from quadratizing with minimum number of variables, it is also often desirable to reduce the number of non-zero $a$ coefficients, to keep the non-zero $a$ coefficients bounded or with specific values, to reduce the number of positive (non-submodular) $a$ coefficients, to reduce the spectral ratio of the Hamiltonian (`maximum energy minus
+minimum energy' divided by `energy of the second minimum minus the energy of the global minimum'), and to reduce the number of energy levels close to the global minimum.
+Adjusting the energy landscape in order to accomplish all of these things apart from reducing the number of auxiliary variables needed has been termed Energy Landscape Manipulation (ELM) which is an entirely separate topic, sometimes even more important than quadratizing with as few auxiliary variables as possible, nonetheless this Review simply focuses on methods for the latter aim.
+
+It has been shown in \cite{Anthony2015} that a general function of the form Eq. \ref{eq:Z+ZZ+ZZZ+ZZZZ...} with degree $k$, can be quadratized using $O(n^{k/2})$ auxiliary variables.
+However, it is often possible to quadratize with far fewer auxiliary variables (for example when the auxiliary variables for quadratizing one term are reused to quadratize other terms that have some of the same variables in them) or to quadratize without any auxiliaries at all (ex. if a Groebner basis can be found with all basis functions being quadratic, or if some symmetries in the Hamiltonian can be found that make it possible to quadratize without auxiliaries).
+
+\begin{comment}
+Also shown in \cite{Ishikawa2011} that a PSB in $n$ variables requires at most $2^{n}-1$ auxiliary variables (by representing it as a function of degree $n$).
+
+Positive quadratic terms (non-submodular), particularly with large positive coefficients, are hard for a lot of reasons, classically (Ishikawa TGBMM....) \cite{Ishikawa2011}.
+\end{comment}
+
+
+\part{Hamiltonians with only $z$ terms (pseudo-Boolean functions)}
+
+\section{Methods that introduce ZERO auxiliary variables}
+
+\subsection{Groebner Bases}
+
+\begin{comment}
+% Nike's old summary
+A Groebner basis is a set of equations representing the zeros of a polynomial (e.g. of the form Eq. \ref{eq:Z+ZZ+ZZZ+ZZZZ...}) such that the number of variables is the same, and the zeros of Eq. \ref{eq:Z+ZZ+ZZZ+ZZZZ...} are the same as the zeros of all equations of the Groebner basis.
+If a Groebner basis can be found such that all equations are quadratic, then quadratization of Eq. \ref{eq:Z+ZZ+ZZZ+ZZZZ...} is as simple as finding the Groebner basis.
+
+\begin{comment}
+Nike, this is NOT true.
+Once we have the Groebner basis, we still need a single non-negative expression to minimize.
+This involves finding appropriate coefficients of the equations to add together (non-trivial and what they do in the 1Qbit paper) OR squaring each one, which gives a quartic. 
+\end{comment}
+
+\begin{comment}
+Use the multivariate extension of Gaussian elimination to find a different set of equations which have the same vanishing set.
+It has been shown these can be used to reduce and embed factorisations of all bi-primes up to 200,000 \cite{Dridi2016}.
+Some work has been done in the field of ``boolean Groebner bases'', but these consider bases of a boolean ring over $\mathbb{F}_{2}$ rather than $\mathbb{Q}$.
+\end{comment}
+
+%% Old description
+\begin{comment}
+\textcolor{red}{Richard: too much algebra here. People come from different
+backgrounds. Some people don't know what rings are, and some people
+get scared when they see fancy symbols like $\mathcal{V}$. It should
+be possible to describe this to A-level students because that way
+we know everyone (chemists, physicists, engineers, computer scientsists,
+etc.) will understand it. I guess I already did this in a way that
+A-level students would understand, in the ``summary section''. For
+``descriptions'' I envision that we explain exactly how to DO the
+methods, and for Groebner bases, I guess this would be equivalent
+to listing the known algorithms (such as Buchberger's) and known codes
+available. I guess another description that could be added is the
+method in the 1Qbit paper, where they have a ``max\_cutoff'' and
+a ``min\_cutoff'' and Groebnerized everything in between there,
+or something like that.}
+
+Instead of solving the equations $f_{1}=f_{2}=...=f_{n}=0$ directly,
+Groebner bases consider the points on which they vanish, also known
+as the \emph{algebraic variety} $\mathcal{V}(f_{1},...,f_{n})$. Groebner
+bases are a 'pleasant' generating set for this variety.
+
+This is done by first defining a monomial ordering on the polynomial
+ring $F[z_{1},...,z_{n}]$, chosen so that higher order mononials
+are considered 'bigger' than low order monomials. Monomials of the
+same degree are sorted by the lexicographic ordering of the variables.
+Then define the leading term of a polynomial $f$ with respect to
+the monomial ordering to be $\mathrm{LT}(f)$, the largest monomial
+of $f$. Then $g_{1},...,g_{m}$ is a Grobner basis if $\mathcal{V}(f_{1},...,f_{n})$=$\mathcal{V}(g_{1},...,g_{m})$
+(they have the same vanishing set) and for every function $f$ in
+the ideal of $\left\langle f_{1},...f_{n}\right\rangle $, we have
+that the leading term of $f$ is divisible by the leading term of
+$g_{i}$ for some $i$.
+
+Grobner bases are very useful because they allow computation of remainders,
+using the multivariate division algorithm. They are useful in this
+context since the polynomials of the Grobner basis will have smaller
+degrees than our original function, reducing the need for reduction
+by other means.
+\end{comment}
+
+\summarysec
+
+Given a set of polynomials, a Groebner basis is another set of polynomials that have exactly the same zeros.
+The advantage of a Groebner basis is it has nicer algebraic properties than the original equations, in particular they tend to have smaller degree polynomials.
+The algorithms for calculating Groebner bases are generalisations of Euclid's algorithm for the polynomial greatest common divisor.
+
+Work has been done in the field of 'Boolean Groebner bases', but while the variables are Boolean the coefficients of the functions are in $\mathbb{F}_{2}$ rather than $\mathbb{Q}$.
+
+\costsec
+\begin{itemize}
+\item $0$ auxiliary variables needed,
+\item $2^{2^{\mathcal{O}(n)}}$ in general, $\mathcal{O}(d^{n^{2}})$ if the zeros of the equations form a set of discrete points, where $d$ is the degree of the polynomial and $n$ is the number of variables \cite{Bardet2002}.
+\end{itemize}
+
+\prossec
+\begin{itemize}
+\item No auxiliary variables needed.
+\item Extremely general method, which can be used for other rings, fields or types of variables.
+\end{itemize}
+
+\conssec
+\begin{itemize}
+\item Best algorithms for finding Groebner bases scale double exponentially in $n$.
+\item Only works for solving systems of equations, not general Hamiltonians.
+\end{itemize}
+
+\examplesec
+
+Consider the following pair of equations:
+
+\[
+x y z w + x z + y w - z = x + x y + z - 2 = 0.
+\]
+
+Feeding these to Mathematica's ${\tt GroebnerBasis}$ function, along with the binarizing $x(x-1)=\ldots=w(w-1)=0$ constraints, gives a Groebner basis:
+
+\[
+\left\{ w z - w, y + z - 1, x - 1 \right\}.
+\]
+
+From this we can immediately read off the solutions $x=1$, $y=1-z$ and reduce the problem to $wz-w=0$. Solving this gives a final solution set of: $(x, y, z, w) = (1, 0, 1, 0), (1, 0, 1, 1), (1, 1, 0, 0)$.
+
+\refsec
+\begin{itemize}
+\item Standard text on Computational Algebraic Geometry: \cite{Cox2007}.
+\item Reduction and embedding of factorizations of all bi-primes up to $200,000$: \cite{Dridi2016}.
+\end{itemize}
+
+\begin{comment}
+To quadratize the Hamiltonian: 
+\[
+H_{4{\rm -local}}=(z_{1}z_{2}-z_{3}z_{4}-1)^{2},
+\]
+we first linearize the part that is being squared. In Mathematica,
+the ${\tt GroebnerBasis}$ function gives us:
+
+Then when we square it we get a quadratic function:
+
+\[
+H_{2{\rm -local}}=1-2z_{1}-2z_{2}+3z_{3}+3z_{4}-2z_{3}z_{4}.
+\]
+In both cases, the only global minima occur when:
+
+\begin{equation}
+(z_{3,}z_{4})=1,\,z_{1}\,\text{or}\,z_{2}=0.
+\end{equation}
+
+\textcolor{red}{Wait, this is far from true!}
+\end{comment}
+
+\subsection{Deduction Reduction (Deduc-reduc)}
+
+\summarysec
+
+We look for \emph{deductions} (e.g. $z_{1}z_{2}=0$) that hold at the global minimum.
+These can be found by \emph{a priori} knowledge of the given problem, or by enumerating solutions of a small subset of the variables.
+We can then substitute high-order terms using the low-order terms of the deduction, and add on a penalty term to preserve the ground states \cite{Tanburn2015c}.
+
+\costsec
+\begin{itemize}
+\item $0$ auxiliary variables needed.%  Given a deduction, the reduction time is proportional to the number of terms in the Hamiltonian and is negligible. (but this is true of all the other reducs too)
+\item The computational cost of the search for deductions is difficult to estimate.
+The approximate worst-case complexity is $\mathcal{O}(n^{d+1}2^{m})$ where $m$ is the number of variables in a 'small' problem, $n$ is the total number of qubits and $d$ is the maximum degree of deductions we are searching for.
+We suggest $10 \le m \le 20$, so that a small problem involves checking roughly $1,000$ to $1,000,000$ states, and $d=2$.
+See the appendix for more details.
+\end{itemize}
+
+\prossec
+\begin{itemize}
+\item No auxiliary variables needed.
+%\item Able to use extra information about a given problem.
+\end{itemize}
+
+\conssec
+\begin{itemize}
+\item When deductions cannot be determined naturally (as in the Ramsey number determination problem, see Example \ref{subsec:Example_Ramsey_deduc_reduc}), deductions need to be found by `brute force', which scales exponentially with respect to $m$.
+For highly connected systems (systems with a large number of non-zero $a$ coefficients), the value of $m$ required to find even one deduction can be prohibitively large.
+%\item Deductions do not always exist, or are too hard to find.
+\end{itemize}
+
+\examplesec
+
+\begin{comment}
+Examples are difficult to illustrate in a paper, since they involve searching for patterns in exhaustive searches. 
+\end{comment}
+Consider the Hamiltonian: 
+\[
+H_{4{\rm -local}}=z_{1}z_{2}(10+z_{3}+z_{3}z_{4})+z_{1}(z_{3}-3)+z_{2}(z_{3}-2z_{3}-z_{4}-1)+F(x_{3},x_{4},x_{5},\ldots,x_{N})
+\]
+ where $F$ is any polynomial in $z_{i}$ for $3\le i$.
+
+Since the $10$ coefficient of $z_{1}z_{2}$ is greater than the sum of all of the other coefficients involving $z_{1}$ or $z_{2}$, it must be the case that $z_{1}z_{2}=0$.
+Specifically, for the 4 assignments of $(z_{3},z_{4})$, we see that $z_{1}z_{2}=0$ at every minimum of $H_{4{\rm -local}}-F$.
+
+Using deduc-reduc we have:
+\[
+H_{2{\rm -local}}=12z_{1}z_{2}+z_{1}(z_{3}-3)+z_{2}(z_{3}-2z_{3}-z_{4}-1)+F(x_{3},x_{4},x_{5},\ldots,x_{N})
+\]
+
+which has the same global minima as $H_{4-local}$ but one less quartic and one less cubic term.
+
+\refsec
+\begin{itemize}
+\item Original paper, with application to integer factorization: \cite{Tanburn2015c}.
+\end{itemize}
+
+\subsection{ELC Reduction}
+
+\summarysec
+
+An Excludable Local Configuration (ELC) is a partial assignment of variables that cannot possibly give the global minimum.
+We can then add on a term that corresponds to the energy of this ELC.
+In practice we can eliminate all monomials with a variable in which a variable is set to 0, and reduce any variable set to 1.
+Given a general Hamiltonian we can try to find ELCs by enumerating solutions of a small subset of the problem \cite{Ishikawa2014}. 
+
+\costsec
+\begin{itemize}
+\item $0$ auxiliary variables needed. Reduction also has negligible run-time.
+\item $\mathcal{O}\left(2^{m}\binom{n}{m}\right)$ operations required to enumerate all possible cases for all possible subsets of size $m \le n$ variables.
+\item Approximate methods exist which have been shown to be much faster and give good approximations to the global minimum \cite{Ishikawa2014}.
+\end{itemize}
+
+\prossec
+\begin{itemize}
+\item No auxiliary variables needed.
+\end{itemize}
+
+\conssec
+\begin{itemize}
+\item ELCs need to be found by `brute force', which scales exponentially with respect to $m$. 
+\item ELCs do not always exist.
+\end{itemize}
+
+\examplesec
+
+Consider the Hamiltonian: 
+\[
+H_{{\rm 3-local}}=z_{1}z_{2}+z_{2}z_{3}+z_{3}z_{4}-4z_{1}z_{2}z_{3}.
+\]
+If $z_{1}z_{2}z_{3}=0$, no assignment of our variables will we be able to reach a lower energy than if $z_{1}z_{2}z_{3}=1$.
+Hence $(z_{1},z_{2},z_{3})=(1,0,0)$ is a Local Excludable Configuration (ELC) and we can form the polynomial:
+\[
+H_{2\text{-local}}=H_{{\rm 3-local}}+4z_{1}(1-z_{2})(1-z_{3})=z_{1}z_{2}+z_{2}z_{3}+z_{3}z_{4}+4z_{1}-4z_{1}z_{2}-4z_{1}z_{3}.
+\]
+In both cases, the only global minima occur when:
+
+\refsec
+\begin{itemize}
+\item Original paper and application to computerized image denoising: \cite{Ishikawa2014}.
+\end{itemize}
+
+\subsection{Split Reduction}
+
+\summarysec
+
+It has been shown in \cite{Okada2015} that, if multiple runs of a minimization algorithm is permitted, it is possible to reduce a lot of the problem by conditioning on the most connected variables.
+We call each of these operations a \emph{split}.
+
+\costsec
+
+Exponential in the number of splits, as the number of problems to solve doubles with every split.
+
+\prossec
+\begin{itemize}
+\item This method can be applied to any problem and can be very effective on problems with a few very connected variables.
+\end{itemize}
+
+\conssec
+\begin{itemize}
+\item Exponential cost in the worst case, often only able to split a few times.
+\end{itemize}
+
+\examplesec
+
+Consider the simple objective function 
+\[
+H=1+z_{1}z_{2}z_{5}+z_{1}z_{6}z_{7}z_{8}+z_{3}z_{4}z_{8}-z_{1}z_{3}z_{4}.
+\]
+In order to quadratise $H$, we first have to choose a variable to split over.
+In this case $z_{1}$ is the obvious choice since it is present in the most terms and contributes to the quartic term.
+
+We then obtain two different problems:
+\begin{eqnarray*}
+H_{0} & = & 1+z_{3}z_{4}z_{8}\\
+H_{1} & = & 1+z_{2}z_{5}+z_{6}z_{7}z_{8}+z_{3}z_{4}z_{8}-z_{3}z_{4}.
+\end{eqnarray*}
+
+At this point, we could split $H_{0}$ again and solve it entirely, or use a qubit we saved in the previous split to quadratize our only problem.
+
+To solve $H_{1}$, we can split again on $z_{8}$, resulting in problems:
+\begin{eqnarray*}
+H_{1,0} & = & 1+z_{2}z_{5}+z_{6}z_{7}\\
+H_{1,1} & = & 1+z_{2}z_{5}+z_{3}z_{4}.
+\end{eqnarray*}
+Now both of these problems are solvable by AQC.
+Hence we have reduced our original, hard problem into 3 easy problems, requiring only 2 extra runs of our minimization algorithm without needing any auxiliary variables.
+
+\refsec
+\begin{itemize}
+\item Original paper and application to Ramsey number calculation: \cite{Okada2015}.
+\end{itemize}
+
+\section{Methods that introduce auxiliary variables to quadratize a SINGLE
+term}
+
+\subsection{Negative Term Reduction \label{sec:Negative-Monomial-Reduction}}
+
+\summarysec
+
+For a negative term $-z_{1}z_{2}...z_{k}$, introduce a single auxiliary variable $a$ and make the substitution:
+\[
+-z_{1}z_{2}...z_{k} = \min_a \left\{ (n-1-\sum z_{i})a \right\}.
+\]
+
+\costsec
+\begin{itemize}
+\item 1 auxiliary variable for each $k$-local term.
+\end{itemize}
+
+\prossec
+\begin{itemize}
+\item All resulting quadratic terms are submodular (have negative coefficients).
+\item Can reduce arbitrary order terms with only 1 auxiliary.
+\item Can be generalised so that one variable can be made to work for multiple terms. (I can't find anyone saying this, but I can prove it. Shall we put it in an appendix?)
+\end{itemize}
+
+\conssec
+\begin{itemize}
+\item Only works for negative terms.
+\end{itemize}
+
+\examplesec
+
+\begin{align*}
+H_{{\rm 6-local}} & =-z_{1}z_{2}z_{3}z_{4}z_{5}z_{6},
+\end{align*}
+has a unique minimum energy of -1 when all $z$'s are 1.
+
+\begin{equation}
+H_{{\rm 2-local}}=5a-z_{1}a-z_{2}a-z_{3}a-z_{4}a-z_{5}a-z_{6}a
+\end{equation}
+has the same unique minimum energy, and it occurs at the same place (all $z$'s being 1), with $a=1$.
+
+\examplesec
+
+\begin{align*}
+H_{{\rm 5-local}} & =-z_{1}z_{2}z_{3}z_{4}z_{5}-z_{1}z_{2}z_{3}z_{4}z_{6},
+\end{align*}
+has a unique minimum energy of -2 when all $z$'s are 1.
+
+\begin{equation}
+H_{{\rm 2-local}}=(3-z_{1}-z_{2}-z_{3}-z_{4})(z_{5}+z_{6})a
+\end{equation}
+has the same unique minimum energy, and it occurs at the same place,
+with $a=1$.
+
+\refsec
+\begin{itemize}
+\item Original paper: \cite{Freedman2005}.
+\item Discussion: \cite{Ishikawa2011}, \cite{Anthony2015}.
+\end{itemize}
+
+\subsection{Positive Term Reduction}
+
+\summarysec
+
+By considering the negated literals $\bar{z}_{i}=1-z_{i}$, we recursively apply the previous method to $z_{1}z_{2}\ldots z_{k}=-\bar{z}_{1}z_{2}\ldots z_{k}+z_{2}z_{3}\ldots z_{k}$.
+The final identity is:
+\[
+z_{1}z_{2}\ldots z_{k}=\min_{a}\big\{\sum_{i=1}^{k-2}a_{i}(k-i-1+z_{i}-\sum_{j=i+1}^{k}z_{j})\big\}+z_{k-1}z_{k}
+\]
+
+
+\costsec
+\begin{itemize}
+\item $k-2$ auxiliary variables for each $k$-local term.
+\end{itemize}
+
+\prossec
+\begin{itemize}
+\item Works for positive monomials.
+\end{itemize}
+
+\conssec
+\begin{itemize}
+\item $k-1$ non-submodular quadratic terms.
+\end{itemize}
+
+\examplesec
+
+\begin{eqnarray*}
+z_{1}z_{2}z_{3}z_{4} & = & \min_{a}{a_{1}(2+z_{1}-z_{2}-z_{3}-z_{4})+a_{2}(1+z_{2}-z_{3}-z_{4})}+z_{3}z_{4}
+\end{eqnarray*}
+
+\refsec
+\begin{itemize}
+\item Summary: \cite{Boros2014}.
+\end{itemize}
+
+\begin{comment}
+By flipping and applying \ref{sec:Negative-Monomial-Reduction} alternatively, we get a nice way to reduce a quartic using only 2 variables and with only 2 positive terms and much less connectivity:
+
+\begin{eqnarray*}
+z_{1}z_{2}z_{3}z_{4} & \mapsto & z_{2}z_{3}z_{4}-\bar{z}_{1}z_{2}z_{3}z_{4}\\
+ & \mapsto & z_{2}z_{3}z_{4}+\big(3a_{1}-a_{1}(\bar{z}_{1}+z_{2}+z_{3}+z_{4})\big)\\
+ & \mapsto & z_{3}z_{4}-\bar{z}_{2}z_{3}z_{4}+\big(3a_{1}-a_{1}(\bar{z}_{1}+1-\bar{z}_{2}+z_{3}+z_{4})\big)\\
+ & \mapsto & z_{3}z_{4}+\big(2a_{2}-a_{2}(\bar{z}_{2}+z_{3}+z_{4}\big)\big)+\big(3a_{1}-a_{1}(\bar{z}_{1}+1-\bar{z}_{2}+z_{3}+z_{4})\big)\\
+ & \mapsto & z_{3}z_{4}+a_{2}+a_{2}z_{2}-a_{2}z_{3}-a_{2}z_{4}+2a_{1}+a_{1}z_{1}-a_{1}z_{2}-a_{1}z_{3}-a_{1}z_{4}
+\end{eqnarray*}
+\end{comment}
+
+
+\subsection{Ishikawa's Symmetric Reduction (Positive Term Reduction)}
+
+\summarysec
+
+This method rewrites a positive monomial using symmetric polynomials, so all possible quadratic terms are produced and they are all non-submodular: 
+\[
+z_{1}...z_{k} = \min_{a_1, \ldots, a_{n_k}} \left\{ \sum_{i=1}^{n_{k}}a_{i}(c_{i,d}(-\sum_{j=1}^{k}z_{j}+2i)-1)+\sum_{i<j}z_{i}z_{j} \right\}
+\]
+where $n_{k}=\left\lfloor \frac{k-1}{2}\right\rfloor $ and $c_{i,k}=\begin{cases}
+1, & i=n_{d}\text{ and }k\text{ is odd,}\\
+2, & \text{else.}
+\end{cases}$
+
+\costsec
+\begin{itemize}
+\item $\left\lfloor \frac{k-1}{2}\right\rfloor $ auxiliary variables for each $k$-order term
+\end{itemize}
+
+\prossec
+\begin{itemize}
+\item Works for positive monomials.
+About half as many auxiliary variables for each $k$-order term as the previous method.
+\end{itemize}
+
+\conssec
+\begin{itemize}
+\item $\mathcal{O}(k^{2})$ quadratic terms are created, which may make chimerization more costly.
+\item $\frac{k(k-1)}{2}$ non-submodular terms.
+\item Worse than the previous method for quartics, with respect to submodularity.
+\end{itemize}
+
+\examplesec
+\begin{eqnarray*}
+z_{1}z_{2}z_{3}z_{4} & = & \min_{a}(3-2z_{1}-2z_{2}-2z_{3}-2z_{4})a+z_{1}z_{2}+z_{1}z_{3}+z_{1}z_{4}+z_{2}z_{3}+z_{2}z_{4}+z_{3}z_{4}
+\end{eqnarray*}
+
+\refsec
+\begin{itemize}
+\item Original paper and application to image denoising: \cite{Ishikawa2011}.
+\end{itemize}
+
+\subsection{Asymmetric Reduction}
+
+\summarysec
+
+Similar to other methods of reducing one term, this method can reduce a positive cubic monomial into quadratic terms using only one auxiliary variable, which introducing fewer non-submodular terms than the symmetric version.
+
+\costsec
+
+1 auxiliary qubit per positive cubic term.
+
+\prossec
+\begin{itemize}
+\item Works on positive monomials.
+\item Fewer non-submodular terms than Ishikawa Reduction.
+\end{itemize}
+
+\conssec
+\begin{itemize}
+\item Only been shown to work for cubics.
+\end{itemize}
+
+\examplesec
+
+\[
+z_{1}z_{2}z_{3}= \min_a \left\{ a-z_{2}a-z_{3}a+z_{1}a+z_{2}z_{3} \right\}
+\]
+
+
+\refsec
+\begin{itemize}
+\item Original paper and application to computer vision: \cite{Gallagher2011}.
+\end{itemize}
+
+\subsection{Bit-flipping}
+
+\summarysec
+
+For any variable $z$, we can consider the negation $\bar{z}=1-z$.
+The process of exchanging $z$ for $\bar{z}$ is called \emph{flipping}.
+Using bit-flipping, an arbitrary function in $n$ variables can be represented using at most $2^{(n-2)}(n-3)+1$ variables, though this is a gross overestimate.
+
+Can be used in many different ways:
+\begin{enumerate}
+\item Flipping positive terms and using \ref{sec:Negative-Monomial-Reduction}, recursively.
+\item For $\alpha<0$, we can reduce $\alpha\bar{z}_{1}\bar{z}_{2}...\bar{z}_{k}$ very efficiently so submodular form using \ref{sec:Negative-Monomial-Reduction}.
+A generalised version exists for arbitrary combinations of flips in the monomial which makes reduction entirely submodular \cite{Ishikawa2011}.
+\item When we have quadratized we can minimise the number of non-submodular terms by flipping.
+\item We can make use of both $z_{i}$ and $\bar{z}_{i}$ in the same Hamiltonian by adding on a sufficiently large penalty term: $\lambda(z_{i}+\bar{z}_{i}-1)^{2}=\lambda(1+2z_{i}\bar{z}_{i}-z_{i}-\bar{z}_{i})$.
+This is similar to the ideas in Substition Reduction or deduc-reduc.
+In this way, given a quadratic in $n$ variables we can make sure it only has at most $n$ nonsubmodular terms if we are willing to use the extra $n$ negation variables as well (so we have $2n$ variables in total). (This is my own claim. Is it worth keeping?)
+\end{enumerate}
+
+\costsec
+None, as replacing $z_{i}$ with it's negation $\bar{z}_{i}$ costs nothing except a trivial symbolic expansion.
+
+\prossec
+\begin{itemize}
+\item Cheap and effective way of improving submodularity.
+\item Can be used to combine terms in clever ways, making other methods more efficient.
+\end{itemize}
+
+\conssec
+\begin{itemize}
+\item Unless form of the Hamiltonian is known, spotting these 'factorizations' using negations is going to be impossible.
+\item If we want to use $z$ and $\bar{z}$ we need an auxiliary variable.
+\end{itemize}
+
+\examplesec
+
+Consider
+\begin{eqnarray*}
+H & = & 3z_{1}z_{2}+z_{2}z_{3}+2z_{1}z_{4}-4z_{2}z_{4}\protect\\
+ & = & -3z_{1}\bar{z}_{2}-\bar{z}_{2}z_{3}-2z_{1}\bar{z}_{4}-\bar{z}_{2}\bar{z}_{4}+5z_{1}+z_{3}+4\bar{z}_{2}+4\bar{z}_{4}-4.
+\end{eqnarray*}
+The first expression is highly non-submodular while the second is entirely submodular.
+
+\refsec
+\begin{itemize}
+\item Original paper: \cite{Ishikawa2011}.
+\end{itemize}
+
+\section{Methods that introduce auxiliary variables to quadratize MULTIPLE terms with the SAME auxiliaries}
+
+\subsection{Reduction by Substitution}
+
+\summarysec
+
+Pick a variable pair $z_{i},z_{j}$ and substitute $z_{i}z_{j}$ for new auxiliary variable $a_{i,j}$.
+Enforce equality in the ground states by adding some scalar multiple of $z_{i}z_{j}-2z_{i}a_{i,j}-2z_{i}a_{i,j}+3a_{i,j}$ or similar.
+
+\costsec
+\begin{itemize}
+\item 1 auxiliary variable per reduction.
+\end{itemize}
+
+\prossec
+\begin{itemize}
+\item Variable can be used across the entire Hamiltonian, reducing many terms in one go.
+\item Simple.
+\end{itemize}
+
+\conssec
+\begin{itemize}
+\item Inefficient for single terms as it introduces lots of variables.
+\item Introduces quadratic terms with large positive coefficients, making them highly non-submodular.
+\item Determining optimal substitutions is expensive.
+\end{itemize}
+
+\examplesec
+
+We pick the pair $(z_{1},z_{2})$ and combine.
+
+\[
+z_{1}z_{2}z_{3}+z_{1}z_{2}z_{4}\mapsto z_{3}a+z_{4}a+z_{1}z_{2}-2z_{1}a-2z_{1}a+3a
+\]
+
+\refsec
+\begin{itemize}
+\item Original paper: \cite{Rosenberg1975}
+\end{itemize}
+
+\subsection{FGBZ Reduction (Fix-Gruber-Boros-Zabih)}
+
+\summarysec
+
+Here we consider a set $C$ of variables which occur in multiple monomials throughout the Hamiltonian.
+Each application 'rips out' this common component from each term \cite{Fix2011}\cite{Boros2014}.
+
+Let $\mathcal{H}$ be a set of monomials, where $C \subseteq H$ for each $H\in\mathcal{H}$ and each monomial $H$ has a weight $\alpha_{H}$.
+The algorithm comes in 2 parts: when all $\alpha_{H}>0$ and when all $\alpha_{H}<0$. Combining the 2 gives the final method:
+
+\begin{enumerate}
+\item $\alpha_{H}>0$ 
+\[
+\sum_{H\in\mathcal{H}}\alpha_{H}\prod_{j\in H}z_{j}=\min_{a}(\sum_{H\in\mathcal{H}}\alpha_{H})a\prod_{j\in C}z_{j}+\sum_{H\in\mathcal{H}}\alpha_{H}(1-a)\prod_{j\in H\setminus C}z_{j}
+\]
+\item $\alpha_{H}<0$
+\[
+\sum_{H\in\mathcal{H}}\alpha_{H}\prod_{j\in H}z_{j}=\min_{a}\sum_{H\in\mathcal{H}}\alpha_{H}(1-\prod_{j\in C}z_{j}-\prod_{j\in H\setminus C}z_{j})a
+\]
+\end{enumerate}
+
+\costsec
+\begin{itemize}
+
+\item One auxiliary variable per application.
+\item In combination with \ref{sec:Negative-Monomial-Reduction}, they can be used to make an algorithm which can reduce $t$ positive monomials of degree $d$ in $n$ variables using $n+t(d-1)$ auxiliary variables in the worst case.
+\end{itemize}
+
+\prossec
+\begin{itemize}
+\item Can reduce the connectivity of a Hamiltonian, as it breaks interactions between qubits.
+\end{itemize}
+
+\conssec
+\begin{itemize}
+\item Positive method converts positive terms into negative ones of same order rather than reducing them, though these can then be reduced more easily.
+\item $\alpha_{H}<0$ method only works for $|C|>1$, and cannot quadratize cubic terms.
+\end{itemize}
+
+\examplesec
+
+First let $C=z_{1}$ and use the positive weight version:
+\begin{eqnarray*}
+z_{1}z_{2}z_{3}+z_{1}z_{2}z_{4} & \mapsto & 2a_{1}z_{1}+(1-a_{1})z_{2}z_{3}+(1-a_{1})z_{2}z_{4}\\
+ & = & 2a_{1}z_{1}+z_{2}z_{3}+z_{2}z_{4}-a_{1}z_{2}z_{3}-a_{1}z_{2}z_{4}
+\end{eqnarray*}
+now we can use \ref{sec:Negative-Monomial-Reduction}:
+
+\begin{eqnarray*}
+-a_{1}z_{2}z_{3}-a_{1}z_{2}z_{4} & \mapsto & 2a_{2}-a_{1}a_{2}-a_{2}z_{2}-a_{2}z_{3}+2a_{2}-a_{1}a_{2}-a_{2}z_{2}-a_{2}z_{4}\\
+ & = & 4a_{2}-2a_{1}a_{2}-2a_{2}z_{2}-a_{2}z_{3}-a_{2}z_{4}.
+\end{eqnarray*}
+
+\refsec
+\begin{itemize}
+\item Original paper and application to image denoising: \citep{Fix2011}.
+\end{itemize}
+
+\begin{comment}
+
+\subsection{Generalized roof duality}
+
+(only 1 extra qubit, but only works for up to 5-qubit terms.)
+
+Nike, where did you get the above from? When I search for this, with
+the relevant authors, I only find stuff on QPBO. I've spent a while
+reading papers on QPBO (fascinating stuff, very impressive and in
+some ways similar to what we've been trying/will try to do. Is the
+quantum community aware of their software??). I don't know what roof
+duality you're referring to.
+
+\subsection{Generalized Roof Duality (QPBO)}
+
+\summarysec
+
+Algorithm that takes a quadratic Hamiltonian and tries to perform as much of the optimization as possible.
+
+\costsec
+
+For computer image problems, it can be used with the above methods to optimize most of the image in seconds/minutes \cite{Ishikawa2014,Fix2011,Ishikawa2011}.
+\end{comment}
+
+
+\section{Methods that reproduce the full spectrum}
+
+In all the above, we take advantage of the fact that we just want the correct state and we don't care about anything else.
+This gave us the freedom to do all sorts of things to the Hamiltonian, as long as we keep the ground state the same.
+What if we want to quadratize a Hamiltonian while preserving the whole spectrum?
+%LHZ scheme and Paul Warburton's methods.
+
+\section{Strategies for combining methods}
+
+Should look at ORI graph in \cite{Gallagher2011}
+
+\part{Hamiltonians with both $z$ \& $x$ terms (general quantum Hamiltonians)}
+
+In the above we only have $z$ terms.
+If we have both $z$ and $x$ then quadratization methods have a rich history, dating back to the perturbative gadgets that were used by Kitaev and his camp for proving that the $2$-local Hamiltonian problem is QMA complete and that AQC is equiavent to circuit-based quantum computing.
+Jacob Biamonte came up with various schemes for quadratizion general spin Hamiltonians with only 1 auxiliary qubit for each reduction (quintic to quartic, quartic to cubic, cubic to quadratic, etc.). Below we show how the ideas above such as FGBZ can be generalized to the case where there's both $z$ and $x$ terms. ``auxiliary qubit recycling'', where the auxiliary qubit used to substitute $x_{1}z_{1}$ in $x_{1}z_{1}z_{2}$ can be reused, for example, in the quadratization of $x_{1}z_{1}x_{2}$.
+
+\section{Recursive gadget reduction}
+
+Kitaev
+
+\section{Recursive gadget reduction (better)}
+
+Biamonte
+
+\section{One-step gadget reduction}
+
+Jordan \& Fahri
+
+\section{Methods that reproduce the full spectrum}
+
+
+\part{Appendix}
+
+\begin{comment}
+
+\section{Further Examples}
+
+\examplesec \label{subsec:Example_Ramsey_deduc_reduc}
+Here we show how deductions can arise naturally from the Ramsey number problem.
+Consider $\mathbb{\mathcal{R}}(4,3)$ with $N=4$ nodes.
+Consider a Hamiltonian:
+\[
+H = (1-z_{12})(1-z_{13})(1-z_{23})+\ldots+(1-z_{23})(1-z_{24})(1-z_{34})+ z_{12}z_{13}z_{14}z_{23}z_{24}z_{34}.
+\]
+
+\begin{comment}
+We should assume there are no 3-independent sets, so we have deductions:
+$(1-z_{ij})(1-z_{ik})(1-z_{jk})=0$, for each $i,j,k$. 
+\end{comment}
+See \cite{Okada2015} for full details of how we arrive at this Hamiltonian.
+
+Since we are assuming we have no 3-independent sets, we know that
+$(1-z_{12})(1-z_{13})(1-z_{23})=0$, so $z_{12}z_{13}z_{23}=z_{12}z_{13}+z_{12}z_{23}+z_{13}z_{23}-z_{12}-z_{13}-z_{23}+1$.
+This will be our deduction.
+
+Using deduc-reduc we can substitute this into our 6-local term to get:
+\begin{eqnarray*}
+H & = & 2(1-z_{12})(1-z_{13})(1-z_{23})+\ldots+(1-z_{23})(1-z_{24})(1-z_{34})+\\
+ &  & z_{14}z_{24}z_{34}(z_{12}z_{13}+z_{12}z_{23}+z_{13}z_{23}-z_{12}-z_{13}-z_{23}+1).
+\end{eqnarray*}
+
+We could repeat this process to remove all 5- and 4-local terms without adding any auxiliary qubits.
+Note in this case the error terms added by deduc-reduc already appear in our Hamiltonian.
+
+\section{Notation}
+
+The left Kronecker product by a $2\times2$ identity matrix is implied by Eq. in the following way for qubit operators $q\in\{z,x\}$, assuming $i<j$:
+
+\begin{align}
+q_{i} & =\mathbf{1}^{\otimes i-1}q\mathbf{1}^{\otimes(N-i+1)}\\
+q_{i}\bar{q}_{j} & =\mathbf{1}^{\otimes i-1}q\mathbf{1}^{\otimes(j-1+i)}\bar{q}\mathbf{1}^{\otimes(N-j+1)}.
+\end{align}
+Thinking in this way, with this notation might take some time to get
+used to, but tens of thousands of people are comfortable thinking
+this way (including any undergraduate student after a 1-semester quantum
+computing course). You can now see that $H$ is a $2^{N}\times2^{N}$
+matrix with elements that are complex numbers. ``Minimizing the Hamiltonian''
+just means finding the eigenvector of this matrix with lowest eigenvalue.
+On a classical computer, the cost of finding this eigenvector is the
+cost of diagonalizing the matrix: $\mathcal{O}(2^{3N})$, but undergraduate
+level quantum mechanics tells us that any physical system's state
+(wavefunction, $\psi_{n}$) is an eigenvector of a Hamiltonian and
+the eigenvalue $E_{n}$ is just the energy associated with being in
+the $n^{{\rm th}}$energy level: 
+\begin{equation}
+H\psi_{n}=E_{n}\psi_{n}.\label{eq:TISE}
+\end{equation}
+Eq. \ref{eq:TISE} is just the time-independent version of the Schroedinger
+equation, which you have at least heard of. The diagonal elements
+are the energies of the $n$ levels and the off-diagonals are associated
+with the propensity for tunnelling from level $n$ to level $m$.
+Any $2^{N}$ level system can be represented by $N$ spin-$\nicefrac{1}{2}$
+particles (\textbf{\uline{qubtis}}), and an example of a spin-$\nicefrac{1}{2}$
+particle is simply an electron. Some of the $N$ electrons will have
+spin up and some will have spin down, hence $2^{N}$ possibilities.
+So instead of $\mathcal{O}(2^{3N})$ operations on a classical computer
+for finding the eigenvector with lowest eigenvalue (and hence doing
+the completely arbitrary computation), we can just (for example) put
+$N$ electrons together %
+\begin{comment}
+such that the $2^{N}$ energy levels have energies $H_{ii}$ and tunelling
+amplitudes $H_{ij}$
+\end{comment}
+with the appropriate $H$ describing their energy, and then cool the
+system down to its ground state. This ground state is one out of $2^{N}$
+possible states , and the configuration of spin up and spin down electrons
+encodes the desired computation.
+
+\section*{Acknowledgments}
+
+\begin{comment}
+The authors would like to acknowledge the use of the University of
+Oxford Advanced Research Computing (ARC) facility in carrying out
+this work (HTTP://dx.doi.org/10.5281/zenodo.22558). The authors also
+thank the Oxford University Mathematical Institute and the various
+members who generously allowed us to use their compute servers for
+carrying out 
+\end{comment}
+
+\bibliographystyle{apsrev4-1}
+\bibliography{k-local-quadratization}
+
+\end{document}
