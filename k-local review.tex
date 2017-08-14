@@ -105,15 +105,15 @@ z\equiv\begin{pmatrix}1 & 0\\
 \end{equation}
 the $a$ and $b$ coefficients are complex numbers; and the Appendix will teach any unfamiliar readers how to interpret this notation.
 
-We know that every computation can be done this way because the minimization can be done by adiabatic quantum computation (AQC), and it has been proven in at least two different ways \cite{Mizel2007,Aharonov2008} that AQC can simulate any circuit-based quantum computation with at most polynomial overhead, and we know that circuit-based quantum computation can simulate any classical computation with at most polynomial overhead.
+We know that every computation can be done this way because the minimization can be done by adiabatic quantum computation (AQC), and it has been proven \cite{Aharonov2008} that AQC can simulate any circuit-based quantum computation with at most polynomial overhead, and we know that circuit-based quantum computation can simulate any classical computation with at most polynomial overhead. %% Incorrect citation:  %Mizel2007
 If we remove all the terms in Eq. \ref{eq:XZ+Z} that have $x$ operators, we get an Ising Hamiltonian that is quadratic:
 \[
 H=\sum_{i}^{n}a_{i}z_{i}+\sum_{ij}^{n}a_{ij}z_{i}z_{j},\label{eq:ZZ+Z}
 \]
-and we no longer know of any proof that \textbf{\emph{any}} computation\cite{Gaitan2012,Bian2013} can be done by minimizing such a Hamiltonian with only polynomial overhead compared to circuit-based quantum computation or even classical computation, but plenty of very interesting problems can still be formulated as the minimization or approximate minimization of a quadratic Ising Hamiltonian, such as neural network training \cite{Altaisky2016}, computerized image denoising \cite{Ishikawa2009,Ishikawa2011,Ishikawa2014,Anthony2015}, integer factorization \cite{Dattani2015b}, and Ramsey number determination \cite{Gaitan2012,Bian2013}, just to name a few.
+and we no longer know of any proof that \textbf{\emph{any}} computation can be done by minimizing such a Hamiltonian with only polynomial overhead compared to circuit-based quantum computation or even classical computation, but plenty of very interesting problems can still be formulated as the minimization or approximate minimization of a quadratic Ising Hamiltonian, such as neural network training \cite{Altaisky2016}, computerized image denoising \cite{Ishikawa2009,Ishikawa2011,Ishikawa2014,Anthony2015}, integer factorization \cite{Dattani2014}, and Ramsey number determination \cite{Gaitan2012,Bian2013}, just to name a few.
 However unlike Eq. \ref{eq:XZ+Z}, plenty of devices that can minimize Ising Hamiltonians already exist, and with further restrictions on the $a$ coefficients, D-Wave has made devices with $n=2048$, and this number has doubled every year since [...], a phenomenon analogous to Moore's law of classical computer growth, which has become known as Rose's Law.
 
-Furthermore,\textbf{\emph{ no classical computer has ever been able to minimize certain quadratic Ising Hamiltonians faster than the D-Wave machines to date [...]}}, so being able to turn computations into the form of Eq. \ref{eq:ZZ+Z} appears to be promising in terms of demonstrating the first useful application of quantum supremacy (which is the term used for quantum devices outperforming classical computation devices).
+Furthermore,\textbf{\emph{ no classical computer has ever been able to minimize certain quadratic Ising Hamiltonians faster than the D-Wave machines to date}} \cite{Denchev2016,Mandra2016}, so being able to turn computations into the form of Eq. \ref{eq:ZZ+Z} appears to be promising in terms of demonstrating the first useful application of quantum supremacy (which is the term used for quantum devices outperforming classical computation devices).
 Moreover, for problems like neural networks and computerized image denoising, the best known classical computation algorithms also work by turning the problems into minimizations of Ising Hamiltonians, so even if you are happy with continuing to only use classical computer and have no interest in using quantum annealing devices, turning a problem into an Ising Hamiltonian minimization problem can be very powerful for some computations.
 
 For neural networks, image denoising, integer factorization, and Ramsey number determination, it is rather easy to turn the problem into the form:
@@ -811,8 +811,6 @@ Jordan \& Fahri
 
 \part{Appendix}
 
-\begin{comment}
-
 \section{Further Examples}
 
 \examplesec \label{subsec:Example_Ramsey_deduc_reduc}
@@ -888,14 +886,6 @@ encodes the desired computation.
 
 \section*{Acknowledgments}
 
-\begin{comment}
-The authors would like to acknowledge the use of the University of
-Oxford Advanced Research Computing (ARC) facility in carrying out
-this work (HTTP://dx.doi.org/10.5281/zenodo.22558). The authors also
-thank the Oxford University Mathematical Institute and the various
-members who generously allowed us to use their compute servers for
-carrying out 
-\end{comment}
 
 \bibliographystyle{apsrev4-1}
 \bibliography{k-local-quadratization}
