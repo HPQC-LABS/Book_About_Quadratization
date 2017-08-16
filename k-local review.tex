@@ -96,11 +96,12 @@ There is a ridiculous amount of literature in so many different places, in commu
 \section{Introduction}
 
 \textbf{\emph{Every}} computation can be done by minimizing a Hamiltonian
-of the form:
+of either one of the following forms:
 
-\begin{equation}
-H = \sum_{i}^{n} \left( a_{i}z_{i}+b_{i}x_{i} \right) + \sum_{ij}^{n} \left( a_{ij} z_{i}z_{j}+b_{ij}x_{i}x_{j} \right),\label{eq:XZ+Z}
-\end{equation}
+\begin{eqnarray}
+H = \sum_{i}^{n} \left( \alpha_{i}z_{i}+\beta_{i}x_{i} \right) + \sum_{ij}^{n} \left( \alpha_{ij} z_{i}z_{j}+\beta_{ij}x_{i}x_{j} \right), \label{eq:XX+Z} \\
+H = \sum_{i}^{n} \left( \alpha_{i}z_{i}+\beta_{i}x_{i} \right) + \sum_{ij}^{n} \left( \alpha_{ij} z_{i}z_{j}+\beta_{ij}x_{i}z_{j} \right), \label{eq:XZ+Z}
+\end{eqnarray}
 where the $z$ and $x$ variables denote the Pauli matrices:
 \begin{equation}
 z\equiv\begin{pmatrix}1 & 0\\
@@ -109,26 +110,26 @@ z\equiv\begin{pmatrix}1 & 0\\
 1 & 0
 \end{pmatrix},
 \end{equation}
-the $a$ and $b$ coefficients are complex numbers; and the Appendix will teach any unfamiliar readers how to interpret this notation.
+the $\alpha$ and $\beta$ coefficients are complex numbers; and the Appendix will teach any unfamiliar readers how to interpret this notation.
 
-We know that every computation can be done this way because the minimization can be done by adiabatic quantum computation (AQC), and it has been proven \cite{Aharonov2008} that AQC can simulate any circuit-based quantum computation with at most polynomial overhead, and we know that circuit-based quantum computation can simulate any classical computation with at most polynomial overhead. %% Incorrect citation:  %Mizel2007
-If we remove all the terms in Eq. \ref{eq:XZ+Z} that have $x$ operators, we get an Ising Hamiltonian that is quadratic:
+We know that every computation can be done this way because the minimization can be done by adiabatic quantum computation (AQC), and it has been proven \cite{Aharonov2008,Biamonte2008} that AQC can simulate any circuit-based quantum computation with overhead that grows at most polynomially with the size of the problem, and we know that circuit-based quantum computation can simulate any classical computation with at most polynomial overhead. %% Incorrect citation:  %Mizel2007
+If we remove all the terms in Eq. \ref{eq:XX+Z} or Eq. \ref{eq:XZ+Z} that have $x$ operators, we get an Ising Hamiltonian that is quadratic:
 \begin{equation}
 H=\sum_{i}^{n}a_{i}z_{i}+\sum_{ij}^{n}a_{ij}z_{i}z_{j},\label{eq:ZZ+Z}
 \end{equation}
 and we no longer know of any proof that \textbf{\emph{any}} computation can be done by minimizing such a Hamiltonian with only polynomial overhead compared to circuit-based quantum computation or even classical computation, but plenty of very interesting problems can still be formulated as the minimization or approximate minimization of a quadratic Ising Hamiltonian, such as neural network training \cite{Altaisky2016}, computerized image denoising \cite{Ishikawa2009,Ishikawa2011,Ishikawa2014,Anthony2015}, integer factorization \cite{Dattani2014}, and Ramsey number determination \cite{Gaitan2012,Bian2013}, just to name a few.
-However unlike Eq. \ref{eq:XZ+Z}, plenty of devices that can minimize Ising Hamiltonians already exist, and with further restrictions on the $a$ coefficients, D-Wave has made devices with $n=2048$, and this number has doubled every year since [...], a phenomenon analogous to Moore's law of classical computer growth, which has become known as Rose's Law.
+However unlike Eq. \ref{eq:XZ+Z}, plenty of devices that can minimize Ising Hamiltonians already exist, and with further restrictions on the $a$ coefficients, D-Wave has made devices with $n=2000$, and this number has roughly doubled every 14 months since the first 1-qubit demonstration in 2003, a phenomenon analogous to Moore's law of classical computer growth, which has become known as Rose's Law.
 
 Furthermore,\textbf{\emph{ no classical computer has ever been able to minimize certain quadratic Ising Hamiltonians faster than the D-Wave machines to date}} \cite{Denchev2016,Mandra2016}, so being able to turn computations into the form of Eq. \ref{eq:ZZ+Z} appears to be promising in terms of demonstrating the first useful application of quantum supremacy (which is the term used for quantum devices outperforming classical computation devices).
-Moreover, for problems like neural networks and computerized image denoising, the best known classical computation algorithms also work by turning the problems into minimizations of Ising Hamiltonians, so even if you are happy with continuing to only use classical computer and have no interest in using quantum annealing devices, turning a problem into an Ising Hamiltonian minimization problem can be very powerful for some computations.
+Moreover, for problems like neural networks and computerized image denoising, the best known classical computation algorithms also work by turning the problems into minimizations of Ising Hamiltonians, so even if you are happy with continuing to only use classical computer and have no interest in using quantum annealing devices, turning a problem into a quadratic Ising Hamiltonian minimization problem can be very powerful for some computations.
 
 For neural networks, image denoising, integer factorization, and Ramsey number determination, it is rather easy to turn the problem into the form:
 
 \begin{equation}
-H=\sum_{i}^{n}a_{i}z_{i}+\sum_{ij}^{n}a_{ij}z_{i}z_{j}+\sum_{ijk}^{n}a_{ijk}z_{i}z_{j}z_{k}+\sum_{ijkl}^{n}a_{ijkl}z_{i}z_{j}z_{k}z_{l}\ldots,\label{eq:Z+ZZ+ZZZ+ZZZZ...}
+H=\sum_{i}^{n}\alpha_{i}z_{i}+\sum_{ij}^{n}\alpha_{ij}z_{i}z_{j}+\sum_{ijk}^{n}\alpha_{ijk}z_{i}z_{j}z_{k}+\sum_{ijkl}^{n}\alpha_{ijkl}z_{i}z_{j}z_{k}z_{l}\ldots,\label{eq:Z+ZZ+ZZZ+ZZZZ...}
 \end{equation}
-but then \textbf{\emph{quadratizing}} Eq. \ref{eq:Z+ZZ+ZZZ+ZZZZ...} into the Ising form often requires the introduction of auxiliary variables, and since minimizing Eq. \ref{eq:Z+ZZ+ZZZ+ZZZZ...} often has cost $\mathcal{O}(2^{n})$, it is often extremely desirable to do the quadratization with \textbf{\emph{as few auxiliary variables as possible}}.
-Apart from quadratizing with minimum number of variables, it is also often desirable to reduce the number of non-zero $a$ coefficients, to keep the non-zero $a$ coefficients bounded or with specific values, to reduce the number of positive (non-submodular) $a$ coefficients, to reduce the spectral ratio of the Hamiltonian (`maximum energy minus
+but then \textbf{\emph{quadratizing}} Eq. \ref{eq:Z+ZZ+ZZZ+ZZZZ...} into the quadratic Ising form often requires the introduction of auxiliary variables, and since minimizing Eq. \ref{eq:Z+ZZ+ZZZ+ZZZZ...} often has cost $\mathcal{O}(2^{n})$, it is often extremely desirable to do the quadratization with \textbf{\emph{as few auxiliary variables as possible}}.
+Apart from quadratizing with minimum number of variables, it is also often desirable to reduce the number of non-zero $\alpha$ coefficients, to keep the non-zero $\alpha$ coefficients bounded or with specific values, to reduce the number of positive (non-submodular) $\alpha$ coefficients, to reduce the spectral ratio of the Hamiltonian (`maximum energy minus
 minimum energy' divided by `energy of the second minimum minus the energy of the global minimum'), and to reduce the number of energy levels close to the global minimum.
 Adjusting the energy landscape in order to accomplish all of these things apart from reducing the number of auxiliary variables needed has been termed Energy Landscape Manipulation (ELM) which is an entirely separate topic, sometimes even more important than quadratizing with as few auxiliary variables as possible, nonetheless this Review simply focuses on methods for the latter aim.
 
@@ -157,7 +158,7 @@ Given a general Hamiltonian we can try to find ELCs by enumerating solutions of 
 
 \costsec
 \begin{itemize}
-\item $0$ auxiliary variables needed. Reduction also has negligible run-time.
+\item $0$ auxiliary variables needed.
 \item $\mathcal{O}\left(2^{m}\binom{n}{m}\right)$ operations required to enumerate all possible cases for all possible subsets of size $m \le n$ variables.
 \item Approximate methods exist which have been shown to be much faster and give good approximations to the global minimum \cite{Ishikawa2014}.
 \end{itemize}
@@ -240,7 +241,7 @@ Using deduc-reduc we have:
 H_{2{\rm -local}}=12z_{1}z_{2}+z_{1}(z_{3}-3)+z_{2}(z_{3}-2z_{3}-z_{4}-1)+F(x_{3},x_{4},x_{5},\ldots,x_{N})
 \end{equation}
 
-which has the same global minima as $H_{4-\rm{local}}$ but one less quartic and one less cubic term.
+which has the same global minima as $H_{4-local}$ but one fewer quartic and one fewer cubic term.
 
 \refsec
 \begin{itemize}
@@ -317,20 +318,20 @@ Work has been done in the field of 'Boolean Groebner bases', but while the varia
 
 \costsec
 \begin{itemize}
-\item $0$ auxiliary variables needed,
+\item $0$ auxiliary variables needed.
 \item $\mathcal{O}\left( 2^{2^{n}} \right)$ in general, $\mathcal{O}(d^{n^{2}})$ if the zeros of the equations form a set of discrete points, where $d$ is the degree of the polynomial and $n$ is the number of variables \cite{Bardet2002}.
 \end{itemize}
 
 \prossec
 \begin{itemize}
 \item No auxiliary variables needed.
-\item Extremely general method, which can be used for other rings, fields or types of variables.
+\item General method, which can be used for other rings, fields or types of variables.
 \end{itemize}
 
 \conssec
 \begin{itemize}
 \item Best algorithms for finding Groebner bases scale double exponentially in $n$.
-\item Only works for solving systems of equations, not general Hamiltonians.
+\item Only works for Hamiltonians whose minimization corresponds to solving systems of discrete equations.
 \end{itemize}
 
 \examplesec
@@ -351,7 +352,7 @@ From this we can immediately read off the solutions $x=1$, $y=1-z$ and reduce th
 
 \refsec
 \begin{itemize}
-\item Standard text on Computational Algebraic Geometry: \cite{Cox2007}.
+%\item Standard text on Computational Algebraic Geometry: \cite{Cox2007}.
 \item Reduction and embedding of factorizations of all bi-primes up to $200,000$: \cite{Dridi2016}.
 \end{itemize}
 
@@ -395,7 +396,7 @@ Exponential in the number of splits, as the number of problems to solve doubles 
 
 \conssec
 \begin{itemize}
-\item Exponential cost in the worst case, often only able to split a few times.
+\item Exponential cost in the worst case.
 \end{itemize}
 
 \examplesec
@@ -420,8 +421,8 @@ To solve $H_{1}$, we can split again on $z_{8}$, resulting in problems:
 H_{1,0} & = & 1+z_{2}z_{5}+z_{6}z_{7}\\
 H_{1,1} & = & 1+z_{2}z_{5}+z_{3}z_{4}.
 \end{eqnarray}
-Now both of these problems are solvable by AQC.
-Hence we have reduced our original, hard problem into 3 easy problems, requiring only 2 extra runs of our minimization algorithm without needing any auxiliary variables.
+Now both of these problems are quadratic.
+Hence we have reduced our original, hard problem into 3 easy problems, requiring only 2 extra runs of our minimization algorithm, and without needing any auxiliary variables.
 
 \refsec
 \begin{itemize}
@@ -582,7 +583,7 @@ z_{1}z_{2}z_{3}z_{4} & = & \min_{a}(3-2z_{1}-2z_{2}-2z_{3}-2z_{4})a+z_{1}z_{2}+z
 
 \summarysec
 
-Similar to other methods of reducing one term, this method can reduce a positive cubic monomial into quadratic terms using only one auxiliary variable, which introducing fewer non-submodular terms than the symmetric version.
+Similar to other methods of reducing one term, this method can reduce a positive cubic monomial into quadratic terms using only one auxiliary variable, while introducing fewer non-submodular terms than the symmetric version.
 
 The identity is given by:
 \begin{equation}
@@ -619,9 +620,9 @@ Using bit-flipping, an arbitrary function in $n$ variables can be represented us
 
 Can be used in many different ways:
 \begin{enumerate}
-\item Flipping positive terms and using \ref{subsec:Negative-Monomial-Reduction}, recursively.
-\item For $\alpha<0$, we can reduce $\alpha\bar{z}_{1}\bar{z}_{2}...\bar{z}_{k}$ very efficiently so submodular form using \ref{subsec:Negative-Monomial-Reduction}.
-A generalized version exists for arbitrary combinations of flips in the monomial which makes reduction entirely submodular \cite{Ishikawa2011}.
+\item Flipping positive terms and using \ref{subsec:Negative-Monomial-Reduction}, recursively;
+\item For $\alpha<0$, we can reduce $\alpha\bar{z}_{1}\bar{z}_{2}...\bar{z}_{k}$ very efficiently to submodular form using \ref{subsec:Negative-Monomial-Reduction}.
+A generalized version exists for arbitrary combinations of flips in the monomial which makes reduction entirely submodular \cite{Ishikawa2011};
 \item When we have quadratized we can minimize the number of non-submodular terms by flipping.
 \item We can make use of both $z_{i}$ and $\bar{z}_{i}$ in the same Hamiltonian by adding on a sufficiently large penalty term: $\lambda(z_{i}+\bar{z}_{i}-1)^{2}=\lambda(1+2z_{i}\bar{z}_{i}-z_{i}-\bar{z}_{i})$.
 This is similar to the ideas in reduction by substitution or deduc-reduc.
@@ -641,7 +642,7 @@ In this way, given a quadratic in $n$ variables we can make sure it only has at 
 
 \conssec
 \begin{itemize}
-\item Unless form of the Hamiltonian is known, spotting these 'factorizations' using negations is going to be impossible.
+\item Unless form of the Hamiltonian is known, spotting these 'factorizations' using negations is going to be difficult.
 \item If we want to use $z$ and $\bar{z}$ we need an auxiliary variable.
 \end{itemize}
 
@@ -675,13 +676,13 @@ Enforce equality in the ground states by adding some scalar multiple of $z_{i}z_
 
 \prossec
 \begin{itemize}
-\item Variable can be used across the entire Hamiltonian, reducing many terms in one go.
+\item Variable can be used across the entire Hamiltonian, reducing many terms at once.
 \item Simple.
 \end{itemize}
 
 \conssec
 \begin{itemize}
-\item Inefficient for single terms as it introduces lots of variables.
+\item Inefficient for single terms as it introduces many variables.
 \item Introduces quadratic terms with large positive coefficients, making them highly non-submodular.
 \item Determining optimal substitutions is expensive.
 \end{itemize}
@@ -797,19 +798,23 @@ Should look at ORI graph in \cite{Gallagher2011}
 
 In the above we only have $z$ terms.
 If we have both $z$ and $x$ then quadratization methods have a rich history, dating back to the perturbative gadgets that were used by Kitaev and his camp for proving that the $2$-local Hamiltonian problem is QMA complete and that AQC is equiavent to circuit-based quantum computing.
-Jacob Biamonte came up with various schemes for quadratizion general spin Hamiltonians with only 1 auxiliary qubit for each reduction (quintic to quartic, quartic to cubic, cubic to quadratic, etc.). Below we show how the ideas above such as FGBZ can be generalized to the case where there's both $z$ and $x$ terms. ``auxiliary qubit recycling'', where the auxiliary qubit used to substitute $x_{1}z_{1}$ in $x_{1}z_{1}z_{2}$ can be reused, for example, in the quadratization of $x_{1}z_{1}x_{2}$.
+Jacob Biamonte came up with various schemes for quadratizing general spin Hamiltonians with only 1 auxiliary qubit for each reduction (quintic to quartic, quartic to cubic, cubic to quadratic, etc.). Below we show how the ideas above such as FGBZ can be generalized to the case where there's both $z$ and $x$ terms. ``auxiliary qubit recycling'', where the auxiliary qubit used to substitute one term can be reused to reduce other terms in the Hamiltonian.
 
-\section{Recursive gadget reduction}
+\section{Recursive gadget reduction (original)}
 
-Kitaev
+Kitaev. klocal -> (k-1)loal -> (k-2)local -> ... -> 2-local (1 auxiliary each time)
 
 \section{Recursive gadget reduction (better)}
 
-Biamonte
+Oliviera \& Terhal (2005), Cao et al (2013), Bravyi et al (2008), Duan et al (2011), Babbush et al (2013)  klocal -> (k-1)loal -> (k-2)local -> ... -> 2-local (1 auxiliary each time)
 
 \section{One-step gadget reduction}
 
 Jordan \& Fahri
+
+\section{Numerical}
+
+Panagiotis (2017) https://arxiv.org/pdf/1706.03637.pdf
 
 \section{Methods that reproduce the full spectrum}
 
@@ -847,7 +852,7 @@ Note in this case the error terms added by deduc-reduc already appear in our Ham
 
 \section{Notation}
 
-The left Kronecker product by a $2\times2$ identity matrix is implied by Eq. in the following way for qubit operators $q\in\{z,x\}$, assuming $i<j$:
+The left Kronecker product by a $2\times2$ identity matrix is implied by Eqs. \eqref{eq:XX+Z} and \eqref{eq:XZ+Z} in the following way for qubit operators $q\in\{z,x\}$, assuming $i<j$:
 
 \begin{align}
 q_{i} & =\mathbf{1}^{\otimes i-1}q\mathbf{1}^{\otimes(N-i+1)}\\
@@ -864,7 +869,7 @@ cost of diagonalizing the matrix: $\mathcal{O}(2^{3N})$, but undergraduate
 level quantum mechanics tells us that any physical system's state
 (wavefunction, $\psi_{n}$) is an eigenvector of a Hamiltonian and
 the eigenvalue $E_{n}$ is just the energy associated with being in
-the $n^{{\rm th}}$energy level: 
+the $n^{{\rm th}}$ energy level: 
 \begin{equation}
 H\psi_{n}=E_{n}\psi_{n}.\label{eq:TISE}
 \end{equation}
