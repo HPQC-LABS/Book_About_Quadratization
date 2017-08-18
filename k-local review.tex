@@ -85,7 +85,7 @@ UK. }
 
 
 \begin{abstract}
-There is a ridiculous amount of literature in so many different places, in communities that do not talk to each other, and do not even understand each other's language.
+A collaborative, evolving, open review paper on k-local to 2-local transformations (quadratizations) in classical computing, quantum annealing, and universal adiabatic quantum computing.
 \end{abstract}
 
 \maketitle
@@ -115,10 +115,10 @@ the $\alpha$ and $\beta$ coefficients are complex numbers; and the Appendix will
 We know that every computation can be done this way because the minimization can be done by adiabatic quantum computation (AQC), and it has been proven \cite{Aharonov2008,Biamonte2008} that AQC can simulate any circuit-based quantum computation with overhead that grows at most polynomially with the size of the problem, and we know that circuit-based quantum computation can simulate any classical computation with at most polynomial overhead. %% Incorrect citation:  %Mizel2007
 If we remove all the terms in Eq. \ref{eq:XX+Z} or Eq. \ref{eq:XZ+Z} that have $x$ operators, we get an Ising Hamiltonian that is quadratic:
 \begin{equation}
-H=\sum_{i}^{n}a_{i}z_{i}+\sum_{ij}^{n}a_{ij}z_{i}z_{j},\label{eq:ZZ+Z}
+H=\sum_{i}^{n}\alpha_{i}z_{i}+\sum_{ij}^{n}\alpha_{ij}z_{i}z_{j},\label{eq:ZZ+Z}
 \end{equation}
 and we no longer know of any proof that \textbf{\emph{any}} computation can be done by minimizing such a Hamiltonian with only polynomial overhead compared to circuit-based quantum computation or even classical computation, but plenty of very interesting problems can still be formulated as the minimization or approximate minimization of a quadratic Ising Hamiltonian, such as neural network training \cite{Altaisky2016}, computerized image denoising \cite{Ishikawa2009,Ishikawa2011,Ishikawa2014,Anthony2015}, integer factorization \cite{Dattani2014}, and Ramsey number determination \cite{Gaitan2012,Bian2013}, just to name a few.
-However unlike Eq. \ref{eq:XZ+Z}, plenty of devices that can minimize Ising Hamiltonians already exist, and with further restrictions on the $a$ coefficients, D-Wave has made devices with $n=2000$, and this number has roughly doubled every 14 months since the first 1-qubit demonstration in 2003, a phenomenon analogous to Moore's law of classical computer growth, which has become known as Rose's Law.
+However unlike Eq. \ref{eq:XZ+Z}, plenty of devices that can minimize Ising Hamiltonians already exist, and with further restrictions on the $\alpha$ coefficients, D-Wave has made devices with $n=2000$, and this number has roughly doubled every 14 months since the first 1-qubit demonstration in 2003, a phenomenon analogous to Moore's law of classical computer growth, which has become known as Rose's Law.
 
 Furthermore,\textbf{\emph{ no classical computer has ever been able to minimize certain quadratic Ising Hamiltonians faster than the D-Wave machines to date}} \cite{Denchev2016,Mandra2016}, so being able to turn computations into the form of Eq. \ref{eq:ZZ+Z} appears to be promising in terms of demonstrating the first useful application of quantum supremacy (which is the term used for quantum devices outperforming classical computation devices).
 Moreover, for problems like neural networks and computerized image denoising, the best known classical computation algorithms also work by turning the problems into minimizations of Ising Hamiltonians, so even if you are happy with continuing to only use classical computer and have no interest in using quantum annealing devices, turning a problem into a quadratic Ising Hamiltonian minimization problem can be very powerful for some computations.
@@ -796,63 +796,258 @@ Should look at ORI graph in \cite{Gallagher2011}
 
 \part{Hamiltonians with both $z$ \& $x$ terms (general quantum Hamiltonians)}
 
-In the above we only have $z$ terms.
-If we have both $z$ and $x$ then quadratization methods have a rich history, dating back to the perturbative gadgets that were used by Kitaev and his camp for proving that the $2$-local Hamiltonian problem is QMA complete and that AQC is equiavent to circuit-based quantum computing.
-Jacob Biamonte came up with various schemes for quadratizing general spin Hamiltonians with only 1 auxiliary qubit for each reduction (quintic to quartic, quartic to cubic, cubic to quadratic, etc.). Below we show how the ideas above such as FGBZ can be generalized to the case where there's both $z$ and $x$ terms. ``auxiliary qubit recycling'', where the auxiliary qubit used to substitute one term can be reused to reduce other terms in the Hamiltonian.
+The most general time-independent Hamiltonian for $n$ qubits acted on only by Pauli operators is:
 
+\tiny
+%\begin{eqnarray}
+%H =& \sum_i^n \left(\alpha_i^{(z)}z_i + \alpha_i^{(x)}x_i + \alpha_i^{(y)}y_i \right) + \sum_{ij}^n + \\
+%& \left(\alpha_{ij}^{(zz)}z_iz_j + \alpha_{ij}^{(zx)}z_ix_j + \alpha_{ij}^{(zy)}z_iy_j + \alpha_{ij}^{(xx)}x_ix_j + \alpha_{ij}^{(xz)}x_iz_j +\alpha_{ij}^{(xy)}+\alpha_{ij}^{(xy)}x_iy_i+
+%      \alpha_{ij}^{(yz)}y_iz_j + \alpha_{ij}^{(yx)}y_ix_j + \alpha_{ij}^{(yy)}y_iy_j \right) + \\
+%&\left(\alpha_{ijk}^{(zzz)}z_iz_jz_k + \alpha_{ijk}^{(zzx)}z_iz_jx_k + \alpha_{ijk}^{(zzy)}z_iz_jy_k + \alpha_{ijk}^{(xx)}x_ix_j + \alpha_{ij}^{(xz)}x_iz_j +\alpha_{ij}^{(xy)}+\alpha_{ij}^{(xy)}x_iy_i+\right)
+%\end{eqnarray}
+
+%\begin{eqnarray}
+%H &= \sum_i^n \left(\alpha_i^{(z)}z_i + \alpha_i^{(x)}x_i + \alpha_i^{(y)}y_i \right) + \sum_{ij}^n + \\
+%& \left(\alpha_{ij}^{(zz)}z_iz_j + \alpha_{ij}^{(zx)}z_ix_j + \alpha_{ij}^{(zy)}z_iy_j + \alpha_{ij}^{(xx)}x_ix_j + \alpha_{ij}^{(xz)}x_iz_j +\alpha_{ij}^{(xy)}+\alpha_{ij}^{(xy)}x_iy_i+
+%      \alpha_{ij}^{(yz)}y_iz_j + \alpha_{ij}^{(yx)}y_ix_j + \alpha_{ij}^{(yy)}y_iy_j \right) + \\
+%&\left(\alpha_{ijk}^{(zzz)}z_iz_jz_k + \alpha_{ijk}^{(zzx)}z_iz_jx_k + \alpha_{ijk}^{(zzy)}z_iz_jy_k + \alpha_{ijk}^{(xx)}x_ix_j + \alpha_{ij}^{(xz)}x_iz_j +\alpha_{ij}^{(xy)}+\alpha_{ij}^{(xy)}x_iy_i+\right)
+%\end{eqnarray}
+
+\begin{align}
+H & =\alpha I+\sum_{i}^{n}\left(\alpha_{i}^{(z)}z_{i}+\alpha_{i}^{(x)}x_{i}+\alpha_{i}^{(y)}y_{i}\right)+\label{eq:mostGeneralH}\\
+ & \sum_{ij}^{n}\left(a_{ij}^{(zz)}z_{i}z_{j}+a_{ij}^{(zx)}z_{i}x_{j}+a_{ij}^{(zy)}z_{i}y_{j}+a_{ij}^{(xz)}x_{i}z_{j}+a_{ij}^{(xx)}x_{i}x_{j}+a_{ij}^{(xy)}x_{i}y_{j}+a_{ij}^{(yz)}y_{i}z_{j}+a_{ij}^{(yx)}y_{i}x_{j}+a_{ij}^{(yy)}y_{i}y_{j}\right)+\\
+ & \sum_{ijk}^{n}\left(a_{ijk}^{(zzz)}z_{i}z_{j}z_{k}+a_{ijk}^{(zzx)}z_{i}z_{j}x_{k}+a_{ijk}^{(zzy)}z_{i}z_{j}y_{k}+a_{ijk}^{(zxz)}z_{i}x_{j}z_{k}+\cdots+a_{ijk}^{(yyy)}y_{i}y_{j}y_{k}\right)+\\
+ & \sum_{ijkl\cdots n}^{n}\left(a_{ijkl\cdots n}^{(zzzz\cdots z)}z_{i}z_{j}z_{k}z_{l}\cdots z_{n}+a_{ijkl\cdots n}^{(zzz\cdots x)}z_{i}z_{j}z_{k}\cdots x_{n}+a_{ijkl\cdots n}^{(zzz\cdots y)}z_{i}z_{j}z_{k}\cdots y_{n}+a_{ijkl\cdots n}^{(zz\cdots xz)}z_{i}z_{j}\cdots x_{n-1}z_{n}+\cdots+a_{ijkl\cdots n}^{(yyy\cdots y)}y_{i}y_{j}y_{k}\cdots y_{n}\right)
+\end{align}
+\normalsize
+
+\noindent We wish to find a 2-local Hamiltonian of the form of Eq. \eqref{eq:XZ+Z} or Eq. \eqref{eq:XX+Z} that is equivalent to Eq. \eqref{eq:mostGeneralH} in terms of reproducing certain desired properties (e.g. same ground state(s), same ground eigenvalue(s), same full eigenspectrum, etc.) to within the desired precision.
+
+\section{Brute force numerical}
+
+If our only wish is for the 2-local Hamiltonian to preserve the ground state of the original $k$-local Hamiltonian, we can optimize the coefficients of the 2-local Hamiltonian so that the difference between the ground state of the original Hamiltonian and the ground state of the 2-local Hamiltonian is minimized under some desired measure. For example, if we wish for the dot product of the lowest energy eigenvector of the original $H$ and that of the new $H_{\rm{2-local}}$ to be 0.9, then the following two Hamiltonians are equivalent for our purposes:
+
+\footnotesize
+\begin{align}
+z_1z_2 +  y_1x_2z_3 \mapsto \alpha_1z_1 + \alpha_2z_2 + \alpha_3z_3 + \alpha_4z_4 + \alpha_5x_1 + \alpha_6x_2 + \alpha_7x_3 + \alpha_8x_4 + \alpha_9z_1z_1 + \alpha_{10}z_1z_2 + \cdots + \alpha_{72}z_4x_4 
+\end{align} 
+\normalsize
+
+{\color{red} This should be easy to optimize in MATLAB, assuming that 1 auxiliary qubit is enough. Most $\alpha$ are probably 0 because the characteristic polynomial of the left side is of degree 8, so there's far more unknowns than equations. We can then put numerical values above, in place of the $\alpha$'s}.
+
+% (relative to the difference between the lowest and highest eigenvalues of the Hamiltonian)
+
+Likewise, if we only wish for the lowest eigenvalue $E_0$ of the original $H$ to be recovered to within 0.01, for example, we can minimize the function $(E_{0,k-\rm{local}}-E_{0,\rm{2-local}})^2$ with respect to the ${\alpha}$ coefficients of the 2-local Hamiltonian until the objective function evaluates to a number smaller than 0.1$^2$. For example:
+
+\footnotesize
+\begin{align}
+z_1z_2 +  y_1x_2z_3 \mapsto \alpha_1z_1 + \alpha_2z_2 + \alpha_3z_3 + \alpha_4z_4 + \alpha_5x_1 + \alpha_6x_2 + \alpha_7x_3 + \alpha_8x_4 + \alpha_9z_1z_1 + \alpha_{10}z_1z_2 + \cdots + \alpha_{72}z_4x_4 
+\end{align} 
+\normalsize
+
+{\color{red} This should be even easier to optimize in MATLAB}.
+
+\noindent It is also possible to preserve more eigenvalues and/or eigenvectors than just the lowest, for example by minimizing the objective function:
+
+\begin{align}
+\sum_i^{i_{\rm{max}}}A(E_{i,k-\rm{local}}-E_{i,\rm{2-local}})^2 + B\frac{1}{\langle \psi_i| \psi_i\rangle}
+\end{align}
+
+\noindent where one can choose $A$ and $B$ according to whether preserving the eigenvalues ($A$) or the eigenvectrs ($B$) is more important.
+
+The more auxiliary qubits included in the 2-local Hamiltonian, the more parameters that can be optimized in attempt to make the ground state arbitrarily close to the orginal ground state.  
+
+\prossec
+
+\begin{itemize}
+\item Very general.
+\item Can control which aspects of the 2-local Hamiltonion are most important
+\item Can likely even gadgetize a "universal" Hamiltonian into an Ising one of larger sized Hilbert space
+\end{itemize}
+
+\conssec
+\begin{itemize}
+\item Doing the transformation costs more than solving the problem itself (only useful for testing what's theoretically possible).
+\end{itemize}
+
+\refsec
+\begin{itemize}
+\item In June 2017 Ref. https://arxiv.org/pdf/1706.03637.pdf was posted on arXiv but it is not clear to me why they have the constraint (7d), the definiion of their matrix norm in (7c) doesn't seem to be given as far as I can see, and their (7a) uses a square while (7d) uses an absolute value which means that one of them is being treated more preferentially than the other, even when they say they are (think they are) using "equal weights". 
+\end{itemize}
 \section{Recursive gadget reduction (original)}
 
-Kitaev. klocal -> (k-1)loal -> (k-2)local -> ... -> 2-local (1 auxiliary each time)
+klocal -> (k-1)loal -> (k-2)local -> ... -> 2-local (1 auxiliary each time)
+
+\summarysec
+
+\costsec
+
+\prossec
+\begin{itemize}
+\item
+\item
+\end{itemize}
+
+\conssec
+\begin{itemize}
+\item
+\item
+\end{itemize}  
+               
+\examplesec
+
+\refsec
+
+\begin{itemize}
+\item Kempe et al.
+\end{itemize}
 
 \section{Recursive gadget reduction (better)}
 
-Oliviera \& Terhal (2005), Cao et al (2013), Bravyi et al (2008), Duan et al (2011), Babbush et al (2013)  klocal -> (k-1)loal -> (k-2)local -> ... -> 2-local (1 auxiliary each time)
+klocal -> (k-1)loal -> (k-2)local -> ... -> 2-local (1 auxiliary each time)
+
+\subsection{Oliviera \& Terhal (2005)}
+
+\summarysec
+
+\costsec
+
+\prossec
+\begin{itemize}
+\item
+\item
+\end{itemize}
+
+\conssec
+\begin{itemize}
+\item
+\item
+\end{itemize}  
+               
+\examplesec
+
+\refsec
+
+\subsection{Bravyi et al (2008)}
+
+\summarysec
+
+\costsec
+
+\prossec
+\begin{itemize}
+\item
+\item
+\end{itemize}
+
+\conssec
+\begin{itemize}
+\item
+\item
+\end{itemize}  
+               
+\examplesec
+
+\refsec
+
+\subsection{Duan et al (2011)}
+
+\summarysec
+
+\costsec
+
+\prossec
+\begin{itemize}
+\item
+\item
+\end{itemize}
+
+\conssec
+\begin{itemize}
+\item
+\item
+\end{itemize}  
+               
+\examplesec
+
+\refsec
+
+\subsection{Babbush et al. (2013)}
+
+\summarysec
+
+\costsec
+
+\prossec
+\begin{itemize}
+\item
+\item
+\end{itemize}
+
+\conssec
+\begin{itemize}
+\item
+\item
+\end{itemize}  
+               
+\examplesec
+
+\refsec
+
+\subsection{Cao et al. 2013}
+
+\summarysec
+
+\costsec
+
+\prossec
+\begin{itemize}
+\item
+\item
+\end{itemize}
+
+\conssec
+\begin{itemize}
+\item
+\item
+\end{itemize}  
+               
+\examplesec
+
+\refsec
 
 \section{One-step gadget reduction}
 
 Jordan \& Fahri
 
-\section{Numerical}
+\summarysec
 
-Panagiotis (2017) https://arxiv.org/pdf/1706.03637.pdf
+\costsec
+
+\prossec
+\begin{itemize}
+\item
+\item
+\end{itemize}
+
+\conssec
+\begin{itemize}
+\item
+\item
+\end{itemize}
+
+\examplesec
+
+\refsec
 
 \section{Methods that reproduce the full spectrum}
 
 
 \part{Appendix}
 
-\section{Further Examples}
-
-\examplesec \label{subsec:Example_Ramsey_deduc_reduc}
-Here we show how deductions can arise naturally from the Ramsey number problem.
-Consider $\mathbb{\mathcal{R}}(4,3)$ with $N=4$ nodes.
-Consider a Hamiltonian:
-\begin{equation}
-H = (1-z_{12})(1-z_{13})(1-z_{23})+\ldots+(1-z_{23})(1-z_{24})(1-z_{34})+ z_{12}z_{13}z_{14}z_{23}z_{24}z_{34}.
-\end{equation}
-
-\begin{comment}
-We should assume there are no 3-independent sets, so we have deductions:
-$(1-z_{ij})(1-z_{ik})(1-z_{jk})=0$, for each $i,j,k$. 
-\end{comment}
-See \cite{Okada2015} for full details of how we arrive at this Hamiltonian.
-
-Since we are assuming we have no 3-independent sets, we know that
-$(1-z_{12})(1-z_{13})(1-z_{23})=0$, so $z_{12}z_{13}z_{23}=z_{12}z_{13}+z_{12}z_{23}+z_{13}z_{23}-z_{12}-z_{13}-z_{23}+1$.
-This will be our deduction.
-
-Using deduc-reduc we can substitute this into our 6-local term to get:
-\begin{eqnarray}
-H & = & 2(1-z_{12})(1-z_{13})(1-z_{23})+\ldots+(1-z_{23})(1-z_{24})(1-z_{34})+\\
- &  & z_{14}z_{24}z_{34}(z_{12}z_{13}+z_{12}z_{23}+z_{13}z_{23}-z_{12}-z_{13}-z_{23}+1).
-\end{eqnarray}
-
-We could repeat this process to remove all 5- and 4-local terms without adding any auxiliary qubits.
-Note in this case the error terms added by deduc-reduc already appear in our Hamiltonian.
-
 \section{Notation}
 
-The left Kronecker product by a $2\times2$ identity matrix is implied by Eqs. \eqref{eq:XX+Z} and \eqref{eq:XZ+Z} in the following way for qubit operators $q\in\{z,x\}$, assuming $i<j$:
+The left Kronecker product by a $2\times2$ identity matrix is implied by Eqs. \eqref{eq:XZ+Z} and \eqref{eq:XX+Z} in the following way for qubit operators $q\in\{z,x\}$, assuming $i<j$:
 
 \begin{align}
 q_{i} & =\mathbf{1}^{\otimes i-1}q\mathbf{1}^{\otimes(N-i+1)}\\
@@ -893,6 +1088,35 @@ with the appropriate $H$ describing their energy, and then cool the
 system down to its ground state. This ground state is one out of $2^{N}$
 possible states , and the configuration of spin up and spin down electrons
 encodes the desired computation.
+
+\section{Further Examples}
+
+\examplesec \label{subsec:Example_Ramsey_deduc_reduc}
+Here we show how deductions can arise naturally from the Ramsey number problem.
+Consider $\mathbb{\mathcal{R}}(4,3)$ with $N=4$ nodes.
+Consider a Hamiltonian:
+\begin{equation}
+H = (1-z_{12})(1-z_{13})(1-z_{23})+\ldots+(1-z_{23})(1-z_{24})(1-z_{34})+ z_{12}z_{13}z_{14}z_{23}z_{24}z_{34}.
+\end{equation}
+
+\begin{comment}
+We should assume there are no 3-independent sets, so we have deductions:
+$(1-z_{ij})(1-z_{ik})(1-z_{jk})=0$, for each $i,j,k$. 
+\end{comment}
+See \cite{Okada2015} for full details of how we arrive at this Hamiltonian.
+
+Since we are assuming we have no 3-independent sets, we know that
+$(1-z_{12})(1-z_{13})(1-z_{23})=0$, so $z_{12}z_{13}z_{23}=z_{12}z_{13}+z_{12}z_{23}+z_{13}z_{23}-z_{12}-z_{13}-z_{23}+1$.
+This will be our deduction.
+
+Using deduc-reduc we can substitute this into our 6-local term to get:
+\begin{eqnarray}
+H & = & 2(1-z_{12})(1-z_{13})(1-z_{23})+\ldots+(1-z_{23})(1-z_{24})(1-z_{34})+\\
+ &  & z_{14}z_{24}z_{34}(z_{12}z_{13}+z_{12}z_{23}+z_{13}z_{23}-z_{12}-z_{13}-z_{23}+1).
+\end{eqnarray}
+
+We could repeat this process to remove all 5- and 4-local terms without adding any auxiliary qubits.
+Note in this case the error terms added by deduc-reduc already appear in our Hamiltonian.
 
 \section*{Acknowledgments}
 
