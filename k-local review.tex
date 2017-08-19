@@ -85,7 +85,7 @@ UK. }
 
 
 \begin{abstract}
-A collaborative, evolving, open review paper on k-local to 2-local transformations (quadratizations) in classical computing, quantum annealing, and universal adiabatic quantum computing.  Here we survey the state-of-the-art in a sort of cook book style, so users can directly apply the known results to their ongoing work.  This review is particularly focused on applications which have now emerged with rely on the realization of penalty functions using adiabatic quantum computers. (Please note that the last two sentences were added by JDB as a means to add something for a trial push). 
+A collaborative, evolving, open review paper on k-local to 2-local transformations (quadratizations) in classical computing, quantum annealing, and universal adiabatic quantum computing.  
 \end{abstract}
 
 \maketitle
@@ -876,11 +876,25 @@ The more auxiliary qubits included in the 2-local Hamiltonian, the more paramete
 \end{itemize}
 \section{Recursive gadget reduction (original)}
 
-klocal -> (k-1)loal -> (k-2)local -> ... -> 2-local (1 auxiliary each time)
-
 \summarysec
 
+Group all $k$-local terms together and express their sum as a sum of products of commuting matrices $s_{ij}$:
+
+\begin{align}
+H_{k-\rm{local}} = \sum_i\prod_j s_{ij} + H_{(k-1)-\rm{local}}. \label{eq:klocalInKempeMethod}
+\end{align}
+
+\noindent Define auxiliary qubits labeled by $a_{ij}$ and make the transformation:
+
+\begin{align}
+\sum_i\prod_j s_{ij} \mapsto \frac{\Delta}{4}\left( 9 - \sum_i \left( \sum_j  z_{a_{ij}} \right)^2 - \sum_j z_{a_{ij}}^2 + \frac{1}{\sqrt[3]{6\Delta}} x_{a_{ij}}  \right)+ \Lambda.
+\end{align}
+
+\noindent The result will be a $(k-1)$-local Hamiltonian with the same low-lying spectrum as $H_{k-\rm{local}}$ for large enough $\Delta$. 
+
 \costsec
+
+The number of auxiliary qubits needed is the number of $s_{ij}$ matrices in Eq. \eqref{eq:klocalInKempeMethod}.
 
 \prossec
 \begin{itemize}
@@ -1019,6 +1033,30 @@ klocal -> (k-1)loal -> (k-2)local -> ... -> 2-local (1 auxiliary each time)
 \section{One-step gadget reduction}
 
 Jordan \& Fahri
+
+\summarysec
+
+\costsec
+
+\prossec
+\begin{itemize}
+\item
+\item
+\end{itemize}
+
+\conssec
+\begin{itemize}
+\item
+\item
+\end{itemize}
+
+\examplesec
+
+\refsec
+
+\section{Non-perturbative embeddings}
+
+Subasi \& Jarzynski (2016)
 
 \summarysec
 
