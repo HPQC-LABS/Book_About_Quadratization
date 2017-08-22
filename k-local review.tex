@@ -790,6 +790,79 @@ This gave us the freedom to do all sorts of things to the Hamiltonian, as long a
 What if we want to quadratize a Hamiltonian while preserving the whole spectrum?
 %LHZ scheme and Paul Warburton's methods.
 
+\subsection{Constraints and Auxilliary Variables}
+
+\summarysec
+
+All known methods to map the entire spectrum of a Hamiltonian rely on the same basic principle: auxilliary variables are added, to mediate interactions, and constraints are added to restrict the values which the axilliary variables can take. In practice, constraints are implemented as one and two term equations with much stronger energy penalties than those in the equations which are being mapped. As long as the constraints are sufficiently strong, the low energy subspace of the Hamiltonian will be exactly the spectrum of the $k$-local Hamiltonian which has been mapped. Moreover, the location of the original `logical' variables is known and so the resulting configuration of the mapped variables can easily be determined. All methods discussed in this section can be described as variants of this idea, as we discuss later in this section. 
+
+\costsec
+\begin{itemize}
+\item Variable depending on details of strategy.
+\end{itemize}
+
+\prossec
+\begin{itemize}
+\item All known methods can be described in this way, no other methods are known
+\item Has been proven to be universal in the sense that these methods can reproduce not only arbitrary spectra, but to simulate much of classical physics \textcolor{red}{cite Toby Cubitt paper}
+\end{itemize}
+
+\conssec
+\begin{itemize}
+\item Always requires an energy scale significantly larger than in the original Hamiltonian.
+\end{itemize}
+
+
+
+\examplesec
+
+If we want to reproduce the spectrum of  $z_1z_2z_3$, (such that the state $z_1=1,z_2=1,z_3=1$ will have energy $1$ and all others will have energy $0$)  we need to find a quadratic penalty function $P(a,z_1,z_2)$ such that if an auxilliary variable $a$ satisfies $a=z_1z_2$, $P(a,z_1,z_2)=0$, and $P(a,z_1,z_2)>0$ otherwise. If we can find such a function (we explain how to do this is subsection \ref{sub:recursive}), then the desired spectrum will be reproduced in the low energy sector of the following Hamiltonian.
+
+\begin{equation}
+H_{3-\rm{local}}=z_3\,a+\lambda\,P(a,z_1,z_2)
+\end{equation}
+
+\noindent where $\lambda$ is a large positive number.
+
+\subsection{Recursive Order Reduction\label{sub:recursive}}
+
+\summarysec
+
+This method is based on taking each higher order term and recursively adding auxilliary variables and a quadratic penalty function to constrain the auxilliary variable, reducing the order by one each time until all terms are made quadratic. 
+
+\costsec
+\begin{itemize}
+\item One auxilliary variable is added each time the order of $z_1z_2...z_k$ is reduced, leading to $k-2$ axilliary terms to reproduce the spectrum .
+\end{itemize}
+
+\prossec
+\begin{itemize}
+\item Works for terms of arbitrary sizes and simple to implement.
+\item In principle can be used for more types of equations than just $z_1z_2...z_k$, assuming the appropriate equations can be found.
+\item Relatively sparse connectivity
+\end{itemize}
+
+\conssec
+\begin{itemize}
+\item Not  very symmetric with respect to variables.
+\item  Not conducive to hardware design
+\end{itemize}
+
+\examplesec
+
+Let's assume we want to reproduce the spectrum of  $z_1z_2z_3z_4$, we note that $P(a_k,z_i,z_j)=....$
+
+\textcolor{red}{
+subsections  I (NC) need to have:
+\begin{itemize}
+\item recursive qubo methods (done)
+\item chains of 3 local gadgets (thing in second Lechner paper)
+\item our methods based on symmetry
+\item Simon Benjamin Stabilizer idea and multidimensional LHZ (one section)
+\item Possibly others: need to check how distinct some of the work Alejandro Perdomo-Ortiz and Jacob Biamonte have done is, whether these should be their own subsections or just references in exiting ones
+\end{itemize}
+}
+
 \section{Strategies for combining methods}
 
 Should look at ORI graph in \cite{Gallagher2011}
@@ -1079,6 +1152,14 @@ Subasi \& Jarzynski (2016)
 \refsec
 
 \section{Methods that reproduce the full spectrum}
+
+In all the above, we take advantage of the fact that we just want the correct state and we don't care about anything else.
+This gave us the freedom to do all sorts of things to the Hamiltonian, as long as we keep the ground state the same.
+What if we want to quadratize a Hamiltonian while preserving the whole spectrum?
+%LHZ scheme and Paul Warburton's methods.
+
+
+
 
 
 \part{Appendix}
