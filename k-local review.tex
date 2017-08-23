@@ -178,14 +178,14 @@ Given a general Hamiltonian we can try to find ELCs by enumerating solutions of 
 
 Consider the Hamiltonian: 
 \begin{equation}
-H_{{\rm 3-local}}=z_{1}z_{2}+z_{2}z_{3}+z_{3}z_{4}-4z_{1}z_{2}z_{3}.
+H_{{\rm 3-local}}=b_{1}b_{2}+b_{2}b_{3}+b_{3}b_{4}-4b_{1}b_{2}b_{3}.
 \end{equation}
-If $z_{1}z_{2}z_{3}=0$, no assignment of our variables will we be able to reach a lower energy than if $z_{1}z_{2}z_{3}=1$.
-Hence $(z_{1},z_{2},z_{3})=(1,0,0)$ is a Local Excludable Configuration (ELC) and we can form the polynomial:
+If $b_{1}b_{2}b_{3}=0$, no assignment of our variables will we be able to reach a lower energy than if $b_{1}b_{2}b_{3}=1$.
+Hence $(b_{1},b_{2},b_{3})=(1,0,0)$ is a Local Excludable Configuration (ELC) and we can form the polynomial:
 \begin{equation}
-H_{2\rm{-local}}=H_{{\rm 3-local}}+4z_{1}(1-z_{2})(1-z_{3})=z_{1}z_{2}+z_{2}z_{3}+z_{3}z_{4}+4z_{1}-4z_{1}z_{2}-4z_{1}z_{3}.
+H_{2\rm{-local}}=H_{{\rm 3-local}}+4b_{1}(1-b_{2})(1-b_{3})=b_{1}b_{2}+b_{2}b_{3}+b_{3}b_{4}+4b_{1}-4b_{1}b_{2}-4b_{1}b_{3}.
 \end{equation}
-In both cases, the only global minima occur when $z_1z_2z_3 = 1$.
+In both cases, the only global minima occur when $b_1b_2b_3 = 1$.
 
 \refsec
 \begin{itemize}
@@ -196,7 +196,7 @@ In both cases, the only global minima occur when $z_1z_2z_3 = 1$.
 
 \summarysec
 
-We look for \emph{deductions} (e.g. $z_{1}z_{2}=0$) that hold at the global minimum.
+We look for \emph{deductions} (e.g. $b_{1}b_{2}=0$) that hold at the global minimum.
 These can be found by \emph{a priori} knowledge of the given problem, or by enumerating solutions of a small subset of the variables.
 We can then substitute high-order terms using the low-order terms of the deduction, and add on a penalty term to preserve the ground states \cite{Tanburn2015c}.
 
@@ -229,16 +229,16 @@ Examples are difficult to illustrate in a paper, since they involve searching fo
 \end{comment}
 Consider the Hamiltonian: 
 \begin{equation}
-H_{4{\rm -local}}=z_{1}z_{2}(10+z_{3}+z_{3}z_{4})+z_{1}(z_{3}-3)+z_{2}(z_{3}-2z_{3}-z_{4}-1)+F(x_{3},x_{4},x_{5},\ldots,x_{N})
+H_{4{\rm -local}}=b_{1}b_{2}(10+b_{3}+b_{3}b_{4})+b_{1}(b_{3}-3)+b_{2}(b_{3}-2b_{3}-b_{4}-1)+F(x_{3},x_{4},x_{5},\ldots,x_{N})
 \end{equation}
- where $F$ is any polynomial in $z_{i}$ for $3\le i$.
+ where $F$ is any polynomial in $b_{i}$ for $3\le i$.
 
-Since the $10$ coefficient of $z_{1}z_{2}$ is greater than the sum of all of the other coefficients involving $z_{1}$ or $z_{2}$, it must be the case that $z_{1}z_{2}=0$.
-Specifically, for the 4 assignments of $(z_{3},z_{4})$, we see that $z_{1}z_{2}=0$ at every minimum of $H_{4{\rm -local}}-F$.
+Since the $10$ coefficient of $b_{1}b_{2}$ is greater than the sum of all of the other coefficients involving $b_{1}$ or $b_{2}$, it must be the case that $b_{1}b_{2}=0$.
+Specifically, for the 4 assignments of $(b_{3},b_{4})$, we see that $b_{1}b_{2}=0$ at every minimum of $H_{4{\rm -local}}-F$.
 
 Using deduc-reduc we have:
 \begin{equation}
-H_{2{\rm -local}}=12z_{1}z_{2}+z_{1}(z_{3}-3)+z_{2}(z_{3}-2z_{3}-z_{4}-1)+F(x_{3},x_{4},x_{5},\ldots,x_{N})
+H_{2{\rm -local}}=12b_{1}b_{2}+b_{1}(b_{3}-3)+b_{2}(b_{3}-2b_{3}-b_{4}-1)+F(x_{3},x_{4},x_{5},\ldots,x_{N})
 \end{equation}
 
 which has the same global minima as $H_{4-local}$ but one fewer quartic and one fewer cubic term.
@@ -290,7 +290,7 @@ as the \emph{algebraic variety} $\mathcal{V}(f_{1},...,f_{n})$. Groebner
 bases are a 'pleasant' generating set for this variety.
 
 This is done by first defining a monomial ordering on the polynomial
-ring $F[z_{1},...,z_{n}]$, chosen so that higher order mononials
+ring $F[b_{1},...,b_{n}]$, chosen so that higher order mononials
 are considered 'bigger' than low order monomials. Monomials of the
 same degree are sorted by the lexicographic ordering of the variables.
 Then define the leading term of a polynomial $f$ with respect to
@@ -339,16 +339,16 @@ Work has been done in the field of 'Boolean Groebner bases', but while the varia
 Consider the following pair of equations:
 
 \begin{equation}
-x y z w + x z + y w - z = x + x y + z - 2 = 0.
+b_1 b_2 b_3 b_4 + b_1 b_3 + b_2 b_4 - b_3 = b_1 + b_1 b_2 + b_3 - 2 = 0.
 \end{equation}
 
-Feeding these to Mathematica's ${\tt GroebnerBasis}$ function, along with the binarizing $x(x-1)=\ldots=w(w-1)=0$ constraints, gives a Groebner basis:
+Feeding these to Mathematica's ${\tt GroebnerBasis}$ function, along with the binarizing $b_1(b_1-1)=\ldots=b_4(b_4-1)=0$ constraints, gives a Groebner basis:
 
 \begin{equation}
-\left\{ w z - w, y + z - 1, x - 1 \right\}.
+\left\{ b_4 b_3 - b_4, b_2 + b_3 - 1, b_1 - 1 \right\}.
 \end{equation}
 
-From this we can immediately read off the solutions $x=1$, $y=1-z$ and reduce the problem to $wz-w=0$. Solving this gives a final solution set of: $(x, y, z, w) = (1, 0, 1, 0), (1, 0, 1, 1), (1, 1, 0, 0)$.
+From this we can immediately read off the solutions $b_1=1$, $b_2=1-b_3$ and reduce the problem to $b_3b_4-b_4=0$. Solving this gives a final solution set of: $(b_1, b_2, b_3, b_4) = (1, 0, 1, 0), (1, 0, 1, 1), (1, 1, 0, 0)$.
 
 \refsec
 \begin{itemize}
@@ -403,23 +403,23 @@ Exponential in the number of splits, as the number of problems to solve doubles 
 
 Consider the simple objective function 
 \begin{equation}
-H=1+z_{1}z_{2}z_{5}+z_{1}z_{6}z_{7}z_{8}+z_{3}z_{4}z_{8}-z_{1}z_{3}z_{4}.
+H=1+b_{1}b_{2}b_{5}+b_{1}b_{6}b_{7}b_{8}+b_{3}b_{4}b_{8}-b_{1}b_{3}b_{4}.
 \end{equation}
 In order to quadratize $H$, we first have to choose a variable to split over.
-In this case $z_{1}$ is the obvious choice since it is present in the most terms and contributes to the quartic term.
+In this case $b_{1}$ is the obvious choice since it is present in the most terms and contributes to the quartic term.
 
 We then obtain two different problems:
 \begin{eqnarray}
-H_{0} & = & 1+z_{3}z_{4}z_{8}\\
-H_{1} & = & 1+z_{2}z_{5}+z_{6}z_{7}z_{8}+z_{3}z_{4}z_{8}-z_{3}z_{4}.
+H_{0} & = & 1+b_{3}b_{4}b_{8}\\
+H_{1} & = & 1+b_{2}b_{5}+b_{6}b_{7}b_{8}+b_{3}b_{4}b_{8}-b_{3}b_{4}.
 \end{eqnarray}
 
 At this point, we could split $H_{0}$ again and solve it entirely, or use a qubit we saved in the previous split to quadratize our only problem.
 
-To solve $H_{1}$, we can split again on $z_{8}$, resulting in problems:
+To solve $H_{1}$, we can split again on $b_{8}$, resulting in problems:
 \begin{eqnarray}
-H_{1,0} & = & 1+z_{2}z_{5}+z_{6}z_{7}\\
-H_{1,1} & = & 1+z_{2}z_{5}+z_{3}z_{4}.
+H_{1,0} & = & 1+b_{2}b_{5}+b_{6}b_{7}\\
+H_{1,1} & = & 1+b_{2}b_{5}+b_{3}b_{4}.
 \end{eqnarray}
 Now both of these problems are quadratic.
 Hence we have reduced our original, hard problem into 3 easy problems, requiring only 2 extra runs of our minimization algorithm, and without needing any auxiliary variables.
@@ -435,9 +435,9 @@ Hence we have reduced our original, hard problem into 3 easy problems, requiring
 
 \summarysec
 
-For a negative term $-z_{1}z_{2}...z_{k}$, introduce a single auxiliary variable $a$ and make the substitution:
+For a negative term $-b_{1}b_{2}...b_{k}$, introduce a single auxiliary variable $a$ and make the substitution:
 \begin{equation}
--z_{1}z_{2}...z_{k} = \min_a \left\{ (n-1-\sum z_{i})a \right\}.
+-b_{1}b_{2} \ldots b_{k} = \min_a \left\{ (n-1-\sum b_{i})a \right\}.
 \end{equation}
 
 \costsec
@@ -460,24 +460,24 @@ For a negative term $-z_{1}z_{2}...z_{k}$, introduce a single auxiliary variable
 \examplesec
 
 \begin{align}
-H_{{\rm 6-local}} & =-2z_{1}z_{2}z_{3}z_{4}z_{5}z_{6} + z_5z_6,
+H_{{\rm 6-local}} & =-2b_{1}b_{2}b_{3}b_{4}b_{5}b_{6} + b_5b_6,
 \end{align}
-has a unique minimum energy of -1 when all $z_i=1$.
+has a unique minimum energy of -1 when all $b_i=1$.
 
 \begin{equation}
-H_{{\rm 2-local}}=2\left( 5a-z_{1}a-z_{2}a-z_{3}a-z_{4}a-z_{5}a-z_{6}a \right) + z_5z_6
+H_{{\rm 2-local}}=2\left( 5a-b_{1}a-b_{2}a-b_{3}a-b_{4}a-b_{5}a-b_{6}a \right) + b_5b_6
 \end{equation}
-has the same unique minimum energy, and it occurs at the same place (all $z_i=1$), with $a=1$.
+has the same unique minimum energy, and it occurs at the same place (all $b_i=1$), with $a=1$.
 
 \begin{comment}
 \examplesec
 \begin{align}
-H_{{\rm 5-local}} & =-z_{1}z_{2}z_{3}z_{4}z_{5}-z_{1}z_{2}z_{3}z_{4}z_{6},
+H_{{\rm 5-local}} & =-b_{1}b_{2}b_{3}b_{4}b_{5}-b_{1}b_{2}b_{3}b_{4}b_{6},
 \end{align}
-has a unique minimum energy of -2 when all $z$'s are 1.
+has a unique minimum energy of -2 when all $b$'s are 1.
 
 \begin{equation}
-H_{{\rm 3-local}}=(3-z_{1}-z_{2}-z_{3}-z_{4})(z_{5}+z_{6})a
+H_{{\rm 3-local}}=(3-b_{1}-b_{2}-b_{3}-b_{4})(b_{5}+b_{6})a
 \end{equation}
 has the same unique minimum energy, and it occurs at the same place,
 with $a=1$.
@@ -493,10 +493,10 @@ with $a=1$.
 
 \summarysec
 
-By considering the negated literals $\bar{z}_{i}=1-z_{i}$, we recursively apply the previous method to $z_{1}z_{2}\ldots z_{k}=-\bar{z}_{1}z_{2}\ldots z_{k}+z_{2}z_{3}\ldots z_{k}$.
+By considering the negated literals $\bar{b}_{i}=1-b_{i}$, we recursively apply the previous method to $b_{1}b_{2}\ldots b_{k}=-\bar{b}_{1}b_{2}\ldots b_{k}+b_{2}b_{3}\ldots b_{k}$.
 The final identity is:
 \begin{equation}
-z_{1}z_{2}\ldots z_{k}=\min_{a}\big\{\sum_{i=1}^{k-2}a_{i}(k-i-1+z_{i}-\sum_{j=i+1}^{k}z_{j})\big\}+z_{k-1}z_{k}
+b_{1}b_{2}\ldots b_{k}=\min_{a}\big\{\sum_{i=1}^{k-2}a_{i}(k-i-1+b_{i}-\sum_{j=i+1}^{k}b_{j})\big\}+b_{k-1}b_{k}
 \end{equation}
 
 
@@ -517,7 +517,7 @@ z_{1}z_{2}\ldots z_{k}=\min_{a}\big\{\sum_{i=1}^{k-2}a_{i}(k-i-1+z_{i}-\sum_{j=i
 
 \examplesec
 \begin{eqnarray}
-z_{1}z_{2}z_{3}z_{4} & = & \min_{a}{a_{1}(2+z_{1}-z_{2}-z_{3}-z_{4})+a_{2}(1+z_{2}-z_{3}-z_{4})}+z_{3}z_{4}
+b_{1}b_{2}b_{3}b_{4} & = & \min_{a}{a_{1}(2+b_{1}-b_{2}-b_{3}-b_{4})+a_{2}(1+b_{2}-b_{3}-b_{4})}+b_{3}b_{4}
 \end{eqnarray}
 
 \refsec
@@ -529,11 +529,11 @@ z_{1}z_{2}z_{3}z_{4} & = & \min_{a}{a_{1}(2+z_{1}-z_{2}-z_{3}-z_{4})+a_{2}(1+z_{
 By flipping and applying \ref{subsec:Negative-Monomial-Reduction} alternatively, we get a nice way to reduce a quartic using only 2 variables and with only 2 positive terms and much less connectivity:
 
 \begin{eqnarray}
-z_{1}z_{2}z_{3}z_{4} & \mapsto & z_{2}z_{3}z_{4}-\bar{z}_{1}z_{2}z_{3}z_{4}\\
- & \mapsto & z_{2}z_{3}z_{4}+\big(3a_{1}-a_{1}(\bar{z}_{1}+z_{2}+z_{3}+z_{4})\big)\\
- & \mapsto & z_{3}z_{4}-\bar{z}_{2}z_{3}z_{4}+\big(3a_{1}-a_{1}(\bar{z}_{1}+1-\bar{z}_{2}+z_{3}+z_{4})\big)\\
- & \mapsto & z_{3}z_{4}+\big(2a_{2}-a_{2}(\bar{z}_{2}+z_{3}+z_{4}\big)\big)+\big(3a_{1}-a_{1}(\bar{z}_{1}+1-\bar{z}_{2}+z_{3}+z_{4})\big)\\
- & \mapsto & z_{3}z_{4}+a_{2}+a_{2}z_{2}-a_{2}z_{3}-a_{2}z_{4}+2a_{1}+a_{1}z_{1}-a_{1}z_{2}-a_{1}z_{3}-a_{1}z_{4}
+b_{1}b_{2}b_{3}b_{4} & \mapsto & b_{2}b_{3}b_{4}-\bar{b}_{1}b_{2}b_{3}b_{4}\\
+ & \mapsto & b_{2}b_{3}b_{4}+\big(3a_{1}-a_{1}(\bar{b}_{1}+b_{2}+b_{3}+b_{4})\big)\\
+ & \mapsto & b_{3}b_{4}-\bar{b}_{2}b_{3}b_{4}+\big(3a_{1}-a_{1}(\bar{b}_{1}+1-\bar{b}_{2}+b_{3}+b_{4})\big)\\
+ & \mapsto & b_{3}b_{4}+\big(2a_{2}-a_{2}(\bar{b}_{2}+b_{3}+b_{4}\big)\big)+\big(3a_{1}-a_{1}(\bar{b}_{1}+1-\bar{b}_{2}+b_{3}+b_{4})\big)\\
+ & \mapsto & b_{3}b_{4}+a_{2}+a_{2}b_{2}-a_{2}b_{3}-a_{2}b_{4}+2a_{1}+a_{1}b_{1}-a_{1}b_{2}-a_{1}b_{3}-a_{1}b_{4}
 \end{eqnarray}
 \end{comment}
 
@@ -544,7 +544,7 @@ z_{1}z_{2}z_{3}z_{4} & \mapsto & z_{2}z_{3}z_{4}-\bar{z}_{1}z_{2}z_{3}z_{4}\\
 
 This method rewrites a positive monomial using symmetric polynomials, so all possible quadratic terms are produced and they are all non-submodular: 
 \begin{equation}
-z_{1}...z_{k} = \min_{a_1, \ldots, a_{n_k}} \left\{ \sum_{i=1}^{n_{k}}a_{i}(c_{i,d}(-\sum_{j=1}^{k}z_{j}+2i)-1)+\sum_{i<j}z_{i}z_{j} \right\}
+b_{1}...b_{k} = \min_{a_1, \ldots, a_{n_k}} \left\{ \sum_{i=1}^{n_{k}}a_{i}(c_{i,d}(-\sum_{j=1}^{k}b_{j}+2i)-1)+\sum_{i<j}b_{i}b_{j} \right\}
 \end{equation}
 where $n_{k}=\left\lfloor \frac{k-1}{2}\right\rfloor $ and $c_{i,k}=\begin{cases}
 1, & i=n_{d}\text{ and }k\text{ is odd,}\\
@@ -571,7 +571,7 @@ About half as many auxiliary variables for each $k$-order term as the previous m
 
 \examplesec
 \begin{eqnarray}
-z_{1}z_{2}z_{3}z_{4} & = & \min_{a}(3-2z_{1}-2z_{2}-2z_{3}-2z_{4})a+z_{1}z_{2}+z_{1}z_{3}+z_{1}z_{4}+z_{2}z_{3}+z_{2}z_{4}+z_{3}z_{4}
+b_{1}b_{2}b_{3}b_{4} & = & \min_{a}(3-2b_{1}-2b_{2}-2b_{3}-2b_{4})a+b_{1}b_{2}+b_{1}b_{3}+b_{1}b_{4}+b_{2}b_{3}+b_{2}b_{4}+b_{3}b_{4}
 \end{eqnarray}
 
 \refsec
@@ -587,7 +587,7 @@ Similar to other methods of reducing one term, this method can reduce a positive
 
 The identity is given by:
 \begin{equation}
-z_{1}z_{2}z_{3}= \min_a \left\{ a-z_{2}a-z_{3}a+z_{1}a+z_{2}z_{3} \right\}
+b_{1}b_{2}b_{3}= \min_a \left\{ a-b_{2}a-b_{3}a+b_{1}a+b_{2}b_{3} \right\}
 \end{equation}
 
 \costsec
@@ -614,24 +614,24 @@ z_{1}z_{2}z_{3}= \min_a \left\{ a-z_{2}a-z_{3}a+z_{1}a+z_{2}z_{3} \right\}
 
 \summarysec
 
-For any variable $z$, we can consider the negation $\bar{z}=1-z$.
-The process of exchanging $z$ for $\bar{z}$ is called \emph{flipping}.
+For any variable $b$, we can consider the negation $\bar{b}=1-b$.
+The process of exchanging $b$ for $\bar{b}$ is called \emph{flipping}.
 Using bit-flipping, an arbitrary function in $n$ variables can be represented using at most $2^{(n-2)}(n-3)+1$ variables, though this is a gross overestimate.
 
 Can be used in many different ways:
 \begin{enumerate}
 \item Flipping positive terms and using \ref{subsec:Negative-Monomial-Reduction}, recursively;
-\item For $\alpha<0$, we can reduce $\alpha\bar{z}_{1}\bar{z}_{2}...\bar{z}_{k}$ very efficiently to submodular form using \ref{subsec:Negative-Monomial-Reduction}.
+\item For $\alpha<0$, we can reduce $\alpha\bar{b}_{1}\bar{b}_{2}...\bar{b}_{k}$ very efficiently to submodular form using \ref{subsec:Negative-Monomial-Reduction}.
 A generalized version exists for arbitrary combinations of flips in the monomial which makes reduction entirely submodular \cite{Ishikawa2011};
 \item When we have quadratized we can minimize the number of non-submodular terms by flipping.
-\item We can make use of both $z_{i}$ and $\bar{z}_{i}$ in the same Hamiltonian by adding on a sufficiently large penalty term: $\lambda(z_{i}+\bar{z}_{i}-1)^{2}=\lambda(1+2z_{i}\bar{z}_{i}-z_{i}-\bar{z}_{i})$.
+\item We can make use of both $b_{i}$ and $\bar{b}_{i}$ in the same Hamiltonian by adding on a sufficiently large penalty term: $\lambda(b_{i}+\bar{b}_{i}-1)^{2}=\lambda(1+2b_{i}\bar{b}_{i}-b_{i}-\bar{b}_{i})$.
 This is similar to the ideas in reduction by substitution or deduc-reduc.
 In this way, given a quadratic in $n$ variables we can make sure it only has at most $n$ nonsubmodular terms if we are willing to use the extra $n$ negation variables as well (so we have $2n$ variables in total).
 \end{enumerate}
 
 \costsec
 \begin{itemize}
-\item None, as replacing $z_{i}$ with it's negation $\bar{z}_{i}$ costs nothing except a trivial symbolic expansion.
+\item None, as replacing $b_{i}$ with it's negation $\bar{b}_{i}$ costs nothing except a trivial symbolic expansion.
 \end{itemize}
 
 \prossec
@@ -643,15 +643,15 @@ In this way, given a quadratic in $n$ variables we can make sure it only has at 
 \conssec
 \begin{itemize}
 \item Unless form of the Hamiltonian is known, spotting these 'factorizations' using negations is going to be difficult.
-\item If we want to use $z$ and $\bar{z}$ we need an auxiliary variable.
+\item If we want to use $b$ and $\bar{b}$ we need an auxiliary variable.
 \end{itemize}
 
 \examplesec
 
-By bit-flipping $z_2$ and $z_4$, i.e. substituting $z_2 = 1 - \bar{z}_{2}$ and $z_4 = 1 - \bar{z}_{4}$, we see that:
+By bit-flipping $b_2$ and $b_4$, i.e. substituting $b_2 = 1 - \bar{b}_{2}$ and $b_4 = 1 - \bar{b}_{4}$, we see that:
 \begin{eqnarray}
-H & = & 3z_{1}z_{2}+z_{2}z_{3}+2z_{1}z_{4}-4z_{2}z_{4}\protect\\
- & = & -3z_{1}\bar{z}_{2}-\bar{z}_{2}z_{3}-2z_{1}\bar{z}_{4}-\bar{z}_{2}\bar{z}_{4}+5z_{1}+z_{3}+4\bar{z}_{2}+4\bar{z}_{4}-4.
+H & = & 3b_{1}b_{2}+b_{2}b_{3}+2b_{1}b_{4}-4b_{2}b_{4}\protect\\
+ & = & -3b_{1}\bar{b}_{2}-\bar{b}_{2}b_{3}-2b_{1}\bar{b}_{4}-\bar{b}_{2}\bar{b}_{4}+5b_{1}+b_{3}+4\bar{b}_{2}+4\bar{b}_{4}-4.
 \end{eqnarray}
 The first expression is highly non-submodular while the second is entirely submodular.
 
@@ -666,8 +666,8 @@ The first expression is highly non-submodular while the second is entirely submo
 
 \summarysec
 
-Pick a variable pair $z_{i},z_{j}$ and substitute $z_{i}z_{j}$ for new auxiliary variable $a_{i,j}$.
-Enforce equality in the ground states by adding some scalar multiple of $z_{i}z_{j}-2z_{i}a_{i,j}-2z_{i}a_{i,j}+3a_{i,j}$ or similar.
+Pick a variable pair $b_{i},b_{j}$ and substitute $b_{i}b_{j}$ for new auxiliary variable $a_{i,j}$.
+Enforce equality in the ground states by adding some scalar multiple of $b_{i}b_{j}-2b_{i}a_{i,j}-2b_{i}a_{i,j}+3a_{i,j}$ or similar.
 
 \costsec
 \begin{itemize}
@@ -689,10 +689,10 @@ Enforce equality in the ground states by adding some scalar multiple of $z_{i}z_
 
 \examplesec
 
-We pick the pair $(z_{1},z_{2})$ and combine.
+We pick the pair $(b_{1},b_{2})$ and combine.
 
 \begin{equation}
-z_{1}z_{2}z_{3}+z_{1}z_{2}z_{4}\mapsto z_{3}a+z_{4}a+z_{1}z_{2}-2z_{1}a-2z_{1}a+3a
+b_{1}b_{2}b_{3}+b_{1}b_{2}b_{4}\mapsto b_{3}a+b_{4}a+b_{1}b_{2}-2b_{1}a-2b_{1}a+3a
 \end{equation}
 
 \refsec
@@ -713,11 +713,11 @@ The algorithm comes in 2 parts: when all $\alpha_{H}>0$ and when all $\alpha_{H}
 \begin{enumerate}
 \item $\alpha_{H}>0$ 
 \begin{equation}
-\sum_{H\in\mathcal{H}}\alpha_{H}\prod_{j\in H}z_{j}=\min_{a}(\sum_{H\in\mathcal{H}}\alpha_{H})a\prod_{j\in C}z_{j}+\sum_{H\in\mathcal{H}}\alpha_{H}(1-a)\prod_{j\in H\setminus C}z_{j}
+\sum_{H\in\mathcal{H}}\alpha_{H}\prod_{j\in H}b_{j}=\min_{a}(\sum_{H\in\mathcal{H}}\alpha_{H})a\prod_{j\in C}b_{j}+\sum_{H\in\mathcal{H}}\alpha_{H}(1-a)\prod_{j\in H\setminus C}b_{j}
 \end{equation}
 \item $\alpha_{H}<0$
 \begin{equation}
-\sum_{H\in\mathcal{H}}\alpha_{H}\prod_{j\in H}z_{j}=\min_{a}\sum_{H\in\mathcal{H}}\alpha_{H}(1-\prod_{j\in C}z_{j}-\prod_{j\in H\setminus C}z_{j})a
+\sum_{H\in\mathcal{H}}\alpha_{H}\prod_{j\in H}b_{j}=\min_{a}\sum_{H\in\mathcal{H}}\alpha_{H}(1-\prod_{j\in C}b_{j}-\prod_{j\in H\setminus C}b_{j})a
 \end{equation}
 \end{enumerate}
 
@@ -741,16 +741,16 @@ The algorithm comes in 2 parts: when all $\alpha_{H}>0$ and when all $\alpha_{H}
 
 \examplesec
 
-First let $C=z_{1}$ and use the positive weight version:
+First let $C=b_{1}$ and use the positive weight version:
 \begin{eqnarray}
-z_{1}z_{2}z_{3}+z_{1}z_{2}z_{4} & \mapsto & 2a_{1}z_{1}+(1-a_{1})z_{2}z_{3}+(1-a_{1})z_{2}z_{4}\\
- & = & 2a_{1}z_{1}+z_{2}z_{3}+z_{2}z_{4}-a_{1}z_{2}z_{3}-a_{1}z_{2}z_{4}
+b_{1}b_{2}b_{3}+b_{1}b_{2}b_{4} & \mapsto & 2a_{1}b_{1}+(1-a_{1})b_{2}b_{3}+(1-a_{1})b_{2}b_{4}\\
+ & = & 2a_{1}b_{1}+b_{2}b_{3}+b_{2}b_{4}-a_{1}b_{2}b_{3}-a_{1}b_{2}b_{4}
 \end{eqnarray}
 now we can use \ref{subsec:Negative-Monomial-Reduction}:
 
 \begin{eqnarray}
--a_{1}z_{2}z_{3}-a_{1}z_{2}z_{4} & \mapsto & 2a_{2}-a_{1}a_{2}-a_{2}z_{2}-a_{2}z_{3}+2a_{2}-a_{1}a_{2}-a_{2}z_{2}-a_{2}z_{4}\\
- & = & 4a_{2}-2a_{1}a_{2}-2a_{2}z_{2}-a_{2}z_{3}-a_{2}z_{4}.
+-a_{1}b_{2}b_{3}-a_{1}b_{2}b_{4} & \mapsto & 2a_{2}-a_{1}a_{2}-a_{2}b_{2}-a_{2}b_{3}+2a_{2}-a_{1}a_{2}-a_{2}b_{2}-a_{2}b_{4}\\
+ & = & 4a_{2}-2a_{1}a_{2}-2a_{2}b_{2}-a_{2}b_{3}-a_{2}b_{4}.
 \end{eqnarray}
 
 \refsec
@@ -787,10 +787,10 @@ For computer image problems, it can be used with the above methods to optimize m
 
 All known methods to map the entire spectrum of a Hamiltonian rely on the same basic principle: auxilliary variables are added, to mediate the high-order interactions, and constraints are added to restrict the values which the axilliary variables can take. In practice, constraints are implemented as one and two term equations with much stronger energy penalties than those in the original Hamiltonian. As long as the constraints are sufficiently strong, the low energy subspace of the 2-local Hamiltonian will be exactly the spectrum of the $k$-local Hamiltonian which has been mapped. Moreover, the location of the original `logical' variables is known and so the resulting configuration of the mapped variables can easily be determined.
 
-%If we want to reproduce the spectrum of  $z_1z_2z_3$, (such that the state $z_1=1,z_2=1,z_3=1$ will have energy $1$ and all others will have energy $0$)  we need to find a quadratic penalty function $P(a,z_1,z_2)$ such that if an auxilliary variable $a$ satisfies $a=z_1z_2$, $P(a,z_1,z_2)=0$, and $P(a,z_1,z_2)>0$ otherwise. If we can find such a function (we explain how to do this is subsection \ref{sub:recursive}), then the desired spectrum will be reproduced in the low energy sector of the following Hamiltonian.
+%If we want to reproduce the spectrum of  $b_1b_2b_3$, (such that the state $b_1=1,b_2=1,b_3=1$ will have energy $1$ and all others will have energy $0$)  we need to find a quadratic penalty function $P(a,b_1,b_2)$ such that if an auxilliary variable $a$ satisfies $a=b_1b_2$, $P(a,b_1,b_2)=0$, and $P(a,b_1,b_2)>0$ otherwise. If we can find such a function (we explain how to do this is subsection \ref{sub:recursive}), then the desired spectrum will be reproduced in the low energy sector of the following Hamiltonian.
 
 %\begin{equation}
-%H_{3-\rm{local}}=z_3\,a+\lambda\,P(a,z_1,z_2)
+%H_{3-\rm{local}}=b_3\,a+\lambda\,P(a,b_1,b_2)
 %\end{equation}
 
 %\noindent where $\lambda$ is a large positive number.
