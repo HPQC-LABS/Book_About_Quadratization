@@ -435,9 +435,9 @@ Hence we have reduced our original, hard problem into 3 easy problems, requiring
 
 \summarysec
 
-For a negative term $-b_{1}b_{2}...b_{k}$, introduce a single auxiliary variable $a$ and make the substitution:
+For a negative term $-b_{1}b_{2}...b_{k}$, introduce a single auxiliary variable $b_a$ and make the substitution:
 \begin{equation}
--b_{1}b_{2} \ldots b_{k} = \min_a \left\{ (n-1-\sum b_{i})a \right\}.
+-b_{1}b_{2} \ldots b_{k} = \min_{b_a} \left\{ (n-1-\sum b_{i})b_a \right\}.
 \end{equation}
 
 \costsec
@@ -465,9 +465,9 @@ H_{{\rm 6-local}} & =-2b_{1}b_{2}b_{3}b_{4}b_{5}b_{6} + b_5b_6,
 has a unique minimum energy of -1 when all $b_i=1$.
 
 \begin{equation}
-H_{{\rm 2-local}}=2\left( 5a-b_{1}a-b_{2}a-b_{3}a-b_{4}a-b_{5}a-b_{6}a \right) + b_5b_6
+H_{{\rm 2-local}}=2\left( 5b_a-b_{1}b_a-b_{2}b_a-b_{3}b_a-b_{4}b_a-b_{5}b_a-b_{6}b_a \right) + b_5b_6
 \end{equation}
-has the same unique minimum energy, and it occurs at the same place (all $b_i=1$), with $a=1$.
+has the same unique minimum energy, and it occurs at the same place (all $b_i=1$), with $b_a=1$.
 
 \begin{comment}
 \examplesec
@@ -496,7 +496,7 @@ with $a=1$.
 By considering the negated literals $\bar{b}_{i}=1-b_{i}$, we recursively apply the previous method to $b_{1}b_{2}\ldots b_{k}=-\bar{b}_{1}b_{2}\ldots b_{k}+b_{2}b_{3}\ldots b_{k}$.
 The final identity is:
 \begin{equation}
-b_{1}b_{2}\ldots b_{k}=\min_{a}\big\{\sum_{i=1}^{k-2}a_{i}(k-i-1+b_{i}-\sum_{j=i+1}^{k}b_{j})\big\}+b_{k-1}b_{k}
+b_{1}b_{2}\ldots b_{k}=\min_{b_a}\big\{\sum_{i=1}^{k-2}b_{a_{i}}(k-i-1+b_{i}-\sum_{j=i+1}^{k}b_{j})\big\}+b_{k-1}b_{k}
 \end{equation}
 
 
@@ -517,7 +517,7 @@ b_{1}b_{2}\ldots b_{k}=\min_{a}\big\{\sum_{i=1}^{k-2}a_{i}(k-i-1+b_{i}-\sum_{j=i
 
 \examplesec
 \begin{eqnarray}
-b_{1}b_{2}b_{3}b_{4} & = & \min_{a}{a_{1}(2+b_{1}-b_{2}-b_{3}-b_{4})+a_{2}(1+b_{2}-b_{3}-b_{4})}+b_{3}b_{4}
+b_{1}b_{2}b_{3}b_{4} & = & \min_{b_a}{b_{a_{1}}(2+b_{1}-b_{2}-b_{3}-b_{4})+b_{a_{2}}(1+b_{2}-b_{3}-b_{4})}+b_{3}b_{4}
 \end{eqnarray}
 
 \refsec
@@ -544,7 +544,7 @@ b_{1}b_{2}b_{3}b_{4} & \mapsto & b_{2}b_{3}b_{4}-\bar{b}_{1}b_{2}b_{3}b_{4}\\
 
 This method rewrites a positive monomial using symmetric polynomials, so all possible quadratic terms are produced and they are all non-submodular: 
 \begin{equation}
-b_{1}...b_{k} = \min_{a_1, \ldots, a_{n_k}} \left\{ \sum_{i=1}^{n_{k}}a_{i}(c_{i,d}(-\sum_{j=1}^{k}b_{j}+2i)-1)+\sum_{i<j}b_{i}b_{j} \right\}
+b_{1}...b_{k} = \min_{b_{a_1}, \ldots, b_{a_{n_k}}} \left\{ \sum_{i=1}^{n_{k}}b_{a_{i}}(c_{i,d}(-\sum_{j=1}^{k}b_{j}+2i)-1)+\sum_{i<j}b_{i}b_{j} \right\}
 \end{equation}
 where $n_{k}=\left\lfloor \frac{k-1}{2}\right\rfloor $ and $c_{i,k}=\begin{cases}
 1, & i=n_{d}\text{ and }k\text{ is odd,}\\
@@ -571,7 +571,7 @@ About half as many auxiliary variables for each $k$-order term as the previous m
 
 \examplesec
 \begin{eqnarray}
-b_{1}b_{2}b_{3}b_{4} & = & \min_{a}(3-2b_{1}-2b_{2}-2b_{3}-2b_{4})a+b_{1}b_{2}+b_{1}b_{3}+b_{1}b_{4}+b_{2}b_{3}+b_{2}b_{4}+b_{3}b_{4}
+b_{1}b_{2}b_{3}b_{4} & = & \min_{b_a}(3-2b_{1}-2b_{2}-2b_{3}-2b_{4})b_a+b_{1}b_{2}+b_{1}b_{3}+b_{1}b_{4}+b_{2}b_{3}+b_{2}b_{4}+b_{3}b_{4}
 \end{eqnarray}
 
 \refsec
@@ -587,7 +587,7 @@ Similar to other methods of reducing one term, this method can reduce a positive
 
 The identity is given by:
 \begin{equation}
-b_{1}b_{2}b_{3}= \min_a \left\{ a-b_{2}a-b_{3}a+b_{1}a+b_{2}b_{3} \right\}
+b_{1}b_{2}b_{3}= \min_{b_a} \left\{ b_a-b_{2}b_a-b_{3}b_a+b_{1}b_a+b_{2}b_{3} \right\}
 \end{equation}
 
 \costsec
@@ -666,8 +666,8 @@ The first expression is highly non-submodular while the second is entirely submo
 
 \summarysec
 
-Pick a variable pair $b_{i},b_{j}$ and substitute $b_{i}b_{j}$ for new auxiliary variable $a_{i,j}$.
-Enforce equality in the ground states by adding some scalar multiple of $b_{i}b_{j}-2b_{i}a_{i,j}-2b_{i}a_{i,j}+3a_{i,j}$ or similar.
+Pick a variable pair $b_{i},b_{j}$ and substitute $b_{i}b_{j}$ for new auxiliary variable $b_{a_{i,j}}$.
+Enforce equality in the ground states by adding some scalar multiple of $b_{i}b_{j}-2b_{i}b_{a_{i,j}}-2b_{i}b_{a_{i,j}}+3b_{a_{i,j}}$ or similar.
 
 \costsec
 \begin{itemize}
@@ -692,7 +692,7 @@ Enforce equality in the ground states by adding some scalar multiple of $b_{i}b_
 We pick the pair $(b_{1},b_{2})$ and combine.
 
 \begin{equation}
-b_{1}b_{2}b_{3}+b_{1}b_{2}b_{4}\mapsto b_{3}a+b_{4}a+b_{1}b_{2}-2b_{1}a-2b_{1}a+3a
+b_{1}b_{2}b_{3}+b_{1}b_{2}b_{4}\mapsto b_{3}b_a+b_{4}b_a+b_{1}b_{2}-2b_{1}b_a-2b_{1}b_a+3b_a
 \end{equation}
 
 \refsec
@@ -713,11 +713,11 @@ The algorithm comes in 2 parts: when all $\alpha_{H}>0$ and when all $\alpha_{H}
 \begin{enumerate}
 \item $\alpha_{H}>0$ 
 \begin{equation}
-\sum_{H\in\mathcal{H}}\alpha_{H}\prod_{j\in H}b_{j}=\min_{a}(\sum_{H\in\mathcal{H}}\alpha_{H})a\prod_{j\in C}b_{j}+\sum_{H\in\mathcal{H}}\alpha_{H}(1-a)\prod_{j\in H\setminus C}b_{j}
+\sum_{H\in\mathcal{H}}\alpha_{H}\prod_{j\in H}b_{j}=\min_{b_a}(\sum_{H\in\mathcal{H}}\alpha_{H})b_a\prod_{j\in C}b_{j}+\sum_{H\in\mathcal{H}}\alpha_{H}(1-b_a)\prod_{j\in H\setminus C}b_{j}
 \end{equation}
 \item $\alpha_{H}<0$
 \begin{equation}
-\sum_{H\in\mathcal{H}}\alpha_{H}\prod_{j\in H}b_{j}=\min_{a}\sum_{H\in\mathcal{H}}\alpha_{H}(1-\prod_{j\in C}b_{j}-\prod_{j\in H\setminus C}b_{j})a
+\sum_{H\in\mathcal{H}}\alpha_{H}\prod_{j\in H}b_{j}=\min_{b_a}\sum_{H\in\mathcal{H}}\alpha_{H}(1-\prod_{j\in C}b_{j}-\prod_{j\in H\setminus C}b_{j})b_a
 \end{equation}
 \end{enumerate}
 
@@ -743,14 +743,14 @@ The algorithm comes in 2 parts: when all $\alpha_{H}>0$ and when all $\alpha_{H}
 
 First let $C=b_{1}$ and use the positive weight version:
 \begin{eqnarray}
-b_{1}b_{2}b_{3}+b_{1}b_{2}b_{4} & \mapsto & 2a_{1}b_{1}+(1-a_{1})b_{2}b_{3}+(1-a_{1})b_{2}b_{4}\\
- & = & 2a_{1}b_{1}+b_{2}b_{3}+b_{2}b_{4}-a_{1}b_{2}b_{3}-a_{1}b_{2}b_{4}
+b_{1}b_{2}b_{3}+b_{1}b_{2}b_{4} & \mapsto & 2b_{a_1}b_{1}+(1-b_{a_1})b_{2}b_{3}+(1-b_{a_1})b_{2}b_{4}\\
+ & = & 2b_{a_1}b_{1}+b_{2}b_{3}+b_{2}b_{4}-b_{a_1}b_{2}b_{3}-b_{a_1}b_{2}b_{4}
 \end{eqnarray}
 now we can use \ref{subsec:Negative-Monomial-Reduction}:
 
 \begin{eqnarray}
--a_{1}b_{2}b_{3}-a_{1}b_{2}b_{4} & \mapsto & 2a_{2}-a_{1}a_{2}-a_{2}b_{2}-a_{2}b_{3}+2a_{2}-a_{1}a_{2}-a_{2}b_{2}-a_{2}b_{4}\\
- & = & 4a_{2}-2a_{1}a_{2}-2a_{2}b_{2}-a_{2}b_{3}-a_{2}b_{4}.
+-b_{a_1}b_{2}b_{3}-b_{a_1}b_{2}b_{4} & \mapsto & 2b_{a_2}-b_{a_1}b_{a_2}-b_{a_2}b_{2}-b_{a_2}b_{3}+2b_{a_2}-b_{a_1}b_{a_2}-b_{a_2}b_{2}-b_{a_2}b_{4}\\
+ & = & 4b_{a_2}-2b_{a_1}b_{a_2}-2b_{a_2}b_{2}-b_{a_2}b_{3}-b_{a_2}b_{4}.
 \end{eqnarray}
 
 \refsec
