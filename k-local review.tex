@@ -788,80 +788,166 @@ For computer image problems, it can be used with the above methods to optimize m
 In all the above, we take advantage of the fact that we just want the correct state and we don't care about anything else.
 This gave us the freedom to do all sorts of things to the Hamiltonian, as long as we keep the ground state the same.
 What if we want to quadratize a Hamiltonian while preserving the whole spectrum?
-%LHZ scheme and Paul Warburton's methods.
 
-\subsection{Constraints and Auxilliary Variables}
+All known methods to map the entire spectrum of a Hamiltonian rely on the same basic principle: auxilliary variables are added, to mediate interactions, and constraints are added to restrict the values which the axilliary variables can take. In practice, constraints are implemented as one and two term equations with much stronger energy penalties than those in the equations which are being mapped. As long as the constraints are sufficiently strong, the low energy subspace of the Hamiltonian will be exactly the spectrum of the $k$-local Hamiltonian which has been mapped. Moreover, the location of the original `logical' variables is known and so the resulting configuration of the mapped variables can easily be determined.
 
-\summarysec
+%If we want to reproduce the spectrum of  $z_1z_2z_3$, (such that the state $z_1=1,z_2=1,z_3=1$ will have energy $1$ and all others will have energy $0$)  we need to find a quadratic penalty function $P(a,z_1,z_2)$ such that if an auxilliary variable $a$ satisfies $a=z_1z_2$, $P(a,z_1,z_2)=0$, and $P(a,z_1,z_2)>0$ otherwise. If we can find such a function (we explain how to do this is subsection \ref{sub:recursive}), then the desired spectrum will be reproduced in the low energy sector of the following Hamiltonian.
 
-All known methods to map the entire spectrum of a Hamiltonian rely on the same basic principle: auxilliary variables are added, to mediate interactions, and constraints are added to restrict the values which the axilliary variables can take. In practice, constraints are implemented as one and two term equations with much stronger energy penalties than those in the equations which are being mapped. As long as the constraints are sufficiently strong, the low energy subspace of the Hamiltonian will be exactly the spectrum of the $k$-local Hamiltonian which has been mapped. Moreover, the location of the original `logical' variables is known and so the resulting configuration of the mapped variables can easily be determined. All methods discussed in this section can be described as variants of this idea, as we discuss later in this section. 
+%\begin{equation}
+%H_{3-\rm{local}}=z_3\,a+\lambda\,P(a,z_1,z_2)
+%\end{equation}
 
-\costsec
-\begin{itemize}
-\item Variable depending on details of strategy.
-\end{itemize}
-
-\prossec
-\begin{itemize}
-\item All known methods can be described in this way, no other methods are known
-\item Has been proven to be universal in the sense that these methods can reproduce not only arbitrary spectra, but to simulate much of classical physics \textcolor{red}{cite Toby Cubitt paper}
-\end{itemize}
-
-\conssec
-\begin{itemize}
-\item Always requires an energy scale significantly larger than in the original Hamiltonian.
-\end{itemize}
+%\noindent where $\lambda$ is a large positive number.
 
 
-
-\examplesec
-
-If we want to reproduce the spectrum of  $z_1z_2z_3$, (such that the state $z_1=1,z_2=1,z_3=1$ will have energy $1$ and all others will have energy $0$)  we need to find a quadratic penalty function $P(a,z_1,z_2)$ such that if an auxilliary variable $a$ satisfies $a=z_1z_2$, $P(a,z_1,z_2)=0$, and $P(a,z_1,z_2)>0$ otherwise. If we can find such a function (we explain how to do this is subsection \ref{sub:recursive}), then the desired spectrum will be reproduced in the low energy sector of the following Hamiltonian.
-
-\begin{equation}
-H_{3-\rm{local}}=z_3\,a+\lambda\,P(a,z_1,z_2)
-\end{equation}
-
-\noindent where $\lambda$ is a large positive number.
 
 \subsection{Recursive Order Reduction\label{sub:recursive}}
 
 \summarysec
 
-This method is based on taking each higher order term and recursively adding auxilliary variables and a quadratic penalty function to constrain the auxilliary variable, reducing the order by one each time until all terms are made quadratic. 
+To this method is based on taking each higher order term and recursively adding auxilliary variables and a quadratic penalty function to constrain the auxilliary variable reducing the order by one each time until all terms are made quadratic. 
 
 \costsec
 \begin{itemize}
-\item One auxilliary variable is added each time the order of $z_1z_2...z_k$ is reduced, leading to $k-2$ axilliary terms to reproduce the spectrum .
+\item One auxilliary variable is added each time the order of $b_1b_2...b_n$ is reduced, leading to $n-2$ axilliary terms to reproduce the spectrum .
 \end{itemize}
 
 \prossec
 \begin{itemize}
 \item Works for terms of arbitrary sizes and simple to implement.
-\item In principle can be used for more types of equations than just $z_1z_2...z_k$, assuming the appropriate equations can be found.
+\item In principle can be used for more types of equations than just $b_1b_2...b_n$ assuming equations can be found.
 \item Relatively sparse connectivity
 \end{itemize}
 
 \conssec
 \begin{itemize}
 \item Not  very symmetric with respect to variables.
-\item  Not conducive to hardware design
+\item  Not conducive to specialized hardware design
 \end{itemize}
 
 \examplesec
 
-Let's assume we want to reproduce the spectrum of  $z_1z_2z_3z_4$, we note that $P(a_k,z_i,z_j)=....$
+Let us assume we want to reproduce the spectrum of  $H_4=b_1b_2b_3b_4$, we note that $P(a_k,b_i,b_j)=3a_k-2a_k(b_i+b_j)+b_ib_j$ will yield an energy of $E=0$ iff $a_k=b_ib_j$, and $E>0$ otherwise. We therefore observe that, assuming a large value of $\lambda$, the low energy sector of $H_3=b_1b_2b_{a,1} +\lambda(3b_{a,1}-2b_{a,1}(b_3+b_4)+b_3b_4)$ will reproduce the spectrum of $H_4$ with only three local and smaller terms. Performing the same trick again yields a two local Hamiltonian:
+
+\begin{equation}
+H_2=b_1a_2+ \lambda\left[3b_{a,2}-2b_{a,2}(b_2+b_{a,1})+b_2b_{a,1}\right] +\lambda\left[3b_{a,1}-2b_{a,1}(b_3+b_4)+b_3b_4\right]
+\end{equation}
+
+
+\refsec
+\begin{itemize}
+\item \textcolor{red}{add later, references to many D-Wave papers including Biamonte and Bian papers, as well as Perdomo-Ortiz paper}
+\end{itemize}
+
+\subsection{Chained Three Body Parity Operators}
+
+\summarysec
+
+Similarly to the methods of recursively reducing the order of terms made of products of $b$ operators, gadgets which guarantee that $z_{a,k}=z_iz_j$ can be chained together to make large product terms consisting of $z$. Recall that products of $z$ correspond to parity check or ${\sc xor}$ operations, while products of $b$ correspond to logical ${\sc and}$ operations. The penalty term which guarantee that $z_{a,k}=\pm z_iz_j$ is $P(z_{a,k},z_i,z_j)= \mp z_{a,k}z_iz_j$. Using a gadget for the three local Hamiltonian, the low energy spectrum of Ising terms of any locality can be produced. This method was originally only used to reprduce the ground state of high locality terms, but states of the "wrong" parity ($q_k=\mp z_iz_j$) will all have the same energy as well, so it reproduces the full spectrum. 
+ 
+
+\costsec
+\begin{itemize}
+\item The best known gadget for a three local Ising term uses one auxilliary qubit. Based on this gadget an $n\ge4$ body Ising term can be made using $3+2(n-4)$ auxilliary qubits. 
+\end{itemize}
+
+\prossec
+\begin{itemize}
+\item Natural transmon implementation.
+\item Relatively low degree of connectivity.
+\end{itemize}
+
+\conssec
+\begin{itemize}
+\item Does not preserve degeneracy, ground state will retain orginal degeneracy, but excited states will have degeneracy multipled by $n-3$
+\item Not very symmetric.
+\end{itemize}
+
+\examplesec
+
+Let us use this method to reproduce the spectrum of the following five local Hamiltonian $z_1z_2z_3z_4z_5$. We first observe that  the following three local gadget reproduces the spectrum of the three local term $\pm z_1z_2z_3$
+
+\begin{equation}
+P_\pm(z_1,z_2,z_3;\lambda)=\lambda\left[z_1z_2+z_2z_3+z_3z_1+2z_a(z_1+z_2+z_3)\right]\mp (z_1+z_2+z_3 +2z_a).
+\end{equation}
+
+Using thee copies of this three local gadget as a building block, and using two additional auxilliary variables, the spectrum of the five local term $z_1z_2z_3z_4z_5$ can be reproduced by the following Hamiltonian
+
+\begin{equation}
+H_5=P_+(z_1,z_2,z_{a,1};\lambda)+P_+(z_{a,1},z_3,z_{a,2};\lambda)+P_+(z_{a,2},z_4,z_5;\lambda).
+\end{equation}
+
+\refsec
+\begin{itemize}
+\item \textcolor{red}{add later, cite second Lechner paper, plus NC work on three local gadget}
+\end{itemize}
+
+\subsection{Multibody Operators in PAQC}
+
+\summarysec
+
+Parity adiabatic quantum computing (PAQC) is an AQC archetecture in which logical qubits are mapped onto a highly non-local logical space of a Hamiltonian. These methods allow for high order terms to be directly implemented, but also require high locality terms to be implemented. While these archetectures are not strictly a mapping from devices with high locality to two local ones, they may be built upon any gadget which has the same ground state manifold as $\prod_iz_i$. In other words, even PAQC schemes can reprduce the entire spectrum of a Hamiltonian, even if the gadgets which they are built on top of do not.
+
+\costsec
+\begin{itemize}
+\item In the original (Lechner-Hauke-Zoller) scheme \textcolor{red}{citation}, an $n$ body PAQC constraint which is capable of reproducing the full spectrum requires a $2n$ local gadget which reproduces only the ground state manifold of $\prod_i^{2n}z_i$. 
+\item Since $n$ logical operators must intersect for an $n$ local gadget, at least a gadget which reproduces the ground state manifold of the ground state manifold of $\prod_i^{n}z_i$ is required.
+\end{itemize}
+
+\prossec
+\begin{itemize}
+\item Connection to stablizers allows for novel decoding\textcolor{red}{citations}.
+\item Natural for producing highly connected Hamiltonians.
+\item Some implementations are highly symmetric, which may be good for quantum simulations.
+\end{itemize}
+
+\conssec
+\begin{itemize}
+\item Requires other gadgets to implement.
+\item Potentially difficult to embed arbitrary sparse Hamiltonians efficiently.
+\end{itemize}
+
+\examplesec
+
+Rather than considering a mapping which maps qubit values directly, let us consider a mapping which maps physical qubits to the relative parity of paris of logical qubits. If we consider only the relative parity pairs of qubits, we observe that there will be $n(n-1)$ such parity values, but not all of these parity values correspond to physically realizable configurations, for instance it is not mathematically possible for to have $z_1z_2=-1$, $z_2z_3=1$ and $z_1z_3=1$ simultaneously. We therefore need to add constraints to gaurantee that only mathematically consistant configurations are allowed. If we consider four qubits, these constraints are realized in the ground state manifold of the three qubit LHZ constraint Hamiltonian:
+
+\begin{equation}
+H_{LHZ}=-z_{1,2}z_{1,3}z_{2,3}-z_{1,3}z_{1,4}z_{2,4}z_{2,3}-z_{2,3}z_{2,4}z_{3,4}. \label{eq:LHZ4}
+\end{equation}
+
+Two local coupling between logical qubits in this state can therefore be achieved by introducing single qubit variables corresponding to each coupling, for instance adding a term $m\,z_{1,2}$ will intrduce a coupling between logical qubits $1$ and $2$ of strength $m$. If we want to add the four body constraint $z_1z_2z_3z_4$, we must add an additional physical qubit $z_{1,2,3,4}$ which is constrained to match the parity of $z_1z_2z_3z_4$. To accomplish this, we note that this total parity has to match $z_{1,2}z_{3,4}$, the Hamiltonian with added four body coupling of strength $m$ therefore takes the form:
+
+
+\begin{equation}
+H_4=m\,z_{1,2,3,4}+\lambda\,(H_{LHZ}-z_{1,2}z_{3,4}z_{1,2,3,4}),
+\end{equation}
+where $\lambda$ is a large postive number.
+
+If we instead wanted to create the three body coupling $z_1z_2z_3$ of strength $m$, we would have to add an additional variable $z_1$, since Eq. \ref{eq:LHZ4} only constrains the logical qubits up to global spin inversion. By noting that  $z_1z_2z_3=z_{1}z_{2,3}$ we see that such a three body Hamiltonian can take the form:
+
+\begin{equation}
+H_3=m\,z_{1,2,3}+\lambda\,(H_{LHZ}-z_{1}z_{2,3}z_{1,2,3}).
+\end{equation}
+
+\refsec
+\begin{itemize}
+\item \textcolor{red}{add later, cite LHZ and Simon Benjamin stabilizer paper}
+\end{itemize}
+
+\subsection{Symmetry Based Mappings}
 
 \textcolor{red}{
 subsections  I (NC) need to have:
 \begin{itemize}
-\item recursive qubo methods (done)
+\item recursive qubo methods
 \item chains of 3 local gadgets (thing in second Lechner paper)
 \item our methods based on symmetry
 \item Simon Benjamin Stabilizer idea and multidimensional LHZ (one section)
 \item Possibly others: need to check how distinct some of the work Alejandro Perdomo-Ortiz and Jacob Biamonte have done is, whether these should be their own subsections or just references in exiting ones
 \end{itemize}
 }
+
+
 
 \section{Strategies for combining methods}
 
