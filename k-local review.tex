@@ -785,11 +785,7 @@ For computer image problems, it can be used with the above methods to optimize m
 
 \section{Methods that reproduce the full spectrum}
 
-In all the above, we take advantage of the fact that we just want the correct state and we don't care about anything else.
-This gave us the freedom to do all sorts of things to the Hamiltonian, as long as we keep the ground state the same.
-What if we want to quadratize a Hamiltonian while preserving the whole spectrum?
-
-All known methods to map the entire spectrum of a Hamiltonian rely on the same basic principle: auxilliary variables are added, to mediate interactions, and constraints are added to restrict the values which the axilliary variables can take. In practice, constraints are implemented as one and two term equations with much stronger energy penalties than those in the equations which are being mapped. As long as the constraints are sufficiently strong, the low energy subspace of the Hamiltonian will be exactly the spectrum of the $k$-local Hamiltonian which has been mapped. Moreover, the location of the original `logical' variables is known and so the resulting configuration of the mapped variables can easily be determined.
+All known methods to map the entire spectrum of a Hamiltonian rely on the same basic principle: auxilliary variables are added, to mediate the high-order interactions, and constraints are added to restrict the values which the axilliary variables can take. In practice, constraints are implemented as one and two term equations with much stronger energy penalties than those in the original Hamiltonian. As long as the constraints are sufficiently strong, the low energy subspace of the 2-local Hamiltonian will be exactly the spectrum of the $k$-local Hamiltonian which has been mapped. Moreover, the location of the original `logical' variables is known and so the resulting configuration of the mapped variables can easily be determined.
 
 %If we want to reproduce the spectrum of  $z_1z_2z_3$, (such that the state $z_1=1,z_2=1,z_3=1$ will have energy $1$ and all others will have energy $0$)  we need to find a quadratic penalty function $P(a,z_1,z_2)$ such that if an auxilliary variable $a$ satisfies $a=z_1z_2$, $P(a,z_1,z_2)=0$, and $P(a,z_1,z_2)>0$ otherwise. If we can find such a function (we explain how to do this is subsection \ref{sub:recursive}), then the desired spectrum will be reproduced in the low energy sector of the following Hamiltonian.
 
@@ -805,32 +801,33 @@ All known methods to map the entire spectrum of a Hamiltonian rely on the same b
 
 \summarysec
 
-To this method is based on taking each higher order term and recursively adding auxilliary variables and a quadratic penalty function to constrain the auxilliary variable reducing the order by one each time until all terms are made quadratic. 
+For each $k$-local term an auxilliary variable and a quadratic penalty function to constrain the auxilliary variable, is used to reduce the term's order to $(k-1)$-local. This is repeated recursively until the term is 2-local.
 
 \costsec
 \begin{itemize}
-\item One auxilliary variable is added each time the order of $b_1b_2...b_n$ is reduced, leading to $n-2$ axilliary terms to reproduce the spectrum .
+\item $k-2$ auxiliary variables to reduce each $k$-local terms.
+\item  At most $kt$ for a $k$-local Hamiltonian of $t$ terms.
 \end{itemize}
 
 \prossec
 \begin{itemize}
-\item Works for terms of arbitrary sizes and simple to implement.
-\item In principle can be used for more types of equations than just $b_1b_2...b_n$ assuming equations can be found.
-\item Relatively sparse connectivity
+\item Works for arbitrary $k$ {\color{red} Nick, are there methods that DON'T work for arbitrary $k$?} and simple to implement.
+\item In principle can be used for more types of equations than just $b_1b_2...b_n$  assuming equations can be found.{\color{red} Nick, why is this a "pro", what is the advantage over other methods?}
+\item Gives a 2-local Hamiltonian with sparse connectivity relative to {(\color{red} some?)} other methods.
 \end{itemize}
 
 \conssec
 \begin{itemize}
 \item Not  very symmetric with respect to variables.
-\item  Not conducive to specialized hardware design
+\item  Not conducive to specialized hardware design {\color{red} (what specialized hardware design?) } 
 \end{itemize}
 
 \examplesec
 
-Let us assume we want to reproduce the spectrum of  $H_4=b_1b_2b_3b_4$, we note that $P(a_k,b_i,b_j)=3a_k-2a_k(b_i+b_j)+b_ib_j$ will yield an energy of $E=0$ iff $a_k=b_ib_j$, and $E>0$ otherwise. We therefore observe that, assuming a large value of $\lambda$, the low energy sector of $H_3=b_1b_2b_{a,1} +\lambda(3b_{a,1}-2b_{a,1}(b_3+b_4)+b_3b_4)$ will reproduce the spectrum of $H_4$ with only three local and smaller terms. Performing the same trick again yields a two local Hamiltonian:
+Let us assume we want to reproduce the spectrum of  $H_4=b_1b_2b_3b_4$, we note that $P(a_k,b_i,b_j)=3a_k-2a_k(b_i+b_j)+b_ib_j$ will yield an energy of $E=0$ iff $a_k=b_ib_j$, and $E>0$ otherwise. We therefore observe that, assuming a large enough value of $\lambda$, the low energy sector of $H_3=b_1b_2b_{a,1} +\lambda(3b_{a,1}-2b_{a,1}(b_3+b_4)+b_3b_4)$ will reproduce the spectrum of $H_4$ with terms that are $k$-local with $k\le 3$. Performing the same trick again yields a $2$-local Hamiltonian:
 
 \begin{equation}
-H_2=b_1a_2+ \lambda\left[3b_{a,2}-2b_{a,2}(b_2+b_{a,1})+b_2b_{a,1}\right] +\lambda\left[3b_{a,1}-2b_{a,1}(b_3+b_4)+b_3b_4\right]
+H_2=b_1a_2+ \lambda\left(3b_{a,2}-2b_{a,2}(b_2+b_{a,1})+b_2b_{a,1}\right) +\lambda\left(3b_{a,1}-2b_{a,1}(b_3+b_4)+b_3b_4\right)
 \end{equation}
 
 
@@ -843,7 +840,9 @@ H_2=b_1a_2+ \lambda\left[3b_{a,2}-2b_{a,2}(b_2+b_{a,1})+b_2b_{a,1}\right] +\lamb
 
 \summarysec
 
-Similarly to the methods of recursively reducing the order of terms made of products of $b$ operators, gadgets which guarantee that $z_{a,k}=z_iz_j$ can be chained together to make large product terms consisting of $z$. Recall that products of $z$ correspond to parity check or ${\sc xor}$ operations, while products of $b$ correspond to logical ${\sc and}$ operations. The penalty term which guarantee that $z_{a,k}=\pm z_iz_j$ is $P(z_{a,k},z_i,z_j)= \mp z_{a,k}z_iz_j$. Using a gadget for the three local Hamiltonian, the low energy spectrum of Ising terms of any locality can be produced. This method was originally only used to reprduce the ground state of high locality terms, but states of the "wrong" parity ($q_k=\mp z_iz_j$) will all have the same energy as well, so it reproduces the full spectrum. 
+We now wish to guarantee that $b_{a,k}=b_ib_j$ can be chained together to make large product terms consisting of $b$. 
+%Recall that products of $b$ correspond to parity check or ${\sc xor}$ operations, while products of $b$ correspond to logical ${\sc and}$ operations.
+The penalty term which guarantees that $b_{a,k}=\pm b_ib_j$ is $P(b_{a,k},b_i,z_j)= \mp b_{a,k}b_ib_j$. Using a gadget for the three local Hamiltonian, the low energy spectrum of Ising terms of any locality can be produced. This method was originally only used to reprduce the ground state of high locality terms, but states of the "wrong" parity ($q_k=\mp b_ib_j$) will all have the same energy as well, so it reproduces the full spectrum. 
  
 
 \costsec
@@ -865,16 +864,16 @@ Similarly to the methods of recursively reducing the order of terms made of prod
 
 \examplesec
 
-Let us use this method to reproduce the spectrum of the following five local Hamiltonian $z_1z_2z_3z_4z_5$. We first observe that  the following three local gadget reproduces the spectrum of the three local term $\pm z_1z_2z_3$
+Let us use this method to reproduce the spectrum of the following five local Hamiltonian $b_1b_2b_3b_4b_5$. We first observe that  the following three local gadget reproduces the spectrum of the three local term $\pm b_1b_2b_3$
 
 \begin{equation}
-P_\pm(z_1,z_2,z_3;\lambda)=\lambda\left[z_1z_2+z_2z_3+z_3z_1+2z_a(z_1+z_2+z_3)\right]\mp (z_1+z_2+z_3 +2z_a).
+P_\pm(b_1,b_2,b_3;\lambda)=\lambda\left[b_1b_2+b_2b_3+b_3b_1+2b_a(b_1+b_2+b_3)\right]\mp (b_1+b_2+b_3 +2b_a).
 \end{equation}
 
-Using thee copies of this three local gadget as a building block, and using two additional auxilliary variables, the spectrum of the five local term $z_1z_2z_3z_4z_5$ can be reproduced by the following Hamiltonian
+Using thee copies of this three local gadget as a building block, and using two additional auxilliary variables, the spectrum of the five local term $b_1b_2b_3b_4b_5$ can be reproduced by the following Hamiltonian
 
 \begin{equation}
-H_5=P_+(z_1,z_2,z_{a,1};\lambda)+P_+(z_{a,1},z_3,z_{a,2};\lambda)+P_+(z_{a,2},z_4,z_5;\lambda).
+H_5=P_+(b_1,b_2,b_{a,1};\lambda)+P_+(b_{a,1},b_3,b_{a,2};\lambda)+P_+(b_{a,2},b_4,b_5;\lambda).
 \end{equation}
 
 \refsec
