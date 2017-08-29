@@ -79,9 +79,13 @@ Computing}
 \affiliation{$^{1}$Oxford University, Mathematical Institute, OX2 6GG, Oxford,
 UK. }
 
-\author{Nikesh S. Dattani$^{2,3}$}
+\author{Nicholas Chancellor$^{2}$}
+\email{nicholas.chancellor@gmail.com}
+\affiliation{$^{2}$Department of Physics, Durham University, DH1 3LE, South Road, Durham, UK.}
+
+\author{Nikesh S. Dattani$^{3,4}$}
 \email{dattani.nike@gmail.com}
-\affiliation{$^{2}$Oxford University, Physical and Theoretical Chemistry Laboratory, OX1 3BW, Oxford, UK,}
+\affiliation{$^{3}$Oxford University, Physical and Theoretical Chemistry Laboratory, OX1 3BW, Oxford, UK,}
 
 
 \begin{abstract}
@@ -806,34 +810,45 @@ For each $k$-local term an auxilliary variable and a quadratic penalty function 
 \costsec
 \begin{itemize}
 \item $k-2$ auxiliary variables to reduce each $k$-local terms.
-\item  At most $kt$ for a $k$-local Hamiltonian of $t$ terms.
+\item  At most $k\,t$ for a $k$-local Hamiltonian of $t$ terms.
 \end{itemize}
 
 \prossec
 \begin{itemize}
-\item Works for arbitrary $k$ {\color{red} Nick, are there methods that DON'T work for arbitrary $k$?} and simple to implement.
-\item In principle can be used for more types of equations than just $b_1b_2...b_n$  assuming equations can be found.{\color{red} Nick, why is this a "pro", what is the advantage over other methods?}
-\item Gives a 2-local Hamiltonian with sparse connectivity relative to {(\color{red} some?)} other methods.
+\item  Simple itertive method conducive to automated reduction.
+\item Chain like structure means that long range connectivity not required.
 \end{itemize}
 
 \conssec
 \begin{itemize}
 \item Not  very symmetric with respect to variables.
-\item  Not conducive to specialized hardware design {\color{red} (what specialized hardware design?) } 
+\item  Usually formulated in terms of $b_ib_j$ interactions, therefore not conducive to specialized hardware design since hardware usually has native $z_iz_j$ interactions.
 \end{itemize}
 
 \examplesec
 
-Let us assume we want to reproduce the spectrum of  $H_4=b_1b_2b_3b_4$, we note that $P(a_k,b_i,b_j)=3a_k-2a_k(b_i+b_j)+b_ib_j$ will yield an energy of $E=0$ iff $a_k=b_ib_j$, and $E>0$ otherwise. We therefore observe that, assuming a large enough value of $\lambda$, the low energy sector of $H_3=b_1b_2b_{a,1} +\lambda(3b_{a,1}-2b_{a,1}(b_3+b_4)+b_3b_4)$ will reproduce the spectrum of $H_4$ with terms that are $k$-local with $k\le 3$. Performing the same trick again yields a $2$-local Hamiltonian:
+Let us assume we want to reproduce the spectrum of  $H_4=b_1b_2b_3b_4$, first note that
+\begin{equation}
+ P(b_{a_k},b_i,b_j)=3b_{a_k}-2b_{a_k}(b_i+b_j)+b_ib_j
+\end{equation}
+ will yield an energy of $E=0$ iff $a_k=b_ib_j$, and $E>0$ otherwise. We first reduce the order of the polynomial by $1$ by applying this penalty term with a large positive prefactor $\lambda$.
+\begin{equation} 
+H_{3-local}=b_1b_2b_{a_1} +\lambda(3b_{a_1}-2b_{a_1}(b_3+b_4)+b_3b_4)
+\end{equation}
+ Performing the same trick again yields a $2$-local Hamiltonian:
 
 \begin{equation}
-H_2=b_1a_2+ \lambda\left(3b_{a,2}-2b_{a,2}(b_2+b_{a,1})+b_2b_{a,1}\right) +\lambda\left(3b_{a,1}-2b_{a,1}(b_3+b_4)+b_3b_4\right)
+H_{2-local}=b_1b_{a_2}+ \lambda\left(3\,b_{a_2}-2b_{a_2}(b_2+b_{a_1})+b_2b_{a,1}\right) +\lambda\left(3\,b_{a_1}-2b_{a_1}(b_3+b_4)+b_3b_4\right)
 \end{equation}
 
 
 \refsec
 \begin{itemize}
-\item \textcolor{red}{add later, references to many D-Wave papers including Biamonte and Bian papers, as well as Perdomo-Ortiz paper}
+\item Paper on underlying mathematical principles \cite{Boros2002}.
+\item Mapping techniques applied to protein folding \cite{Perdomo2008}.
+\item Techniques applied to Low Density Parity Code decoding on D-Wave devices \cite{Bian2013}.
+\item Small gadgets which can be used with these techniques \cite{Biamonte2008a}.
+\item Variation of these techniques used to prove unviersality of the Ising model \cite{DelasCuevasGemmaandCubitt2016}.
 \end{itemize}
 
 \subsection{Chained Three Body Parity Operators}
@@ -842,7 +857,7 @@ H_2=b_1a_2+ \lambda\left(3b_{a,2}-2b_{a,2}(b_2+b_{a,1})+b_2b_{a,1}\right) +\lamb
 
 We now wish to guarantee that $b_{a,k}=b_ib_j$ can be chained together to make large product terms consisting of $b$. 
 %Recall that products of $b$ correspond to parity check or ${\sc xor}$ operations, while products of $b$ correspond to logical ${\sc and}$ operations.
-The penalty term which guarantees that $b_{a,k}=\pm b_ib_j$ is $P(b_{a,k},b_i,z_j)= \mp b_{a,k}b_ib_j$. Using a gadget for the three local Hamiltonian, the low energy spectrum of Ising terms of any locality can be produced. This method was originally only used to reprduce the ground state of high locality terms, but states of the "wrong" parity ($q_k=\mp b_ib_j$) will all have the same energy as well, so it reproduces the full spectrum. 
+The penalty term which guarantees that $b_{a_k}=\pm b_ib_j$ is $P(b_{a_k},b_i,z_j)= \mp b_{a_k}b_ib_j$. Using a gadget for the three local Hamiltonian, the low energy spectrum of Ising terms of any locality can be produced. This method was originally only used to reprduce the ground state of high locality terms, but states of the "wrong" parity ($q_k=\mp b_ib_j$) will all have the same energy as well, so it reproduces the full spectrum. 
  
 
 \costsec
@@ -852,8 +867,8 @@ The penalty term which guarantees that $b_{a,k}=\pm b_ib_j$ is $P(b_{a,k},b_i,z_
 
 \prossec
 \begin{itemize}
-\item Natural transmon implementation.
-\item Relatively low degree of connectivity.
+\item Natural transmon implementation \cite{Leib2016}.
+\item Chain like structure means that long range connectivity not required.
 \end{itemize}
 
 \conssec
@@ -864,7 +879,7 @@ The penalty term which guarantees that $b_{a,k}=\pm b_ib_j$ is $P(b_{a,k},b_i,z_
 
 \examplesec
 
-Let us use this method to reproduce the spectrum of the following five local Hamiltonian $b_1b_2b_3b_4b_5$. We first observe that  the following three local gadget reproduces the spectrum of the three local term $\pm b_1b_2b_3$
+Let us use this method to reproduce the spectrum of the following five local Hamiltonian $b_1b_2b_3b_4b_5$.  The following three local gadget reproduces the spectrum of the three local term $\pm b_1b_2b_3$
 
 \begin{equation}
 P_\pm(b_1,b_2,b_3;\lambda)=\lambda\left[b_1b_2+b_2b_3+b_3b_1+2b_a(b_1+b_2+b_3)\right]\mp (b_1+b_2+b_3 +2b_a).
@@ -873,78 +888,134 @@ P_\pm(b_1,b_2,b_3;\lambda)=\lambda\left[b_1b_2+b_2b_3+b_3b_1+2b_a(b_1+b_2+b_3)\r
 Using thee copies of this three local gadget as a building block, and using two additional auxilliary variables, the spectrum of the five local term $b_1b_2b_3b_4b_5$ can be reproduced by the following Hamiltonian
 
 \begin{equation}
-H_5=P_+(b_1,b_2,b_{a,1};\lambda)+P_+(b_{a,1},b_3,b_{a,2};\lambda)+P_+(b_{a,2},b_4,b_5;\lambda).
+H_{2-local}=P_+(b_1,b_2,b_{a_1};\lambda)+P_+(b_{a_1},b_3,b_{a_2};\lambda)+P_+(b_{a_2},b_4,b_5;\lambda).
 \end{equation}
 
 \refsec
 \begin{itemize}
-\item \textcolor{red}{add later, cite second Lechner paper, plus NC work on three local gadget}
+\item Original proposal with transmon implementation: \cite{Leib2016}.
 \end{itemize}
 
 \subsection{Multibody Operators in PAQC}
 
 \summarysec
 
-Parity adiabatic quantum computing (PAQC) is an AQC archetecture in which logical qubits are mapped onto a highly non-local logical space of a Hamiltonian. These methods allow for high order terms to be directly implemented, but also require high locality terms to be implemented. While these archetectures are not strictly a mapping from devices with high locality to two local ones, they may be built upon any gadget which has the same ground state manifold as $\prod_iz_i$. In other words, even PAQC schemes can reprduce the entire spectrum of a Hamiltonian, even if the gadgets which they are built on top of do not.
+Parity adiabatic quantum computing (PAQC) is an AQC archetecture in which logical qubits are mapped onto a highly non-local logical space of a Hamiltonian. These methods allow for high order terms to be directly implemented, but also require high locality terms to be implemented. While these archetectures are not strictly a mapping from devices with high locality to two local ones, they may be built upon any gadget which has the same ground state manifold as $\prod_iz_i$. In other words, PAQC schemes can reprduce the entire spectrum of a Hamiltonian, even if the gadgets which they are built on top of do not.
+
+In PAQC, physical qubits descirbe relative parities of logical qubits, rather than the qubits themselves. In genral not all configurations of these qubits will be mathematically allowed, so a constraint Hamiltonian must be applied to enforce that the physical qubits can only take arrangements which correspond to mathematically self-consistant configurations of logical qubtis.
 
 \costsec
 \begin{itemize}
-\item In the original (Lechner-Hauke-Zoller) scheme \textcolor{red}{citation}, an $n$ body PAQC constraint which is capable of reproducing the full spectrum requires a $2n$ local gadget which reproduces only the ground state manifold of $\prod_i^{2n}z_i$. 
-\item Since $n$ logical operators must intersect for an $n$ local gadget, at least a gadget which reproduces the ground state manifold of the ground state manifold of $\prod_i^{n}z_i$ is required.
+\item In the original (Lechner-Hauke-Zoller) scheme \cite{Lechner2015}, an $n$ body PAQC constraint which is capable of reproducing the full spectrum requires a $2n$ local gadget which reproduces only the ground state manifold of $\prod_i^{2n}z_i$. 
+\item Cost is more complicated to compute (but often lower) for other schemes.
 \end{itemize}
 
 \prossec
 \begin{itemize}
-\item Connection to stablizers allows for novel decoding\textcolor{red}{citations}.
-\item Natural for producing highly connected Hamiltonians.
+\item Connection to stablizers allows for novel decoding \cite{Pastawski2016,Albash2016}.
+\item Natural Rydberg atom based implementation \cite{Glaetzle2017}.
 \item Some implementations are highly symmetric, which may be good for quantum simulations.
 \end{itemize}
 
 \conssec
 \begin{itemize}
 \item Requires other gadgets to implement.
-\item Potentially difficult to embed arbitrary sparse Hamiltonians efficiently.
+\item Numerics suggest poor performance in some cases \cite{Albash2016}.
 \end{itemize}
 
 \examplesec
 
-Rather than considering a mapping which maps qubit values directly, let us consider a mapping which maps physical qubits to the relative parity of paris of logical qubits. If we consider only the relative parity pairs of qubits, we observe that there will be $n(n-1)$ such parity values, but not all of these parity values correspond to physically realizable configurations, for instance it is not mathematically possible for to have $z_1z_2=-1$, $z_2z_3=1$ and $z_1z_3=1$ simultaneously. We therefore need to add constraints to gaurantee that only mathematically consistant configurations are allowed. If we consider four qubits, these constraints are realized in the ground state manifold of the three qubit LHZ constraint Hamiltonian:
+%Rather than considering a mapping which maps qubit values directly, let us consider a mapping which maps physical qubits to the relative parity of paris of logical qubits. If we consider only the relative parity pairs of qubits, we observe that there will be $n(n-1)$ such parity values, but not all of these parity values correspond to physically realizable configurations, for instance it is not mathematically possible for to have $z_1z_2=-1$, $z_2z_3=1$ and $z_1z_3=1$ simultaneously. We therefore need to add constraints to gaurantee that only mathematically consistant configurations are allowed. If we consider four qubits, these constraints are realized in the ground state manifold of the three qubit LHZ constraint Hamiltonian:
+
+Let us start with the LHZ constraint Hamiltonian, which constrains qubits discirbing to body parity terms to take only mathematically allowed values:
 
 \begin{equation}
 H_{LHZ}=-z_{1,2}z_{1,3}z_{2,3}-z_{1,3}z_{1,4}z_{2,4}z_{2,3}-z_{2,3}z_{2,4}z_{3,4}. \label{eq:LHZ4}
 \end{equation}
 
-Two local coupling between logical qubits in this state can therefore be achieved by introducing single qubit variables corresponding to each coupling, for instance adding a term $m\,z_{1,2}$ will intrduce a coupling between logical qubits $1$ and $2$ of strength $m$. If we want to add the four body constraint $z_1z_2z_3z_4$, we must add an additional physical qubit $z_{1,2,3,4}$ which is constrained to match the parity of $z_1z_2z_3z_4$. To accomplish this, we note that this total parity has to match $z_{1,2}z_{3,4}$, the Hamiltonian with added four body coupling of strength $m$ therefore takes the form:
+%Two local coupling between logical qubits in this state can therefore be achieved by introducing single qubit variables corresponding to each coupling, for instance adding a term $m\,z_{1,2}$ will intrduce a coupling between logical qubits $1$ and $2$ of strength $m$. If we want to add the four body constraint $z_1z_2z_3z_4$, we must add an additional physical qubit $z_{1,2,3,4}$ which is constrained to match the parity of $z_1z_2z_3z_4$. To accomplish this, we note that this total parity has to match $z_{1,2}z_{3,4}$, the Hamiltonian with added four body coupling of strength $m$ therefore takes the form:
+
+To add a four body term, we need to add a single qubit which couples to $z_{1,2}$ and $z_{3,4}$, single body constraints on this qubit correspond to a $4$ body constraint on the logical qubits.
+
 
 
 \begin{equation}
-H_4=m\,z_{1,2,3,4}+\lambda\,(H_{LHZ}-z_{1,2}z_{3,4}z_{1,2,3,4}),
+H_{4-local}=m\,z_{1,2,3,4}+\lambda\,(H_{LHZ}-z_{1,2}z_{3,4}z_{1,2,3,4}),
 \end{equation}
 where $\lambda$ is a large postive number.
 
 If we instead wanted to create the three body coupling $z_1z_2z_3$ of strength $m$, we would have to add an additional variable $z_1$, since Eq. \ref{eq:LHZ4} only constrains the logical qubits up to global spin inversion. By noting that  $z_1z_2z_3=z_{1}z_{2,3}$ we see that such a three body Hamiltonian can take the form:
 
 \begin{equation}
-H_3=m\,z_{1,2,3}+\lambda\,(H_{LHZ}-z_{1}z_{2,3}z_{1,2,3}).
+H_{3-local}=m\,z_{1,2,3}+\lambda\,(H_{LHZ}-z_{1}z_{2,3}z_{1,2,3}).
 \end{equation}
 
 \refsec
 \begin{itemize}
-\item \textcolor{red}{add later, cite LHZ and Simon Benjamin stabilizer paper}
+\item Original (LHZ) paper: \cite{Lechner2015}
+\item Additional design techniques based on stabilizers: \cite{Rocchetto2016}
+\item Superconducting circuit implementations of LHZ: \cite{Leib2016,Chancellor2017}
+\item Rydberg Implementation of LHZ: \cite{Glaetzle2017}.
+\item Performance and decoding of LHZ: \cite{Pastawski2016,Albash2016}.
 \end{itemize}
 
 \subsection{Symmetry Based Mappings}
 
-\textcolor{red}{
-subsections  I (NC) need to have:
+\summarysec
+
+By making Hamiltonians with $1$ and $2$ body terms and full permutation symmetry with respect to logical qubits, auxilliary qubits can be made to "count" the number of of logical qubits in the $1$ configuration. By applying single qubit terms to the auxilliary qubits, the spectrum of \emph{any} permutation symmetric Hamiltonian can be reproduced. 
+
+\costsec
 \begin{itemize}
-\item recursive qubo methods
-\item chains of 3 local gadgets (thing in second Lechner paper)
-\item our methods based on symmetry
-\item Simon Benjamin Stabilizer idea and multidimensional LHZ (one section)
-\item Possibly others: need to check how distinct some of the work Alejandro Perdomo-Ortiz and Jacob Biamonte have done is, whether these should be their own subsections or just references in exiting ones
+\item For a $k$ local coupler requires $k$ auxilliary qubits.
 \end{itemize}
-}
+
+\prossec
+\begin{itemize}
+\item Natural flux qubit implementation \cite{Chancellor2017}.
+\item Single gadget can reproduce any permutation symmetric spectrum.
+\item High degree of symmetry means this method is natural for some kinds of quantum simulations \cite{Chancellor2016a}.
+\end{itemize}
+
+\conssec
+\begin{itemize}
+\item Requires coupling between all logical qubits and from all logical qubits to all auxilliary qubits.
+\item Requires single body terms of increasing strength as $k$ is increased.
+\end{itemize}
+
+\examplesec
+
+A Hamiltonian for a  $4$ qubit gadget which forces the number of auxilliary qubits in the one state to match the number of logical qubits in the zero state takes the form:
+
+%\begin{equation}
+%H_{4-count}=  \sum_{i=2}^4 \sum_{j =1}^{i-1} z_i z_j -\frac{1}{2} \sum_{i=1}^4  z_i +  \sum_{i=1}^4 \sum_{j=1}^4 z_i z_{a_j} +   \sum_{i=1}^4  (2\,i-4+\frac{1}{2}) z_{a_i}. 
+%\end{equation}
+
+\begin{equation}
+H_{4-count}=  \sum_{i=2}^4 \sum_{j =1}^{i-1} z_i z_j -\frac{1}{2} \sum_{i=1}^4  z_i +  \sum_{i=1}^4 \sum_{j=1}^4 z_i z_{a_j}  +2.5\,z_{a_1}+ 0.5\,z_{a_2}-1.5\,z_{a_3}-3.5\,z_{a_4}.
+\end{equation}
+
+To replicate the spectrum of $z_1z_2z_3z_4$, we should implement
+%
+\begin{equation}
+H_{4-local}=z_{a_1}-z_{a_2}+z_{a_3}-z_{a_4}+ \lambda H_{4-count},
+\end{equation}
+%
+where $\lambda$ is a large number.
+
+Likewise for the spectrum of $b_1b_2b_3b_4$, we should implement,
+%
+\begin{equation}
+H_{4-local}=-\frac{1}{2}z_{a_4}+ \lambda H_{4-count}.
+\end{equation}
+
+\refsec
+\begin{itemize}
+\item Paper on flux qubit implementation: \cite{Chancellor2017}
+\item Paper on max-k-sat mapping: \cite{Chancellor2016}
+\item Talk including use in quantum simulation: \cite{Chancellor2016a}.
+\end{itemize}
+
 
 
 
