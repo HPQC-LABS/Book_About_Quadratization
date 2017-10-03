@@ -101,13 +101,17 @@ Computing}
 \affiliation{$^{1}$Oxford University, Mathematical Institute, OX2 6GG, Oxford,
 UK. }
 
-\author{Nikesh S. Dattani$^{2,3}$}
+\author{Nicholas Chancellor$^{2}$}
+\email{nicholas.chancellor@gmail.com}
+\affiliation{$^{2}$Department of Physics, Durham University, DH1 3LE, South Road, Durham, UK.}
+
+\author{Nikesh S. Dattani$^{3,4}$}
 \email{dattani.nike@gmail.com}
-\affiliation{$^{2}$Oxford University, Physical and Theoretical Chemistry Laboratory, OX1 3BW, Oxford, UK,}
+\affiliation{$^{3}$Oxford University, Physical and Theoretical Chemistry Laboratory, OX1 3BW, Oxford, UK,}
 
 
 \begin{abstract}
-A collaborative, evolving, open review paper on k-local to 2-local transformations (quadratizations) in classical computing, quantum annealing, and universal adiabatic quantum computing.  Here we survey the state-of-the-art in a sort of cook book style, so users can directly apply the known results to their ongoing work.  This review is particularly focused on applications which have now emerged with rely on the realization of penalty functions using adiabatic quantum computers. (Please note that the last two sentences were added by JDB as a means to add something for a trial push). 
+A collaborative, evolving, open review paper on k-local to 2-local transformations (quadratizations) in classical computing, quantum annealing, and universal adiabatic quantum computing.  
 \end{abstract}
 
 \maketitle
@@ -202,14 +206,14 @@ Given a general Hamiltonian we can try to find ELCs by enumerating solutions of 
 
 Consider the Hamiltonian: 
 \begin{equation}
-H_{{\rm 3-local}}=z_{1}z_{2}+z_{2}z_{3}+z_{3}z_{4}-4z_{1}z_{2}z_{3}.
+H_{{\rm 3-local}}=b_{1}b_{2}+b_{2}b_{3}+b_{3}b_{4}-4b_{1}b_{2}b_{3}.
 \end{equation}
-If $z_{1}z_{2}z_{3}=0$, no assignment of our variables will we be able to reach a lower energy than if $z_{1}z_{2}z_{3}=1$.
-Hence $(z_{1},z_{2},z_{3})=(1,0,0)$ is a Local Excludable Configuration (ELC) and we can form the polynomial:
+If $b_{1}b_{2}b_{3}=0$, no assignment of our variables will we be able to reach a lower energy than if $b_{1}b_{2}b_{3}=1$.
+Hence $(b_{1},b_{2},b_{3})=(1,0,0)$ is a Local Excludable Configuration (ELC) and we can form the polynomial:
 \begin{equation}
-H_{2\rm{-local}}=H_{{\rm 3-local}}+4z_{1}(1-z_{2})(1-z_{3})=z_{1}z_{2}+z_{2}z_{3}+z_{3}z_{4}+4z_{1}-4z_{1}z_{2}-4z_{1}z_{3}.
+H_{2\rm{-local}}=H_{{\rm 3-local}}+4b_{1}(1-b_{2})(1-b_{3})=b_{1}b_{2}+b_{2}b_{3}+b_{3}b_{4}+4b_{1}-4b_{1}b_{2}-4b_{1}b_{3}.
 \end{equation}
-In both cases, the only global minima occur when $z_1z_2z_3 = 1$.
+In both cases, the only global minima occur when $b_1b_2b_3 = 1$.
 
 \refsec
 \begin{itemize}
@@ -220,7 +224,7 @@ In both cases, the only global minima occur when $z_1z_2z_3 = 1$.
 
 \summarysec
 
-We look for \emph{deductions} (e.g. $z_{1}z_{2}=0$) that hold at the global minimum.
+We look for \emph{deductions} (e.g. $b_{1}b_{2}=0$) that hold at the global minimum.
 These can be found by \emph{a priori} knowledge of the given problem, or by enumerating solutions of a small subset of the variables.
 We can then substitute high-order terms using the low-order terms of the deduction, and add on a penalty term to preserve the ground states \cite{Tanburn2015c}.
 
@@ -253,16 +257,16 @@ Examples are difficult to illustrate in a paper, since they involve searching fo
 \end{comment}
 Consider the Hamiltonian: 
 \begin{equation}
-H_{4{\rm -local}}=z_{1}z_{2}(10+z_{3}+z_{3}z_{4})+z_{1}(z_{3}-3)+z_{2}(z_{3}-2z_{3}-z_{4}-1)+F(x_{3},x_{4},x_{5},\ldots,x_{N})
+H_{4{\rm -local}}=b_{1}b_{2}(10+b_{3}+b_{3}b_{4})+b_{1}(b_{3}-3)+b_{2}(b_{3}-2b_{3}-b_{4}-1)+F(x_{3},x_{4},x_{5},\ldots,x_{N})
 \end{equation}
- where $F$ is any polynomial in $z_{i}$ for $3\le i$.
+ where $F$ is any polynomial in $b_{i}$ for $3\le i$.
 
-Since the $10$ coefficient of $z_{1}z_{2}$ is greater than the sum of all of the other coefficients involving $z_{1}$ or $z_{2}$, it must be the case that $z_{1}z_{2}=0$.
-Specifically, for the 4 assignments of $(z_{3},z_{4})$, we see that $z_{1}z_{2}=0$ at every minimum of $H_{4{\rm -local}}-F$.
+Since the $10$ coefficient of $b_{1}b_{2}$ is greater than the sum of all of the other coefficients involving $b_{1}$ or $b_{2}$, it must be the case that $b_{1}b_{2}=0$.
+Specifically, for the 4 assignments of $(b_{3},b_{4})$, we see that $b_{1}b_{2}=0$ at every minimum of $H_{4{\rm -local}}-F$.
 
 Using deduc-reduc we have:
 \begin{equation}
-H_{2{\rm -local}}=12z_{1}z_{2}+z_{1}(z_{3}-3)+z_{2}(z_{3}-2z_{3}-z_{4}-1)+F(x_{3},x_{4},x_{5},\ldots,x_{N})
+H_{2{\rm -local}}=12b_{1}b_{2}+b_{1}(b_{3}-3)+b_{2}(b_{3}-2b_{3}-b_{4}-1)+F(x_{3},x_{4},x_{5},\ldots,x_{N})
 \end{equation}
 
 which has the same global minima as $H_{4-local}$ but one fewer quartic and one fewer cubic term.
@@ -314,7 +318,7 @@ as the \emph{algebraic variety} $\mathcal{V}(f_{1},...,f_{n})$. Groebner
 bases are a 'pleasant' generating set for this variety.
 
 This is done by first defining a monomial ordering on the polynomial
-ring $F[z_{1},...,z_{n}]$, chosen so that higher order mononials
+ring $F[b_{1},...,b_{n}]$, chosen so that higher order mononials
 are considered 'bigger' than low order monomials. Monomials of the
 same degree are sorted by the lexicographic ordering of the variables.
 Then define the leading term of a polynomial $f$ with respect to
@@ -363,16 +367,16 @@ Work has been done in the field of 'Boolean Groebner bases', but while the varia
 Consider the following pair of equations:
 
 \begin{equation}
-x y z w + x z + y w - z = x + x y + z - 2 = 0.
+b_1 b_2 b_3 b_4 + b_1 b_3 + b_2 b_4 - b_3 = b_1 + b_1 b_2 + b_3 - 2 = 0.
 \end{equation}
 
-Feeding these to Mathematica's ${\tt GroebnerBasis}$ function, along with the binarizing $x(x-1)=\ldots=w(w-1)=0$ constraints, gives a Groebner basis:
+Feeding these to Mathematica's ${\tt GroebnerBasis}$ function, along with the binarizing $b_1(b_1-1)=\ldots=b_4(b_4-1)=0$ constraints, gives a Groebner basis:
 
 \begin{equation}
-\left\{ w z - w, y + z - 1, x - 1 \right\}.
+\left\{ b_4 b_3 - b_4, b_2 + b_3 - 1, b_1 - 1 \right\}.
 \end{equation}
 
-From this we can immediately read off the solutions $x=1$, $y=1-z$ and reduce the problem to $wz-w=0$. Solving this gives a final solution set of: $(x, y, z, w) = (1, 0, 1, 0), (1, 0, 1, 1), (1, 1, 0, 0)$.
+From this we can immediately read off the solutions $b_1=1$, $b_2=1-b_3$ and reduce the problem to $b_3b_4-b_4=0$. Solving this gives a final solution set of: $(b_1, b_2, b_3, b_4) = (1, 0, 1, 0), (1, 0, 1, 1), (1, 1, 0, 0)$.
 
 \refsec
 \begin{itemize}
@@ -427,23 +431,23 @@ Exponential in the number of splits, as the number of problems to solve doubles 
 
 Consider the simple objective function 
 \begin{equation}
-H=1+z_{1}z_{2}z_{5}+z_{1}z_{6}z_{7}z_{8}+z_{3}z_{4}z_{8}-z_{1}z_{3}z_{4}.
+H=1+b_{1}b_{2}b_{5}+b_{1}b_{6}b_{7}b_{8}+b_{3}b_{4}b_{8}-b_{1}b_{3}b_{4}.
 \end{equation}
 In order to quadratize $H$, we first have to choose a variable to split over.
-In this case $z_{1}$ is the obvious choice since it is present in the most terms and contributes to the quartic term.
+In this case $b_{1}$ is the obvious choice since it is present in the most terms and contributes to the quartic term.
 
 We then obtain two different problems:
 \begin{eqnarray}
-H_{0} & = & 1+z_{3}z_{4}z_{8}\\
-H_{1} & = & 1+z_{2}z_{5}+z_{6}z_{7}z_{8}+z_{3}z_{4}z_{8}-z_{3}z_{4}.
+H_{0} & = & 1+b_{3}b_{4}b_{8}\\
+H_{1} & = & 1+b_{2}b_{5}+b_{6}b_{7}b_{8}+b_{3}b_{4}b_{8}-b_{3}b_{4}.
 \end{eqnarray}
 
 At this point, we could split $H_{0}$ again and solve it entirely, or use a qubit we saved in the previous split to quadratize our only problem.
 
-To solve $H_{1}$, we can split again on $z_{8}$, resulting in problems:
+To solve $H_{1}$, we can split again on $b_{8}$, resulting in problems:
 \begin{eqnarray}
-H_{1,0} & = & 1+z_{2}z_{5}+z_{6}z_{7}\\
-H_{1,1} & = & 1+z_{2}z_{5}+z_{3}z_{4}.
+H_{1,0} & = & 1+b_{2}b_{5}+b_{6}b_{7}\\
+H_{1,1} & = & 1+b_{2}b_{5}+b_{3}b_{4}.
 \end{eqnarray}
 Now both of these problems are quadratic.
 Hence we have reduced our original, hard problem into 3 easy problems, requiring only 2 extra runs of our minimization algorithm, and without needing any auxiliary variables.
@@ -459,9 +463,9 @@ Hence we have reduced our original, hard problem into 3 easy problems, requiring
 
 \summarysec
 
-For a negative term $-z_{1}z_{2}...z_{k}$, introduce a single auxiliary variable $a$ and make the substitution:
+For a negative term $-b_{1}b_{2}...b_{k}$, introduce a single auxiliary variable $b_a$ and make the substitution:
 \begin{equation}
--z_{1}z_{2}...z_{k} = \min_a \left\{ (n-1-\sum z_{i})a \right\}.
+-b_{1}b_{2} \ldots b_{k} = \min_{b_a} \left\{ (n-1-\sum b_{i})b_a \right\}.
 \end{equation}
 
 \costsec
@@ -484,24 +488,24 @@ For a negative term $-z_{1}z_{2}...z_{k}$, introduce a single auxiliary variable
 \examplesec
 
 \begin{align}
-H_{{\rm 6-local}} & =-2z_{1}z_{2}z_{3}z_{4}z_{5}z_{6} + z_5z_6,
+H_{{\rm 6-local}} & =-2b_{1}b_{2}b_{3}b_{4}b_{5}b_{6} + b_5b_6,
 \end{align}
-has a unique minimum energy of -1 when all $z_i=1$.
+has a unique minimum energy of -1 when all $b_i=1$.
 
 \begin{equation}
-H_{{\rm 2-local}}=2\left( 5a-z_{1}a-z_{2}a-z_{3}a-z_{4}a-z_{5}a-z_{6}a \right) + z_5z_6
+H_{{\rm 2-local}}=2\left( 5b_a-b_{1}b_a-b_{2}b_a-b_{3}b_a-b_{4}b_a-b_{5}b_a-b_{6}b_a \right) + b_5b_6
 \end{equation}
-has the same unique minimum energy, and it occurs at the same place (all $z_i=1$), with $a=1$.
+has the same unique minimum energy, and it occurs at the same place (all $b_i=1$), with $b_a=1$.
 
 \begin{comment}
 \examplesec
 \begin{align}
-H_{{\rm 5-local}} & =-z_{1}z_{2}z_{3}z_{4}z_{5}-z_{1}z_{2}z_{3}z_{4}z_{6},
+H_{{\rm 5-local}} & =-b_{1}b_{2}b_{3}b_{4}b_{5}-b_{1}b_{2}b_{3}b_{4}b_{6},
 \end{align}
-has a unique minimum energy of -2 when all $z$'s are 1.
+has a unique minimum energy of -2 when all $b$'s are 1.
 
 \begin{equation}
-H_{{\rm 3-local}}=(3-z_{1}-z_{2}-z_{3}-z_{4})(z_{5}+z_{6})a
+H_{{\rm 3-local}}=(3-b_{1}-b_{2}-b_{3}-b_{4})(b_{5}+b_{6})a
 \end{equation}
 has the same unique minimum energy, and it occurs at the same place,
 with $a=1$.
@@ -517,10 +521,10 @@ with $a=1$.
 
 \summarysec
 
-By considering the negated literals $\bar{z}_{i}=1-z_{i}$, we recursively apply the previous method to $z_{1}z_{2}\ldots z_{k}=-\bar{z}_{1}z_{2}\ldots z_{k}+z_{2}z_{3}\ldots z_{k}$.
+By considering the negated literals $\bar{b}_{i}=1-b_{i}$, we recursively apply the previous method to $b_{1}b_{2}\ldots b_{k}=-\bar{b}_{1}b_{2}\ldots b_{k}+b_{2}b_{3}\ldots b_{k}$.
 The final identity is:
 \begin{equation}
-z_{1}z_{2}\ldots z_{k}=\min_{a}\big\{\sum_{i=1}^{k-2}a_{i}(k-i-1+z_{i}-\sum_{j=i+1}^{k}z_{j})\big\}+z_{k-1}z_{k}
+b_{1}b_{2}\ldots b_{k}=\min_{b_a}\big\{\sum_{i=1}^{k-2}b_{a_{i}}(k-i-1+b_{i}-\sum_{j=i+1}^{k}b_{j})\big\}+b_{k-1}b_{k}
 \end{equation}
 
 
@@ -541,7 +545,7 @@ z_{1}z_{2}\ldots z_{k}=\min_{a}\big\{\sum_{i=1}^{k-2}a_{i}(k-i-1+z_{i}-\sum_{j=i
 
 \examplesec
 \begin{eqnarray}
-z_{1}z_{2}z_{3}z_{4} & = & \min_{a}{a_{1}(2+z_{1}-z_{2}-z_{3}-z_{4})+a_{2}(1+z_{2}-z_{3}-z_{4})}+z_{3}z_{4}
+b_{1}b_{2}b_{3}b_{4} & = & \min_{b_a}{b_{a_{1}}(2+b_{1}-b_{2}-b_{3}-b_{4})+b_{a_{2}}(1+b_{2}-b_{3}-b_{4})}+b_{3}b_{4}
 \end{eqnarray}
 
 \refsec
@@ -553,11 +557,11 @@ z_{1}z_{2}z_{3}z_{4} & = & \min_{a}{a_{1}(2+z_{1}-z_{2}-z_{3}-z_{4})+a_{2}(1+z_{
 By flipping and applying \ref{subsec:Negative-Monomial-Reduction} alternatively, we get a nice way to reduce a quartic using only 2 variables and with only 2 positive terms and much less connectivity:
 
 \begin{eqnarray}
-z_{1}z_{2}z_{3}z_{4} & \mapsto & z_{2}z_{3}z_{4}-\bar{z}_{1}z_{2}z_{3}z_{4}\\
- & \mapsto & z_{2}z_{3}z_{4}+\big(3a_{1}-a_{1}(\bar{z}_{1}+z_{2}+z_{3}+z_{4})\big)\\
- & \mapsto & z_{3}z_{4}-\bar{z}_{2}z_{3}z_{4}+\big(3a_{1}-a_{1}(\bar{z}_{1}+1-\bar{z}_{2}+z_{3}+z_{4})\big)\\
- & \mapsto & z_{3}z_{4}+\big(2a_{2}-a_{2}(\bar{z}_{2}+z_{3}+z_{4}\big)\big)+\big(3a_{1}-a_{1}(\bar{z}_{1}+1-\bar{z}_{2}+z_{3}+z_{4})\big)\\
- & \mapsto & z_{3}z_{4}+a_{2}+a_{2}z_{2}-a_{2}z_{3}-a_{2}z_{4}+2a_{1}+a_{1}z_{1}-a_{1}z_{2}-a_{1}z_{3}-a_{1}z_{4}
+b_{1}b_{2}b_{3}b_{4} & \mapsto & b_{2}b_{3}b_{4}-\bar{b}_{1}b_{2}b_{3}b_{4}\\
+ & \mapsto & b_{2}b_{3}b_{4}+\big(3a_{1}-a_{1}(\bar{b}_{1}+b_{2}+b_{3}+b_{4})\big)\\
+ & \mapsto & b_{3}b_{4}-\bar{b}_{2}b_{3}b_{4}+\big(3a_{1}-a_{1}(\bar{b}_{1}+1-\bar{b}_{2}+b_{3}+b_{4})\big)\\
+ & \mapsto & b_{3}b_{4}+\big(2a_{2}-a_{2}(\bar{b}_{2}+b_{3}+b_{4}\big)\big)+\big(3a_{1}-a_{1}(\bar{b}_{1}+1-\bar{b}_{2}+b_{3}+b_{4})\big)\\
+ & \mapsto & b_{3}b_{4}+a_{2}+a_{2}b_{2}-a_{2}b_{3}-a_{2}b_{4}+2a_{1}+a_{1}b_{1}-a_{1}b_{2}-a_{1}b_{3}-a_{1}b_{4}
 \end{eqnarray}
 \end{comment}
 
@@ -568,7 +572,7 @@ z_{1}z_{2}z_{3}z_{4} & \mapsto & z_{2}z_{3}z_{4}-\bar{z}_{1}z_{2}z_{3}z_{4}\\
 
 This method rewrites a positive monomial using symmetric polynomials, so all possible quadratic terms are produced and they are all non-submodular: 
 \begin{equation}
-z_{1}...z_{k} = \min_{a_1, \ldots, a_{n_k}} \left\{ \sum_{i=1}^{n_{k}}a_{i}(c_{i,d}(-\sum_{j=1}^{k}z_{j}+2i)-1)+\sum_{i<j}z_{i}z_{j} \right\}
+b_{1}...b_{k} = \min_{b_{a_1}, \ldots, b_{a_{n_k}}} \left\{ \sum_{i=1}^{n_{k}}b_{a_{i}}(c_{i,d}(-\sum_{j=1}^{k}b_{j}+2i)-1)+\sum_{i<j}b_{i}b_{j} \right\}
 \end{equation}
 where $n_{k}=\left\lfloor \frac{k-1}{2}\right\rfloor $ and $c_{i,k}=\begin{cases}
 1, & i=n_{d}\text{ and }k\text{ is odd,}\\
@@ -595,7 +599,7 @@ About half as many auxiliary variables for each $k$-order term as the previous m
 
 \examplesec
 \begin{eqnarray}
-z_{1}z_{2}z_{3}z_{4} & = & \min_{a}(3-2z_{1}-2z_{2}-2z_{3}-2z_{4})a+z_{1}z_{2}+z_{1}z_{3}+z_{1}z_{4}+z_{2}z_{3}+z_{2}z_{4}+z_{3}z_{4}
+b_{1}b_{2}b_{3}b_{4} & = & \min_{b_a}(3-2b_{1}-2b_{2}-2b_{3}-2b_{4})b_a+b_{1}b_{2}+b_{1}b_{3}+b_{1}b_{4}+b_{2}b_{3}+b_{2}b_{4}+b_{3}b_{4}
 \end{eqnarray}
 
 \refsec
@@ -611,7 +615,7 @@ Similar to other methods of reducing one term, this method can reduce a positive
 
 The identity is given by:
 \begin{equation}
-z_{1}z_{2}z_{3}= \min_a \left\{ a-z_{2}a-z_{3}a+z_{1}a+z_{2}z_{3} \right\}
+b_{1}b_{2}b_{3}= \min_{b_a} \left\{ b_a-b_{2}b_a-b_{3}b_a+b_{1}b_a+b_{2}b_{3} \right\}
 \end{equation}
 
 \costsec
@@ -638,24 +642,24 @@ z_{1}z_{2}z_{3}= \min_a \left\{ a-z_{2}a-z_{3}a+z_{1}a+z_{2}z_{3} \right\}
 
 \summarysec
 
-For any variable $z$, we can consider the negation $\bar{z}=1-z$.
-The process of exchanging $z$ for $\bar{z}$ is called \emph{flipping}.
+For any variable $b$, we can consider the negation $\bar{b}=1-b$.
+The process of exchanging $b$ for $\bar{b}$ is called \emph{flipping}.
 Using bit-flipping, an arbitrary function in $n$ variables can be represented using at most $2^{(n-2)}(n-3)+1$ variables, though this is a gross overestimate.
 
 Can be used in many different ways:
 \begin{enumerate}
 \item Flipping positive terms and using \ref{subsec:Negative-Monomial-Reduction}, recursively;
-\item For $\alpha<0$, we can reduce $\alpha\bar{z}_{1}\bar{z}_{2}...\bar{z}_{k}$ very efficiently to submodular form using \ref{subsec:Negative-Monomial-Reduction}.
+\item For $\alpha<0$, we can reduce $\alpha\bar{b}_{1}\bar{b}_{2}...\bar{b}_{k}$ very efficiently to submodular form using \ref{subsec:Negative-Monomial-Reduction}.
 A generalized version exists for arbitrary combinations of flips in the monomial which makes reduction entirely submodular \cite{Ishikawa2011};
 \item When we have quadratized we can minimize the number of non-submodular terms by flipping.
-\item We can make use of both $z_{i}$ and $\bar{z}_{i}$ in the same Hamiltonian by adding on a sufficiently large penalty term: $\lambda(z_{i}+\bar{z}_{i}-1)^{2}=\lambda(1+2z_{i}\bar{z}_{i}-z_{i}-\bar{z}_{i})$.
+\item We can make use of both $b_{i}$ and $\bar{b}_{i}$ in the same Hamiltonian by adding on a sufficiently large penalty term: $\lambda(b_{i}+\bar{b}_{i}-1)^{2}=\lambda(1+2b_{i}\bar{b}_{i}-b_{i}-\bar{b}_{i})$.
 This is similar to the ideas in reduction by substitution or deduc-reduc.
 In this way, given a quadratic in $n$ variables we can make sure it only has at most $n$ nonsubmodular terms if we are willing to use the extra $n$ negation variables as well (so we have $2n$ variables in total).
 \end{enumerate}
 
 \costsec
 \begin{itemize}
-\item None, as replacing $z_{i}$ with it's negation $\bar{z}_{i}$ costs nothing except a trivial symbolic expansion.
+\item None, as replacing $b_{i}$ with it's negation $\bar{b}_{i}$ costs nothing except a trivial symbolic expansion.
 \end{itemize}
 
 \prossec
@@ -667,15 +671,15 @@ In this way, given a quadratic in $n$ variables we can make sure it only has at 
 \conssec
 \begin{itemize}
 \item Unless form of the Hamiltonian is known, spotting these 'factorizations' using negations is going to be difficult.
-\item If we want to use $z$ and $\bar{z}$ we need an auxiliary variable.
+\item If we want to use $b$ and $\bar{b}$ we need an auxiliary variable.
 \end{itemize}
 
 \examplesec
 
-By bit-flipping $z_2$ and $z_4$, i.e. substituting $z_2 = 1 - \bar{z}_{2}$ and $z_4 = 1 - \bar{z}_{4}$, we see that:
+By bit-flipping $b_2$ and $b_4$, i.e. substituting $b_2 = 1 - \bar{b}_{2}$ and $b_4 = 1 - \bar{b}_{4}$, we see that:
 \begin{eqnarray}
-H & = & 3z_{1}z_{2}+z_{2}z_{3}+2z_{1}z_{4}-4z_{2}z_{4}\protect\\
- & = & -3z_{1}\bar{z}_{2}-\bar{z}_{2}z_{3}-2z_{1}\bar{z}_{4}-\bar{z}_{2}\bar{z}_{4}+5z_{1}+z_{3}+4\bar{z}_{2}+4\bar{z}_{4}-4.
+H & = & 3b_{1}b_{2}+b_{2}b_{3}+2b_{1}b_{4}-4b_{2}b_{4}\protect\\
+ & = & -3b_{1}\bar{b}_{2}-\bar{b}_{2}b_{3}-2b_{1}\bar{b}_{4}-\bar{b}_{2}\bar{b}_{4}+5b_{1}+b_{3}+4\bar{b}_{2}+4\bar{b}_{4}-4.
 \end{eqnarray}
 The first expression is highly non-submodular while the second is entirely submodular.
 
@@ -690,8 +694,8 @@ The first expression is highly non-submodular while the second is entirely submo
 
 \summarysec
 
-Pick a variable pair $z_{i},z_{j}$ and substitute $z_{i}z_{j}$ for new auxiliary variable $a_{i,j}$.
-Enforce equality in the ground states by adding some scalar multiple of $z_{i}z_{j}-2z_{i}a_{i,j}-2z_{i}a_{i,j}+3a_{i,j}$ or similar.
+Pick a variable pair $b_{i},b_{j}$ and substitute $b_{i}b_{j}$ for new auxiliary variable $b_{a_{i,j}}$.
+Enforce equality in the ground states by adding some scalar multiple of $b_{i}b_{j}-2b_{i}b_{a_{i,j}}-2b_{i}b_{a_{i,j}}+3b_{a_{i,j}}$ or similar.
 
 \costsec
 \begin{itemize}
@@ -713,10 +717,10 @@ Enforce equality in the ground states by adding some scalar multiple of $z_{i}z_
 
 \examplesec
 
-We pick the pair $(z_{1},z_{2})$ and combine.
+We pick the pair $(b_{1},b_{2})$ and combine.
 
 \begin{equation}
-z_{1}z_{2}z_{3}+z_{1}z_{2}z_{4}\mapsto z_{3}a+z_{4}a+z_{1}z_{2}-2z_{1}a-2z_{1}a+3a
+b_{1}b_{2}b_{3}+b_{1}b_{2}b_{4}\mapsto b_{3}b_a+b_{4}b_a+b_{1}b_{2}-2b_{1}b_a-2b_{1}b_a+3b_a
 \end{equation}
 
 \refsec
@@ -737,11 +741,11 @@ The algorithm comes in 2 parts: when all $\alpha_{H}>0$ and when all $\alpha_{H}
 \begin{enumerate}
 \item $\alpha_{H}>0$ 
 \begin{equation}
-\sum_{H\in\mathcal{H}}\alpha_{H}\prod_{j\in H}z_{j}=\min_{a}(\sum_{H\in\mathcal{H}}\alpha_{H})a\prod_{j\in C}z_{j}+\sum_{H\in\mathcal{H}}\alpha_{H}(1-a)\prod_{j\in H\setminus C}z_{j}
+\sum_{H\in\mathcal{H}}\alpha_{H}\prod_{j\in H}b_{j}=\min_{b_a}(\sum_{H\in\mathcal{H}}\alpha_{H})b_a\prod_{j\in C}b_{j}+\sum_{H\in\mathcal{H}}\alpha_{H}(1-b_a)\prod_{j\in H\setminus C}b_{j}
 \end{equation}
 \item $\alpha_{H}<0$
 \begin{equation}
-\sum_{H\in\mathcal{H}}\alpha_{H}\prod_{j\in H}z_{j}=\min_{a}\sum_{H\in\mathcal{H}}\alpha_{H}(1-\prod_{j\in C}z_{j}-\prod_{j\in H\setminus C}z_{j})a
+\sum_{H\in\mathcal{H}}\alpha_{H}\prod_{j\in H}b_{j}=\min_{b_a}\sum_{H\in\mathcal{H}}\alpha_{H}(1-\prod_{j\in C}b_{j}-\prod_{j\in H\setminus C}b_{j})b_a
 \end{equation}
 \end{enumerate}
 
@@ -765,16 +769,16 @@ The algorithm comes in 2 parts: when all $\alpha_{H}>0$ and when all $\alpha_{H}
 
 \examplesec
 
-First let $C=z_{1}$ and use the positive weight version:
+First let $C=b_{1}$ and use the positive weight version:
 \begin{eqnarray}
-z_{1}z_{2}z_{3}+z_{1}z_{2}z_{4} & \mapsto & 2a_{1}z_{1}+(1-a_{1})z_{2}z_{3}+(1-a_{1})z_{2}z_{4}\\
- & = & 2a_{1}z_{1}+z_{2}z_{3}+z_{2}z_{4}-a_{1}z_{2}z_{3}-a_{1}z_{2}z_{4}
+b_{1}b_{2}b_{3}+b_{1}b_{2}b_{4} & \mapsto & 2b_{a_1}b_{1}+(1-b_{a_1})b_{2}b_{3}+(1-b_{a_1})b_{2}b_{4}\\
+ & = & 2b_{a_1}b_{1}+b_{2}b_{3}+b_{2}b_{4}-b_{a_1}b_{2}b_{3}-b_{a_1}b_{2}b_{4}
 \end{eqnarray}
 now we can use \ref{subsec:Negative-Monomial-Reduction}:
 
 \begin{eqnarray}
--a_{1}z_{2}z_{3}-a_{1}z_{2}z_{4} & \mapsto & 2a_{2}-a_{1}a_{2}-a_{2}z_{2}-a_{2}z_{3}+2a_{2}-a_{1}a_{2}-a_{2}z_{2}-a_{2}z_{4}\\
- & = & 4a_{2}-2a_{1}a_{2}-2a_{2}z_{2}-a_{2}z_{3}-a_{2}z_{4}.
+-b_{a_1}b_{2}b_{3}-b_{a_1}b_{2}b_{4} & \mapsto & 2b_{a_2}-b_{a_1}b_{a_2}-b_{a_2}b_{2}-b_{a_2}b_{3}+2b_{a_2}-b_{a_1}b_{a_2}-b_{a_2}b_{2}-b_{a_2}b_{4}\\
+ & = & 4b_{a_2}-2b_{a_1}b_{a_2}-2b_{a_2}b_{2}-b_{a_2}b_{3}-b_{a_2}b_{4}.
 \end{eqnarray}
 
 \refsec
@@ -809,10 +813,235 @@ For computer image problems, it can be used with the above methods to optimize m
 
 \section{Methods that reproduce the full spectrum}
 
-In all the above, we take advantage of the fact that we just want the correct state and we don't care about anything else.
-This gave us the freedom to do all sorts of things to the Hamiltonian, as long as we keep the ground state the same.
-What if we want to quadratize a Hamiltonian while preserving the whole spectrum?
-%LHZ scheme and Paul Warburton's methods.
+All known methods to map the entire spectrum of a Hamiltonian rely on the same basic principle: auxilliary variables are added, to mediate the high-order interactions, and constraints are added to restrict the values which the axilliary variables can take. In practice, constraints are implemented as one and two term equations with much stronger energy penalties than those in the original Hamiltonian. As long as the constraints are sufficiently strong, the low energy subspace of the 2-local Hamiltonian will be exactly the spectrum of the $k$-local Hamiltonian which has been mapped. Moreover, the location of the original `logical' variables is known and so the resulting configuration of the mapped variables can easily be determined.
+
+%If we want to reproduce the spectrum of  $b_1b_2b_3$, (such that the state $b_1=1,b_2=1,b_3=1$ will have energy $1$ and all others will have energy $0$)  we need to find a quadratic penalty function $P(a,b_1,b_2)$ such that if an auxilliary variable $a$ satisfies $a=b_1b_2$, $P(a,b_1,b_2)=0$, and $P(a,b_1,b_2)>0$ otherwise. If we can find such a function (we explain how to do this is subsection \ref{sub:recursive}), then the desired spectrum will be reproduced in the low energy sector of the following Hamiltonian.
+
+%\begin{equation}
+%H_{3-\rm{local}}=b_3\,a+\lambda\,P(a,b_1,b_2)
+%\end{equation}
+
+%\noindent where $\lambda$ is a large positive number.
+
+
+
+\subsection{Recursive Order Reduction\label{sub:recursive}}
+
+\summarysec
+
+For each $k$-local term an auxilliary variable and a quadratic penalty function to constrain the auxilliary variable, is used to reduce the term's order to $(k-1)$-local. This is repeated recursively until the term is 2-local.
+
+\costsec
+\begin{itemize}
+\item $k-2$ auxiliary variables to reduce each $k$-local terms.
+\item  At most $k\,t$ for a $k$-local Hamiltonian of $t$ terms.
+\end{itemize}
+
+\prossec
+\begin{itemize}
+\item  Simple itertive method conducive to automated reduction.
+\item Chain like structure means that long range connectivity not required.
+\end{itemize}
+
+\conssec
+\begin{itemize}
+\item Not  very symmetric with respect to variables.
+\item  Usually formulated in terms of $b_ib_j$ interactions, therefore not conducive to specialized hardware design since hardware usually has native $z_iz_j$ interactions.
+\end{itemize}
+
+\examplesec
+
+Let us assume we want to reproduce the spectrum of  $H_4=b_1b_2b_3b_4$, first note that
+\begin{equation}
+ P(b_{a_k},b_i,b_j)=3b_{a_k}-2b_{a_k}(b_i+b_j)+b_ib_j
+\end{equation}
+ will yield an energy of $E=0$ iff $a_k=b_ib_j$, and $E>0$ otherwise. We first reduce the order of the polynomial by $1$ by applying this penalty term with a large positive prefactor $\lambda$.
+\begin{equation} 
+H_{3-local}=b_1b_2b_{a_1} +\lambda(3b_{a_1}-2b_{a_1}(b_3+b_4)+b_3b_4)
+\end{equation}
+ Performing the same trick again yields a $2$-local Hamiltonian:
+
+\begin{equation}
+H_{2-local}=b_1b_{a_2}+ \lambda\left(3\,b_{a_2}-2b_{a_2}(b_2+b_{a_1})+b_2b_{a,1}\right) +\lambda\left(3\,b_{a_1}-2b_{a_1}(b_3+b_4)+b_3b_4\right)
+\end{equation}
+
+
+\refsec
+\begin{itemize}
+\item Paper on underlying mathematical principles \cite{Boros2002}.
+\item Mapping techniques applied to protein folding \cite{Perdomo2008}.
+\item Techniques applied to Low Density Parity Code decoding on D-Wave devices \cite{Bian2013}.
+\item Small gadgets which can be used with these techniques \cite{Biamonte2008a}.
+\item Variation of these techniques used to prove unviersality of the Ising model \cite{DelasCuevasGemmaandCubitt2016}.
+\end{itemize}
+
+\subsection{Chained Three Body Parity Operators}
+
+\summarysec
+
+We now wish to guarantee that $b_{a,k}=b_ib_j$ can be chained together to make large product terms consisting of $b$. 
+%Recall that products of $b$ correspond to parity check or ${\sc xor}$ operations, while products of $b$ correspond to logical ${\sc and}$ operations.
+The penalty term which guarantees that $b_{a_k}=\pm b_ib_j$ is $P(b_{a_k},b_i,z_j)= \mp b_{a_k}b_ib_j$. Using a gadget for the three local Hamiltonian, the low energy spectrum of Ising terms of any locality can be produced. This method was originally only used to reprduce the ground state of high locality terms, but states of the "wrong" parity ($q_k=\mp b_ib_j$) will all have the same energy as well, so it reproduces the full spectrum. 
+ 
+
+\costsec
+\begin{itemize}
+\item The best known gadget for a three local Ising term uses one auxilliary qubit. Based on this gadget an $n\ge4$ body Ising term can be made using $3+2(n-4)$ auxilliary qubits. 
+\end{itemize}
+
+\prossec
+\begin{itemize}
+\item Natural transmon implementation \cite{Leib2016}.
+\item Chain like structure means that long range connectivity not required.
+\end{itemize}
+
+\conssec
+\begin{itemize}
+\item Does not preserve degeneracy, ground state will retain orginal degeneracy, but excited states will have degeneracy multipled by $n-3$
+\item Not very symmetric.
+\end{itemize}
+
+\examplesec
+
+Let us use this method to reproduce the spectrum of the following five local Hamiltonian $b_1b_2b_3b_4b_5$.  The following three local gadget reproduces the spectrum of the three local term $\pm b_1b_2b_3$
+
+\begin{equation}
+P_\pm(b_1,b_2,b_3;\lambda)=\lambda\left[b_1b_2+b_2b_3+b_3b_1+2b_a(b_1+b_2+b_3)\right]\mp (b_1+b_2+b_3 +2b_a).
+\end{equation}
+
+Using thee copies of this three local gadget as a building block, and using two additional auxilliary variables, the spectrum of the five local term $b_1b_2b_3b_4b_5$ can be reproduced by the following Hamiltonian
+
+\begin{equation}
+H_{2-local}=P_+(b_1,b_2,b_{a_1};\lambda)+P_+(b_{a_1},b_3,b_{a_2};\lambda)+P_+(b_{a_2},b_4,b_5;\lambda).
+\end{equation}
+
+\refsec
+\begin{itemize}
+\item Original proposal with transmon implementation: \cite{Leib2016}.
+\end{itemize}
+
+\subsection{Multibody Operators in PAQC}
+
+\summarysec
+
+Parity adiabatic quantum computing (PAQC) is an AQC archetecture in which logical qubits are mapped onto a highly non-local logical space of a Hamiltonian. These methods allow for high order terms to be directly implemented, but also require high locality terms to be implemented. While these archetectures are not strictly a mapping from devices with high locality to two local ones, they may be built upon any gadget which has the same ground state manifold as $\prod_iz_i$. In other words, PAQC schemes can reprduce the entire spectrum of a Hamiltonian, even if the gadgets which they are built on top of do not.
+
+In PAQC, physical qubits descirbe relative parities of logical qubits, rather than the qubits themselves. In genral not all configurations of these qubits will be mathematically allowed, so a constraint Hamiltonian must be applied to enforce that the physical qubits can only take arrangements which correspond to mathematically self-consistant configurations of logical qubtis.
+
+\costsec
+\begin{itemize}
+\item In the original (Lechner-Hauke-Zoller) scheme \cite{Lechner2015}, an $n$ body PAQC constraint which is capable of reproducing the full spectrum requires a $2n$ local gadget which reproduces only the ground state manifold of $\prod_i^{2n}z_i$. 
+\item Cost is more complicated to compute (but often lower) for other schemes.
+\end{itemize}
+
+\prossec
+\begin{itemize}
+\item Connection to stablizers allows for novel decoding \cite{Pastawski2016,Albash2016}.
+\item Natural Rydberg atom based implementation \cite{Glaetzle2017}.
+\item Some implementations are highly symmetric, which may be good for quantum simulations.
+\end{itemize}
+
+\conssec
+\begin{itemize}
+\item Requires other gadgets to implement.
+\item Numerics suggest poor performance in some cases \cite{Albash2016}.
+\end{itemize}
+
+\examplesec
+
+%Rather than considering a mapping which maps qubit values directly, let us consider a mapping which maps physical qubits to the relative parity of paris of logical qubits. If we consider only the relative parity pairs of qubits, we observe that there will be $n(n-1)$ such parity values, but not all of these parity values correspond to physically realizable configurations, for instance it is not mathematically possible for to have $z_1z_2=-1$, $z_2z_3=1$ and $z_1z_3=1$ simultaneously. We therefore need to add constraints to gaurantee that only mathematically consistant configurations are allowed. If we consider four qubits, these constraints are realized in the ground state manifold of the three qubit LHZ constraint Hamiltonian:
+
+Let us start with the LHZ constraint Hamiltonian, which constrains qubits discirbing to body parity terms to take only mathematically allowed values:
+
+\begin{equation}
+H_{LHZ}=-z_{1,2}z_{1,3}z_{2,3}-z_{1,3}z_{1,4}z_{2,4}z_{2,3}-z_{2,3}z_{2,4}z_{3,4}. \label{eq:LHZ4}
+\end{equation}
+
+%Two local coupling between logical qubits in this state can therefore be achieved by introducing single qubit variables corresponding to each coupling, for instance adding a term $m\,z_{1,2}$ will intrduce a coupling between logical qubits $1$ and $2$ of strength $m$. If we want to add the four body constraint $z_1z_2z_3z_4$, we must add an additional physical qubit $z_{1,2,3,4}$ which is constrained to match the parity of $z_1z_2z_3z_4$. To accomplish this, we note that this total parity has to match $z_{1,2}z_{3,4}$, the Hamiltonian with added four body coupling of strength $m$ therefore takes the form:
+
+To add a four body term, we need to add a single qubit which couples to $z_{1,2}$ and $z_{3,4}$, single body constraints on this qubit correspond to a $4$ body constraint on the logical qubits.
+
+
+
+\begin{equation}
+H_{4-local}=m\,z_{1,2,3,4}+\lambda\,(H_{LHZ}-z_{1,2}z_{3,4}z_{1,2,3,4}),
+\end{equation}
+where $\lambda$ is a large postive number.
+
+If we instead wanted to create the three body coupling $z_1z_2z_3$ of strength $m$, we would have to add an additional variable $z_1$, since Eq. \ref{eq:LHZ4} only constrains the logical qubits up to global spin inversion. By noting that  $z_1z_2z_3=z_{1}z_{2,3}$ we see that such a three body Hamiltonian can take the form:
+
+\begin{equation}
+H_{3-local}=m\,z_{1,2,3}+\lambda\,(H_{LHZ}-z_{1}z_{2,3}z_{1,2,3}).
+\end{equation}
+
+\refsec
+\begin{itemize}
+\item Original (LHZ) paper: \cite{Lechner2015}
+\item Additional design techniques based on stabilizers: \cite{Rocchetto2016}
+\item Superconducting circuit implementations of LHZ: \cite{Leib2016,Chancellor2017}
+\item Rydberg Implementation of LHZ: \cite{Glaetzle2017}.
+\item Performance and decoding of LHZ: \cite{Pastawski2016,Albash2016}.
+\end{itemize}
+
+\subsection{Symmetry Based Mappings}
+
+\summarysec
+
+By making Hamiltonians with $1$ and $2$ body terms and full permutation symmetry with respect to logical qubits, auxilliary qubits can be made to "count" the number of of logical qubits in the $1$ configuration. By applying single qubit terms to the auxilliary qubits, the spectrum of \emph{any} permutation symmetric Hamiltonian can be reproduced. 
+
+\costsec
+\begin{itemize}
+\item For a $k$ local coupler requires $k$ auxilliary qubits.
+\end{itemize}
+
+\prossec
+\begin{itemize}
+\item Natural flux qubit implementation \cite{Chancellor2017}.
+\item Single gadget can reproduce any permutation symmetric spectrum.
+\item High degree of symmetry means this method is natural for some kinds of quantum simulations \cite{Chancellor2016a}.
+\end{itemize}
+
+\conssec
+\begin{itemize}
+\item Requires coupling between all logical qubits and from all logical qubits to all auxilliary qubits.
+\item Requires single body terms of increasing strength as $k$ is increased.
+\end{itemize}
+
+\examplesec
+
+A Hamiltonian for a  $4$ qubit gadget which forces the number of auxilliary qubits in the one state to match the number of logical qubits in the zero state takes the form:
+
+%\begin{equation}
+%H_{4-count}=  \sum_{i=2}^4 \sum_{j =1}^{i-1} z_i z_j -\frac{1}{2} \sum_{i=1}^4  z_i +  \sum_{i=1}^4 \sum_{j=1}^4 z_i z_{a_j} +   \sum_{i=1}^4  (2\,i-4+\frac{1}{2}) z_{a_i}. 
+%\end{equation}
+
+\begin{equation}
+H_{4-count}=  \sum_{i=2}^4 \sum_{j =1}^{i-1} z_i z_j -\frac{1}{2} \sum_{i=1}^4  z_i +  \sum_{i=1}^4 \sum_{j=1}^4 z_i z_{a_j}  +2.5\,z_{a_1}+ 0.5\,z_{a_2}-1.5\,z_{a_3}-3.5\,z_{a_4}.
+\end{equation}
+
+To replicate the spectrum of $z_1z_2z_3z_4$, we should implement
+%
+\begin{equation}
+H_{4-local}=z_{a_1}-z_{a_2}+z_{a_3}-z_{a_4}+ \lambda H_{4-count},
+\end{equation}
+%
+where $\lambda$ is a large number.
+
+Likewise for the spectrum of $b_1b_2b_3b_4$, we should implement,
+%
+\begin{equation}
+H_{4-local}=-\frac{1}{2}z_{a_4}+ \lambda H_{4-count}.
+\end{equation}
+
+\refsec
+\begin{itemize}
+\item Paper on flux qubit implementation: \cite{Chancellor2017}
+\item Paper on max-k-sat mapping: \cite{Chancellor2016}
+\item Talk including use in quantum simulation: \cite{Chancellor2016a}.
+\end{itemize}
+
+
+
 
 \section{Strategies for combining methods}
 
@@ -900,11 +1129,25 @@ The more auxiliary qubits included in the 2-local Hamiltonian, the more paramete
 \end{itemize}
 \section{Recursive gadget reduction (original)}
 
-klocal -> (k-1)loal -> (k-2)local -> ... -> 2-local (1 auxiliary each time)
-
 \summarysec
 
+Group all $k$-local terms together and express their sum as a sum of products of commuting matrices $s_{ij}$:
+
+\begin{align}
+H_{k-\rm{local}} = \sum_i\prod_j s_{ij} + H_{(k-1)-\rm{local}}. \label{eq:klocalInKempeMethod}
+\end{align}
+
+\noindent Define auxiliary qubits labeled by $a_{ij}$ and make the transformation:
+
+\begin{align}
+\sum_i\prod_j s_{ij} \mapsto \frac{\Delta}{4}\left( 9 - \sum_i \left( \sum_j  z_{a_{ij}} \right)^2 - \sum_j z_{a_{ij}}^2 + \frac{1}{\sqrt[3]{6\Delta}} x_{a_{ij}}  \right)+ \Lambda.
+\end{align}
+
+\noindent The result will be a $(k-1)$-local Hamiltonian with the same low-lying spectrum as $H_{k-\rm{local}}$ for large enough $\Delta$. 
+
 \costsec
+
+The number of auxiliary qubits needed is the number of $s_{ij}$ matrices in Eq. \eqref{eq:klocalInKempeMethod}.
 
 \prossec
 \begin{itemize}
@@ -1064,7 +1307,39 @@ Jordan \& Fahri
 
 \refsec
 
+\section{Non-perturbative embeddings}
+
+Subasi \& Jarzynski (2016)
+
+\summarysec
+
+\costsec
+
+\prossec
+\begin{itemize}
+\item
+\item
+\end{itemize}
+
+\conssec
+\begin{itemize}
+\item
+\item
+\end{itemize}
+
+\examplesec
+
+\refsec
+
 \section{Methods that reproduce the full spectrum}
+
+In all the above, we take advantage of the fact that we just want the correct state and we don't care about anything else.
+This gave us the freedom to do all sorts of things to the Hamiltonian, as long as we keep the ground state the same.
+What if we want to quadratize a Hamiltonian while preserving the whole spectrum?
+%LHZ scheme and Paul Warburton's methods.
+
+
+
 
 
 \part{Appendix}
