@@ -41,6 +41,28 @@
     \color#1{#2}#3%
   \endgroup
 }
+%%% adding some commands to comment 
+\usepackage{color}
+%Some shortcuts added for edits
+%Some shortcuts added for edits
+% \usepackage{ulem}
+\definecolor{dred}{rgb}{.8,0.2,.2}
+\definecolor{ddred}{rgb}{.8,0.5,.5}
+\definecolor{dblue}{rgb}{.2,0.2,.8}
+% suggested change
+\newcommand{\add}[1]{\textcolor{dred}{*#1*}} 
+% \usepackage{ulem}
+\newcommand{\out}[1]{\textcolor{ddred}{\textbf{[}#1\textbf{]}}}
+% comment or remark
+%\newcommand{\yo}[1]{\textcolor{dblue}{\textbf{[}#1\textbf{]}}}
+% \newcommand{\todo}[1]{\textbf{\underline{\textcolor{dblue}{\textbf{[}#1\textbf{]}}}}}
+%\newcommand{\jb}[1]{\textcolor{dblue}{\textbf{[}JB: #1\textbf{]}}}
+
+\newcommand{\yo}[1]{\todo{{\textbf{[}JB: #1\textbf{]}}}}
+\newcommand{\jb}[1]{\todo[inline]{{\textbf{[}JB: #1\textbf{]}}}}
+%%%%%%%%%%
+
+
 
 %% Set space of itemize environment
 \usepackage{enumitem} % Used for setting height of itemize environments
@@ -95,7 +117,9 @@ A collaborative, evolving, open review paper on k-local to 2-local transformatio
 
 \section{Introduction}
 
-\textbf{\emph{Every}} computation can be done by minimizing a Hamiltonian
+\yo{I like the idea of entering with the general Ising model and then putting the quantum stuff a bit later on, otherwise it can confuse readers from the pseudoboolean background I fear}. 
+
+\textbf{\emph{Every}} computation can be \out{done by}\add{reduced to} minimizing a Hamiltonian
 of either one of the following forms:
 
 \begin{eqnarray}
@@ -110,7 +134,7 @@ z\equiv\begin{pmatrix}1 & 0\\
 1 & 0
 \end{pmatrix},
 \end{equation}
-the $\alpha$ and $\beta$ coefficients are complex numbers; and the Appendix will teach any unfamiliar readers how to interpret this notation.
+the $\alpha$ and $\beta$ coefficients are \out{complex}\add{real} numbers; and the Appendix will teach any unfamiliar readers how to interpret this notation.
 
 We know that every computation can be done this way because the minimization can be done by adiabatic quantum computation (AQC), and it has been proven \cite{Aharonov2008,Biamonte2008} that AQC can simulate any circuit-based quantum computation with overhead that grows at most polynomially with the size of the problem, and we know that circuit-based quantum computation can simulate any classical computation with at most polynomial overhead. %% Incorrect citation:  %Mizel2007
 If we remove all the terms in Eq. \ref{eq:XX+Z} or Eq. \ref{eq:XZ+Z} that have $x$ operators, we get an Ising Hamiltonian that is quadratic:
@@ -120,7 +144,7 @@ H=\sum_{i}^{n}\alpha_{i}z_{i}+\sum_{ij}^{n}\alpha_{ij}z_{i}z_{j},\label{eq:ZZ+Z}
 and we no longer know of any proof that \textbf{\emph{any}} computation can be done by minimizing such a Hamiltonian with only polynomial overhead compared to circuit-based quantum computation or even classical computation, but plenty of very interesting problems can still be formulated as the minimization or approximate minimization of a quadratic Ising Hamiltonian, such as neural network training \cite{Altaisky2016}, computerized image denoising \cite{Ishikawa2009,Ishikawa2011,Ishikawa2014,Anthony2015}, integer factorization \cite{Dattani2014}, and Ramsey number determination \cite{Gaitan2012,Bian2013}, just to name a few.
 However unlike Eq. \ref{eq:XZ+Z}, plenty of devices that can minimize Ising Hamiltonians already exist, and with further restrictions on the $\alpha$ coefficients, D-Wave has made devices with $n=2000$, and this number has roughly doubled every 14 months since the first 1-qubit demonstration in 2003, a phenomenon analogous to Moore's law of classical computer growth, which has become known as Rose's Law.
 
-Furthermore,\textbf{\emph{ no classical computer has ever been able to minimize certain quadratic Ising Hamiltonians faster than the D-Wave machines to date}} \cite{Denchev2016,Mandra2016}, so being able to turn computations into the form of Eq. \ref{eq:ZZ+Z} appears to be promising in terms of demonstrating the first useful application of quantum supremacy (which is the term used for quantum devices outperforming classical computation devices).
+Furthermore,\textbf{\emph{ no classical computer has \out{ever been able}\add{yet} to minimize certain quadratic Ising Hamiltonians faster than the D-Wave machines to date}} \cite{Denchev2016,Mandra2016}, so being able to turn computations into the form of Eq. \ref{eq:ZZ+Z} appears to be promising in terms of demonstrating the first useful application of quantum supremacy (which is the term used for quantum devices outperforming classical computation devices).
 Moreover, for problems like neural networks and computerized image denoising, the best known classical computation algorithms also work by turning the problems into minimizations of Ising Hamiltonians, so even if you are happy with continuing to only use classical computer and have no interest in using quantum annealing devices, turning a problem into a quadratic Ising Hamiltonian minimization problem can be very powerful for some computations.
 
 For neural networks, image denoising, integer factorization, and Ramsey number determination, it is rather easy to turn the problem into the form:
