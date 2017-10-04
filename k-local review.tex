@@ -1261,7 +1261,110 @@ klocal -> (k-1)loal -> (k-2)local -> ... -> 2-local (1 auxiliary each time)
 
 \refsec
 
-\subsection{Cao et al. 2013}
+\subsection{Cao et al.~2013}
+Cao et al.~2013 produced two new gadgets and also generally improved the known constructions for several typical gadgets.  
+
+\subsubsection{Creating 3-body gadget from local X}\label{sec:5th_32}
+
+
+\summarysec  ~In general, terms in perturbative gadgets involve mixed couplings (e.g. $X_i Z_j$). Although such couplings can be realized by certain gadget constructions \cite{BL07},
+%\yudong{Here ``creation gadgets" is changed to ``certain gadget constructions".} 
+physical couplings of this type are difficult to realize in an experimental setting. However, there has been significant progress towards experimentally implementing Ising models with transverse fields of the type \cite{2006cond.mat..8253H}:
+\begin{equation}\label{eq:dwave}
+H_{ZZ}=\sum_i\delta_iX_i+\sum_ih_iZ_i+\sum_{i,j}J_{ij} Z_iZ_j.
+\end{equation}
+Accordingly, an interesting question is whether we can approximate 3-body terms such as $\alpha \cdot Z_i\otimes Z_j\otimes Z_k$ using a Hamiltonian of this form. This turns out to be possible by employing a perturbative calculation which considers terms up to $5^\text{th}$ order. 
+
+
+\costsec
+
+\prossec
+\begin{itemize}
+\item
+\item
+\end{itemize}
+
+\conssec
+\begin{itemize}
+\item
+\item
+\end{itemize}  
+               
+\examplesec
+
+
+Similar to the 3- to 2-body reduction discussed previously, we introduce an ancilla $w$ and apply the Hamiltonian $H=\Delta|1\rangle\langle{1}|_w$. We apply the perturbation
+\begin{equation}\label{eq:V5}
+V = H_\text{else}+\mu(Z_i+Z_j+Z_k)\otimes|1\rangle\langle{1}|_w  + \mu\openone\otimes X_w+V_\textrm{comp}
+\end{equation}
+where $\mu = \left(\alpha \Delta^4 / 6\right)^{1/5}$ and $V_\textrm{comp}$ is
+\begin{equation}
+\begin{array}{ccl}
+V_\textrm{comp} & = & \displaystyle \frac{\mu^2}{\Delta} |0\rangle\langle{0}|_w-\left(\frac{\mu^3}{\Delta^2}+ 7 \frac{\mu^5}{\Delta^4}\right)\left(Z_i+Z_j+Z_k \right)\otimes|0\rangle\langle{0}|_w+ \frac{\mu^4}{\Delta^3}\left(3 \openone +2 Z_i Z_j+2 Z_i Z_k +2 Z_j Z_k\right).
+\end{array}
+\end{equation}
+
+To illustrate the basic idea of the $5^\text{th}$ order gadget, define subspaces $\mathcal{L}_-$ and $\mathcal{L}_+$ in the usual way and define $P_-$ and $P_+$ as projectors into these respective subspaces. Then the second term in Eq.\ \ref{eq:V5} with $\otimes|1\rangle\langle{1}|_w$ contributes a linear combination $\mu Z_i+\mu Z_j+ \mu Z_k$ to $V_+=P_+VP_+$. The third term in Eq.\ \ref{eq:V5} induces a transition between $\mathcal{L}_-$ and $\mathcal{L}_+$ yet since it operates trivially on qubits 1-3, it only contributes a constant $\mu$ to the projections $V_{-+}=P_-VP_+$ and $V_{+-}=P_+VP_-$. In the perturbative expansion, the $5^\text{th}$ order contains a term
+\begin{equation}\label{eq:V55}
+\frac{V_{-+}V_+V_+V_+V_{+-}}{(z-\Delta)^4}=\frac{\mu^5 (Z_i+Z_j+Z_k)^3}{(z-\Delta)^4}
+\end{equation}
+due to the combined the contribution of the second and third term in Eq.\ \ref{eq:V5}.
+\noindent{}This yields a term proportional to $\alpha\cdot Z_i\otimes Z_j \otimes Z_k$ along with some 2-local error terms. These error terms, combined with the unwanted terms that arise at $1^\text{st}$ through $4^\text{th}$ order perturbation, are compensated by $V_\text{comp}$. Note that terms at 6$^\textrm{th}$ order and higher are $\Theta(\Delta^{-1/5})$. This means in order to satisfy the gadget theorem of Kempe \emph{et al.} (\cite[Theorem 3]{KKR06}, or Theorem I.1) $\Delta$ needs to be $\Theta(\epsilon^{-5})$. This is the first perturbative gadget that simulates a 3-body target Hamiltonian using the Hamiltonian Eq.\ \ref{eq:dwave}. By rotating the ancilla space, subdivision gadgets can also be implemented using this Hamiltonian: in the $X$ basis, $Z$ terms will induce a transition between the two energy levels of $X$. Therefore $Z_i Z_j$ coupling could be used for a perturbation of the form in Eq.\ \ref{eq:2body_V} in the rotated basis. In principle using {the transverse Ising model in Eq.\ \ref{eq:dwave},} one can reduce some {diagonal} $k$-body Hamiltonian to 3-body by iteratively applying the subdivision gadget and then to 2-body by using the 3-body reduction gadget.
+$\quad$\\
+$\quad$\\
+\noindent{\bf Analysis.} Similar to the gadgets we have presented so far, we introduce an ancilla spin $w$. Applying an energy gap $\Delta$ on the ancilla spin gives the unperturbed Hamiltonian $H=\Delta|1\rangle\langle{1}|_w$. We then perturb the Hamiltonian $H$ using a perturbation $V$ described in \eqref{eq:V5}. Using the same definitions of subspaces $\mathcal{L}_+$ and $\mathcal{L}_-$ as the previous 3-body gadget, the projections of $V$ into these subspaces can be written as
+\begin{equation}\label{eq:V_proj_fifth}
+\begin{array}{ccl}
+V_+ & = & \displaystyle \bigg\{H_\text{else} + \mu(Z_1+Z_2+Z_3) + \frac{{\mu}^4}{\Delta^3}\big[3{\openone}+ 2(Z_1Z_2+Z_1Z_3+Z_2Z_3)\big]\bigg\}\otimes|1\rangle\langle{1}|_w \\[0.1in]
+%& + & \displaystyle 2({\kappa}{\lambda}Z_1Z_2+{\kappa}{\mu}Z_1Z_3+{\lambda}{\mu}Z_2Z_3)\big]\bigg\}\otimes|1\rangle\langle{1}|_w \\[0.1in]
+V_- & = & \displaystyle \bigg\{H_\text{else}+\frac{{\mu}^2}{\Delta}{\openone}-\frac{{\mu}^3}{\Delta^2}(Z_1+Z_2+Z_3){\openone}+\frac{{\mu}^4}{\Delta^3}\big[3\openone+2(Z_1Z_2+Z_1Z_3+Z_2Z_3)\big] \\[0.1in]
+%& + & \displaystyle 2({\kappa}{\lambda}Z_1Z_2+{\kappa}{\mu}Z_1Z_3+{\lambda}{\mu}Z_2Z_3)\big] \\[0.1in]
+& & \displaystyle -\frac{7{\mu}^5}{\Delta^4}\big(Z_1+Z_2+Z_3\big)\bigg\}\otimes|0\rangle\langle{0}|_w \\[0.1in]
+%& & \displaystyle \qquad +(3{\kappa}^2+3{\lambda}^2+{\mu}^2){\mu}Z_3\big]\otimes|0\rangle\langle{0}|_w \\[0.1in]
+V_{-+} & = & {\mu}{\openone}\otimes|0\rangle\langle{1}|_w,\quad V_{+-}= {\mu}{\openone}\otimes|1\rangle\langle{0}|_w. \\[0.1in]
+\end{array}
+\end{equation}
+\noindent{}The low-lying spectrum of $\tilde{H}$ is approximated by the self energy expansion $\Sigma_-(z)$ below with $z\in[-\max{z},\max{z}]$ where $\max{z}=\|H_\text{else}\|+|\alpha|+\epsilon$.
+With the choice of $\mu$ above the expression of $V_+$ in Eq.\ \ref{eq:V_proj_fifth} can be written as
+\begin{equation}\label{eq:Vp_simple}
+V_+=\left(H_\text{else}+{\mu}(Z_1+Z_2+Z_3)+O(\Delta^{1/5})\right)\otimes|1\rangle\langle{1}|_w.
+\end{equation}
+\noindent{}Because we are looking for the $5^\text{th}$ order term in the perturbation expansion that gives a term proportional to $Z_1Z_2Z_3$, expand the self energy in Eq.\ \ref{eq:selfenergy} up to $5^\text{th}$ order:
+\begin{equation}\label{eq:self_energy_fifth}
+\begin{array}{ccl}
+\Sigma_-(z) & = & \displaystyle V_-\otimes|0\rangle\langle{0}|_w+\frac{V_{-+}V_{+-}}{z-\Delta}\otimes|0\rangle\langle{0}|_w+\frac{V_{-+}V_+V_{+-}}{(z-\Delta)^2}\otimes|0\rangle\langle{0}|_w+\frac{V_{-+}V_+V_+V_{+-}}{(z-\Delta)^3}\otimes|0\rangle\langle{0}|_w \\[0.1in]
+& + & \displaystyle \frac{V_{-+}V_+V_+V_+V_{+-}}{(z-\Delta)^4}\otimes|0\rangle\langle{0}|_w+\sum_{k=4}^\infty\frac{V_{-+}V_+^kV_{+-}}{(z-\Delta)^{k+1}}\otimes|0\rangle\langle{0}|_w.
+\end{array}
+\end{equation}
+\noindent{}Using this simplification as well as the expressions for $V_-$, $V_{-+}$ and $V_{+-}$ in Eq.\ \ref{eq:V_proj_fifth}, the self energy expansion Eq.\ \ref{eq:self_energy_fifth} up to $5^\text{th}$ order becomes
+\begin{equation}\label{eq:self_energy_fifth2}
+\begin{array}{ccl}
+\Sigma_-(z) & = & \displaystyle 
+\underbrace{\left(H_\text{else}+\frac{6\mu^5}{\Delta^4}Z_1Z_2Z_3\right)\otimes|0\rangle\langle{0}|_w}_\text{$H_\text{eff}$}+\underbrace{\left(\frac{1}{\Delta}+\frac{1}{z-\Delta}\right){\mu}^2{\openone}\otimes|0\rangle\langle{0}|_w}_\text{$E_1$} \\[0.1in]
+& + & \displaystyle\underbrace{\left(\frac{1}{(z-\Delta)^2}-\frac{1}{\Delta^2}\right)\mu^3(Z_1+Z_2+Z_3)\otimes|0\rangle\langle{0}|_w}_\text{$E_2$}+\underbrace{\left(\frac{1}{\Delta^3}+\frac{1}{(z-\Delta)^3}\right)\cdot \mu^4\cdot(Z_1+Z_2+Z_3)^2\otimes|0\rangle\langle{0}|_w}_\text{$E_3$} \\[0.1in]
+& + & \displaystyle \underbrace{\left(\frac{1}{(z-\Delta)^4}-\frac{1}{\Delta^4}\right)7{\mu}^5(Z_1+Z_2+Z_3)\otimes|0\rangle\langle{0}|_w}_\text{$E_4$}+\underbrace{\frac{{\mu}^2}{(z-\Delta)^2}\cdot\frac{{\mu}^4}{\Delta^3}(Z_1+Z_2+Z_3)^2\otimes|0\rangle\langle{0}|_w}_\text{$E_6$} \\[0.1in]
+& + & O(\Delta^{-2/5})+O(\|H_\text{else}\|\Delta^{-2/5})+O(\|H_\text{else}\|^2\Delta^{-7/5})+O(\|H_\text{else}\|^3\Delta^{-12/5})+\underbrace{\sum_{k=4}^\infty\frac{V_{-+}V_+^kV_{+-}}{(z-\Delta)^{k+1}}\otimes|0\rangle\langle{0}|_w}_\text{$E_7$}. \\[0.1in]
+\end{array}
+\end{equation}
+\noindent{}Similar to what we have done in the previous sections, the norm of the error terms $E_1$ through $E_7$ can be bounded from above by letting $z\mapsto\max{z}$. Then we find that
+\begin{equation}\label{eq:error_total_fifth}
+\begin{array}{ccl}
+\|\Sigma_-(z)-H_\text{targ}\otimes|0\rangle\langle{0}|_w\| & \le & \Theta(\Delta^{-1/5})
+\end{array}
+\end{equation}
+\noindent{}if we only consider the dominant dependence on $\Delta$ and regard $\|H_\text{else}\|$ as a given constant. To guarantee that $\|\Sigma_-(z)-H_\text{targ}\otimes|0\rangle\langle{0}|_w\|\le\epsilon$, we let the right hand side of Eq.\ \ref{eq:error_total_fifth} to be $\le\epsilon$, which translates to $\Delta=\Theta(\epsilon^{-5})$. 
+
+This $\Theta(\epsilon^{-5})$ scaling is numerically illustrated (Fig.\ \ref{fig:ZZZ_fifth_Delta_eps}a). Although in principle the $5^\text{th}$ order gadget can be implemented on a Hamiltonian of form Eq.\ \ref{eq:dwave}, for a small range of $\alpha$, the minimum $\Delta$ needed is already large (Fig.\ \ref{fig:ZZZ_fifth_Delta_eps}b), rendering it challenging to demonstrate the gadget experimentally with current resources. However, this is the only currently known gadget realizable with a transverse Ising model that is able to address the case where $H_\text{else}$ is not necessarily diagonal. 
+
+\refsec
+
+
+
+
+
+
+
+\subsubsection{YY}
 
 \summarysec
 
