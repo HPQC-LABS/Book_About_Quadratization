@@ -13,6 +13,8 @@
 \PassOptionsToPackage{normalem}{ulem}
 \usepackage{ulem}
 
+%pics 
+\usepackage[pdftex]{graphicx}
 
 \makeatletter
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
@@ -1355,6 +1357,15 @@ V_+=\left(H_\text{else}+{\mu}(Z_1+Z_2+Z_3)+O(\Delta^{1/5})\right)\otimes|1\rangl
 \noindent{}if we only consider the dominant dependence on $\Delta$ and regard $\|H_\text{else}\|$ as a given constant. To guarantee that $\|\Sigma_-(z)-H_\text{targ}\otimes|0\rangle\langle{0}|_w\|\le\epsilon$, we let the right hand side of Eq.\ \ref{eq:error_total_fifth} to be $\le\epsilon$, which translates to $\Delta=\Theta(\epsilon^{-5})$. 
 
 This $\Theta(\epsilon^{-5})$ scaling is numerically illustrated (Fig.\ \ref{fig:ZZZ_fifth_Delta_eps}a). Although in principle the $5^\text{th}$ order gadget can be implemented on a Hamiltonian of form Eq.\ \ref{eq:dwave}, for a small range of $\alpha$, the minimum $\Delta$ needed is already large (Fig.\ \ref{fig:ZZZ_fifth_Delta_eps}b), rendering it challenging to demonstrate the gadget experimentally with current resources. However, this is the only currently known gadget realizable with a transverse Ising model that is able to address the case where $H_\text{else}$ is not necessarily diagonal. 
+
+
+\begin{figure}
+\includegraphics[scale=0.15]{pics/sup_fig6a.png}
+\includegraphics[scale=0.15]{pics/sup_fig6b.png}
+\makebox[0.8cm]{}(a)\makebox[8cm]{}(b)
+\caption{\normalsize (a) The scaling of minimum $\Delta$ needed to ensure $\|\Sigma_-(z)-H_\text{eff}\|\le\epsilon$ as a function of $\epsilon^{-1}$. Here we choose $\|H_\text{else}\|=0$, $\alpha=0.1$ and $\epsilon$ ranging from $10^{-0.7}$ to $10^{-2.3}$. The values of minimum $\Delta$ are numerically optimized \cite{footnote:num_op}. The slope of the line at large $\epsilon^{-1}$ is $4.97\approx{5}$, which provides evidence that with the assignments of ${\mu}=(\alpha\Delta^4/6)^{1/5}$, the optimal scaling of $\Delta$ is $\Theta(\epsilon^{-5})$. (b) The numerically optimized \cite{footnote:num_op} gap versus the desired coupling $\alpha$ in the target Hamiltonian. Here $\epsilon=0.01$ and $\|H_\text{else}\|=0$.}
+\label{fig:ZZZ_fifth_Delta_eps}
+\end{figure}
 
 \refsec
 
