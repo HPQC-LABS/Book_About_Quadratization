@@ -112,7 +112,7 @@ UK. }
 
 \author{Nikesh S. Dattani$^{3,4}$}
 \email{dattani.nike@gmail.com}
-\affiliation{$^{3}$Oxford University, Physical and Theoretical Chemistry Laboratory, OX1 3BW, Oxford, UK,}
+\affiliation{$^{3}$McMaster and Harvard,}
 
 
 \begin{abstract}
@@ -1154,6 +1154,7 @@ H_{k-\rm{local}} = \sum_i\prod_j s_{ij} + H_{(k-1)-\rm{local}}. \label{eq:klocal
 \costsec
 
 The number of auxiliary qubits needed is the number of $s_{ij}$ matrices in Eq. \eqref{eq:klocalInKempeMethod}.
+$\Delta =\Theta\left(\epsilon^{-3}\right)$
 
 \prossec
 \begin{itemize}
@@ -1168,36 +1169,6 @@ The number of auxiliary qubits needed is the number of $s_{ij}$ matrices in Eq. 
 \end{itemize}  
                
 \examplesec
-
-
-\subsubsection{Perturbation theory}\label{sec:perturbation}
-In our notation the spin-1/2 Pauli operators will be represented as $\{X,Y,Z\}$ with subscript indicating which spin-1/2 particle (qubit) it acts on. For example $X_2$ is a Pauli operator $X=|0\rangle\langle{1}|+|1\rangle\langle{0}|$ acting on the qubit labelled as $2$.
-
-In the literature there are different formulations of the perturbation theory that are adopted when constructing and analyzing the gadgets. This adds to the challenge faced in comparing the physical resources required among the various proposed constructions. 
-For example, Jordan and Farhi \cite{JF08} use a formulation due to Bloch, while Bravyi et al.\ use a formulation based on the Schrieffer-Wolff transformation \cite{BDLT08}. Here we employ the formulation used in \cite{KKR06,OT06}. For a review on various formulations of perturbation theory, refer to \cite{BDL11}. 
-
-A gadget Hamiltonian $\tilde{H}=H+V$ consists of a penalty Hamiltonian $H$, which applies an energy gap onto an ancilla space, and a perturbation $V$. To explain in further detail how the low-lying sector of the gadget Hamiltonian $\tilde{H}$ approximates the entire spectrum of a certain target Hamiltonian $H_\text{targ}$ with  error $\epsilon$, we set up the following notations: let $\lambda_j$ and $|\psi_j\rangle$ be the $j^\text{th}$ eigenvalue and eigenvector of $H$ and similarly define $\tilde\lambda_j$ and $|\tilde\psi_j\rangle$  as those of $\tilde{H}$, assuming all the eigenvalues are labelled in a weakly increasing order ($\lambda_1\le\lambda_2\le\cdots$, same for $\tilde{\lambda}_j$). Using a cutoff value $\lambda_*$, let $\mathcal{L}_-=\text{span}\{|\psi_j\rangle|\forall j:\lambda_j\le\lambda_*\}$ be the low energy subspace and $\mathcal{L}_+=\text{span}\{|\psi_j\rangle|\forall j:\lambda_j>\lambda_*\}$ be the high energy subspace. Let ${\Pi_-}$ and ${\Pi_+}$ be the orthogonal projectors onto the subspaces $\mathcal{L}_-$ and $\mathcal{L}_+$ respectively. For an operator $O$ we define the partitions of $O$ into the subspaces as $O_-={\Pi_-}O{\Pi_-}$, $O_+={\Pi_+}O{\Pi_+}$, $O_{-+}={\Pi_-}O{\Pi_+}$ and $O_{+-}={\Pi_+}O{\Pi_-}$.  
-
-With the definitions above, one can turn to perturbation theory to approximate $\tilde{H}_-$ using $H$ and $V$. We now consider the operator-valued resolvent $\tilde{G}(z)=(z\openone-\tilde H)^{-1}$. Similarly one would define $G(z)=(z\openone-H)^{-1}$. Note that $\tilde{G}^{-1}(z)-G^{-1}(z)=-V$ so that this allows an expansion in powers of $V$ as \begin{equation}\label{eq:G_expand}
-\tilde{G}=(G^{-1}-V)^{-1}=G(\openone-VG)^{-1}=G+GVG+GVGVG+GVGVGVG+\cdots.
-\end{equation}
-\noindent{}It is then standard to define the self-energy $\Sigma_-(z)=z\openone-({\tilde G}_-(z))^{-1}$. The self-energy is important because the spectrum of $\Sigma_-(z)$ gives an approximation to the spectrum of $\tilde{H}_-$ since by definition $\tilde{H}_-=z\openone-{\Pi_-}(\tilde{G}^{-1}(z)){\Pi_-}$ while $\Sigma_-(z)=z\openone-({\Pi_-}\tilde G(z){\Pi_-})^{-1}$. As is explained by Oliveira and Terhal \cite{OT06}, loosely speaking, if $\Sigma_-(z)$ is roughly constant in some range of $z$ (defined below in Theorem \ref{th:perturbation}) then $\Sigma_-(z)$ is playing the role of $\tilde{H}_-$. This was formalized in \cite{KKR06} and improved in \cite{OT06} where the following theorem is proven (as in \cite{OT06} we state the case where $H$ has zero as its lowest eigenvalue and a spectral gap of $\Delta$. We use operator norm $\|\cdot\|$ which is defined as $\|M\|\equiv\max_{|\psi\rangle\in\mathcal{M}}|\langle\psi|M|\psi\rangle|$ for an operator $M$ acting on a Hilbert space $\mathcal{M}$):
-
-\begin{theorem}[Gadget Theorem \cite{KKR06,OT06}]\label{th:perturbation}
- Let $\|V\|\le\Delta/2$ where $\Delta$ is the spectral gap of $H$ and let the low and high spectrum of $H$ be separated by a cutoff $\lambda_*=\Delta/2$. Now let there be an effective Hamiltonian $H_\text{eff}$ with a spectrum contained in $[a,b]$. If for some real constant $\epsilon>0$ and $\forall z\in[a-\epsilon,b+\epsilon]$ with $a<b<\Delta/2-\epsilon$, the self-energy $\Sigma_-(z)$ has the property that $\|\Sigma_-(z)-H_\text{eff}\|\le\epsilon$, then each eigenvalue $\tilde\lambda_j$ of $\tilde{H}_-$ differs to the $j^\text{th}$ eigenvalue of $H_\text{eff}$, $\lambda_j$, by at most $\epsilon$. In other words $|\tilde{\lambda}_j - \lambda_j|\le\epsilon$, $\forall j$.
-\end{theorem}
-
-To apply Theorem \ref{th:perturbation}, a series expansion for $\Sigma_-(z)$ is truncated at low order for which $H_\text{eff}$ is approximated. The 2-body terms in $H$ and $V$ by construction can give rise to higher order terms in $H_\text{eff}$. For this reason it is possible to engineer $H_\text{eff}$ from $\Sigma_-(z)$ to approximate $H_\text{targ}$ up to error $\epsilon$ in the range of $z$ considered in Theorem \ref{th:perturbation} by introducing auxiliary spins and a suitable selection of 2-body $H$ and $V$. Using the series expansion of $\tilde{G}$ in Eq.\ \ref{eq:G_expand}, the self-energy $\Sigma_-(z)=z\openone-\tilde{G}_-^{-1}(z)$ can be expanded as (for further details see \cite{KKR06})
-\begin{equation}\label{eq:selfenergy}
-\Sigma_-(z)=H_-+V_-+V_{-+}G_+(z)V_{+-}+V_{-+}G_+(z)V_+G_+(z)V_{+-}+\cdots.
-\end{equation}
-The terms of $2^\text{nd}$ order and higher in this expansion give rise to the effective many-body interactions.
-
-\refsec
-
-\begin{itemize}
-\item Kempe et al.
-\end{itemize}
 
 \section{Recursive gadget reduction (better)}
 
@@ -1208,10 +1179,11 @@ klocal -> (k-1)loal -> (k-2)local -> ... -> 2-local (1 auxiliary each time)
 \summarysec
 
 \costsec
+$\Delta =\Theta\left(\epsilon^{-3}\right)$
 
 \prossec
 \begin{itemize}
-\item
+\item only one auxiliary qubit for each 3-local term.
 \item
 \end{itemize}
 
@@ -1224,6 +1196,74 @@ klocal -> (k-1)loal -> (k-2)local -> ... -> 2-local (1 auxiliary each time)
 \examplesec
 
 \refsec
+
+\subsection{Subdivision Gadget. Oliviera \& Terhal (2005)}
+
+\summarysec
+
+For any $k$-local term, we can subdivide it into a product of two $\left(\nicefrac{k}{2}\right)-$local terms:
+
+\begin{align}
+H_{k-\rm{local}} = \alpha H_{1,(\nicefrac{k}{2})-\rm{local}}H_{2,(\nicefrac{k}{2})-\rm{local}} + H_{(k-1)-\rm{local}}.  \label{eq:olivieraTehral}
+\end{align}
+
+% or should the last term be k/2 -1 ?
+
+\noindent Define one qubit $a$ and make the following Hamiltonian is $(\lceil k/2 \rceil +1)$-local:
+
+\begin{align}
+\Delta (1-z_a)/2 + |\alpha|(1+z_a)/2 + \sqrt{|\alpha|\Delta /2}\left(\rm{sgn}H_{1,(\nicefrac{k}{2}-\rm{local})} - H_{2,(\nicefrac{k}{2}-\rm{local})}\right)x_a
+\end{align}
+
+\noindent The result is a $(\lceil k \rceil /2+1)$-local Hamiltonian with the same low-lying spectrum as $H_{k-\rm{local}}$ for large enough $\Delta$. 
+
+
+\costsec
+$\Delta =\Theta\left(\epsilon^{-2}\right)$.
+
+\prossec
+\begin{itemize}
+\item only one qubit to reduce $k$ to $\lceil k/2\rceil +1$
+\item
+\end{itemize}
+
+\conssec
+\begin{itemize}
+\item Only beneficial for $k\ge5$.
+\item 
+\end{itemize}  
+               
+\examplesec
+
+\refsec
+
+\subsection{Improved Subdivision Gadget. Cao et al. (2013)}
+
+\summarysec
+
+
+
+\costsec
+$\Delta \ge \left( \frac{2|\alpha|}{\epsilon}+1\right)(|\alpha|+\epsilon+22||H_{(k-1)-\rm{local}}  )$
+% $\Delta =\Theta\left(\epsilon^{-1}\right)$ ????
+
+\prossec
+\begin{itemize}
+\item only one qubit to reduce $k$ to $\lceil k/2\rceil +1$
+\item
+\end{itemize}
+
+\conssec
+\begin{itemize}
+\item Only beneficial for $k\ge5$.
+\item 
+\end{itemize}  
+               
+\examplesec
+
+\refsec
+
+
 
 \subsection{Bravyi et al (2008)}
 
@@ -1246,6 +1286,35 @@ klocal -> (k-1)loal -> (k-2)local -> ... -> 2-local (1 auxiliary each time)
 \examplesec
 
 \refsec
+
+%\subsubsection{Perturbation theory}\label{sec:perturbation}
+%In our notation the spin-1/2 Pauli operators will be represented as $\{X,Y,Z\}$ with subscript indicating which spin-1/2 particle (qubit) it acts on. For example $X_2$ is a Pauli operator $X=|0\rangle\langle{1}|+|1\rangle\langle{0}|$ acting on the qubit labelled as $2$.
+%
+%In the literature there are different formulations of the perturbation theory that are adopted when constructing and analyzing the gadgets. This adds to the challenge faced in comparing the physical resources required among the various proposed constructions. 
+%For example, Jordan and Farhi \cite{JF08} use a formulation due to Bloch, while Bravyi et al.\ use a formulation based on the Schrieffer-Wolff transformation \cite{BDLT08}. Here we employ the formulation used in \cite{KKR06,OT06}. For a review on various formulations of perturbation theory, refer to \cite{BDL11}. 
+%
+%A gadget Hamiltonian $\tilde{H}=H+V$ consists of a penalty Hamiltonian $H$, which applies an energy gap onto an ancilla space, and a perturbation $V$. To explain in further detail how the low-lying sector of the gadget Hamiltonian $\tilde{H}$ approximates the entire spectrum of a certain target Hamiltonian $H_\text{targ}$ with  error $\epsilon$, we set up the following notations: let $\lambda_j$ and $|\psi_j\rangle$ be the $j^\text{th}$ eigenvalue and eigenvector of $H$ and similarly define $\tilde\lambda_j$ and $|\tilde\psi_j\rangle$  as those of $\tilde{H}$, assuming all the eigenvalues are labelled in a weakly increasing order ($\lambda_1\le\lambda_2\le\cdots$, same for $\tilde{\lambda}_j$). Using a cutoff value $\lambda_*$, let $\mathcal{L}_-=\text{span}\{|\psi_j\rangle|\forall j:\lambda_j\le\lambda_*\}$ be the low energy subspace and $\mathcal{L}_+=\text{span}\{|\psi_j\rangle|\forall j:\lambda_j>\lambda_*\}$ be the high energy subspace. Let ${\Pi_-}$ and ${\Pi_+}$ be the orthogonal projectors onto the subspaces $\mathcal{L}_-$ and $\mathcal{L}_+$ respectively. For an operator $O$ we define the partitions of $O$ into the subspaces as $O_-={\Pi_-}O{\Pi_-}$, $O_+={\Pi_+}O{\Pi_+}$, $O_{-+}={\Pi_-}O{\Pi_+}$ and $O_{+-}={\Pi_+}O{\Pi_-}$.  
+%
+%With the definitions above, one can turn to perturbation theory to approximate $\tilde{H}_-$ using $H$ and $V$. We now consider the operator-valued resolvent $\tilde{G}(z)=(z\openone-\tilde H)^{-1}$. Similarly one would define $G(z)=(z\openone-H)^{-1}$. Note that $\tilde{G}^{-1}(z)-G^{-1}(z)=-V$ so that this allows an expansion in powers of $V$ as \begin{equation}\label{eq:G_expand}
+%\tilde{G}=(G^{-1}-V)^{-1}=G(\openone-VG)^{-1}=G+GVG+GVGVG+GVGVGVG+\cdots.
+%\end{equation}
+%\noindent{}It is then standard to define the self-energy $\Sigma_-(z)=z\openone-({\tilde G}_-(z))^{-1}$. The self-energy is important because the spectrum of $\Sigma_-(z)$ gives an approximation to the spectrum of $\tilde{H}_-$ since by definition $\tilde{H}_-=z\openone-{\Pi_-}(\tilde{G}^{-1}(z)){\Pi_-}$ while $\Sigma_-(z)=z\openone-({\Pi_-}\tilde G(z){\Pi_-})^{-1}$. As is explained by Oliveira and Terhal \cite{OT06}, loosely speaking, if $\Sigma_-(z)$ is roughly constant in some range of $z$ (defined below in Theorem \ref{th:perturbation}) then $\Sigma_-(z)$ is playing the role of $\tilde{H}_-$. This was formalized in \cite{KKR06} and improved in \cite{OT06} where the following theorem is proven (as in \cite{OT06} we state the case where $H$ has zero as its lowest eigenvalue and a spectral gap of $\Delta$. We use operator norm $\|\cdot\|$ which is defined as $\|M\|\equiv\max_{|\psi\rangle\in\mathcal{M}}|\langle\psi|M|\psi\rangle|$ for an operator $M$ acting on a Hilbert space $\mathcal{M}$):
+%
+%\begin{theorem}[Gadget Theorem \cite{KKR06,OT06}]\label{th:perturbation}
+% Let $\|V\|\le\Delta/2$ where $\Delta$ is the spectral gap of $H$ and let the low and high spectrum of $H$ be separated by a cutoff $\lambda_*=\Delta/2$. Now let there be an effective Hamiltonian $H_\text{eff}$ with a spectrum contained in $[a,b]$. If for some real constant $\epsilon>0$ and $\forall z\in[a-\epsilon,b+\epsilon]$ with $a<b<\Delta/2-\epsilon$, the self-energy $\Sigma_-(z)$ has the property that $\|\Sigma_-(z)-H_\text{eff}\|\le\epsilon$, then each eigenvalue $\tilde\lambda_j$ of $\tilde{H}_-$ differs to the $j^\text{th}$ eigenvalue of $H_\text{eff}$, $\lambda_j$, by at most $\epsilon$. In other words $|\tilde{\lambda}_j - \lambda_j|\le\epsilon$, $\forall j$.
+%\end{theorem}
+%
+%To apply Theorem \ref{th:perturbation}, a series expansion for $\Sigma_-(z)$ is truncated at low order for which $H_\text{eff}$ is approximated. The 2-body terms in $H$ and $V$ by construction can give rise to higher order terms in $H_\text{eff}$. For this reason it is possible to engineer $H_\text{eff}$ from $\Sigma_-(z)$ to approximate $H_\text{targ}$ up to error $\epsilon$ in the range of $z$ considered in Theorem \ref{th:perturbation} by introducing auxiliary spins and a suitable selection of 2-body $H$ and $V$. Using the series expansion of $\tilde{G}$ in Eq.\ \ref{eq:G_expand}, the self-energy $\Sigma_-(z)=z\openone-\tilde{G}_-^{-1}(z)$ can be expanded as (for further details see \cite{KKR06})
+%\begin{equation}\label{eq:selfenergy}
+%\Sigma_-(z)=H_-+V_-+V_{-+}G_+(z)V_{+-}+V_{-+}G_+(z)V_+G_+(z)V_{+-}+\cdots.
+%\end{equation}
+%The terms of $2^\text{nd}$ order and higher in this expansion give rise to the effective many-body interactions.
+%
+%\refsec
+%
+%\begin{itemize}
+%\item Kempe et al.
+%\end{itemize}
 
 \subsection{Duan et al (2011)}
 
@@ -1291,11 +1360,8 @@ klocal -> (k-1)loal -> (k-2)local -> ... -> 2-local (1 auxiliary each time)
 
 \refsec
 
-\subsection{Cao et al.~2013}
+\subsection{3-body Gadget from local X: Cao et al.~2013}
 Cao et al.~2013 produced two new gadgets and also generally improved the known constructions for several typical gadgets.  
-
-\subsubsection{Creating 3-body gadget from local X}\label{sec:5th_32}
-
 
 \summarysec  ~In general, terms in perturbative gadgets involve mixed couplings (e.g. $X_i Z_j$). Although such couplings can be realized by certain gadget constructions \cite{BL07},
 %\yudong{Here ``creation gadgets" is changed to ``certain gadget constructions".} 
@@ -1316,7 +1382,7 @@ Accordingly, an interesting question is whether we can approximate 3-body terms 
 
 \conssec
 \begin{itemize}
-\item
+\item Requires $\Delta=\Theta\left(\epsilon^{-5}\right)$
 \item
 \end{itemize}  
                
@@ -1397,13 +1463,7 @@ This $\Theta(\epsilon^{-5})$ scaling is numerically illustrated (Fig.\ \ref{fig:
 
 \refsec
 
-
-
-
-
-
-
-\subsubsection{YY}
+\subsubsection{Arbitary real wth only XX and ZZ: Cao et al 2013}
 
 \summarysec
 
