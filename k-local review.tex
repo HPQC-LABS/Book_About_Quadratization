@@ -126,9 +126,9 @@ A collaborative, evolving, open review paper on k-local to 2-local transformatio
 
 \section{Introduction}
 
-JB: I like the idea of entering with the general Ising model and then putting the quantum stuff a bit later on, otherwise it can confuse readers from the pseudoboolean background I fear. 
+%JB: I like the idea of entering with the general Ising model and then putting the quantum stuff a bit later on, otherwise it can confuse readers from the pseudoboolean background I fear. 
 
-\textbf{\emph{Every}} computation can be \out{done by}\add{reduced to} minimizing a Hamiltonian
+\textbf{\emph{Every}} computation can be done by minimizing a Hamiltonian
 of either one of the following forms:
 
 \begin{eqnarray}
@@ -143,7 +143,7 @@ z\equiv\begin{pmatrix}1 & 0\\
 1 & 0
 \end{pmatrix},
 \end{equation}
-the $\alpha$ and $\beta$ coefficients are \out{complex}\add{real} numbers; and the Appendix will teach any unfamiliar readers how to interpret this notation.
+the $\alpha$ and $\beta$ coefficients are real numbers; and the Appendix will teach any unfamiliar readers how to interpret this notation.
 
 We know that every computation can be done this way because the minimization can be done by adiabatic quantum computation (AQC), and it has been proven \cite{Aharonov2008,Biamonte2008} that AQC can simulate any circuit-based quantum computation with overhead that grows at most polynomially with the size of the problem, and we know that circuit-based quantum computation can simulate any classical computation with at most polynomial overhead. %% Incorrect citation:  %Mizel2007
 If we remove all the terms in Eq. \ref{eq:XX+Z} or Eq. \ref{eq:XZ+Z} that have $x$ operators, we get an Ising Hamiltonian that is quadratic:
@@ -153,7 +153,7 @@ H=\sum_{i}^{n}\alpha_{i}z_{i}+\sum_{ij}^{n}\alpha_{ij}z_{i}z_{j},\label{eq:ZZ+Z}
 and we no longer know of any proof that \textbf{\emph{any}} computation can be done by minimizing such a Hamiltonian with only polynomial overhead compared to circuit-based quantum computation or even classical computation, but plenty of very interesting problems can still be formulated as the minimization or approximate minimization of a quadratic Ising Hamiltonian, such as neural network training \cite{Altaisky2016}, computerized image denoising \cite{Ishikawa2009,Ishikawa2011,Ishikawa2014,Anthony2015}, integer factorization \cite{Dattani2014}, and Ramsey number determination \cite{Gaitan2012,Bian2013}, just to name a few.
 However unlike Eq. \ref{eq:XZ+Z}, plenty of devices that can minimize Ising Hamiltonians already exist, and with further restrictions on the $\alpha$ coefficients, D-Wave has made devices with $n=2000$, and this number has roughly doubled every 14 months since the first 1-qubit demonstration in 2003, a phenomenon analogous to Moore's law of classical computer growth, which has become known as Rose's Law.
 
-Furthermore,\textbf{\emph{ no classical computer has \out{ever been able}\add{yet} to minimize certain quadratic Ising Hamiltonians faster than the D-Wave machines to date}} \cite{Denchev2016,Mandra2016}, so being able to turn computations into the form of Eq. \ref{eq:ZZ+Z} appears to be promising in terms of demonstrating the first useful application of quantum supremacy (which is the term used for quantum devices outperforming classical computation devices).
+Furthermore,\textbf{\emph{ no classical computer has ever been able to minimize certain quadratic Ising Hamiltonians faster than the D-Wave machines to date}} \cite{Denchev2016,Mandra2016}, so being able to turn computations into the form of Eq. \ref{eq:ZZ+Z} appears to be promising in terms of demonstrating the first useful application of quantum supremacy (which is the term used for quantum devices outperforming classical computation devices).
 Moreover, for problems like neural networks and computerized image denoising, the best known classical computation algorithms also work by turning the problems into minimizations of Ising Hamiltonians, so even if you are happy with continuing to only use classical computer and have no interest in using quantum annealing devices, turning a problem into a quadratic Ising Hamiltonian minimization problem can be very powerful for some computations.
 
 For neural networks, image denoising, integer factorization, and Ramsey number determination, it is rather easy to turn the problem into the form:
@@ -1052,7 +1052,16 @@ H_{4-local}=-\frac{1}{2}z_{a_4}+ \lambda H_{4-count}.
 
 Should look at ORI graph in \cite{Gallagher2011}
 
-\part{Hamiltonians with both $z$ \& $x$ terms (general quantum Hamiltonians)}
+\part{Hamiltonians with only $z$ terms and linear $x$ terms (Transverse Field Ising Hamiltonians)}
+
+The Ising Hamiltonian with a transverse field in the $x$ direction is possible to implement in hardware:
+
+\begin{align}
+H = \sum_i \alpha_i
+\end{align}	
+
+
+\part{General Quantum Hamiltonians}
 
 The most general time-independent Hamiltonian for $n$ qubits acted on only by Pauli operators is:
 
@@ -1081,6 +1090,7 @@ H & =\alpha I+\sum_{i}^{n}\left(\alpha_{i}^{(z)}z_{i}+\alpha_{i}^{(x)}x_{i}+\alp
 
 \noindent We wish to find a 2-local Hamiltonian of the form of Eq. \eqref{eq:XZ+Z} or Eq. \eqref{eq:XX+Z} that is equivalent to Eq. \eqref{eq:mostGeneralH} in terms of reproducing certain desired properties (e.g. same ground state(s), same ground eigenvalue(s), same full eigenspectrum, etc.) to within the desired precision.
 
+\begin{comment}
 \section{Brute force numerical}
 
 If our only wish is for the 2-local Hamiltonian to preserve the ground state of the original $k$-local Hamiltonian, we can optimize the coefficients of the 2-local Hamiltonian so that the difference between the ground state of the original Hamiltonian and the ground state of the 2-local Hamiltonian is minimized under some desired measure. For example, if we wish for the dot product of the lowest energy eigenvector of the original $H$ and that of the new $H_{\rm{2-local}}$ to be 0.9, then the following two Hamiltonians are equivalent for our purposes:
@@ -1133,29 +1143,38 @@ The more auxiliary qubits included in the 2-local Hamiltonian, the more paramete
 \item In June 2017 Ref. https://arxiv.org/pdf/1706.03637.pdf was posted on arXiv but it is not clear to me why they have the constraint (7d), the definiion of their matrix norm in (7c) doesn't seem to be given as far as I can see, and their (7a) uses a square while (7d) uses an absolute value which means that one of them is being treated more preferentially than the other, even when they say they are (think they are) using "equal weights". 
 \end{itemize}
 
-\section{Recursive---perturbation---gadget reduction (original)}
+\end{comment}
+
+\section{1-by-1 Gadgets}
+
+Recursively reducing $k$-local to $\left(k-1\right)$-local in each step.
+
+\subsection{1B1-KKR (Kempe, Kitaev, Regev, 2006)}
 
 \summarysec
 
 Group all $k$-local terms together and express their sum as a sum of products of commuting matrices $s_{ij}$:
 
 \begin{align}
-H_{k-\rm{local}} = \sum_i\prod_j s_{ij} + H_{(k-1)-\rm{local}}. \label{eq:klocalInKempeMethod}
+H_{k-\rm{local}} = \sum_i\prod_j^k s_{ij} + H_{(k-1)-\rm{local}}. \label{eq:klocalInKempeMethod}
 \end{align}
 
 \noindent Define auxiliary qubits labeled by $a_{ij}$ and make the transformation:
 
 \begin{align}
-\sum_i\prod_j s_{ij} \mapsto \frac{\Delta}{4}\left( 9 - \sum_i \left( \sum_j  z_{a_{ij}} \right)^2 - \sum_j z_{a_{ij}}^2 + \frac{1}{\sqrt[3]{6\Delta}} x_{a_{ij}}  \right)+ \Lambda.
+\sum_i\prod_{ij}^k s_{ij} \mapsto \frac{\Delta}{4}\left( 9 - \sum_i \left( \sum_j  z_{a_{ij}} \right)^2 - \sum_j z_{a_{ij}}^2 + \frac{1}{\sqrt[3]{6\Delta}} x_{a_{ij}}  \right)+ \Lambda.
 \end{align}
 
-\noindent The result will be a $(k-1)$-local Hamiltonian with the same low-lying spectrum as $H_{k-\rm{local}}$ for large enough $\Delta$. 
+\noindent The result will be a $(k-1)$-local Hamiltonian with the same low-lying spectrum as $H_{k-\rm{local}}$ to within $\epsilon$ as long as $\Delta=\Theta\left(\epsilon^{-3}\right)$. 
 
 \costsec
 
-The number of auxiliary qubits needed is the number of $s_{ij}$ matrices in Eq. \eqref{eq:klocalInKempeMethod}.
-$\Delta =\Theta\left(\epsilon^{-3}\right)$
+\begin{itemize}
+\item The number of auxiliary qubits needed is the number of $s_{ij}$ matrices in Eq. \eqref{eq:klocalInKempeMethod}.
+\item $\Delta =\Theta\left(\epsilon^{-3}\right)$
+\end{itemize}
 
+\begin{comment}
 \prossec
 \begin{itemize}
 \item
@@ -1167,20 +1186,37 @@ $\Delta =\Theta\left(\epsilon^{-3}\right)$
 \item
 \item
 \end{itemize}  
+\end{comment}
                
 \examplesec
 
-\section{Recursive gadget reduction (better)}
-
-klocal -> (k-1)loal -> (k-2)local -> ... -> 2-local (1 auxiliary each time)
-
-\subsection{Oliviera \& Terhal (2005)}
+\subsection{1B1-OT (Oliviera \& Terhal, 2008)}
 
 \summarysec
 
-\costsec
-$\Delta =\Theta\left(\epsilon^{-3}\right)$
+We wish to reduce the $k$-local term:
 
+\begin{align}
+H_{k-\rm{local}} = \prod_j^k s_{j} .  \label{eq:klocalInKempeMethod}
+\end{align}
+
+\noindent Define one auxiliary qubit labeled by $a$ and make the transformation:
+
+\begin{align}
+H_{k-{\rm local}} \rightarrow &-\left(\frac{\alpha}{2}\right)^{\nicefrac{1}{3}}\Delta^{2(1-r)}s_{k}\left(\frac{1-z_{a}}{2}\right)+\left(\frac{\alpha}{2}\right)^{\nicefrac{1}{3}}\frac{\Delta^{r}}{\sqrt{2}}\left(s_{k-1}-s_{k-2}\right)x_{a} \\
+                              &+\frac{1}{2}\left(\frac{\alpha}{2}\right)^{\nicefrac{2}{3}}\left(\Delta^{r-1}s_{k-1}+{\rm sgn}(\alpha)\sqrt{2}\Delta^{-\nicefrac{1}{4}}\prod_{j}^{k-2}s_{j}\right)^{2} +\frac{\alpha}{4}\left(1+2{\rm sgn^{2}\alpha}\Delta^{\nicefrac{3}{2}-2r}\right)s_{k}.
+\end{align}
+
+\noindent The result will be a $(k-1)$-local Hamiltonian with the same low-lying spectrum as $H_{k-\rm{local}}$ to within $\epsilon$ as long as $\Delta=\Theta\left(\epsilon^{-3}\right)$.
+
+
+\costsec
+\begin{itemize}
+\item Only 1 auxiliary qubit.
+\item $\Delta =\Theta\left(\epsilon^{-3}\right)$
+\end{itemize}
+
+\begin{comment}
 \prossec
 \begin{itemize}
 \item only one auxiliary qubit for each 3-local term.
@@ -1192,34 +1228,43 @@ $\Delta =\Theta\left(\epsilon^{-3}\right)$
 \item
 \item
 \end{itemize}  
+\end{comment}
                
 \examplesec
 
 \refsec
 
-\subsection{Subdivision Gadget. Oliviera \& Terhal (2005)}
+\subsection{1B1-CBBK (Cao, Babbush, Biamonte, Kais, 2015)}
+
+\noindent Define one auxiliary qubit labeled by $a$ and make the transformation:
+
+\begin{align}
+H_{k-\rm{local}} \rightarrow &	\left(\Delta+\left(\frac{\alpha}{2}\right)^{\nicefrac{3}{2}}\Delta^{\nicefrac{1}{2}}s_{k}\right)\left(\frac{1-z_{a}}{2}\right) \\
+& - \frac{\alpha^{\nicefrac{2}{3}}}{2}\left(1+{\rm sgn^{2}\alpha}\right)\left(\left(2\alpha\right)^{\nicefrac{2}{3}}{\rm sgn}^{2}\alpha+\alpha^{\nicefrac{1}{3}}s_{k}-\sqrt[3]{2}\Delta^{\nicefrac{1}{2}}\right)\left(\frac{1+z_{a}}{2}\right) \\
+&	+\left(\frac{\alpha}{2}\right)^{\nicefrac{1}{3}}\Delta^{\nicefrac{3}{4}}\left(\prod_j^{k-2} s_{j}-{\rm sgn}(\alpha) s_{k-1}\right)x_{a}+{\rm sgn}(\alpha)\sqrt[3]{2}\alpha^{\nicefrac{2}{3}}\left(\Delta^{\nicefrac{1}{2}}+\Delta^{\nicefrac{3}{2}}\right)\prod_j^{k-1}s_j.
+\end{align}
+
+\noindent The result is $(k-1)$-local and its low-lying spectrum is the same as that of  $H_{k-\rm{local}}$ when $\Delta$ is large enough. 
+
+\section{Subdivision Gadgets}
+
+Instead of recursively reducing $k$-local to $(k-1)$-local one reduction at a time, we can reduce $k$-local terms to $(k/2)$-local terms directly for even $k$, or to $(k+1)/2$-local terms directly for odd $k$. Since when $k$ is odd we can add an identity operator to the $k$-local term to make it even, we will assume in the following that $k$ is even, in order to avoid having to write floor and ceiling functions.
+
+\subsection{SG-OT (Oliviera \& Terhal, 2008)}
 
 \summarysec
 
-For any $k$-local term, we can subdivide it into a product of two $\left(\nicefrac{k}{2}\right)-$local terms:
+For any $k$-local term, we can subdivide it into a product of two $\left(\nicefrac{k}{2}\right)-$local terms, with an auxiliary qubit labeled $a$:
 
-\begin{align}
-H_{k-\rm{local}} = \alpha H_{1,(\nicefrac{k}{2})-\rm{local}}H_{2,(\nicefrac{k}{2})-\rm{local}} + H_{(k-1)-\rm{local}}.  \label{eq:olivieraTehral}
-\end{align}
-
-% or should the last term be k/2 -1 ?
-
-\noindent Define one qubit $a$ and make the following Hamiltonian is $(\lceil k/2 \rceil +1)$-local:
-
-\begin{align}
-\Delta (1-z_a)/2 + |\alpha|(1+z_a)/2 + \sqrt{|\alpha|\Delta /2}\left(\rm{sgn}H_{1,(\nicefrac{k}{2}-\rm{local})} - H_{2,(\nicefrac{k}{2}-\rm{local})}\right)x_a
-\end{align}
-
-\noindent The result is a $(\lceil k \rceil /2+1)$-local Hamiltonian with the same low-lying spectrum as $H_{k-\rm{local}}$ for large enough $\Delta$. 
+H_{k-\rm{local}} \rightarrow \Delta \frac{1-z_a}{2} + \sqrt{\frac{\Delta}{2}}\left( s_k - \prod_j^{k-1} s_j  \right)x_a
 
 
 \costsec
-$\Delta =\Theta\left(\epsilon^{-2}\right)$.
+\begin{itemize}
+\item $\Delta =\frac{||H_{(k-1)-\rm{local}} +  ||\epsilon^2{} $.
+\item $\Delta =\Theta\left(\epsilon^{-2}\right)$.
+% $\Delta =\Theta\left(\epsilon^{-1}\right)$ ????
+\end{itemize}
 
 \prossec
 \begin{itemize}
@@ -1241,29 +1286,37 @@ $\Delta =\Theta\left(\epsilon^{-2}\right)$.
 
 \summarysec
 
+For any $k$-local term, we can subdivide it into a product of two $\left(\nicefrac{k}{2}\right)-$local terms:
 
+\begin{align}
+H_{k-\rm{local}} = \alpha H_{1,(\nicefrac{k}{2})-\rm{local}}H_{2,(\nicefrac{k}{2})-\rm{local}} + H_{(k-1)-\rm{local}}.  \label{eq:olivieraTehral}
+\end{align}
 
+\noindent Define one qubit $a$ and make the following Hamiltonian is $( \nicefrac{k}{2} )$-local:
+
+\begin{align}
+\Delta \frac{1-z_a}{2} + |\alpha|\frac{1+z_a}{2} + \sqrt{|\alpha|\Delta /2}\left({\rm sgn}(\alpha) H_{1,(\nicefrac{k}	{2}-\rm{local})} - H_{2,(\nicefrac{k}{2}-\rm{local})}\right)x_a
+\end{align}
+
+\noindent The result is a $( \nicefrac{k}{2})$-local Hamiltonian with the same low-lying spectrum as $H_{k-\rm{local}}$ for large enough $\Delta$. The disadvantage is that $\Delta$ has to be larger.
 \costsec
-$\Delta \ge \left( \frac{2|\alpha|}{\epsilon}+1\right)(|\alpha|+\epsilon+22||H_{(k-1)-\rm{local}}  )$
-% $\Delta =\Theta\left(\epsilon^{-1}\right)$ ????
+\begin{itemize}
+\item $\Delta \ge \left( \frac{2|\alpha|}{\epsilon}+1\right)(|\alpha|+\epsilon+22||H_{(k-1)-\rm{local}}  )$
+\end{itemize}
 
 \prossec
 \begin{itemize}
 \item only one qubit to reduce $k$ to $\lceil k/2\rceil +1$
-\item
 \end{itemize}
 
 \conssec
 \begin{itemize}
 \item Only beneficial for $k\ge5$.
-\item 
 \end{itemize}  
                
 \examplesec
 
 \refsec
-
-
 
 \subsection{Bravyi et al (2008)}
 
