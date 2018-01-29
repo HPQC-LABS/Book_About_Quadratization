@@ -1052,14 +1052,29 @@ H_{4-local}=-\frac{1}{2}z_{a_4}+ \lambda H_{4-count}.
 
 Should look at ORI graph in \cite{Gallagher2011}
 
+
+\newpage
+
 \part{Hamiltonians with only $z$ terms and linear $x$ terms (Transverse Field Ising Hamiltonians)}
 
 The Ising Hamiltonian with a transverse field in the $x$ direction is possible to implement in hardware:
 
 \begin{align}
-H = \sum_i \alpha_i
+H = \sum_i \left( \alpha_i^{(z)} z_i + \alpha_i^{(x)} x_i\right) + \sum_{ij}\left(\alpha_{ij}^{(zz)} z_iz_j  \right)
 \end{align}	
 
+\subsection{ZZZ-TI-CBBK: Transvese Ising from ZZZ, by Cao, Babbush, Biamonte, and Kais (2015)}
+
+There is only one reduction in the literature for reducing a Hamiltonian term to the transverse Ising Hamiltonian, and it works on 3-local $zzz$ terms, by introducing an auxiliary qubit with label $a$:
+
+\begin{align}
+z_iz_jz_k \rightarrow & \left( \Delta + \frac{\alpha \Delta^4}{6}^{\nicefrac{1}{5}} \left(z_i+z_j+z_k \right)  \right)\left( \frac{1-z_a}{2}\right) + \frac{\alpha \Delta^4}{6}^{\nicefrac{1}{5}}  x_a\\
+&+ \left( \left(\frac{\alpha}{6}\right)^{\nicefrac{2}{5}} \Delta^{\nicefrac{3}{5}} - \left( \frac{7\alpha}{6} + \left(\frac{\alpha}{6} \right)^{\nicefrac{3}{5}} \Delta^{\nicefrac{2}{5}} \right)\left(z_i + z_j + z_k \right)        \right)\left(\frac{1+z_a}{2} \right)
+\end{align} 
+
+
+
+\newpage
 
 \part{General Quantum Hamiltonians}
 
@@ -1256,12 +1271,13 @@ Instead of recursively reducing $k$-local to $(k-1)$-local one reduction at a ti
 
 For any $k$-local term, we can subdivide it into a product of two $\left(\nicefrac{k}{2}\right)-$local terms, with an auxiliary qubit labeled $a$:
 
+\begin{align}
 H_{k-\rm{local}} \rightarrow \Delta \frac{1-z_a}{2} + \sqrt{\frac{\Delta}{2}}\left( s_k - \prod_j^{k-1} s_j  \right)x_a
-
+\end{align}
 
 \costsec
 \begin{itemize}
-\item $\Delta =\frac{||H_{(k-1)-\rm{local}} +  ||\epsilon^2{} $.
+\item $\Delta =\frac{||H_{(k-1)-\rm{local}} +  ||\epsilon^2}{2} $.
 \item $\Delta =\Theta\left(\epsilon^{-2}\right)$.
 % $\Delta =\Theta\left(\epsilon^{-1}\right)$ ????
 \end{itemize}
@@ -1269,20 +1285,18 @@ H_{k-\rm{local}} \rightarrow \Delta \frac{1-z_a}{2} + \sqrt{\frac{\Delta}{2}}\le
 \prossec
 \begin{itemize}
 \item only one qubit to reduce $k$ to $\lceil k/2\rceil +1$
-\item
 \end{itemize}
 
 \conssec
 \begin{itemize}
 \item Only beneficial for $k\ge5$.
-\item 
 \end{itemize}  
                
 \examplesec
 
 \refsec
 
-\subsection{Improved Subdivision Gadget. Cao et al. (2013)}
+\subsection{SG-CBBK (Cao, Babbush, Biamonte, Kais 2015)}
 
 \summarysec
 
@@ -1413,6 +1427,8 @@ H_{k-\rm{local}} = \alpha H_{1,(\nicefrac{k}{2})-\rm{local}}H_{2,(\nicefrac{k}{2
 
 \refsec
 
+\begin{comment}
+
 \subsection{3-body Gadget from local X: Cao et al.~2013}
 Cao et al.~2013 produced two new gadgets and also generally improved the known constructions for several typical gadgets.  
 
@@ -1516,31 +1532,14 @@ This $\Theta(\epsilon^{-5})$ scaling is numerically illustrated (Fig.\ \ref{fig:
 
 \refsec
 
-\subsubsection{Arbitary real wth only XX and ZZ: Cao et al 2013}
+\end{comment}
 
-\summarysec
 
-\costsec
+\section{Direct Reduction}
 
-\prossec
-\begin{itemize}
-\item
-\item
-\end{itemize}
+Here we do not reduce $k$ by one order at a time (1B1 reduction) or by $\nicefrac{k}{2}$ at a time (SD reduction), but we directly reduce $k$-local terms to 2-local terms.
 
-\conssec
-\begin{itemize}
-\item
-\item
-\end{itemize}  
-               
-\examplesec
-
-\refsec
-
-\section{One-step gadget reduction}
-
-Jordan \& Fahri
+\subsection{DR-JF (Jordan \& Fahri)}
 
 \summarysec
 
@@ -1564,7 +1563,7 @@ Jordan \& Fahri
 
 \section{Non-perturbative embeddings}
 
-Subasi \& Jarzynski (2016)
+\subsection{NP-SJ (Subasi \& Jarzynski, 2016)}
 
 \summarysec
 
@@ -1586,22 +1585,13 @@ Subasi \& Jarzynski (2016)
 
 \refsec
 
-\section{Methods that reproduce the full spectrum}
-
-In all the above, we take advantage of the fact that we just want the correct state and we don't care about anything else.
-This gave us the freedom to do all sorts of things to the Hamiltonian, as long as we keep the ground state the same.
-What if we want to quadratize a Hamiltonian while preserving the whole spectrum?
-%LHZ scheme and Paul Warburton's methods.
-
-
-
-
-
+\newpage
 \part{Appendix}
 
 \section{Notation}
 
 The left Kronecker product by a $2\times2$ identity matrix is implied by Eqs. \eqref{eq:XZ+Z} and \eqref{eq:XX+Z} in the following way for qubit operators $q\in\{z,x\}$, assuming $i<j$:
+Subasi \& Jarzynski (2016)
 
 \begin{align}
 q_{i} & =\mathbf{1}^{\otimes i-1}q\mathbf{1}^{\otimes(N-i+1)}\\
