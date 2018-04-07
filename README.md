@@ -12,4 +12,4 @@ When contributing, please bear in mind the following guidelines:
 - When adding a citation to the .bib file, please add it to the Mendeley group. This is certainly not required but is appreciated.
 
 ## Contributors
-Nikesh Dattani, Richard Tanburn
+Nike Dattani, Richard Tanburn
