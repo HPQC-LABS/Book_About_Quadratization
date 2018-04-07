@@ -176,7 +176,7 @@ Positive quadratic terms (non-submodular), particularly with large positive coef
 \end{comment}
 
 
-\part{Hamiltonians with only $z$ terms (pseudo-Boolean functions)}
+\part{{\normalsize{\underline{Hamiltonians with only $z$ terms (pseudo-Boolean functions)}}}}
 
 \section{Methods that introduce ZERO auxiliary variables}
 
@@ -1057,17 +1057,38 @@ Should look at ORI graph in \cite{Gallagher2011}
 
 \newpage
 
-\part{Hamiltonians with only $z$ terms and linear $x$ terms (Transverse Field Ising Hamiltonians)}
+\part{\underline{{\normalsize Hamiltonians quadratic in $z$ and linear in $x$ (Transverse Field Ising Hamiltonians)}}}
 
 The Ising Hamiltonian with a transverse field in the $x$ direction is possible to implement in hardware:
 
 \begin{align}
-H = \sum_i \left( \alpha_i^{(z)} z_i + \alpha_i^{(x)} x_i\right) + \sum_{ij}\left(\alpha_{ij}^{(zz)} z_iz_j  \right)
+H = \sum_i \left( \alpha_i^{(z)} z_i + \alpha_i^{(x)} x_i\right) + \sum_{ij}\left(\alpha_{ij}^{(zz)} z_iz_j  \right).
 \end{align}	
 
 \subsection{ZZZ-TI-CBBK: Transvese Ising from ZZZ, by Cao, Babbush, Biamonte, and Kais (2015)}
 
 There is only one reduction in the literature for reducing a Hamiltonian term to the transverse Ising Hamiltonian, and it works on 3-local $zzz$ terms, by introducing an auxiliary qubit with label $a$:
+
+%\begin{small}
+\begin{align}
+\alpha z_{i}z_{j}z_{k}\rightarrow\alpha^{I}+\alpha_{i}^{z}z_{i}+\alpha_{j}^{z}z_{j}+\alpha_{k}^{z}z_{k}+\alpha_{a}^{z}z_{a}+\alpha_{a}^{x}x_{a}+\alpha_{ia}^{zz}z_{i}z_{a}+\alpha_{ja}^{zz}z_{j}z_{a}+\alpha_{ka}^{zz}z_{k}z_{a} \label{eq:ZZZ-TI-CBBK} 
+\end{align}
+%\end{small}
+
+\begin{tabular}{rcl}
+$\alpha^{I}$ & = & $\frac{1}{2}\left(\Delta\textcolor{red}{\ensuremath{+}}\left(\frac{\alpha}{6}\right)^{\nicefrac{2}{5}}\Delta^{\nicefrac{3}{5}}\right)$\tabularnewline
+$\alpha_{i}^{z}$ & = & $-\frac{1}{2}\left(\left(\frac{7\alpha}{6}+\left(\frac{\alpha}{6}\right)^{\nicefrac{3}{5}}\Delta^{\nicefrac{2}{5}}\right)\textcolor{red}{\ensuremath{-}}\left(\frac{\alpha\Delta^{4}}{6}\right)^{\nicefrac{1}{5}}\right)$\tabularnewline
+$\alpha_{j}^{z}$ & = & $\alpha_{i}^{(z)}$\tabularnewline
+$\alpha_{k}^{z}$ & = & $\alpha_{i}^{(z)}$\tabularnewline
+$\alpha_{a}^{z}$ & = & $\frac{1}{2}\left(\Delta\textcolor{red}{\ensuremath{-}}\left(\frac{\alpha}{6}\right)^{\nicefrac{2}{5}}\Delta^{\nicefrac{3}{5}}\right)$\tabularnewline
+$\alpha_{a}^{x}$ & = & $\left(\frac{\alpha\Delta^{4}}{6}\right)^{\nicefrac{1}{5}}$\tabularnewline
+$\alpha_{ia}^{zz}$ & = & $-\frac{1}{2}\left(\left(\frac{7\alpha}{6}+\left(\frac{\alpha}{6}\right)^{\nicefrac{3}{5}}\Delta^{\nicefrac{2}{5}}\right)\textcolor{red}{\ensuremath{+}}\left(\frac{\alpha\Delta^{4}}{6}\right)^{\nicefrac{1}{5}}\right)$\tabularnewline
+$\alpha_{ja}^{zz}$ & = & $\alpha_{ia}^{(zz)}$\tabularnewline
+$\alpha_{ka}^{zz}$ & = & $\alpha_{ja}^{(zz)}$\tabularnewline
+\end{tabular}
+
+\vspace{5mm}
+Including all coefficients and factorizing, we get:
 
 \begin{align}
 \alpha z_iz_jz_k \rightarrow & \left( \Delta + \frac{\alpha \Delta^4}{6}^{\nicefrac{1}{5}} \left(z_i+z_j+z_k \right)  \right)\left( \frac{1-z_a}{2}\right) + \frac{\alpha \Delta^4}{6}^{\nicefrac{1}{5}}  x_a\\
@@ -1075,10 +1096,39 @@ There is only one reduction in the literature for reducing a Hamiltonian term to
 \end{align} 
 
 
+The low-lying spectrum (eigenvalues \textbf{\textit{and}} eigenvectors) of the right side of Eq. \eqref{eq:ZZZ-TI-CBBK} will match those of the left side to within a spectral error of $\epsilon$ as long as $\Delta = \mathcal{O}\left(\epsilon^{-5}\right)$.
+
+\costsec
+\begin{itemize}
+\item 1 auxiliary qubit
+\item 8 auxiliary terms not proportional to \openone.
+\end{itemize}
+
+\examplesec
+
+\subsection{1B1-TI: 1-by-1 gadget for $ZZ\ldots Z\rightarrow$ Transverse Ising (Present Work)}
+
+\costsec
+\begin{itemize}
+\item $k-2$ auxiliary qubits
+\item  auxiliary terms not proportional to \openone.
+\end{itemize}
+
+\examplesec
+
+
+\subsection{SD-TI: Sub-division gadget for $ZZ\ldots Z\rightarrow$ Transverse Ising (Present Work)}
+
+\costsec
+\begin{itemize}
+\item  $k/2$
+\end{itemize}
+
+\examplesec
 
 \newpage
 
-\part{General Quantum Hamiltonians}
+\part{\underline{{\normalsize{General Quantum Hamiltonians}}}}
 
 The most general time-independent Hamiltonian for $n$ qubits acted on only by Pauli operators is:
 
@@ -1164,7 +1214,7 @@ The more auxiliary qubits included in the 2-local Hamiltonian, the more paramete
 
 \section{1-by-1 Gadgets}
 
-Recursively reducing $k$-local to $\left(k-1\right)$-local in each step.
+A 1B1 gadget allows $k$-local terms to be quadratized one step at a time, where at each step the term's order is reduced by at most one. In each step, a $k$-local term is reduced to $\left(k-1\right)$-local, contrary to SD (sub-division) gadgets which can reduce $k$-local terms to $\left(\nicefrac{1}{2}\right)$-local in one step.
 
 \subsection{1B1-KKR (Kempe, Kitaev, Regev, 2006)}
 
@@ -1267,7 +1317,7 @@ H_{k-\rm{local}} \rightarrow &	\left(\Delta+\left(\frac{\alpha}{2}\right)^{\nice
 
 Instead of recursively reducing $k$-local to $(k-1)$-local one reduction at a time, we can reduce $k$-local terms to $(k/2)$-local terms directly for even $k$, or to $(k+1)/2$-local terms directly for odd $k$. Since when $k$ is odd we can add an identity operator to the $k$-local term to make it even, we will assume in the following that $k$ is even, in order to avoid having to write floor and ceiling functions.
 
-\subsection{SG-OT (Oliviera \& Terhal, 2008)}
+\subsection{SD-OT (Oliviera \& Terhal, 2008)}
 
 \summarysec
 
@@ -1298,7 +1348,7 @@ H_{k-\rm{local}} \rightarrow \Delta \frac{1-z_a}{2} + \sqrt{\frac{\Delta}{2}}\le
 
 \refsec
 
-\subsection{SG-CBBK (Cao, Babbush, Biamonte, Kais 2015)}
+\subsection{SD-CBBK (Cao, Babbush, Biamonte, Kais 2015)}
 
 \summarysec
 
@@ -1588,7 +1638,7 @@ Here we do not reduce $k$ by one order at a time (1B1 reduction) or by $\nicefra
 \refsec
 
 \newpage
-\part{Appendix}
+\part{{\normalsize {\underline{Appendix}}}}
 
 \section{Notation}
 
