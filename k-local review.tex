@@ -98,23 +98,27 @@
 \usepackage{babel}
 \begin{document}
 
+\vspace{-20mm}
+
 \title{Quadratization in Pseudo-Boolean Optimization and Adiabatic Quantum
 Computing}
 
 \author{Richard Tanburn$^{1,\,}$}
-\email{richard.tanburn@hertford.ox.ac.uk}
+%\email{richard.tanburn@hertford.ox.ac.uk}
 
 
 \affiliation{$^{1}$Oxford University, Mathematical Institute, OX2 6GG, Oxford,
 UK. }
 
 \author{Nicholas Chancellor$^{2}$}
-\email{nicholas.chancellor@gmail.com}
+%\email{nicholas.chancellor@gmail.com}
 \affiliation{$^{2}$Department of Physics, Durham University, DH1 3LE, South Road, Durham, UK.}
 
-\author{Nikesh S. Dattani$^{3,4}$}
-\email{dattani.nike@gmail.com}
-\affiliation{$^{3}$McMaster and Harvard,}
+\author{Nikesh S. Dattani$^{3,4,5}$}
+%\email{dattani.nike@gmail.com}
+\affiliation{$^{3}$Harvard-Smithsonian Center for Astrophysics,}
+\affiliation{$^{4}$McMaster University,}
+\affiliation{$^{5}$Hertford College, Oxford University.}
 
 
 \begin{abstract}
@@ -182,51 +186,6 @@ Positive quadratic terms (non-submodular), particularly with large positive coef
 
 \section{Methods that introduce ZERO auxiliary variables}
 
-\subsection{ELC Reduction}
-
-\summarysec
-
-An Excludable Local Configuration (ELC) is a partial assignment of variables that cannot possibly give the global minimum.
-We can then add on a term that corresponds to the energy of this ELC.
-In practice we can eliminate all monomials with a variable in which a variable is set to 0, and reduce any variable set to 1.
-Given a general Hamiltonian we can try to find ELCs by enumerating solutions of a small subset of the problem \cite{Ishikawa2014}. 
-
-\costsec
-\begin{itemize}
-\item $0$ auxiliary variables needed.
-\item $\mathcal{O}\left(2^{m}\binom{n}{m}\right)$ operations required to enumerate all possible cases for all possible subsets of size $m \le n$ variables.
-\item Approximate methods exist which have been shown to be much faster and give good approximations to the global minimum \cite{Ishikawa2014}.
-\end{itemize}
-
-\prossec
-\begin{itemize}
-\item No auxiliary variables needed.
-\end{itemize}
-
-\conssec
-\begin{itemize}
-\item ELCs need to be found by `brute force', which scales exponentially with respect to $m$. 
-\item ELCs do not always exist.
-\end{itemize}
-
-\examplesec
-
-Consider the Hamiltonian: 
-\begin{equation}
-H_{{\rm 3-local}}=b_{1}b_{2}+b_{2}b_{3}+b_{3}b_{4}-4b_{1}b_{2}b_{3}.
-\end{equation}
-If $b_{1}b_{2}b_{3}=0$, no assignment of our variables will we be able to reach a lower energy than if $b_{1}b_{2}b_{3}=1$.
-Hence $(b_{1},b_{2},b_{3})=(1,0,0)$ is a Local Excludable Configuration (ELC) and we can form the polynomial:
-\begin{equation}
-H_{2\rm{-local}}=H_{{\rm 3-local}}+4b_{1}(1-b_{2})(1-b_{3})=b_{1}b_{2}+b_{2}b_{3}+b_{3}b_{4}+4b_{1}-4b_{1}b_{2}-4b_{1}b_{3}.
-\end{equation}
-In both cases, the only global minima occur when $b_1b_2b_3 = 1$.
-
-\refsec
-\begin{itemize}
-\item Original paper and application to computerized image denoising: \cite{Ishikawa2014}.
-\end{itemize}
-
 \subsection{Deduction Reduction (Deduc-reduc)} \label{subsec:deduc_reduc}
 
 \summarysec
@@ -253,7 +212,7 @@ See the appendix for more details.
 \conssec
 \begin{itemize}
 \item When deductions cannot be determined naturally (as in the Ramsey number determination problem, see Example \ref{subsec:Example_Ramsey_deduc_reduc}), deductions need to be found by `brute force', which scales exponentially with respect to $m$.
-For highly connected systems (systems with a large number of non-zero $a$ coefficients), the value of $m$ required to find even one deduction can be prohibitively large.
+For highly connected systems (systems with a large number of non-zero $\alpha_{ij}$ coefficients), the value of $m$ required to find even one deduction can be prohibitively large.
 %\item Deductions do not always exist, or are too hard to find.
 \end{itemize}
 
@@ -266,9 +225,9 @@ Consider the Hamiltonian:
 \begin{equation}
 H_{4{\rm -local}}=b_{1}b_{2}(10+b_{3}+b_{3}b_{4})+b_{1}(b_{3}-3)+b_{2}(b_{3}-2b_{3}-b_{4}-1)+F(x_{3},x_{4},x_{5},\ldots,x_{N})
 \end{equation}
- where $F$ is any polynomial in $b_{i}$ for $3\le i$.
+ where $F$ is any polynomial in $b_{i}$ for $i\ge 3$.
 
-Since the $10$ coefficient of $b_{1}b_{2}$ is greater than the sum of all of the other coefficients involving $b_{1}$ or $b_{2}$, it must be the case that $b_{1}b_{2}=0$.
+\noindent Since the $10$ coefficient of $b_{1}b_{2}$ is greater than the sum of all of the other coefficients involving $b_{1}$ or $b_{2}$, it must be the case that $b_{1}b_{2}=0$.
 Specifically, for the 4 assignments of $(b_{3},b_{4})$, we see that $b_{1}b_{2}=0$ at every minimum of $H_{4{\rm -local}}-F$.
 
 Using deduc-reduc we have:
@@ -276,13 +235,64 @@ Using deduc-reduc we have:
 H_{2{\rm -local}}=12b_{1}b_{2}+b_{1}(b_{3}-3)+b_{2}(b_{3}-2b_{3}-b_{4}-1)+F(x_{3},x_{4},x_{5},\ldots,x_{N})
 \end{equation}
 
-which has the same global minima as $H_{4-local}$ but one fewer quartic and one fewer cubic term.
+\noindent which has the same global minima as $H_{4-\textrm{local}}$ but one fewer quartic and one fewer cubic term.
 
 \refsec
 \begin{itemize}
 \item Original paper, with application to integer factorization: \cite{Tanburn2015c}.
 \end{itemize}
 
+\newpage
+
+\subsection{ELC Reduction}
+
+\summarysec
+
+An Excludable Local Configuration (ELC) is a partial assignment of variables that make it impossible to achieve the minimum.
+We can therefore add a term that corresponds to the energy of this ELC without changing the solution to the minimization problem.
+In practice we can eliminate all monomials with a variable in which a variable is set to 0, and reduce any variable set to 1.
+Given a general Hamiltonian we can try to find ELCs by enumerating solutions of a small subset of variables in the problem \cite{Ishikawa2014}. 
+
+\costsec
+\begin{itemize}
+\item $0$ auxiliary variables needed.
+\item For $n$ qubits there is $\binom{n}{m}$ ways to choose $m$ of them and $2^m$ assignments of these $m$ variables, therefore $\mathcal{O}\left(2^{m}\binom{n}{m}\right)$ operations required to enumerate all possible cases for all possible subsets of size $m \le n$ variables.
+\item Approximate methods exist which have been shown to be much faster and give good approximations to the global minimum \cite{Ishikawa2014}.
+\end{itemize}
+
+\prossec
+\begin{itemize}
+\item No auxiliary variables needed.
+\end{itemize}
+
+\conssec
+\begin{itemize}
+\item No known way to find ELCs except by `brute force', which scales exponentially with respect to $m$. 
+\item ELCs do not always exist.
+\end{itemize}
+
+\examplesec
+
+Consider the Hamiltonian: 
+\begin{equation}
+H_{{\rm 3-local}}=b_{1}b_{2}+b_{2}b_{3}+b_{3}b_{4}-4b_{1}b_{2}b_{3}. \label{eq:ELCexample}
+\end{equation}
+If $b_{1}b_{2}b_{3}=0$, no assignment of our variables will we be able to reach a lower energy than if $b_{1}b_{2}b_{3}=1$.
+Hence this gives us 12 ELCs, and one example is $(b_{1},b_{2},b_{3})=(1,0,0)$ which we can use to form the polynomial:
+\begin{align}
+H_{2\rm{-local}}&=H_{{\rm 3-local}}+4b_{1}(1-b_{2})(1-b_{3})\\
+&=b_{1}b_{2}+b_{2}b_{3}+b_{3}b_{4}+4b_{1}-4b_{1}b_{2}-4b_{1}b_{3}. \label{eq:ELCreduced}
+\end{align}
+In both cases Eqs. \eqref{eq:ELCexample} and \eqref{eq:ELCreduced}, the only global minima occur when $b_1b_2b_3 = 1$.
+
+\refsec
+\begin{itemize}
+\item Original paper and application to computerized image denoising: \cite{Ishikawa2014}.
+\end{itemize}
+
+
+
+\newpage
 \subsection{Groebner Bases}
 
 \begin{comment}
@@ -347,7 +357,7 @@ by other means.
 
 Given a set of polynomials, a Groebner basis is another set of polynomials that have exactly the same zeros.
 The advantage of a Groebner basis is it has nicer algebraic properties than the original equations, in particular they tend to have smaller degree polynomials.
-The algorithms for calculating Groebner bases are generalisations of Euclid's algorithm for the polynomial greatest common divisor.
+The algorithms for calculating Groebner bases are generalizations of Euclid's algorithm for the polynomial greatest common divisor.
 
 Work has been done in the field of 'Boolean Groebner bases', but while the variables are Boolean the coefficients of the functions are in $\mathbb{F}_{2}$ rather than $\mathbb{Q}$.
 
@@ -366,7 +376,7 @@ Work has been done in the field of 'Boolean Groebner bases', but while the varia
 \conssec
 \begin{itemize}
 \item Best algorithms for finding Groebner bases scale double exponentially in $n$.
-\item Only works for Hamiltonians whose minimization corresponds to solving systems of discrete equations.
+\item Only works for Hamiltonians whose minimization corresponds to solving systems of discrete equations (RICHARD, why is this the ONLY case?).
 \end{itemize}
 
 \examplesec
@@ -377,7 +387,7 @@ Consider the following pair of equations:
 b_1 b_2 b_3 b_4 + b_1 b_3 + b_2 b_4 - b_3 = b_1 + b_1 b_2 + b_3 - 2 = 0.
 \end{equation}
 
-Feeding these to Mathematica's ${\tt GroebnerBasis}$ function, along with the binarizing $b_1(b_1-1)=\ldots=b_4(b_4-1)=0$ constraints, gives a Groebner basis:
+\noindent Feeding these to Mathematica's ${\tt GroebnerBasis}$ function, along with the binarizing $b_1(b_1-1)=\ldots=b_4(b_4-1)=0$ constraints, gives a Groebner basis:
 
 \begin{equation}
 \left\{ b_4 b_3 - b_4, b_2 + b_3 - 1, b_1 - 1 \right\}.
@@ -412,6 +422,7 @@ In both cases, the only global minima occur when:
 
 \textcolor{red}{Wait, this is far from true!}
 \end{comment}
+\newpage
 
 \subsection{Split Reduction}
 
@@ -464,6 +475,7 @@ Hence we have reduced our original, hard problem into 3 easy problems, requiring
 \item Original paper and application to Ramsey number calculation: \cite{Okada2015}.
 \end{itemize}
 
+\newpage
 \section{Methods that introduce auxiliary variables to quadratize a SINGLE term}
 
 \subsection{Negative Term Reduction} \label{subsec:Negative-Monomial-Reduction}
@@ -472,7 +484,7 @@ Hence we have reduced our original, hard problem into 3 easy problems, requiring
 
 For a negative term $-b_{1}b_{2}...b_{k}$, introduce a single auxiliary variable $b_a$ and make the substitution:
 \begin{equation}
--b_{1}b_{2} \ldots b_{k} = \min_{b_a} \left\{ (k-1-\sum b_{i})b_a \right\}.
+-b_{1}b_{2} \ldots b_{k} = \min_{b_a} \left( (k-1-\sum b_{i})b_a \right).
 \end{equation}
 
 \costsec
@@ -524,6 +536,8 @@ with $a=1$.
 \item Discussion: \cite{Ishikawa2011}, \cite{Anthony2015}.
 \end{itemize}
 
+\newpage
+
 \subsection{Positive Term Reduction}
 
 \summarysec
@@ -531,7 +545,7 @@ with $a=1$.
 By considering the negated literals $\bar{b}_{i}=1-b_{i}$, we recursively apply the previous method to $b_{1}b_{2}\ldots b_{k}=-\bar{b}_{1}b_{2}\ldots b_{k}+b_{2}b_{3}\ldots b_{k}$.
 The final identity is:
 \begin{equation}
-b_{1}b_{2}\ldots b_{k}=\min_{b_a}\big\{\sum_{i=1}^{k-2}b_{a_{i}}(k-i-1+b_{i}-\sum_{j=i+1}^{k}b_{j})\big\}+b_{k-1}b_{k}
+b_{1}b_{2}\ldots b_{k}=\min_{b_a}\left(\sum_{i=1}^{k-2}b_{a_{i}}(k-i-1+b_{i}-\sum_{j=i+1}^{k}b_{j})\right)+b_{k-1}b_{k}
 \end{equation}
 
 
@@ -572,6 +586,7 @@ b_{1}b_{2}b_{3}b_{4} & \mapsto & b_{2}b_{3}b_{4}-\bar{b}_{1}b_{2}b_{3}b_{4}\\
 \end{eqnarray}
 \end{comment}
 
+\newpage
 
 \subsection{Ishikawa's Symmetric Reduction (Positive Term Reduction)}
 
@@ -579,7 +594,7 @@ b_{1}b_{2}b_{3}b_{4} & \mapsto & b_{2}b_{3}b_{4}-\bar{b}_{1}b_{2}b_{3}b_{4}\\
 
 This method rewrites a positive monomial using symmetric polynomials, so all possible quadratic terms are produced and they are all non-submodular: 
 \begin{equation}
-b_{1}...b_{k} = \min_{b_{a_1}, \ldots, b_{a_{n_k}}} \left\{ \sum_{i=1}^{n_{k}}b_{a_{i}}(c_{i,d}(-\sum_{j=1}^{k}b_{j}+2i)-1)+\sum_{i<j}b_{i}b_{j} \right\}
+b_{1}...b_{k} = \min_{b_{a_1}, \ldots, b_{a_{n_k}}} \left( \sum_{i=1}^{n_{k}}b_{a_{i}}\left(c_{i,d}\left(-\sum_{j=1}^{k}b_{j}+2i\right)-1\right)+\sum_{i<j}b_{i}b_{j} \right)
 \end{equation}
 where $n_{k}=\left\lfloor \frac{k-1}{2}\right\rfloor $ and $c_{i,k}=\begin{cases}
 1, & i=n_{d}\text{ and }k\text{ is odd,}\\
@@ -589,6 +604,7 @@ where $n_{k}=\left\lfloor \frac{k-1}{2}\right\rfloor $ and $c_{i,k}=\begin{cases
 \costsec
 \begin{itemize}
 \item $\left\lfloor \frac{k-1}{2}\right\rfloor $ auxiliary variables for each $k$-order term
+\item $\mathcal{O}(kt)$ for a $k$-local Hamiltonian with $t$ terms.
 \end{itemize}
 
 \prossec
@@ -613,6 +629,7 @@ b_{1}b_{2}b_{3}b_{4} & = & \min_{b_a}(3-2b_{1}-2b_{2}-2b_{3}-2b_{4})b_a+b_{1}b_{
 \begin{itemize}
 \item Original paper and application to image denoising: \cite{Ishikawa2011}.
 \end{itemize}
+\newpage
 
 \subsection{Asymmetric Reduction}
 
@@ -624,7 +641,7 @@ RICHARD: this is asymmetric w.r.t. b1,b1,b3, so isn't there more options for how
 
 The identity is given by:
 \begin{equation}
-b_{1}b_{2}b_{3}= \min_{b_a} \left\{ b_a-b_{2}b_a-b_{3}b_a+b_{1}b_a+b_{2}b_{3} \right\}
+b_{1}b_{2}b_{3}= \min_{b_a} \left( b_a-b_{2}b_a-b_{3}b_a+b_{1}b_a+b_{2}b_{3} \right)
 \end{equation}
 
 \costsec
@@ -647,7 +664,8 @@ b_{1}b_{2}b_{3}= \min_{b_a} \left\{ b_a-b_{2}b_a-b_{3}b_a+b_{1}b_a+b_{2}b_{3} \r
 \item Original paper and application to computer vision: \cite{Gallagher2011}.
 \end{itemize}
 
-\subsection{Bit-flipping}
+\newpage
+\subsection{Bit flipping}
 
 \summarysec
 
@@ -679,8 +697,8 @@ In this way, given a quadratic in $n$ variables we can make sure it only has at 
 
 \conssec
 \begin{itemize}
-\item Unless form of the Hamiltonian is known, spotting these 'factorizations' using negations is going to be difficult.
-\item If we want to use $b$ and $\bar{b}$ we need an auxiliary variable.
+\item Unless the form of the Hamiltonian is known, spotting these 'factorizations' using negations is difficult.
+\item We need an auxiliary variable for each $b_i$ for which we also want to use $\bar{b_i}$ in the same Hamiltonian.
 \end{itemize}
 
 \examplesec
@@ -703,7 +721,7 @@ The first expression is highly non-submodular while the second is entirely submo
 
 \summarysec
 
-Pick a variable pair $b_{i},b_{j}$ and substitute $b_{i}b_{j}$ for new auxiliary variable $b_{a_{i,j}}$.
+Pick a variable pair $(b_{i},b_{j})$ and substitute $b_{i}b_{j}$ with a  new auxiliary variable $b_{a_{i,j}}$.
 Enforce equality in the ground states by adding some scalar multiple of $b_{i}b_{j}-2b_{i}b_{a_{i,j}}-2b_{i}b_{a_{i,j}}+3b_{a_{i,j}}$ or similar.
 
 \costsec
@@ -719,7 +737,7 @@ Enforce equality in the ground states by adding some scalar multiple of $b_{i}b_
 
 \conssec
 \begin{itemize}
-\item Inefficient for single terms as it introduces many variables.
+\item Inefficient for single terms as it introduces many auxiliary variables compared to Ishikawa reduction, for example.
 \item Introduces quadratic terms with large positive coefficients, making them highly non-submodular.
 \item Determining optimal substitutions is expensive.
 \end{itemize}
@@ -737,6 +755,7 @@ b_{1}b_{2}b_{3}+b_{1}b_{2}b_{4}\mapsto b_{3}b_a+b_{4}b_a+b_{1}b_{2}-2b_{1}b_a-2b
 \item Original paper: \cite{Rosenberg1975}
 \end{itemize}
 
+\newpage
 \subsection{FGBZ Reduction (Fix-Gruber-Boros-Zabih)}
 
 \summarysec
@@ -750,11 +769,11 @@ The algorithm comes in 2 parts: when all $\alpha_{H}>0$ and when all $\alpha_{H}
 \begin{enumerate}
 \item $\alpha_{H}>0$ 
 \begin{equation}
-\sum_{H\in\mathcal{H}}\alpha_{H}\prod_{j\in H}b_{j}=\min_{b_a}(\sum_{H\in\mathcal{H}}\alpha_{H})b_a\prod_{j\in C}b_{j}+\sum_{H\in\mathcal{H}}\alpha_{H}(1-b_a)\prod_{j\in H\setminus C}b_{j}
+\sum_{H\in\mathcal{H}}\alpha_{H}\prod_{j\in H}b_{j}=\min_{b_a}\left(\sum_{H\in\mathcal{H}}\alpha_{H}\right)b_a\prod_{j\in C}b_{j}+\sum_{H\in\mathcal{H}}\alpha_{H}(1-b_a)\prod_{j\in H\setminus C}b_{j}
 \end{equation}
 \item $\alpha_{H}<0$
 \begin{equation}
-\sum_{H\in\mathcal{H}}\alpha_{H}\prod_{j\in H}b_{j}=\min_{b_a}\sum_{H\in\mathcal{H}}\alpha_{H}(1-\prod_{j\in C}b_{j}-\prod_{j\in H\setminus C}b_{j})b_a
+\sum_{H\in\mathcal{H}}\alpha_{H}\prod_{j\in H}b_{j}=\min_{b_a}\sum_{H\in\mathcal{H}}\alpha_{H}\left(1-\prod_{j\in C}b_{j}-\prod_{j\in H\setminus C}b_{j}\right)b_a
 \end{equation}
 \end{enumerate}
 
@@ -762,17 +781,17 @@ The algorithm comes in 2 parts: when all $\alpha_{H}>0$ and when all $\alpha_{H}
 \begin{itemize}
 
 \item One auxiliary variable per application.
-\item In combination with \ref{subsec:Negative-Monomial-Reduction}, they can be used to make an algorithm which can reduce $t$ positive monomials of degree $d$ in $n$ variables using $n+t(d-1)$ auxiliary variables in the worst case.
+\item In combination with \ref{subsec:Negative-Monomial-Reduction}, it can be used to make an algorithm which can reduce $t$ positive monomials of degree $d$ in $n$ variables using $n+t(d-1)$ auxiliary variables in the worst case.
 \end{itemize}
 
 \prossec
 \begin{itemize}
-\item Can reduce the connectivity of a Hamiltonian, as it breaks interactions between qubits.
+\item Can reduce the connectivity of a Hamiltonian, as it breaks interactions between variables.
 \end{itemize}
 
 \conssec
 \begin{itemize}
-\item Positive method converts positive terms into negative ones of same order rather than reducing them, though these can then be reduced more easily.
+\item $\alpha_{H}>0$ method converts positive terms into negative ones of same order rather than reducing them, though these can then be reduced more easily.
 \item $\alpha_{H}<0$ method only works for $|C|>1$, and cannot quadratize cubic terms.
 \end{itemize}
 
@@ -822,7 +841,7 @@ For computer image problems, it can be used with the above methods to optimize m
 
 \section{Methods that reproduce the full spectrum}
 
-All known methods to map the entire spectrum of a Hamiltonian rely on the same basic principle: auxilliary variables are added, to mediate the high-order interactions, and constraints are added to restrict the values which the axilliary variables can take. In practice, constraints are implemented as one and two term equations with much stronger energy penalties than those in the original Hamiltonian. As long as the constraints are sufficiently strong, the low energy subspace of the 2-local Hamiltonian will be exactly the spectrum of the $k$-local Hamiltonian which has been mapped. Moreover, the location of the original `logical' variables is known and so the resulting configuration of the mapped variables can easily be determined.
+All known methods to map the entire spectrum of a Hamiltonian rely on the same basic principle: auxilliary variables are added, to mediate the high-order interactions, and constraints are added to restrict the values which the axilliary variables can take. In practice, constraints are implemented as one and two term equations with much stronger energy penalties than those in the original Hamiltonian. As long as the constraints are sufficiently strong, the low energy subspace of the 2-local Hamiltonian will be exactly the spectrum of the original $k$-local Hamiltonian. Moreover, the location of the original `logical' variables is known and so the resulting configuration of the mapped variables can easily be determined.
 
 %If we want to reproduce the spectrum of  $b_1b_2b_3$, (such that the state $b_1=1,b_2=1,b_3=1$ will have energy $1$ and all others will have energy $0$)  we need to find a quadratic penalty function $P(a,b_1,b_2)$ such that if an auxilliary variable $a$ satisfies $a=b_1b_2$, $P(a,b_1,b_2)=0$, and $P(a,b_1,b_2)>0$ otherwise. If we can find such a function (we explain how to do this is subsection \ref{sub:recursive}), then the desired spectrum will be reproduced in the low energy sector of the following Hamiltonian.
 
@@ -929,6 +948,8 @@ H_{2-local}=P_+(b_1,b_2,b_{a_1};\lambda)+P_+(b_{a_1},b_3,b_{a_2};\lambda)+P_+(b_
 \item Original proposal with transmon implementation: \cite{Leib2016}.
 \end{itemize}
 
+\newpage
+
 \subsection{Multibody Operators in PAQC}
 
 \summarysec
@@ -992,6 +1013,8 @@ H_{3-local}=m\,z_{1,2,3}+\lambda\,(H_{LHZ}-z_{1}z_{2,3}z_{1,2,3}).
 \item Performance and decoding of LHZ: \cite{Pastawski2016,Albash2016}.
 \end{itemize}
 
+\newpage
+
 \subsection{Symmetry Based Mappings}
 
 \summarysec
@@ -1025,7 +1048,7 @@ A Hamiltonian for a  $4$ qubit gadget which forces the number of auxilliary qubi
 %\end{equation}
 
 \begin{equation}
-H_{4-count}=  \sum_{i=2}^4 \sum_{j =1}^{i-1} z_i z_j -\frac{1}{2} \sum_{i=1}^4  z_i +  \sum_{i=1}^4 \sum_{j=1}^4 z_i z_{a_j}  +2.5\,z_{a_1}+ 0.5\,z_{a_2}-1.5\,z_{a_3}-3.5\,z_{a_4}.
+H_{4-count}=  \sum_{i=2}^4 \sum_{j =1}^{i-1} z_i z_j -\frac{1}{2} \sum_{i=1}^4  z_i +  \sum_{i=1}^4 \sum_{j=1}^4 z_i z_{a_j}  +\frac{1}{2}\left(5z_{a_1}+ z_{a_2}-3\,z_{a_3}-7 z_{a_4}\right).
 \end{equation}
 
 To replicate the spectrum of $z_1z_2z_3z_4$, we should implement
@@ -1050,7 +1073,7 @@ H_{4-local}=-\frac{1}{2}z_{a_4}+ \lambda H_{4-count}.
 \end{itemize}
 
 
-
+%\newpage
 
 \section{Strategies for combining methods}
 
@@ -1315,6 +1338,8 @@ H_{k-\rm{local}} \rightarrow &	\left(\Delta+\left(\frac{\alpha}{2}\right)^{\nice
 
 \noindent The result is $(k-1)$-local and its low-lying spectrum is the same as that of  $H_{k-\rm{local}}$ when $\Delta$ is large enough. 
 
+\newpage
+
 \section{Subdivision Gadgets}
 
 Instead of recursively reducing $k$-local to $(k-1)$-local one reduction at a time, we can reduce $k$-local terms to $(k/2)$-local terms directly for even $k$, or to $(k+1)/2$-local terms directly for odd $k$. Since when $k$ is odd we can add an identity operator to the $k$-local term to make it even, we will assume in the following that $k$ is even, in order to avoid having to write floor and ceiling functions.
@@ -1392,17 +1417,17 @@ H_{k-\rm{local}} = \alpha H_{1,(\nicefrac{k}{2})-\rm{local}}H_{2,(\nicefrac{k}{2
 
 \costsec
 
-\prossec
-\begin{itemize}
-\item
-\item
-\end{itemize}
-
-\conssec
-\begin{itemize}
-\item
-\item
-\end{itemize}  
+%\prossec
+%\begin{itemize}
+%\item
+%\item
+%\end{itemize}
+%
+%\conssec
+%\begin{itemize}
+%\item
+%\item
+%\end{itemize}  
                
 \examplesec
 
@@ -1443,39 +1468,39 @@ H_{k-\rm{local}} = \alpha H_{1,(\nicefrac{k}{2})-\rm{local}}H_{2,(\nicefrac{k}{2
 
 \costsec
 
-\prossec
-\begin{itemize}
-\item
-\item
-\end{itemize}
-
-\conssec
-\begin{itemize}
-\item
-\item
-\end{itemize}  
+%\prossec
+%\begin{itemize}
+%\item
+%\item
+%\end{itemize}
+%
+%\conssec
+%\begin{itemize}
+%\item
+%\item
+%\end{itemize}  
                
 \examplesec
 
 \refsec
 
-\subsection{Babbush et al. (2013)}
+\subsection{BOA (Babbush, O'Gorman, Aspuru-Guzik, 2013)}
 
 \summarysec
 
 \costsec
 
-\prossec
-\begin{itemize}
-\item
-\item
-\end{itemize}
+%\prossec
+%\begin{itemize}
+%\item
+%\item
+%\end{itemize}
 
-\conssec
-\begin{itemize}
-\item
-\item
-\end{itemize}  
+%\conssec
+%\begin{itemize}
+%\item
+%\item
+%\end{itemize}  
                
 \examplesec
 
@@ -1497,17 +1522,17 @@ Accordingly, an interesting question is whether we can approximate 3-body terms 
 
 \costsec
 
-\prossec
-\begin{itemize}
-\item
-\item
-\end{itemize}
-
-\conssec
-\begin{itemize}
-\item Requires $\Delta=\Theta\left(\epsilon^{-5}\right)$
-\item
-\end{itemize}  
+%\prossec
+%\begin{itemize}
+%\item
+%\item
+%\end{itemize}
+%
+%\conssec
+%\begin{itemize}
+%\item Requires $\Delta=\Theta\left(\epsilon^{-5}\right)$
+%\item
+%\end{itemize}  
                
 \examplesec
 
@@ -1534,11 +1559,11 @@ $\quad$\\
 \noindent{\bf Analysis.} Similar to the gadgets we have presented so far, we introduce an ancilla spin $w$. Applying an energy gap $\Delta$ on the ancilla spin gives the unperturbed Hamiltonian $H=\Delta|1\rangle\langle{1}|_w$. We then perturb the Hamiltonian $H$ using a perturbation $V$ described in \eqref{eq:V5}. Using the same definitions of subspaces $\mathcal{L}_+$ and $\mathcal{L}_-$ as the previous 3-body gadget, the projections of $V$ into these subspaces can be written as
 \begin{equation}\label{eq:V_proj_fifth}
 \begin{array}{ccl}
-V_+ & = & \displaystyle \bigg\{H_\text{else} + \mu(Z_1+Z_2+Z_3) + \frac{{\mu}^4}{\Delta^3}\big[3{\openone}+ 2(Z_1Z_2+Z_1Z_3+Z_2Z_3)\big]\bigg\}\otimes|1\rangle\langle{1}|_w \\[0.1in]
+V_+ & = & \displaystyle \left(H_\text{else} + \mu(Z_1+Z_2+Z_3) + \frac{{\mu}^4}{\Delta^3}\big[3{\openone}+ 2(Z_1Z_2+Z_1Z_3+Z_2Z_3)\big]\right)\otimes|1\rangle\langle{1}|_w \\[0.1in]
 %& + & \displaystyle 2({\kappa}{\lambda}Z_1Z_2+{\kappa}{\mu}Z_1Z_3+{\lambda}{\mu}Z_2Z_3)\big]\bigg\}\otimes|1\rangle\langle{1}|_w \\[0.1in]
-V_- & = & \displaystyle \bigg\{H_\text{else}+\frac{{\mu}^2}{\Delta}{\openone}-\frac{{\mu}^3}{\Delta^2}(Z_1+Z_2+Z_3){\openone}+\frac{{\mu}^4}{\Delta^3}\big[3\openone+2(Z_1Z_2+Z_1Z_3+Z_2Z_3)\big] \\[0.1in]
+V_- & = & \displaystyle \left(H_\text{else}+\frac{{\mu}^2}{\Delta}{\openone}-\frac{{\mu}^3}{\Delta^2}(Z_1+Z_2+Z_3){\openone}+\frac{{\mu}^4}{\Delta^3}\big[3\openone+2(Z_1Z_2+Z_1Z_3+Z_2Z_3)\big] \\[0.1in]
 %& + & \displaystyle 2({\kappa}{\lambda}Z_1Z_2+{\kappa}{\mu}Z_1Z_3+{\lambda}{\mu}Z_2Z_3)\big] \\[0.1in]
-& & \displaystyle -\frac{7{\mu}^5}{\Delta^4}\big(Z_1+Z_2+Z_3\big)\bigg\}\otimes|0\rangle\langle{0}|_w \\[0.1in]
+& & \displaystyle -\frac{7{\mu}^5}{\Delta^4}\big(Z_1+Z_2+Z_3\big)\bigg)\otimes|0\rangle\langle{0}|_w \\[0.1in]
 %& & \displaystyle \qquad +(3{\kappa}^2+3{\lambda}^2+{\mu}^2){\mu}Z_3\big]\otimes|0\rangle\langle{0}|_w \\[0.1in]
 V_{-+} & = & {\mu}{\openone}\otimes|0\rangle\langle{1}|_w,\quad V_{+-}= {\mu}{\openone}\otimes|1\rangle\langle{0}|_w. \\[0.1in]
 \end{array}
@@ -1588,7 +1613,7 @@ This $\Theta(\epsilon^{-5})$ scaling is numerically illustrated (Fig.\ \ref{fig:
 
 \end{comment}
 
-
+\newpage
 \section{Direct Reduction}
 
 Here we do not reduce $k$ by one order at a time (1B1 reduction) or by $\nicefrac{k}{2}$ at a time (SD reduction), but we directly reduce $k$-local terms to 2-local terms.
@@ -1599,22 +1624,22 @@ Here we do not reduce $k$ by one order at a time (1B1 reduction) or by $\nicefra
 
 \costsec
 
-\prossec
-\begin{itemize}
-\item
-\item
-\end{itemize}
-
-\conssec
-\begin{itemize}
-\item
-\item
-\end{itemize}
+%\prossec
+%\begin{itemize}
+%\item
+%\item
+%\end{itemize}
+%
+%\conssec
+%\begin{itemize}
+%\item
+%\item
+%\end{itemize}
 
 \examplesec
 
 \refsec
-
+\newpage
 \section{Non-perturbative embeddings}
 
 \subsection{NP-SJ (Subasi \& Jarzynski, 2016)}
@@ -1623,17 +1648,17 @@ Here we do not reduce $k$ by one order at a time (1B1 reduction) or by $\nicefra
 
 \costsec
 
-\prossec
-\begin{itemize}
-\item
-\item
-\end{itemize}
-
-\conssec
-\begin{itemize}
-\item
-\item
-\end{itemize}
+%\prossec
+%\begin{itemize}
+%\item
+%\item
+%\end{itemize}
+%
+%\conssec
+%\begin{itemize}
+%\item
+%\item
+%\end{itemize}
 
 \examplesec
 
@@ -1687,6 +1712,7 @@ system down to its ground state. This ground state is one out of $2^{N}$
 possible states , and the configuration of spin up and spin down electrons
 encodes the desired computation.
 
+\newpage
 \section{Further Examples}
 
 \examplesec \label{subsec:Example_Ramsey_deduc_reduc}
@@ -1718,7 +1744,7 @@ Note in this case the error terms added by deduc-reduc already appear in our Ham
 
 \section*{Acknowledgments}
 
-
+\newpage
 \bibliographystyle{apsrev4-1}
 \bibliography{k-local-quadratization}
 
