@@ -907,9 +907,11 @@ H_{2-local}=b_1b_{a_2}+ \lambda\left(3\,b_{a_2}-2b_{a_2}(b_2+b_{a_1})+b_2b_{a,1}
 
 \summarysec
 
-We now wish to guarantee that $b_{a,k}=b_ib_j$ can be chained together to make large product terms consisting of $b$. 
+Goal: Guarantee that $b_{a,k}=b_ib_j$ can be chained together to make large product terms consisting of $b$. 
 %Recall that products of $b$ correspond to parity check or ${\sc xor}$ operations, while products of $b$ correspond to logical ${\sc and}$ operations.
-The penalty term which guarantees that $b_{a_k}=\pm b_ib_j$ is $P(b_{a_k},b_i,z_j)= \mp b_{a_k}b_ib_j$. Using a gadget for the three local Hamiltonian, the low energy spectrum of Ising terms of any locality can be produced. This method was originally only used to reprduce the ground state of high locality terms, but states of the "wrong" parity ($q_k=\mp b_ib_j$) will all have the same energy as well, so it reproduces the full spectrum. 
+The penalty term$P(b_{a_k},b_i,z_j)= \mp b_{a_k}b_ib_j$ guarantees that $b_{a_k}=\pm b_ib_j$. The three local term can be mad from gadgets.
+
+This method was originally only used to reproduce the ground state of high locality terms, but states of the "wrong" parity ($q_k=\mp b_ib_j$) will all have the same energy as well, so it reproduces the full spectrum. 
  
 
 \costsec
@@ -954,13 +956,13 @@ H_{2-local}=P_+(b_1,b_2,b_{a_1};\lambda)+P_+(b_{a_1},b_3,b_{a_2};\lambda)+P_+(b_
 
 \summarysec
 
-Parity adiabatic quantum computing (PAQC) is an AQC archetecture in which logical qubits are mapped onto a highly non-local logical space of a Hamiltonian. These methods allow for high order terms to be directly implemented, but also require high locality terms to be implemented. While these archetectures are not strictly a mapping from devices with high locality to two local ones, they may be built upon any gadget which has the same ground state manifold as $\prod_iz_i$. In other words, PAQC schemes can reprduce the entire spectrum of a Hamiltonian, even if the gadgets which they are built on top of do not.
+Logical (qu)bits are mapped onto a highly non-local logical space of a Hamiltonian. These methods allow for high order terms to be directly implemented, but also require high locality terms to be implemented. While these architectures are not strictly a mapping from devices with high locality to two local ones, they may be built upon any gadget which has the same ground state manifold as $\prod_iz_i$. %In other words, PAQC schemes can reprduce the entire spectrum of a Hamiltonian, even if the gadgets which they are built on top of do not.
 
-In PAQC, physical qubits descirbe relative parities of logical qubits, rather than the qubits themselves. In genral not all configurations of these qubits will be mathematically allowed, so a constraint Hamiltonian must be applied to enforce that the physical qubits can only take arrangements which correspond to mathematically self-consistant configurations of logical qubtis.
+Physical qubits describe relative parities of logical qubits. Not all configurations of these qubits will be mathematically allowed, so a constraint Hamiltonian must be applied.
 
 \costsec
 \begin{itemize}
-\item In the original (Lechner-Hauke-Zoller) scheme \cite{Lechner2015}, an $n$ body PAQC constraint which is capable of reproducing the full spectrum requires a $2n$ local gadget which reproduces only the ground state manifold of $\prod_i^{2n}z_i$. 
+\item In the original (Lechner-Hauke-Zoller) scheme \cite{Lechner2015}, an $n$ body PAQC constraint requires a $2n$ local gadget which reproduces only the ground state manifold of $\prod_i^{2n}z_i$. 
 \item Cost is more complicated to compute (but often lower) for other schemes.
 \end{itemize}
 
@@ -1019,7 +1021,7 @@ H_{3-local}=m\,z_{1,2,3}+\lambda\,(H_{LHZ}-z_{1}z_{2,3}z_{1,2,3}).
 
 \summarysec
 
-By making Hamiltonians with $1$ and $2$ body terms and full permutation symmetry with respect to logical qubits, auxilliary qubits can be made to "count" the number of of logical qubits in the $1$ configuration. By applying single qubit terms to the auxilliary qubits, the spectrum of \emph{any} permutation symmetric Hamiltonian can be reproduced. 
+Auxilliary qubits can be made to "count" the number of of logical qubits in the $1$ configuration. By applying single qubit terms to the auxilliary qubits, the spectrum of \emph{any} permutation symmetric Hamiltonian can be reproduced. 
 
 \costsec
 \begin{itemize}
@@ -1041,7 +1043,7 @@ By making Hamiltonians with $1$ and $2$ body terms and full permutation symmetry
 
 \examplesec
 
-A Hamiltonian for a  $4$ qubit gadget which forces the number of auxilliary qubits in the one state to match the number of logical qubits in the zero state takes the form:
+A  $4$ qubit gadget guarantees that the number of auxillary bits in the $0$ state is equal to the number of logical bits in the $1$ state
 
 %\begin{equation}
 %H_{4-count}=  \sum_{i=2}^4 \sum_{j =1}^{i-1} z_i z_j -\frac{1}{2} \sum_{i=1}^4  z_i +  \sum_{i=1}^4 \sum_{j=1}^4 z_i z_{a_j} +   \sum_{i=1}^4  (2\,i-4+\frac{1}{2}) z_{a_i}. 
@@ -1051,7 +1053,7 @@ A Hamiltonian for a  $4$ qubit gadget which forces the number of auxilliary qubi
 H_{4-count}=  \sum_{i=2}^4 \sum_{j =1}^{i-1} z_i z_j -\frac{1}{2} \sum_{i=1}^4  z_i +  \sum_{i=1}^4 \sum_{j=1}^4 z_i z_{a_j}  +\frac{1}{2}\left(5z_{a_1}+ z_{a_2}-3\,z_{a_3}-7 z_{a_4}\right).
 \end{equation}
 
-To replicate the spectrum of $z_1z_2z_3z_4$, we should implement
+To replicate the spectrum of $z_1z_2z_3z_4$, we add
 %
 \begin{equation}
 H_{4-local}=z_{a_1}-z_{a_2}+z_{a_3}-z_{a_4}+ \lambda H_{4-count},
@@ -1059,7 +1061,7 @@ H_{4-local}=z_{a_1}-z_{a_2}+z_{a_3}-z_{a_4}+ \lambda H_{4-count},
 %
 where $\lambda$ is a large number.
 
-Likewise for the spectrum of $b_1b_2b_3b_4$, we should implement,
+For the spectrum of $b_1b_2b_3b_4$, we implement,
 %
 \begin{equation}
 H_{4-local}=-\frac{1}{2}z_{a_4}+ \lambda H_{4-count}.
@@ -1069,7 +1071,7 @@ H_{4-local}=-\frac{1}{2}z_{a_4}+ \lambda H_{4-count}.
 \begin{itemize}
 \item Paper on flux qubit implementation: \cite{Chancellor2017}
 \item Paper on max-k-sat mapping: \cite{Chancellor2016}
-\item Talk including use in quantum simulation: \cite{Chancellor2016a}.
+\item Talk including use in quantum simulation: \cite{Chancellor2016a}
 \end{itemize}
 
 
