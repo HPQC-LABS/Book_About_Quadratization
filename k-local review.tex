@@ -484,7 +484,7 @@ Hence we have reduced our original, hard problem into 3 easy problems, requiring
 
 For a negative term $-b_{1}b_{2}...b_{k}$, introduce a single auxiliary variable $b_a$ and make the substitution:
 \begin{equation}
--b_{1}b_{2} \ldots b_{k} = \min_{b_a} \left( (k-1-\sum b_{i})b_a \right).
+-b_{1}b_{2} \ldots b_{k} = \min_{b_a} \left( (k-1-\sum_i b_{i})b_a \right).
 \end{equation}
 
 \costsec
@@ -841,7 +841,7 @@ For computer image problems, it can be used with the above methods to optimize m
 
 \section{Methods that reproduce the full spectrum}
 
-All known methods to map the entire spectrum of a Hamiltonian rely on the same basic principle: auxilliary variables are added, to mediate the high-order interactions, and constraints are added to restrict the values which the axilliary variables can take. In practice, constraints are implemented as one and two term equations with much stronger energy penalties than those in the original Hamiltonian. As long as the constraints are sufficiently strong, the low energy subspace of the 2-local Hamiltonian will be exactly the spectrum of the original $k$-local Hamiltonian. Moreover, the location of the original `logical' variables is known and so the resulting configuration of the mapped variables can easily be determined.
+%All known methods to map the entire spectrum of a Hamiltonian rely on the same basic principle: auxilliary variables are added, to mediate the high-order interactions, and constraints are added to restrict the values which the axilliary variables can take. In practice, constraints are implemented as one and two term equations with much stronger energy penalties than those in the original Hamiltonian. As long as the constraints are sufficiently strong, the low energy subspace of the 2-local Hamiltonian will be exactly the spectrum of the original $k$-local Hamiltonian. Moreover, the location of the original `logical' variables is known and so the resulting configuration of the mapped variables can easily be determined.
 
 %If we want to reproduce the spectrum of  $b_1b_2b_3$, (such that the state $b_1=1,b_2=1,b_3=1$ will have energy $1$ and all others will have energy $0$)  we need to find a quadratic penalty function $P(a,b_1,b_2)$ such that if an auxilliary variable $a$ satisfies $a=b_1b_2$, $P(a,b_1,b_2)=0$, and $P(a,b_1,b_2)>0$ otherwise. If we can find such a function (we explain how to do this is subsection \ref{sub:recursive}), then the desired spectrum will be reproduced in the low energy sector of the following Hamiltonian.
 
@@ -851,6 +851,7 @@ All known methods to map the entire spectrum of a Hamiltonian rely on the same b
 
 %\noindent where $\lambda$ is a large positive number.
 
+These techniques will transform $k$-local functions to 2-local functions that not only have the same ground state as the $k$-local function, but also the entire input/output spectrum of the $k$-local functions will be preserved in the low-lying energy space of the corresponding 2-local function (which also has higher energy states due to the auxiliary variables added). 
 
 
 \subsection{Recursive Order Reduction\label{sub:recursive}}
@@ -896,11 +897,10 @@ H_{2-\rm{local}}=b_1b_{a_2}+ \lambda\left(3\,b_{a_2}-2b_{a_2}(b_2+b_{a_1})+b_2b_
 
 \refsec
 \begin{itemize}
-\item Paper on underlying mathematical principles \cite{Boros2002}.
-\item Mapping techniques applied to protein folding \cite{Perdomo2008}.
-\item Techniques applied to Low Density Parity Code decoding on D-Wave devices \cite{Bian2013}.
-\item Small gadgets which can be used with these techniques \cite{Biamonte2008a}.
-\item Variation of these techniques used to prove unviersality of the Ising model \cite{DelasCuevasGemmaandCubitt2016}.
+\item Possibly the original paper [ask Boros and Gruber for advice on where it came first]:  \cite{Biamonte2008a}.
+%\item Paper on underlying mathematical principles \cite{Boros2002}.  Does the gadget really appear there?
+\item Used in: \cite{Perdomo2008, Bian2013}. %Perdomo2013 is protein folding problem, Bian2013 is Ramsey number problem. 
+%\item Variation of these techniques used to prove unviersality of the Ising model \cite{DelasCuevasGemmaandCubitt2016}. Can the "variation of techniques" not be in their own sections?
 \end{itemize}
 
 \subsection{Chained Three Body Parity Operators}
@@ -909,7 +909,7 @@ H_{2-\rm{local}}=b_1b_{a_2}+ \lambda\left(3\,b_{a_2}-2b_{a_2}(b_2+b_{a_1})+b_2b_
 
 Goal: Guarantee that $b_{a,k}=b_ib_j$ can be chained together to make large product terms consisting of $b$. 
 %Recall that products of $b$ correspond to parity check or ${\sc xor}$ operations, while products of $b$ correspond to logical ${\sc and}$ operations.
-The penalty term$P(b_{a_k},b_i,z_j)= \mp b_{a_k}b_ib_j$ guarantees that $b_{a_k}=\pm b_ib_j$. The three local term can be mad from gadgets.
+The penalty term$P(b_{a_k},b_i,z_j)= \mp b_{a_k}b_ib_j$ guarantees that $b_{a_k}=\pm b_ib_j$. The three local term can be made from gadgets.
 
 This method was originally only used to reproduce the ground state of high locality terms, but states of the "wrong" parity ($q_k=\mp b_ib_j$) will all have the same energy as well, so it reproduces the full spectrum. 
  
@@ -936,7 +936,7 @@ This method was originally only used to reproduce the ground state of high local
 Let us use this method to reproduce the spectrum of the following five local Hamiltonian $b_1b_2b_3b_4b_5$.  The following three local gadget reproduces the spectrum of the three local term $\pm b_1b_2b_3$
 
 \begin{equation}
-P_\pm(b_1,b_2,b_3;\lambda)=\lambda\left[b_1b_2+b_2b_3+b_3b_1+2b_a(b_1+b_2+b_3)\right]\mp (b_1+b_2+b_3 +2b_a).
+P_\pm(b_1,b_2,b_3;\lambda)=\lambda\left(b_1b_2+b_2b_3+b_3b_1+2b_a(b_1+b_2+b_3)\right)\mp (b_1+b_2+b_3 +2b_a).
 \end{equation}
 
 Using thee copies of this three local gadget as a building block, and using two additional auxilliary variables, the spectrum of the five local term $b_1b_2b_3b_4b_5$ can be reproduced by the following Hamiltonian
@@ -952,76 +952,76 @@ H_{2-\rm{local}}=P_+(b_1,b_2,b_{a_1};\lambda)+P_+(b_{a_1},b_3,b_{a_2};\lambda)+P
 
 \newpage
 
-\subsection{Multibody Operators in PAQC}
-
-\summarysec
-
-Logical (qu)bits are mapped onto a highly non-local logical space of a Hamiltonian. These methods allow for high order terms to be directly implemented, but also require high locality terms to be implemented. While these architectures are not strictly a mapping from devices with high locality to two local ones, they may be built upon any gadget which has the same ground state manifold as $\prod_iz_i$. %In other words, PAQC schemes can reprduce the entire spectrum of a Hamiltonian, even if the gadgets which they are built on top of do not.
-
-Physical qubits describe relative parities of logical qubits. Not all configurations of these qubits will be mathematically allowed, so a constraint Hamiltonian must be applied.
-
-\costsec
-\begin{itemize}
-\item In the original (Lechner-Hauke-Zoller) scheme \cite{Lechner2015}, an $n$ body PAQC constraint requires a $2n$ local gadget which reproduces only the ground state manifold of $\prod_i^{2n}z_i$. 
-\item Cost is more complicated to compute (but often lower) for other schemes.
-\end{itemize}
-
-\prossec
-\begin{itemize}
-\item Connection to stablizers allows for novel decoding \cite{Pastawski2016,Albash2016}.
-\item Natural Rydberg atom based implementation \cite{Glaetzle2017}.
-\item Some implementations are highly symmetric, which may be good for quantum simulations.
-\end{itemize}
-
-\conssec
-\begin{itemize}
-\item Requires other gadgets to implement.
-\item Numerics suggest poor performance in some cases \cite{Albash2016}.
-\end{itemize}
-
-\examplesec
-
-%Rather than considering a mapping which maps qubit values directly, let us consider a mapping which maps physical qubits to the relative parity of paris of logical qubits. If we consider only the relative parity pairs of qubits, we observe that there will be $n(n-1)$ such parity values, but not all of these parity values correspond to physically realizable configurations, for instance it is not mathematically possible for to have $z_1z_2=-1$, $z_2z_3=1$ and $z_1z_3=1$ simultaneously. We therefore need to add constraints to gaurantee that only mathematically consistant configurations are allowed. If we consider four qubits, these constraints are realized in the ground state manifold of the three qubit LHZ constraint Hamiltonian:
-
-Let us start with the LHZ constraint Hamiltonian, which constrains qubits discirbing to body parity terms to take only mathematically allowed values:
-
-\begin{equation}
-H_{\rm{LHZ}}=-z_{1,2}z_{1,3}z_{2,3}-z_{1,3}z_{1,4}z_{2,4}z_{2,3}-z_{2,3}z_{2,4}z_{3,4}. \label{eq:LHZ4}
-\end{equation}
-
-%Two local coupling between logical qubits in this state can therefore be achieved by introducing single qubit variables corresponding to each coupling, for instance adding a term $m\,z_{1,2}$ will intrduce a coupling between logical qubits $1$ and $2$ of strength $m$. If we want to add the four body constraint $z_1z_2z_3z_4$, we must add an additional physical qubit $z_{1,2,3,4}$ which is constrained to match the parity of $z_1z_2z_3z_4$. To accomplish this, we note that this total parity has to match $z_{1,2}z_{3,4}$, the Hamiltonian with added four body coupling of strength $m$ therefore takes the form:
-
-To add a four body term, we need to add a single qubit which couples to $z_{1,2}$ and $z_{3,4}$, single body constraints on this qubit correspond to a $4$ body constraint on the logical qubits.
-
-
-
-\begin{equation}
-H_{4-\rm{local}}=m\,z_{1,2,3,4}+\lambda\,(H_{LHZ}-z_{1,2}z_{3,4}z_{1,2,3,4}),
-\end{equation}
-where $\lambda$ is a large postive number.
-
-If we instead wanted to create the three body coupling $z_1z_2z_3$ of strength $m$, we would have to add an additional variable $z_1$, since Eq. \ref{eq:LHZ4} only constrains the logical qubits up to global spin inversion. By noting that  $z_1z_2z_3=z_{1}z_{2,3}$ we see that such a three body Hamiltonian can take the form:
-
-\begin{equation}
-H_{3-\rm{local}}=m\,z_{1,2,3}+\lambda\,(H_{LHZ}-z_{1}z_{2,3}z_{1,2,3}).
-\end{equation}
-
-\refsec
-\begin{itemize}
-\item Original (LHZ) paper: \cite{Lechner2015}
-\item Additional design techniques based on stabilizers: \cite{Rocchetto2016}
-\item Superconducting circuit implementations of LHZ: \cite{Leib2016,Chancellor2017}
-\item Rydberg Implementation of LHZ: \cite{Glaetzle2017}.
-\item Performance and decoding of LHZ: \cite{Pastawski2016,Albash2016}.
-\end{itemize}
-
-\newpage
+% \subsection{Multibody Operators in PAQC}
+% 
+% \summarysec
+% 
+% Logical (qu)bits are mapped onto a highly non-local logical space of a Hamiltonian. These methods allow for high order terms to be directly implemented, but also require high locality terms to be implemented. While these architectures are not strictly a mapping from devices with high locality to two local ones, they may be built upon any gadget which has the same ground state manifold as $\prod_iz_i$. %In other words, PAQC schemes can reprduce the entire spectrum of a Hamiltonian, even if the gadgets which they are built on top of do not.
+% 
+% Physical qubits describe relative parities of logical qubits. Not all configurations of these qubits will be mathematically allowed, so a constraint Hamiltonian must be applied.
+% 
+% \costsec
+% \begin{itemize}
+% \item In the original (Lechner-Hauke-Zoller) scheme \cite{Lechner2015}, an $n$ body PAQC constraint requires a $2n$ local gadget which reproduces only the ground state manifold of $\prod_i^{2n}z_i$. 
+% \item Cost is more complicated to compute (but often lower) for other schemes.
+% \end{itemize}
+% 
+% \prossec
+% \begin{itemize}
+% \item Connection to stablizers allows for novel decoding \cite{Pastawski2016,Albash2016}.
+% \item Natural Rydberg atom based implementation \cite{Glaetzle2017}.
+% \item Some implementations are highly symmetric, which may be good for quantum simulations.
+% \end{itemize}
+% 
+% \conssec
+% \begin{itemize}
+% \item Requires other gadgets to implement.
+% \item Numerics suggest poor performance in some cases \cite{Albash2016}.
+% \end{itemize}
+% 
+% \examplesec
+% 
+% %Rather than considering a mapping which maps qubit values directly, let us consider a mapping which maps physical qubits to the relative parity of paris of logical qubits. If we consider only the relative parity pairs of qubits, we observe that there will be $n(n-1)$ such parity values, but not all of these parity values correspond to physically realizable configurations, for instance it is not mathematically possible for to have $z_1z_2=-1$, $z_2z_3=1$ and $z_1z_3=1$ simultaneously. We therefore need to add constraints to gaurantee that only mathematically consistant configurations are allowed. If we consider four qubits, these constraints are realized in the ground state manifold of the three qubit LHZ constraint Hamiltonian:
+% 
+% Let us start with the LHZ constraint Hamiltonian, which constrains qubits describing 2-body parity terms to take only mathematically allowed values:
+% 
+% \begin{equation}
+% H_{\rm{LHZ}}=-z_{1,2}z_{1,3}z_{2,3}-z_{1,3}z_{1,4}z_{2,4}z_{2,3}-z_{2,3}z_{2,4}z_{3,4}. \label{eq:LHZ4}
+% \end{equation}
+% 
+% %Two local coupling between logical qubits in this state can therefore be achieved by introducing single qubit variables corresponding to each coupling, for instance adding a term $m\,z_{1,2}$ will intrduce a coupling between logical qubits $1$ and $2$ of strength $m$. If we want to add the four body constraint $z_1z_2z_3z_4$, we must add an additional physical qubit $z_{1,2,3,4}$ which is constrained to match the parity of $z_1z_2z_3z_4$. To accomplish this, we note that this total parity has to match $z_{1,2}z_{3,4}$, the Hamiltonian with added four body coupling of strength $m$ therefore takes the form:
+% 
+% To add a four body term, we need to add a single qubit which couples to $z_{1,2}$ and $z_{3,4}$, single body constraints on this qubit correspond to a $4$ body constraint on the logical qubits.
+% 
+% 
+% 
+% \begin{equation}
+% H_{4-\rm{local}}=m\,z_{1,2,3,4}+\lambda\,(H_{LHZ}-z_{1,2}z_{3,4}z_{1,2,3,4}),
+% \end{equation}
+% where $\lambda$ is a large postive number.
+% 
+% If we instead wanted to create the three body coupling $z_1z_2z_3$ of strength $m$, we would have to add an additional variable $z_1$, since Eq. \ref{eq:LHZ4} only constrains the logical qubits up to global spin inversion. By noting that  $z_1z_2z_3=z_{1}z_{2,3}$ we see that such a three body Hamiltonian can take the form:
+% 
+% \begin{equation}
+% H_{3-\rm{local}}=m\,z_{1,2,3}+\lambda\,(H_{LHZ}-z_{1}z_{2,3}z_{1,2,3}).
+% \end{equation}
+% 
+% \refsec
+% \begin{itemize}
+% \item Original (LHZ) paper: \cite{Lechner2015}
+% \item Additional design techniques based on stabilizers: \cite{Rocchetto2016}
+% \item Superconducting circuit implementations of LHZ: \cite{Leib2016,Chancellor2017}
+% \item Rydberg Implementation of LHZ: \cite{Glaetzle2017}.
+% \item Performance and decoding of LHZ: \cite{Pastawski2016,Albash2016}.
+% \end{itemize}
+% 
+% \newpage
 
 \subsection{Symmetry Based Mappings}
 
 \summarysec
 
-Auxilliary qubits can be made to "count" the number of of logical qubits in the $1$ configuration. By applying single qubit terms to the auxilliary qubits, the spectrum of \emph{any} permutation symmetric Hamiltonian can be reproduced. 
+Auxilliary qubits can be made to "count" the number of logical qubits in the $1$ configuration. By applying single qubit terms to the auxilliary qubits, the spectrum of \emph{any} permutation symmetric Hamiltonian can be reproduced. 
 
 \costsec
 \begin{itemize}
