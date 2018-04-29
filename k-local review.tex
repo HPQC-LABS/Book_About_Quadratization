@@ -638,12 +638,13 @@ b_{1}b_{2}b_{3}b_{4} & = & \min_{b_a}(3-2b_{1}-2b_{2}-2b_{3}-2b_{4})b_a+b_{1}b_{
 
 Similar to other methods of reducing one term, this method can reduce a positive cubic monomial into quadratic terms using only one auxiliary variable, while introducing fewer non-submodular terms than the symmetric version.
 
-RICHARD: this is asymmetric w.r.t. b1,b1,b3, so isn't there more options for how to transform the b1b2b3 in this case?
 
 The identity is given by:
-\begin{equation}
-b_{1}b_{2}b_{3}= \min_{b_a} \left( b_a-b_{2}b_a-b_{3}b_a+b_{1}b_a+b_{2}b_{3} \right)
-\end{equation}
+\begin{align}
+b_{1}b_{2}b_{3}&= \min_{b_a} \left( b_a-b_{2}b_a-b_{3}b_a+b_{1}b_a+b_{2}b_{3} \right)\\
+               &= \min_{b_a} \left( b_a-b_{1}b_a-b_{3}b_a+b_{2}b_a+b_{1}b_{3} \right)\\
+               &= \min_{b_a} \left( b_a-b_{1}b_a-b_{2}b_a+b_{3}b_a+b_{1}b_{2} \right)\\
+\end{align}
 
 \costsec
 
