@@ -905,6 +905,44 @@ H_{2-\rm{local}}=b_1b_{a_2}+ \lambda\left(3\,b_{a_2}-2b_{a_2}(b_2+b_{a_1})+b_2b_
 %\item Variation of these techniques used to prove unviersality of the Ising model \cite{DelasCuevasGemmaandCubitt2016}. Can the "variation of techniques" not be in their own sections?
 \end{itemize}
 
+\subsection{Flag Based SAT Mapping\label{sub:flag_SAT}}
+
+\summarysec
+
+This method is very similar to recursive order reduction, but uses gadgets to produce separate 3-SAT clauses which allow variables which `flag' the state of pairs of other variables
+
+\costsec
+\begin{itemize}
+\item Polynomial in size of Hamiltonian being simulated, but varies
+\end{itemize}
+
+\prossec
+\begin{itemize}
+\item  Highly general and therefore conducive to proofs.
+\end{itemize}
+
+\conssec
+\begin{itemize}
+\item Designed for generality rather than efficiency.
+\end{itemize}
+
+\examplesec
+
+To create a system which maps $(b_1=-1)\vee (b_2=-1) \vee (b_3=-1)$ (up to an energy shift),  we use the following gadget:
+%
+\begin{equation}
+H_{3-\rm{SAT}}=-\sum_{i=1}^3 b_{a_i}-\frac{1}{2}\sum_{i=1}^3 b_i+\frac{1}{2}\sum_{i<j}^3 b_{a_i} b_{a_j} +\frac{1}{2} \sum_{i=1}^3 b_i b_{a_i}.
+\end{equation}
+
+Implementing $\lambda H_{3-\rm{SAT}}$, creates a situation where $b_3$ is a `flag' for $b_1=-1$ and $ b_2=-1$ in other words $b_3$ is constrained to be $-1$ in the low energy manifold iff $b_1=-1$ and $ b_2=-1$ and $+1$ otherwise. It follows from the universality of $3-\rm{SAT}$ that these `flag' clauses can be combined to map any spin Hamiltonian.
+
+\refsec
+\begin{itemize}
+\item Paper showing the universality of the Ising spin models: \cite{DelasCuevasGemmaandCubitt2016}.
+\end{itemize}
+
+\newpage
+
 \subsection{Chained Three Body Parity Operators}
 
 \summarysec
