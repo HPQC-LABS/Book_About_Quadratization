@@ -122,7 +122,7 @@ UK. }
 
 
 \begin{abstract}
-A collaborative, evolving, open review paper on k-local to 2-local transformations (quadratizations) in classical computing, quantum annealing, and universal adiabatic quantum computing.  
+A collaborative, evolving, open review paper on $k$-local to 2-local transformations (quadratizations) in classical computing, quantum annealing, and universal adiabatic quantum computing.  
 \end{abstract}
 
 \maketitle
@@ -130,59 +130,59 @@ A collaborative, evolving, open review paper on k-local to 2-local transformatio
 
 \title{\tableofcontents{}}
 
-\section{Introduction}
+%\section{Introduction}
+%
+%%JB: I like the idea of entering with the general Ising model and then putting the quantum stuff a bit later on, otherwise it can confuse readers from the pseudoboolean background I fear. 
+%
+%\textbf{\emph{Every}} computation can be done by minimizing a Hamiltonian
+%of either one of the following forms:
+%
+%\begin{eqnarray}
+%H = \sum_{i}^{n} \left( \alpha_{i}z_{i}+\beta_{i}x_{i} \right) + \sum_{ij}^{n} \left( \alpha_{ij} z_{i}z_{j}+\beta_{ij}x_{i}x_{j} \right), \label{eq:XX+Z} \\
+%H = \sum_{i}^{n} \left( \alpha_{i}z_{i}+\beta_{i}x_{i} \right) + \sum_{ij}^{n} \left( \alpha_{ij} z_{i}z_{j}+\beta_{ij}x_{i}z_{j} \right), \label{eq:XZ+Z}
+%\end{eqnarray}
+%where the $z$ and $x$ variables denote the Pauli matrices:
+%\begin{equation}
+%z\equiv\begin{pmatrix}1 & 0\\
+%0 & -1
+%\end{pmatrix},\,x\equiv\begin{pmatrix}0 & 1\\
+%1 & 0
+%\end{pmatrix},
+%\end{equation}
+%the $\alpha$ and $\beta$ coefficients are real numbers; and the Appendix will teach any unfamiliar readers how to interpret this notation.
+%
+%We know that every computation can be done this way because the minimization can be done by adiabatic quantum computation (AQC), and it has been proven \cite{Aharonov2008,Biamonte2008} that AQC can simulate any circuit-based quantum computation with overhead that grows at most polynomially with the size of the problem, and we know that circuit-based quantum computation can simulate any classical computation with at most polynomial overhead. %% Incorrect citation:  %Mizel2007
+%If we remove all the terms in Eq. \ref{eq:XX+Z} or Eq. \ref{eq:XZ+Z} that have $x$ operators, we get an Ising Hamiltonian that is quadratic:
+%\begin{equation}
+%H=\sum_{i}^{n}\alpha_{i}z_{i}+\sum_{ij}^{n}\alpha_{ij}z_{i}z_{j},\label{eq:ZZ+Z}
+%\end{equation}
+%and we no longer know of any proof that \textbf{\emph{any}} computation can be done by minimizing such a Hamiltonian with only polynomial overhead compared to circuit-based quantum computation or even classical computation, but plenty of very interesting problems can still be formulated as the minimization or approximate minimization of a quadratic Ising Hamiltonian, such as neural network training \cite{Altaisky2016}, computerized image denoising \cite{Ishikawa2009,Ishikawa2011,Ishikawa2014,Anthony2015}, integer factorization \cite{Dattani2014}, and Ramsey number determination \cite{Gaitan2012,Bian2013}, just to name a few.
+%However unlike Eq. \ref{eq:XZ+Z}, plenty of devices that can minimize Ising Hamiltonians already exist, and with further restrictions on the $\alpha$ coefficients, D-Wave has made devices with $n=2000$, and this number has roughly doubled every 14 months since the first 1-qubit demonstration in 2003, a phenomenon analogous to Moore's law of classical computer growth, which has become known as Rose's Law.
+%
+%Furthermore,\textbf{\emph{ no classical computer has ever been able to minimize certain quadratic Ising Hamiltonians faster than the D-Wave machines to date}} \cite{Denchev2016,Mandra2016}, so being able to turn computations into the form of Eq. \ref{eq:ZZ+Z} appears to be promising in terms of demonstrating the first useful application of quantum supremacy (which is the term used for quantum devices outperforming classical computation devices).
+%Moreover, for problems like neural networks and computerized image denoising, the best known classical computation algorithms also work by turning the problems into minimizations of Ising Hamiltonians, so even if you are happy with continuing to only use classical computer and have no interest in using quantum annealing devices, turning a problem into a quadratic Ising Hamiltonian minimization problem can be very powerful for some computations.
+%
+%For neural networks, image denoising, integer factorization, and Ramsey number determination, it is rather easy to turn the problem into the form:
+%
+%\begin{equation}
+%H=\sum_{i}^{n}\alpha_{i}z_{i}+\sum_{ij}^{n}\alpha_{ij}z_{i}z_{j}+\sum_{ijk}^{n}\alpha_{ijk}z_{i}z_{j}z_{k}+\sum_{ijkl}^{n}\alpha_{ijkl}z_{i}z_{j}z_{k}z_{l}\ldots,\label{eq:Z+ZZ+ZZZ+ZZZZ...}
+%\end{equation}
+%but then \textbf{\emph{quadratizing}} Eq. \ref{eq:Z+ZZ+ZZZ+ZZZZ...} into the quadratic Ising form often requires the introduction of auxiliary variables, and since minimizing Eq. \ref{eq:Z+ZZ+ZZZ+ZZZZ...} often has cost $\mathcal{O}(2^{n})$, it is often extremely desirable to do the quadratization with \textbf{\emph{as few auxiliary variables as possible}}.
+%Apart from quadratizing with minimum number of variables, it is also often desirable to reduce the number of non-zero $\alpha$ coefficients, to keep the non-zero $\alpha$ coefficients bounded or with specific values, to reduce the number of positive (non-submodular) $\alpha$ coefficients, to reduce the spectral ratio of the Hamiltonian (`maximum energy minus
+%minimum energy' divided by `energy of the second minimum minus the energy of the global minimum'), and to reduce the number of energy levels close to the global minimum.
+%Adjusting the energy landscape in order to accomplish all of these things apart from reducing the number of auxiliary variables needed has been termed Energy Landscape Manipulation (ELM) which is an entirely separate topic, sometimes even more important than quadratizing with as few auxiliary variables as possible, nonetheless this Review simply focuses on methods for the latter aim.
+%
+%It has been shown in \cite{Anthony2015} that a general function of the form Eq. \ref{eq:Z+ZZ+ZZZ+ZZZZ...} with degree $k$, can be quadratized using $O(n^{k/2})$ auxiliary variables.
+%However, it is often possible to quadratize with far fewer auxiliary variables (for example when the auxiliary variables for quadratizing one term are reused to quadratize other terms that have some of the same variables in them) or to quadratize without any auxiliaries at all (ex. if a Groebner basis can be found with all basis functions being quadratic, or if some symmetries in the Hamiltonian can be found that make it possible to quadratize without auxiliaries).
+%
+%\begin{comment}
+%Also shown in \cite{Ishikawa2011} that a PSB in $n$ variables requires at most $2^{n}-1$ auxiliary variables (by representing it as a function of degree $n$).
+%
+%Positive quadratic terms (non-submodular), particularly with large positive coefficients, are hard for a lot of reasons, classically (Ishikawa TGBMM....) \cite{Ishikawa2011}.
+%\end{comment}
 
-%JB: I like the idea of entering with the general Ising model and then putting the quantum stuff a bit later on, otherwise it can confuse readers from the pseudoboolean background I fear. 
 
-\textbf{\emph{Every}} computation can be done by minimizing a Hamiltonian
-of either one of the following forms:
-
-\begin{eqnarray}
-H = \sum_{i}^{n} \left( \alpha_{i}z_{i}+\beta_{i}x_{i} \right) + \sum_{ij}^{n} \left( \alpha_{ij} z_{i}z_{j}+\beta_{ij}x_{i}x_{j} \right), \label{eq:XX+Z} \\
-H = \sum_{i}^{n} \left( \alpha_{i}z_{i}+\beta_{i}x_{i} \right) + \sum_{ij}^{n} \left( \alpha_{ij} z_{i}z_{j}+\beta_{ij}x_{i}z_{j} \right), \label{eq:XZ+Z}
-\end{eqnarray}
-where the $z$ and $x$ variables denote the Pauli matrices:
-\begin{equation}
-z\equiv\begin{pmatrix}1 & 0\\
-0 & -1
-\end{pmatrix},\,x\equiv\begin{pmatrix}0 & 1\\
-1 & 0
-\end{pmatrix},
-\end{equation}
-the $\alpha$ and $\beta$ coefficients are real numbers; and the Appendix will teach any unfamiliar readers how to interpret this notation.
-
-We know that every computation can be done this way because the minimization can be done by adiabatic quantum computation (AQC), and it has been proven \cite{Aharonov2008,Biamonte2008} that AQC can simulate any circuit-based quantum computation with overhead that grows at most polynomially with the size of the problem, and we know that circuit-based quantum computation can simulate any classical computation with at most polynomial overhead. %% Incorrect citation:  %Mizel2007
-If we remove all the terms in Eq. \ref{eq:XX+Z} or Eq. \ref{eq:XZ+Z} that have $x$ operators, we get an Ising Hamiltonian that is quadratic:
-\begin{equation}
-H=\sum_{i}^{n}\alpha_{i}z_{i}+\sum_{ij}^{n}\alpha_{ij}z_{i}z_{j},\label{eq:ZZ+Z}
-\end{equation}
-and we no longer know of any proof that \textbf{\emph{any}} computation can be done by minimizing such a Hamiltonian with only polynomial overhead compared to circuit-based quantum computation or even classical computation, but plenty of very interesting problems can still be formulated as the minimization or approximate minimization of a quadratic Ising Hamiltonian, such as neural network training \cite{Altaisky2016}, computerized image denoising \cite{Ishikawa2009,Ishikawa2011,Ishikawa2014,Anthony2015}, integer factorization \cite{Dattani2014}, and Ramsey number determination \cite{Gaitan2012,Bian2013}, just to name a few.
-However unlike Eq. \ref{eq:XZ+Z}, plenty of devices that can minimize Ising Hamiltonians already exist, and with further restrictions on the $\alpha$ coefficients, D-Wave has made devices with $n=2000$, and this number has roughly doubled every 14 months since the first 1-qubit demonstration in 2003, a phenomenon analogous to Moore's law of classical computer growth, which has become known as Rose's Law.
-
-Furthermore,\textbf{\emph{ no classical computer has ever been able to minimize certain quadratic Ising Hamiltonians faster than the D-Wave machines to date}} \cite{Denchev2016,Mandra2016}, so being able to turn computations into the form of Eq. \ref{eq:ZZ+Z} appears to be promising in terms of demonstrating the first useful application of quantum supremacy (which is the term used for quantum devices outperforming classical computation devices).
-Moreover, for problems like neural networks and computerized image denoising, the best known classical computation algorithms also work by turning the problems into minimizations of Ising Hamiltonians, so even if you are happy with continuing to only use classical computer and have no interest in using quantum annealing devices, turning a problem into a quadratic Ising Hamiltonian minimization problem can be very powerful for some computations.
-
-For neural networks, image denoising, integer factorization, and Ramsey number determination, it is rather easy to turn the problem into the form:
-
-\begin{equation}
-H=\sum_{i}^{n}\alpha_{i}z_{i}+\sum_{ij}^{n}\alpha_{ij}z_{i}z_{j}+\sum_{ijk}^{n}\alpha_{ijk}z_{i}z_{j}z_{k}+\sum_{ijkl}^{n}\alpha_{ijkl}z_{i}z_{j}z_{k}z_{l}\ldots,\label{eq:Z+ZZ+ZZZ+ZZZZ...}
-\end{equation}
-but then \textbf{\emph{quadratizing}} Eq. \ref{eq:Z+ZZ+ZZZ+ZZZZ...} into the quadratic Ising form often requires the introduction of auxiliary variables, and since minimizing Eq. \ref{eq:Z+ZZ+ZZZ+ZZZZ...} often has cost $\mathcal{O}(2^{n})$, it is often extremely desirable to do the quadratization with \textbf{\emph{as few auxiliary variables as possible}}.
-Apart from quadratizing with minimum number of variables, it is also often desirable to reduce the number of non-zero $\alpha$ coefficients, to keep the non-zero $\alpha$ coefficients bounded or with specific values, to reduce the number of positive (non-submodular) $\alpha$ coefficients, to reduce the spectral ratio of the Hamiltonian (`maximum energy minus
-minimum energy' divided by `energy of the second minimum minus the energy of the global minimum'), and to reduce the number of energy levels close to the global minimum.
-Adjusting the energy landscape in order to accomplish all of these things apart from reducing the number of auxiliary variables needed has been termed Energy Landscape Manipulation (ELM) which is an entirely separate topic, sometimes even more important than quadratizing with as few auxiliary variables as possible, nonetheless this Review simply focuses on methods for the latter aim.
-
-It has been shown in \cite{Anthony2015} that a general function of the form Eq. \ref{eq:Z+ZZ+ZZZ+ZZZZ...} with degree $k$, can be quadratized using $O(n^{k/2})$ auxiliary variables.
-However, it is often possible to quadratize with far fewer auxiliary variables (for example when the auxiliary variables for quadratizing one term are reused to quadratize other terms that have some of the same variables in them) or to quadratize without any auxiliaries at all (ex. if a Groebner basis can be found with all basis functions being quadratic, or if some symmetries in the Hamiltonian can be found that make it possible to quadratize without auxiliaries).
-
-\begin{comment}
-Also shown in \cite{Ishikawa2011} that a PSB in $n$ variables requires at most $2^{n}-1$ auxiliary variables (by representing it as a function of degree $n$).
-
-Positive quadratic terms (non-submodular), particularly with large positive coefficients, are hard for a lot of reasons, classically (Ishikawa TGBMM....) \cite{Ishikawa2011}.
-\end{comment}
-
-
-\part{{\normalsize{\underline{Hamiltonians with only $z$ terms (pseudo-Boolean functions)}}}}
+\part{{\normalsize{\underline{Diagonal Hamiltonians (pseudo-Boolean functions)}}}}
 
 \section{Methods that introduce ZERO auxiliary variables}
 
