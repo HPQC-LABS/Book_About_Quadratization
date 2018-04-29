@@ -1223,7 +1223,8 @@ H & =\alpha I+\sum_{i}^{n}\left(\alpha_{i}^{(z)}z_{i}+\alpha_{i}^{(x)}x_{i}+\alp
 \end{align}
 \normalsize
 
-\noindent We wish to find a 2-local Hamiltonian of the form of Eq. \eqref{eq:XZ+Z} or Eq. \eqref{eq:XX+Z} that is equivalent to Eq. \eqref{eq:mostGeneralH} in terms of reproducing certain desired properties (e.g. same ground state(s), same ground eigenvalue(s), same full eigenspectrum, etc.) to within the desired precision.
+% of the form of Eq. \eqref{eq:XZ+Z} or Eq. \eqref{eq:XX+Z}
+\noindent We wish to find a 2-local Hamiltonian  that is equivalent to Eq. \eqref{eq:mostGeneralH} in terms of reproducing certain desired properties (e.g. same ground state(s), same ground eigenvalue(s), same full eigenspectrum, etc.) to within the desired precision.
 
 \begin{comment}
 \section{Brute force numerical}
@@ -1297,7 +1298,7 @@ H_{k-\rm{local}} = \sum_i\prod_j^k s_{ij} + H_{(k-1)-\rm{local}}. \label{eq:kloc
 \noindent Define auxiliary qubits labeled by $a_{ij}$ and make the transformation:
 
 \begin{align}
-\sum_i\prod_{ij}^k s_{ij} \mapsto \frac{\Delta}{4}\left( 9 - \sum_i \left( \sum_j  z_{a_{ij}} \right)^2 - \sum_j z_{a_{ij}}^2 + \frac{1}{\sqrt[3]{6\Delta}} x_{a_{ij}}  \right)+ \Lambda.
+\sum_i\prod_{j}^k s_{ij} \mapsto \frac{\Delta}{4}\left( 9 - \sum_i \left( \sum_j  z_{a_{ij}} \right)^2 - \sum_j z_{a_{ij}}^2 + \frac{1}{\sqrt[3]{6\Delta}} x_{a_{ij}}  \right)+ \Lambda.
 \end{align}
 
 \noindent The result will be a $(k-1)$-local Hamiltonian with the same low-lying spectrum as $H_{k-\rm{local}}$ to within $\epsilon$ as long as $\Delta=\Theta\left(\epsilon^{-3}\right)$. 
@@ -1671,28 +1672,48 @@ This $\Theta(\epsilon^{-5})$ scaling is numerically illustrated (Fig.\ \ref{fig:
 \section{Direct Reduction}
 
 Here we do not reduce $k$ by one order at a time (1B1 reduction) or by $\nicefrac{k}{2}$ at a time (SD reduction), but we directly reduce $k$-local terms to 2-local terms.
+% Instead of reducing $k$ in a one-by-one (1B1) way, or in a $\nicefrac{k}{2}$-by-$\nicefrac{k}{2}$ way as in sub-division (SD) gadgets, we reduce from $k$-local to 2-local in one step, using $k$  auxiliary qubits for each $k$-local term.
 
-\subsection{DR-JF (Jordan \& Fahri)}
+\subsection{DR-JF (Jordan \& Farhi)}
 
-\summarysec
+\summarysec 
+
+Express a sum of $k$-local terms as a sum of products of Pauli matrices $s_{ij}$, and define $k$ auxiliary qubits laelled by $a_{ij}$ for each term $i$, and make the transformmation:
+ 
+\begin{equation}
+\sum_i \alpha_i \prod_{j}^k s_{ij} \rightarrow \frac{-k(-\epsilon)^k}{(k-1)!} \sum_i \frac{1}{2}\left( k^2 - \sum_{jl}^k  z_{a_{ij}} z_{a_{il}} \right) + \epsilon \left( \alpha_i s_{i1}x_{i1} +  \sum_{j}^k s_{ij}x_{ij} \right) -f(\epsilon)\Pi,
+\end{equation}
+
+% there is some P_+ operator in JF's Eq. 14
+% Above Eq. 8 of JF, tthere's an H_+ which we might need to care about. i.e project the whole of the baove equation onto one subspeace.
+
+for some polynomial $f(\lambda)$. The result is a 2-local Hamiltonian with the same low-lying spectrum to within $\epsilon^{k+1}$ for sufficiently smmall $\epsilon$.  
 
 \costsec
+\begin{itemize}
+\item Number of auxiliary qubits is $tk$ for $t$ terms. 
+\item Unknown requirement for $\epsilon$.
+\end{itemize}
 
-%\prossec
-%\begin{itemize}
-%\item
-%\item
-%\end{itemize}
+\prossec
+\begin{itemize}
+\item All done in one step, so easier to implement than 1B1 and SD gadgets.
+\end{itemize}
+
 %
-%\conssec
-%\begin{itemize}
-%\item
-%\item
-%\end{itemize}
+\conssec
+\begin{itemize}
+\item Requires 2 more auxiliary qubits per term than 1B1-KKR.
+\item Unknown polynomial $f(\lambda)$
+\end{itemize}
 
 \examplesec
 
 \refsec
+\begin{itemize}
+\item Original paper \cite{Jordan2008}.
+\end{itemize}
+
 \newpage
 \section{Non-perturbative embeddings}
 
@@ -1718,6 +1739,10 @@ Kato 1949.
 \examplesec
 
 \refsec
+\begin{itemize}
+\item Original paper: \cite{Subas2016}.
+\end{itemize}
+
 
 \newpage
 \part{{\normalsize {\underline{Appendix}}}}
