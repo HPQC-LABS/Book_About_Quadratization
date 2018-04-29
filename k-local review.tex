@@ -181,6 +181,7 @@ A collaborative, evolving, open review paper on $k$-local to 2-local transformat
 %Positive quadratic terms (non-submodular), particularly with large positive coefficients, are hard for a lot of reasons, classically (Ishikawa TGBMM....) \cite{Ishikawa2011}.
 %\end{comment}
 
+\newpage
 
 \part{{\normalsize{\underline{Diagonal Hamiltonians (pseudo-Boolean functions)}}}}
 
@@ -1681,52 +1682,52 @@ Here we do not reduce $k$ by one order at a time (1B1 reduction) or by $\nicefra
 \newpage
 \part{{\normalsize {\underline{Appendix}}}}
 
-\section{Notation}
-
-The left Kronecker product by a $2\times2$ identity matrix is implied by Eqs. \eqref{eq:XZ+Z} and \eqref{eq:XX+Z} in the following way for qubit operators $q\in\{z,x\}$, assuming $i<j$:
-Subasi \& Jarzynski (2016)
-
-\begin{align}
-q_{i} & =\mathbf{1}^{\otimes i-1}q\mathbf{1}^{\otimes(N-i+1)}\\
-q_{i}\bar{q}_{j} & =\mathbf{1}^{\otimes i-1}q\mathbf{1}^{\otimes(j-1+i)}\bar{q}\mathbf{1}^{\otimes(N-j+1)}.
-\end{align}
-Thinking in this way, with this notation might take some time to get
-used to, but tens of thousands of people are comfortable thinking
-this way (including any undergraduate student after a 1-semester quantum
-computing course). You can now see that $H$ is a $2^{N}\times2^{N}$
-matrix with elements that are complex numbers. ``Minimizing the Hamiltonian''
-just means finding the eigenvector of this matrix with lowest eigenvalue.
-On a classical computer, the cost of finding this eigenvector is the
-cost of diagonalizing the matrix: $\mathcal{O}(2^{3N})$, but undergraduate
-level quantum mechanics tells us that any physical system's state
-(wavefunction, $\psi_{n}$) is an eigenvector of a Hamiltonian and
-the eigenvalue $E_{n}$ is just the energy associated with being in
-the $n^{{\rm th}}$ energy level: 
-\begin{equation}
-H\psi_{n}=E_{n}\psi_{n}.\label{eq:TISE}
-\end{equation}
-Eq. \ref{eq:TISE} is just the time-independent version of the Schroedinger
-equation, which you have at least heard of. The diagonal elements
-are the energies of the $n$ levels and the off-diagonals are associated
-with the propensity for tunnelling from level $n$ to level $m$.
-Any $2^{N}$ level system can be represented by $N$ spin-$\nicefrac{1}{2}$
-particles (\textbf{\uline{qubtis}}), and an example of a spin-$\nicefrac{1}{2}$
-particle is simply an electron. Some of the $N$ electrons will have
-spin up and some will have spin down, hence $2^{N}$ possibilities.
-So instead of $\mathcal{O}(2^{3N})$ operations on a classical computer
-for finding the eigenvector with lowest eigenvalue (and hence doing
-the completely arbitrary computation), we can just (for example) put
-$N$ electrons together %
-\begin{comment}
-such that the $2^{N}$ energy levels have energies $H_{ii}$ and tunelling
-amplitudes $H_{ij}$
-\end{comment}
-with the appropriate $H$ describing their energy, and then cool the
-system down to its ground state. This ground state is one out of $2^{N}$
-possible states , and the configuration of spin up and spin down electrons
-encodes the desired computation.
-
-\newpage
+%\section{Notation}
+%
+%The left Kronecker product by a $2\times2$ identity matrix is implied by Eqs. \eqref{eq:XZ+Z} and \eqref{eq:XX+Z} in the following way for qubit operators $q\in\{z,x\}$, assuming $i<j$:
+%Subasi \& Jarzynski (2016)
+%
+%\begin{align}
+%q_{i} & =\mathbf{1}^{\otimes i-1}q\mathbf{1}^{\otimes(N-i+1)}\\
+%q_{i}\bar{q}_{j} & =\mathbf{1}^{\otimes i-1}q\mathbf{1}^{\otimes(j-1+i)}\bar{q}\mathbf{1}^{\otimes(N-j+1)}.
+%\end{align}
+%Thinking in this way, with this notation might take some time to get
+%used to, but tens of thousands of people are comfortable thinking
+%this way (including any undergraduate student after a 1-semester quantum
+%computing course). You can now see that $H$ is a $2^{N}\times2^{N}$
+%matrix with elements that are complex numbers. ``Minimizing the Hamiltonian''
+%just means finding the eigenvector of this matrix with lowest eigenvalue.
+%On a classical computer, the cost of finding this eigenvector is the
+%cost of diagonalizing the matrix: $\mathcal{O}(2^{3N})$, but undergraduate
+%level quantum mechanics tells us that any physical system's state
+%(wavefunction, $\psi_{n}$) is an eigenvector of a Hamiltonian and
+%the eigenvalue $E_{n}$ is just the energy associated with being in
+%the $n^{{\rm th}}$ energy level: 
+%\begin{equation}
+%H\psi_{n}=E_{n}\psi_{n}.\label{eq:TISE}
+%\end{equation}
+%Eq. \ref{eq:TISE} is just the time-independent version of the Schroedinger
+%equation, which you have at least heard of. The diagonal elements
+%are the energies of the $n$ levels and the off-diagonals are associated
+%with the propensity for tunnelling from level $n$ to level $m$.
+%Any $2^{N}$ level system can be represented by $N$ spin-$\nicefrac{1}{2}$
+%particles (\textbf{\uline{qubtis}}), and an example of a spin-$\nicefrac{1}{2}$
+%particle is simply an electron. Some of the $N$ electrons will have
+%spin up and some will have spin down, hence $2^{N}$ possibilities.
+%So instead of $\mathcal{O}(2^{3N})$ operations on a classical computer
+%for finding the eigenvector with lowest eigenvalue (and hence doing
+%the completely arbitrary computation), we can just (for example) put
+%$N$ electrons together %
+%\begin{comment}
+%such that the $2^{N}$ energy levels have energies $H_{ii}$ and tunelling
+%amplitudes $H_{ij}$
+%\end{comment}
+%with the appropriate $H$ describing their energy, and then cool the
+%system down to its ground state. This ground state is one out of $2^{N}$
+%possible states , and the configuration of spin up and spin down electrons
+%encodes the desired computation.
+%
+%\newpage
 \section{Further Examples}
 
 \examplesec \label{subsec:Example_Ramsey_deduc_reduc}
