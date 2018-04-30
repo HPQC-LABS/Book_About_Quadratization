@@ -659,6 +659,38 @@ b_{1}b_{2}b_{3}b_{4} & = & \min_{b_a}(3-2b_{1}-2b_{2}-2b_{3}-2b_{4})b_a+b_{1}b_{
 \end{itemize}
 \newpage
 
+\subsection{Reduction by Minimum Selection}
+
+\summarysec
+
+This method can also be used to rewrite positive cubic terms in terms of 6 quadratic terms.
+
+The identity is given by:
+\begin{align}
+b_{1}b_{2}b_{3} &= \min_{b_a} - \left( b_a + b_1 + b_2 + b_3 \right) + b_a \left( b_1 + b_2 + b_3 \right) + b_1 b_2 + b_2 b_3 + b_3 b_1
+\end{align}
+
+\costsec
+
+1 auxiliary qubit per positive cubic term.
+
+\prossec
+\begin{itemize}
+\item Works on positive monomials.
+\end{itemize}
+
+\conssec
+\begin{itemize}
+\item Introduces all 6 possible non-submodular terms.
+\end{itemize}
+
+\refsec
+\begin{itemize}
+\item Original introduction by Kolmogorov and Zabih: \cite{Kolmogorov2004}.
+\end{itemize}
+
+\newpage
+
 \subsection{Asymmetric Reduction}
 
 \summarysec
