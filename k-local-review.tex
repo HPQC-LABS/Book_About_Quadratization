@@ -114,10 +114,10 @@ UK. }
 %\email{nicholas.chancellor@gmail.com}
 \affiliation{$^{2}$Department of Physics, Durham University, DH1 3LE, South Road, Durham, UK}
 
-\author{Jacob D.~Biamonte$^{a,b}$}
-\affiliation{$^{a}$Deep Quantum Labs, Skolkovo Institute of Science and Technology, 3 Nobel Street, 
-Moscow, Russia 121205}
-\affiliation{$^{b}$Institute for Quantum Computing, University of Waterloo, 200 University Ave West, Waterloo, Canada ON N2L 3G1}
+%\author{Jacob D.~Biamonte$^{a,b}$}
+%\affiliation{$^{a}$Deep Quantum Labs, Skolkovo Institute of Science and Technology, 3 Nobel Street, 
+%Moscow, Russia 121205}
+%\affiliation{$^{b}$Institute for Quantum Computing, University of Waterloo, 200 University Ave West, Waterloo, Canada ON N2L 3G1}
 
 %\email{jacob.biamonte@qubit.org}
 
@@ -134,7 +134,7 @@ Moscow, Russia 121205}
 A collaborative, evolving, open review---cook book---on $k$-local ($k$-body) to two-local transformations (quadratizations), applicable in classical constraint optimization, quantum annealing, and adiabatic quantum computing.  \\~\\~\\
 
 \noindent 
-{\bf Keywords.} pseudo Boolean optimization, Ising model, quadratic binary optimization, Hamiltonian gadget, penalty function\\~\\~\\
+%{\bf Keywords.} pseudo Boolean optimization, Ising model, quadratic binary optimization, Hamiltonian gadget, penalty function\\~\\~\\
 \end{abstract}
 
 \maketitle
@@ -142,20 +142,26 @@ A collaborative, evolving, open review---cook book---on $k$-local ($k$-body) to 
 
 \title{\tableofcontents{}}
 
-\noindent {\bf Preamble.}
-We consider functions from $n$-tuples of the Boolean numbers to the reals.  The reduction of these functions so that their expressions contain only quadratic, linear and constant terms is reviewed.   
+\section{Introduction}
 
-For example, let $x_1$, $x_2$, $x_3$ and $z$ take only values in $\{0,1\}$.  Let us now consider an example of the types of problems we consider.  
-\begin{equation}\label{eqn:and1}
--x_1x_2x_3=\min_{z\in\{0,1\}}z(2-x_1-x_2-x_3)
-\end{equation}
-Where we note that the right hand side of \eqref{eqn:and1} contains at most two-body terms. Through the introduction of the slack or ancillary variable $z$, an effective three-body interaction is emulated.  Such expressions are not unique.  For example an alternative function is 
-\begin{equation}\label{eqn:and2}
--x_1x_2x_3=\min_{z\in\{0,1\}}z(-x_1+x_2+x_3)-x_1x_2-x_1x_3+x_1
-\end{equation}
+When optimizing discrete functions, it is often easier when the function is qudaratic than if it is of higher degree. But notice that the cubic and quadratic funcitons:
 
-Reductions such as \label{eqn:and1} and \eqref{eqn:and2} arise in several fields.  
-Here we survey these results in a cook-book fashion.  
+\begin{align}
+b_1b_2+b_2b_3+b_3b_4 -4b_1b_2b_3 & \hspace{5mm} \textrm{cubic},\\
+b_1b_2 + b_2b_3 + b_3b_4 + 4b_1 -4b_1b_2 -4b_1b_3 & \hspace{5mm}\textrm{quadratic},
+\end{align}
+
+\noindent where each $b_i$ can either be 0 or 1, both never go below a value of -1, and all minima have the form $(b_1,b_2,b_3,b_4) = (1,1,1,b_4)$.  Therefore if we are interested in the ground state of a discrete function of degree $k$, we may optimize either function and get exactly the same result. Part \ref{partDiagonal} gives more than 10 different ways to do this. 
+
+ 
+
+
+
+
+
+
+
+
 
 %\section{Introduction}
 %
@@ -210,7 +216,7 @@ Here we survey these results in a cook-book fashion.
 
 \newpage
 
-\part{{\normalsize{\underline{Diagonal Hamiltonians (pseudo-Boolean functions)}}}}
+\part{{\normalsize{\underline{Diagonal Hamiltonians (pseudo-Boolean functions)}}}\label{partDiagonal}} 
 
 \section{Methods that introduce ZERO auxiliary variables}
 
