@@ -12,6 +12,7 @@
 \usepackage{amssymb}
 \PassOptionsToPackage{normalem}{ulem}
 \usepackage{ulem}
+%\usepackage{cleveref}
 
 %pics 
 \usepackage[pdftex]{graphicx}
@@ -98,7 +99,7 @@
 \usepackage{babel}
 \begin{document}
 
-\vspace{-20mm}
+\vspace{-10mm}
 
 \title{Quadratization in Pseudo-Boolean Optimization and Ground-State Quantum Computing}
 
@@ -125,10 +126,12 @@
 \affiliation{Harvard-Smithsonian Center for Astrophysics}
 
 
+%\noindent\rule{\textwidth}{0.4pt}
 \begin{abstract}
 %\noindent {\bf Abstract.}
 A collaborative, evolving, open review paper on $k$-local to 2-local transformations (quadratizations) in classical computing, quantum annealing, and universal adiabatic quantum computing. 
 
+\vspace{-7mm}
 
 \noindent 
 %{\bf Keywords.} pseudo Boolean optimization, Ising model, quadratic binary optimization, Hamiltonian gadget, penalty function\\~\\~\\
@@ -139,22 +142,25 @@ A collaborative, evolving, open review paper on $k$-local to 2-local transformat
 
 \title{\tableofcontents{}}
 
-\section{Introduction}
+%\section{Introduction}
+\noindent\rule{\textwidth}{0.4pt}
 
 When optimizing discrete functions, it is often easier when the function is qudaratic than if it is of higher degree. But notice that the cubic and quadratic funcitons:
 
 \begin{align}
-b_1b_2+b_2b_3+b_3b_4 -4b_1b_2b_3 & \hspace{5mm} \textrm{(cubic)},\\
-b_1b_2 + b_2b_3 + b_3b_4 + 4b_1 -4b_1b_2 -4b_1b_3 & \hspace{5mm}\textrm{(quadratic)},
+b_1b_2+b_2b_3+b_3b_4 -4b_1b_2b_3 & \hspace{5mm} \textrm{(cubic)},\label{eq:intro_cubic}\\
+b_1b_2 + b_2b_3 + b_3b_4 + 4b_1 -4b_1b_2 -4b_1b_3 & \hspace{5mm}\textrm{(quadratic)},\label{eq:intro_quadratic}
 \end{align}
 
 \noindent where each $b_i$ can either be 0 or 1, both never go below the value of -1, and all minima have the form $(b_1,b_2,b_3,b_4) = (1,1,1,b_4)$.  Therefore if we are interested in the ground state of a discrete function of degree $k$, we may optimize either function and get exactly the same result. { \textbf{Part \ref{partDiagonal}}} gives more than 10 different ways to do this. 
 
-\vspace{15mm}
+%\vspace{15mm}
 
+%\vspace{0.5mm}
+\noindent\rule{\textwidth}{0.4pt}
+%\vspace{0.5mm}
 
-
-The binary variables $b_i$ can be either of the eigenvalues of the matrix $b$ below, which is related to the Pauli $z$ matrix by $z=2b-\openone$:
+The binary variables $b_i$ can be either of the eigenvalues of the matrix $b$ below, which is related to the Pauli $z$ matrix by $z=2b-\openone$. Other Pauli matrices are listed below:
 
 \begin{equation}
 b\equiv\begin{pmatrix}1 & 0\\
@@ -169,15 +175,20 @@ b\equiv\begin{pmatrix}1 & 0\\
                      \end{pmatrix}. 
 \end{equation}  
 
-\noindent Any Hermitian $2\times 2$ matrix can be written as a linear combination of the Pauli matrices $z,x,y,\openone$. 
+\noindent Any Hermitian $2\times 2$ matrix can be written as a linear combination of the Pauli matrices $z,x,y,\openone$, so we can therefore describe the Hamiltonian of any number of spin-$\nicefrac{1}{2}$ particles by a function of Pauli matrices acting on each particle, for instance:
 
+\vspace{-5mm}
 
- 
+\begin{align}
+s_1s_2+s_2s_3+s_3s_4 -4s_1s_2s_3 & \hspace{5mm} \textrm{(cubic)},\label{eq:intro_quantum_cubic}
+\end{align}  
 
+\noindent where each spin $s_i$ can be any of the Pauli matrices, and the coefficients tell us about the strengths of couplings between these particles. The Schr\"{o}dinger equation tells us that the eigenvalues of the Hamiltonian are the allowed energy levels and their eigenvectors (wavefunctions) are the corresponding physical states. More generally these do not have to be spins but can be any type of qubits, and we can encode the solution to \textit{any} problem in the ground state of a Hamiltonian, then solve the problem by finding the lowest energy state of the physical system (this is called adiabatic quantum computing). 
 
+Two-body physical interactions occur more naturally than many-body interactions so \textbf{Parts \ref{partTransverseIsing}-\ref{partGeneral}} give more than 10 different ways to quadratize genreal Hamiltonians (some of these methods do not even require the $s_i$ to be $2\times2$ matrices, meaning that we can have types of qudits that are not qubits). 
 
-
-
+%A quantum computer whose Hamiltonian is at least quadratic in $x$ and $z$ can find this ground state with only polynomial runtime overhead over the best alternative algorithm to find that solution. 
+ The optimization problems of Eqs. \eqref{eq:intro_cubic}-\eqref{eq:intro_quadratic} are specific cases of Eq. \eqref{eq:intro_quantum_cubic} where only $z$ matrices are present. 
 
 
 
@@ -807,25 +818,27 @@ The first expression is highly non-submodular while the second is entirely submo
 
 \summarysec
 
-Pick a variable pair $(b_{i},b_{j})$ and substitute $b_{i}b_{j}$ with a  new auxiliary variable $b_{a_{i,j}}$.
-Enforce equality in the ground states by adding some scalar multiple of $b_{i}b_{j}-2b_{i}b_{a_{i,j}}-2b_{i}b_{a_{i,j}}+3b_{a_{i,j}}$ or similar.
+Pick a variable pair $(b_{i},b_{j})$ and substitute $b_{i}b_{j}$ with a  new auxiliary variable $b_{a_{ij}}$.
+Enforce equality in the ground states by adding some scalar multiple of the penalty $P=b_{i}b_{j}-2b_{i}b_{a_{ij}}-2b_{i}b_{a_{ij}}+3b_{a_{ij}}$ or similar. Since P > 0 if and only if $b_{a_{ij}}\ne b_ib_j$, the minimum of the new $(k-1)$-local function will satisfy $b_{a_ij}=b_{i}b_{j})$, which means that at the minimum, we have precisely the original function. Repeat $(k-2)$ times for each $k$-local term and the resulting function will be 2-local. 
 
 \costsec
 \begin{itemize}
 \item 1 auxiliary variable per reduction.
+\item  At most $k\,t$  auxiliary variables for a $k$-local Hamiltonian of $t$ terms, but usually fewer.
 \end{itemize}
 
 \prossec
 \begin{itemize}
 \item Variable can be used across the entire Hamiltonian, reducing many terms at once.
-\item Simple.
+\item Very easy to implement.
+\item Reproduces not only the ground state, but the full spectrum.
 \end{itemize}
 
 \conssec
 \begin{itemize}
 \item Inefficient for single terms as it introduces many auxiliary variables compared to Ishikawa reduction, for example.
 \item Introduces quadratic terms with large positive coefficients, making them highly non-submodular.
-\item Determining optimal substitutions is expensive.
+\item Determining optimal substitutions can be expensive.
 \end{itemize}
 
 \examplesec
@@ -839,6 +852,8 @@ b_{1}b_{2}b_{3}+b_{1}b_{2}b_{4}\mapsto b_{3}b_a+b_{4}b_a+b_{1}b_{2}-2b_{1}b_a-2b
 \refsec
 \begin{itemize}
 \item Original paper: \cite{Rosenberg1975}
+\item Re-discovered in the context of diagonal quantum Hamiltonians: \cite{Biamonte2008a}.
+\item Used in: \cite{Perdomo2008, Bian2013}. %Perdomo2013 is protein folding problem, Bian2013 is Ramsey number problem. 
 \end{itemize}
 
 \newpage
@@ -926,68 +941,67 @@ For computer image problems, it can be used with the above methods to optimize m
 
 
 \section{Methods that reproduce the full spectrum}
-
-%All known methods to map the entire spectrum of a Hamiltonian rely on the same basic principle: auxilliary variables are added, to mediate the high-order interactions, and constraints are added to restrict the values which the axilliary variables can take. In practice, constraints are implemented as one and two term equations with much stronger energy penalties than those in the original Hamiltonian. As long as the constraints are sufficiently strong, the low energy subspace of the 2-local Hamiltonian will be exactly the spectrum of the original $k$-local Hamiltonian. Moreover, the location of the original `logical' variables is known and so the resulting configuration of the mapped variables can easily be determined.
-
-%If we want to reproduce the spectrum of  $b_1b_2b_3$, (such that the state $b_1=1,b_2=1,b_3=1$ will have energy $1$ and all others will have energy $0$)  we need to find a quadratic penalty function $P(a,b_1,b_2)$ such that if an auxilliary variable $a$ satisfies $a=b_1b_2$, $P(a,b_1,b_2)=0$, and $P(a,b_1,b_2)>0$ otherwise. If we can find such a function (we explain how to do this is subsection \ref{sub:recursive}), then the desired spectrum will be reproduced in the low energy sector of the following Hamiltonian.
-
-%\begin{equation}
-%H_{3-\rm{local}}=b_3\,a+\lambda\,P(a,b_1,b_2)
-%\end{equation}
-
-%\noindent where $\lambda$ is a large positive number.
-
+%
+%%All known methods to map the entire spectrum of a Hamiltonian rely on the same basic principle: auxilliary variables are added, to mediate the high-order interactions, and constraints are added to restrict the values which the axilliary variables can take. In practice, constraints are implemented as one and two term equations with much stronger energy penalties than those in the original Hamiltonian. As long as the constraints are sufficiently strong, the low energy subspace of the 2-local Hamiltonian will be exactly the spectrum of the original $k$-local Hamiltonian. Moreover, the location of the original `logical' variables is known and so the resulting configuration of the mapped variables can easily be determined.
+%
+%%If we want to reproduce the spectrum of  $b_1b_2b_3$, (such that the state $b_1=1,b_2=1,b_3=1$ will have energy $1$ and all others will have energy $0$)  we need to find a quadratic penalty function $P(a,b_1,b_2)$ such that if an auxilliary variable $a$ satisfies $a=b_1b_2$, $P(a,b_1,b_2)=0$, and $P(a,b_1,b_2)>0$ otherwise. If we can find such a function (we explain how to do this is subsection \ref{sub:recursive}), then the desired spectrum will be reproduced in the low energy sector of the following Hamiltonian.
+%
+%%\begin{equation}
+%%H_{3-\rm{local}}=b_3\,a+\lambda\,P(a,b_1,b_2)
+%%\end{equation}
+%
+%%\noindent where $\lambda$ is a large positive number.
+%
 These techniques will transform $k$-local functions to 2-local functions that not only have the same ground state as the $k$-local function, but also the entire input/output spectrum of the $k$-local functions will be preserved in the low-lying energy space of the corresponding 2-local function (which also has higher energy states due to the auxiliary variables added). 
-
-
-\subsection{Recursive Order Reduction\label{sub:recursive}}
-
-\summarysec
-
-For each $k$-local term an auxilliary variable and a quadratic penalty function to constrain the auxilliary variable, is used to reduce the term's order to $(k-1)$-local. This is repeated recursively until the term is 2-local.
-
-\costsec
-\begin{itemize}
-\item $k-2$ auxiliary variables to reduce each $k$-local terms.
-\item  At most $k\,t$ for a $k$-local Hamiltonian of $t$ terms.
-\end{itemize}
-
-\prossec
-\begin{itemize}
-\item  Simple itertive method conducive to automated reduction.
-\item Chain like structure means that long range connectivity not required.
-\end{itemize}
-
-\conssec
-\begin{itemize}
-\item Not  very symmetric with respect to variables.
-\item  Usually formulated in terms of $b_ib_j$ interactions, therefore not conducive to specialized hardware design since hardware usually has native $z_iz_j$ interactions.
-\end{itemize}
-
-\examplesec
-
-Let us assume we want to reproduce the spectrum of  $H_4=b_1b_2b_3b_4$, first note that
-\begin{equation}
- P(b_{a_k},b_i,b_j)=3b_{a_k}+b_ib_j -2b_ib_{a_k}-2b_jb_{a_k}
-\end{equation}
- will yield an energy of $E=0$ iff $b_{a_k}=b_ib_j$, and $E>0$ otherwise. We first reduce the order of the polynomial by $1$ by applying this penalty term with a large positive prefactor $\lambda$.
-\begin{equation} 
-H_{3-\rm{local}}=b_1b_2b_{a_1} +\lambda(3b_{a_1}-2b_{a_1}(b_3+b_4)+b_3b_4)
-\end{equation}
- Performing the same trick again yields a $2$-local Hamiltonian:
-
-\begin{equation}
-H_{2-\rm{local}}=b_1b_{a_2}+ \lambda\left(3\,b_{a_2}-2b_{a_2}(b_2+b_{a_1})+b_2b_{a,1}\right) +\lambda\left(3\,b_{a_1}-2b_{a_1}(b_3+b_4)+b_3b_4\right)
-\end{equation}
-
-
-\refsec
-\begin{itemize}
-\item Possibly the original paper [ask Boros and Gruber for advice on where it came first]:  \cite{Biamonte2008a}.
-%\item Paper on underlying mathematical principles \cite{Boros2002}.  Does the gadget really appear there?
-\item Used in: \cite{Perdomo2008, Bian2013}. %Perdomo2013 is protein folding problem, Bian2013 is Ramsey number problem. 
-%\item Variation of these techniques used to prove unviersality of the Ising model \cite{DelasCuevasGemmaandCubitt2016}. Can the "variation of techniques" not be in their own sections?
-\end{itemize}
+%
+%
+%\subsection{Recursive Order Reduction\label{sub:recursive}}
+%
+%\summarysec
+%
+%For each $k$-local term an auxilliary variable and a quadratic penalty function to constrain the auxilliary variable, is used to reduce the term's order to $(k-1)$-local. This is repeated recursively until the term is 2-local.
+%
+%\costsec
+%\begin{itemize}
+%\item $k-2$ auxiliary variables to reduce each $k$-local terms.
+%\end{itemize}
+%
+%\prossec
+%\begin{itemize}
+%\item  Simple itertive method conducive to automated reduction.
+%\item Chain like structure means that long range connectivity not required.
+%\end{itemize}
+%
+%\conssec
+%\begin{itemize}
+%\item Not  very symmetric with respect to variables.
+%\item  Usually formulated in terms of $b_ib_j$ interactions, therefore not conducive to specialized hardware design since hardware usually has native $z_iz_j$ interactions.
+%\end{itemize}
+%
+%\examplesec
+%
+%Let us assume we want to reproduce the spectrum of  $H_4=b_1b_2b_3b_4$, first note that
+%\begin{equation}
+% P(b_{a_k},b_i,b_j)=3b_{a_k}+b_ib_j -2b_ib_{a_k}-2b_jb_{a_k}
+%\end{equation}
+% will yield an energy of $E=0$ iff $b_{a_k}=b_ib_j$, and $E>0$ otherwise. We first reduce the order of the polynomial by $1$ by applying this penalty term with a large positive prefactor $\lambda$.
+%\begin{equation} 
+%H_{3-\rm{local}}=b_1b_2b_{a_1} +\lambda(3b_{a_1}-2b_{a_1}(b_3+b_4)+b_3b_4)
+%\end{equation}
+% Performing the same trick again yields a $2$-local Hamiltonian:
+%
+%\begin{equation}
+%H_{2-\rm{local}}=b_1b_{a_2}+ \lambda\left(3\,b_{a_2}-2b_{a_2}(b_2+b_{a_1})+b_2b_{a,1}\right) +\lambda\left(3\,b_{a_1}-2b_{a_1}(b_3+b_4)+b_3b_4\right)
+%\end{equation}
+%
+%
+%\refsec
+%\begin{itemize}
+%\item .
+%%\item Paper on underlying mathematical principles \cite{Boros2002}.  Does the gadget really appear there?
+%\item Used in: \cite{Perdomo2008, Bian2013}. %Perdomo2013 is protein folding problem, Bian2013 is Ramsey number problem. 
+%%\item Variation of these techniques used to prove unviersality of the Ising model \cite{DelasCuevasGemmaandCubitt2016}. Can the "variation of techniques" not be in their own sections?
+%\end{itemize}
 
 \subsection{Flag Based SAT Mapping\label{sub:flag_SAT}}
 
@@ -1146,7 +1160,7 @@ H_{2-\rm{local}}=P_+(z_1,z_2,z_{a_1};\lambda)+P_+(z_{a_1},z_3,z_{a_2};\lambda)+P
 
 \summarysec
 
-Auxilliary qubits can be made to "count" the number of logical qubits in the $1$ configuration. By applying single qubit terms to the auxilliary qubits, the spectrum of \emph{any} permutation symmetric Hamiltonian can be reproduced. 
+Auxilliary qubits can be made to ``count'' the number of logical qubits in the $1$ configuration. By applying single qubit terms to the auxilliary qubits, the spectrum of \emph{any} permutation symmetric Hamiltonian can be reproduced. 
 
 \costsec
 \begin{itemize}
@@ -1209,7 +1223,7 @@ H_{4-\rm{local}}=-\frac{1}{2}z_{a_4}+ \lambda H_{4-\rm{count}}.
 
 \newpage
 
-\part{\underline{{\normalsize Hamiltonians quadratic in $z$ and linear in $x$ (Transverse Field Ising Hamiltonians)}}}
+\part{\underline{{\normalsize Hamiltonians quadratic in $z$ and linear in $x$ (Transverse Field Ising Hamiltonians)}}\label{partTransverseIsing}}
 
 The Ising Hamiltonian with a transverse field in the $x$ direction is possible to implement in hardware:
 
@@ -1281,7 +1295,7 @@ The low-lying spectrum (eigenvalues \textbf{\textit{and}} eigenvectors) of the r
 
 \newpage
 
-\part{\underline{{\normalsize{General Quantum Hamiltonians}}}}
+\part{\underline{{\normalsize{General Quantum Hamiltonians}}}}\label{partGeneral}
 
 The most general time-independent Hamiltonian for $n$ qubits acted on only by Pauli operators is:
 
