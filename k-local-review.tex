@@ -1046,16 +1046,16 @@ Implementing $\lambda H_{3-\rm{SAT}}$, creates a situation where $z_3$ is a `fla
 
 \summarysec
 
-Goal: Guarantee that $z_{a,k}=z_iz_j$ can be chained together to make large product terms consisting of $z$. 
+Goal: Guarantee that $z_{a_{k}}=z_iz_j$ can be chained together to make large product terms consisting of $z$. 
 %Recall that products of $b$ correspond to parity check or ${\sc xor}$ operations, while products of $b$ correspond to logical ${\sc and}$ operations.
-The penalty term$P(z_{a_k},z_i,z_j)= \mp z_{a_k}z_iz_j$ guarantees that $z_{a_k}=\pm z_iz_j$. The three local term can be made from gadgets.
+The penalty term $P(z_{a_k},z_i,z_j)= \mp z_{a_k}z_iz_j$ guarantees that $z_{a_k}=\pm z_iz_j$. The 3-local term can be made from gadgets.
 
 This method was originally only used to reproduce the ground state of high locality terms, but states of the "wrong" parity ($q_k=\mp z_iz_j$) will all have the same energy as well, so it reproduces the full spectrum. 
  
 
 \costsec
 \begin{itemize}
-\item The best known gadget for a three local Ising term uses one auxilliary qubit. Based on this gadget an $n\ge4$ body Ising term can be made using $3+2(n-4)$ auxilliary qubits. 
+\item The best known gadget for a 3-local Ising term uses one auxilliary qubit. Based on this gadget an $n\ge4$ body Ising term can be made using $3+2(n-4)$ auxilliary qubits. 
 \end{itemize}
 
 \prossec
@@ -1072,13 +1072,17 @@ This method was originally only used to reproduce the ground state of high local
 
 \examplesec
 
-Let us use this method to reproduce the spectrum of the following five local Hamiltonian $z_1z_2z_3z_4z_5$.  The following three local gadget reproduces the spectrum of the three local term $\pm z_1z_2z_3$
+\begin{equation}
+H_\textrm{5-local} = z_1z_2z_3z_4z_5 -2 z_1z_4z_5 +3z_1z_3 -z_5 + 9
+\end{equation}
+
+The full spectrum of $\pm z_1z_2z_3$ is reproduced by:
 
 \begin{equation}
 P_\pm(z_1,z_2,z_3;\lambda)=\lambda\left(z_1z_2+z_2z_3+z_3z_1+2z_a(z_1+z_2+z_3)\right)\mp (z_1+z_2+z_3 +2z_a).
 \end{equation}
 
-Using thee copies of this three local gadget as a building block, and using two additional auxilliary variables, the spectrum of the five local term $z_1z_2z_3z_4z_5$ can be reproduced by the following Hamiltonian
+Using three copies of this 3-local gadget as a building block, and using two additional auxilliary variables, the spectrum of the 5-local term $z_1z_2z_3z_4z_5$ can be reproduced by the following Hamiltonian
 
 \begin{equation}
 H_{2-\rm{local}}=P_+(z_1,z_2,z_{a_1};\lambda)+P_+(z_{a_1},z_3,z_{a_2};\lambda)+P_+(z_{a_2},z_4,z_5;\lambda).
@@ -1178,6 +1182,7 @@ Auxilliary qubits can be made to ``count'' the number of logical qubits in the $
 \begin{itemize}
 \item Requires coupling between all logical qubits and from all logical qubits to all auxilliary qubits.
 \item Requires single body terms of increasing strength as $k$ is increased.
+%\item Sometimes requires exponentially growing number of auxiliary qubits. 5:15 of https://www.youtube.com/watch?v=aC-6hg_h3EA&feature=youtu.be
 \end{itemize}
 
 \examplesec
