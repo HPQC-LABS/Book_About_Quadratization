@@ -1,6 +1,6 @@
 %% LyX 2.2.0 created this file.  For more info, see http://www.lyx.org/.
 %% Do not edit unless you really know what you are doing.
-\documentclass[english,notitlepage,showpacs,preprintnumbers,amsmath,amssymb,aps,nofootinbib,12pt]{revtex4-1}
+\documentclass[english,notitlepage,showpacs,preprintnumbers,amsmath,amssymb,aps,prl,nofootinbib,12pt,superscriptaddress]{revtex4-1}
 \usepackage[T1]{fontenc}
 \usepackage[latin9]{inputenc}
 \setcounter{secnumdepth}{3}
@@ -100,19 +100,15 @@
 
 \vspace{-20mm}
 
-\title{Quadratization in Pseudo-Boolean Optimization and Ground-State Quantum
-Computing}
+\title{Quadratization in Pseudo-Boolean Optimization and Ground-State Quantum Computing}
 
-\author{Richard Tanburn$^{1}$}
-%\email{richard.tanburn@hertford.ox.ac.uk}
+\author{Richard Tanburn}
+\email{richard.tanburn@gmail.com}
+\affiliation{Oxford University, Department of Mathematics}
 
-
-\affiliation{$^{1}$University of Oxford, Mathematical Institute, OX2 6GG, Oxford,
-UK. }
-
-\author{Nicholas Chancellor$^{2}$}
-%\email{nicholas.chancellor@gmail.com}
-\affiliation{$^{2}$Department of Physics, Durham University, DH1 3LE, South Road, Durham, UK}
+\author{Nicholas Chancellor}
+\email{nicholas.chancellor@gmail.com}
+\affiliation{Durham University, Department of Physics}
 
 %\author{Jacob D.~Biamonte$^{a,b}$}
 %\affiliation{$^{a}$Deep Quantum Labs, Skolkovo Institute of Science and Technology, 3 Nobel Street, 
@@ -122,16 +118,17 @@ UK. }
 %\email{jacob.biamonte@qubit.org}
 
 
-\author{Nikesh S.~Dattani$^{3,4,5}$}
-%\email{dattani.nike@gmail.com}
-\affiliation{$^{3}$Harvard-Smithsonian Center for Astrophysics,}
-\affiliation{$^{4}$McMaster University,}
-\affiliation{$^{5}$Hertford College, University of Oxford}
+\author{Nikesh S.~Dattani}
+\email{nik.dattani@gmail.com}
+\affiliation{Oxford University, Department of Mathematics}
+\affiliation{McMaster University, Department of Chemistry and Chemical Biology}
+\affiliation{Harvard-Smithsonian Center for Astrophysics}
 
 
 \begin{abstract}
-\noindent {\bf Abstract.}
-A collaborative, evolving, open review---cook book---on $k$-local ($k$-body) to two-local transformations (quadratizations), applicable in classical constraint optimization, quantum annealing, and adiabatic quantum computing.  \\~\\~\\
+%\noindent {\bf Abstract.}
+A collaborative, evolving, open review paper on $k$-local to 2-local transformations (quadratizations) in classical computing, quantum annealing, and universal adiabatic quantum computing. 
+
 
 \noindent 
 %{\bf Keywords.} pseudo Boolean optimization, Ising model, quadratic binary optimization, Hamiltonian gadget, penalty function\\~\\~\\
@@ -147,11 +144,33 @@ A collaborative, evolving, open review---cook book---on $k$-local ($k$-body) to 
 When optimizing discrete functions, it is often easier when the function is qudaratic than if it is of higher degree. But notice that the cubic and quadratic funcitons:
 
 \begin{align}
-b_1b_2+b_2b_3+b_3b_4 -4b_1b_2b_3 & \hspace{5mm} \textrm{cubic},\\
-b_1b_2 + b_2b_3 + b_3b_4 + 4b_1 -4b_1b_2 -4b_1b_3 & \hspace{5mm}\textrm{quadratic},
+b_1b_2+b_2b_3+b_3b_4 -4b_1b_2b_3 & \hspace{5mm} \textrm{(cubic)},\\
+b_1b_2 + b_2b_3 + b_3b_4 + 4b_1 -4b_1b_2 -4b_1b_3 & \hspace{5mm}\textrm{(quadratic)},
 \end{align}
 
-\noindent where each $b_i$ can either be 0 or 1, both never go below a value of -1, and all minima have the form $(b_1,b_2,b_3,b_4) = (1,1,1,b_4)$.  Therefore if we are interested in the ground state of a discrete function of degree $k$, we may optimize either function and get exactly the same result. Part \ref{partDiagonal} gives more than 10 different ways to do this. 
+\noindent where each $b_i$ can either be 0 or 1, both never go below the value of -1, and all minima have the form $(b_1,b_2,b_3,b_4) = (1,1,1,b_4)$.  Therefore if we are interested in the ground state of a discrete function of degree $k$, we may optimize either function and get exactly the same result. { \textbf{Part \ref{partDiagonal}}} gives more than 10 different ways to do this. 
+
+\vspace{15mm}
+
+
+
+The binary variables $b_i$ can be either of the eigenvalues of the matrix $b$ below, which is related to the Pauli $z$ matrix by $z=2b-\openone$:
+
+\begin{equation}
+b\equiv\begin{pmatrix}1 & 0\\
+0 & 0
+\end{pmatrix},\,z\equiv\begin{pmatrix}1 & 0\\
+                0 & -1
+                \end{pmatrix},\, x\equiv\begin{pmatrix}0 & 1\\
+1 & 0\end{pmatrix},\,y\equiv\begin{pmatrix}0 & -\textrm{i}\\
+                      \textrm{i} & 0
+                     \end{pmatrix},\,\openone\equiv\begin{pmatrix}1 & 0\\ 
+                                      0 & 1
+                     \end{pmatrix}. 
+\end{equation}  
+
+\noindent Any Hermitian $2\times 2$ matrix can be written as a linear combination of the Pauli matrices $z,x,y,\openone$. 
+
 
  
 
