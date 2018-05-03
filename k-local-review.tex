@@ -1026,14 +1026,30 @@ This method is very similar to recursive order reduction, but uses gadgets to pr
 
 \examplesec
 
-To create a system which maps $(z_1=-1)\vee (z_2=-1) \vee (z_3=-1)$ (up to an energy shift),  we use the following gadget:
+To create a system which maps $(z_1=-1)\vee (z_2=-1) \vee (z_3=-1)$,  we use the following gadget:
 %
 \begin{align}
-H_{3-\rm{SAT}}=(1-\sum_{i=1}^3 z_{a_i})(1-\frac{1}{2}\sum_{i=1}^3 z_{i})+\frac{1}{2}\sum_{i<j}^3 z_{a_i} z_{a_j}-1 \nonumber \\
-=-\sum_{i=1}^3 z_{a_i}-\frac{1}{2}\sum_{i=1}^3 z_i+\frac{1}{2}\sum_{i<j}^3 z_{a_i} z_{a_j} +\frac{1}{2} \sum_{i=1}^3 z_i z_{a_i}.
+H_{3-\rm{SAT}}(z_1,z_2,z_3)=(1-\sum_{i=1}^3 z_{a_i})(1-\frac{1}{2}\sum_{i=1}^3 z_{i})+\frac{1}{2}\sum_{i<j}^3 z_{a_i} z_{a_j}-1+\frac{5}{2} \nonumber \\
+=-\sum_{i=1}^3 z_{a_i}-\frac{1}{2}\sum_{i=1}^3 z_i+\frac{1}{2}\sum_{i<j}^3 z_{a_i} z_{a_j} +\frac{1}{2} \sum_{i=1}^3 z_i z_{a_i}+\frac{5}{2}.
 \end{align}
 
-Implementing $\lambda H_{3-\rm{SAT}}$, creates a situation where $z_3$ is a `flag' for $z_1=-1$ and $ z_2=-1$ in other words $z_3$ is constrained to be $-1$ in the low energy manifold iff $z_1=-1$ and $ z_2=-1$ and $+1$ otherwise. It follows from the universality of $3-\rm{SAT}$ that these `flag' clauses can be combined to map any spin Hamiltonian.
+Implementing $\lambda H_{3-\rm{SAT}}$, creates a situation where $z_3$ is a `flag' for $z_1=-1$ and $ z_2=-1$ in other words $z_3$ is constrained to be $-1$ in the low energy manifold iff $z_1=-1$ and $ z_2=-1$ and $+1$ otherwise. It follows from the universality of $3-\rm{SAT}$ that these `flag' clauses can be combined to map any spin Hamiltonian. To do this, we also need anti-ferromagnetic couplings to express the `negated' variable, to do this, we define,
+
+\begin{align}
+H_{\rm{AF}}(z_1,z_{\neg1})=z_1z_{\neg1}.
+\end{align}
+
+
+ As an explicit example, consider reproducing the spectrum of $z_1z_2z_3$. In this case we need to assign a higher energy to the $(+1,+1,+1)$, $(-1,-1,+1)$, $(-1,+1,-1)$, and  $(+1,-1,-1)$ states. A flag ($z_{f}$) which is forced into a higher energy state iff these conditions are satisfied can be constructed from two instances of $H_{3-\rm{SAT}}$ and an auxilliary qubit, combining these leads to
+
+\begin{align}
+H_{3-\rm{SAT}}(z_1,z_2,z_3)=\lambda[\sum_{i=1}^3 H_{\rm{AF}}(z_i,z_{\neg i})+\sum_{i=1}^8 H_{\rm{AF}}(z_{a_i},z_{\neg a_i})+ H_{\rm{AF}}(z_{f},z_{\neg f})\nonumber \\
++H_{3-\rm{SAT}}(z_{\neg 1},z_{\neg 2},z_{\neg a_1})+H_{3-\rm{SAT}}(z_{a_1},z_{\neg 3},z_{f})+H_{3-\rm{SAT}}(z_{1},z_{2},z_{\neg a_2})+H_{3-\rm{SAT}}(z_{a_2},z_{3},z_{\neg f})\nonumber \\
++H_{3-\rm{SAT}}(z_{1},z_{2},z_{\neg a_3})+H_{3-\rm{SAT}}(z_{a_3},z_{\neg 3},z_{f})+H_{3-\rm{SAT}}(z_{\neg 1},z_{\neg 2},z_{\neg a_4})+H_{3-\rm{SAT}}(z_{a_4},z_{3},z_{\neg f})\nonumber \\
++H_{3-\rm{SAT}}(z_{1},z_{\neg 2},z_{\neg a_5})+H_{3-\rm{SAT}}(z_{a_5},z_{3},z_{f})+H_{3-\rm{SAT}}(z_{\neg 1},z_{2},z_{\neg a_6})+H_{3-\rm{SAT}}(z_{a_6},z_{\neg 3},z_{\neg f})\nonumber \\
++H_{3-\rm{SAT}}(z_{1},z_{2},z_{\neg a_7})+H_{3-\rm{SAT}}(z_{a_7},z_{\neg 3},z_{f})+H_{3-\rm{SAT}}(z_{\neg 1},z_{ \neg 2},z_{\neg a_8})+H_{3-\rm{SAT}}(z_{a_8},z_{3},z_{\neg f})]-z_{f}.
+\end{align}
+
 
 \refsec
 \begin{itemize}
@@ -1187,7 +1203,7 @@ Auxilliary qubits can be made to ``count'' the number of logical qubits in the $
 
 \examplesec
 
-A  $4$ qubit gadget guarantees that the number of auxillary bits in the $0$ state is equal to the number of logical bits in the $1$ state
+A  $4$ qubit gadget guarantees that the number of auxillary bits in the $-1$ state is equal to the number of logical bits in the $1$ state
 
 %\begin{equation}
 %H_{4-count}=  \sum_{i=2}^4 \sum_{j =1}^{i-1} z_i z_j -\frac{1}{2} \sum_{i=1}^4  z_i +  \sum_{i=1}^4 \sum_{j=1}^4 z_i z_{a_j} +   \sum_{i=1}^4  (2\,i-4+\frac{1}{2}) z_{a_i}. 
@@ -1200,7 +1216,7 @@ H_{4-\rm{count}}=  \sum_{i=2}^4 \sum_{j =1}^{i-1} z_i z_j -\frac{1}{2} \sum_{i=1
 To replicate the spectrum of $z_1z_2z_3z_4$, we add
 %
 \begin{equation}
-H_{4-\rm{local}}=z_{a_1}-z_{a_2}+z_{a_3}-z_{a_4}+ \lambda H_{4-\rm{count}},
+H_{2-\rm{local}}=z_{a_1}-z_{a_2}+z_{a_3}-z_{a_4}+ \lambda H_{4-\rm{count}},
 \end{equation}
 %
 where $\lambda$ is a large number.
@@ -1208,7 +1224,7 @@ where $\lambda$ is a large number.
 For the spectrum of $b_1b_2b_3b_4$, we implement,
 %
 \begin{equation}
-H_{4-\rm{local}}=-\frac{1}{2}z_{a_4}+ \lambda H_{4-\rm{count}}.
+H_{2-\rm{local}}=-\frac{1}{2}z_{a_4}+ \lambda H_{4-\rm{count}}.
 \end{equation}
 
 \refsec
@@ -1218,8 +1234,6 @@ H_{4-\rm{local}}=-\frac{1}{2}z_{a_4}+ \lambda H_{4-\rm{count}}.
 \item Talk including use in quantum simulation: \cite{Chancellor2016a}
 \end{itemize}
 
-
-%\newpage
 
 %\section{Strategies for combining methods}
 %
