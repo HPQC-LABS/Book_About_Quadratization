@@ -6,7 +6,7 @@
 %Control: page (0) single
 %Control: year (1) truncated
 %Control: production of eprint (0) enabled
-\begin{thebibliography}{23}%
+\begin{thebibliography}{24}%
 \makeatletter
 \providecommand \@ifxundefined [1]{%
  \@ifx{#1\undefined}
@@ -150,17 +150,6 @@
   {Cahiers du Centre d'Etudes de Recherche Operationnelle}\ }\textbf {\bibinfo
   {volume} {17}},\ \bibinfo {pages} {71} (\bibinfo {year} {1975})}\BibitemShut
   {NoStop}%
-\bibitem [{\citenamefont {Fix}\ \emph {et~al.}(2011)\citenamefont {Fix},
-  \citenamefont {Gruber}, \citenamefont {Boros},\ and\ \citenamefont
-  {Zabih}}]{Fix2011}%
-  \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {A.}~\bibnamefont
-  {Fix}}, \bibinfo {author} {\bibfnamefont {A.}~\bibnamefont {Gruber}},
-  \bibinfo {author} {\bibfnamefont {E.}~\bibnamefont {Boros}}, \ and\ \bibinfo
-  {author} {\bibfnamefont {R.}~\bibnamefont {Zabih}},\ }in\ \href {\doibase
-  10.1109/ICCV.2011.6126347} {\emph {\bibinfo {booktitle} {2011 International
-  Conference on Computer Vision}}}\ (\bibinfo  {publisher} {IEEE},\ \bibinfo
-  {year} {2011})\ pp.\ \bibinfo {pages} {1020--1027}\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Biamonte}(2008)}]{Biamonte2008a}%
   \BibitemOpen
   \bibfield  {author} {\bibinfo {author} {\bibfnamefont {J.~D.}\ \bibnamefont
@@ -192,6 +181,17 @@
   10.1103/PhysRevLett.111.130505} {\bibfield  {journal} {\bibinfo  {journal}
   {Physical Review Letters}\ }\textbf {\bibinfo {volume} {111}},\ \bibinfo
   {pages} {130505} (\bibinfo {year} {2013})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Fix}\ \emph {et~al.}(2011)\citenamefont {Fix},
+  \citenamefont {Gruber}, \citenamefont {Boros},\ and\ \citenamefont
+  {Zabih}}]{Fix2011}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {A.}~\bibnamefont
+  {Fix}}, \bibinfo {author} {\bibfnamefont {A.}~\bibnamefont {Gruber}},
+  \bibinfo {author} {\bibfnamefont {E.}~\bibnamefont {Boros}}, \ and\ \bibinfo
+  {author} {\bibfnamefont {R.}~\bibnamefont {Zabih}},\ }in\ \href {\doibase
+  10.1109/ICCV.2011.6126347} {\emph {\bibinfo {booktitle} {2011 International
+  Conference on Computer Vision}}}\ (\bibinfo  {publisher} {IEEE},\ \bibinfo
+  {year} {2011})\ pp.\ \bibinfo {pages} {1020--1027}\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {De~las Cuevas}\ and\ \citenamefont
   {Cubitt}(2016)}]{DelasCuevasGemmaandCubitt2016}%
   \BibitemOpen
@@ -240,6 +240,13 @@
   10.1038/srep37107} {\bibfield  {journal} {\bibinfo  {journal} {Scientific
   Reports}\ }\textbf {\bibinfo {volume} {6}} (\bibinfo {year} {2016}),\
   10.1038/srep37107}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Duan}\ and\ \citenamefont {Chen}(2011)}]{Duan2011}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Q.-H.}\ \bibnamefont
+  {Duan}}\ and\ \bibinfo {author} {\bibfnamefont {P.-X.}\ \bibnamefont
+  {Chen}},\ }\href {\doibase 10.1103/PhysRevA.84.042332} {\bibfield  {journal}
+  {\bibinfo  {journal} {Physical Review A}\ }\textbf {\bibinfo {volume} {84}},\
+  \bibinfo {pages} {042332} (\bibinfo {year} {2011})}\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Jordan}\ and\ \citenamefont
   {Farhi}(2008)}]{Jordan2008}%
   \BibitemOpen

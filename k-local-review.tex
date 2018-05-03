@@ -1301,116 +1301,193 @@ The low-lying spectrum (eigenvalues \textbf{\textit{and}} eigenvectors) of the r
 \newpage
 
 \part{\underline{{\normalsize{General Quantum Hamiltonians}}}}\label{partGeneral}
+%
+%The most general time-independent Hamiltonian for $n$ qubits acted on only by Pauli operators is:
+%
+%\tiny
+%%\begin{eqnarray}
+%%H =& \sum_i^n \left(\alpha_i^{(z)}z_i + \alpha_i^{(x)}x_i + \alpha_i^{(y)}y_i \right) + \sum_{ij}^n + \\
+%%& \left(\alpha_{ij}^{(zz)}z_iz_j + \alpha_{ij}^{(zx)}z_ix_j + \alpha_{ij}^{(zy)}z_iy_j + \alpha_{ij}^{(xx)}x_ix_j + \alpha_{ij}^{(xz)}x_iz_j +\alpha_{ij}^{(xy)}+\alpha_{ij}^{(xy)}x_iy_i+
+%%      \alpha_{ij}^{(yz)}y_iz_j + \alpha_{ij}^{(yx)}y_ix_j + \alpha_{ij}^{(yy)}y_iy_j \right) + \\
+%%&\left(\alpha_{ijk}^{(zzz)}z_iz_jz_k + \alpha_{ijk}^{(zzx)}z_iz_jx_k + \alpha_{ijk}^{(zzy)}z_iz_jy_k + \alpha_{ijk}^{(xx)}x_ix_j + \alpha_{ij}^{(xz)}x_iz_j +\alpha_{ij}^{(xy)}+\alpha_{ij}^{(xy)}x_iy_i+\right)
+%%\end{eqnarray}
+%
+%%\begin{eqnarray}
+%%H &= \sum_i^n \left(\alpha_i^{(z)}z_i + \alpha_i^{(x)}x_i + \alpha_i^{(y)}y_i \right) + \sum_{ij}^n + \\
+%%& \left(\alpha_{ij}^{(zz)}z_iz_j + \alpha_{ij}^{(zx)}z_ix_j + \alpha_{ij}^{(zy)}z_iy_j + \alpha_{ij}^{(xx)}x_ix_j + \alpha_{ij}^{(xz)}x_iz_j +\alpha_{ij}^{(xy)}+\alpha_{ij}^{(xy)}x_iy_i+
+%%      \alpha_{ij}^{(yz)}y_iz_j + \alpha_{ij}^{(yx)}y_ix_j + \alpha_{ij}^{(yy)}y_iy_j \right) + \\
+%%&\left(\alpha_{ijk}^{(zzz)}z_iz_jz_k + \alpha_{ijk}^{(zzx)}z_iz_jx_k + \alpha_{ijk}^{(zzy)}z_iz_jy_k + \alpha_{ijk}^{(xx)}x_ix_j + \alpha_{ij}^{(xz)}x_iz_j +\alpha_{ij}^{(xy)}+\alpha_{ij}^{(xy)}x_iy_i+\right)
+%%\end{eqnarray}
+%
+%\begin{align}
+%H & =\alpha I+\sum_{i}^{n}\left(\alpha_{i}^{(z)}z_{i}+\alpha_{i}^{(x)}x_{i}+\alpha_{i}^{(y)}y_{i}\right)+\label{eq:mostGeneralH}\\
+% & \sum_{ij}^{n}\left(a_{ij}^{(zz)}z_{i}z_{j}+a_{ij}^{(zx)}z_{i}x_{j}+a_{ij}^{(zy)}z_{i}y_{j}+a_{ij}^{(xz)}x_{i}z_{j}+a_{ij}^{(xx)}x_{i}x_{j}+a_{ij}^{(xy)}x_{i}y_{j}+a_{ij}^{(yz)}y_{i}z_{j}+a_{ij}^{(yx)}y_{i}x_{j}+a_{ij}^{(yy)}y_{i}y_{j}\right)+\\
+% & \sum_{ijk}^{n}\left(a_{ijk}^{(zzz)}z_{i}z_{j}z_{k}+a_{ijk}^{(zzx)}z_{i}z_{j}x_{k}+a_{ijk}^{(zzy)}z_{i}z_{j}y_{k}+a_{ijk}^{(zxz)}z_{i}x_{j}z_{k}+\cdots+a_{ijk}^{(yyy)}y_{i}y_{j}y_{k}\right)+\\
+% & \sum_{ijkl\cdots n}^{n}\left(a_{ijkl\cdots n}^{(zzzz\cdots z)}z_{i}z_{j}z_{k}z_{l}\cdots z_{n}+a_{ijkl\cdots n}^{(zzz\cdots x)}z_{i}z_{j}z_{k}\cdots x_{n}+a_{ijkl\cdots n}^{(zzz\cdots y)}z_{i}z_{j}z_{k}\cdots y_{n}+a_{ijkl\cdots n}^{(zz\cdots xz)}z_{i}z_{j}\cdots x_{n-1}z_{n}+\cdots+a_{ijkl\cdots n}^{(yyy\cdots y)}y_{i}y_{j}y_{k}\cdots y_{n}\right)
+%\end{align}
+%\normalsize
+%
+%% of the form of Eq. \eqref{eq:XZ+Z} or Eq. \eqref{eq:XX+Z}
+%\noindent We wish to find a 2-local Hamiltonian  that is equivalent to Eq. \eqref{eq:mostGeneralH} in terms of reproducing certain desired properties (e.g. same ground state(s), same ground eigenvalue(s), same full eigenspectrum, etc.) to within the desired precision.
+%
+%\begin{comment}
+%\section{Brute force numerical}
+%
+%If our only wish is for the 2-local Hamiltonian to preserve the ground state of the original $k$-local Hamiltonian, we can optimize the coefficients of the 2-local Hamiltonian so that the difference between the ground state of the original Hamiltonian and the ground state of the 2-local Hamiltonian is minimized under some desired measure. For example, if we wish for the dot product of the lowest energy eigenvector of the original $H$ and that of the new $H_{\rm{2-local}}$ to be 0.9, then the following two Hamiltonians are equivalent for our purposes:
+%
+%\footnotesize
+%\begin{align}
+%z_1z_2 +  y_1x_2z_3 \mapsto \alpha_1z_1 + \alpha_2z_2 + \alpha_3z_3 + \alpha_4z_4 + \alpha_5x_1 + \alpha_6x_2 + \alpha_7x_3 + \alpha_8x_4 + \alpha_9z_1z_1 + \alpha_{10}z_1z_2 + \cdots + \alpha_{72}z_4x_4 
+%\end{align} 
+%\normalsize
+%
+%{\color{red} This should be easy to optimize in MATLAB, assuming that 1 auxiliary qubit is enough. Most $\alpha$ are probably 0 because the characteristic polynomial of the left side is of degree 8, so there's far more unknowns than equations. We can then put numerical values above, in place of the $\alpha$'s}.
+%
+%% (relative to the difference between the lowest and highest eigenvalues of the Hamiltonian)
+%
+%Likewise, if we only wish for the lowest eigenvalue $E_0$ of the original $H$ to be recovered to within 0.01, for example, we can minimize the function $(E_{0,k-\rm{local}}-E_{0,\rm{2-local}})^2$ with respect to the ${\alpha}$ coefficients of the 2-local Hamiltonian until the objective function evaluates to a number smaller than 0.1$^2$. For example:
+%
+%\footnotesize
+%\begin{align}
+%z_1z_2 +  y_1x_2z_3 \mapsto \alpha_1z_1 + \alpha_2z_2 + \alpha_3z_3 + \alpha_4z_4 + \alpha_5x_1 + \alpha_6x_2 + \alpha_7x_3 + \alpha_8x_4 + \alpha_9z_1z_1 + \alpha_{10}z_1z_2 + \cdots + \alpha_{72}z_4x_4 
+%\end{align} 
+%\normalsize
+%
+%{\color{red} This should be even easier to optimize in MATLAB}.
+%
+%\noindent It is also possible to preserve more eigenvalues and/or eigenvectors than just the lowest, for example by minimizing the objective function:
+%
+%\begin{align}
+%\sum_i^{i_{\rm{max}}}A(E_{i,k-\rm{local}}-E_{i,\rm{2-local}})^2 + B\frac{1}{\langle \psi_i| \psi_i\rangle}
+%\end{align}
+%
+%\noindent where one can choose $A$ and $B$ according to whether preserving the eigenvalues ($A$) or the eigenvectrs ($B$) is more important.
+%
+%The more auxiliary qubits included in the 2-local Hamiltonian, the more parameters that can be optimized in attempt to make the ground state arbitrarily close to the orginal ground state.  
+%
+%\prossec
+%
+%\begin{itemize}
+%\item Very general.
+%\item Can control which aspects of the 2-local Hamiltonion are most important
+%\item Can likely even gadgetize a "universal" Hamiltonian into an Ising one of larger sized Hilbert space
+%\end{itemize}
+%
+%\conssec
+%\begin{itemize}
+%\item Doing the transformation costs more than solving the problem itself (only useful for testing what's theoretically possible).
+%\end{itemize}
+%
+%\refsec
+%\begin{itemize}
+%\item In June 2017 Ref. https://arxiv.org/pdf/1706.03637.pdf was posted on arXiv but it is not clear to me why they have the constraint (7d), the definiion of their matrix norm in (7c) doesn't seem to be given as far as I can see, and their (7a) uses a square while (7d) uses an absolute value which means that one of them is being treated more preferentially than the other, even when they say they are (think they are) using "equal weights". 
+%\end{itemize}
+%
+%\end{comment}
 
-The most general time-independent Hamiltonian for $n$ qubits acted on only by Pauli operators is:
 
-\tiny
-%\begin{eqnarray}
-%H =& \sum_i^n \left(\alpha_i^{(z)}z_i + \alpha_i^{(x)}x_i + \alpha_i^{(y)}y_i \right) + \sum_{ij}^n + \\
-%& \left(\alpha_{ij}^{(zz)}z_iz_j + \alpha_{ij}^{(zx)}z_ix_j + \alpha_{ij}^{(zy)}z_iy_j + \alpha_{ij}^{(xx)}x_ix_j + \alpha_{ij}^{(xz)}x_iz_j +\alpha_{ij}^{(xy)}+\alpha_{ij}^{(xy)}x_iy_i+
-%      \alpha_{ij}^{(yz)}y_iz_j + \alpha_{ij}^{(yx)}y_ix_j + \alpha_{ij}^{(yy)}y_iy_j \right) + \\
-%&\left(\alpha_{ijk}^{(zzz)}z_iz_jz_k + \alpha_{ijk}^{(zzx)}z_iz_jx_k + \alpha_{ijk}^{(zzy)}z_iz_jy_k + \alpha_{ijk}^{(xx)}x_ix_j + \alpha_{ij}^{(xz)}x_iz_j +\alpha_{ij}^{(xy)}+\alpha_{ij}^{(xy)}x_iy_i+\right)
-%\end{eqnarray}
+\section{$(3\rightarrow2)$ Gadgets}
 
-%\begin{eqnarray}
-%H &= \sum_i^n \left(\alpha_i^{(z)}z_i + \alpha_i^{(x)}x_i + \alpha_i^{(y)}y_i \right) + \sum_{ij}^n + \\
-%& \left(\alpha_{ij}^{(zz)}z_iz_j + \alpha_{ij}^{(zx)}z_ix_j + \alpha_{ij}^{(zy)}z_iy_j + \alpha_{ij}^{(xx)}x_ix_j + \alpha_{ij}^{(xz)}x_iz_j +\alpha_{ij}^{(xy)}+\alpha_{ij}^{(xy)}x_iy_i+
-%      \alpha_{ij}^{(yz)}y_iz_j + \alpha_{ij}^{(yx)}y_ix_j + \alpha_{ij}^{(yy)}y_iy_j \right) + \\
-%&\left(\alpha_{ijk}^{(zzz)}z_iz_jz_k + \alpha_{ijk}^{(zzx)}z_iz_jx_k + \alpha_{ijk}^{(zzy)}z_iz_jy_k + \alpha_{ijk}^{(xx)}x_ix_j + \alpha_{ij}^{(xz)}x_iz_j +\alpha_{ij}^{(xy)}+\alpha_{ij}^{(xy)}x_iy_i+\right)
-%\end{eqnarray}
+The first gadgets for arbitrary Hamiltonians acting on some number of qubits, were designed to reproduce the spectrum of a 3-local Hamiltonian in the low-lying spectrum of a 2-local Hamiltonian.
 
-\begin{align}
-H & =\alpha I+\sum_{i}^{n}\left(\alpha_{i}^{(z)}z_{i}+\alpha_{i}^{(x)}x_{i}+\alpha_{i}^{(y)}y_{i}\right)+\label{eq:mostGeneralH}\\
- & \sum_{ij}^{n}\left(a_{ij}^{(zz)}z_{i}z_{j}+a_{ij}^{(zx)}z_{i}x_{j}+a_{ij}^{(zy)}z_{i}y_{j}+a_{ij}^{(xz)}x_{i}z_{j}+a_{ij}^{(xx)}x_{i}x_{j}+a_{ij}^{(xy)}x_{i}y_{j}+a_{ij}^{(yz)}y_{i}z_{j}+a_{ij}^{(yx)}y_{i}x_{j}+a_{ij}^{(yy)}y_{i}y_{j}\right)+\\
- & \sum_{ijk}^{n}\left(a_{ijk}^{(zzz)}z_{i}z_{j}z_{k}+a_{ijk}^{(zzx)}z_{i}z_{j}x_{k}+a_{ijk}^{(zzy)}z_{i}z_{j}y_{k}+a_{ijk}^{(zxz)}z_{i}x_{j}z_{k}+\cdots+a_{ijk}^{(yyy)}y_{i}y_{j}y_{k}\right)+\\
- & \sum_{ijkl\cdots n}^{n}\left(a_{ijkl\cdots n}^{(zzzz\cdots z)}z_{i}z_{j}z_{k}z_{l}\cdots z_{n}+a_{ijkl\cdots n}^{(zzz\cdots x)}z_{i}z_{j}z_{k}\cdots x_{n}+a_{ijkl\cdots n}^{(zzz\cdots y)}z_{i}z_{j}z_{k}\cdots y_{n}+a_{ijkl\cdots n}^{(zz\cdots xz)}z_{i}z_{j}\cdots x_{n-1}z_{n}+\cdots+a_{ijkl\cdots n}^{(yyy\cdots y)}y_{i}y_{j}y_{k}\cdots y_{n}\right)
-\end{align}
-\normalsize
-
-% of the form of Eq. \eqref{eq:XZ+Z} or Eq. \eqref{eq:XX+Z}
-\noindent We wish to find a 2-local Hamiltonian  that is equivalent to Eq. \eqref{eq:mostGeneralH} in terms of reproducing certain desired properties (e.g. same ground state(s), same ground eigenvalue(s), same full eigenspectrum, etc.) to within the desired precision.
-
-\begin{comment}
-\section{Brute force numerical}
-
-If our only wish is for the 2-local Hamiltonian to preserve the ground state of the original $k$-local Hamiltonian, we can optimize the coefficients of the 2-local Hamiltonian so that the difference between the ground state of the original Hamiltonian and the ground state of the 2-local Hamiltonian is minimized under some desired measure. For example, if we wish for the dot product of the lowest energy eigenvector of the original $H$ and that of the new $H_{\rm{2-local}}$ to be 0.9, then the following two Hamiltonians are equivalent for our purposes:
-
-\footnotesize
-\begin{align}
-z_1z_2 +  y_1x_2z_3 \mapsto \alpha_1z_1 + \alpha_2z_2 + \alpha_3z_3 + \alpha_4z_4 + \alpha_5x_1 + \alpha_6x_2 + \alpha_7x_3 + \alpha_8x_4 + \alpha_9z_1z_1 + \alpha_{10}z_1z_2 + \cdots + \alpha_{72}z_4x_4 
-\end{align} 
-\normalsize
-
-{\color{red} This should be easy to optimize in MATLAB, assuming that 1 auxiliary qubit is enough. Most $\alpha$ are probably 0 because the characteristic polynomial of the left side is of degree 8, so there's far more unknowns than equations. We can then put numerical values above, in place of the $\alpha$'s}.
-
-% (relative to the difference between the lowest and highest eigenvalues of the Hamiltonian)
-
-Likewise, if we only wish for the lowest eigenvalue $E_0$ of the original $H$ to be recovered to within 0.01, for example, we can minimize the function $(E_{0,k-\rm{local}}-E_{0,\rm{2-local}})^2$ with respect to the ${\alpha}$ coefficients of the 2-local Hamiltonian until the objective function evaluates to a number smaller than 0.1$^2$. For example:
-
-\footnotesize
-\begin{align}
-z_1z_2 +  y_1x_2z_3 \mapsto \alpha_1z_1 + \alpha_2z_2 + \alpha_3z_3 + \alpha_4z_4 + \alpha_5x_1 + \alpha_6x_2 + \alpha_7x_3 + \alpha_8x_4 + \alpha_9z_1z_1 + \alpha_{10}z_1z_2 + \cdots + \alpha_{72}z_4x_4 
-\end{align} 
-\normalsize
-
-{\color{red} This should be even easier to optimize in MATLAB}.
-
-\noindent It is also possible to preserve more eigenvalues and/or eigenvectors than just the lowest, for example by minimizing the objective function:
-
-\begin{align}
-\sum_i^{i_{\rm{max}}}A(E_{i,k-\rm{local}}-E_{i,\rm{2-local}})^2 + B\frac{1}{\langle \psi_i| \psi_i\rangle}
-\end{align}
-
-\noindent where one can choose $A$ and $B$ according to whether preserving the eigenvalues ($A$) or the eigenvectrs ($B$) is more important.
-
-The more auxiliary qubits included in the 2-local Hamiltonian, the more parameters that can be optimized in attempt to make the ground state arbitrarily close to the orginal ground state.  
-
-\prossec
-
-\begin{itemize}
-\item Very general.
-\item Can control which aspects of the 2-local Hamiltonion are most important
-\item Can likely even gadgetize a "universal" Hamiltonian into an Ising one of larger sized Hilbert space
-\end{itemize}
-
-\conssec
-\begin{itemize}
-\item Doing the transformation costs more than solving the problem itself (only useful for testing what's theoretically possible).
-\end{itemize}
-
-\refsec
-\begin{itemize}
-\item In June 2017 Ref. https://arxiv.org/pdf/1706.03637.pdf was posted on arXiv but it is not clear to me why they have the constraint (7d), the definiion of their matrix norm in (7c) doesn't seem to be given as far as I can see, and their (7a) uses a square while (7d) uses an absolute value which means that one of them is being treated more preferentially than the other, even when they say they are (think they are) using "equal weights". 
-\end{itemize}
-
-\end{comment}
-
-\section{1-by-1 Gadgets}
-
-A 1B1 gadget allows $k$-local terms to be quadratized one step at a time, where at each step the term's order is reduced by at most one. In each step, a $k$-local term is reduced to $\left(k-1\right)$-local, contrary to SD (sub-division) gadgets which can reduce $k$-local terms to $\left(\nicefrac{1}{2}\right)$-local in one step.
-
-\subsection{1B1-KKR (Kempe, Kitaev, Regev, 2006)}
+\subsection{$(3\rightarrow2)$-DC (Duan, Chen, 2011)} %The paper says s_i are Pauli matrices, but I'd bet that they just have to be commuting, well they don't have the s_i^2 terms, which would not be = 1 if they were general commuting matrices.
 
 \summarysec
 
-Group all $k$-local terms together and express their sum as a sum of products of commuting matrices $s_{ij}$:
+ For any 3-local term (product of Pauli matrices $s_i$) in the Hamiltonian, we can define \textit{one} auxiliary qubit labeled by $a$  and  make the transformation:                                                                                                                                      
+%Group all $3$-local terms together and express their sum as a sum of products of commuting matrices $s_{ij}$:
+
+%\begin{align}
+%H_{3-\rm{local}} = \sum_i\prod_j^3 s_{ij} + H_{2-\rm{local}}. \label{eq:klocalInKempeMethod}
+%\end{align}
 
 \begin{align}
-H_{k-\rm{local}} = \sum_i\prod_j^k s_{ij} + H_{(k-1)-\rm{local}}. \label{eq:klocalInKempeMethod}
+\alpha\prod_i^3 s_{i} \rightarrow \alpha^I + \alpha^s s_3 + \alpha^z z_a +\alpha^{ss} \left(s_1 + s_2 \right)^2 + \alpha^{sz}s_3z_a  +  + \alpha^{sx}\left(s_1x_a + s_2x_a  \right) 
 \end{align}
 
-\noindent Define auxiliary qubits labeled by $a_{ij}$ and make the transformation:
-
+{\scriptsize
 \begin{align}
-\sum_i\prod_{j}^k s_{ij} \mapsto \frac{\Delta}{4}\left( 9 - \sum_i \left( \sum_j  z_{a_{ij}} \right)^2 - \sum_j z_{a_{ij}}^2 + \frac{1}{\sqrt[3]{6\Delta}} x_{a_{ij}}  \right).
+\alpha^I    &= -\frac{1}{2\Delta} \\
+\alpha^s    &= \alpha\left(\frac{1}{4\Delta^{\nicefrac{2}{3}}} - 1 \right) \\
+\alpha^z    &= \alpha\left(\frac{1}{4\Delta^{\nicefrac{2}{3}}} - 1 \right) \\
+\alpha^{ss} &= \frac{1}{\Delta^{\nicefrac{1}{3}}} \\
+\alpha^{sz} &= \frac{\alpha}{4\Delta^{\nicefrac{2}{3}}} \\ 
+\alpha^{sx} &=  \frac{1}{\Delta^{\nicefrac{2}{3}}} \\
 \end{align}
+}
 
-\noindent The result will be a $(k-1)$-local Hamiltonian with the same low-lying spectrum as $H_{k-\rm{local}}$ to within $\epsilon$ as long as $\Delta=\Theta\left(\epsilon^{-3}\right)$. 
+\noindent The result will be a 2-local Hamiltonian whose low-lying spectrum is equivalent to the spectrum of $H_{3-\rm{local}}$ to within $\epsilon$ as long as $\Delta=\Theta\left(\epsilon^{-3}\right)$. 
 
 \costsec
 
 \begin{itemize}
-\item The number of auxiliary qubits needed is the number of $s_{ij}$ matrices in Eq. \eqref{eq:klocalInKempeMethod}.
+\item 1 auxiliary qubit for each 3-local term. %\eqref{eq:klocalInKempeMethod}.
+\item $\Delta =\Theta\left(\epsilon^{-3}\right)$ % need to check this. Assumed it.
+\end{itemize}
+
+\begin{comment}
+\prossec
+\begin{itemize}
+\item
+\item
+\end{itemize}
+
+\conssec
+\begin{itemize}
+\item
+\item
+\end{itemize}  
+\end{comment}
+               
+\examplesec
+
+% NOTE WE CAN CHANGE THE 1,2,3 (BECAUSE THINGS COMMUTE) SO WE MIGHT BE ABLE TO  DO THIS IN A WAY IN WHICH THERE'S FEWER INDEPENDENT COEFFICIENTS TO DEFINE. ESPECIALLY WHEN LOOKING WHAT WHICH 2-LOCAL TERMS WERE ALREADY IN THE ORIGINAL HAMILTONIAN!!
+
+%{\small
+\begin{align}
+x_1z_2y_3 - 3x_1x_2y_4 + z_1x_2 &\rightarrow \alpha^I +  \alpha^z(z_{a_1} + z_{a_2}) + \alpha^y(y_3 + y_4) +\alpha^{zx}_{12}z_1x_2+   \alpha^{zx}z_2x_{a_1} +\alpha^{xx}_{11} x_1x_2\\
+&   +  \alpha^{xx}\left( x_1x_{a_1} + x_1x_{a_2} + x_2x_{a_2} \right)  + \alpha^{yz}\left( y_3z_{a_1} + y_4z_{a_2}  \right)
+\end{align}
+%}
+
+\refsec
+
+\begin{itemize}
+\item \cite{Duan2011}
+\end{itemize}
+
+\newpage
+
+
+\subsection{$(3\rightarrow2)$-KKR (Kempe, Kitaev, Regev, 2004)}
+
+\summarysec
+
+ For any 3-local term (product of commuting matrices $s_i$) in the Hamiltonian, we can define three auxiliary qubits labeled by $a_{i}$  and  make the transformation:
+%Group all $3$-local terms together and express their sum as a sum of products of commuting matrices $s_{ij}$:
+
+%\begin{align}
+%H_{3-\rm{local}} = \sum_i\prod_j^3 s_{ij} + H_{2-\rm{local}}. \label{eq:klocalInKempeMethod}
+%\end{align}
+
+\begin{align}
+\prod_i^3 s_{i} \rightarrow \alpha^I + \alpha_i^{ss} \sum_i s_i^2 + \alpha_i^{sx}\sum_i  s_ix_{a_i} + \alpha^{zz} \sum_{ij} z_{a_i}z_{a_j} 
+\end{align}
+
+
+\begin{align}
+\alpha^I    &= -\frac{1}{8\Delta} \\
+\alpha^{ss} &= -\frac{1}{6\Delta^{\nicefrac{1}{3}}} \\
+\alpha^{sx} &=  \frac{1}{6\Delta^{\nicefrac{2}{3}}} \\
+\alpha^{zz} &=  \frac{1}{24\Delta}
+\end{align}
+
+\noindent The result will be a 2-local Hamiltonian whose low-lying spectrum is equivalent to the spectrum of $H_{k-\rm{local}}$ to within $\epsilon$ as long as $\Delta=\Theta\left(\epsilon^{-3}\right)$. 
+
+\costsec
+
+\begin{itemize}
+\item 3 auxiliary qubits for each 3-local term. %\eqref{eq:klocalInKempeMethod}.
 \item $\Delta =\Theta\left(\epsilon^{-3}\right)$
 \end{itemize}
 
@@ -1426,9 +1503,82 @@ H_{k-\rm{local}} = \sum_i\prod_j^k s_{ij} + H_{(k-1)-\rm{local}}. \label{eq:kloc
 \item
 \item
 \end{itemize}  
+\end{comment}
                
 \examplesec
+
+{\tiny
+\begin{align}
+x_1z_2y_3 - 3x_1x_2y_4 + z_1x_2 \rightarrow \alpha^I + \alpha^{zx}_{2a_{12}}z_2x_{a_12}+ \alpha^{xx}_{12} x_1x_2 + \alpha^{xx}_{1a_{11}}x_1x_{a_{11}} + \alpha^{xx}_{1a_{21}}x_1x_{a_{21}}  + \alpha^{xx}_{2a_{22}}x_2x_{a_{22}} + \alpha^{yz}_{3a_{13}}y_3x_{a_{13}} + \alpha_{4a_{23}}^{yx}y_4x_{a_{23} }
+\end{align}
+}
+
+\newpage
+
+\subsection{$(3\rightarrow2)$-DC2 (Duan, Chen, 2011)} %The paper says s_i are Pauli matrices, but I'd bet that they just have to be commuting, well they don't have the s_i^2 terms, which would not be = 1 if they were general commuting matrices.
+
+\summarysec
+
+ For any 3-local term (product of Pauli matrices $s_i$) in the Hamiltonian, we can define three auxiliary qubits labeled by $a_{i}$  and  make the transformation:                                                                                                                                      
+%Group all $3$-local terms together and express their sum as a sum of products of commuting matrices $s_{ij}$:
+
+%\begin{align}
+%H_{3-\rm{local}} = \sum_i\prod_j^3 s_{ij} + H_{2-\rm{local}}. \label{eq:klocalInKempeMethod}
+%\end{align}
+
+\begin{align}
+\prod_i^3 s_{i} \rightarrow \alpha^I + \alpha_i^{ss} \sum_i s_i^2 + \alpha_i^{sx}\sum_i  s_ix_{a_i} + \alpha^{zz} \sum_{ij} z_{a_i}z_{a_j} 
+\end{align}
+
+\begin{align}
+\alpha^I    &= -\frac{1}{8\Delta} \\
+\alpha^{ss} &= -\frac{1}{6\Delta^{\nicefrac{1}{3}}} \\
+\alpha^{sx} &=  \frac{1}{6\Delta^{\nicefrac{2}{3}}} \\
+\alpha^{zz} &=  \frac{1}{24\Delta}
+\end{align}
+
+\noindent The result will be a 2-local Hamiltonian whose low-lying spectrum is equivalent to the spectrum of $H_{3-\textrm{local}}$ to within $\epsilon$ as long as $\Delta=\Theta\left(\epsilon^{-3}\right)$. 
+
+\costsec
+
+\begin{itemize}
+\item 3 auxiliary qubits for each 3-local term. %\eqref{eq:klocalInKempeMethod}.
+\item $\Delta =\Theta\left(\epsilon^{-3}\right)$
+\end{itemize}
+
+\begin{comment}
+\prossec
+\begin{itemize}
+\item
+\item
+\end{itemize}
+
+\conssec
+\begin{itemize}
+\item
+\item
+\end{itemize}  
 \end{comment}
+               
+\examplesec
+
+{\tiny
+\begin{align}
+x_1z_2y_3 - 3x_1x_2y_4 + z_1x_2 \rightarrow \alpha^I + \alpha^{zx}_{2a_{12}}z_2x_{a_12}+ \alpha^{xx}_{12} x_1x_2 + \alpha^{xx}_{1a_{11}}x_1x_{a_{11}} + \alpha^{xx}_{1a_{21}}x_1x_{a_{21}}  + \alpha^{xx}_{2a_{22}}x_2x_{a_{22}} + \alpha^{yz}_{3a_{13}}y_3x_{a_{13}} + \alpha_{4a_{23}}^{yx}y_4x_{a_{23} }
+\end{align}
+}
+
+\begin{itemize}
+\item \cite{Duan2011}
+\end{itemize}
+
+
+\newpage
+
+\section{1-by-1 Gadgets}
+
+A 1B1 gadget allows $k$-local terms to be quadratized one step at a time, where at each step the term's order is reduced by at most one. In each step, a $k$-local term is reduced to $\left(k-1\right)$-local, contrary to SD (sub-division) gadgets which can reduce $k$-local terms to $\left(\nicefrac{1}{2}\right)$-local in one step.
+
 
 \subsection{1B1-OT (Oliviera \& Terhal, 2008)}
 
@@ -1617,30 +1767,6 @@ H_{k-\rm{local}} = \alpha H_{1,(\nicefrac{k}{2})-\rm{local}}H_{2,(\nicefrac{k}{2
 %\begin{itemize}
 %\item Kempe et al.
 %\end{itemize}
-
-\newpage
-
-\subsection{Duan et al (2011)}
-
-\summarysec
-
-\costsec
-
-%\prossec
-%\begin{itemize}
-%\item
-%\item
-%\end{itemize}
-%
-%\conssec
-%\begin{itemize}
-%\item
-%\item
-%\end{itemize}  
-               
-\examplesec
-
-\refsec
 
 \newpage
 
@@ -2007,6 +2133,12 @@ H & = & 2(1-z_{12})(1-z_{13})(1-z_{23})+\ldots+(1-z_{23})(1-z_{24})(1-z_{34})+\\
 
 We could repeat this process to remove all 5- and 4-local terms without adding any auxiliary qubits.
 Note in this case the error terms added by deduc-reduc already appear in our Hamiltonian.
+
+%3->2-KKR, presented the original way:
+%\begin{align}
+%\sum_i\prod_j^3 s_{ij} + H_{2-\rm{local}} \rightarrow \frac{1}{24\Delta} \left( \sum_i \left( \sum_j z_{a_{ij}} \right)^2 - \sum_j 1\right) - \frac{1}{6\Delta^{\nicefrac{2}{3}}}\left( \sum_{ij} x_{a_{ij}} \right) - \frac{1}{6\Delta^{\nicefrac{1}{3}}}\left( s_{ij}^2  \right) -\frac{1}{6} H_{\textrm{2-local}}
+%\end{align}
+%%\sum_i\prod_{j}^k s_{ij} \mapsto \frac{\Delta}{4}\left( 9 - \sum_i \left( \sum_j  z_{a_{ij}} \right)^2 - \sum_j z_{a_{ij}}^2 + \frac{1}{\sqrt[3]{6\Delta}} x_{a_{ij}}  \right).
 
 \section*{Acknowledgments}
 
