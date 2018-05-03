@@ -1011,7 +1011,7 @@ This method is very similar to recursive order reduction, but uses gadgets to pr
 
 \costsec
 \begin{itemize}
-\item Varies, but generally higher than other methods
+\item Varies, but generally higher than other methods.
 \end{itemize}
 
 \prossec
@@ -1026,14 +1026,36 @@ This method is very similar to recursive order reduction, but uses gadgets to pr
 
 \examplesec
 
-To create a system which maps $(z_1=-1)\vee (z_2=-1) \vee (z_3=-1)$ (up to an energy shift),  we use the following gadget:
+%To create a system which maps $(z_1=-1)\vee (z_2=-1) \vee (z_3=-1)$,  we use the following gadget:
+%
+%\begin{align}
+%H_{3-\rm{SAT}}(z_1,z_2,z_3)=(1-\sum_{i=1}^3 z_{a_i})(1-\frac{1}{2}\sum_{i=1}^3 z_{i})+\frac{1}{2}\sum_{i<j}^3 z_{a_i} z_{a_j}-1+\frac{5}{2} \nonumber \\
+%=-\sum_{i=1}^3 z_{a_i}-\frac{1}{2}\sum_{i=1}^3 z_i+\frac{1}{2}\sum_{i<j}^3 z_{a_i} z_{a_j} +\frac{1}{2} \sum_{i=1}^3 z_i z_{a_i}+\frac{5}{2}.
+%\end{align}
+
+To create a system which maps $b_1b_2b_3$,  we use the following gadget (note that this is given in terms of $z$ in the orginal work and translated to $b$ here):
 %
 \begin{align}
-H_{3-\rm{SAT}}=(1-\sum_{i=1}^3 z_{a_i})(1-\frac{1}{2}\sum_{i=1}^3 z_{i})+\frac{1}{2}\sum_{i<j}^3 z_{a_i} z_{a_j}-1 \nonumber \\
-=-\sum_{i=1}^3 z_{a_i}-\frac{1}{2}\sum_{i=1}^3 z_i+\frac{1}{2}\sum_{i<j}^3 z_{a_i} z_{a_j} +\frac{1}{2} \sum_{i=1}^3 z_i z_{a_i}.
+H_{3-\rm{SAT}}(b_1,b_2,b_3)=2\sum_{i=1}^3b_ib_{a_i}+2\sum_{i<j}^3b_{a_i}b_{a_j}-4\sum_{i=1}^3b_{a_i}-2\sum_{i=1}^3b_i+\frac{23}{2}.
 \end{align}
 
-Implementing $\lambda H_{3-\rm{SAT}}$, creates a situation where $z_3$ is a `flag' for $z_1=-1$ and $ z_2=-1$ in other words $z_3$ is constrained to be $-1$ in the low energy manifold iff $z_1=-1$ and $ z_2=-1$ and $+1$ otherwise. It follows from the universality of $3-\rm{SAT}$ that these `flag' clauses can be combined to map any spin Hamiltonian.
+Implementing $\lambda H_{3-\rm{SAT}}$, creates a situation where $b_3$ is a `flag' for $b_1$ and $ b_2$ in other words $b_3$ is constrained to be $1$ in the low energy manifold iff $b_1=0$ and $ b_2=0$. It follows from the universality of $3-\rm{SAT}$ that these `flag' clauses can be combined to map any spin Hamiltonian. To do this, we also need anti-ferromagnetic couplings to express the `negated' variable, to do this, we define,
+
+\begin{align}
+H_{\rm{AF}}(b_1,b_{\neg1})=2\,b_1b_{\neg1}-b_i-b_{\neg 1}+1.
+\end{align}
+
+
+ As an explicit example, consider reproducing the spectrum of $z_1z_2z_3=(2\,b_1-1)(2\,b_2-1)(2\,b_3-1)$. In this case we need to assign a higher energy to the $(1,1,1)$, $(0,0,1)$, $(0,1,0)$, and  $(1,0,0)$ states. A flag ($b_{f}$) which is forced into a higher energy state iff these conditions are satisfied can be constructed from two instances of $H_{3-\rm{SAT}}$ and an auxilliary qubit, combining these leads to
+
+\begin{align}
+H_{2-\rm{local}}(b_1,b_2,b_3)=\lambda[\sum_{i=1}^3 H_{\rm{AF}}(b_i,b_{\neg i})+\sum_{i=1}^8 H_{\rm{AF}}(b_{a_i},b_{\neg a_i})+ H_{\rm{AF}}(b_{f},b_{\neg f})\nonumber \\
++H_{3-\rm{SAT}}(b_{\neg 1},b_{\neg 2},b_{\neg a_1})+H_{3-\rm{SAT}}(b_{a_1},b_{\neg 3},b_{f})+H_{3-\rm{SAT}}(b_{1},b_{2},b_{\neg a_2})+H_{3-\rm{SAT}}(b_{a_2},b_{3},b_{\neg f})\nonumber \\
++H_{3-\rm{SAT}}(b_{1},b_{2},b_{\neg a_3})+H_{3-\rm{SAT}}(b_{a_3},b_{\neg 3},b_{f})+H_{3-\rm{SAT}}(b_{\neg 1},b_{\neg 2},b_{\neg a_4})+H_{3-\rm{SAT}}(b_{a_4},b_{3},b_{\neg f})\nonumber \\
++H_{3-\rm{SAT}}(b_{1},b_{\neg 2},b_{\neg a_5})+H_{3-\rm{SAT}}(b_{a_5},b_{3},b_{f})+H_{3-\rm{SAT}}(b_{\neg 1},b_{2},b_{\neg a_6})+H_{3-\rm{SAT}}(b_{a_6},b_{\neg 3},b_{\neg f})\nonumber \\
++H_{3-\rm{SAT}}(b_{1},b_{2},b_{\neg a_7})+H_{3-\rm{SAT}}(b_{a_7},b_{\neg 3},b_{f})+H_{3-\rm{SAT}}(b_{\neg 1},b_{ \neg 2},b_{\neg a_8})+H_{3-\rm{SAT}}(b_{a_8},b_{3},b_{\neg f})]-2\,b_{f}+1.
+\end{align}
+
 
 \refsec
 \begin{itemize}
@@ -1072,11 +1094,26 @@ This method was originally only used to reproduce the ground state of high local
 
 \examplesec
 
-\begin{equation}
-H_\textrm{5-local} = z_1z_2z_3z_4z_5 -2 z_1z_4z_5 +3z_1z_3 -z_5 + 9
-\end{equation}
+\begin{align}
+H_\textrm{5-local} = z_1z_2z_3z_4z_5 =32\,b_1b_2b_3b_4b_5\nonumber \\
+-16\,(b_1b_2b_3b_4+b_1b_2b_3b_5+b_1b_2b_4b_5+b_1b_3b_4b_5+b_2b_3b_4b_5) \nonumber \\
++8\,(b_1b_2b_3+b_1b_2b_4+b_1b_2b_5+b_1b_3b_4+b_1b_3b_5+b_1b_4b_5+b_2b_3b_4+b_2b_3b_4+b_2b_4b_5+b_3b_4b_5)\nonumber \\
+-4\,(b_1b_2+b_1b_3+b_1b_4+b_1b_5+b_2b_3+b_2b_4+b_2b_5+b_3b_4+b_3b_5+b_4b_5)\nonumber \\
++2(b_1+b_2+b_3+b_4+b_5)-1
+\end{align}
 
-The full spectrum of $\pm z_1z_2z_3$ is reproduced by:
+The full spectrum of $\pm z_1z_2z_3=\pm(8\,b_1b_2b_3-4\,b_1b_2-4\,b_2b_3+2\,b_1+2\,b_2+2\,b_3-1) $ is reproduced by:
+
+%\begin{equation}
+%P_\pm(z_1,z_2,z_3;\lambda)=\lambda\left(z_1z_2+z_2z_3+z_3z_1+2z_a(z_1+z_2+z_3)\right)\mp (z_1+z_2+z_3 +2z_a).
+%\end{equation}
+
+\begin{align}
+P_\pm(b_1,b_2,b_3;\lambda)=\lambda\left(4\,(b_1b_2+b_2b_3+b_3b_1)+8\,b_a(b_1+b_2+b_3)-12\,b_a-4\,(b_1+b_2+b_3)+3\right)\nonumber \\
+\mp (2\,b_1+2\,b_2+2\,b_3 +4\,b_a-5).
+\end{align}
+
+This can be written more compactly in terms of $z$:
 
 \begin{equation}
 P_\pm(z_1,z_2,z_3;\lambda)=\lambda\left(z_1z_2+z_2z_3+z_3z_1+2z_a(z_1+z_2+z_3)\right)\mp (z_1+z_2+z_3 +2z_a).
@@ -1085,7 +1122,7 @@ P_\pm(z_1,z_2,z_3;\lambda)=\lambda\left(z_1z_2+z_2z_3+z_3z_1+2z_a(z_1+z_2+z_3)\r
 Using three copies of this 3-local gadget as a building block, and using two additional auxilliary variables, the spectrum of the 5-local term $z_1z_2z_3z_4z_5$ can be reproduced by the following Hamiltonian
 
 \begin{equation}
-H_{2-\rm{local}}=P_+(z_1,z_2,z_{a_1};\lambda)+P_+(z_{a_1},z_3,z_{a_2};\lambda)+P_+(z_{a_2},z_4,z_5;\lambda).
+H_{2-\rm{local}}=P_+(b_1,b_2,b_{a_1};\lambda)+P_+(b_{a_1},b_3,b_{a_2};\lambda)+P_+(b_{a_2},b_4,b_5;\lambda).
 \end{equation}
 
 \refsec
@@ -1180,35 +1217,47 @@ Auxilliary qubits can be made to ``count'' the number of logical qubits in the $
 
 \conssec
 \begin{itemize}
-\item Requires coupling between all logical qubits and from all logical qubits to all auxilliary qubits.
+\item Requires coupling between all logical bits and from all logical bits to all auxilliary bits.
 \item Requires single body terms of increasing strength as $k$ is increased.
 %\item Sometimes requires exponentially growing number of auxiliary qubits. 5:15 of https://www.youtube.com/watch?v=aC-6hg_h3EA&feature=youtu.be
 \end{itemize}
 
 \examplesec
 
-A  $4$ qubit gadget guarantees that the number of auxillary bits in the $0$ state is equal to the number of logical bits in the $1$ state
-
+A  $4$ qubit gadget guarantees that the number of auxillary bits in the $-1$ state is equal to the number of logical bits in the $1$ state
+%
 %\begin{equation}
 %H_{4-count}=  \sum_{i=2}^4 \sum_{j =1}^{i-1} z_i z_j -\frac{1}{2} \sum_{i=1}^4  z_i +  \sum_{i=1}^4 \sum_{j=1}^4 z_i z_{a_j} +   \sum_{i=1}^4  (2\,i-4+\frac{1}{2}) z_{a_i}. 
 %\end{equation}
-
+%
+\begin{equation}
+H_{4-\rm{count}}=  4\,\sum_{i=2}^4\sum_{j=1}^{i-1}b_ib_j+4\,\sum_{i=1}^4\sum_{j=1}^4b_ib_{a_j}-15\,\sum_{i=1}^4b_i-8\,\sum_{i=1}^4b_{a_i}+(5\,b_{a_1}+b_{a_2}-3\,b_{a_3}-7\,b_{a_4})+26
+\end{equation}
+%
+This gadget can be expressed more naturally in terms of $z$:
+%
 \begin{equation}
 H_{4-\rm{count}}=  \sum_{i=2}^4 \sum_{j =1}^{i-1} z_i z_j -\frac{1}{2} \sum_{i=1}^4  z_i +  \sum_{i=1}^4 \sum_{j=1}^4 z_i z_{a_j}  +\frac{1}{2}\left(5z_{a_1}+ z_{a_2}-3\,z_{a_3}-7 z_{a_4}\right).
 \end{equation}
-
-To replicate the spectrum of $z_1z_2z_3z_4$, we add
+%
+To replicate the spectrum of $b_1b_2b_3b_4$, we add
 %
 \begin{equation}
-H_{4-\rm{local}}=z_{a_1}-z_{a_2}+z_{a_3}-z_{a_4}+ \lambda H_{4-\rm{count}},
+H_{2-\rm{local}}=-b_{a_4}+ \lambda H_{4-\rm{count}}.
 \end{equation}
 %
 where $\lambda$ is a large number.
 
-For the spectrum of $b_1b_2b_3b_4$, we implement,
+For the spectrum of 
+%
+\begin{align}
+z_1z_2z_3z_4=16\,b_1b_2b_3b_4-8\,(b_1b_2b_3+b_1b_2b_4+b_1b_3b_4+b_2b_3b_4)+\nonumber \\
+4\,(b_1b_2+b_1b_3+b_1b_4+b_2b_3+b_2b_4+b_3b_4)-2\,(b_1+b_2+b_3+b_4)+1,
+\end{align}
+ we implement,
 %
 \begin{equation}
-H_{4-\rm{local}}=-\frac{1}{2}z_{a_4}+ \lambda H_{4-\rm{count}}.
+H_{2-\rm{local}}=2\,b_{a_1}-2\,b_{a_2}+2\,b_{a_3}-2\,b_{a_4}+ \lambda H_{4-\rm{count}},
 \end{equation}
 
 \refsec
@@ -1218,8 +1267,6 @@ H_{4-\rm{local}}=-\frac{1}{2}z_{a_4}+ \lambda H_{4-\rm{count}}.
 \item Talk including use in quantum simulation: \cite{Chancellor2016a}
 \end{itemize}
 
-
-%\newpage
 
 %\section{Strategies for combining methods}
 %
