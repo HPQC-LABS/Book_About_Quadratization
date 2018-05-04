@@ -1437,7 +1437,71 @@ The low-lying spectrum (eigenvalues \textbf{\textit{and}} eigenvectors) of the r
 
 The first gadgets for arbitrary Hamiltonians acting on some number of qubits, were designed to reproduce the spectrum of a 3-local Hamiltonian in the low-lying spectrum of a 2-local Hamiltonian.
 
-\subsection{$(3\rightarrow2)$-DC (Duan, Chen, 2011)} %The paper says s_i are Pauli matrices, but I'd bet that they just have to be commuting, well they don't have the s_i^2 terms, which would not be = 1 if they were general commuting matrices.
+\subsection{$(3\rightarrow2)$-DC  (Duan, Chen, 2011)} %The paper says "the terms in the product have to commute, but it's not clear if they mean each of the 3 terms of the product, or just the terms inside those terms, which would be much better.
+
+% THERE IS A NEGATIVE SIGN DIFFERENCE FROM KKR, WHICH CAN'T BE ABSORVED INTO ANYTHING FOR THE SAME REASON WHY WE CAN'T ABSORB THE 6. IT'S BECAUSE THE 2-LOCAL HAMILTONIAN WILL HAVE TO ATTAIN THE NEGATIVE SIGN TOO, WHICH WE DON'T WANT BECAUSE WE JUST WANT TO WRITE THE 2-LOCAL TO 2-LOCAL TRANSFORMATION WITHOUT H_2LOCAL BEING PART OF THE FORUMA. NEGATING H_2LOCAL WOULD BE PART OF THE FORMULA OTHERWISE.
+
+\summarysec
+
+ For any group of 3-local terms that can be factored into a product of three 1-local factors, we can define three auxiliary qubits (regardless of the number of qubits we have in total) labeled by $a_{i}$  and  make the transformation:
+%Group all $3$-local terms together and express their sum as a sum of products of commuting matrices $s_{ij}$:
+
+%\begin{align}
+%H_{3-\rm{local}} = \sum_i\prod_j^3 s_{ij} + H_{2-\rm{local}}. \label{eq:klocalInKempeMethod}
+%\end{align}
+
+\begin{align}
+\prod_i^3 \sum_j \alpha_{ij}s_{i} \rightarrow \alpha^I + \alpha_i^{ss} \sum_i \left(\sum_j \alpha_{ij}s_{ij}\right)^2 + \alpha_i^{sx}\sum_i \sum_j \alpha_{ij} s_{ij}x_{a_i} + \alpha^{zz} \sum_{ij} z_{a_i}z_{a_j} 
+\end{align}
+
+
+\begin{align}
+\alpha^I    &= \frac{1}{8\Delta} \\
+\alpha^{ss} &= \frac{1}{6\Delta^{\nicefrac{1}{3}}} \\
+\alpha^{sx} &= - \frac{1}{6\Delta^{\nicefrac{2}{3}}} \\
+\alpha^{zz} &= -  \frac{1}{24\Delta}
+\end{align}
+
+\noindent The result will be a 2-local Hamiltonian whose low-lying spectrum is equivalent to the spectrum of $H_{3-\rm{local}}$ to within $\epsilon$ as long as $\Delta=\Theta\left(\epsilon^{-3}\right)$. 
+
+\costsec
+
+\begin{itemize}
+\item 1 auxiliary qubit for each group of 3-local terms that can be factored into three 1-local factors. %\eqref{eq:klocalInKempeMethod}.
+\item $\Delta =\Theta\left(\epsilon^{-3}\right)$
+\end{itemize}
+
+\prossec 
+\begin{itemize}
+\item Very few auxiliary qubits needed
+\end{itemize}
+
+\conssec
+\begin{itemize}
+\item Will not work for Hamiltonians that do not factorize appropriately.
+\end{itemize}  
+               
+%\examplesec
+%
+%{\tiny
+%\begin{align}
+%x_1z_2y_3 - 3x_1x_2y_4 + z_1x_2 \rightarrow \alpha^I + \alpha^{zx}_{2a_{12}}z_2x_{a_12}+ \alpha^{xx}_{12} x_1x_2 + \alpha^{xx}_{1a_{11}}x_1x_{a_{11}} + \alpha^{xx}_{1a_{21}}x_1x_{a_{21}}  + \alpha^{xx}_{2a_{22}}x_2x_{a_{22}} + \alpha^{yz}_{3a_{13}}y_3x_{a_{13}} + \alpha_{4a_{23}}^{yx}y_4x_{a_{23} }
+%\end{align}
+%}
+%
+
+\refsec
+
+\begin{itemize}
+\item Original paper: \cite{Duan2011}
+\end{itemize}
+
+
+\newpage
+
+
+
+\subsection{$(3\rightarrow2)$-DC2 (Duan, Chen, 2011)} %The paper says s_i are Pauli matrices, but I'd bet that they just have to be commuting, well they don't have the s_i^2 terms, which would not be = 1 if they were general commuting matrices.
 
 \summarysec
 
@@ -1490,17 +1554,17 @@ The first gadgets for arbitrary Hamiltonians acting on some number of qubits, we
 
 % NOTE WE CAN CHANGE THE 1,2,3 (BECAUSE THINGS COMMUTE) SO WE MIGHT BE ABLE TO  DO THIS IN A WAY IN WHICH THERE'S FEWER INDEPENDENT COEFFICIENTS TO DEFINE. ESPECIALLY WHEN LOOKING WHAT WHICH 2-LOCAL TERMS WERE ALREADY IN THE ORIGINAL HAMILTONIAN!!
 
-%{\small
+{\small
 \begin{align}
 x_1z_2y_3 - 3x_1x_2y_4 + z_1x_2 &\rightarrow \alpha^I +  \alpha^z(z_{a_1} + z_{a_2}) + \alpha^y(y_3 + y_4) +\alpha^{zx}_{12}z_1x_2+   \alpha^{zx}z_2x_{a_1} +\alpha^{xx}_{11} x_1x_2\\
 &   +  \alpha^{xx}\left( x_1x_{a_1} + x_1x_{a_2} + x_2x_{a_2} \right)  + \alpha^{yz}\left( y_3z_{a_1} + y_4z_{a_2}  \right)
 \end{align}
-%}
+}
 
 \refsec
 
 \begin{itemize}
-\item \cite{Duan2011}
+\item Original paper: \cite{Duan2011}
 \end{itemize}
 
 \newpage
@@ -1529,7 +1593,7 @@ x_1z_2y_3 - 3x_1x_2y_4 + z_1x_2 &\rightarrow \alpha^I +  \alpha^z(z_{a_1} + z_{a
 \alpha^{zz} &=  \frac{1}{24\Delta}
 \end{align}
 
-\noindent The result will be a 2-local Hamiltonian whose low-lying spectrum is equivalent to the spectrum of $H_{k-\rm{local}}$ to within $\epsilon$ as long as $\Delta=\Theta\left(\epsilon^{-3}\right)$. 
+\noindent The result will be a 2-local Hamiltonian whose low-lying spectrum is equivalent to the spectrum of $H_{3-\rm{local}}$ to within $\epsilon$ as long as $\Delta=\Theta\left(\epsilon^{-3}\right)$. 
 
 \costsec
 
@@ -1562,65 +1626,7 @@ x_1z_2y_3 - 3x_1x_2y_4 + z_1x_2 \rightarrow \alpha^I + \alpha^{zx}_{2a_{12}}z_2x
 
 \newpage
 
-\subsection{$(3\rightarrow2)$-DC2 (Duan, Chen, 2011)} %The paper says s_i are Pauli matrices, but I'd bet that they just have to be commuting, well they don't have the s_i^2 terms, which would not be = 1 if they were general commuting matrices.
 
-\summarysec
-
- For any 3-local term (product of Pauli matrices $s_i$) in the Hamiltonian, we can define three auxiliary qubits labeled by $a_{i}$  and  make the transformation:                                                                                                                                      
-%Group all $3$-local terms together and express their sum as a sum of products of commuting matrices $s_{ij}$:
-
-%\begin{align}
-%H_{3-\rm{local}} = \sum_i\prod_j^3 s_{ij} + H_{2-\rm{local}}. \label{eq:klocalInKempeMethod}
-%\end{align}
-
-\begin{align}
-\prod_i^3 s_{i} \rightarrow \alpha^I + \alpha_i^{ss} \sum_i s_i^2 + \alpha_i^{sx}\sum_i  s_ix_{a_i} + \alpha^{zz} \sum_{ij} z_{a_i}z_{a_j} 
-\end{align}
-
-\begin{align}
-\alpha^I    &= -\frac{1}{8\Delta} \\
-\alpha^{ss} &= -\frac{1}{6\Delta^{\nicefrac{1}{3}}} \\
-\alpha^{sx} &=  \frac{1}{6\Delta^{\nicefrac{2}{3}}} \\
-\alpha^{zz} &=  \frac{1}{24\Delta}
-\end{align}
-
-\noindent The result will be a 2-local Hamiltonian whose low-lying spectrum is equivalent to the spectrum of $H_{3-\textrm{local}}$ to within $\epsilon$ as long as $\Delta=\Theta\left(\epsilon^{-3}\right)$. 
-
-\costsec
-
-\begin{itemize}
-\item 3 auxiliary qubits for each 3-local term. %\eqref{eq:klocalInKempeMethod}.
-\item $\Delta =\Theta\left(\epsilon^{-3}\right)$
-\end{itemize}
-
-\begin{comment}
-\prossec
-\begin{itemize}
-\item
-\item
-\end{itemize}
-
-\conssec
-\begin{itemize}
-\item
-\item
-\end{itemize}  
-\end{comment}
-               
-\examplesec
-
-{\tiny
-\begin{align}
-x_1z_2y_3 - 3x_1x_2y_4 + z_1x_2 \rightarrow \alpha^I + \alpha^{zx}_{2a_{12}}z_2x_{a_12}+ \alpha^{xx}_{12} x_1x_2 + \alpha^{xx}_{1a_{11}}x_1x_{a_{11}} + \alpha^{xx}_{1a_{21}}x_1x_{a_{21}}  + \alpha^{xx}_{2a_{22}}x_2x_{a_{22}} + \alpha^{yz}_{3a_{13}}y_3x_{a_{13}} + \alpha_{4a_{23}}^{yx}y_4x_{a_{23} }
-\end{align}
-}
-
-\begin{itemize}
-\item \cite{Duan2011}
-\end{itemize}
-
-
-\newpage
 
 \section{1-by-1 Gadgets}
 
@@ -1815,52 +1821,52 @@ H_{k-\rm{local}} = \alpha H_{1,(\nicefrac{k}{2})-\rm{local}}H_{2,(\nicefrac{k}{2
 %\item Kempe et al.
 %\end{itemize}
 
-\newpage
-
-\subsection{Cao and Nagaj (2015)}
-
-\summarysec
-
-\costsec
-
-\prossec
-\begin{itemize}
-\item Smaller control precision requiremments.
-\end{itemize}
-
-\conssec
-\begin{itemize}
-\item More auxiliary qubits.
-\item More terms.
-\end{itemize}  
-               
-\examplesec
-
-\refsec
-
-\newpage
-
-\subsection{BOA (Babbush, O'Gorman, Aspuru-Guzik, 2013)}
-
-\summarysec
-
-\costsec
-
+%\newpage
+%
+%\subsection{Cao and Nagaj (2015)}
+%
+%\summarysec
+%
+%\costsec
+%
 %\prossec
 %\begin{itemize}
-%\item
-%\item
+%\item Smaller control precision requiremments.
 %\end{itemize}
-
+%
 %\conssec
 %\begin{itemize}
-%\item
-%\item
+%\item More auxiliary qubits.
+%\item More terms.
 %\end{itemize}  
-               
-\examplesec
-
-\refsec
+%               
+%\examplesec
+%
+%\refsec
+%
+%\newpage
+%
+%\subsection{BOA (Babbush, O'Gorman, Aspuru-Guzik, 2013)}
+%
+%\summarysec
+%
+%\costsec
+%
+%%\prossec
+%%\begin{itemize}
+%%\item
+%%\item
+%%\end{itemize}
+%
+%%\conssec
+%%\begin{itemize}
+%%\item
+%%\item
+%%\end{itemize}  
+%               
+%\examplesec
+%
+%\refsec
 
 \begin{comment}
 
