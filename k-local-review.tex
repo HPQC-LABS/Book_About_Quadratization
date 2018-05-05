@@ -2085,29 +2085,29 @@ for some polynomial $f(\lambda)$. The result is a 2-local Hamiltonian with the s
 
 % CAN'T THIS BE DONE FO THE CASE WHERE THE \THETA IN EQ. 30 OF THEIR PAPER IS A SUM OF TERMS RATHER THAN JUST 1 TERM?
 
-Non-locality from the original Hamiltonian, is transfered into a unitary transformation operator, which when applied to a $k$-local Hamiltonian, can reduce the $k$-locality of high order terms at the expense of increasing the $k$-locality of other terms which were chosen to be at most $(k-2)-$local. 
+%Non-locality from the original Hamiltonian, is transfered into a unitary transformation operator, which when applied to a $k$-local Hamiltonian, can reduce the $k$-locality of high order terms at the expense of increasing the $k$-locality of other terms which were chosen to be at most $(k-2)-$local. 
 
 \summarysec
 
-Determine the $k$-local term, $H_{k-\rm{local}}$, whose degree we wish to reduce, and factor it into two commuting factors: $H_{k^\prime-\rm{local}}H_{(k-k^\prime)-\rm{local}}$. Separate all terms that are at momst $(k-1)$-local into ones that commmute with the $k$-local term  and ones that anti-commute with the $k$-local term:
+Determine the $k$-local term, $H_{k-\rm{local}}$, whose degree we wish to reduce, and factor it into two commuting factors: $H_{k^\prime-\rm{local}}H_{(k-k^\prime)-\rm{local}}$, where $k^\prime$ can be as low as 0. Separate all terms that are at momst $(k-1)$-local into ones that commmute with one of these factors (it does not matter which one, but without loss of generality we assume it to be the $(k-k^\prime)$-local one)  and ones that anti-commute with it:
 
 \begin{align}
 %H_{k-\rm{local}} + H_{(k-1)\rm{-local}}^{\rm{commuting}} + H_{(k-1)\rm{-local}}^{\rm{anti-commuting}} 
- H_{ <k \rm{-local}}^{\rm{commuting}} +H_{ <k \rm{-local}}^{\rm{anti-commuting}}  + \alpha H_{k-\rm{local}}
+ H_{ <k \rm{-local}}^{\rm{commuting}} +H_{ <k \rm{-local}}^{\rm{anti-commuting}}  + \alpha H_{k^\prime-\rm{local}}H_{(k-k^\prime)-\rm{local}}
 \end{align}
 	
-Introduce one auxiliary qubit labeled by $a$ and the Hamiltonian:
+\noindent Introduce one auxiliary qubit labeled by $a$ and the Hamiltonian:
 
 \begin{align}
-\alpha x_a +  H_{ <k \rm{-local}}^{\rm{commuting}} + z_aH_{ <k \rm{-local}}^{\rm{anti-commuting}} 
+\alpha x_aH_{k^\prime-\rm{local}} +  H_{ <k \rm{-local}}^{\rm{commuting}} + z_aH_{ <k \rm{-local}}^{\rm{anti-commuting}} 
 \end{align}
 
 \noindent no longer contains $H_{k-\rm{local}}$ but $H_{<k-{\rm{local}}}^{\rm{anti-commuting}}$ is now one degree higher.
 
 \costsec
 \begin{itemize}
-\item 1 auxiliary qubit to reduce $k$-local term to 1-local
-\item Raises the $k$-locality of $H_{ <k \rm{-local}}^{\rm{anti-commuting}}$
+\item 1 auxiliary qubit to reduce $k$-local term to $(k^\prime+1)$-local where $k^\prime$ can even be 0-local, meaning the $k$-local term is reduced to a 1-local one.
+\item Raises the $k$-locality of $H_{ <k \rm{-local}}^{\rm{anti-commuting}}$ by 1 during each application. It can become $(>k)$-local!
 \end{itemize}
 
 
@@ -2121,7 +2121,7 @@ Introduce one auxiliary qubit labeled by $a$ and the Hamiltonian:
 \conssec
 \begin{itemize}
 \item Can introduce many new non-local terms as an expense for reducing only one $k$-local term.
-\item If the portion of the Hamiltonian that does not commute with the $k$-local term has termms of degree $k-1$, they will all become $k$-local, so there is no guarantee that this method reduces $k$-locality.
+\item If the portion of the Hamiltonian that does not commute with the $(k-k^\prime)$-local term has termms of degree $k-1$ (which can happen if $k^\prime=0$) they will all become $k$-local, so there is no guarantee that this method reduces $k$-locality.
 \item If any terms were more than 1-local, this method will not fully quadratize the Hamiltonian (it must be combined with other methods).
 \item It only works when the Hamiltonian's terms of degree at most $k-1$  all either commute or anti-commmute with the $k$-local term to be eliminated.
 \end{itemize}
@@ -2129,12 +2129,12 @@ Introduce one auxiliary qubit labeled by $a$ and the Hamiltonian:
 \examplesec
 
 \begin{align}
-4z_5 -3 x_1 + 2z_1y_2x_5 + 9x_1x_2x_3x_4 -x_1y_2z_3x_5 \rightarrow \alpha %Use real numbers instead of alphas !
+4z_5 -3 x_1 + 2z_1y_2x_5 + 9x_1x_2x_3x_4 -x_1y_2z_3x_5 \rightarrow 9x_{a_{1}} + 4z_{a_4}z_5   -3z_{a_3}x_1  -z_{a_3}x_{a_4} a3  +2x_{a_3}x_5  
 \end{align}
 
 \refsec
 \begin{itemize}
-\item Original paper: \cite{Subas2016}.
+\item Original paper, and description of the choices of terms and factors used for the given example \cite{Subas2016}.
 \end{itemize}
 
 
@@ -2222,7 +2222,30 @@ Note in this case the error terms added by deduc-reduc already appear in our Ham
 %\end{align}
 %%\sum_i\prod_{j}^k s_{ij} \mapsto \frac{\Delta}{4}\left( 9 - \sum_i \left( \sum_j  z_{a_{ij}} \right)^2 - \sum_j z_{a_{ij}}^2 + \frac{1}{\sqrt[3]{6\Delta}} x_{a_{ij}}  \right).
 
-\section*{Acknowledgments}
+\newpage
+
+\section*{Acknowledgments} 
+\begin{itemize} % check when Toby helped us with the bit-flipping stuff
+\item It is with immense pleasure that we thank Emile Okada of Cambridge University, who during his first year of udnergraduate study, worked with Nike Dattani and Richard Tanburn on quadratization of pseudo-boolean functions for quantum annealing, and in the first half of 2015 played a role in the development of the Deduc-Reduc and Split-Reduc and Groebner bases methods presented in this review.
+\item We thank Gernot Schaller of University of Berlin, who in December 2014 provided Nike Dattani with insights into his quadratization methods mentioned in this review paper, as well as for sharnig his Mathematica code which could be used to generate such quadratization formulas and others.
+\item We thank Mohammad Amin of D-Wave for pointing Nike Dattani to the paper \cite{Bian2013} on determining Ramsey numbers on the D-Wave device, which contained what we call in this review "Reduction by substitution", later found through Ishikawa's paper to be from the much older 1970s paper by Rozenberg.
+\item We thank Catherine McGeoch of Amherst University and D-Wave, for helpful discussions with Nike Dattani in December 2014 about how to map quadratic pseudo-Boolean optimization problems onto the chimera graph of the D-Wave hardware and for pointing us to the important references of Vicky Choi. While chimerization is very different from quadratization, understanding that roughly $n^2$ variables would be needed to map a quadratic function of $n$ variables, helped Nike Dattani and Richard Tanburn to appreciate how impotrant it is to be able to quadratize with as few variables as possible, and having this in mind throughout our studies helped inspire us in our goals towards "optimal quadratization".
+\item We thank Aritanan Gruber and Endre Boros of Rutgers University, who in August 2015 shared with Nike Dattani and Richard Tanburn some of their wisdom about sub-modularity, and Aritanan Gruber for pointing us to the then very recent paper of Hiroshi Ishikawa on what we call in this review "ELC reductions", which was also a valuable paper due to the references in it. We also thank him for helping us in our quest to determine whether or not "deduc-reduc" was a re-discovery by Richard, Emile, and Nike, or perhaps a novel quadratization scheme.
+\item We thank Toby Cathcart-Burn of Oxford University, who during the third year of undergraduate study, worked with Nike Dattani and Richard Tanburn and in Autumn 2015 and Winter 2016 helped us gain insights about the application of deduc-reduc and bit flipping to the problem of determining Ramsey numbers via discrete optimization, and for insights into the trade-offs between Ishikawa's symmetric reduction and reduction by substitution. 
+\item  We thank Hiroshi Ishikawa of Waseda University, who Nike Dattani had the memorable opportunity to visit in November 2015, and through discussions about the computer vision problem and neural network problem (two examples of real-world discrete optimization problems that benefit from qadratization), provided insights about the role of quadratization for calculations on classical computers. In particular, solving the computer vision problem in which he had experience solving on classical computers, was very different from the integer factoring problem and Ramsey number problem which we had been attempting to quadratize for D-Wave and NMR devices. He taught us that far more total (original plus auxiliary) variables can be tolerated on classical computers than on D-Wave machines or NMR systems, and approximate solutions to the optimization problems are acceptable (unlike for the factorization and Ramsey number problems in which we were interested). This gave us more insight into what trade-offs one might wish to prioritize when quadratizing optially. We also thank him for helping us in our quest to determine whether or not "deduc-reduc" was a re-discovery by Richard, Emile, and Nike, or perhaps a novel quadratization scheme.
+\item We thank Paul Ayers of McMaster University, who has been a major supporter of this review paper since the idea was presented to him in October 2016. At many points during the preparation of this review, we had prioritized other commitments and put preparation of this review aside. Paul's frequent encouragement was often what got us working on this review again. Without him, we are not certain this paper would have been completed by this time (or ever!). Paul also provided to us other interesting quantum mechianics problems in quantum chemistry and particle physics which served as a major motivation for continuing with this review when writing it was in a state of hiatous. These problems gave us more ideas about what trade-offs in quadratization might be important for some of its potential users in quantum chemistry and particle physics.
+\item Last but indubitably not least, we thank Jacob Biamonte of Skolkovo Institute of Technology, who Nike Dattani enjoyed visiting in Hangzhou in January 2017 and meeting at Harvard University in April 2018. Jacob provided us plenty of insights about perturbative gadgets, made valuable comments on early versions of our manuscript, and has been a major supporter of this review paper since the idea was presented to him in December 2016. At many points during the preparation of this review, we had prioritized other commitments and put preparation of this review aside. Jake's frequent encouragement was often what got us working on this review again. Without him, we are not certain this paper would have been completed by this time (or ever!).
+%Mike Mosca for Grubner Bases suggestion.
+%Bill McGreedy for finding bug in split-redc code.
+%Ojas Metha
+%Peng, Du, Li, Ke, Chen?  Osaka City University
+%Alex McCaskey, since in recent times I've been working hard on this to give him something easy to work with ???
+ 
+
+
+\end{itemize}
+
+
 
 \newpage
 \bibliographystyle{apsrev4-1}
