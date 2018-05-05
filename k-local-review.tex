@@ -2083,25 +2083,54 @@ for some polynomial $f(\lambda)$. The result is a 2-local Hamiltonian with the s
 
 \subsection{NP-SJ (Subasi \& Jarzynski, 2016)}
 
+% CAN'T THIS BE DONE FO THE CASE WHERE THE \THETA IN EQ. 30 OF THEIR PAPER IS A SUM OF TERMS RATHER THAN JUST 1 TERM?
+
+Non-locality from the original Hamiltonian, is transfered into a unitary transformation operator, which when applied to a $k$-local Hamiltonian, can reduce the $k$-locality of high order terms at the expense of increasing the $k$-locality of other terms which were chosen to be at most $(k-2)-$local. 
+
 \summarysec
 
-The authors describe the method as a ``transfer'' of non-locality from the original Hamiltonian, into a unitary transforation operator. 
+Separate the $k$-local term that we wish to convert to 1-local, and separate all terms that are at momst $(k-1)$-local into ones that commmute with the $k$-local term  and ones that anti-commute with the $k$-local term:
+
+\begin{align}
+%H_{k-\rm{local}} + H_{(k-1)\rm{-local}}^{\rm{commuting}} + H_{(k-1)\rm{-local}}^{\rm{anti-commuting}} 
+ H_{ <k \rm{-local}}^{\rm{commuting}} +H_{ <k \rm{-local}}^{\rm{anti-commuting}}  + \alpha H_{k-\rm{local}}
+\end{align}
+	
+Introduce one auxiliary qubit labeled by $a$ and the Hamiltonian:
+
+\begin{align}
+\alpha x_a +  H_{ <k \rm{-local}}^{\rm{commuting}} + z_aH_{ <k \rm{-local}}^{\rm{anti-commuting}} 
+\end{align}
+
+\noindent no longer contains $H_{k-\rm{local}}$ but $H_{<k-{\rm{local}}}^{\rm{anti-commuting}}$ is now one degree higher.
 
 \costsec
+\begin{itemize}
+\item 1 auxiliary qubit to reduce $k$-local term to 1-local
+\item Raises the $k$-locality of $H_{ <k \rm{-local}}^{\rm{anti-commuting}}$
+\end{itemize}
+
 
 \prossec
 \begin{itemize}
-\item
-\item
+\item Non-perturbative
+\item Can linearize a term of arbitrary degree in one step.
+\item Requires very few auxiliary qubits.
 \end{itemize}
 
 \conssec
 \begin{itemize}
-\item Can introduce new 3-local terms. 
-\item
+\item Can introduce many new non-local terms as an expense for reducing only one $k$-local term.
+\item If the portion of the Hamiltonian that does not commute with the $k$-local term has termms of degree $k-1$, they will all become $k$-local, so there is no guarantee that this method reduces $k$-locality.
+\item If any terms were more than 1-local, this method will not fully quadratize the Hamiltonian (it must be combined with other methods).
+\item It only works when the Hamiltonian's terms of degree at most $k-1$  all either commute or anti-commmute with the $k$-local term to be eliminated.
 \end{itemize}
 
 \examplesec
+
+\begin{align}
+4z_5 -3 x_1 + 2z_1y_2x_5 + 9x_1x_2x_3x_4 -x_1y_2z_3x_5 \rightarrow \alpha %Use real numbers instead of alphas !
+\end{align}
 
 \refsec
 \begin{itemize}
