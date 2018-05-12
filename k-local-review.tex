@@ -1633,7 +1633,7 @@ x_1z_2y_3 - 3x_1x_2y_4 + z_1x_2 \rightarrow \alpha^I + \alpha^{zx}_{2a_{12}}z_2x
 A 1B1 gadget allows $k$-local terms to be quadratized one step at a time, where at each step the term's order is reduced by at most one. In each step, a $k$-local term is reduced to $\left(k-1\right)$-local, contrary to SD (sub-division) gadgets which can reduce $k$-local terms to $\left(\nicefrac{1}{2}\right)$-local in one step.
 
 
-\subsection{1B1-OT (Oliviera \& Terhal, 2008)}
+\subsection{1B1-OT (Oliveira \& Terhal, 2008)}
 
 \summarysec
 
@@ -1695,36 +1695,48 @@ H_{k-\rm{local}} \rightarrow &	\left(\Delta+\left(\frac{\alpha}{2}\right)^{\nice
 
 Instead of recursively reducing $k$-local to $(k-1)$-local one reduction at a time, we can reduce $k$-local terms to $(k/2)$-local terms directly for even $k$, or to $(k+1)/2$-local terms directly for odd $k$. Since when $k$ is odd we can add an identity operator to the $k$-local term to make it even, we will assume in the following that $k$ is even, in order to avoid having to write floor and ceiling functions.
 
-\subsection{SD-OT (Oliviera \& Terhal, 2008)}
+\subsection{SD-OT (Oliveira \& Terhal, 2008)}
 
 \summarysec
 
-For any $k$-local term, we can subdivide it into a product of two $\left(\nicefrac{k}{2}\right)-$local terms, with an auxiliary qubit labeled $a$:
+We factor a $k$-local term into a product of two factors $H_1,H_2$ acting on non-overlapping spaces, then introduce an auxiliary qubit labelled by $a$ and make the transformation:
 
 \begin{align}
-H_{k-\rm{local}} \rightarrow \Delta \frac{1-z_a}{2} + \sqrt{\frac{\Delta}{2}}\left( s_k - \prod_j^{k-1} s_j  \right)x_a
+H_{k-\rm{local}} \rightarrow \Delta \frac{1-z_a}{2} +  \frac{1}{2}H_1^2   + \frac{1}{2}H_2^2  +    \sqrt{\frac{\Delta}{2}}\left(  - H_1 + H_2   \right)x_a.
 \end{align}
+
+The resulting Hamiltonian has a degree of 1 larger than the degree of whichever factor  $H_1$ or $H_2$ has a larger degree, and the low-lying spectrum is equivalent to the original one to within $\mathcal{O}\left(\epsilon\right)$ for sufficiently large $\Delta$.
 
 \costsec
 \begin{itemize}
-\item $\Delta =\frac{||H_{(k-1)-\rm{local}} +  ||\epsilon^2}{2} $.
-\item $\Delta =\Theta\left(\epsilon^{-2}\right)$.
+\item 1 auxiliary qubit for each $k$-local term that can be factored into two non-overlapping subspaces, is enough to reduce the degree down to  $\nicefrac{k}{2}+1$.
+\item $\Delta =\frac{\left(||H_{(\rm{else})} + \Omega(\sqrt{2}) \textrm{max}\left( ||H_1||,||H_2||  \right) ||\right)^6}{\epsilon^2} =\Omega\left(\epsilon^{-2}\right)$.
+%\item $\Delta =\Theta\left(\epsilon^{-2}\right)$.
 % $\Delta =\Theta\left(\epsilon^{-1}\right)$ ????
 \end{itemize}
 
 \prossec
 \begin{itemize}
-\item only one qubit to reduce $k$ to $\lceil k/2\rceil +1$
+%\item only one qubit to reduce $k$ to $\lceil k/2\rceil +1$
+\item Potentially very few auxiliary qubits needed.
 \end{itemize}
 
 \conssec
 \begin{itemize}
-\item Only beneficial for $k\ge5$.
+\item Requires the ability to factor $k$-local terms into non-overlapping subspaces that are at most $\left(k-2\right)$-local in order to reduce $k$-locality. This is not possible for $z_1x_2x_3 + z_2z_3x_4$, for example. 
+\item $\Delta$ needs to be rather large.
+\item Cannot reduce 3-local to 2-local unless we generalize to a factor of 3 non-overlapping subspaces instead of 2. Needs to be combined with $3-\rightarrow2$ gadgets, for example.
+\item A lot of work may be needed to find the optiml reduction, since each $k$-local term can be factored in many ways, and some of these ways may affect the ability to reduce other $k$-local terms.
+%\item Only beneficial for $k\ge5$.
 \end{itemize}  
                
 \examplesec
 
 \refsec
+\begin{itemize}
+\item Original paper: \cite{Oliveira2008}. Connection to improved version: \cite{Cao2015}.
+\end{itemize}
+
 
 \newpage
 
@@ -1764,6 +1776,10 @@ H_{k-\rm{local}} = \alpha H_{1,(\nicefrac{k}{2})-\rm{local}}H_{2,(\nicefrac{k}{2
 \examplesec
 
 \refsec
+\begin{itemize}
+\item Original paper: \cite{Cao2015}. 
+\end{itemize}
+
 
 %\newpage
 %

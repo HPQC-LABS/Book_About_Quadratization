@@ -6,7 +6,7 @@
 %Control: page (0) single
 %Control: year (1) truncated
 %Control: production of eprint (0) enabled
-\begin{thebibliography}{24}%
+\begin{thebibliography}{26}%
 \makeatletter
 \providecommand \@ifxundefined [1]{%
  \@ifx{#1\undefined}
@@ -247,6 +247,26 @@
   {Chen}},\ }\href {\doibase 10.1103/PhysRevA.84.042332} {\bibfield  {journal}
   {\bibinfo  {journal} {Physical Review A}\ }\textbf {\bibinfo {volume} {84}},\
   \bibinfo {pages} {042332} (\bibinfo {year} {2011})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Oliveira}\ and\ \citenamefont
+  {Terhal}(2008)}]{Oliveira2008}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {R.}~\bibnamefont
+  {Oliveira}}\ and\ \bibinfo {author} {\bibfnamefont {B.~M.}\ \bibnamefont
+  {Terhal}},\ }\href {http://dl.acm.org/citation.cfm?id=2016985.2016987}
+  {\bibfield  {journal} {\bibinfo  {journal} {Quantum Info. Comput.}\ }\textbf
+  {\bibinfo {volume} {8}},\ \bibinfo {pages} {900} (\bibinfo {year}
+  {2008})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Cao}\ \emph {et~al.}(2015)\citenamefont {Cao},
+  \citenamefont {Babbush}, \citenamefont {Biamonte},\ and\ \citenamefont
+  {Kais}}]{Cao2015}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Y.}~\bibnamefont
+  {Cao}}, \bibinfo {author} {\bibfnamefont {R.}~\bibnamefont {Babbush}},
+  \bibinfo {author} {\bibfnamefont {J.}~\bibnamefont {Biamonte}}, \ and\
+  \bibinfo {author} {\bibfnamefont {S.}~\bibnamefont {Kais}},\ }\href {\doibase
+  10.1103/PhysRevA.91.012315} {\bibfield  {journal} {\bibinfo  {journal}
+  {Physical Review A}\ }\textbf {\bibinfo {volume} {91}},\ \bibinfo {pages}
+  {012315} (\bibinfo {year} {2015})}\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Jordan}\ and\ \citenamefont
   {Farhi}(2008)}]{Jordan2008}%
   \BibitemOpen
