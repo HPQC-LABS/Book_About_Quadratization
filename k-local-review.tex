@@ -940,7 +940,7 @@ For computer image problems, it can be used with the above methods to optimize m
 \end{comment}
 
 
-\section{Methods that reproduce the full spectrum}
+%\section{Methods that reproduce the full spectrum}
 %
 %%All known methods to map the entire spectrum of a Hamiltonian rely on the same basic principle: auxilliary variables are added, to mediate the high-order interactions, and constraints are added to restrict the values which the axilliary variables can take. In practice, constraints are implemented as one and two term equations with much stronger energy penalties than those in the original Hamiltonian. As long as the constraints are sufficiently strong, the low energy subspace of the 2-local Hamiltonian will be exactly the spectrum of the original $k$-local Hamiltonian. Moreover, the location of the original `logical' variables is known and so the resulting configuration of the mapped variables can easily be determined.
 %
@@ -952,7 +952,9 @@ For computer image problems, it can be used with the above methods to optimize m
 %
 %%\noindent where $\lambda$ is a large positive number.
 %
+\begin{comment}
 These techniques will transform $k$-local functions to 2-local functions that not only have the same ground state as the $k$-local function, but also the entire input/output spectrum of the $k$-local functions will be preserved in the low-lying energy space of the corresponding 2-local function (which also has higher energy states due to the auxiliary variables added). 
+\end{comment}
 %
 %
 %\subsection{Recursive Order Reduction\label{sub:recursive}}
@@ -1322,28 +1324,28 @@ The low-lying spectrum (eigenvalues \textbf{\textit{and}} eigenvectors) of the r
 \item 8 auxiliary terms not proportional to \openone.
 \end{itemize}
 
-\examplesec
+%\examplesec
 
-\subsection{1B1-TI: 1-by-1 gadget for $ZZ\ldots Z\rightarrow$ Transverse Ising (Present Work)}
-
-\costsec
-\begin{itemize}
-\item $k-2$ auxiliary qubits
-\item  auxiliary terms not proportional to \openone.
-\end{itemize}
-
-\examplesec
-
-\newpage
-
-\subsection{SD-TI: Sub-division gadget for $ZZ\ldots Z\rightarrow$ Transverse Ising (Present Work)}
-
-\costsec
-\begin{itemize}
-\item  $k/2$
-\end{itemize}
-
-\examplesec
+%\subsection{1B1-TI: 1-by-1 gadget for $ZZ\ldots Z\rightarrow$ Transverse Ising (Present Work)}
+%
+%\costsec
+%\begin{itemize}
+%\item $k-2$ auxiliary qubits
+%\item  auxiliary terms not proportional to \openone.
+%\end{itemize}
+%
+%\examplesec
+%
+%\newpage
+%
+%\subsection{SD-TI: Sub-division gadget for $ZZ\ldots Z\rightarrow$ Transverse Ising (Present Work)}
+%
+%\costsec
+%\begin{itemize}
+%\item  $k/2$
+%\end{itemize}
+%
+%\examplesec
 
 \newpage
 
@@ -2232,7 +2234,7 @@ for some polynomial $f(\lambda)$. The result is a 2-local Hamiltonian with the s
 %\item
 %\end{itemize}
 
-\examplesec
+%\examplesec
 
 \refsec
 \begin{itemize}
@@ -2316,9 +2318,13 @@ Determine the $k$-local term, $H_{k-\rm{local}}$, whose degree we wish to reduce
 \item It only works when the Hamiltonian's terms of degree at most $k-1$  all either commute or anti-commmute with the $k$-local term to be eliminated.
 \end{itemize}
 
+\vspace{-1mm}
+
 \examplesec
+\vspace{-3mm}
 
 \begin{align}
+\vspace{-1mm}
 4z_5 -3 x_1 + 2z_1y_2x_5 + 9x_1x_2x_3x_4 -x_1y_2z_3x_5 \rightarrow 9x_{a_{1}} + 4z_{a_4}z_5   -3z_{a_3}x_1  -z_{a_3}x_{a_4} a3  +2x_{a_3}x_5  
 \end{align}
 
