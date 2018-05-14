@@ -812,6 +812,76 @@ The first expression is highly non-submodular while the second is entirely submo
 \item Original paper: \cite{Ishikawa2011}.
 \end{itemize}
 
+\subsection{Symmetry Based Mappings}
+
+\summarysec
+
+Auxilliary qubits can be made to ``count'' the number of logical qubits in the $1$ configuration. By applying single qubit terms to the auxilliary qubits, the spectrum of \emph{any} permutation symmetric Hamiltonian can be reproduced. 
+
+\costsec
+\begin{itemize}
+\item For a $k$ local coupler requires $k$ auxilliary qubits.
+\end{itemize}
+
+\prossec
+\begin{itemize}
+\item Natural flux qubit implementation \cite{Chancellor2017}.
+\item Single gadget can reproduce any permutation symmetric spectrum.
+\item High degree of symmetry means this method is natural for some kinds of quantum simulations \cite{Chancellor2016a}.
+\end{itemize}
+
+\conssec
+\begin{itemize}
+\item Requires coupling between all logical bits and from all logical bits to all auxilliary bits.
+\item Requires single body terms of increasing strength as $k$ is increased.
+%\item Sometimes requires exponentially growing number of auxiliary qubits. 5:15 of https://www.youtube.com/watch?v=aC-6hg_h3EA&feature=youtu.be
+\end{itemize}
+
+\examplesec
+
+A  $4$ qubit gadget guarantees that the number of auxillary bits in the $-1$ state is equal to the number of logical bits in the $1$ state
+%
+%\begin{equation}
+%H_{4-count}=  \sum_{i=2}^4 \sum_{j =1}^{i-1} z_i z_j -\frac{1}{2} \sum_{i=1}^4  z_i +  \sum_{i=1}^4 \sum_{j=1}^4 z_i z_{a_j} +   \sum_{i=1}^4  (2\,i-4+\frac{1}{2}) z_{a_i}. 
+%\end{equation}
+%
+\begin{equation}
+H_{4-\rm{count}}=  4\,\sum_{i=2}^4\sum_{j=1}^{i-1}b_ib_j+4\,\sum_{i=1}^4\sum_{j=1}^4b_ib_{a_j}-15\,\sum_{i=1}^4b_i-8\,\sum_{i=1}^4b_{a_i}+(5\,b_{a_1}+b_{a_2}-3\,b_{a_3}-7\,b_{a_4})+26
+\end{equation}
+%
+This gadget can be expressed more naturally in terms of $z$:
+%
+\begin{equation}
+H_{4-\rm{count}}=  \sum_{i=2}^4 \sum_{j =1}^{i-1} z_i z_j -\frac{1}{2} \sum_{i=1}^4  z_i +  \sum_{i=1}^4 \sum_{j=1}^4 z_i z_{a_j}  +\frac{1}{2}\left(5z_{a_1}+ z_{a_2}-3\,z_{a_3}-7 z_{a_4}\right).
+\end{equation}
+%
+To replicate the spectrum of $b_1b_2b_3b_4$, we add
+%
+\begin{equation}
+H_{2-\rm{local}}=-b_{a_4}+ \lambda H_{4-\rm{count}}.
+\end{equation}
+%
+where $\lambda$ is a large number.
+
+For the spectrum of 
+%
+\begin{align}
+z_1z_2z_3z_4=16\,b_1b_2b_3b_4-8\,(b_1b_2b_3+b_1b_2b_4+b_1b_3b_4+b_2b_3b_4)+\nonumber \\
+4\,(b_1b_2+b_1b_3+b_1b_4+b_2b_3+b_2b_4+b_3b_4)-2\,(b_1+b_2+b_3+b_4)+1,
+\end{align}
+ we implement,
+%
+\begin{equation}
+H_{2-\rm{local}}=2\,b_{a_1}-2\,b_{a_2}+2\,b_{a_3}-2\,b_{a_4}+ \lambda H_{4-\rm{count}},
+\end{equation}
+
+\refsec
+\begin{itemize}
+\item Paper on flux qubit implementation: \cite{Chancellor2017}
+\item Paper on max-k-sat mapping: \cite{Chancellor2016}
+\item Talk including use in quantum simulation: \cite{Chancellor2016a}
+\end{itemize}
+
 \section{Methods that introduce auxiliary variables to quadratize MULTIPLE terms with the SAME auxiliaries}
 
 \subsection{Reduction by Substitution}
@@ -1200,75 +1270,7 @@ H_{2-\rm{local}}=P_+(b_1,b_2,b_{a_1};\lambda)+P_+(b_{a_1},b_3,b_{a_2};\lambda)+P
 % 
 % \newpage
 
-\subsection{Symmetry Based Mappings}
 
-\summarysec
-
-Auxilliary qubits can be made to ``count'' the number of logical qubits in the $1$ configuration. By applying single qubit terms to the auxilliary qubits, the spectrum of \emph{any} permutation symmetric Hamiltonian can be reproduced. 
-
-\costsec
-\begin{itemize}
-\item For a $k$ local coupler requires $k$ auxilliary qubits.
-\end{itemize}
-
-\prossec
-\begin{itemize}
-\item Natural flux qubit implementation \cite{Chancellor2017}.
-\item Single gadget can reproduce any permutation symmetric spectrum.
-\item High degree of symmetry means this method is natural for some kinds of quantum simulations \cite{Chancellor2016a}.
-\end{itemize}
-
-\conssec
-\begin{itemize}
-\item Requires coupling between all logical bits and from all logical bits to all auxilliary bits.
-\item Requires single body terms of increasing strength as $k$ is increased.
-%\item Sometimes requires exponentially growing number of auxiliary qubits. 5:15 of https://www.youtube.com/watch?v=aC-6hg_h3EA&feature=youtu.be
-\end{itemize}
-
-\examplesec
-
-A  $4$ qubit gadget guarantees that the number of auxillary bits in the $-1$ state is equal to the number of logical bits in the $1$ state
-%
-%\begin{equation}
-%H_{4-count}=  \sum_{i=2}^4 \sum_{j =1}^{i-1} z_i z_j -\frac{1}{2} \sum_{i=1}^4  z_i +  \sum_{i=1}^4 \sum_{j=1}^4 z_i z_{a_j} +   \sum_{i=1}^4  (2\,i-4+\frac{1}{2}) z_{a_i}. 
-%\end{equation}
-%
-\begin{equation}
-H_{4-\rm{count}}=  4\,\sum_{i=2}^4\sum_{j=1}^{i-1}b_ib_j+4\,\sum_{i=1}^4\sum_{j=1}^4b_ib_{a_j}-15\,\sum_{i=1}^4b_i-8\,\sum_{i=1}^4b_{a_i}+(5\,b_{a_1}+b_{a_2}-3\,b_{a_3}-7\,b_{a_4})+26
-\end{equation}
-%
-This gadget can be expressed more naturally in terms of $z$:
-%
-\begin{equation}
-H_{4-\rm{count}}=  \sum_{i=2}^4 \sum_{j =1}^{i-1} z_i z_j -\frac{1}{2} \sum_{i=1}^4  z_i +  \sum_{i=1}^4 \sum_{j=1}^4 z_i z_{a_j}  +\frac{1}{2}\left(5z_{a_1}+ z_{a_2}-3\,z_{a_3}-7 z_{a_4}\right).
-\end{equation}
-%
-To replicate the spectrum of $b_1b_2b_3b_4$, we add
-%
-\begin{equation}
-H_{2-\rm{local}}=-b_{a_4}+ \lambda H_{4-\rm{count}}.
-\end{equation}
-%
-where $\lambda$ is a large number.
-
-For the spectrum of 
-%
-\begin{align}
-z_1z_2z_3z_4=16\,b_1b_2b_3b_4-8\,(b_1b_2b_3+b_1b_2b_4+b_1b_3b_4+b_2b_3b_4)+\nonumber \\
-4\,(b_1b_2+b_1b_3+b_1b_4+b_2b_3+b_2b_4+b_3b_4)-2\,(b_1+b_2+b_3+b_4)+1,
-\end{align}
- we implement,
-%
-\begin{equation}
-H_{2-\rm{local}}=2\,b_{a_1}-2\,b_{a_2}+2\,b_{a_3}-2\,b_{a_4}+ \lambda H_{4-\rm{count}},
-\end{equation}
-
-\refsec
-\begin{itemize}
-\item Paper on flux qubit implementation: \cite{Chancellor2017}
-\item Paper on max-k-sat mapping: \cite{Chancellor2016}
-\item Talk including use in quantum simulation: \cite{Chancellor2016a}
-\end{itemize}
 
 
 %\section{Strategies for combining methods}
