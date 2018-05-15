@@ -6,7 +6,7 @@
 %Control: page (0) single
 %Control: year (1) truncated
 %Control: production of eprint (0) enabled
-\begin{thebibliography}{27}%
+\begin{thebibliography}{29}%
 \makeatletter
 \providecommand \@ifxundefined [1]{%
  \@ifx{#1\undefined}
@@ -287,6 +287,24 @@
   }\href {\doibase 10.1103/PhysRevA.77.062329} {\bibfield  {journal} {\bibinfo
   {journal} {Physical Review A}\ }\textbf {\bibinfo {volume} {77}},\ \bibinfo
   {pages} {062329} (\bibinfo {year} {2008})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Brell}\ \emph {et~al.}(2011)\citenamefont {Brell},
+  \citenamefont {Flammia}, \citenamefont {Bartlett},\ and\ \citenamefont
+  {Doherty}}]{Brell2011}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {C.~G.}\ \bibnamefont
+  {Brell}}, \bibinfo {author} {\bibfnamefont {S.~T.}\ \bibnamefont {Flammia}},
+  \bibinfo {author} {\bibfnamefont {S.~D.}\ \bibnamefont {Bartlett}}, \ and\
+  \bibinfo {author} {\bibfnamefont {A.~C.}\ \bibnamefont {Doherty}},\ }\href
+  {\doibase 10.1088/1367-2630/13/5/053039} {\bibfield  {journal} {\bibinfo
+  {journal} {New Journal of Physics}\ }\textbf {\bibinfo {volume} {13}},\
+  \bibinfo {pages} {053039} (\bibinfo {year} {2011})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Nagaj}(2010)}]{Nagaj2010}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {D.}~\bibnamefont
+  {Nagaj}},\ }\href {\doibase 10.1063/1.3384661} {\bibfield  {journal}
+  {\bibinfo  {journal} {Journal of Mathematical Physics}\ }\textbf {\bibinfo
+  {volume} {51}},\ \bibinfo {pages} {062201} (\bibinfo {year}
+  {2010})}\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Subasi}\ and\ \citenamefont
   {Jarzynski}(2016)}]{Subas2016}%
   \BibitemOpen
