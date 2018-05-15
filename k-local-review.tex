@@ -1126,7 +1126,7 @@ To create a system which maps $b_1b_2b_3$,  we use the following gadget (note th
 H_{3-\rm{SAT}}(b_1,b_2,b_3)=2\sum_{i=1}^3b_ib_{a_i}+2\sum_{i<j}^3b_{a_i}b_{a_j}-4\sum_{i=1}^3b_{a_i}-2\sum_{i=1}^3b_i+\frac{23}{2}.
 \end{align}
 
-Implementing $\lambda H_{3-\rm{SAT}}$, creates a situation where $b_3$ is a `flag' for $b_1$ and $ b_2$ in other words $b_3$ is constrained to be $1$ in the low energy manifold iff $b_1=0$ and $ b_2=0$. It follows from the universality of $3-\rm{SAT}$ that these `flag' clauses can be combined to map any spin Hamiltonian. To do this, we also need anti-ferromagnetic couplings to express the `negated' variable, to do this, we define,
+Implementing $\lambda H_{3-\rm{SAT}}$, creates a situation where $b_3$ is a `flag' for $b_1$ and $ b_2$ in other words $b_3$ is constrained to be $1$ in the low energy manifold if $b_1=0$ and $ b_2=0$. It follows from the universality of $3-\rm{SAT}$ that these `flag' clauses can be combined to map any spin Hamiltonian. To do this, we also need anti-ferromagnetic couplings to express the `negated' variable, to do this, we define,
 
 \begin{align}
 H_{\rm{AF}}(b_1,b_{\neg1})=2\,b_1b_{\neg1}-b_i-b_{\neg 1}+1.
@@ -1145,6 +1145,8 @@ H_{2-\rm{local}}(b_1,b_2,b_3)=\lambda[\sum_{i=1}^3 H_{\rm{AF}}(b_i,b_{\neg i})+\
 -2\,b_{f}+1.
 \end{gathered}
 \end{eqnarray}
+
+The terms on the first line are all to enforce the relationship between a variable and its logical inverse. Each of the next four lines assigns a value to the flag variable $b_f$ for a state and it's logical inverse, for instance the leftmost two terms of the second line enforce that $b_f=0$ if $(b_1,b_2,b_3)=(0,0,0)$, while the right two terms enforce that $b_f=1$ if $(b_1,b_2,b_3)=(1,1,1)$. Because there are $2^3=8$ possible bitstrings for $(b_1,b_2,b_3)$, and each term to enforce a flag state requires two instances of $H_{3-\rm{SAT}}$ (and two auxilliary bits), a total of $16$ instances are required as well as $16$ auxilliary bits.  Finally the last line of this equation actually implements the penalty by adding an energy difference between the two states of $b_f$. Note that the total number of bits required to express this term is six for the logical bits and their inverses, $16$ for the auxilliary qubits, and two for the flag and its inverse. The total number of bits to map this three local Hamiltonian is therefore $24$.
 
 
 \refsec
