@@ -263,17 +263,18 @@ Two-body physical interactions occur more naturally than many-body interactions 
 
 \summarysec
 
-We look for \emph{deductions} (e.g. $b_{1}b_{2}=0$) that hold at the global minimum.
+We look for \emph{deductions} (e.g. $b_{1}b_{2}=0$) that must hold true at the global minimum.
 These can be found by \emph{a priori} knowledge of the given problem, or by enumerating solutions of a small subset of the variables.
 We can then substitute high-order terms using the low-order terms of the deduction, and add on a penalty term to preserve the ground states \cite{Tanburn2015c}.
 
 \costsec
 \begin{itemize}
 \item $0$ auxiliary variables needed.%  Given a deduction, the reduction time is proportional to the number of terms in the Hamiltonian and is negligible. (but this is true of all the other reducs too)
-\item The computational cost of the search for deductions is difficult to estimate.
-The approximate worst-case complexity is $\mathcal{O}(n^{d+1}2^{m})$ where $m$ is the number of variables in a 'small' problem, $n$ is the total number of qubits and $d$ is the maximum degree of deductions we are searching for.
-We suggest $10 \le m \le 20$, so that a small problem involves checking roughly $1,000$ to $1,000,000$ states, and $d=2$.
-See the appendix for more details.
+\item To find every possible $m$-variable deduction for $n$ total variables would involve $3^n - 2^n -1$ evaluations of the objective function, whereas $2^n$ evaluations is enough to solve the entire problem. We therefore choose $m \lll n$.
+%The computational cost of the search for deductions is difficult to estimate.
+%The approximate worst-case complexity is $\mathcal{O}(n^{d+1}2^{m})$ where $m$ is the number of variables in a 'small' problem, $n$ is the total number of variables and $d$ is the maximum degree of deductions we are searching for.
+%We suggest $10 \le m \le 20$, so that a small problem involves checking roughly $1,000$ to $1,000,000$ states, and $d=2$.
+%See the appendix for more details.
 \end{itemize}
 
 \prossec
@@ -300,7 +301,7 @@ H_{4{\rm -local}}=b_{1}b_{2}(10+b_{3}+b_{3}b_{4})+b_{1}(b_{3}-3)+b_{2}(b_{3}-2b_
 \end{equation}
  where $F$ is any polynomial in $b_{i}$ for $i\ge 3$.
 
-\noindent Since the $10$ coefficient of $b_{1}b_{2}$ is greater than the sum of all of the other coefficients involving $b_{1}$ or $b_{2}$, it must be the case that $b_{1}b_{2}=0$.
+\noindent Since the coefficient of $b_{1}b_{2}$ is 10, which is greater than the sum of all of the other coefficients involving $b_{1}$ or $b_{2}$, \uline{\textbf{\textit{it must be the case that $b_{1}b_{2}=0$}}}.
 Specifically, for the 4 assignments of $(b_{3},b_{4})$, we see that $b_{1}b_{2}=0$ at every minimum of $H_{4{\rm -local}}-F$.
 
 Using deduc-reduc we have:
@@ -312,7 +313,7 @@ H_{2{\rm -local}}=12b_{1}b_{2}+b_{1}(b_{3}-3)+b_{2}(b_{3}-2b_{3}-b_{4}-1)+F(x_{3
 
 \refsec
 \begin{itemize}
-\item Original paper, with application to integer factorization: \cite{Tanburn2015c}.
+\item Original paper, with more implementation details, and application to integer factorization: \cite{Tanburn2015c}.
 \end{itemize}
 
 \newpage
@@ -328,8 +329,13 @@ Given a general Hamiltonian we can try to find ELCs by enumerating solutions of 
 
 \costsec
 \begin{itemize}
-\item $0$ auxiliary variables needed.
-\item For $n$ qubits there is $\binom{n}{m}$ ways to choose $m$ of them and $2^m$ assignments of these $m$ variables, therefore $\mathcal{O}\left(2^{m}\binom{n}{m}\right)$ operations required to enumerate all possible cases for all possible subsets of size $m \le n$ variables.
+\item $0$ auxiliary variables needed.%  Given a deduction, the reduction time is proportional to the number of terms in the Hamiltonian and is negligible. (but this is true of all the other reducs too)
+\item To find every possible $m$-variable deduction for $n$ total variables would involve $3^n - 2^n -1$ evaluations of the objective function, whereas $2^n$ evaluations is enough to solve the entire problem. We therefore choose $m \lll n$.
+%The computational cost of the search for deductions is difficult to estimate.
+%The approximate worst-case complexity is $\mathcal{O}(n^{d+1}2^{m})$ where $m$ is the number of variables in a 'small' problem, $n$ is the total number of variables and $d$ is the maximum degree of deductions we are searching for.
+%We suggest $10 \le m \le 20$, so that a small problem involves checking roughly $1,000$ to $1,000,000$ states, and $d=2$.
+%See the appendix for more details.
+%\item For $n$ qubits there is $\binom{n}{m}$ ways to choose $m$ of them and $2^m$ assignments of these $m$ variables, therefore $\mathcal{O}\left(2^{m}\binom{n}{m}\right)$ operations required to enumerate all possible cases for all possible subsets of size $m \le n$ variables.
 \item Approximate methods exist which have been shown to be much faster and give good approximations to the global minimum \cite{Ishikawa2014}.
 \end{itemize}
 
@@ -351,7 +357,7 @@ Consider the Hamiltonian:
 H_{{\rm 3-local}}=b_{1}b_{2}+b_{2}b_{3}+b_{3}b_{4}-4b_{1}b_{2}b_{3}. \label{eq:ELCexample}
 \end{equation}
 If $b_{1}b_{2}b_{3}=0$, no assignment of our variables will we be able to reach a lower energy than if $b_{1}b_{2}b_{3}=1$.
-Hence this gives us 12 ELCs, and one example is $(b_{1},b_{2},b_{3})=(1,0,0)$ which we can use to form the polynomial:
+Hence this gives us \textit{twelve} ELCs, and one example is $(b_{1},b_{2},b_{3})=(1,0,0)$ which we can use to form the polynomial:
 \begin{align}
 H_{2\rm{-local}}&=H_{{\rm 3-local}}+4b_{1}(1-b_{2})(1-b_{3})\\
 &=b_{1}b_{2}+b_{2}b_{3}+b_{3}b_{4}+4b_{1}-4b_{1}b_{2}-4b_{1}b_{3}. \label{eq:ELCreduced}
@@ -466,12 +472,12 @@ b_1 b_2 b_3 b_4 + b_1 b_3 + b_2 b_4 - b_3 = b_1 + b_1 b_2 + b_3 - 2 = 0.
 \left\{ b_4 b_3 - b_4, b_2 + b_3 - 1, b_1 - 1 \right\}.
 \end{equation}
 
-From this we can immediately read off the solutions $b_1=1$, $b_2=1-b_3$ and reduce the problem to $b_3b_4-b_4=0$. Solving this gives a final solution set of: $(b_1, b_2, b_3, b_4) = (1, 0, 1, 0), (1, 0, 1, 1), (1, 1, 0, 0)$.
+From this we can immediately read off the solutions $b_1=1$, $b_2=1-b_3$ and reduce the problem to $b_3b_4-b_4=0$. Solving this gives a final solution set of: $(b_1, b_2, b_3, b_4) = (1, 0, 1, 0), (1, 0, 1, 1), (1, 1, 0, 0)$, which should be the same as the original 4-local problem.
 
 \refsec
 \begin{itemize}
 %\item Standard text on Computational Algebraic Geometry: \cite{Cox2007}.
-\item Reduction and embedding of factorizations of all bi-primes up to $200,000$: \cite{Dridi2016}.
+\item Reduction and embedding of factorizations of all bi-primes less than $200,000$: \cite{Dridi2016}.
 \end{itemize}
 
 \begin{comment}
@@ -533,7 +539,7 @@ H_{0} & = & 1+b_{3}b_{4}b_{8}\\
 H_{1} & = & 1+b_{2}b_{5}+b_{6}b_{7}b_{8}+b_{3}b_{4}b_{8}-b_{3}b_{4}.
 \end{eqnarray}
 
-At this point, we could split $H_{0}$ again and solve it entirely, or use a qubit we saved in the previous split to quadratize our only problem.
+\noindent At this point, we could split $H_{0}$ again and solve it entirely, or use a variable we saved in the previous split to quadratize our only problem.
 
 To solve $H_{1}$, we can split again on $b_{8}$, resulting in problems:
 \begin{eqnarray}
@@ -541,11 +547,11 @@ H_{1,0} & = & 1+b_{2}b_{5}+b_{6}b_{7}\\
 H_{1,1} & = & 1+b_{2}b_{5}+b_{3}b_{4}.
 \end{eqnarray}
 Now both of these problems are quadratic.
-Hence we have reduced our original, hard problem into 3 easy problems, requiring only 2 extra runs of our minimization algorithm, and without needing any auxiliary variables.
+Hence we have reduced our original, hard problem into 3 easy problems, requiring only 2 extra (much easier) runs of our minimization algorithm, and without needing any auxiliary variables.
 
 \refsec
 \begin{itemize}
-\item Original paper and application to Ramsey number calculation: \cite{Okada2015}.
+\item Original paper and application to Ramsey number determination: \cite{Okada2015}.
 \end{itemize}
 
 \newpage
@@ -717,7 +723,7 @@ b_{1}b_{2}b_{3} &= \min_{b_a} - \left( b_a + b_1 + b_2 + b_3 \right) + b_a \left
 
 \costsec
 
-1 auxiliary qubit per positive cubic term.
+1 auxiliary variable per positive cubic term.
 
 \prossec
 \begin{itemize}
@@ -752,7 +758,7 @@ b_{1}b_{2}b_{3}&= \min_{b_a} \left( b_a-b_{2}b_a-b_{3}b_a+b_{1}b_a+b_{2}b_{3} \r
 
 \costsec
 
-1 auxiliary qubit per positive cubic term.
+1 auxiliary variable per positive cubic term.
 
 \prossec
 \begin{itemize}
