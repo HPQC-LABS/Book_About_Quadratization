@@ -6,7 +6,7 @@
 %Control: page (0) single
 %Control: year (1) truncated
 %Control: production of eprint (0) enabled
-\begin{thebibliography}{26}%
+\begin{thebibliography}{27}%
 \makeatletter
 \providecommand \@ifxundefined [1]{%
  \@ifx{#1\undefined}
@@ -143,6 +143,36 @@
   \href {\doibase 10.1109/CVPR.2011.5995452} {\emph {\bibinfo {booktitle} {CVPR
   2011}}}\ (\bibinfo  {publisher} {IEEE},\ \bibinfo {year} {2011})\ pp.\
   \bibinfo {pages} {1857--1864}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Chancellor}\ \emph {et~al.}(2017)\citenamefont
+  {Chancellor}, \citenamefont {Zohren},\ and\ \citenamefont
+  {Warburton}}]{Chancellor2017}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {N.}~\bibnamefont
+  {Chancellor}}, \bibinfo {author} {\bibfnamefont {S.}~\bibnamefont {Zohren}},
+  \ and\ \bibinfo {author} {\bibfnamefont {P.~A.}\ \bibnamefont {Warburton}},\
+  }\href {\doibase 10.1038/s41534-017-0022-6} {\bibfield  {journal} {\bibinfo
+  {journal} {npj Quantum Information}\ }\textbf {\bibinfo {volume} {3}},\
+  \bibinfo {pages} {21} (\bibinfo {year} {2017})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Chancellor}(2016)}]{Chancellor2016a}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {N.}~\bibnamefont
+  {Chancellor}},\ }\href@noop {} {\enquote {\bibinfo {title} {{Max-k-SAT,
+  Multi-Body Frustration, {\&} Multi-Body Sampling on a Two Local Ising
+  System}},}\ }\bibinfo {howpublished} {AQC 2016
+  https://www.youtube.com/watch?v=aC-6hg{\_}h3EA} (\bibinfo {year}
+  {2016})\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Chancellor}\ \emph {et~al.}(2016)\citenamefont
+  {Chancellor}, \citenamefont {Zohren}, \citenamefont {Warburton},
+  \citenamefont {Benjamin},\ and\ \citenamefont {Roberts}}]{Chancellor2016}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {N.}~\bibnamefont
+  {Chancellor}}, \bibinfo {author} {\bibfnamefont {S.}~\bibnamefont {Zohren}},
+  \bibinfo {author} {\bibfnamefont {P.}~\bibnamefont {Warburton}}, \bibinfo
+  {author} {\bibfnamefont {S.}~\bibnamefont {Benjamin}}, \ and\ \bibinfo
+  {author} {\bibfnamefont {S.}~\bibnamefont {Roberts}},\ }\href {\doibase
+  10.1038/srep37107} {\bibfield  {journal} {\bibinfo  {journal} {Scientific
+  Reports}\ }\textbf {\bibinfo {volume} {6}} (\bibinfo {year} {2016}),\
+  10.1038/srep37107}\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Rosenberg}(1975)}]{Rosenberg1975}%
   \BibitemOpen
   \bibfield  {author} {\bibinfo {author} {\bibfnamefont {I.~G.}\ \bibnamefont
@@ -210,36 +240,6 @@
   {\bibinfo  {journal} {Quantum Science and Technology}\ }\textbf {\bibinfo
   {volume} {1}},\ \bibinfo {pages} {15008} (\bibinfo {year}
   {2016})}\BibitemShut {NoStop}%
-\bibitem [{\citenamefont {Chancellor}\ \emph {et~al.}(2017)\citenamefont
-  {Chancellor}, \citenamefont {Zohren},\ and\ \citenamefont
-  {Warburton}}]{Chancellor2017}%
-  \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {N.}~\bibnamefont
-  {Chancellor}}, \bibinfo {author} {\bibfnamefont {S.}~\bibnamefont {Zohren}},
-  \ and\ \bibinfo {author} {\bibfnamefont {P.~A.}\ \bibnamefont {Warburton}},\
-  }\href {\doibase 10.1038/s41534-017-0022-6} {\bibfield  {journal} {\bibinfo
-  {journal} {npj Quantum Information}\ }\textbf {\bibinfo {volume} {3}},\
-  \bibinfo {pages} {21} (\bibinfo {year} {2017})}\BibitemShut {NoStop}%
-\bibitem [{\citenamefont {Chancellor}(2016)}]{Chancellor2016a}%
-  \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {N.}~\bibnamefont
-  {Chancellor}},\ }\href@noop {} {\enquote {\bibinfo {title} {{Max-k-SAT,
-  Multi-Body Frustration, {\&} Multi-Body Sampling on a Two Local Ising
-  System}},}\ }\bibinfo {howpublished} {AQC 2016
-  https://www.youtube.com/watch?v=aC-6hg{\_}h3EA} (\bibinfo {year}
-  {2016})\BibitemShut {NoStop}%
-\bibitem [{\citenamefont {Chancellor}\ \emph {et~al.}(2016)\citenamefont
-  {Chancellor}, \citenamefont {Zohren}, \citenamefont {Warburton},
-  \citenamefont {Benjamin},\ and\ \citenamefont {Roberts}}]{Chancellor2016}%
-  \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {N.}~\bibnamefont
-  {Chancellor}}, \bibinfo {author} {\bibfnamefont {S.}~\bibnamefont {Zohren}},
-  \bibinfo {author} {\bibfnamefont {P.}~\bibnamefont {Warburton}}, \bibinfo
-  {author} {\bibfnamefont {S.}~\bibnamefont {Benjamin}}, \ and\ \bibinfo
-  {author} {\bibfnamefont {S.}~\bibnamefont {Roberts}},\ }\href {\doibase
-  10.1038/srep37107} {\bibfield  {journal} {\bibinfo  {journal} {Scientific
-  Reports}\ }\textbf {\bibinfo {volume} {6}} (\bibinfo {year} {2016}),\
-  10.1038/srep37107}\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Duan}\ and\ \citenamefont {Chen}(2011)}]{Duan2011}%
   \BibitemOpen
   \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Q.-H.}\ \bibnamefont
@@ -256,6 +256,18 @@
   {\bibfield  {journal} {\bibinfo  {journal} {Quantum Info. Comput.}\ }\textbf
   {\bibinfo {volume} {8}},\ \bibinfo {pages} {900} (\bibinfo {year}
   {2008})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Bravyi}\ \emph {et~al.}(2008)\citenamefont {Bravyi},
+  \citenamefont {DiVincenzo}, \citenamefont {Loss},\ and\ \citenamefont
+  {Terhal}}]{Bravyi2008}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {S.}~\bibnamefont
+  {Bravyi}}, \bibinfo {author} {\bibfnamefont {D.~P.}\ \bibnamefont
+  {DiVincenzo}}, \bibinfo {author} {\bibfnamefont {D.}~\bibnamefont {Loss}}, \
+  and\ \bibinfo {author} {\bibfnamefont {B.~M.}\ \bibnamefont {Terhal}},\
+  }\href {\doibase 10.1103/PhysRevLett.101.070503} {\bibfield  {journal}
+  {\bibinfo  {journal} {Physical Review Letters}\ }\textbf {\bibinfo {volume}
+  {101}},\ \bibinfo {pages} {070503} (\bibinfo {year} {2008})}\BibitemShut
+  {NoStop}%
 \bibitem [{\citenamefont {Cao}\ \emph {et~al.}(2015)\citenamefont {Cao},
   \citenamefont {Babbush}, \citenamefont {Biamonte},\ and\ \citenamefont
   {Kais}}]{Cao2015}%
