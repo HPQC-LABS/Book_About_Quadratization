@@ -1,5 +1,6 @@
 %% LyX 2.2.0 created this file.  For more info, see http://www.lyx.org/.
 %% Do not edit unless you really know what you are doing.
+%\documentclass[english,notitlepage,longbibliography,showpacs,preprintnumbers,amsmath,amssymb,aps,prl,nofootinbib,12pt,superscriptaddress]{revtex4-1}
 \documentclass[english,notitlepage,showpacs,preprintnumbers,amsmath,amssymb,aps,prl,nofootinbib,12pt,superscriptaddress]{revtex4-1}
 \usepackage[T1]{fontenc}
 \usepackage[latin9]{inputenc}
@@ -13,6 +14,11 @@
 \PassOptionsToPackage{normalem}{ulem}
 \usepackage{ulem}
 %\usepackage{cleveref}
+
+%\usepackage{xpatch}
+%\xpatchcmd\bibsection{19}{19}{}{}
+%\xpatchcmd\bibsection{\begingroup}{\vskip BEFOREpt\begingroup}{}{}
+
 
 %pics 
 \usepackage[pdftex]{graphicx}
