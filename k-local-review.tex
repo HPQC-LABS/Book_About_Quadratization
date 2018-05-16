@@ -1180,7 +1180,7 @@ This method was originally only used to reproduce the ground state of high local
 
 \conssec
 \begin{itemize}
-\item Does not preserve degeneracy, ground state will retain orginal degeneracy, but excited states will have degeneracy multipled by $n-3$
+\item Does not reproduce the entire spectrum.
 \item Not very symmetric.
 \end{itemize}
 
@@ -1206,20 +1206,20 @@ The full spectrum of $\pm z_1z_2z_3=\pm(8\,b_1b_2b_3-4\,b_1b_2-4\,b_2b_3+2\,b_1+
 %\end{equation}
 
 \begin{align}
-P_\pm(b_1,b_2,b_3;\lambda)=\lambda\left(4\,(b_1b_2+b_2b_3+b_3b_1)+8\,b_a(b_1+b_2+b_3)-12\,b_a-4\,(b_1+b_2+b_3)+3\right)\nonumber \\
+P_\pm(b_1,b_2,b_3)=\left(4\,(b_1b_2+b_2b_3+b_3b_1)+8\,b_a(b_1+b_2+b_3)-12\,b_a-4\,(b_1+b_2+b_3)+3\right)\nonumber \\
 \mp (2\,b_1+2\,b_2+2\,b_3 +4\,b_a-5).
 \end{align}
 
 This can be written more compactly in terms of $z$:
 
 \begin{equation}
-P_\pm(z_1,z_2,z_3;\lambda)=\lambda\left(z_1z_2+z_2z_3+z_3z_1+2z_a(z_1+z_2+z_3)\right)\mp (z_1+z_2+z_3 +2z_a).
+P_\pm(z_1,z_2,z_3)=\left(z_1z_2+z_2z_3+z_3z_1+2z_a(z_1+z_2+z_3)\right)\mp (z_1+z_2+z_3 +2z_a).
 \end{equation}
 
 Using three copies of this 3-local gadget as a building block, and using two additional auxilliary variables, the spectrum of the 5-local term $z_1z_2z_3z_4z_5$ can be reproduced by the following Hamiltonian
 
 \begin{equation}
-H_{2-\rm{local}}=P_+(b_1,b_2,b_{a_1};\lambda)+P_+(b_{a_1},b_3,b_{a_2};\lambda)+P_+(b_{a_2},b_4,b_5;\lambda).
+H_{2-\rm{local}}=P_+(b_1,b_2,b_{a_1})+P_+(b_{a_1},b_3,b_{a_2})+P_+(b_{a_2},b_4,b_5).
 \end{equation}
 
 \refsec
