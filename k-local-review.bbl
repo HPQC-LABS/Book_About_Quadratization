@@ -6,7 +6,7 @@
 %Control: page (0) single
 %Control: year (1) truncated
 %Control: production of eprint (0) enabled
-\begin{thebibliography}{36}%
+\begin{thebibliography}{37}%
 \makeatletter
 \providecommand \@ifxundefined [1]{%
  \@ifx{#1\undefined}
@@ -240,6 +240,31 @@
   {\bibinfo  {journal} {Quantum Science and Technology}\ }\textbf {\bibinfo
   {volume} {1}},\ \bibinfo {pages} {15008} (\bibinfo {year}
   {2016})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Ocko}\ and\ \citenamefont
+  {Yoshida}(2011)}]{Ocko2011}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {S.~A.}\ \bibnamefont
+  {Ocko}}\ and\ \bibinfo {author} {\bibfnamefont {B.}~\bibnamefont {Yoshida}},\
+  }\href {\doibase 10.1103/PhysRevLett.107.250502} {\bibfield  {journal}
+  {\bibinfo  {journal} {Physical Review Letters}\ }\textbf {\bibinfo {volume}
+  {107}},\ \bibinfo {pages} {250502} (\bibinfo {year} {2011})}\BibitemShut
+  {NoStop}%
+\bibitem [{\citenamefont {Subasi}\ and\ \citenamefont
+  {Jarzynski}(2016)}]{Subas2016}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Y.}~\bibnamefont
+  {Subasi}}\ and\ \bibinfo {author} {\bibfnamefont {C.}~\bibnamefont
+  {Jarzynski}},\ }\href {\doibase 10.1103/PhysRevA.94.012342} {\bibfield
+  {journal} {\bibinfo  {journal} {Physical Review A}\ }\textbf {\bibinfo
+  {volume} {94}},\ \bibinfo {pages} {012342} (\bibinfo {year}
+  {2016})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Nagaj}(2010)}]{Nagaj2010}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {D.}~\bibnamefont
+  {Nagaj}},\ }\href {\doibase 10.1063/1.3384661} {\bibfield  {journal}
+  {\bibinfo  {journal} {Journal of Mathematical Physics}\ }\textbf {\bibinfo
+  {volume} {51}},\ \bibinfo {pages} {062201} (\bibinfo {year}
+  {2010})}\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Duan}\ and\ \citenamefont {Chen}(2011)}]{Duan2011}%
   \BibitemOpen
   \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Q.-H.}\ \bibnamefont
@@ -298,22 +323,6 @@
   {\doibase 10.1088/1367-2630/13/5/053039} {\bibfield  {journal} {\bibinfo
   {journal} {New Journal of Physics}\ }\textbf {\bibinfo {volume} {13}},\
   \bibinfo {pages} {053039} (\bibinfo {year} {2011})}\BibitemShut {NoStop}%
-\bibitem [{\citenamefont {Nagaj}(2010)}]{Nagaj2010}%
-  \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {D.}~\bibnamefont
-  {Nagaj}},\ }\href {\doibase 10.1063/1.3384661} {\bibfield  {journal}
-  {\bibinfo  {journal} {Journal of Mathematical Physics}\ }\textbf {\bibinfo
-  {volume} {51}},\ \bibinfo {pages} {062201} (\bibinfo {year}
-  {2010})}\BibitemShut {NoStop}%
-\bibitem [{\citenamefont {Subasi}\ and\ \citenamefont
-  {Jarzynski}(2016)}]{Subas2016}%
-  \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Y.}~\bibnamefont
-  {Subasi}}\ and\ \bibinfo {author} {\bibfnamefont {C.}~\bibnamefont
-  {Jarzynski}},\ }\href {\doibase 10.1103/PhysRevA.94.012342} {\bibfield
-  {journal} {\bibinfo  {journal} {Physical Review A}\ }\textbf {\bibinfo
-  {volume} {94}},\ \bibinfo {pages} {012342} (\bibinfo {year}
-  {2016})}\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Babbush}\ \emph {et~al.}(2013)\citenamefont
   {Babbush}, \citenamefont {O'Gorman},\ and\ \citenamefont
   {Aspuru-Guzik}}]{Babbush2013}%
