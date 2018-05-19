@@ -196,7 +196,7 @@ s_1s_2+s_2s_3+s_3s_4 -4s_1s_2s_3 & \hspace{5mm} \textrm{(cubic)},\label{eq:intro
 Two-body physical interactions occur more naturally than many-body interactions so \textbf{Parts \ref{partTransverseIsing}-\ref{partGeneral}} give more than 10 different ways to quadratize genreal Hamiltonians (some of these methods do not even require the $s_i$ to be $2\times2$ matrices, meaning that we can have types of qudits that are not qubits). 
 
 %A quantum computer whose Hamiltonian is at least quadratic in $x$ and $z$ can find this ground state with only polynomial runtime overhead over the best alternative algorithm to find that solution. 
- The optimization problems of Eqs. \eqref{eq:intro_cubic}-\eqref{eq:intro_quadratic} are specific cases of Eq. \eqref{eq:intro_quantum_cubic} where only $z$ matrices are present. 
+ The optimization problems of Eqs. \eqref{eq:intro_cubic}-\eqref{eq:intro_quadratic} are specific cases of the type in Eq. \eqref{eq:intro_quantum_cubic} where only $z$ matrices are present. 
 
 \noindent\rule{\textwidth}{0.4pt}
 
@@ -1461,7 +1461,192 @@ The low-lying spectrum (eigenvalues \textbf{\textit{and}} eigenvectors) of the r
 %
 %\end{comment}
 
+\section{Non-perturbative (NP)}
 
+
+\subsection{NP-OY (Ocko \& Yoshida, 2011)}
+
+\summarysec
+
+For the 8-body Hamiltonian:
+
+%\begin{centering}
+\begin{eqnarray}
+\begin{gathered}
+%\centering
+%H_\textrm{8-local} = -J\sum_{ij} \left(x_{4i+3,j}x_{4i+2,j+1}x_{4i+4,j}x_{4i+5,j}x_{4i+7,j}x_{4i+6,j+1}x_{4i+4,j+1}x_{4i+5,j+1}\right.\\
+%\left.+ z_{4i+1,j}z_{4i+2,j}z_{4i+3,j}z_{4i+4,j} + z_{4i,j}z_{4i+1,j} + z_{4i+2,j}z_{4i+3,j-1} + z_{4i+3,j}z_{4i+3,j+1} + z_{4i+4,j}z_{4i+5,j}\right)
+H_{{\textrm 8-body}}	=-J\sum_{ij}\left(x_{ij3}x_{ij+1,2}x_{ij4}x_{ij+1,4}x_{i+1j1}x_{i+1j+1,1}x_{i+1j3}x_{ij+1,2}+\right. \\
+	\left.z_{ij1}z_{ij2}z_{ij3}z_{ij4}+z_{i-1j4}z_{ij1}+z_{ij2}z_{ij-1,3}+z_{ij4}z_{i+1j1}+z_{ij3}z_{ij+1,2}\right),
+%\centering
+\end{gathered}
+\end{eqnarray}
+%\end{centering}
+
+\noindent we define auxiliary qubits labeled by $a_{ijk}$, two auxiliaries for each pair $ij$: labeled $a_{ij1}$ and $a_{ij2}$. Then the 8-body Hamiltonian has the same low-lying eigenspace as the 4-body Hamiltonian:
+
+%\begin{centering}
+\begin{eqnarray}
+\begin{gathered}
+H_{{\rm 4-body}}	=-\sum_{ij}\alpha\left(z_{ij1}z_{ij2}z_{ij3}z_{ij4}+z_{i,j,-1,4}z_{ij1}+z_{ij2}z_{i,j-1,3}+z_{ij4}z_{i+1,j,1}+z_{ij3}z_{i,j+1,2}\right.\\
+	\left(1-z_{a_{ij1}}+z_{a_{ij2}}+z_{a_{ij1}}z_{a_{ij2}}\right)\left(z_{a_{i,j+1,1}}+z_{a_{i,j+1,2}}+z_{a_{i,j+1,1}}z_{a_{i,j+1,2}}-1\right)+\\
+	\left.\left(1+z_{a_{ij1}}-z_{a_{ij2}}+z_{a_{ij1}}z_{a_{ij2}}\right)\left(1-z_{a_{i+1,j1}}-z_{a_{i+1,j2}}-z_{a_{i+1,j1}}z_{a_{i+1,j2}}\right)\right)+\\
+	\frac{U}{2}\left(z_{a_{ij1}}+z_{a_{ij2}}+z_{a_{ij1}}z_{a_{ij2}}-1\right)+\\
+	\frac{t}{2}\left(\left(x_{a_{ij2}}+z_{a_{ij1}}x_{a_{ij2}}\right)x_{ij3}x_{ij4}+\left(x_{a_{ij1}}x_{a_{ij2}}+y_{a_{ij1}}y_{a_{ij2}}\right)x_{i,j+1,2}x_{i,j+1,4}+\right.\\
+\left.	\left.\left(x_{a_{ij2}}-z_{a_{ij1}}x_{a_{ij2}}\right)x_{i+1,j+1,1}x_{i+1,j+1,2}+\left(x_{a_{ij1}}x_{a_{ij2}}-y_{a_{ij1}}y_{a_{ij2}}\right)x_{i+1,j,1}x_{i+1,j,3}\right)\right).
+\end{gathered}
+\end{eqnarray}
+
+\noindent Now by defining the following ququits (spin-${3/2}$ particles, or 4-level systems):
+
+\begin{align}
+s_{ijki^{\prime}j^{\prime}k^{\prime}}^{zz}	&=z_{ijk}z_{i^{\prime}j^{\prime}k^{\prime}}\\
+s_{a_{ij}1}^{zz}	&=\left(1-z_{a1_{ij}}+z_{a2_{ij}}+z_{a1_{ij}}z_{a2_{ij}}\right)\\
+s_{a_{ij}2}^{zz}	&=\left(z_{a1_{ij}}+z_{a2_{ij}}+z_{a1_{ij}}z_{a2_{ij}}-1\right)\\
+s_{a_{ij}3}^{zz}	&=\left(1+z_{a1_{ij}}-z_{a2_{ij}}+z_{a1_{ij}}z_{a2_{ij}}\right)\\
+s_{a_{ij}1}^{xz}	&=\left(x_{a2_{ij}}+z_{a1_{ij}}x_{a2_{ij}}\right)\\
+s_{a_{ij}2}^{xz}	&=\left(x_{a2_{ij}}-z_{a1_{ij}}x_{a2_{ij}}\right)\\
+s_{ijki^{\prime}j^{\prime}k^{\prime}}^{xx}	&=x_{ijk}x_{i^{\prime}j^{\prime}k^{\prime}}\\
+s_{a_{ij}1}^{xy}	&=\left(x_{a1_{ij}}x_{a2_{ij}}+y_{a1_{ij}}y_{a2_{ij}}\right)\\
+s_{a_{ij}2}^{xy}	&=\left(x_{a1_{ij}}x_{a2_{ij}}-y_{a1_{ij}}y_{a2_{ij}}\right)
+\end{align}
+
+\subsection*{NP-OY (Ocko \& Yoshida, 2011) [Continued]} 
+\noindent We can write the 4-body Hamiltonian on qubits as a 2-body Hamiltonian on ququits:
+
+{\scriptsize
+\begin{eqnarray}
+\begin{gathered}
+H_{{\rm 2-body}}	=-\sum_{ij}\left(\alpha\left(s_{ij1ij2}^{zz}s_{ij3ij4}^{zz}+s_{ij-1,4ij1}^{zz}+s_{ij2ij-1,3}^{zz}+s_{ij4i+1j1}^{zz}+s_{ij3ij+1,2}^{zz}+s_{a_{ij}1}^{zz}s_{a_{ij+1}2}^{zz}-s_{a_{ij}3}^{zz}s_{a_{i+1j}3}^{zz}\right)\right.\\
+	\left.+\frac{U}{2}s_{a_{ij},1}^{zz}+\frac{t}{2}\left(s_{a_{ij}1}^{xz}s_{ij3ij4}^{xx}+s_{a_{ij}1}^{xy}s_{ij+1,2ij+1,4}^{xx}+s_{a_{ij}2}^{xz}s_{i+1,j+1,1i+1,j+1,2}^{xx}+s_{a_{ij}2}^{xy}s_{i+1j1,i+1,j3}^{xx}\right)\right).
+\end{gathered}
+\end{eqnarray}
+}
+
+\noindent The low-lying eigenspace of $H_{2-\textrm{body}}$ is \textit{exactly} the same as for $H_{4-\textrm{local}}$.
+
+% \newpage
+
+\costsec
+\begin{itemize}
+\item 2 auxiliary ququits for each pair $ij$.
+\item 6 more total terms (6 terms in the 8-body version becomes 12 terms: \\
+11 of them 2-body and 1 of them 1-body).
+\end{itemize}
+
+
+\prossec
+\begin{itemize}
+\item Non-perturbative. No prohibitive control precision requirement.
+\item Only two auxiliaries required for each pair $ij$.
+\item 8-body to 2-body transformation can be accmplished in 1 step, rather than a 1B1 gadget which would take 6 steps or an SD + $(3\rightarrow2)$ gadget combination which would take 4 steps.
+\end{itemize}
+ 
+\conssec
+\begin{itemize}
+\item Increase in dimention from working with only 2-level systems (spin-1/2 particles or $2\times2$ matrices) to working with 4-level systems (spin-3/2 particles).
+\item Until now, only derived for a very specific Hamiltonian form.
+\item This appraoch may become more demanding for Hamiltonians that are more than 8-local.
+\end{itemize}
+
+%\examplesec
+
+\refsec
+\begin{itemize}
+\item Original paper: \cite{Ocko2011}.
+\end{itemize}
+
+
+\newpage
+
+\subsection{NP-SJ (Subasi \& Jarzynski, 2016)}
+
+% CAN'T THIS BE DONE FO THE CASE WHERE THE \THETA IN EQ. 30 OF THEIR PAPER IS A SUM OF TERMS RATHER THAN JUST 1 TERM?
+
+%Non-locality from the original Hamiltonian, is transfered into a unitary transformation operator, which when applied to a $k$-local Hamiltonian, can reduce the $k$-locality of high order terms at the expense of increasing the $k$-locality of other terms which were chosen to be at most $(k-2)-$local. 
+
+\summarysec
+
+Determine the $k$-local term, $H_{k-\rm{local}}$, whose degree we wish to reduce, and factor it into two commuting factors: $H_{k^\prime-\rm{local}}H_{(k-k^\prime)-\rm{local}}$, where $k^\prime$ can be as low as 0. Separate all terms that are at momst $(k-1)$-local into ones that commmute with one of these factors (it does not matter which one, but without loss of generality we assume it to be the $(k-k^\prime)$-local one)  and ones that anti-commute with it:
+
+\begin{align}
+%H_{k-\rm{local}} + H_{(k-1)\rm{-local}}^{\rm{commuting}} + H_{(k-1)\rm{-local}}^{\rm{anti-commuting}} 
+ H_{ <k \rm{-local}}^{\rm{commuting}} +H_{ <k \rm{-local}}^{\rm{anti-commuting}}  + \alpha H_{k^\prime-\rm{local}}H_{(k-k^\prime)-\rm{local}}
+\end{align}
+	
+\noindent Introduce one auxiliary qubit labeled by $a$ and the Hamiltonian:
+
+\begin{align}
+\alpha x_aH_{k^\prime-\rm{local}} +  H_{ <k \rm{-local}}^{\rm{commuting}} + z_aH_{ <k \rm{-local}}^{\rm{anti-commuting}} 
+\end{align}
+
+\noindent no longer contains $H_{k-\rm{local}}$ but $H_{<k-{\rm{local}}}^{\rm{anti-commuting}}$ is now one degree higher.
+
+\costsec
+\begin{itemize}
+\item 1 auxiliary qubit to reduce $k$-local term to $(k^\prime+1)$-local where $k^\prime$ can even be 0-local, meaning the $k$-local term is reduced to a 1-local one.
+\item Raises the $k$-locality of $H_{ <k \rm{-local}}^{\rm{anti-commuting}}$ by 1 during each application. It can become $(>k)$-local!
+\end{itemize}
+
+
+\prossec
+\begin{itemize}
+\item Non-perturbative
+\item Can linearize a term of arbitrary degree in one step.
+\item Requires very few auxiliary qubits.
+\end{itemize}
+
+\conssec
+\begin{itemize}
+\item Can introduce many new non-local terms as an expense for reducing only one $k$-local term.
+\item If the portion of the Hamiltonian that does not commute with the $(k-k^\prime)$-local term has termms of degree $k-1$ (which can happen if $k^\prime=0$) they will all become $k$-local, so there is no guarantee that this method reduces $k$-locality.
+\item If any terms were more than 1-local, this method will not fully quadratize the Hamiltonian (it must be combined with other methods).
+\item It only works when the Hamiltonian's terms of degree at most $k-1$  all either commute or anti-commmute with the $k$-local term to be eliminated.
+\end{itemize}
+
+\vspace{-1mm}
+
+\examplesec
+\vspace{-3mm}
+
+\begin{align}
+\vspace{-1mm}
+4z_5 -3 x_1 + 2z_1y_2x_5 + 9x_1x_2x_3x_4 -x_1y_2z_3x_5 \rightarrow 9x_{a_{1}} + 4z_{a_4}z_5   -3z_{a_3}x_1  -z_{a_3}x_{a_4} a3  +2x_{a_3}x_5  
+\end{align}
+
+\refsec
+\begin{itemize}
+\item Original paper, and description of the choices of terms and factors used for the given example \cite{Subas2016}.
+\end{itemize}
+
+\subsection{NP-N (Nagaj, 2010)}
+
+%\summarysec
+
+%\costsec
+
+%\prossec
+%\begin{itemize}
+%\item
+%\item
+%\end{itemize}
+%
+%\conssec
+%\begin{itemize}
+%\item
+%\item
+%\end{itemize}
+
+%\examplesec
+
+\refsec
+\begin{itemize}
+\item Original paper: \cite{Nagaj2010}.
+\end{itemize}
+
+
+
+\newpage
 \section{$(3\rightarrow2)$ Gadgets}
 
 The first gadgets for arbitrary Hamiltonians acting on some number of qubits, were designed to reproduce the spectrum of a 3-local Hamiltonian in the low-lying spectrum of a 2-local Hamiltonian.
@@ -2133,7 +2318,6 @@ H_{k-\rm{local}} = \alpha H_{1,(\nicefrac{k}{2})-\rm{local}}H_{2,(\nicefrac{k}{2
 %\refsec
 
 \begin{comment}
-
 \subsection{3-body Gadget from local X: Cao et al.~2013}
 Cao et al.~2013 produced two new gadgets and also generally improved the known constructions for several typical gadgets.  
 
@@ -2339,143 +2523,191 @@ H_{\textrm{2-local}} &= -\sum_{ij} \left( x_{8i+4,j}x_{8i+6,j} + x_{8i+3,j+1}x_{
 \end{itemize}
 
 \newpage
-\section{Non-perturbative embeddings}
-
-\subsection{NP-N (Nagaj, 2010)}
-
-\summarysec
-
-\costsec
-
-%\prossec
-%\begin{itemize}
-%\item
-%\item
-%\end{itemize}
-%
-%\conssec
-%\begin{itemize}
-%\item
-%\item
-%\end{itemize}
-
-%\examplesec
-
-\refsec
-\begin{itemize}
-\item Original paper: \cite{Nagaj2010}.
-\end{itemize}
 
 
-\newpage
-
-\subsection{NP-OY (Ocko \& Yoshida, 2011)}
-
-\summarysec
-
-The 8-body Hamiltonian:
-
-%\begin{centering}
-\begin{eqnarray}
-\begin{gathered}
-%\centering
-H_\textrm{8-local} = -J\sum_{ij} \left(x_{4i+3,j}x_{4i+2,j+1}x_{4i+4,j}x_{4i+5,j}x_{4i+7,j}x_{4i+6,j+1}x_{4i+4,j+1}x_{4i+5,j+1}\right.\\
-\left.+ z_{4i+1,j}z_{4i+2,j}z_{4i+3,j}z_{4i+4,j} + z_{4i,j}z_{4i+1,j} + z_{4i+2,j}z_{4i+3,j-1} + z_{4i+3,j}z_{4i+3,j+1} + z_{4i+4,j}z_{4i+5,j}\right)
-%\centering
-\end{gathered}
-\end{eqnarray}
-%\end{centering}
-
-\noindent is transformed into the following 2-body Hamiltonian:
-
-\begin{eqnarray}
-%
-\end{eqnarray}
-
-\costsec
-
-%\prossec
-%\begin{itemize}
-%\item
-%\item
-%\end{itemize}
-%
-%\conssec
-%\begin{itemize}
-%\item
-%\item
-%\end{itemize}
-
-%\examplesec
-
-\refsec
-\begin{itemize}
-\item Original paper: \cite{Nagaj2010}.
-\end{itemize}
 
 
-\newpage
 
 
-\subsection{NP-SJ (Subasi \& Jarzynski, 2016)}
-
-% CAN'T THIS BE DONE FO THE CASE WHERE THE \THETA IN EQ. 30 OF THEIR PAPER IS A SUM OF TERMS RATHER THAN JUST 1 TERM?
-
-%Non-locality from the original Hamiltonian, is transfered into a unitary transformation operator, which when applied to a $k$-local Hamiltonian, can reduce the $k$-locality of high order terms at the expense of increasing the $k$-locality of other terms which were chosen to be at most $(k-2)-$local. 
-
-\summarysec
-
-Determine the $k$-local term, $H_{k-\rm{local}}$, whose degree we wish to reduce, and factor it into two commuting factors: $H_{k^\prime-\rm{local}}H_{(k-k^\prime)-\rm{local}}$, where $k^\prime$ can be as low as 0. Separate all terms that are at momst $(k-1)$-local into ones that commmute with one of these factors (it does not matter which one, but without loss of generality we assume it to be the $(k-k^\prime)$-local one)  and ones that anti-commute with it:
-
-\begin{align}
-%H_{k-\rm{local}} + H_{(k-1)\rm{-local}}^{\rm{commuting}} + H_{(k-1)\rm{-local}}^{\rm{anti-commuting}} 
- H_{ <k \rm{-local}}^{\rm{commuting}} +H_{ <k \rm{-local}}^{\rm{anti-commuting}}  + \alpha H_{k^\prime-\rm{local}}H_{(k-k^\prime)-\rm{local}}
-\end{align}
-	
-\noindent Introduce one auxiliary qubit labeled by $a$ and the Hamiltonian:
-
-\begin{align}
-\alpha x_aH_{k^\prime-\rm{local}} +  H_{ <k \rm{-local}}^{\rm{commuting}} + z_aH_{ <k \rm{-local}}^{\rm{anti-commuting}} 
-\end{align}
-
-\noindent no longer contains $H_{k-\rm{local}}$ but $H_{<k-{\rm{local}}}^{\rm{anti-commuting}}$ is now one degree higher.
-
-\costsec
-\begin{itemize}
-\item 1 auxiliary qubit to reduce $k$-local term to $(k^\prime+1)$-local where $k^\prime$ can even be 0-local, meaning the $k$-local term is reduced to a 1-local one.
-\item Raises the $k$-locality of $H_{ <k \rm{-local}}^{\rm{anti-commuting}}$ by 1 during each application. It can become $(>k)$-local!
-\end{itemize}
 
 
-\prossec
-\begin{itemize}
-\item Non-perturbative
-\item Can linearize a term of arbitrary degree in one step.
-\item Requires very few auxiliary qubits.
-\end{itemize}
 
-\conssec
-\begin{itemize}
-\item Can introduce many new non-local terms as an expense for reducing only one $k$-local term.
-\item If the portion of the Hamiltonian that does not commute with the $(k-k^\prime)$-local term has termms of degree $k-1$ (which can happen if $k^\prime=0$) they will all become $k$-local, so there is no guarantee that this method reduces $k$-locality.
-\item If any terms were more than 1-local, this method will not fully quadratize the Hamiltonian (it must be combined with other methods).
-\item It only works when the Hamiltonian's terms of degree at most $k-1$  all either commute or anti-commmute with the $k$-local term to be eliminated.
-\end{itemize}
 
-\vspace{-1mm}
 
-\examplesec
-\vspace{-3mm}
 
-\begin{align}
-\vspace{-1mm}
-4z_5 -3 x_1 + 2z_1y_2x_5 + 9x_1x_2x_3x_4 -x_1y_2z_3x_5 \rightarrow 9x_{a_{1}} + 4z_{a_4}z_5   -3z_{a_3}x_1  -z_{a_3}x_{a_4} a3  +2x_{a_3}x_5  
-\end{align}
 
-\refsec
-\begin{itemize}
-\item Original paper, and description of the choices of terms and factors used for the given example \cite{Subas2016}.
-\end{itemize}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 \newpage
