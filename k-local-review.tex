@@ -1647,11 +1647,11 @@ Determine the $k$-local term, $H_{k-\rm{local}}$, whose degree we wish to reduce
 
 
 \newpage
-\section{$(3\rightarrow2)$ Gadgets}
+\section{Perturbative $(3\rightarrow2)$ Gadgets}
 
 The first gadgets for arbitrary Hamiltonians acting on some number of qubits, were designed to reproduce the spectrum of a 3-local Hamiltonian in the low-lying spectrum of a 2-local Hamiltonian.
 
-\subsection{$(3\rightarrow2)$-DC  (Duan, Chen, 2011)} %The paper says "the terms in the product have to commute, but it's not clear if they mean each of the 3 terms of the product, or just the terms inside those terms, which would be much better.
+\subsection{P$(3\rightarrow2)$-DC  (Duan, Chen, 2011)} %The paper says "the terms in the product have to commute, but it's not clear if they mean each of the 3 terms of the product, or just the terms inside those terms, which would be much better.
 
 % THERE IS A NEGATIVE SIGN DIFFERENCE FROM KKR, WHICH CAN'T BE ABSORVED INTO ANYTHING FOR THE SAME REASON WHY WE CAN'T ABSORB THE 6. IT'S BECAUSE THE 2-LOCAL HAMILTONIAN WILL HAVE TO ATTAIN THE NEGATIVE SIGN TOO, WHICH WE DON'T WANT BECAUSE WE JUST WANT TO WRITE THE 2-LOCAL TO 2-LOCAL TRANSFORMATION WITHOUT H_2LOCAL BEING PART OF THE FORUMA. NEGATING H_2LOCAL WOULD BE PART OF THE FORMULA OTHERWISE.
 
@@ -1715,7 +1715,7 @@ The first gadgets for arbitrary Hamiltonians acting on some number of qubits, we
 
 
 
-\subsection{$(3\rightarrow2)$-DC2 (Duan, Chen, 2011)} %The paper says s_i are Pauli matrices, but I'd bet that they just have to be commuting, well they don't have the s_i^2 terms, which would not be = 1 if they were general commuting matrices.
+\subsection{P$(3\rightarrow2)$-DC2 (Duan, Chen, 2011)} %The paper says s_i are Pauli matrices, but I'd bet that they just have to be commuting, well they don't have the s_i^2 terms, which would not be = 1 if they were general commuting matrices.
 
 \summarysec
 
@@ -1784,7 +1784,7 @@ x_1z_2y_3 - 3x_1x_2y_4 + z_1x_2 &\rightarrow \alpha^I +  \alpha^z(z_{a_1} + z_{a
 \newpage
 
 
-\subsection{$(3\rightarrow2)$-KKR (Kempe, Kitaev, Regev, 2004)}
+\subsection{P$(3\rightarrow2)$-KKR (Kempe, Kitaev, Regev, 2004)}
 
 \summarysec
 
@@ -1841,7 +1841,7 @@ x_1z_2y_3 - 3x_1x_2y_4 + z_1x_2 \rightarrow \alpha^I + \alpha^{zx}_{2a_{12}}z_2x
 \newpage
 
 
-\subsection{$(3\rightarrow2)$-OT (Oliveira-Terhal, 2005)}
+\subsection{P$(3\rightarrow2)$-OT (Oliveira-Terhal, 2005)}
 
 \summarysec
 
@@ -1979,12 +1979,12 @@ x_1z_2y_3 - 3x_1x_2y_4 + z_1x_2 \rightarrow \alpha^I + \alpha^{zx}_{2a_{12}}z_2x
 %%
 %\newpage
 
-\section{1-by-1 Gadgets}
+\section{Perturbative 1-by-1 Gadgets}
 
 A 1B1 gadget allows $k$-local terms to be quadratized one step at a time, where at each step the term's order is reduced by at most one. In each step, a $k$-local term is reduced to $\left(k-1\right)$-local, contrary to SD (sub-division) gadgets which can reduce $k$-local terms to $\left(\nicefrac{1}{2}\right)$-local in one step.
 
 
-\subsection{1B1-OT (Oliveira \& Terhal, 2008)}
+\subsection{P1B1-OT (Oliveira \& Terhal, 2008)}
 
 \summarysec
 
@@ -2036,7 +2036,7 @@ H_{k-{\rm local}} \rightarrow &-\left(\frac{\alpha}{2}\right)^{\nicefrac{1}{3}}\
 
 
 \newpage
-\subsection{1B1-CBBK (Cao, Babbush, Biamonte, Kais, 2015)}
+\subsection{P1B1-CBBK (Cao, Babbush, Biamonte, Kais, 2015)}
 
 \summarysec
 
@@ -2078,13 +2078,13 @@ H_{k-\rm{local}} \rightarrow &	\left(\Delta+\left(\frac{\alpha}{2}\right)^{\nice
 \end{itemize}
 \newpage
 
-\section{Subdivision Gadgets}
+\section{Perturbative Subdivision Gadgets}
 
 % !!!!!! Do we really need A and B to be non-overlapping, or is okay simply if they commute, which is a more general statement containing non-overlapping as a specific case?
 
 Instead of recursively reducing $k$-local to $(k-1)$-local one reduction at a time, we can reduce $k$-local terms to $(k/2)$-local terms directly for even $k$, or to $(k+1)/2$-local terms directly for odd $k$. Since when $k$ is odd we can add an identity operator to the $k$-local term to make it even, we will assume in the following that $k$ is even, in order to avoid having to write floor and ceiling functions.
 
-\subsection{SD-OT (Oliveira \& Terhal, 2008)}
+\subsection{PSD-OT (Oliveira \& Terhal, 2008)}
 
 \summarysec
 
@@ -2173,7 +2173,7 @@ The resulting Hamiltonian has a degree of 1 larger than the degree of whichever 
 %
 %\newpage
 
-\subsection{SD-CBBK (Cao, Babbush, Biamonte, Kais 2015)}
+\subsection{PSD-CBBK (Cao, Babbush, Biamonte, Kais 2015)}
 
 \summarysec
 
@@ -2424,12 +2424,12 @@ This $\Theta(\epsilon^{-5})$ scaling is numerically illustrated (Fig.\ \ref{fig:
 \end{comment}
 
 \newpage
-\section{Direct Reduction}
+\section{Perturbative Direct Gadgets}
 
 Here we do not reduce $k$ by one order at a time (1B1 reduction) or by $\nicefrac{k}{2}$ at a time (SD reduction), but we directly reduce $k$-local terms to 2-local terms.
 % Instead of reducing $k$ in a one-by-one (1B1) way, or in a $\nicefrac{k}{2}$-by-$\nicefrac{k}{2}$ way as in sub-division (SD) gadgets, we reduce from $k$-local to 2-local in one step, using $k$  auxiliary qubits for each $k$-local term.
 
-\subsection{DR-JF (Jordan \& Farhi, 2008)}
+\subsection{PD-JF (Jordan \& Farhi, 2008)}
 
 \summarysec 
 
@@ -2471,7 +2471,7 @@ Express a sum of $k$-local terms as a sum of products of Pauli matrices $s_{ij}$
 
 \newpage
 
-\subsection{DR-BFBD (Brell, Flammia, Bartlett, Doherty, 2011)}
+\subsection{PD-BFBD (Brell, Flammia, Bartlett, Doherty, 2011)}
 
 \summarysec 
 
