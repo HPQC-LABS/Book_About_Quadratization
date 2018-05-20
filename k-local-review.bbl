@@ -6,7 +6,7 @@
 %Control: page (0) single
 %Control: year (1) truncated
 %Control: production of eprint (0) enabled
-\begin{thebibliography}{39}%
+\begin{thebibliography}{41}%
 \makeatletter
 \providecommand \@ifxundefined [1]{%
  \@ifx{#1\undefined}
@@ -205,6 +205,23 @@
   10.1038/srep37107} {\bibfield  {journal} {\bibinfo  {journal} {Scientific
   Reports}\ }\textbf {\bibinfo {volume} {6}} (\bibinfo {year}
   {2016}{\natexlab{b}}),\ 10.1038/srep37107}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Kahl}\ and\ \citenamefont
+  {Strandmark}(2011)}]{Kahl2011}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibnamefont {Kahl}}\ and\ \bibinfo
+  {author} {\bibnamefont {Strandmark}},\ }\href
+  {http://www.maths.lth.se/vision/publdb/reports/pdf/kahl-strandmark-iccv-11.pdf}
+  {\bibfield  {journal} {\bibinfo  {journal} {International Conference on
+  Computer Vision}\ } (\bibinfo {year} {2011})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Boros}\ \emph {et~al.}(2018)\citenamefont {Boros},
+  \citenamefont {Crama},\ and\ \citenamefont
+  {Rodr{\'i}guez-Heck}}]{Boros2018QuadratizationsOS}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {E.}~\bibnamefont
+  {Boros}}, \bibinfo {author} {\bibfnamefont {Y.}~\bibnamefont {Crama}}, \ and\
+  \bibinfo {author} {\bibfnamefont {E.}~\bibnamefont {Rodr{\'i}guez-Heck}},\
+  }in\ \href@noop {} {\emph {\bibinfo {booktitle} {ISAIM}}}\ (\bibinfo {year}
+  {2018})\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Rosenberg}(1975)}]{Rosenberg1975}%
   \BibitemOpen
   \bibfield  {author} {\bibinfo {author} {\bibfnamefont {I.~G.}\ \bibnamefont
