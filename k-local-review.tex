@@ -613,7 +613,7 @@ with $a=1$.
 
 \refsec
 \begin{itemize}
-\item Original paper: \cite{Freedman2005}.
+\item Originally presented for cubic terms by Kolmogorov and Zabih in 2004 \cite{Kolmogorov2004}. Generalized to arbitrary order by Freedman and Drineas in 2005: \cite{Freedman2005}.
 \item Discussion: \cite{Ishikawa2011}, \cite{Anthony2015}.
 \end{itemize}
 
@@ -712,20 +712,22 @@ b_{1}b_{2}b_{3}b_{4} & = & \min_{b_a}(3-2b_{1}-2b_{2}-2b_{3}-2b_{4})b_a+b_{1}b_{
 \end{itemize}
 \newpage
 
-\subsection{Reduction by Minimum Selection}
+\subsection{Reduction by Minimum Selection (Kolmogorov \& Zabih, 2004)}
 
 \summarysec
 
-This method can also be used to rewrite positive cubic terms in terms of 6 quadratic terms.
+This method can also be used to rewrite positive  or negative cubic terms in terms of 6 quadratic terms.
 
 The identity is given by:
 \begin{align}
-b_{1}b_{2}b_{3} & \rightarrow 1  - \left( b_a + b_1 + b_2 + b_3 \right) + b_a \left( b_1 + b_2 + b_3 \right) + b_1 b_2 + b_2 b_3 + b_3 b_1
+b_{1}b_{2}b_{3} & \rightarrow 1  - \left( b_a + b_1 + b_2 + b_3 \right) + b_a \left( b_1 + b_2 + b_3 \right) + b_1 b_2 + b_1 b_3 + b_2 b_3
 \end{align}
 
 \costsec
 
-1 auxiliary variable per positive cubic term.
+\begin{itemize}
+\item 1 auxiliary variable per positive or negative cubic term.
+\end{itemize}
 
 \prossec
 \begin{itemize}
@@ -735,12 +737,46 @@ b_{1}b_{2}b_{3} & \rightarrow 1  - \left( b_a + b_1 + b_2 + b_3 \right) + b_a \l
 
 \conssec
 \begin{itemize}
-\item Introduces all 6 possible non-submodular terms.
+\item Introduces all 6 possible non-submodular quadratic terms.
 \end{itemize}
 
 \refsec
 \begin{itemize}
-\item Original introduction by Kolmogorov and Zabih: \cite{Kolmogorov2004}.
+\item Original paper: \cite{Kolmogorov2004}.
+\end{itemize}
+
+\newpage
+
+
+\subsection{Reduction by Minimum Selection (in terms of $z$)}
+
+\summarysec
+
+The formula is almost the same as in the version in terms of $b$, but with a factor of 2, a change of sign for the linear terms, and a slight change in the constant term:
+
+\begin{align}
+\pm z_1z_2z_3 &= 3 \pm \left( z_1 +  z_2 + z_3 + z_a \right) + 2z_a \left(z_1 + z_2 +z_3) +  z_1z_2 + z_1z_3 + z_2z_3 \right).
+\end{align}
+
+\costsec
+\begin{itemize}
+\item 1 auxiliary variable per positive or negative cubic term.
+\end{itemize}
+
+\prossec
+\begin{itemize}
+\item Works on positive or negative monomials.
+\item Reproduces the full spectrum.
+\end{itemize}
+
+\conssec
+\begin{itemize}
+\item Introduces all 6 possible non-submodular quadratic terms.
+\end{itemize}
+
+\refsec
+\begin{itemize}
+\item Original paper: \cite{Chancellor2017}.
 \end{itemize}
 
 \newpage
@@ -1159,78 +1195,78 @@ The terms on the first line are all to enforce the relationship between a variab
 
 \newpage
 
-\subsection{Chained Three Body Parity Operators}
-
-\summarysec
-
-Goal: Guarantee that $z_{a_{k}}=z_iz_j$ can be chained together to make large product terms consisting of $z$. 
-%Recall that products of $b$ correspond to parity check or ${\sc xor}$ operations, while products of $b$ correspond to logical ${\sc and}$ operations.
-The penalty term $P(z_{a_k},z_i,z_j)= \mp z_{a_k}z_iz_j$ guarantees that $z_{a_k}=\pm z_iz_j$. The 3-local term can be made from gadgets.
-
-This method was originally only used to reproduce the ground state of high locality terms, but states of the "wrong" parity ($q_k=\mp z_iz_j$) will all have the same energy as well, so it reproduces the full spectrum. 
- 
-
-\costsec
-\begin{itemize}
-\item The best known gadget for a 3-local Ising term uses one auxilliary qubit. Based on this gadget an $n\ge4$ body Ising term can be made using $3+2(n-4)$ auxilliary qubits. 
-\end{itemize}
-
-\prossec
-\begin{itemize}
-\item Natural transmon implementation \cite{Leib2016}.
-\item Chain like structure means that long range connectivity not required.
-\end{itemize}
-
-\conssec
-\begin{itemize}
-\item Does not preserve degeneracy, ground state will retain orginal degeneracy, but excited states will have degeneracy multipled by $n-3$
-\item Not very symmetric.
-\end{itemize}
-
-\vspace{-1mm}
-
-\examplesec
-\vspace{-4mm}
-
-\begin{align}
-\begin{gathered}
-H_\textrm{5-local} = z_1z_2z_3z_4z_5 =32\,b_1b_2b_3b_4b_5\nonumber \\
--16\,(b_1b_2b_3b_4+b_1b_2b_3b_5+b_1b_2b_4b_5+b_1b_3b_4b_5+b_2b_3b_4b_5) \nonumber \\
-+8\,(b_1b_2b_3+b_1b_2b_4+b_1b_2b_5+b_1b_3b_4+b_1b_3b_5+b_1b_4b_5+b_2b_3b_4+b_2b_3b_4+b_2b_4b_5+b_3b_4b_5)\nonumber \\
--4\,(b_1b_2+b_1b_3+b_1b_4+b_1b_5+b_2b_3+b_2b_4+b_2b_5+b_3b_4+b_3b_5+b_4b_5)\nonumber \\
-+2(b_1+b_2+b_3+b_4+b_5)-1
-\end{gathered}
-\end{align}
-
-The full spectrum of $\pm z_1z_2z_3=\pm(8\,b_1b_2b_3-4\,b_1b_2-4\,b_2b_3+2\,b_1+2\,b_2+2\,b_3-1) $ is reproduced by:
-
-%\begin{equation}
-%P_\pm(z_1,z_2,z_3;\lambda)=\lambda\left(z_1z_2+z_2z_3+z_3z_1+2z_a(z_1+z_2+z_3)\right)\mp (z_1+z_2+z_3 +2z_a).
-%\end{equation}
-
-\begin{align}
-P_\pm(b_1,b_2,b_3;\lambda)=\lambda\left(4\,(b_1b_2+b_2b_3+b_3b_1)+8\,b_a(b_1+b_2+b_3)-12\,b_a-4\,(b_1+b_2+b_3)+3\right)\nonumber \\
-\mp (2\,b_1+2\,b_2+2\,b_3 +4\,b_a-5).
-\end{align}
-
-This can be written more compactly in terms of $z$:
-
-\begin{equation}
-P_\pm(z_1,z_2,z_3;\lambda)=\lambda\left(z_1z_2+z_2z_3+z_3z_1+2z_a(z_1+z_2+z_3)\right)\mp (z_1+z_2+z_3 +2z_a).
-\end{equation}
-
-Using three copies of this 3-local gadget as a building block, and using two additional auxilliary variables, the spectrum of the 5-local term $z_1z_2z_3z_4z_5$ can be reproduced by the following Hamiltonian
-
-\begin{equation}
-H_{2-\rm{local}}=P_+(b_1,b_2,b_{a_1};\lambda)+P_+(b_{a_1},b_3,b_{a_2};\lambda)+P_+(b_{a_2},b_4,b_5;\lambda).
-\end{equation}
-
-\refsec
-\begin{itemize}
-\item Original proposal with transmon implementation: \cite{Leib2016}.
-\end{itemize}
-
-\newpage
+% \subsection{Chained Three Body Parity Operators}
+% 
+% \summarysec
+% 
+% Goal: Guarantee that $z_{a_{k}}=z_iz_j$ can be chained together to make large product terms consisting of $z$. 
+% %Recall that products of $b$ correspond to parity check or ${\sc xor}$ operations, while products of $b$ correspond to logical ${\sc and}$ operations.
+% The penalty term $P(z_{a_k},z_i,z_j)= \mp z_{a_k}z_iz_j$ guarantees that $z_{a_k}=\pm z_iz_j$. The 3-local term can be made from gadgets.
+% 
+% This method was originally only used to reproduce the ground state of high locality terms, but states of the "wrong" parity ($q_k=\mp z_iz_j$) will all have the same energy as well, so it reproduces the full spectrum. 
+%  
+% 
+% \costsec
+% \begin{itemize}
+% \item The best known gadget for a 3-local Ising term uses one auxilliary qubit. Based on this gadget an $n\ge4$ body Ising term can be made using $3+2(n-4)$ auxilliary qubits. 
+% \end{itemize}
+% 
+% \prossec
+% \begin{itemize}
+% \item Natural transmon implementation \cite{Leib2016}.
+% \item Chain like structure means that long range connectivity not required.
+% \end{itemize}
+% 
+% \conssec
+% \begin{itemize}
+% \item Does not preserve degeneracy, ground state will retain orginal degeneracy, but excited states will have degeneracy multipled by $n-3$
+% \item Not very symmetric.
+% \end{itemize}
+% 
+% \vspace{-1mm}
+% 
+% \examplesec
+% \vspace{-4mm}
+% 
+% \begin{align}
+% \begin{gathered}
+% H_\textrm{5-local} = z_1z_2z_3z_4z_5 =32\,b_1b_2b_3b_4b_5\nonumber \\
+% -16\,(b_1b_2b_3b_4+b_1b_2b_3b_5+b_1b_2b_4b_5+b_1b_3b_4b_5+b_2b_3b_4b_5) \nonumber \\
+% +8\,(b_1b_2b_3+b_1b_2b_4+b_1b_2b_5+b_1b_3b_4+b_1b_3b_5+b_1b_4b_5+b_2b_3b_4+b_2b_3b_4+b_2b_4b_5+b_3b_4b_5)\nonumber \\
+% -4\,(b_1b_2+b_1b_3+b_1b_4+b_1b_5+b_2b_3+b_2b_4+b_2b_5+b_3b_4+b_3b_5+b_4b_5)\nonumber \\
+% +2(b_1+b_2+b_3+b_4+b_5)-1
+% \end{gathered}
+% \end{align}
+% 
+% The full spectrum of $\pm z_1z_2z_3=\pm(8\,b_1b_2b_3-4\,b_1b_2-4\,b_2b_3+2\,b_1+2\,b_2+2\,b_3-1) $ is reproduced by:
+% 
+% %\begin{equation}
+% %P_\pm(z_1,z_2,z_3;\lambda)=\lambda\left(z_1z_2+z_2z_3+z_3z_1+2z_a(z_1+z_2+z_3)\right)\mp (z_1+z_2+z_3 +2z_a).
+% %\end{equation}
+% 
+% \begin{align}
+% P_\pm(b_1,b_2,b_3;\lambda)=\lambda\left(4\,(b_1b_2+b_2b_3+b_3b_1)+8\,b_a(b_1+b_2+b_3)-12\,b_a-4\,(b_1+b_2+b_3)+3\right)\nonumber \\
+% \mp (2\,b_1+2\,b_2+2\,b_3 +4\,b_a-5).
+% \end{align}
+% 
+% This can be written more compactly in terms of $z$:
+% 
+% \begin{equation}
+% P_\pm(z_1,z_2,z_3;\lambda)=\lambda\left(z_1z_2+z_2z_3+z_3z_1+2z_a(z_1+z_2+z_3)\right)\mp (z_1+z_2+z_3 +2z_a).
+% \end{equation}
+% 
+% Using three copies of this 3-local gadget as a building block, and using two additional auxilliary variables, the spectrum of the 5-local term $z_1z_2z_3z_4z_5$ can be reproduced by the following Hamiltonian
+% 
+% \begin{equation}
+% H_{2-\rm{local}}=P_+(b_1,b_2,b_{a_1};\lambda)+P_+(b_{a_1},b_3,b_{a_2};\lambda)+P_+(b_{a_2},b_4,b_5;\lambda).
+% \end{equation}
+% 
+% \refsec
+% \begin{itemize}
+% \item Original proposal with transmon implementation: \cite{Leib2016}.
+% \end{itemize}
+% 
+% \newpage
 
 % \subsection{Multibody Operators in PAQC}
 % 
