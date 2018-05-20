@@ -621,99 +621,99 @@ with $a=1$.
 
 \newpage
 
-\subsection{Gruber Positive Term Reduction}
 
-\summarysec
 
-Suppose we have a monomial $b_1b_2b_3 \ldots b_k$ with $k > 2$.
-Let $X = \sum^k_{i=1} b_i$.
 
-Let $m = \lceil \frac{k}{4} \rceil, N = n - 2m$ and
-$Y = \sum^m_{j=2} b'_j$ where $b'_1, \ldots, b'_m$ are auxiliary variables.
-Note that the $j$ index starts at 2.
-Then:
 
-\begin{align}
-b_1 \ldots b_k &= \min_{b'_1, \ldots b'_m} \frac{1}{2} \left( X - Nb'_1 - 2Y \right)
-\left( X - Nb'_1 - 2Y - 1 \right)
-\end{align}
 
-\costsec
 
-$\lceil \frac{k}{4} \rceil$ auxiliary qubits per positive monomial.
 
-\prossec
-\begin{itemize}
-\item Smallest number of auxiliary coefficients that scales linearly with $k$.
-\item Smaller coefficients than the logarithmic reduction.
-\end{itemize}
 
-\conssec
-\begin{itemize}
-\item Introduces many non-submodular terms.
-\end{itemize}
 
-\examplesec
 
-Consider $k=4$, so that $m=1$, $N = 2$.
-Then:
-\begin{eqnarray}
-b_1 b_2 b_3 b_4 = \min_{b'} \frac{1}{2}
-\left( b_1 + b_2 + b_3 + b_4 - 2b'_1 \right)
-\left( b_1 + b_2 + b_3 + b_4 - 2b'_1 - 1 \right)
-\end{eqnarray}
 
-\refsec
-\begin{itemize}
-\item Original paper: \cite{Boros2018QuadratizationsOS}.
-\end{itemize}
 
-\newpage
 
-\subsection{Logarithmic Positive Monomial Reduction}
 
-\summarysec
 
-Suppose we have a monomial $b_1b_2b_3 \ldots b_k$.
-Pick $n$ minimal such that $k < 2^{n+1}$ and let $N = 2^{n+1} - k$.
 
-For convenience, let $X = \sum^k_{i=1} b_i$.
 
-\begin{align}
-b_1 \ldots b_k &= \min_{b'_1, \ldots b'_n} \frac{1}{2} \left( N + X - \sum^n_{i=1} 2^i b'_i \right)
-\left( N + X - \sum^n_{i=1} 2^i b'_i - 1 \right)
-\end{align}
 
-\costsec
 
-$\lceil \log k \rceil  - 1$ auxiliary qubits per positive monomial.
 
-\prossec
-\begin{itemize}
-\item Logarithmic number of auxiliary variables.
-\end{itemize}
 
-\conssec
-\begin{itemize}
-\item Introduces many non-submodular terms.
-\end{itemize}
 
-\examplesec
 
-Consider $k=4$, so that $n=2$, $N = 4$.
-Then:
-\begin{eqnarray}
-b_1 b_2 b_3 b_4 = \min_{b'_1, b'_2} \frac{1}{2}
-\left( 4 + b_1 + b_2 + b_3 + b_4 - b'_1 - 2b'_2 \right)
-\left( 3 + b_1 + b_2 + b_3 + b_4 - b'_1 - 2b'_2 \right)
-\end{eqnarray}
 
-\refsec
-\begin{itemize}
-\item Original paper: \cite{Boros2018QuadratizationsOS}.
-\end{itemize}
 
-\newpage
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \subsection{Positive Term Reduction}
 
@@ -806,6 +806,100 @@ b_{1}b_{2}b_{3}b_{4} & = & \min_{b_a}(3-2b_{1}-2b_{2}-2b_{3}-2b_{4})b_a+b_{1}b_{
 \begin{itemize}
 \item Original paper and application to image denoising: \cite{Ishikawa2011}.
 \end{itemize}
+\newpage
+
+\subsection{Positive Term Reduction}
+
+\summarysec
+
+Suppose we have a monomial $b_1b_2b_3 \ldots b_k$ with $k > 2$.
+Let $X = \sum^k_{i=1} b_i$.
+
+Let $m = \lceil \frac{k}{4} \rceil, N = n - 2m$ and
+$Y = \sum^m_{j=2} b'_j$ where $b'_1, \ldots, b'_m$ are auxiliary variables.
+Note that the $j$ index starts at 2.
+Then:
+
+\begin{align}
+b_1 \ldots b_k &= \min_{b'_1, \ldots b'_m} \frac{1}{2} \left( X - Nb'_1 - 2Y \right)
+\left( X - Nb'_1 - 2Y - 1 \right)
+\end{align}
+
+\costsec
+
+$\lceil \frac{k}{4} \rceil$ auxiliary qubits per positive monomial.
+
+\prossec
+\begin{itemize}
+\item Smallest number of auxiliary coefficients that scales linearly with $k$.
+\item Smaller coefficients than the logarithmic reduction.
+\end{itemize}
+
+\conssec
+\begin{itemize}
+\item Introduces many non-submodular terms.
+\end{itemize}
+
+\examplesec
+
+Consider $k=4$, so that $m=1$, $N = 2$.
+Then:
+\begin{eqnarray}
+b_1 b_2 b_3 b_4 = \min_{b'} \frac{1}{2}
+\left( b_1 + b_2 + b_3 + b_4 - 2b'_1 \right)
+\left( b_1 + b_2 + b_3 + b_4 - 2b'_1 - 1 \right)
+\end{eqnarray}
+
+\refsec
+\begin{itemize}
+\item Original paper: \cite{Boros2018QuadratizationsOS}.
+\end{itemize}
+
+\newpage
+
+\subsection{Logarithmic Positive Monomial Reduction}
+
+\summarysec
+
+Suppose we have a monomial $b_1b_2b_3 \ldots b_k$.
+Pick $n$ minimal such that $k < 2^{n+1}$ and let $N = 2^{n+1} - k$.
+
+For convenience, let $X = \sum^k_{i=1} b_i$.
+
+\begin{align}
+b_1 \ldots b_k &= \min_{b'_1, \ldots b'_n} \frac{1}{2} \left( N + X - \sum^n_{i=1} 2^i b'_i \right)
+\left( N + X - \sum^n_{i=1} 2^i b'_i - 1 \right)
+\end{align}
+
+\costsec
+
+$\lceil \log k \rceil  - 1$ auxiliary qubits per positive monomial.
+
+\prossec
+\begin{itemize}
+\item Logarithmic number of auxiliary variables.
+\end{itemize}
+
+\conssec
+\begin{itemize}
+\item Introduces many non-submodular terms.
+\end{itemize}
+
+\examplesec
+
+Consider $k=4$, so that $n=2$, $N = 4$.
+Then:
+\begin{eqnarray}
+b_1 b_2 b_3 b_4 = \min_{b'_1, b'_2} \frac{1}{2}
+\left( 4 + b_1 + b_2 + b_3 + b_4 - b'_1 - 2b'_2 \right)
+\left( 3 + b_1 + b_2 + b_3 + b_4 - b'_1 - 2b'_2 \right)
+\end{eqnarray}
+
+\refsec
+\begin{itemize}
+\item Original paper: \cite{Boros2018QuadratizationsOS}.
+\end{itemize}
+
 \newpage
 
 \subsection{Reduction by Minimum Selection (Kolmogorov \& Zabih, 2004)}
