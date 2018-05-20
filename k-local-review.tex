@@ -457,7 +457,7 @@ Work has been done in the field of 'Boolean Groebner bases', but while the varia
 \conssec
 \begin{itemize}
 \item Best algorithms for finding Groebner bases scale double exponentially in $n$.
-\item Only works for Hamiltonians whose minimization corresponds to solving systems of discrete equations (RICHARD, why is this the ONLY case?).
+\item Only works for Hamiltonians whose minimization corresponds to solving systems of discrete equations, as the method only preserves roots, not minima.
 \end{itemize}
 
 \examplesec
@@ -616,6 +616,100 @@ with $a=1$.
 \item 2004: Kolmogorov and Zabih presented this for cubic terms \cite{Kolmogorov2004}.
 \item 2005: Generalized to arbitrary order by Freedman and Drineas \cite{Freedman2005}.
 \item Discussion: \cite{Ishikawa2011}, \cite{Anthony2015}.
+\end{itemize}
+
+\newpage
+
+\subsection{Gruber Positive Term Reduction}
+
+\summarysec
+
+Suppose we have a monomial $b_1b_2b_3 \ldots b_k$ with $k > 2$.
+Let $X = \sum^k_{i=1} b_i$.
+
+Let $m = \lceil \frac{k}{4} \rceil, N = n - 2m$ and
+$Y = \sum^m_{j=2} b'_j$ where $b'_1, \ldots, b'_m$ are auxiliary variables.
+Note that the $j$ index starts at 2.
+Then:
+
+\begin{align}
+b_1 \ldots b_k &= \min_{b'_1, \ldots b'_m} \frac{1}{2} \left( X - Nb'_1 - 2Y \right)
+\left( X - Nb'_1 - 2Y - 1 \right)
+\end{align}
+
+\costsec
+
+$\lceil \frac{k}{4} \rceil$ auxiliary qubits per positive monomial.
+
+\prossec
+\begin{itemize}
+\item Smallest number of auxiliary coefficients that scales linearly with $k$.
+\item Smaller coefficients than the logarithmic reduction.
+\end{itemize}
+
+\conssec
+\begin{itemize}
+\item Introduces many non-submodular terms.
+\end{itemize}
+
+\examplesec
+
+Consider $k=4$, so that $m=1$, $N = 2$.
+Then:
+\begin{eqnarray}
+b_1 b_2 b_3 b_4 = \min_{b'} \frac{1}{2}
+\left( b_1 + b_2 + b_3 + b_4 - 2b'_1 \right)
+\left( b_1 + b_2 + b_3 + b_4 - 2b'_1 - 1 \right)
+\end{eqnarray}
+
+\refsec
+\begin{itemize}
+\item Original paper: \cite{Boros2018QuadratizationsOS}.
+\end{itemize}
+
+\newpage
+
+\subsection{Logarithmic Positive Monomial Reduction}
+
+\summarysec
+
+Suppose we have a monomial $b_1b_2b_3 \ldots b_k$.
+Pick $n$ minimal such that $k < 2^{n+1}$ and let $N = 2^{n+1} - k$.
+
+For convenience, let $X = \sum^k_{i=1} b_i$.
+
+\begin{align}
+b_1 \ldots b_k &= \min_{b'_1, \ldots b'_n} \frac{1}{2} \left( N + X - \sum^n_{i=1} 2^i b'_i \right)
+\left( N + X - \sum^n_{i=1} 2^i b'_i - 1 \right)
+\end{align}
+
+\costsec
+
+$\lceil \log k \rceil  - 1$ auxiliary qubits per positive monomial.
+
+\prossec
+\begin{itemize}
+\item Logarithmic number of auxiliary variables.
+\end{itemize}
+
+\conssec
+\begin{itemize}
+\item Introduces many non-submodular terms.
+\end{itemize}
+
+\examplesec
+
+Consider $k=4$, so that $n=2$, $N = 4$.
+Then:
+\begin{eqnarray}
+b_1 b_2 b_3 b_4 = \min_{b'_1, b'_2} \frac{1}{2}
+\left( 4 + b_1 + b_2 + b_3 + b_4 - b'_1 - 2b'_2 \right)
+\left( 3 + b_1 + b_2 + b_3 + b_4 - b'_1 - 2b'_2 \right)
+\end{eqnarray}
+
+\refsec
+\begin{itemize}
+\item Original paper: \cite{Boros2018QuadratizationsOS}.
 \end{itemize}
 
 \newpage
@@ -871,6 +965,7 @@ The first expression is highly non-submodular while the second is entirely submo
 \item Original paper: \cite{Ishikawa2011}.
 \end{itemize}
 
+\newpage
 \subsection{Symmetry Based Mappings}
 
 \summarysec
@@ -940,6 +1035,40 @@ H_{2-\rm{local}}=2\,b_{a_1}-2\,b_{a_2}+2\,b_{a_3}-2\,b_{a_4}+ \lambda H_{4-\rm{c
 \item Paper on max-k-sat mapping: \cite{Chancellor2016}
 \item Talk including use in quantum simulation: \cite{Chancellor2016a}
 \end{itemize}
+
+\subsection{Another Cubic Reduction}
+
+\summarysec
+\begin{align}
+-b_{1}b_{2}b_{3}&= \min_{b_a} b_a \left( -b_1 + b_2 + b_3  \right) -b_1b_2 - b_1b_3 + b_1 
+\end{align}
+
+\costsec
+
+1 auxiliary variable per negative cubic term.
+
+\prossec
+\begin{itemize}
+\item Asymmetric which allows more flexibility in cancelling with other quadratics.
+\end{itemize}
+
+\conssec
+\begin{itemize}
+\item Only works for negative cubic monomials.
+\end{itemize}
+
+\examplesec
+\begin{eqnarray}
+- b_{1}b_{2}b_{3} + b_1 b_3 - b_2 &= \min_{b_a} \left( b_a-b_{1}b_a-b_{3}b_a+b_{2}b_a+2b_{1}b_{3} \right) - b_2
+\end{eqnarray}
+
+\refsec
+\begin{itemize}
+\item Discussion: \cite{Ishikawa2011}, \cite{Kahl2011}.
+\end{itemize}
+
+\newpage
+
 
 \section{Methods that introduce auxiliary variables to quadratize MULTIPLE terms with the SAME auxiliaries}
 
@@ -1348,40 +1477,6 @@ The terms on the first line are all to enforce the relationship between a variab
 
 \newpage
 
-\subsection{Another Cubic Reduction}
-
-\summarysec
-
-
-\begin{align}
--b_{1}b_{2}b_{3}&= \min_{b_a} b_a \left( -b_1 + b_2 + b_3  \right) -b_1b_2 - b_1b_3 + b_1 
-\end{align}
-
-\costsec
-
-1 auxiliary variable per negative cubic term.
-
-\prossec
-\begin{itemize}
-\item Asymmetric which allows more flexibility in cancelling with other quadratics.
-\end{itemize}
-
-\conssec
-\begin{itemize}
-\item Only works for negative cubic monomials.
-\end{itemize}
-
-\examplesec
-\begin{eqnarray}
-b_{1}b_{2}b_{3} + b_1 b_3 - b_2 &= \min_{b_a} \left( b_a-b_{1}b_a-b_{3}b_a+b_{2}b_a+2b_{1}b_{3} \right) - b_2
-\end{eqnarray}
-
-\refsec
-\begin{itemize}
-\item \citep{Ishikawa2011}, \citep{Kahl2017}.
-\end{itemize}
-
-\newpage
 
 \part{\underline{{\normalsize Hamiltonians quadratic in $z$ and linear in $x$ (Transverse Field Ising Hamiltonians)}}\label{partTransverseIsing}}
 
