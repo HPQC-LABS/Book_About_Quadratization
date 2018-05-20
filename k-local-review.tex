@@ -272,7 +272,7 @@ We can then substitute high-order terms using the low-order terms of the deducti
 \costsec
 \begin{itemize}
 \item $0$ auxiliary variables needed.%  Given a deduction, the reduction time is proportional to the number of terms in the Hamiltonian and is negligible. (but this is true of all the other reducs too)
-\item To find every possible $m$-variable deduction for $n$ total variables would involve $3^n - 2^n -1$ evaluations of the objective function, whereas $2^n$ evaluations is enough to solve the entire problem. We therefore choose $m \lll n$.
+\item To solve every possible $m$-variable deduction for $n$ total variables would involve $\binom{n}{m} 2^m$ evaluations of the objective function, whereas $2^n$ evaluations is enough to solve the entire problem. We therefore choose $m \lll n$.
 %The computational cost of the search for deductions is difficult to estimate.
 %The approximate worst-case complexity is $\mathcal{O}(n^{d+1}2^{m})$ where $m$ is the number of variables in a 'small' problem, $n$ is the total number of variables and $d$ is the maximum degree of deductions we are searching for.
 %We suggest $10 \le m \le 20$, so that a small problem involves checking roughly $1,000$ to $1,000,000$ states, and $d=2$.
