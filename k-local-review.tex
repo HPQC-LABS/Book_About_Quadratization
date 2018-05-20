@@ -613,7 +613,8 @@ with $a=1$.
 
 \refsec
 \begin{itemize}
-\item Originally presented for cubic terms by Kolmogorov and Zabih in 2004 \cite{Kolmogorov2004}. Generalized to arbitrary order by Freedman and Drineas in 2005: \cite{Freedman2005}.
+\item 2004: Kolmogorov and Zabih presented this for cubic terms \cite{Kolmogorov2004}. 
+\item 2005: Generalized to arbitrary order by Freedman and Drineas: \cite{Freedman2005}.
 \item Discussion: \cite{Ishikawa2011}, \cite{Anthony2015}.
 \end{itemize}
 
@@ -673,7 +674,7 @@ b_{1}b_{2}b_{3}b_{4} & \mapsto & b_{2}b_{3}b_{4}-\bar{b}_{1}b_{2}b_{3}b_{4}\\
 
 \summarysec
 
-This method rewrites a positive monomial using symmetric polynomials, so all possible quadratic terms are produced and they are all non-submodular: 
+This method re-writes a positive monomial using symmetric polynomials, so all possible quadratic terms are produced and they are all non-submodular: 
 \begin{equation}
 b_{1}...b_{k} = \min_{b_{a_1}, \ldots, b_{a_{n_k}}} \left( \sum_{i=1}^{n_{k}}b_{a_{i}}\left(c_{i,d}\left(-\sum_{j=1}^{k}b_{j}+2i\right)-1\right)+\sum_{i<j}b_{i}b_{j} \right)
 \end{equation}
@@ -716,9 +717,7 @@ b_{1}b_{2}b_{3}b_{4} & = & \min_{b_a}(3-2b_{1}-2b_{2}-2b_{3}-2b_{4})b_a+b_{1}b_{
 
 \summarysec
 
-This method can also be used to rewrite positive  or negative cubic terms in terms of 6 quadratic terms.
-
-The identity is given by:
+This method can be used to re-write positive  or negative cubic terms in terms of 6 quadratic terms.  The identity is given by:
 \begin{align}
 b_{1}b_{2}b_{3} & \rightarrow 1  - \left( b_a + b_1 + b_2 + b_3 \right) + b_a \left( b_1 + b_2 + b_3 \right) + b_1 b_2 + b_1 b_3 + b_2 b_3
 \end{align}
@@ -755,7 +754,7 @@ b_{1}b_{2}b_{3} & \rightarrow 1  - \left( b_a + b_1 + b_2 + b_3 \right) + b_a \l
 The formula is almost the same as in the version in terms of $b$, but with a factor of 2, a change of sign for the linear terms, and a slight change in the constant term:
 
 \begin{align}
-\pm z_1z_2z_3 &= 3 \pm \left( z_1 +  z_2 + z_3 + z_a \right) + 2z_a \left(z_1 + z_2 +z_3) +  z_1z_2 + z_1z_3 + z_2z_3 \right).
+\pm z_1z_2z_3 &= 3 \pm \left( z_1 +  z_2 + z_3 + z_a \right) + 2z_a \left(z_1 + z_2 +z_3\right) +  z_1z_2 + z_1z_3 + z_2z_3.
 \end{align}
 
 \costsec
@@ -766,17 +765,21 @@ The formula is almost the same as in the version in terms of $b$, but with a fac
 \prossec
 \begin{itemize}
 \item Works on positive or negative monomials.
+% natural transmon implementation
+% chain-like structure means that long range connectivity not required.
 \item Reproduces the full spectrum.
 \end{itemize}
 
 \conssec
 \begin{itemize}
 \item Introduces all 6 possible non-submodular quadratic terms.
+% not very symmetric
 \end{itemize}
 
 \refsec
 \begin{itemize}
-\item Original paper: \cite{Chancellor2017}.
+\item 31 March 2016 published by Chancellor, Zohren, and Warburton without the constant term: \cite{Chancellor2016b}.
+\item 8 April 2016 published independently by Leib, Zoller, and Lechner without the constant term \cite{Leib2016a,Leib2016}.
 \end{itemize}
 
 \newpage
