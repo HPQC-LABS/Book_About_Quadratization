@@ -613,8 +613,8 @@ with $a=1$.
 
 \refsec
 \begin{itemize}
-\item 2004: Kolmogorov and Zabih presented this for cubic terms \cite{Kolmogorov2004}. 
-\item 2005: Generalized to arbitrary order by Freedman and Drineas: \cite{Freedman2005}.
+\item 2004: Kolmogorov and Zabih presented this for cubic terms \cite{Kolmogorov2004}.
+\item 2005: Generalized to arbitrary order by Freedman and Drineas \cite{Freedman2005}.
 \item Discussion: \cite{Ishikawa2011}, \cite{Anthony2015}.
 \end{itemize}
 
@@ -717,13 +717,13 @@ b_{1}b_{2}b_{3}b_{4} & = & \min_{b_a}(3-2b_{1}-2b_{2}-2b_{3}-2b_{4})b_a+b_{1}b_{
 
 \summarysec
 
-This method can be used to re-write positive  or negative cubic terms in terms of 6 quadratic terms.  The identity is given by:
+This method can be used to re-write positive or negative cubic terms in terms of 6 quadratic terms.
+The identity is given by:
 \begin{align}
 b_{1}b_{2}b_{3} & \rightarrow 1  - \left( b_a + b_1 + b_2 + b_3 \right) + b_a \left( b_1 + b_2 + b_3 \right) + b_1 b_2 + b_1 b_3 + b_2 b_3
 \end{align}
 
 \costsec
-
 \begin{itemize}
 \item 1 auxiliary variable per positive or negative cubic term.
 \end{itemize}
@@ -754,7 +754,7 @@ b_{1}b_{2}b_{3} & \rightarrow 1  - \left( b_a + b_1 + b_2 + b_3 \right) + b_a \l
 The formula is almost the same as in the version in terms of $b$, but with a factor of 2, a change of sign for the linear terms, and a slight change in the constant term:
 
 \begin{align}
-\pm z_1z_2z_3 &= 3 \pm \left( z_1 +  z_2 + z_3 + z_a \right) + 2z_a \left(z_1 + z_2 +z_3\right) +  z_1z_2 + z_1z_3 + z_2z_3.
+\pm z_1z_2z_3 &= 3 \pm \left( z_1 +  z_2 + z_3 + z_a \right) + 2z_a \left(z_1 + z_2 +z_3 \right) +  z_1z_2 + z_1z_3 + z_2z_3.
 \end{align}
 
 \costsec
@@ -765,15 +765,12 @@ The formula is almost the same as in the version in terms of $b$, but with a fac
 \prossec
 \begin{itemize}
 \item Works on positive or negative monomials.
-% natural transmon implementation
-% chain-like structure means that long range connectivity not required.
 \item Reproduces the full spectrum.
 \end{itemize}
 
 \conssec
 \begin{itemize}
 \item Introduces all 6 possible non-submodular quadratic terms.
-% not very symmetric
 \end{itemize}
 
 \refsec
@@ -812,6 +809,11 @@ b_{1}b_{2}b_{3}&= \min_{b_a} \left( b_a-b_{2}b_a-b_{3}b_a+b_{1}b_a+b_{2}b_{3} \r
 \begin{itemize}
 \item Only been shown to work for cubics.
 \end{itemize}
+
+\examplesec
+\begin{eqnarray}
+b_{1}b_{2}b_{3} + b_1 b_3 - b_2 &= \min_{b_a} \left( b_a-b_{1}b_a-b_{3}b_a+b_{2}b_a+2b_{1}b_{3} \right) - b_2
+\end{eqnarray}
 
 \refsec
 \begin{itemize}
@@ -1343,6 +1345,41 @@ The terms on the first line are all to enforce the relationship between a variab
 %
 %Should look at ORI graph in \cite{Gallagher2011}
 
+
+\newpage
+
+\subsection{Another Cubic Reduction}
+
+\summarysec
+
+
+\begin{align}
+-b_{1}b_{2}b_{3}&= \min_{b_a} b_a \left( -b_1 + b_2 + b_3  \right) -b_1b_2 - b_1b_3 + b_1 
+\end{align}
+
+\costsec
+
+1 auxiliary variable per negative cubic term.
+
+\prossec
+\begin{itemize}
+\item Asymmetric which allows more flexibility in cancelling with other quadratics.
+\end{itemize}
+
+\conssec
+\begin{itemize}
+\item Only works for negative cubic monomials.
+\end{itemize}
+
+\examplesec
+\begin{eqnarray}
+b_{1}b_{2}b_{3} + b_1 b_3 - b_2 &= \min_{b_a} \left( b_a-b_{1}b_a-b_{3}b_a+b_{2}b_a+2b_{1}b_{3} \right) - b_2
+\end{eqnarray}
+
+\refsec
+\begin{itemize}
+\item \citep{Ishikawa2011}, \citep{Kahl2017}.
+\end{itemize}
 
 \newpage
 
