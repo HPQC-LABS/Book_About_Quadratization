@@ -1,0 +1,734 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass revtex4-1
+\begin_preamble
+\usepackage{microtype}
+\usepackage{xspace}
+\usepackage{amsfonts}
+\usepackage{palatino}
+\usepackage{MnSymbol}
+\usepackage{bbm}
+%\usepackage{hyperref}
+%\usepackage[hyphenbreaks]{breakurl1}
+\usepackage{url}
+\usepackage{ragged2e}
+\edef\UrlBreaks{\do\-\UrlBreaks}% after loading url or hyperref
+\usepackage{accents}% needed for \underbar that's same as \bar (\underaccent)
+\usepackage{microtype}
+
+
+
+
+\newcommand*{\mathcolor}{}
+\def\mathcolor#1#{\mathcoloraux{#1}}
+\newcommand*{\mathcoloraux}[3]{%
+  \protect\leavevmode
+  \begingroup
+    \color#1{#2}#3%
+  \endgroup
+}
+%%% adding some commands to comment 
+%Some shortcuts added for edits
+%Some shortcuts added for edits
+% \usepackage{ulem}
+\definecolor{dred}{rgb}{.8,0.2,.2}
+\definecolor{ddred}{rgb}{.8,0.5,.5}
+\definecolor{dblue}{rgb}{.2,0.2,.8}
+% suggested change
+\newcommand{\add}[1]{\textcolor{dred}{*#1*}} 
+% \usepackage{ulem}
+\newcommand{\out}[1]{\textcolor{ddred}{\textbf{[}#1\textbf{]}}}
+% comment or remark
+%\newcommand{\yo}[1]{\textcolor{dblue}{\textbf{[}#1\textbf{]}}}
+% \newcommand{\todo}[1]{\textbf{\underline{\textcolor{dblue}{\textbf{[}#1\textbf{]}}}}}
+%\newcommand{\jb}[1]{\textcolor{dblue}{\textbf{[}JB: #1\textbf{]}}}
+
+\newcommand{\yo}[1]{\todo{{\textbf{[}JB: #1\textbf{]}}}}
+\newcommand{\jb}[1]{\todo[inline]{{\textbf{[}JB: #1\textbf{]}}}}
+%%%%%%%%%%
+
+
+
+%% Set space of itemize environment
+\usepackage{enumitem}% Used for setting height of itemize environments
+\setlist[itemize]{topsep=0pt}%topsep=0pt
+
+
+% Bookmarks in PDF (navigation pane)
+\usepackage{bookmark}
+
+
+\newcommand{\hi}{$H_{\rm init}$\xspace}
+\newcommand{\hf}{$H_{\rm final}$\xspace}
+
+%% Set formatting of headers
+\newcommand{\secspace}{\vspace{2mm}}
+
+\newcommand{\summarysec}{\secspace\emph{\textbf{Summary}}}
+\newcommand{\prossec}{\secspace\emph{\textbf{Pros}}}
+\newcommand{\conssec}{\secspace\emph{\textbf{Cons}}}
+\newcommand{\costsec}{\secspace\emph{\textbf{Cost}}}
+\newcommand{\examplesec}{\secspace\emph{\textbf{Example}}}
+\newcommand{\refsec}{\secspace\emph{\textbf{Bibliography}}}
+
+
+%\setmathfont[version=cambria]{Cambria Math}
+\usepackage{babel}
+\end_preamble
+\options notitlepage,showpacs,preprintnumbers,amsmath,amssymb,aps,nofootinbib
+\use_default_options false
+\begin_modules
+algorithm2e
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding iso8859-15
+\fontencoding T1
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "eulervm" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 12
+\spacing single
+\use_hyperref true
+\pdf_bookmarks false
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks true
+\pdf_backref section
+\pdf_pdfusetitle false
+\pdf_quoted_options "linkcolor=black,urlcolor=black,bookmarksopen=true"
+\papersize default
+\use_geometry false
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+More Reductions
+\end_layout
+
+\begin_layout Author
+Nike Dattani
+\end_layout
+
+\begin_layout Author Email
+
+n.dattani@cfa.harvard.edu
+\end_layout
+
+\begin_layout Affiliation
+Harvard-Smithsonian Center for Astrophysics
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Theorem 4.1 of Anthony-Boros-Crama-Gruber (ABCG)
+\end_layout
+
+\begin_layout Standard
+Any symmetric fuction can be quadratized with 
+\begin_inset Formula $n-2$
+\end_inset
+
+ auxiliaries, where 
+\begin_inset Formula $\alpha_{i}$
+\end_inset
+
+ comes from Corollary 2.3: 
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+\begin_inset Formula 
+\begin{align}
+f\left(b_{1},b_{2},\ldots,b_{n}\right) & \rightarrow-\alpha_{0}-\alpha_{0}\sum_{i}b_{i}+2a_{2}\sum_{ij}b_{i}b_{j}+\\
+ & 2\sum_{2i-1}\left(\alpha_{2i-1}-{\rm min}\left(\alpha_{2j-1}\right)\right)b_{a_{2i-1}}\left(2i-\frac{3}{2}-\sum_{j}b_{j}\right)+\\
+ & 2\sum_{2i}\left(\alpha_{2i}-{\rm min}\left(\alpha_{2j}\right)\right)b_{a_{2i}}\left(2i-\frac{1}{2}-\sum_{j}b_{j}\right)\\
+\alpha_{i} & =-4\sum_{j=0}^{i}\left(-1\right)^{i-j}f(j)-f(i-1)+3f(i)
+\end{align}
+
+\end_inset
+
+
+\size default
+Alternatively:
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+\begin_inset Formula 
+\begin{align}
+f\left(b_{1},b_{2},\ldots,b_{n}\right) & \rightarrow-\alpha_{0}-\alpha_{0}\sum_{i}b_{i}+a_{2}\sum_{ij}b_{i}b_{j}+2\sum_{i}\left(\alpha_{i}-c\right)b_{a_{i}}\left(2i-\frac{1}{2}-\sum_{j}b_{j}\right)\\
+c & =\begin{cases}
+{\rm min}\left(\alpha_{2j}\right) & ,i\in\text{even}\\
+{\rm min}\left(\alpha_{2j-1}\right) & ,i\in\text{odd}
+\end{cases}\\
+a_{2} & =\text{has to be obtained from page 12 of the paper.}
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\color red
+They say this is linear in the auxiliary variables, but it doesn't seem
+ to be, because we have 
+\begin_inset Formula $b_{a_{i}}b_{j}$
+\end_inset
+
+ terms where 
+\begin_inset Formula $b_{a_{i}}$
+\end_inset
+
+ are auxiliaries.
+\end_layout
+
+\begin_layout Standard
+Pro: quadratization symmetric in all non-auxiliary variables, which isn't
+ true for all quadratizations of symmetric functions.
+ Reproduces the full spectrum.
+\end_layout
+
+\begin_layout Standard
+Con: all quadratic terms of the non-auxiliary variables, are non-submodular.
+ Also very complicated and uses more auxiliaris than simlper methods.
+\end_layout
+
+\begin_layout Section
+Unpublished work of Alexander Fix
+\end_layout
+
+\begin_layout Standard
+Any symmetric fuction can be quadratized with 
+\begin_inset Formula $n-1$
+\end_inset
+
+ auxiliaries.
+ Add a multiple of 
+\begin_inset Formula $E(\sum b_{r})$
+\end_inset
+
+ to each term of Corollary 2.4 of the above paper.
+ 
+\end_layout
+
+\begin_layout Section
+Asymmetric reduction for negative monomials of arbitrary 
+\begin_inset Formula $k$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+\begin_inset Formula 
+\begin{align}
+-b_{1}b_{2}\ldots b_{k} & \rightarrow(k-1)b_{k}b_{a}-\sum_{i}b_{i}(b_{a}+b_{k}-1)\\
+-b_{1}b_{2}\ldots b_{k} & \rightarrow-\sum_{i}b_{i}-\sum_{i}b_{i}b_{k}-\sum_{i}b_{i}b_{a}+(k-1)b_{k}b_{a}
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Pro: only 1 auxiliary to quadratize k degree term.
+ Only one non-submodular term (and it's quadratic).
+ Reproduces the full spectrum.
+\end_layout
+
+\begin_layout Standard
+Con: Turns symmetric into non-symmetric (but only the 
+\begin_inset Formula $b_{k}$
+\end_inset
+
+ is asymmetric).
+\end_layout
+
+\begin_layout Section
+\begin_inset Quotes eld
+\end_inset
+
+A related paper by the present authors [1] gives a complete characterization
+ of all the quadratizations of negative monomials involving one auxiliary
+ variable
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Another reduction for negative monomials of arbitrary 
+\begin_inset Formula $k$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+\begin_inset Formula 
+\begin{align}
+-b_{1}b_{2}\ldots b_{k} & \rightarrow2b_{a}\left(k-\frac{1}{2}-\sum_{i}b_{i}\right)\\
+-b_{1}b_{2}\ldots b_{k} & \rightarrow\left(2k-1\right)b_{a}-2\sum_{i}b_{i}b_{a}
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Pro: only 1 auxiliary to quadratize k degree term.
+ Only one non-submodular term (and it's linear).
+ Symmetric with respect to all non-auxiliary variables.
+ Reproduces the full spectrum.
+\end_layout
+
+\begin_layout Standard
+Con: Coefficients of quadratic terms are twice the size of in the 
+\begin_inset Quotes eld
+\end_inset
+
+standard
+\begin_inset Quotes erd
+\end_inset
+
+ quadratization for negative monomials, and roughly twice the size for the
+ linear term.
+\end_layout
+
+\begin_layout Section
+ABCG version of Ishikawa:
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+\begin_inset Formula 
+\begin{align}
+b_{1}b_{2}\ldots b_{k} & \rightarrow\sum_{i}b_{i}+\sum_{ij}b_{i}b_{j}+\sum_{2i-1}b_{a_{2i-1}}\left(4i-3-\sum_{j}b_{j}\right)\\
+b_{1}b_{2}\ldots b_{k} & \rightarrow\sum_{i}b_{i}+\left(4i-3\right)\sum_{2i-1}b_{a_{2i-1}}+\sum_{ij}b_{i}b_{j}-\sum_{2i-1,j}b_{j}b_{a_{2i-1}}
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Pro.
+ Same number of auxiliaries as Ishikawa.
+ Reproduces the full spectrum.
+\end_layout
+
+\begin_layout Standard
+Con.
+ Only works for odd k, but when k is even we can use Ishikawa, so no big
+ loss.
+\end_layout
+
+\begin_layout Section
+Another ABCG version of Ishikawa:
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+\begin_inset Formula 
+\begin{align}
+b_{1}b_{2}\ldots b_{k} & \rightarrow\prod_{i=1}^{k-1}b_{i}-\prod_{i=1}^{k-1}b_{i}(1-b_{k})
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now quadratize the first term using Ishikawa, and use a negative monomial
+ method for the second term.
+\end_layout
+
+\begin_layout Section
+Corollary 4.4 of ABCG
+\end_layout
+
+\begin_layout Section
+Corollary 4.5 of ABCG
+\end_layout
+
+\begin_layout Section
+Quadratization of 
+\begin_inset Quotes eld
+\end_inset
+
+parity
+\begin_inset Quotes erd
+\end_inset
+
+ function on page 17 of ABCG (Theorem 4.6)
+\end_layout
+
+\begin_layout Section
+Theorem 5.6 of ABCG
+\end_layout
+
+\begin_layout Section
+Theorem 1.1 of Boros-Crama-RodriguezHector (BCR)
+\end_layout
+
+\begin_layout Standard
+For any symmetric 
+\begin_inset Formula $k$
+\end_inset
+
+-local function that is non-zero (they actually say =1) only if 
+\begin_inset Formula $\sum b_{i}=m$
+\end_inset
+
+, if 
+\begin_inset Formula $\nicefrac{n}{2}\le m\le n$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size scriptsize
+\color black
+\begin_inset Formula 
+\begin{align}
+f\left(b_{1},b_{2},\ldots,b_{n}\right) & \rightarrow\left(\sum_{i}b_{i}-\left(m-2^{\lceil\log m\rceil}\right)b_{a_{\lceil\log m\rceil+1}}-(m+1)\left(1-b_{a_{\lceil\log m\rceil+1}}\right)-\sum_{i}^{\lceil\log m\rceil}2^{i-1}b_{a_{i}}\right)^{2}\\
+ & =\left(\sum_{i}b_{i}-\left(m-2^{\lceil\log m\rceil}\right)b_{a_{\lceil\log m\rceil+1}}-(m+1)+(m+1)b_{a_{\lceil\log m\rceil+1}}-\sum_{i}^{\lceil\log m\rceil}2^{i-1}b_{a_{i}}\right)^{2}\\
+ & =\left(-(m+1)+\sum_{i}b_{i}-\left(2m-2^{\lceil\log m\rceil}+1\right)b_{a_{\lceil\log m\rceil+1}}-\sum_{i}^{\lceil\log m\rceil}2^{i-1}b_{a_{i}}\right)^{2}\\
+ & =(m+1)^{2}-2(m+1)\sum_{i}b_{i}+2(m+1)\left(2m-2^{\lceil\log m\rceil}+1\right)b_{a_{\lceil\log m\rceil+1}}+2(m+1)\sum_{i}^{\lceil\log m\rceil}2^{i-1}b_{a_{i}}\\
+ & +\sum_{ij}b_{i}b_{j}-2\sum_{i}\left(2m-2^{\lceil\log m\rceil}+1\right)b_{i}b_{a_{\lceil\log m\rceil+1}}-2\sum_{i}\sum_{j}^{\lceil\log m\rceil}2^{i-1}b_{i}b_{a_{j}}+\sum_{i,j}^{\lceil\log m\rceil}2^{i+j-2}b_{a_{i}}b_{a_{j}}\\
+ & =\alpha^{I}+\alpha^{b}\sum_{i}b_{i}+\alpha^{b_{a,1}}\sum_{i}^{\lceil\log m\rceil}b_{a_{i}}+\alpha^{b_{a,2}}b_{a_{\lceil\log m\rceil+1}}+\alpha^{bb}\sum_{ij}b_{i}b_{j}+\alpha^{bb_{a,1}}\sum_{i}\sum_{j}^{\lceil\log m\rceil}b_{i}b_{a_{j}}\\
+ & +\alpha^{bb_{a,2}}\sum_{i}b_{i}b_{a_{\lceil\log m\rceil+1}}+\alpha^{b_{a}b_{a}}\sum_{i,j}^{\lceil\log m\rceil}b_{a_{i}}b_{a_{j}}
+\end{align}
+
+\end_inset
+
+
+\size default
+\color inherit
+The number of auxiliary varibales is 
+\begin_inset Formula $\lceil\log m\rceil+1.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\begin{pmatrix}\alpha^{I} & \alpha^{bb}\\
+\alpha^{b} & \alpha^{bb_{a,1}}\\
+\alpha^{b_{a,1}} & \alpha^{bb_{a,2}}\\
+\alpha^{b_{a,2}} & \alpha^{b_{a}b_{a}}
+\end{pmatrix}=\begin{pmatrix}(m+1)^{2} & 1\\
+-2(m+1) & -2^{i}\\
+2(m+1) & -2\left(2m-2^{\lceil\log m\rceil}+1\right)\\
+2(m+1)\left(2m-2^{\lceil\log m\rceil}+1\right) & 2^{i+j-2}
+\end{pmatrix}.
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Theorem 1.2 of Boros-Crama-RodriguezHector (BCR)
+\end_layout
+
+\begin_layout Standard
+For any symmetric 
+\begin_inset Formula $k$
+\end_inset
+
+-local function that is non-zero (they actually say =1) only if 
+\begin_inset Formula $\sum b_{i}=m$
+\end_inset
+
+, if 
+\begin_inset Formula $0\le m\le\nicefrac{n}{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\size scriptsize
+\color black
+\begin_inset Formula 
+\begin{align}
+f\left(b_{1},b_{2},\ldots,b_{n}\right) & \rightarrow\left(n-\sum_{i}b_{i}-\left(n-m-2^{\lceil\log(n-m)\rceil}\right)b_{a_{\lceil\log(n-m)\rceil+1}}-(n-m+1)\left(1-b_{a_{\lceil\log(n-m)\rceil+1}}\right)-\sum_{i}^{\lceil\log(n-m)\rceil}2^{i-1}b_{a_{i}}\right)^{2}\\
+ & =\left(n-\sum_{i}b_{i}-\left(n-m-2^{\lceil\log(n-m)\rceil}\right)b_{a_{\lceil\log(n-m)\rceil+1}}-(n-m+1)+(n-m+1)b_{a_{\lceil\log(n-m)\rceil+1}}-\sum_{i}^{\lceil\log(n-m)\rceil}2^{i-1}b_{a_{i}}\right)^{2}\\
+ & =\left(\left(m-1\right)-\sum_{i}b_{i}-\left(2(n-m)-2^{\lceil\log(n-m)\rceil}+1\right)b_{a_{\lceil\log(n-m)\rceil+1}}-\sum_{i}^{\lceil\log(n-m)\rceil}2^{i-1}b_{a_{i}}\right)^{2}
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The number of auxiliary varibales is 
+\begin_inset Formula $\lceil\log(n-m)\rceil+1.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\begin{pmatrix}\alpha^{I} & \alpha^{bb}\\
+\alpha^{b} & \alpha^{bb_{a,1}}\\
+\alpha^{b_{a,1}} & \alpha^{bb_{a,2}}\\
+\alpha^{b_{a,2}} & \alpha^{b_{a}b_{a}}
+\end{pmatrix}=\begin{pmatrix}\\
+\\
+\\
+\\
+\end{pmatrix}.
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Corollary 1 of BCR
+\end_layout
+
+\begin_layout Standard
+transformation not explicitly given, but the function can be more general
+ than in Theorem 1, but requires a factor of 
+\begin_inset Formula $\mu$
+\end_inset
+
+ more variables.
+ 
+\end_layout
+
+\begin_layout Section
+Theorem 2 of BCR
+\end_layout
+
+\begin_layout Standard
+Once again requires typing out a nasty function [should really be done in
+ mathematica rather than by hand)
+\end_layout
+
+\begin_layout Section
+Theorem 4 of BCR
+\end_layout
+
+\begin_layout Standard
+This is a special case of Theorem 1, for the specific function 
+\begin_inset Formula $f=b_{1}b_{2}\ldots b_{k}$
+\end_inset
+
+.
+ For som 
+\begin_inset Formula $p$
+\end_inset
+
+ such that 
+\begin_inset Formula $k\le2^{p}$
+\end_inset
+
+, we have:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+b_{1}b_{2}\ldots b_{k} & \rightarrow\left(2^{p}-k+\sum_{i}b_{i}-\sum_{i}2^{i-1}b_{a_{i}}\right)^{2}\\
+ & =\left(2^{p}-k\right)^{2}+2\left(2^{p}-k\right)\sum_{i}b_{i}-2\left(2^{p}-k\right)\sum_{i}2^{i-1}b_{a_{i}}+\sum_{ij}b_{i}b_{j}-\sum_{ij}2^{j-1}b_{i}b_{a_{j}}+\sum_{ij}2^{i+-2}b_{a_{i}}b_{a_{j}}\\
+ & =\alpha^{I}+\alpha^{b}\sum_{i}b_{i}+\alpha^{b_{a_{i}}}\sum_{i}2^{i-1}b_{a_{i}}+\alpha^{bb}\sum_{ij}b_{i}b_{j}+\alpha^{bb_{a}}\sum_{ij}b_{i}b_{a_{j}}+\alpha^{b_{a_{i}}b_{a_{j}}}b_{a_{i}}b_{a_{j}}
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\begin{pmatrix}\alpha^{I} & \alpha^{bb}\\
+\alpha^{b} & \alpha^{bb_{a}}\\
+\alpha^{b_{a}} & \alpha^{b_{a}b_{a}}
+\end{pmatrix}=\begin{pmatrix}\left(2^{p}-k\right)^{2} & 1\\
+2\left(2^{p}-k\right) & 2^{j-1}\\
+-2\left(2^{p}-k\right) & 2^{i+-2}
+\end{pmatrix}.
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Pro: only requires 
+\begin_inset Formula $\log k$
+\end_inset
+
+ auxiliaries.
+\end_layout
+
+\begin_layout Standard
+Con: All terms non-submodular except for the term linear in auxiliaries.
+\end_layout
+
+\begin_layout Section
+Theorem 5 of BCR
+\end_layout
+
+\begin_layout Standard
+(already written up by Richard)
+\end_layout
+
+\begin_layout Standard
+Pro: only requires 
+\begin_inset Formula $\log k$
+\end_inset
+
+-1 auxiliaries.
+\end_layout
+
+\begin_layout Section
+Theorem 7 of BCR
+\end_layout
+
+\begin_layout Standard
+(already written up by Richard)
+\end_layout
+
+\begin_layout Section
+Theorem 9 of BCR
+\end_layout
+
+\begin_layout Standard
+For the symmetric function which is a function of the sum of all 
+\begin_inset Formula $n$
+\end_inset
+
+ variables, for some huge integer 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ such that 
+\begin_inset Formula $\lambda>\max(f)$
+\end_inset
+
+, we have:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+f\left(\sum b_{i}\right) & \rightarrow\sum_{ij}^{\sqrt{n+1}}f\left((i-1)\left(\lceil\sqrt{n+1}\rceil+1\right)+(j-1)\right)b_{a_{i}}b_{a_{\sqrt{n+1}+j}}+\\
+ & +\lambda\left(\left(1-\sum_{i}^{\sqrt{n+1}}b_{a_{i}}\right)^{2}+\left(1-\sum_{i}^{\sqrt{n+1}}b_{a_{\sqrt{n+1}+i}}\right)^{2}+\right.\\
+ & +\left.\left(\sum_{i}b_{i}-\left(\left(\lceil\sqrt{n+1}\rceil+1\right)\sum_{i}^{\sqrt{n+1}}(i-1)y_{a_{i}}+\sum_{i}^{\sqrt{n+1}}(i-1)b_{a_{\sqrt{n+1}+i}}\right)\right)^{2}\right)
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Theorem 10 of BCR
+\end_layout
+
+\begin_layout Standard
+Works on a generalization of 
+\begin_inset Formula $f\left(\sum b_{i}\right)$
+\end_inset
+
+ but instead we have a weighted sum.
+\end_layout
+
+\end_body
+\end_document
