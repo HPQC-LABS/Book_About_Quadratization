@@ -6,7 +6,7 @@
 %Control: page (0) single
 %Control: year (1) truncated
 %Control: production of eprint (0) enabled
-\begin{thebibliography}{35}%
+\begin{thebibliography}{41}%
 \makeatletter
 \providecommand \@ifxundefined [1]{%
  \@ifx{#1\undefined}
@@ -89,6 +89,15 @@
   }\href {http://arxiv.org/abs/1508.07190} {\ ,\ \bibinfo {pages} {5} (\bibinfo
   {year} {2015})},\ \Eprint {http://arxiv.org/abs/1508.07190}
   {arXiv:1508.07190} \BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Kolmogorov}\ and\ \citenamefont
+  {Zabih}(2004)}]{Kolmogorov2004}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {V.}~\bibnamefont
+  {Kolmogorov}}\ and\ \bibinfo {author} {\bibfnamefont {R.}~\bibnamefont
+  {Zabih}},\ }\href {\doibase 10.1109/TPAMI.2004.1262177} {\bibfield  {journal}
+  {\bibinfo  {journal} {IEEE Transactions on Pattern Analysis and Machine
+  Intelligence}\ }\textbf {\bibinfo {volume} {26}},\ \bibinfo {pages} {147}
+  (\bibinfo {year} {2004})}\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Freedman}\ and\ \citenamefont
   {Drineas}(2005)}]{Freedman2005}%
   \BibitemOpen
@@ -124,15 +133,37 @@
   }\href {http://arxiv.org/abs/1404.6538} {\  (\bibinfo {year} {2014})},\
   \Eprint {http://arxiv.org/abs/1404.6538} {arXiv:1404.6538} \BibitemShut
   {NoStop}%
-\bibitem [{\citenamefont {Kolmogorov}\ and\ \citenamefont
-  {Zabih}(2004)}]{Kolmogorov2004}%
+\bibitem [{\citenamefont {Chancellor}\ \emph
+  {et~al.}(2016{\natexlab{a}})\citenamefont {Chancellor}, \citenamefont
+  {Zohren},\ and\ \citenamefont {Warburton}}]{Chancellor2016b}%
   \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {V.}~\bibnamefont
-  {Kolmogorov}}\ and\ \bibinfo {author} {\bibfnamefont {R.}~\bibnamefont
-  {Zabih}},\ }\href {\doibase 10.1109/TPAMI.2004.1262177} {\bibfield  {journal}
-  {\bibinfo  {journal} {IEEE Transactions on Pattern Analysis and Machine
-  Intelligence}\ }\textbf {\bibinfo {volume} {26}},\ \bibinfo {pages} {147}
-  (\bibinfo {year} {2004})}\BibitemShut {NoStop}%
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {N.}~\bibnamefont
+  {Chancellor}}, \bibinfo {author} {\bibfnamefont {S.}~\bibnamefont {Zohren}},
+  \ and\ \bibinfo {author} {\bibfnamefont {P.~A.}\ \bibnamefont {Warburton}},\
+  }\href {\doibase 10.1038/s41534-017-0022-6} {\  (\bibinfo {year}
+  {2016}{\natexlab{a}}),\ 10.1038/s41534-017-0022-6},\ \Eprint
+  {http://arxiv.org/abs/1603.09521} {arXiv:1603.09521} \BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Leib}\ \emph
+  {et~al.}(2016{\natexlab{a}})\citenamefont {Leib}, \citenamefont {Zoller},\
+  and\ \citenamefont {Lechner}}]{Leib2016a}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {M.}~\bibnamefont
+  {Leib}}, \bibinfo {author} {\bibfnamefont {P.}~\bibnamefont {Zoller}}, \ and\
+  \bibinfo {author} {\bibfnamefont {W.}~\bibnamefont {Lechner}},\ }\href
+  {http://arxiv.org/abs/1604.02359} {\  (\bibinfo {year}
+  {2016}{\natexlab{a}})},\ \Eprint {http://arxiv.org/abs/1604.02359}
+  {arXiv:1604.02359} \BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Leib}\ \emph
+  {et~al.}(2016{\natexlab{b}})\citenamefont {Leib}, \citenamefont {Zoller},\
+  and\ \citenamefont {Lechner}}]{Leib2016}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {M.}~\bibnamefont
+  {Leib}}, \bibinfo {author} {\bibfnamefont {P.}~\bibnamefont {Zoller}}, \ and\
+  \bibinfo {author} {\bibfnamefont {W.}~\bibnamefont {Lechner}},\ }\href
+  {http://stacks.iop.org/2058-9565/1/i=1/a=015008} {\bibfield  {journal}
+  {\bibinfo  {journal} {Quantum Science and Technology}\ }\textbf {\bibinfo
+  {volume} {1}},\ \bibinfo {pages} {15008} (\bibinfo {year}
+  {2016}{\natexlab{b}})}\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Gallagher}\ \emph {et~al.}(2011)\citenamefont
   {Gallagher}, \citenamefont {Batra},\ and\ \citenamefont
   {Parikh}}]{Gallagher2011}%
@@ -161,9 +192,10 @@
   System}},}\ }\bibinfo {howpublished} {AQC 2016
   https://www.youtube.com/watch?v=aC-6hg{\_}h3EA} (\bibinfo {year}
   {2016})\BibitemShut {NoStop}%
-\bibitem [{\citenamefont {Chancellor}\ \emph {et~al.}(2016)\citenamefont
-  {Chancellor}, \citenamefont {Zohren}, \citenamefont {Warburton},
-  \citenamefont {Benjamin},\ and\ \citenamefont {Roberts}}]{Chancellor2016}%
+\bibitem [{\citenamefont {Chancellor}\ \emph
+  {et~al.}(2016{\natexlab{b}})\citenamefont {Chancellor}, \citenamefont
+  {Zohren}, \citenamefont {Warburton}, \citenamefont {Benjamin},\ and\
+  \citenamefont {Roberts}}]{Chancellor2016}%
   \BibitemOpen
   \bibfield  {author} {\bibinfo {author} {\bibfnamefont {N.}~\bibnamefont
   {Chancellor}}, \bibinfo {author} {\bibfnamefont {S.}~\bibnamefont {Zohren}},
@@ -171,8 +203,25 @@
   {author} {\bibfnamefont {S.}~\bibnamefont {Benjamin}}, \ and\ \bibinfo
   {author} {\bibfnamefont {S.}~\bibnamefont {Roberts}},\ }\href {\doibase
   10.1038/srep37107} {\bibfield  {journal} {\bibinfo  {journal} {Scientific
-  Reports}\ }\textbf {\bibinfo {volume} {6}} (\bibinfo {year} {2016}),\
-  10.1038/srep37107}\BibitemShut {NoStop}%
+  Reports}\ }\textbf {\bibinfo {volume} {6}} (\bibinfo {year}
+  {2016}{\natexlab{b}}),\ 10.1038/srep37107}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Kahl}\ and\ \citenamefont
+  {Strandmark}(2011)}]{Kahl2011}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibnamefont {Kahl}}\ and\ \bibinfo
+  {author} {\bibnamefont {Strandmark}},\ }\href
+  {http://www.maths.lth.se/vision/publdb/reports/pdf/kahl-strandmark-iccv-11.pdf}
+  {\bibfield  {journal} {\bibinfo  {journal} {International Conference on
+  Computer Vision}\ } (\bibinfo {year} {2011})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Boros}\ \emph {et~al.}(2018)\citenamefont {Boros},
+  \citenamefont {Crama},\ and\ \citenamefont
+  {Rodr{\'i}guez-Heck}}]{Boros2018QuadratizationsOS}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {E.}~\bibnamefont
+  {Boros}}, \bibinfo {author} {\bibfnamefont {Y.}~\bibnamefont {Crama}}, \ and\
+  \bibinfo {author} {\bibfnamefont {E.}~\bibnamefont {Rodr{\'i}guez-Heck}},\
+  }in\ \href@noop {} {\emph {\bibinfo {booktitle} {ISAIM}}}\ (\bibinfo {year}
+  {2018})\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Rosenberg}(1975)}]{Rosenberg1975}%
   \BibitemOpen
   \bibfield  {author} {\bibinfo {author} {\bibfnamefont {I.~G.}\ \bibnamefont
@@ -230,16 +279,31 @@
   {Cubitt}},\ }\href {\doibase 10.1126/science.aab3326} {\bibfield  {journal}
   {\bibinfo  {journal} {Science}\ }\textbf {\bibinfo {volume} {351}},\ \bibinfo
   {pages} {1180} (\bibinfo {year} {2016})}\BibitemShut {NoStop}%
-\bibitem [{\citenamefont {Leib}\ \emph {et~al.}(2016)\citenamefont {Leib},
-  \citenamefont {Zoller},\ and\ \citenamefont {Lechner}}]{Leib2016}%
+\bibitem [{\citenamefont {Ocko}\ and\ \citenamefont
+  {Yoshida}(2011)}]{Ocko2011}%
   \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {M.}~\bibnamefont
-  {Leib}}, \bibinfo {author} {\bibfnamefont {P.}~\bibnamefont {Zoller}}, \ and\
-  \bibinfo {author} {\bibfnamefont {W.}~\bibnamefont {Lechner}},\ }\href
-  {http://stacks.iop.org/2058-9565/1/i=1/a=015008} {\bibfield  {journal}
-  {\bibinfo  {journal} {Quantum Science and Technology}\ }\textbf {\bibinfo
-  {volume} {1}},\ \bibinfo {pages} {15008} (\bibinfo {year}
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {S.~A.}\ \bibnamefont
+  {Ocko}}\ and\ \bibinfo {author} {\bibfnamefont {B.}~\bibnamefont {Yoshida}},\
+  }\href {\doibase 10.1103/PhysRevLett.107.250502} {\bibfield  {journal}
+  {\bibinfo  {journal} {Physical Review Letters}\ }\textbf {\bibinfo {volume}
+  {107}},\ \bibinfo {pages} {250502} (\bibinfo {year} {2011})}\BibitemShut
+  {NoStop}%
+\bibitem [{\citenamefont {Subasi}\ and\ \citenamefont
+  {Jarzynski}(2016)}]{Subas2016}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Y.}~\bibnamefont
+  {Subasi}}\ and\ \bibinfo {author} {\bibfnamefont {C.}~\bibnamefont
+  {Jarzynski}},\ }\href {\doibase 10.1103/PhysRevA.94.012342} {\bibfield
+  {journal} {\bibinfo  {journal} {Physical Review A}\ }\textbf {\bibinfo
+  {volume} {94}},\ \bibinfo {pages} {012342} (\bibinfo {year}
   {2016})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Nagaj}(2010)}]{Nagaj2010}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {D.}~\bibnamefont
+  {Nagaj}},\ }\href {\doibase 10.1063/1.3384661} {\bibfield  {journal}
+  {\bibinfo  {journal} {Journal of Mathematical Physics}\ }\textbf {\bibinfo
+  {volume} {51}},\ \bibinfo {pages} {062201} (\bibinfo {year}
+  {2010})}\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Duan}\ and\ \citenamefont {Chen}(2011)}]{Duan2011}%
   \BibitemOpen
   \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Q.-H.}\ \bibnamefont
@@ -298,22 +362,6 @@
   {\doibase 10.1088/1367-2630/13/5/053039} {\bibfield  {journal} {\bibinfo
   {journal} {New Journal of Physics}\ }\textbf {\bibinfo {volume} {13}},\
   \bibinfo {pages} {053039} (\bibinfo {year} {2011})}\BibitemShut {NoStop}%
-\bibitem [{\citenamefont {Nagaj}(2010)}]{Nagaj2010}%
-  \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {D.}~\bibnamefont
-  {Nagaj}},\ }\href {\doibase 10.1063/1.3384661} {\bibfield  {journal}
-  {\bibinfo  {journal} {Journal of Mathematical Physics}\ }\textbf {\bibinfo
-  {volume} {51}},\ \bibinfo {pages} {062201} (\bibinfo {year}
-  {2010})}\BibitemShut {NoStop}%
-\bibitem [{\citenamefont {Subasi}\ and\ \citenamefont
-  {Jarzynski}(2016)}]{Subas2016}%
-  \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Y.}~\bibnamefont
-  {Subasi}}\ and\ \bibinfo {author} {\bibfnamefont {C.}~\bibnamefont
-  {Jarzynski}},\ }\href {\doibase 10.1103/PhysRevA.94.012342} {\bibfield
-  {journal} {\bibinfo  {journal} {Physical Review A}\ }\textbf {\bibinfo
-  {volume} {94}},\ \bibinfo {pages} {012342} (\bibinfo {year}
-  {2016})}\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Babbush}\ \emph {et~al.}(2013)\citenamefont
   {Babbush}, \citenamefont {O'Gorman},\ and\ \citenamefont
   {Aspuru-Guzik}}]{Babbush2013}%
@@ -370,4 +418,16 @@
   {Li}},\ }\href {\doibase 10.1126/sciadv.1601246} {\bibfield  {journal}
   {\bibinfo  {journal} {Science Advances}\ }\textbf {\bibinfo {volume} {2}}
   (\bibinfo {year} {2016}),\ 10.1126/sciadv.1601246}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Shen}\ \emph {et~al.}(2017)\citenamefont {Shen},
+  \citenamefont {Peng}, \citenamefont {Dong}, \citenamefont {Shao},\ and\
+  \citenamefont {Porikli}}]{Shen2017a}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {J.}~\bibnamefont
+  {Shen}}, \bibinfo {author} {\bibfnamefont {J.}~\bibnamefont {Peng}}, \bibinfo
+  {author} {\bibfnamefont {X.}~\bibnamefont {Dong}}, \bibinfo {author}
+  {\bibfnamefont {L.}~\bibnamefont {Shao}}, \ and\ \bibinfo {author}
+  {\bibfnamefont {F.}~\bibnamefont {Porikli}},\ }\href {\doibase
+  10.1109/TIP.2017.2722691} {\bibfield  {journal} {\bibinfo  {journal} {IEEE
+  Transactions on Image Processing}\ }\textbf {\bibinfo {volume} {26}},\
+  \bibinfo {pages} {4911} (\bibinfo {year} {2017})}\BibitemShut {NoStop}%
 \end{thebibliography}%
