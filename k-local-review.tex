@@ -566,7 +566,8 @@ Hence we have reduced our original, hard problem into 3 easy problems, requiring
 
 For a negative term $-b_{1}b_{2}...b_{k}$, introduce a single auxiliary variable $b_a$ and make the substitution:
 \begin{equation}
--b_{1}b_{2} \ldots b_{k} = \min_{b_a} \left( (k-1-\sum_i b_{i})b_a \right).
+%-b_{1}b_{2} \ldots b_{k} = \min_{b_a} \left( (k-1-\sum_i b_{i})b_a \right).
+-b_{1}b_{2} \ldots b_{k} \rightarrow \left( (k-1-\sum_i b_{i})b_a \right).
 \end{equation}
 
 \costsec
@@ -578,6 +579,7 @@ For a negative term $-b_{1}b_{2}...b_{k}$, introduce a single auxiliary variable
 \begin{itemize}
 \item All resulting quadratic terms are submodular (have negative coefficients).
 \item Can reduce arbitrary order terms with only 1 auxiliary.
+\item Reproduces the full spectrum.
 %\item Can be generalized so that one variable can be made to work for multiple terms.% (I can't find anyone saying this, but can be proven. Look at the commented out example below!)
 \end{itemize}
 
@@ -623,98 +625,6 @@ with $a=1$.
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 \subsection{Positive Term Reduction}
 
 \summarysec
@@ -722,7 +632,8 @@ with $a=1$.
 By considering the negated literals $\bar{b}_{i}=1-b_{i}$, we recursively apply the previous method to $b_{1}b_{2}\ldots b_{k}=-\bar{b}_{1}b_{2}\ldots b_{k}+b_{2}b_{3}\ldots b_{k}$.
 The final identity is:
 \begin{equation}
-b_{1}b_{2}\ldots b_{k}=\min_{b_a}\left(\sum_{i=1}^{k-2}b_{a_{i}}(k-i-1+b_{i}-\sum_{j=i+1}^{k}b_{j})\right)+b_{k-1}b_{k}
+b_{1}b_{2}\ldots b_{k}\rightarrow \left(\sum_{i=1}^{k-2}b_{a_{i}}(k-i-1+b_{i}-\sum_{j=i+1}^{k}b_{j})\right)+b_{k-1}b_{k}
+%b_{1}b_{2}\ldots b_{k}=\min_{b_a}\left(\sum_{i=1}^{k-2}b_{a_{i}}(k-i-1+b_{i}-\sum_{j=i+1}^{k}b_{j})\right)+b_{k-1}b_{k}
 \end{equation}
 
 
@@ -743,7 +654,8 @@ b_{1}b_{2}\ldots b_{k}=\min_{b_a}\left(\sum_{i=1}^{k-2}b_{a_{i}}(k-i-1+b_{i}-\su
 
 \examplesec
 \begin{eqnarray}
-b_{1}b_{2}b_{3}b_{4} & = & \min_{b_a}{b_{a_{1}}(2+b_{1}-b_{2}-b_{3}-b_{4})+b_{a_{2}}(1+b_{2}-b_{3}-b_{4})}+b_{3}b_{4}
+%b_{1}b_{2}b_{3}b_{4} & = & \min_{b_a}{b_{a_{1}}(2+b_{1}-b_{2}-b_{3}-b_{4})+b_{a_{2}}(1+b_{2}-b_{3}-b_{4})}+b_{3}b_{4}
+b_{1}b_{2}b_{3}b_{4} & \rightarrow {b_{a_{1}}(2+b_{1}-b_{2}-b_{3}-b_{4})+b_{a_{2}}(1+b_{2}-b_{3}-b_{4})}+b_{3}b_{4}
 \end{eqnarray}
 
 \refsec
@@ -771,7 +683,8 @@ b_{1}b_{2}b_{3}b_{4} & \mapsto & b_{2}b_{3}b_{4}-\bar{b}_{1}b_{2}b_{3}b_{4}\\
 
 This method re-writes a positive monomial using symmetric polynomials, so all possible quadratic terms are produced and they are all non-submodular: 
 \begin{equation}
-b_{1}...b_{k} = \min_{b_{a_1}, \ldots, b_{a_{n_k}}} \left( \sum_{i=1}^{n_{k}}b_{a_{i}}\left(c_{i,d}\left(-\sum_{j=1}^{k}b_{j}+2i\right)-1\right)+\sum_{i<j}b_{i}b_{j} \right)
+%b_{1}...b_{k} = \min_{b_{a_1}, \ldots, b_{a_{n_k}}} \left( \sum_{i=1}^{n_{k}}b_{a_{i}}\left(c_{i,d}\left(-\sum_{j=1}^{k}b_{j}+2i\right)-1\right)+\sum_{i<j}b_{i}b_{j} \right)
+b_{1}...b_{k} \rightarrow  \left( \sum_{i=1}^{n_{k}}b_{a_{i}}\left(c_{i,d}\left(-\sum_{j=1}^{k}b_{j}+2i\right)-1\right)+\sum_{i<j}b_{i}b_{j} \right)
 \end{equation}
 where $n_{k}=\left\lfloor \frac{k-1}{2}\right\rfloor $ and $c_{i,k}=\begin{cases}
 1, & i=n_{d}\text{ and }k\text{ is odd,}\\
@@ -799,7 +712,8 @@ About half as many auxiliary variables for each $k$-order term as the previous m
 
 \examplesec
 \begin{eqnarray}
-b_{1}b_{2}b_{3}b_{4} & = & \min_{b_a}(3-2b_{1}-2b_{2}-2b_{3}-2b_{4})b_a+b_{1}b_{2}+b_{1}b_{3}+b_{1}b_{4}+b_{2}b_{3}+b_{2}b_{4}+b_{3}b_{4}
+%b_{1}b_{2}b_{3}b_{4} & = & \min_{b_a}(3-2b_{1}-2b_{2}-2b_{3}-2b_{4})b_a+b_{1}b_{2}+b_{1}b_{3}+b_{1}b_{4}+b_{2}b_{3}+b_{2}b_{4}+b_{3}b_{4}
+b_{1}b_{2}b_{3}b_{4} \rightarrow (3-2b_{1}-2b_{2}-2b_{3}-2b_{4})b_a+b_{1}b_{2}+b_{1}b_{3}+b_{1}b_{4}+b_{2}b_{3}+b_{2}b_{4}+b_{3}b_{4}
 \end{eqnarray}
 
 \refsec
@@ -807,6 +721,12 @@ b_{1}b_{2}b_{3}b_{4} & = & \min_{b_a}(3-2b_{1}-2b_{2}-2b_{3}-2b_{4})b_a+b_{1}b_{
 \item Original paper and application to image denoising: \cite{Ishikawa2011}.
 \end{itemize}
 \newpage
+
+% POSSIBLY ANOTHER METHOD TO CHECK OUT.
+%% in computer vision models based on so-called ‘clique potentials’; see Kohli et al. [13, 14].
+%Here again, the objective function can be quadratized by independently han-
+%dling its symmetric constituents.
+
 
 \subsection{Positive Term Reduction}
 
