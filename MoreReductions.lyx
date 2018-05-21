@@ -426,6 +426,14 @@ Now quadratize the first term using Ishikawa, and use a negative monomial
 Corollary 4.4 of ABCG
 \end_layout
 
+\begin_layout Standard
+Need to conver []
+\begin_inset Formula $^{-}$
+\end_inset
+
+ into something more readable.
+\end_layout
+
 \begin_layout Section
 Corollary 4.5 of ABCG
 \end_layout
@@ -442,8 +450,84 @@ parity
  function on page 17 of ABCG (Theorem 4.6)
 \end_layout
 
+\begin_layout Standard
+For any 
+\begin_inset Formula $k$
+\end_inset
+
+-local function that is non-zero (they actually say =1) only if 
+\begin_inset Formula $\sum b_{i}=2m-1$
+\end_inset
+
+, we call it the 
+\begin_inset Quotes eld
+\end_inset
+
+partity function
+\begin_inset Quotes erd
+\end_inset
+
+ an it can be quadratized as follows:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+f\left(b_{1},b_{2},\ldots,b_{n}\right)\rightarrow\sum_{i}b_{i}+2\sum_{ij}b_{i}b_{j}+4\sum_{2i-1}^{n-1}b_{a_{i}}\left(2i-1-\sum_{j}b_{j}\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $m=\lfloor n/2\rfloor$
+\end_inset
+
+auxiliary variables.
+\end_layout
+
+\begin_layout Section
+Quadratization of 
+\begin_inset Quotes eld
+\end_inset
+
+parity
+\begin_inset Quotes erd
+\end_inset
+
+ function on page 17 of ABCG (Theorem 4.6) with fewer variables
+\end_layout
+
+\begin_layout Standard
+For the complement of the parity function we quadratize as follows:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+f\left(b_{1},b_{2},\ldots,b_{n}\right)\rightarrow1+2\sum_{ij}b_{i}b_{j}-\sum_{i}b_{i}+4\sum_{2i}^{n-1}b_{a_{i}}\left(i-\sum_{j}^{n}b_{j}\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $m=\lfloor\frac{n-1}{2}\rfloor$
+\end_inset
+
+auxiliary variables.
+\end_layout
+
 \begin_layout Section
 Theorem 5.6 of ABCG
+\end_layout
+
+\begin_layout Standard
+
 \end_layout
 
 \begin_layout Section
@@ -590,12 +674,44 @@ transformation not explicitly given, but the function can be more general
 \end_layout
 
 \begin_layout Section
-Theorem 2 of BCR
+Theorem 2.1 of BCR
 \end_layout
 
 \begin_layout Standard
 Once again requires typing out a nasty function [should really be done in
  mathematica rather than by hand)
+\end_layout
+
+\begin_layout Standard
+
+\size scriptsize
+\color black
+\begin_inset Formula 
+\begin{align}
+f\left(b_{1},b_{2},\ldots,b_{n}\right) & \rightarrow\frac{1}{2}\left(\sum_{i}b_{i}-\left(m-2^{c}\right)b_{a_{c+1}}-(m+1)(\left(1-b_{a_{c+1}}\right)-\sum_{i}^{c}2^{i-1}b_{a_{i}}\right)\left(\sum_{i}b_{i}-\left(m-2^{c}\right)b_{a_{c+1}}-(m+1)(\left(1-b_{a_{c+1}}\right)-\sum_{i}^{c}2^{i-1}b_{a_{i}}-1\right)
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Theorem 2.2 of BCR
+\end_layout
+
+\begin_layout Standard
+
+\size scriptsize
+\color black
+\begin_inset Formula 
+\begin{align}
+f\left(b_{1},b_{2},\ldots,b_{n}\right) & \rightarrow\frac{1}{2}\left(\left(m-1\right)-\sum_{i}b_{i}-\left(2(n-m)-2^{\lceil\log(n-m)\rceil}+1\right)b_{a_{\lceil\log(n-m)\rceil+1}}-\sum_{i}^{\lceil\log(n-m)\rceil}2^{i-1}b_{a_{i}}\right)\left(\left(m-1\right)-\sum_{i}b_{i}-\left(2(n-m)-2^{\lceil\log(n-m)\rceil}+1\right)b_{a_{\lceil\log(n-m)\rceil+1}}-\sum_{i}^{\lceil\log(n-m)\rceil}2^{i-1}b_{a_{i}}-1\right)
+\end{align}
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -682,7 +798,53 @@ Theorem 7 of BCR
 \end_layout
 
 \begin_layout Standard
-(already written up by Richard)
+
+\size scriptsize
+\color black
+\begin_inset Formula 
+\begin{align}
+b_{1}b_{2}\cdots b_{k} & \rightarrow\frac{1}{2}\left(\sum_{i}b_{i}-2\sum_{i}^{\lceil\frac{k}{4}\rceil-1}b_{a_{i}}-\left(n-\lceil\frac{k}{4}\rceil\right)b_{a_{\lceil\frac{k}{4}\rceil}}\right)\left(\sum_{i}b_{i}-2\sum_{i}^{\lceil\frac{k}{4}\rceil-1}b_{a_{i}}-\left(n-\lceil\frac{k}{4}\rceil\right)b_{a_{\lceil\frac{k}{4}\rceil}}-1\right)\\
+ & =\frac{1}{2}\left(\sum_{ij}b_{i}b_{j}-4\sum_{i}\sum_{j}^{\lceil\frac{k}{4}\rceil-1}b_{i}b_{a_{j}}-2\left(n-\lceil\frac{k}{4}\rceil\right)\sum_{i}b_{i}b_{a_{\lceil\frac{k}{4}\rceil}}-\sum_{i}b_{i}+4\sum_{ij}^{\lceil\frac{k}{4}\rceil-1}b_{a_{i}}b_{a_{j}}+4\left(n-\lceil\frac{k}{4}\rceil\right)\sum_{i}^{\lceil\frac{k}{4}\rceil-1}b_{a_{i}}b_{a_{\lceil\frac{k}{4}\rceil}}+2\sum_{i}^{\lceil\frac{k}{4}\rceil-1}b_{a_{i}}+\left(n-\lceil\frac{k}{4}\rceil\right)^{2}b_{a_{\lceil\frac{k}{4}\rceil}}+\left(n-\lceil\frac{k}{4}\rceil\right)b_{a_{\lceil\frac{k}{4}\rceil}}\right)\\
+ & =\alpha+\alpha^{b}\sum_{i}b_{i}+\alpha^{b_{a_{1}}}\sum_{i}b_{a_{i}}+\alpha^{b_{a_{2}}}b_{a_{\lceil\frac{k}{4}\rceil}}+\alpha^{bb}\sum_{ij}b_{i}b_{j}+\alpha^{bb_{a_{1}}}\sum_{i}\sum_{j}^{\lceil\frac{k}{4}\rceil-1}b_{i}b_{a_{j}}+\alpha^{bb_{a_{2}}}\sum_{i}b_{i}b_{a_{\lceil\frac{k}{4}\rceil}}+\alpha^{b_{a_{1}}b_{a_{1}}}\sum_{ij}^{\lceil\frac{k}{4}\rceil-1}b_{a_{i}}b_{a_{j}}+\alpha^{b_{a_{1}}b_{a_{2}}}\sum_{ij}^{\lceil\frac{k}{4}\rceil-1}b_{a_{i}}b_{a_{\lceil\frac{k}{4}\rceil}}\\
+ & =\alpha+\alpha^{b}\sum_{i}b_{i}+\alpha^{b_{a_{1}}}\sum_{i}b_{a_{i}}+\alpha^{b_{a_{2}}}b_{a_{c}}+\alpha^{bb}\sum_{ij}b_{i}b_{j}+\alpha^{bb_{a_{1}}}\sum_{i}\sum_{j}^{c-1}b_{i}b_{a_{j}}+\alpha^{bb_{a_{2}}}\sum_{i}b_{i}b_{a_{c}}+\alpha^{b_{a_{1}}b_{a_{1}}}\sum_{ij}^{c-1}b_{a_{i}}b_{a_{j}}+\alpha^{b_{a_{1}}b_{a_{2}}}\sum_{ij}^{c-1}b_{a_{i}}b_{a_{c}}
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\color black
+\begin_inset Formula 
+\begin{align}
+b_{1}b_{2}\cdots b_{k} & \rightarrow\alpha^{b}\sum_{i}b_{i}+\alpha^{b_{a_{1}}}\sum_{i}b_{a_{i}}+\alpha^{b_{a_{2}}}b_{a_{c}}+\alpha^{bb}\sum_{ij}b_{i}b_{j}+\alpha^{bb_{a_{1}}}\sum_{i}\sum_{j}^{c-1}b_{i}b_{a_{j}}+\\
+ & \alpha^{bb_{a_{2}}}\sum_{i}b_{i}b_{a_{c}}+\alpha^{b_{a_{1}}b_{a_{1}}}\sum_{ij}^{c-1}b_{a_{i}}b_{a_{j}}+\alpha^{b_{a_{1}}b_{a_{2}}}\sum_{ij}^{c-1}b_{a_{i}}b_{a_{c}}
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+\begin{pmatrix}\alpha & \alpha^{bb}\\
+\alpha^{b} & \alpha^{bb_{a,1}}\\
+\alpha^{b_{a,1}} & \alpha^{bb_{a,2}}\\
+\alpha^{b_{a,2}} & \alpha^{b_{a}b_{a}}
+\end{pmatrix} & =\begin{pmatrix}0 & \nicefrac{1}{2}\\
+-\nicefrac{1}{2} & -1\\
+1 & -2\\
+\frac{1}{2}(n-c+n^{2}-2cn+c^{2}) & -(n-c)
+\end{pmatrix}.
+\end{align}
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -710,7 +872,9 @@ For the symmetric function which is a function of the sum of all
 \begin{align}
 f\left(\sum b_{i}\right) & \rightarrow\sum_{ij}^{\sqrt{n+1}}f\left((i-1)\left(\lceil\sqrt{n+1}\rceil+1\right)+(j-1)\right)b_{a_{i}}b_{a_{\sqrt{n+1}+j}}+\\
  & +\lambda\left(\left(1-\sum_{i}^{\sqrt{n+1}}b_{a_{i}}\right)^{2}+\left(1-\sum_{i}^{\sqrt{n+1}}b_{a_{\sqrt{n+1}+i}}\right)^{2}+\right.\\
- & +\left.\left(\sum_{i}b_{i}-\left(\left(\lceil\sqrt{n+1}\rceil+1\right)\sum_{i}^{\sqrt{n+1}}(i-1)y_{a_{i}}+\sum_{i}^{\sqrt{n+1}}(i-1)b_{a_{\sqrt{n+1}+i}}\right)\right)^{2}\right)
+ & +\left.\left(\sum_{i}b_{i}-\left(\left(\lceil\sqrt{n+1}\rceil+1\right)\sum_{i}^{\sqrt{n+1}}(i-1)y_{a_{i}}+\sum_{i}^{\sqrt{n+1}}(i-1)b_{a_{\sqrt{n+1}+i}}\right)\right)^{2}\right)\\
+ & =\sum_{ij}^{c}f\left((i-1)\left(c+1\right)+(j-1)\right)b_{a_{i}}b_{a_{c+j}}+\lambda\left(\left(1-\sum_{i}^{c}b_{a_{i}}\right)^{2}+\left(1-\sum_{i}^{c}b_{a_{c+i}}\right)^{2}+\right.\\
+ & \left.\left(\sum_{i}b_{i}-\left(\left(c+1\right)\sum_{i}^{c}(i-1)y_{a_{i}}+\sum_{i}^{c}(i-1)b_{a_{c+i}}\right)\right)^{2}+\left(\sum_{i}b_{i}-\left(\left(c+1\right)\sum_{i}^{c}(i-1)y_{a_{i}}+\sum_{i}^{c}(i-1)b_{a_{c+i}}\right)\right)^{2}\right)
 \end{align}
 
 \end_inset
@@ -728,6 +892,30 @@ Works on a generalization of
 \end_inset
 
  but instead we have a weighted sum.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+f\left(\sum w_{i}b_{i}\right) & \rightarrow\sum_{ij}^{c}\alpha_{ij}b_{a_{i}}b_{a_{c+i}}+\lambda\left(1+\left(\sum_{i}w_{i}b_{i}-(c-1)\sum_{i}^{c}b_{a_{i}}+\sum_{i}^{c}b_{a_{c+i}}\right)^{2}+\sum_{i}^{c-1}\left(1-b_{a_{i}}\right)b_{a_{i+1}}+\sum_{i}^{c-1}\left(1-b_{a_{i+c}}\right)b_{a_{i+c+1}}\right),\\
+\sum_{i}^{\alpha}\sum_{j}^{\beta}\alpha_{ij} & =f\left(\alpha(c+1)+\beta\right)
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Uses only 
+\begin_inset Formula $2c$
+\end_inset
+
+ auxiliary variables, where 
+\begin_inset Formula $\max\left(\sum w_{i}b_{i}\right)<(c+1)^{2}$
+\end_inset
+
+ 
 \end_layout
 
 \end_body
