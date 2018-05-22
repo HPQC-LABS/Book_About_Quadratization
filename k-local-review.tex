@@ -97,6 +97,8 @@
 \newcommand{\costsec}{\secspace\emph{\textbf{Cost}}}
 \newcommand{\examplesec}{\secspace\emph{\textbf{Example}}}
 \newcommand{\refsec}{\secspace\emph{\textbf{Bibliography}}}
+\newcommand{\altnamesec}{\secspace\emph{\textbf{Alternate Names}}}
+\newcommand{\altformsec}{\secspace\emph{\textbf{Alternate Forms}}}
 
 \renewcommand{\baselinestretch}{1} % Single line spacing
 
@@ -558,16 +560,18 @@ Hence we have reduced our original, hard problem into 3 easy problems, requiring
 \end{itemize}
 
 \newpage
-\section{Methods that introduce auxiliary variables to quadratize a SINGLE term}
+\section{Methods that introduce auxiliary variables to quadratize a SINGLE negative term (Negative Term Reductions,  NTR)}
+% ABCG calls these "termwise quadratizations" https://orbi.uliege.be/bitstream/2268/184526/1/Quadratization_Revision%20April2016.pdf
 
-\subsection{Negative Term Reduction} \label{subsec:Negative-Monomial-Reduction}
+\subsection{NTR-KZFD (Kolmogorov \& Zabih, 2004; Freedman\& Drineas, 2005)} \label{subsec:Negative-Monomial-Reduction}
 
 \summarysec
 
 For a negative term $-b_{1}b_{2}...b_{k}$, introduce a single auxiliary variable $b_a$ and make the substitution:
 \begin{equation}
 %-b_{1}b_{2} \ldots b_{k} = \min_{b_a} \left( (k-1-\sum_i b_{i})b_a \right).
--b_{1}b_{2} \ldots b_{k} \rightarrow \left( (k-1-\sum_i b_{i})b_a \right).
+%-b_{1}b_{2} \ldots b_{k} \rightarrow \left( (k-1-\sum_i b_{i})b_a \right).
+-b_{1}b_{2} \ldots b_{k} \rightarrow (k-1)b_a - \sum_ib_ib_a.
 \end{equation}
 
 \costsec
@@ -614,6 +618,23 @@ has the same unique minimum energy, and it occurs at the same place,
 with $a=1$.
 \end{comment}
 
+\altformsec
+
+\begin{align}
+-b_{1}b_{2} \ldots b_{k} &= \min_{b_a} \left( (k-1-\sum_i b_{i})b_a \right)\\
+&\rightarrow \left( (k-1-\sum_i b_{i})b_a \right).
+\end{align}
+
+
+
+
+
+\altnamesec 
+\begin{itemize}
+\item "Standard quadratization" of negative monomials \cite{Anthony2017}.
+\item $s_k(b,b_a)$ \cite{Anthony2017}
+\end{itemize}
+
 \refsec
 \begin{itemize}
 \item 2004: Kolmogorov and Zabih presented this for cubic terms \cite{Kolmogorov2004}.
@@ -623,13 +644,193 @@ with $a=1$.
 
 \newpage
 
+\subsection{NTR-ABCG (Anthony, Boros, Crama,  Gruber, 2014)} \label{subsec:Negative-Monomial-Reduction-2}
 
+\summarysec
+
+For a negative term $-b_{1}b_{2}...b_{k}$, introduce a single auxiliary variable $b_a$ and make the substitution:
+\begin{equation}
+-b_{1}b_{2} \ldots b_{k} \rightarrow-\sum_{i}b_{i}-\sum_{i}b_{i}b_{k}-\sum_{i}b_{i}b_{a}+(k-1)b_{k}b_{a}.
+\end{equation}
+
+\costsec
+\begin{itemize}
+\item 1 auxiliary variable for each $k$-local term.
+\item 1 non-submodular term for each $k$-local termi (and it is quadratic).
+\end{itemize}
+
+\prossec
+\begin{itemize}
+%\item All resulting quadratic terms are submodular (have negative coefficients).
+\item Can reduce arbitrary order terms with only 1 auxiliary.
+\item Reproduces the full spectrum.
+%\item Can be generalized so that one variable can be made to work for multiple terms.% (I can't find anyone saying this, but can be proven. Look at the commented out example below!)
+\end{itemize}
+
+\conssec
+\begin{itemize}
+\item Only works for negative terms.
+\item Turns a symmetric term into a non-symmetric term (but only $b_{k}$ is asymmetric).
+\end{itemize}
+
+\examplesec
+
+\begin{align}
+H_{{\rm 6-local}} & =-2b_{1}b_{2}b_{3}b_{4}b_{5}b_{6} + b_5b_6,
+\end{align}
+has a unique minimum energy of -1 when all $b_i=1$.
+
+$H_{2-\textrm{local}}$ has the same unique minimum energy, and it occurs at the same place (all $b_i=1$), with $b_a=1$.
+
+\begin{comment}
+\examplesec
+\begin{align}
+H_{{\rm 5-local}} & =-b_{1}b_{2}b_{3}b_{4}b_{5}-b_{1}b_{2}b_{3}b_{4}b_{6},
+\end{align}
+has a unique minimum energy of -2 when all $b$'s are 1.
+
+\begin{equation}
+H_{{\rm 3-local}}=(3-b_{1}-b_{2}-b_{3}-b_{4})(b_{5}+b_{6})a
+\end{equation}
+has the same unique minimum energy, and it occurs at the same place,
+with $a=1$.
+\end{comment}
+
+\altformsec
+\begin{align}
+-b_{1}b_{2}\ldots b_{k}&\rightarrow(k-1)b_{k}b_{a}-\sum_{i}b_{i}(b_{a}+b_{k}-1)\\
+                       & = (k-2)b_a - \sum_i^{k-1}b_i\left( b_a + b_k -1 \right)
+\end{align}
+
+
+\altnamesec 
+\begin{itemize}
+\item "Extended standard quadratization" of negative monomials \cite{Anthony2017}.
+\item $s_k(b,b_a)^+$ \cite{Anthony2017}
+\end{itemize}
+
+\refsec
+\begin{itemize}
+\item 2014, First presentation: \cite{Anthony2014,Anthony2017}. 
+\item Further discussion: \cite{Anthony2016}.
+\end{itemize}
+
+\newpage
+
+\subsection{NTR-ABCG-2 (Anthony, Boros, Crama,  Gruber, 2016)} \label{subsec:Negative-Monomial-Reduction-3}
+
+\summarysec
+
+For a negative term $-b_{1}b_{2}...b_{k}$, introduce a single auxiliary variable $b_a$ and make the substitution:
+\begin{align}
+-b_{1}b_{2}\ldots b_{k}	&\rightarrow\left(2k-1\right)b_{a}-2\sum_{i}b_{i}b_{a}
+\end{align}
+
+\costsec
+\begin{itemize}
+\item 1 auxiliary variable for each $k$-local term.
+\item 1 non-submodular term for each $k$-local term (and it is linear).
+\end{itemize}
+
+\prossec
+\begin{itemize}
+%\item All resulting quadratic terms are submodular (have negative coefficients).
+\item Can reduce arbitrary order terms with only 1 auxiliary.
+\item Reproduces the full spectrum.
+\item The non-submodular term is linear as opposed to NTR-ABCG-1 whose non-submodular term is quadratic.
+%\item Can be generalized so that one variable can be made to work for multiple terms.% (I can't find anyone saying this, but can be proven. Look at the commented out example below!)
+\item Symmetric with respect to all non-auxiliary variables.
+\end{itemize}
+
+\conssec
+\begin{itemize}
+\item Only works for negative terms.
+\item Turns a symmetric term into a non-symmetric term (but only $b_{k}$ is asymmetric).
+\item Coefficients of quadratic terms are twice the size of their size in NTR-KZFD or NTR-ABCG-1, and roughly twice the size for the linear term.
+\end{itemize}
+
+\examplesec
+
+\begin{align}
+H_{{\rm 6-local}} & =-2b_{1}b_{2}b_{3}b_{4}b_{5}b_{6} + b_5b_6,
+\end{align}
+has a unique minimum energy of -1 when all $b_i=1$.
+
+$H_{2-\textrm{local}}$ has the same unique minimum energy, and it occurs at the same place (all $b_i=1$), with $b_a=1$.
+
+\begin{comment}
+\examplesec
+\begin{align}
+H_{{\rm 5-local}} & =-b_{1}b_{2}b_{3}b_{4}b_{5}-b_{1}b_{2}b_{3}b_{4}b_{6},
+\end{align}
+has a unique minimum energy of -2 when all $b$'s are 1.
+
+\begin{equation}
+H_{{\rm 3-local}}=(3-b_{1}-b_{2}-b_{3}-b_{4})(b_{5}+b_{6})a
+\end{equation}
+has the same unique minimum energy, and it occurs at the same place,
+with $a=1$.
+\end{comment}
+
+%\altformsec  SEE the Anthony2016 paper, they write it with a 2 on the outsize and a 1/2 on the inside.
+%\begin{align}
+%\end{align}
+
+
+%\altnamesec 
+%\begin{itemize}
+%\item "Extended standard quadratization" of negative monomials \cite{Anthony2017}.
+%\item $s_k(b,b_a)^+$ \cite{Anthony2017}
+%\end{itemize}
+
+\refsec
+\begin{itemize}
+%\item 2014, First presentation: \cite{Anthony2014,Anthony2017}. 
+\item Discussion: \cite{Anthony2016}.
+\end{itemize}
+
+\newpage
+
+\subsection{Asymmetric Cubic Reduction}
+
+\summarysec
+\begin{align}
+-b_{1}b_{2}b_{3}&= \min_{b_a} b_a \left( -b_1 + b_2 + b_3  \right) -b_1b_2 - b_1b_3 + b_1 
+\end{align}
+
+\costsec
+
+1 auxiliary variable per negative cubic term.
+
+\prossec
+\begin{itemize}
+\item Asymmetric which allows more flexibility in cancelling with other quadratics.
+\end{itemize}
+
+\conssec
+\begin{itemize}
+\item Only works for negative cubic monomials.
+\end{itemize}
+
+\examplesec
+\begin{eqnarray}
+- b_{1}b_{2}b_{3} + b_1 b_3 - b_2 &= \min_{b_a} \left( b_a-b_{1}b_a-b_{3}b_a+b_{2}b_a+2b_{1}b_{3} \right) - b_2
+\end{eqnarray}
+
+\refsec
+\begin{itemize}
+\item Discussion: \cite{Ishikawa2011}, \cite{Kahl2011}.
+\end{itemize}
+
+\newpage
+
+\section{Methods that introduce auxiliary variables to quadratize a SINGLE positive term (Positive Term Reductions, PTR)}
 
 \subsection{Positive Term Reduction}
 
 \summarysec
 
-By considering the negated literals $\bar{b}_{i}=1-b_{i}$, we recursively apply the previous method to $b_{1}b_{2}\ldots b_{k}=-\bar{b}_{1}b_{2}\ldots b_{k}+b_{2}b_{3}\ldots b_{k}$.
+By considering the negated literals $\bar{b}_{i}=1-b_{i}$, we recursively apply NTR-KZFD to $b_{1}b_{2}\ldots b_{k}=-\bar{b}_{1}b_{2}\ldots b_{k}+b_{2}b_{3}\ldots b_{k}$.
 The final identity is:
 \begin{equation}
 b_{1}b_{2}\ldots b_{k}\rightarrow \left(\sum_{i=1}^{k-2}b_{a_{i}}(k-i-1+b_{i}-\sum_{j=i+1}^{k}b_{j})\right)+b_{k-1}b_{k}
@@ -677,7 +878,7 @@ b_{1}b_{2}b_{3}b_{4} & \mapsto & b_{2}b_{3}b_{4}-\bar{b}_{1}b_{2}b_{3}b_{4}\\
 
 \newpage
 
-\subsection{Positive Term Reduction (Ishikawa, 2011)}
+\subsection{PTR-Ishikawa (Ishikawa, 2011)}
 
 \summarysec
 
@@ -716,6 +917,12 @@ About half as many auxiliary variables for each $k$-order term as the previous m
 b_{1}b_{2}b_{3}b_{4} \rightarrow (3-2b_{1}-2b_{2}-2b_{3}-2b_{4})b_a+b_{1}b_{2}+b_{1}b_{3}+b_{1}b_{4}+b_{2}b_{3}+b_{2}b_{4}+b_{3}b_{4}
 \end{eqnarray}
 
+\altnamesec 
+\begin{itemize}
+\item "Ishikawa's Symmetric Reduction" \cite{Gallagher2011}.
+\end{itemize}
+
+
 \refsec
 \begin{itemize}
 \item Original paper and application to image denoising: \cite{Ishikawa2011}.
@@ -728,22 +935,38 @@ b_{1}b_{2}b_{3}b_{4} \rightarrow (3-2b_{1}-2b_{2}-2b_{3}-2b_{4})b_a+b_{1}b_{2}+b
 %dling its symmetric constituents.
 
 
-\subsection{Positive Term Reduction, BCR (Boros, Crama, and Rodr\'{i}guez-Heck, 2018)}
+\subsection{PTR-BCR (Boros, Crama, and Rodr\'{i}guez-Heck, 2018)}
 
 \summarysec
 
-Suppose we have a monomial $b_1b_2b_3 \ldots b_k$ with $k > 2$.
-Let $X = \sum^k_{i=1} b_i$.
-
-Let $m = \lceil \frac{k}{4} \rceil, N = n - 2m$ and
-$Y = \sum^m_{j=2} b'_j$ where $b'_1, \ldots, b'_m$ are auxiliary variables.
-Note that the $j$ index starts at 2.
-Then:
+Let $m = \lceil \frac{k}{4} \rceil$, 
 
 \begin{align}
-b_1 \ldots b_k &= \min_{b'_1, \ldots b'_m} \frac{1}{2} \left( X - Nb'_1 - 2Y \right)
-\left( X - Nb'_1 - 2Y - 1 \right)
+\begin{gathered}
+%b_1 \ldots b_k &= \min_{b'_1, \ldots b'_m} \frac{1}{2} \left( X - Nb'_1 - 2Y \right)
+%\left( X - Nb'_1 - 2Y - 1 \right)
+b_{1}b_{2}\cdots b_{k}	\rightarrow\alpha^{b}\sum_{i}b_{i}+\alpha^{b_{a_{1}}}\sum_{i}b_{a_{i}}+\alpha^{b_{a_{2}}}b_{a_{m}}+\alpha^{bb}\sum_{ij}b_{i}b_{j}+\alpha^{bb_{a_{1}}}\sum_{i}\sum_{j}^{m-1}b_{i}b_{a_{j}}+\\
+	\alpha^{bb_{a_{2}}}\sum_{i}b_{i}b_{a_{m}}+\alpha^{b_{a_{1}}b_{a_{1}}}\sum_{ij}^{m-1}b_{a_{i}}b_{a_{j}}+\alpha^{b_{a_{1}}b_{a_{2}}}\sum_{ij}^{m-1}b_{a_{i}}b_{a_{m}},
+\end{gathered}
 \end{align}
+
+\noindent where:
+
+\begin{align}
+\begin{pmatrix}\alpha & \alpha^{bb}\\
+\alpha^{b} & \alpha^{bb_{a,1}}\\
+\alpha^{b_{a,1}} & \alpha^{bb_{a,2}}\\
+\alpha^{b_{a,2}} & \alpha^{b_{a}b_{a}}
+\end{pmatrix}	=\begin{pmatrix}0 & \nicefrac{1}{2}\\
+-\nicefrac{1}{2} & -1\\
+1 & -2\\
+\frac{1}{2}(k-m+k^{2}-2mk+m^{2}) & -(k-m)
+\end{pmatrix}.
+\end{align}
+
+
+
+
 
 \costsec
 
@@ -762,12 +985,13 @@ $\lceil \frac{k}{4} \rceil$ auxiliary qubits per positive monomial.
 
 \examplesec
 
-Consider $k=4$, so that $m=1$, $N = 2$.
-Then:
+%Consider $k=4$, so that $m=1$, $N = 2$.
+%Then:
+We quadratize a quartic term with only 1 auxiliary (half as many as in PTR-Ishikawa):
 \begin{eqnarray}
-b_1 b_2 b_3 b_4 = \min_{b'} \frac{1}{2}
-\left( b_1 + b_2 + b_3 + b_4 - 2b'_1 \right)
-\left( b_1 + b_2 + b_3 + b_4 - 2b'_1 - 1 \right)
+b_1 b_2 b_3 b_4 \rightarrow  \frac{1}{2}
+\left( b_1 + b_2 + b_3 + b_4 - 2b_{a_1} \right)
+\left( b_1 + b_2 + b_3 + b_4 - 2b_{a_1} - 1 \right)
 \end{eqnarray}
 
 \refsec
@@ -777,11 +1001,11 @@ b_1 b_2 b_3 b_4 = \min_{b'} \frac{1}{2}
 
 \newpage
 
-\subsection{Logarithmic Positive Monomial Reduction}
+\subsection{PTR-BCR-2 (Boros, Crama, and Rodr\'{i}guez-Heck, 2018)} 
 
 \summarysec
 
-Suppose we have a monomial $b_1b_2b_3 \ldots b_k$.
+%Suppose we have a monomial $b_1b_2b_3 \ldots b_k$.
 Pick $n$ minimal such that $k < 2^{n+1}$ and let $N = 2^{n+1} - k$.
 
 For convenience, let $X = \sum^k_{i=1} b_i$.
@@ -1051,38 +1275,38 @@ H_{2-\rm{local}}=2\,b_{a_1}-2\,b_{a_2}+2\,b_{a_3}-2\,b_{a_4}+ \lambda H_{4-\rm{c
 \item Talk including use in quantum simulation: \cite{Chancellor2016a}
 \end{itemize}
 
-\subsection{Another Cubic Reduction}
 
-\summarysec
-\begin{align}
--b_{1}b_{2}b_{3}&= \min_{b_a} b_a \left( -b_1 + b_2 + b_3  \right) -b_1b_2 - b_1b_3 + b_1 
-\end{align}
 
-\costsec
 
-1 auxiliary variable per negative cubic term.
 
-\prossec
-\begin{itemize}
-\item Asymmetric which allows more flexibility in cancelling with other quadratics.
-\end{itemize}
 
-\conssec
-\begin{itemize}
-\item Only works for negative cubic monomials.
-\end{itemize}
 
-\examplesec
-\begin{eqnarray}
-- b_{1}b_{2}b_{3} + b_1 b_3 - b_2 &= \min_{b_a} \left( b_a-b_{1}b_a-b_{3}b_a+b_{2}b_a+2b_{1}b_{3} \right) - b_2
-\end{eqnarray}
 
-\refsec
-\begin{itemize}
-\item Discussion: \cite{Ishikawa2011}, \cite{Kahl2011}.
-\end{itemize}
 
-\newpage
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 \section{Methods that introduce auxiliary variables to quadratize MULTIPLE terms with the SAME auxiliaries}
