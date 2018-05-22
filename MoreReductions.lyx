@@ -188,77 +188,19 @@ Theorem 4.1 of Anthony-Boros-Crama-Gruber (ABCG)
 \end_layout
 
 \begin_layout Standard
-Any symmetric fuction can be quadratized with 
-\begin_inset Formula $n-2$
-\end_inset
-
- auxiliaries, where 
-\begin_inset Formula $\alpha_{i}$
-\end_inset
-
- comes from Corollary 2.3: 
-\end_layout
-
-\begin_layout Standard
 
 \size footnotesize
 \begin_inset Formula 
 \begin{align}
-f\left(b_{1},b_{2},\ldots,b_{n}\right) & \rightarrow-\alpha_{0}-\alpha_{0}\sum_{i}b_{i}+2a_{2}\sum_{ij}b_{i}b_{j}+\\
- & 2\sum_{2i-1}\left(\alpha_{2i-1}-{\rm min}\left(\alpha_{2j-1}\right)\right)b_{a_{2i-1}}\left(2i-\frac{3}{2}-\sum_{j}b_{j}\right)+\\
+f\left(b_{1},b_{2},\ldots,b_{n}\right) & \rightarrow-\alpha_{0}-\alpha_{0}\sum_{i}b_{i}+2a_{2}\sum_{ij}b_{i}b_{j}+2\sum_{2i-1}\left(\alpha_{2i-1}-{\rm min}\left(\alpha_{2j-1}\right)\right)b_{a_{2i-1}}\left(2i-\frac{3}{2}-\sum_{j}b_{j}\right)+\\
  & 2\sum_{2i}\left(\alpha_{2i}-{\rm min}\left(\alpha_{2j}\right)\right)b_{a_{2i}}\left(2i-\frac{1}{2}-\sum_{j}b_{j}\right)\\
+\\
 \alpha_{i} & =-4\sum_{j=0}^{i}\left(-1\right)^{i-j}f(j)-f(i-1)+3f(i)
 \end{align}
 
 \end_inset
 
 
-\size default
-Alternatively:
-\end_layout
-
-\begin_layout Standard
-
-\size footnotesize
-\begin_inset Formula 
-\begin{align}
-f\left(b_{1},b_{2},\ldots,b_{n}\right) & \rightarrow-\alpha_{0}-\alpha_{0}\sum_{i}b_{i}+a_{2}\sum_{ij}b_{i}b_{j}+2\sum_{i}\left(\alpha_{i}-c\right)b_{a_{i}}\left(2i-\frac{1}{2}-\sum_{j}b_{j}\right)\\
-c & =\begin{cases}
-{\rm min}\left(\alpha_{2j}\right) & ,i\in\text{even}\\
-{\rm min}\left(\alpha_{2j-1}\right) & ,i\in\text{odd}
-\end{cases}\\
-a_{2} & =\text{has to be obtained from page 12 of the paper.}
-\end{align}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\color red
-They say this is linear in the auxiliary variables, but it doesn't seem
- to be, because we have 
-\begin_inset Formula $b_{a_{i}}b_{j}$
-\end_inset
-
- terms where 
-\begin_inset Formula $b_{a_{i}}$
-\end_inset
-
- are auxiliaries.
-\end_layout
-
-\begin_layout Standard
-Pro: quadratization symmetric in all non-auxiliary variables, which isn't
- true for all quadratizations of symmetric functions.
- Reproduces the full spectrum.
-\end_layout
-
-\begin_layout Standard
-Con: all quadratic terms of the non-auxiliary variables, are non-submodular.
- Also very complicated and uses more auxiliaris than simlper methods.
 \end_layout
 
 \begin_layout Section
@@ -290,58 +232,6 @@ A related paper by the present authors [1] gives a complete characterization
 \end_inset
 
 
-\end_layout
-
-\begin_layout Section
-ABCG version of Ishikawa:
-\end_layout
-
-\begin_layout Standard
-
-\size footnotesize
-\begin_inset Formula 
-\begin{align}
-b_{1}b_{2}\ldots b_{k} & \rightarrow\sum_{i}b_{i}+\sum_{ij}b_{i}b_{j}+\sum_{2i-1}b_{a_{2i-1}}\left(4i-3-\sum_{j}b_{j}\right)\\
-b_{1}b_{2}\ldots b_{k} & \rightarrow\sum_{i}b_{i}+\left(4i-3\right)\sum_{2i-1}b_{a_{2i-1}}+\sum_{ij}b_{i}b_{j}-\sum_{2i-1,j}b_{j}b_{a_{2i-1}}
-\end{align}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Pro.
- Same number of auxiliaries as Ishikawa.
- Reproduces the full spectrum.
-\end_layout
-
-\begin_layout Standard
-Con.
- Only works for odd k, but when k is even we can use Ishikawa, so no big
- loss.
-\end_layout
-
-\begin_layout Section
-Another ABCG version of Ishikawa:
-\end_layout
-
-\begin_layout Standard
-
-\size footnotesize
-\begin_inset Formula 
-\begin{align}
-b_{1}b_{2}\ldots b_{k} & \rightarrow\prod_{i=1}^{k-1}b_{i}-\prod_{i=1}^{k-1}b_{i}(1-b_{k})
-\end{align}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Now quadratize the first term using Ishikawa, and use a negative monomial
- method for the second term.
 \end_layout
 
 \begin_layout Section
@@ -476,6 +366,7 @@ For any symmetric
 
 \size scriptsize
 \color black
+=
 \begin_inset Formula 
 \begin{align}
 f\left(b_{1},b_{2},\ldots,b_{n}\right) & \rightarrow\left(\sum_{i}b_{i}-\left(m-2^{\lceil\log m\rceil}\right)b_{a_{\lceil\log m\rceil+1}}-(m+1)\left(1-b_{a_{\lceil\log m\rceil+1}}\right)-\sum_{i}^{\lceil\log m\rceil}2^{i-1}b_{a_{i}}\right)^{2}\\
@@ -484,34 +375,9 @@ f\left(b_{1},b_{2},\ldots,b_{n}\right) & \rightarrow\left(\sum_{i}b_{i}-\left(m-
  & =(m+1)^{2}-2(m+1)\sum_{i}b_{i}+2(m+1)\left(2m-2^{\lceil\log m\rceil}+1\right)b_{a_{\lceil\log m\rceil+1}}+2(m+1)\sum_{i}^{\lceil\log m\rceil}2^{i-1}b_{a_{i}}\\
  & +\sum_{ij}b_{i}b_{j}-2\sum_{i}\left(2m-2^{\lceil\log m\rceil}+1\right)b_{i}b_{a_{\lceil\log m\rceil+1}}-2\sum_{i}\sum_{j}^{\lceil\log m\rceil}2^{i-1}b_{i}b_{a_{j}}+\sum_{i,j}^{\lceil\log m\rceil}2^{i+j-2}b_{a_{i}}b_{a_{j}}\\
  & =\alpha^{I}+\alpha^{b}\sum_{i}b_{i}+\alpha^{b_{a,1}}\sum_{i}^{\lceil\log m\rceil}b_{a_{i}}+\alpha^{b_{a,2}}b_{a_{\lceil\log m\rceil+1}}+\alpha^{bb}\sum_{ij}b_{i}b_{j}+\alpha^{bb_{a,1}}\sum_{i}\sum_{j}^{\lceil\log m\rceil}b_{i}b_{a_{j}}\\
- & +\alpha^{bb_{a,2}}\sum_{i}b_{i}b_{a_{\lceil\log m\rceil+1}}+\alpha^{b_{a}b_{a}}\sum_{i,j}^{\lceil\log m\rceil}b_{a_{i}}b_{a_{j}}
+ & +\alpha^{bb_{a,2}}\sum_{i}b_{i}b_{a_{m}}+\alpha^{b_{a}b_{a}}\sum_{i,j}^{m-1}b_{a_{i}}b_{a_{j}}\\
+ & =\alpha+\alpha^{b}\sum_{i}b_{i}+\alpha^{b_{a,1}}\sum_{i}^{m-1}b_{a_{i}}+\alpha^{b_{a,2}}b_{a_{m}}+\alpha^{bb}\sum_{ij}b_{i}b_{j}+\alpha^{bb_{a,1}}\sum_{i}\sum_{j}^{m-1}b_{i}b_{a_{j}}+\alpha^{bb_{a,2}}\sum_{i}b_{i}b_{a_{m}}+\alpha^{b_{a}b_{a}}\sum_{i,j}^{m-1}b_{a_{i}}b_{a_{j}}
 \end{align}
-
-\end_inset
-
-
-\size default
-\color inherit
-The number of auxiliary varibales is 
-\begin_inset Formula $\lceil\log m\rceil+1.$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-\begin{pmatrix}\alpha^{I} & \alpha^{bb}\\
-\alpha^{b} & \alpha^{bb_{a,1}}\\
-\alpha^{b_{a,1}} & \alpha^{bb_{a,2}}\\
-\alpha^{b_{a,2}} & \alpha^{b_{a}b_{a}}
-\end{pmatrix}=\begin{pmatrix}(m+1)^{2} & 1\\
--2(m+1) & -2^{i}\\
-2(m+1) & -2\left(2m-2^{\lceil\log m\rceil}+1\right)\\
-2(m+1)\left(2m-2^{\lceil\log m\rceil}+1\right) & 2^{i+j-2}
-\end{pmatrix}.
-\end{equation}
 
 \end_inset
 
@@ -628,91 +494,12 @@ Theorem 2.2 of BCR
 \color black
 \begin_inset Formula 
 \begin{align}
-f\left(b_{1},b_{2},\ldots,b_{n}\right) & \rightarrow\frac{1}{2}\left(\left(m-1\right)-\sum_{i}b_{i}-\left(2(n-m)-2^{\lceil\log(n-m)\rceil}+1\right)b_{a_{\lceil\log(n-m)\rceil+1}}-\sum_{i}^{\lceil\log(n-m)\rceil}2^{i-1}b_{a_{i}}\right)\left(\left(m-1\right)-\sum_{i}b_{i}-\left(2(n-m)-2^{\lceil\log(n-m)\rceil}+1\right)b_{a_{\lceil\log(n-m)\rceil+1}}-\sum_{i}^{\lceil\log(n-m)\rceil}2^{i-1}b_{a_{i}}-1\right)
+f\left(b_{1},b_{2},\ldots,b_{n}\right) & \rightarrow\frac{1}{2}\left(\left(c-1\right)-\sum_{i}b_{i}-\left(2(n-c)-2^{m-1}+1\right)b_{a_{m}}-\sum_{i}^{m-1}2^{i-1}b_{a_{i}}\right)\left(\left(c-1\right)-\sum_{i}b_{i}-\left(2(n-c)-2^{m-1}+1\right)b_{a_{m}}-\sum_{i}^{m-1}2^{i-1}b_{a_{i}}-1\right)
 \end{align}
 
 \end_inset
 
 
-\end_layout
-
-\begin_layout Section
-Theorem 4 of BCR
-\end_layout
-
-\begin_layout Standard
-This is a special case of Theorem 1, for the specific function 
-\begin_inset Formula $f=b_{1}b_{2}\ldots b_{k}$
-\end_inset
-
-.
- For som 
-\begin_inset Formula $p$
-\end_inset
-
- such that 
-\begin_inset Formula $k\le2^{p}$
-\end_inset
-
-, we have:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{align}
-b_{1}b_{2}\ldots b_{k} & \rightarrow\left(2^{p}-k+\sum_{i}b_{i}-\sum_{i}2^{i-1}b_{a_{i}}\right)^{2}\\
- & =\left(2^{p}-k\right)^{2}+2\left(2^{p}-k\right)\sum_{i}b_{i}-2\left(2^{p}-k\right)\sum_{i}2^{i-1}b_{a_{i}}+\sum_{ij}b_{i}b_{j}-\sum_{ij}2^{j-1}b_{i}b_{a_{j}}+\sum_{ij}2^{i+-2}b_{a_{i}}b_{a_{j}}\\
- & =\alpha^{I}+\alpha^{b}\sum_{i}b_{i}+\alpha^{b_{a_{i}}}\sum_{i}2^{i-1}b_{a_{i}}+\alpha^{bb}\sum_{ij}b_{i}b_{j}+\alpha^{bb_{a}}\sum_{ij}b_{i}b_{a_{j}}+\alpha^{b_{a_{i}}b_{a_{j}}}b_{a_{i}}b_{a_{j}}
-\end{align}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-\begin{pmatrix}\alpha^{I} & \alpha^{bb}\\
-\alpha^{b} & \alpha^{bb_{a}}\\
-\alpha^{b_{a}} & \alpha^{b_{a}b_{a}}
-\end{pmatrix}=\begin{pmatrix}\left(2^{p}-k\right)^{2} & 1\\
-2\left(2^{p}-k\right) & 2^{j-1}\\
--2\left(2^{p}-k\right) & 2^{i+-2}
-\end{pmatrix}.
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Pro: only requires 
-\begin_inset Formula $\log k$
-\end_inset
-
- auxiliaries.
-\end_layout
-
-\begin_layout Standard
-Con: All terms non-submodular except for the term linear in auxiliaries.
-\end_layout
-
-\begin_layout Section
-Theorem 5 of BCR
-\end_layout
-
-\begin_layout Standard
-(already written up by Richard)
-\end_layout
-
-\begin_layout Standard
-Pro: only requires 
-\begin_inset Formula $\log k$
-\end_inset
-
--1 auxiliaries.
 \end_layout
 
 \begin_layout Section
@@ -796,7 +583,9 @@ f\left(\sum b_{i}\right) & \rightarrow\sum_{ij}^{\sqrt{n+1}}f\left((i-1)\left(\l
  & +\lambda\left(\left(1-\sum_{i}^{\sqrt{n+1}}b_{a_{i}}\right)^{2}+\left(1-\sum_{i}^{\sqrt{n+1}}b_{a_{\sqrt{n+1}+i}}\right)^{2}+\right.\\
  & +\left.\left(\sum_{i}b_{i}-\left(\left(\lceil\sqrt{n+1}\rceil+1\right)\sum_{i}^{\sqrt{n+1}}(i-1)y_{a_{i}}+\sum_{i}^{\sqrt{n+1}}(i-1)b_{a_{\sqrt{n+1}+i}}\right)\right)^{2}\right)\\
  & =\sum_{ij}^{c}f\left((i-1)\left(c+1\right)+(j-1)\right)b_{a_{i}}b_{a_{c+j}}+\lambda\left(\left(1-\sum_{i}^{c}b_{a_{i}}\right)^{2}+\left(1-\sum_{i}^{c}b_{a_{c+i}}\right)^{2}+\right.\\
- & \left.\left(\sum_{i}b_{i}-\left(\left(c+1\right)\sum_{i}^{c}(i-1)y_{a_{i}}+\sum_{i}^{c}(i-1)b_{a_{c+i}}\right)\right)^{2}+\left(\sum_{i}b_{i}-\left(\left(c+1\right)\sum_{i}^{c}(i-1)y_{a_{i}}+\sum_{i}^{c}(i-1)b_{a_{c+i}}\right)\right)^{2}\right)
+ & \left.\left(\sum_{i}b_{i}-\left(\left(c+1\right)\sum_{i}^{c}(i-1)y_{a_{i}}+\sum_{i}^{c}(i-1)b_{a_{c+i}}\right)\right)^{2}+\left(\sum_{i}b_{i}-\left(\left(c+1\right)\sum_{i}^{c}(i-1)y_{a_{i}}+\sum_{i}^{c}(i-1)b_{a_{c+i}}\right)\right)^{2}\right)\\
+ & \sum_{ij}^{m}f\left((i-1)\left(m+1\right)+(j-1)\right)b_{a_{i}}b_{a_{c+j}}+\lambda\left(\left(1-\sum_{i}^{m}b_{a_{i}}\right)^{2}+\left(1-\sum_{i}^{m}b_{a_{c+i}}\right)^{2}+\right.\\
+ & \left.\left(\sum_{i}b_{i}-\left(\left(m+1\right)\sum_{i}^{m}(i-1)y_{a_{i}}+\sum_{i}^{m}(i-1)b_{a_{c+i}}\right)\right)^{2}+\left(\sum_{i}b_{i}-\left(\left(m+1\right)\sum_{i}^{m}(i-1)y_{a_{i}}+\sum_{i}^{m}(i-1)b_{a_{c+i}}\right)\right)^{2}\right)
 \end{align}
 
 \end_inset
@@ -805,39 +594,7 @@ f\left(\sum b_{i}\right) & \rightarrow\sum_{ij}^{\sqrt{n+1}}f\left((i-1)\left(\l
 \end_layout
 
 \begin_layout Section
-Theorem 10 of BCR
-\end_layout
 
-\begin_layout Standard
-Works on a generalization of 
-\begin_inset Formula $f\left(\sum b_{i}\right)$
-\end_inset
-
- but instead we have a weighted sum.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{align}
-f\left(\sum w_{i}b_{i}\right) & \rightarrow\sum_{ij}^{c}\alpha_{ij}b_{a_{i}}b_{a_{c+i}}+\lambda\left(1+\left(\sum_{i}w_{i}b_{i}-(c-1)\sum_{i}^{c}b_{a_{i}}+\sum_{i}^{c}b_{a_{c+i}}\right)^{2}+\sum_{i}^{c-1}\left(1-b_{a_{i}}\right)b_{a_{i+1}}+\sum_{i}^{c-1}\left(1-b_{a_{i+c}}\right)b_{a_{i+c+1}}\right),\\
-\sum_{i}^{\alpha}\sum_{j}^{\beta}\alpha_{ij} & =f\left(\alpha(c+1)+\beta\right)
-\end{align}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Uses only 
-\begin_inset Formula $2c$
-\end_inset
-
- auxiliary variables, where 
-\begin_inset Formula $\max\left(\sum w_{i}b_{i}\right)<(c+1)^{2}$
-\end_inset
-
- 
 \end_layout
 
 \begin_layout Section
