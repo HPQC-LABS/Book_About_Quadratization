@@ -280,42 +280,6 @@ Any symmetric fuction can be quadratized with
 \end_layout
 
 \begin_layout Section
-Asymmetric reduction for negative monomials of arbitrary 
-\begin_inset Formula $k$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\size footnotesize
-\begin_inset Formula 
-\begin{align}
--b_{1}b_{2}\ldots b_{k} & \rightarrow(k-1)b_{k}b_{a}-\sum_{i}b_{i}(b_{a}+b_{k}-1)\\
--b_{1}b_{2}\ldots b_{k} & \rightarrow-\sum_{i}b_{i}-\sum_{i}b_{i}b_{k}-\sum_{i}b_{i}b_{a}+(k-1)b_{k}b_{a}
-\end{align}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Pro: only 1 auxiliary to quadratize k degree term.
- Only one non-submodular term (and it's quadratic).
- Reproduces the full spectrum.
-\end_layout
-
-\begin_layout Standard
-Con: Turns symmetric into non-symmetric (but only the 
-\begin_inset Formula $b_{k}$
-\end_inset
-
- is asymmetric).
-\end_layout
-
-\begin_layout Section
 \begin_inset Quotes eld
 \end_inset
 
@@ -326,48 +290,6 @@ A related paper by the present authors [1] gives a complete characterization
 \end_inset
 
 
-\end_layout
-
-\begin_layout Section
-Another reduction for negative monomials of arbitrary 
-\begin_inset Formula $k$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\size footnotesize
-\begin_inset Formula 
-\begin{align}
--b_{1}b_{2}\ldots b_{k} & \rightarrow2b_{a}\left(k-\frac{1}{2}-\sum_{i}b_{i}\right)\\
--b_{1}b_{2}\ldots b_{k} & \rightarrow\left(2k-1\right)b_{a}-2\sum_{i}b_{i}b_{a}
-\end{align}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Pro: only 1 auxiliary to quadratize k degree term.
- Only one non-submodular term (and it's linear).
- Symmetric with respect to all non-auxiliary variables.
- Reproduces the full spectrum.
-\end_layout
-
-\begin_layout Standard
-Con: Coefficients of quadratic terms are twice the size of in the 
-\begin_inset Quotes eld
-\end_inset
-
-standard
-\begin_inset Quotes erd
-\end_inset
-
- quadratization for negative monomials, and roughly twice the size for the
- linear term.
 \end_layout
 
 \begin_layout Section
@@ -794,7 +716,7 @@ Pro: only requires
 \end_layout
 
 \begin_layout Section
-Theorem 7 of BCR
+Theorem 7 of BCR (PTR-BCR)
 \end_layout
 
 \begin_layout Standard
@@ -916,6 +838,15 @@ Uses only
 \end_inset
 
  
+\end_layout
+
+\begin_layout Section
+Some more by ABCG in different paper
+\end_layout
+
+\begin_layout Standard
+https://orbi.uliege.be/bitstream/2268/184526/1/Quadratization_Revision%20April2016.
+pdf
 \end_layout
 
 \end_body
