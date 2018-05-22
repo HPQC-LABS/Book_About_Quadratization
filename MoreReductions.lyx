@@ -251,90 +251,6 @@ Corollary 4.5 of ABCG
 \end_layout
 
 \begin_layout Section
-Quadratization of 
-\begin_inset Quotes eld
-\end_inset
-
-parity
-\begin_inset Quotes erd
-\end_inset
-
- function on page 17 of ABCG (Theorem 4.6)
-\end_layout
-
-\begin_layout Standard
-For any 
-\begin_inset Formula $k$
-\end_inset
-
--local function that is non-zero (they actually say =1) only if 
-\begin_inset Formula $\sum b_{i}=2m-1$
-\end_inset
-
-, we call it the 
-\begin_inset Quotes eld
-\end_inset
-
-partity function
-\begin_inset Quotes erd
-\end_inset
-
- an it can be quadratized as follows:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-f\left(b_{1},b_{2},\ldots,b_{n}\right)\rightarrow\sum_{i}b_{i}+2\sum_{ij}b_{i}b_{j}+4\sum_{2i-1}^{n-1}b_{a_{i}}\left(2i-1-\sum_{j}b_{j}\right)
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula $m=\lfloor n/2\rfloor$
-\end_inset
-
-auxiliary variables.
-\end_layout
-
-\begin_layout Section
-Quadratization of 
-\begin_inset Quotes eld
-\end_inset
-
-parity
-\begin_inset Quotes erd
-\end_inset
-
- function on page 17 of ABCG (Theorem 4.6) with fewer variables
-\end_layout
-
-\begin_layout Standard
-For the complement of the parity function we quadratize as follows:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-f\left(b_{1},b_{2},\ldots,b_{n}\right)\rightarrow1+2\sum_{ij}b_{i}b_{j}-\sum_{i}b_{i}+4\sum_{2i}^{n-1}b_{a_{i}}\left(i-\sum_{j}^{n}b_{j}\right)
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula $m=\lfloor\frac{n-1}{2}\rfloor$
-\end_inset
-
-auxiliary variables.
-\end_layout
-
-\begin_layout Section
 Theorem 5.6 of ABCG
 \end_layout
 
@@ -590,10 +506,6 @@ f\left(\sum b_{i}\right) & \rightarrow\sum_{ij}^{\sqrt{n+1}}f\left((i-1)\left(\l
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Section
 
 \end_layout
 

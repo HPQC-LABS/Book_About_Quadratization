@@ -1929,9 +1929,110 @@ f\left(b_{1},b_{2},\ldots,b_{n}\right)& \rightarrow \binom{\frac{1}{2}\left(\lef
 %%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Methods that quadratize MULTIPLE terms with the SAME auxiliaries (Case 2: Parity Functions)}
+\subsection{SFR-ABCG-2 (Anthony, Boros, Crama, Gruber, 2014)}
+
+\summarysec
+
+%(they actually say =1)
+For any $n$-variable, $k$-local function that is non-zero  only if $\sum b_{i}=2m-1$, we call it the "partity function" and it can be quadratized as follows:
+
+\begin{align}
+f\left(b_{1},b_{2},\ldots,b_{n}\right)\rightarrow\sum_{i}b_{i}+2\sum_{ij}b_{i}b_{j}+4\sum_{2i-1}^{n-1}b_{a_{i}}\left(2i-1-\sum_{j}b_{j}\right).
+\end{align}
+
+\costsec
+\begin{itemize}
+\item $m=2\lfloor n/2 \rfloor$ auxiliary variables.
+\item $\lfloor 1.5n\rfloor$ non-submodular linear terms.
+\item $ n^2$ non-submodular quadratic terms.
+\end{itemize}
+
+\prossec
+\begin{itemize}
+\item Smaller number of auxiliary variables than the most naive methods.
+\end{itemize}
+
+\conssec
+\begin{itemize}
+\item Only works for a special class of functions
+\item Introduces many linear and even more quadratic non-submodular terms (everything is non-submodular except for $0.5n^2$ quadratic terms involving the auxiliaries with the non-auxiliaries).
+\item non-submodular terms can be rather large compared to the submodular terms (about $4n$ times as big).
+\end{itemize}
+
+\examplesec
+
+By bit-flipping $b_2$ and $b_4$, i.e. substituting $b_2 = 1 - \bar{b}_{2}$ and $b_4 = 1 - \bar{b}_{4}$, we see that:
+\begin{eqnarray}
+H & = & 3b_{1}b_{2}+b_{2}b_{3}+2b_{1}b_{4}-4b_{2}b_{4}\protect\\
+ & = & -3b_{1}\bar{b}_{2}-\bar{b}_{2}b_{3}-2b_{1}\bar{b}_{4}-\bar{b}_{2}\bar{b}_{4}+5b_{1}+b_{3}+4\bar{b}_{2}+4\bar{b}_{4}-4.
+\end{eqnarray}
+The first expression is highly non-submodular while the second is entirely submodular.
+
+%\altformsec
+%\begin{align}
+%f\left(b_{1},b_{2},\ldots,b_{n}\right)& \rightarrow \binom{\frac{1}{2}\left(\left(c-1\right)-\sum_{i}b_{i}-\left(2(n-c)-2^{m-1}+1\right)b_{a_{m}}-\sum_{i}^{m-1}2^{i-1}b_{a_{i}}\right)}{2}
+%\end{align}
+
+\refsec
+\begin{itemize}
+\item 2014, original paper (Theorem 4.6): \cite{Anthony2014,Anthony2017}.  % need to check if it's still 4.6 in the newest version !!!!!!1
+\end{itemize}
+
+\newpage
+
+\subsection{SFR-ABCG-3 (Anthony, Boros, Crama, Gruber, 2014)}
+
+\summarysec
+
+%(they actually say =1)
+The complement of the parity function can be quadratized as follow:
+
+\begin{align}
+f\left(b_{1},b_{2},\ldots,b_{n}\right)\rightarrow1+2\sum_{ij}b_{i}b_{j}-\sum_{i}b_{i}+4\sum_{2i}^{n-1}b_{a_{i}}\left(i-\sum_{j}^{n}b_{j}\right)
+\end{align}
+
+\costsec
+\begin{itemize}
+\item $m=2\lfloor \frac{n-1}{2} \rfloor$ auxiliary variables.
+\item $\lfloor 0.5n\rfloor$ non-submodular linear terms.
+\item $ n^2$ non-submodular quadratic terms.
+\end{itemize}
+
+\prossec
+\begin{itemize}
+\item Smaller number of auxiliary variables than the most naive methods.
+\item Fewer non-submodular linear terms than in the analogous quadratization for its complement (the parity function).
+\end{itemize}
+
+\conssec
+\begin{itemize}
+\item Only works for a special class of functions
+\item Introduces many linear and even more quadratic non-submodular terms (everything is non-submodular except for $0.5n^2$ quadratic terms involving the auxiliaries with the non-auxiliaries, and all $n$ linear terms involving only the non-auxiliaries).
+\item non-submodular terms can be rather large compared to the submodular terms (about $4n$ times as big).
+\end{itemize}
+
+\examplesec
+
+By bit-flipping $b_2$ and $b_4$, i.e. substituting $b_2 = 1 - \bar{b}_{2}$ and $b_4 = 1 - \bar{b}_{4}$, we see that:
+\begin{eqnarray}
+H & = & 3b_{1}b_{2}+b_{2}b_{3}+2b_{1}b_{4}-4b_{2}b_{4}\protect\\
+ & = & -3b_{1}\bar{b}_{2}-\bar{b}_{2}b_{3}-2b_{1}\bar{b}_{4}-\bar{b}_{2}\bar{b}_{4}+5b_{1}+b_{3}+4\bar{b}_{2}+4\bar{b}_{4}-4.
+\end{eqnarray}
+The first expression is highly non-submodular while the second is entirely submodular.
+
+%\altformsec
+%\begin{align}
+%f\left(b_{1},b_{2},\ldots,b_{n}\right)& \rightarrow \binom{\frac{1}{2}\left(\left(c-1\right)-\sum_{i}b_{i}-\left(2(n-c)-2^{m-1}+1\right)b_{a_{m}}-\sum_{i}^{m-1}2^{i-1}b_{a_{i}}\right)}{2}
+%\end{align}
+
+\refsec
+\begin{itemize}
+\item 2014, original paper (Theorem 4.6): \cite{Anthony2014,Anthony2017}.
+\end{itemize}
 
 
+\newpage
+
 %%%%%%%%%%%%%%%%%%%%%%%%%5
 %%%%%%%%%%%%%%%%%%%%%%%%%5
 %%%%%%%%%%%%%%%%%%%%%%%%%5
@@ -1945,7 +2046,7 @@ f\left(b_{1},b_{2},\ldots,b_{n}\right)& \rightarrow \binom{\frac{1}{2}\left(\lef
 %%%%%%%%%%%%%%%%%%%%%%%%%5
 
 
-\section{Methods that quadratize MULTIPLE terms with the SAME auxiliaries (Case 3: Arbitrary Functions)}
+\section{Methods that quadratize MULTIPLE terms with the SAME auxiliaries (Case 2: Arbitrary Functions)}
 \subsection{Reduction by Substitution (Rosenberg 1975)}
 \summarysec
 
