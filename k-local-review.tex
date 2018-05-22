@@ -322,7 +322,7 @@ H_{2{\rm -local}}=12b_{1}b_{2}+b_{1}(b_{3}-3)+b_{2}(b_{3}-2b_{3}-b_{4}-1)+F(x_{3
 
 \newpage
 
-\subsection{ELC Reduction}
+\subsection{ELC Reduction (Ishikawa 2014)}
 
 \summarysec
 
@@ -508,7 +508,7 @@ In both cases, the only global minima occur when:
 \end{comment}
 \newpage
 
-\subsection{Split Reduction}
+\subsection{Split Reduction (Okada, Tanburn, Dattani, 2015)}
 
 \summarysec
 
@@ -795,7 +795,7 @@ with $a=1$.
 
 \summarysec
 \begin{align}
--b_{1}b_{2}b_{3}&= \min_{b_a} b_a \left( -b_1 + b_2 + b_3  \right) -b_1b_2 - b_1b_3 + b_1 
+-b_{1}b_{2}b_{3}&\rightarrow  b_a \left( -b_1 + b_2 + b_3  \right) -b_1b_2 - b_1b_3 + b_1 
 \end{align}
 
 \costsec
@@ -816,6 +816,11 @@ with $a=1$.
 \begin{eqnarray}
 - b_{1}b_{2}b_{3} + b_1 b_3 - b_2 &= \min_{b_a} \left( b_a-b_{1}b_a-b_{3}b_a+b_{2}b_a+2b_{1}b_{3} \right) - b_2
 \end{eqnarray}
+
+\altformsec
+\begin{align}
+-b_{1}b_{2}b_{3}&= \min_{b_a} b_a  -b_1 + b_2 + b_3   -b_1b_2 - b_1b_3 + b_1 
+\end{align}
 
 \refsec
 \begin{itemize}
@@ -901,7 +906,8 @@ where $n_{k}=\left\lfloor \frac{k-1}{2}\right\rfloor $ and $c_{i,k}=\begin{cases
 \prossec
 \begin{itemize}
 \item Works for positive monomials.
-About half as many auxiliary variables for each $k$-order term as the previous method.
+\item About half as many auxiliary variables for each $k$-order term as the previous method.
+\item Reproduces the full spectrum.
 \end{itemize}
 
 \conssec
@@ -917,15 +923,27 @@ About half as many auxiliary variables for each $k$-order term as the previous m
 b_{1}b_{2}b_{3}b_{4} \rightarrow (3-2b_{1}-2b_{2}-2b_{3}-2b_{4})b_a+b_{1}b_{2}+b_{1}b_{3}+b_{1}b_{4}+b_{2}b_{3}+b_{2}b_{4}+b_{3}b_{4}
 \end{eqnarray}
 
+\altformsec
+
+For even $k$, and equivalent expression is given in \cite{Boros2018QuadratizationsOS}:
+
+\begin{align}
+b_{1}b_{2}\ldots b_{k}&\rightarrow\sum_{i}b_{i}+\sum_{ij}b_{i}b_{j}+\sum_{2i}b_{a_{2i}}\left(4i-2-\sum_{j}b_{j}\right)\\
+                      &\rightarrow\sum_{i}b_{i}+2\sum_{2i}b_{a_{2i}}\left(2i-1\right)+\sum_{ij}b_{i}b_{j}-\sum_{2i,j}b_{j}b_{a_{2i}}
+\end{align}
+
 \altnamesec 
 \begin{itemize}
 \item "Ishikawa's Symmetric Reduction" \cite{Gallagher2011}.
+\item "Ishikawa Reduction" 
+\item "Ishikawa" %[colloquial].
 \end{itemize}
 
 
 \refsec
 \begin{itemize}
 \item Original paper and application to image denoising: \cite{Ishikawa2011}.
+\item Equivalent way of writing it for even $k$, shown in \cite{Boros2018QuadratizationsOS}.
 \end{itemize}
 \newpage
 
@@ -934,8 +952,51 @@ b_{1}b_{2}b_{3}b_{4} \rightarrow (3-2b_{1}-2b_{2}-2b_{3}-2b_{4})b_a+b_{1}b_{2}+b
 %Here again, the objective function can be quadratized by independently han-
 %dling its symmetric constituents.
 
+\subsection{PTR-BCR-1 (Boros, Crama, and Rodr\'{i}guez-Heck, 2018)}
 
-\subsection{PTR-BCR (Boros, Crama, and Rodr\'{i}guez-Heck, 2018)}
+\summarysec
+
+This is very similar to the alternative form of Ishikawa Reduction, but works for odd values of $k$, and is different from Ishikawa Reduction: % they actually only say it "seems to be different"
+
+\begin{eqnarray}
+\begin{gathered}
+b_{1}b_{2}\ldots b_{k} \rightarrow \sum_{i}b_{i}+\sum_{2i-1}\left(4i-3\right)b_{a_{2i-1}}+\sum_{ij}b_{i}b_{j}-\sum_{2i-1,j}b_{j}b_{a_{2i-1}}
+\end{gathered}
+\end{eqnarray}
+
+\costsec
+\begin{itemize}
+\item Same number of auxiliaries as Ishikawa Reduction.
+\end{itemize}
+
+\prossec
+\begin{itemize}
+\item Same as for Ishikawa Reduction.
+%\item Reproduces 
+\end{itemize}
+
+\conssec
+\begin{itemize}
+%\item Introduces many non-submodular terms.
+\item Same as for Ishikawa Reduction.
+\item Only works for odd $k$, but for even $k$ we have an analogous method which is equivalent to Ishikawa Reduction.
+\end{itemize}
+
+\altformsec
+\begin{align}
+b_{1}b_{2}\ldots b_{k}&\rightarrow\sum_{i}b_{i}+\sum_{ij}b_{i}b_{j}+\sum_{2i-1}b_{a_{2i-1}}\left(4i-3-\sum_{j}b_{j}\right)
+\end{align}
+
+
+\refsec
+\begin{itemize}
+\item Original paper: \cite{Boros2018QuadratizationsOS}.
+\end{itemize}
+
+\newpage
+
+
+\subsection{PTR-BCR-2 (Boros, Crama, and Rodr\'{i}guez-Heck, 2018)}
 
 \summarysec
 
@@ -963,10 +1024,6 @@ b_{1}b_{2}\cdots b_{k}	\rightarrow\alpha^{b}\sum_{i}b_{i}+\alpha^{b_{a_{1}}}\sum
 \frac{1}{2}(k-m+k^{2}-2mk+m^{2}) & -(k-m)
 \end{pmatrix}.
 \end{align}
-
-
-
-
 
 \costsec
 
@@ -1001,18 +1058,91 @@ b_1 b_2 b_3 b_4 \rightarrow  \frac{1}{2}
 
 \newpage
 
-\subsection{PTR-BCR-2 (Boros, Crama, and Rodr\'{i}guez-Heck, 2018)} 
+\subsection{PTR-BCR-3 (Boros, Crama, and Rodr\'{i}guez-Heck, 2018)} 
+
+\summarysec
+
+%This is a special case of Theorem 1 of the same paper, for the specific function f=b_{1}b_{2}\ldots b_{k}. For som p such that k\le2^{p}, we have:
+
+%Suppose we have a monomial $b_1b_2b_3 \ldots b_k$.
+Pick $m$ such that $k < 2^{m+1}$,
+
+\begin{align}
+%	=\left(2^{m}-k\right)^{2}+2\left(2^{m}-k\right)\sum_{i}b_{i}-2\left(2^{m}-k\right)\sum_{i}2^{i-1}b_{a_{i}}+\sum_{ij}b_{i}b_{j}-\sum_{ij}2^{j-1}b_{i}b_{a_{j}}+\sum_{ij}2^{i+-2}b_{a_{i}}b_{a_{j}}
+b_{1}b_{2}\ldots b_{k}	&\rightarrow \alpha+\alpha^{b}\sum_{i}b_{i}+\alpha^{b_{a_{i}}}\sum_{i}2^{i-1}b_{a_{i}}+\alpha^{bb}\sum_{ij}b_{i}b_{j}+\alpha^{bb_{a}}\sum_{ij}b_{i}b_{a_{j}}+\alpha^{b_{a_{i}}b_{a_{j}}}b_{a_{i}}b_{a_{j}},
+\end{align}
+
+\noindent where,
+
+\begin{align}
+\begin{pmatrix}\alpha & \alpha^{bb}\\
+\alpha^{b} & \alpha^{bb_{a}}\\
+\alpha^{b_{a}} & \alpha^{b_{a}b_{a}}
+\end{pmatrix}=\begin{pmatrix}\left(2^{m}-k\right)^{2} & 1\\
+2\left(2^{m}-k\right) & 2^{j-1}\\
+-2\left(2^{m}-k\right) & 2^{i+-2}
+\end{pmatrix}.
+\end{align}
+
+\costsec
+
+$\lceil \log k \rceil  $ auxiliary qubits per positive monomial.
+
+\prossec
+\begin{itemize}
+\item Logarithmic number of auxiliary variables.
+\end{itemize}
+
+\conssec
+\begin{itemize}
+\item Introduces all terms non-submodular except for the term linear in auxiliaries.
+\end{itemize}
+
+\examplesec
+
+% HAS TO BE RE-DONE BECAUSE THIS IS JUST WHAT RICHARD GAVE FOR THE NEXT SECTION.
+
+% Here we should really show extremely large k-local, not just 4-local
+
+%Consider $k=4$, so that $n=2$, $N = 4$.
+%Then:
+\begin{eqnarray}
+%b_1 b_2 b_3 b_4 = \min_{b_{a_1}, b_{a_2}} \frac{1}{2}
+b_1 b_2 b_3 b_4 \rightarrow  \frac{1}{2}
+\left( 4 + b_1 + b_2 + b_3 + b_4 - b_{a_1} - 2b_{a_2} \right)
+\left( 3 + b_1 + b_2 + b_3 + b_4 - b_{a_1} - 2b_{a_2} \right)
+\end{eqnarray}
+
+\altformsec
+
+
+\begin{align}
+b_{1}b_{2}\ldots b_{k}	\rightarrow\left(2^{m}-k+\sum_{i}b_{i}-\sum_{i}2^{i-1}b_{a_{i}}\right)^{2}
+%b_1 \ldots b_k &= \min_{b'_1, \ldots b'_n} \frac{1}{2} \left( N + X - \sum^n_{i=1} 2^i b'_i \right)
+%\left( N + X - \sum^n_{i=1} 2^i b'_i - 1 \right).
+\end{align}
+
+%Or let $X = \sum b_i$ and $N = 2^{m+1} - k$,
+
+
+\refsec
+\begin{itemize}
+\item Original paper (Theorem 4, special case of Theorem 1): \cite{Boros2018QuadratizationsOS}.
+\end{itemize}
+
+\newpage
+
+
+\subsection{PTR-BCR-4 (Boros, Crama, and Rodr\'{i}guez-Heck, 2018)} 
 
 \summarysec
 
 %Suppose we have a monomial $b_1b_2b_3 \ldots b_k$.
-Pick $n$ minimal such that $k < 2^{n+1}$ and let $N = 2^{n+1} - k$.
-
-For convenience, let $X = \sum^k_{i=1} b_i$.
+Pick $m$ such that $k < 2^{m+1}$,
 
 \begin{align}
-b_1 \ldots b_k &= \min_{b'_1, \ldots b'_n} \frac{1}{2} \left( N + X - \sum^n_{i=1} 2^i b'_i \right)
-\left( N + X - \sum^n_{i=1} 2^i b'_i - 1 \right)
+b_1 \ldots b_k &\rightarrow   \frac{1}{2} \left( 2^{m+1}-k + \sum_ib_i - \sum^m_{i} 2^i b_{a_i} \right)
+\left( 2^{m+1}-k + \sum_i b_i - \sum^m_{i} 2^i b_{a_i} - 1 \right).
 \end{align}
 
 \costsec
@@ -1031,13 +1161,65 @@ $\lceil \log k \rceil  - 1$ auxiliary qubits per positive monomial.
 
 \examplesec
 
-Consider $k=4$, so that $n=2$, $N = 4$.
-Then:
+% Here we should really show extremely large k-local, not just 4-local
+
+%Consider $k=4$, so that $n=2$, $N = 4$.
+%Then:
 \begin{eqnarray}
-b_1 b_2 b_3 b_4 = \min_{b'_1, b'_2} \frac{1}{2}
-\left( 4 + b_1 + b_2 + b_3 + b_4 - b'_1 - 2b'_2 \right)
-\left( 3 + b_1 + b_2 + b_3 + b_4 - b'_1 - 2b'_2 \right)
+%b_1 b_2 b_3 b_4 = \min_{b_{a_1}, b_{a_2}} \frac{1}{2}
+b_1 b_2 b_3 b_4 \rightarrow  \frac{1}{2}
+\left( 4 + b_1 + b_2 + b_3 + b_4 - b_{a_1} - 2b_{a_2} \right)
+\left( 3 + b_1 + b_2 + b_3 + b_4 - b_{a_1} - 2b_{a_2} \right)
 \end{eqnarray}
+
+\altformsec
+
+Let $X = \sum b_i$ and $N = 2^{m+1} - k$,
+
+\begin{align}
+b_1 \ldots b_k &= \min_{b'_1, \ldots b'_n} \frac{1}{2} \left( N + X - \sum^n_{i=1} 2^i b'_i \right)
+\left( N + X - \sum^n_{i=1} 2^i b'_i - 1 \right).
+\end{align}
+
+
+
+
+\refsec
+\begin{itemize}
+\item Original paper (Theorem 5): \cite{Boros2018QuadratizationsOS}.
+\end{itemize}
+
+\newpage
+
+\subsection{PTR-BCR-5 (Boros, Crama, and Rodr\'{i}guez-Heck, 2018)}
+
+\summarysec
+
+Split a $k$-local monomial with odd $k$ into a $(k-1)$-local term (with even degree) and a new odd $k$-local term which has negative coefficient:
+
+\begin{align}
+\begin{gathered}
+b_{1}b_{2}\cdots b_{k}	\rightarrow \prod_{i=1}^{k-1}b_{i}-\prod_{i=1}^{k-1}b_{i}(1-b_{k})
+\end{gathered}
+\end{align}
+
+\noindent We can use any of the PTR methods for even $k$ on the first term, and we can use any of the NTR methods on the second term. Can be generalized to split into different-degree factors when seeking an "optimum" quadratization. Can be generalized into more splits.
+
+\costsec
+\begin{itemize}
+\item Depends on the methods used for the PTR and NTR procedures.
+\end{itemize}
+
+
+\prossec
+\begin{itemize}
+\item Very flexible.
+\end{itemize}
+
+\conssec
+\begin{itemize}
+\item First turns one term into two terms, so might not be preferred when we wish to minimize the number of terms.
+\end{itemize}
 
 \refsec
 \begin{itemize}
@@ -1046,7 +1228,9 @@ b_1 b_2 b_3 b_4 = \min_{b'_1, b'_2} \frac{1}{2}
 
 \newpage
 
-\subsection{Reduction by Minimum Selection (Kolmogorov \& Zabih, 2004)}
+
+
+\subsection{PTR-KZ (Kolmogorov \& Zabih, 2004)}
 
 \summarysec
 
@@ -1072,6 +1256,12 @@ b_{1}b_{2}b_{3} & \rightarrow 1  - \left( b_a + b_1 + b_2 + b_3 \right) + b_a \l
 \item Introduces all 6 possible non-submodular quadratic terms.
 \end{itemize}
 
+\altnamesec
+\begin{itemize}
+\item "Reduction by Minimum Selection" \cite{Gallagher2011}.
+\end{itemize}
+
+
 \refsec
 \begin{itemize}
 \item Original paper: \cite{Kolmogorov2004}.
@@ -1084,7 +1274,7 @@ b_{1}b_{2}b_{3} & \rightarrow 1  - \left( b_a + b_1 + b_2 + b_3 \right) + b_a \l
 
 \summarysec
 
-The formula is almost the same as in the version in terms of $b$, but with a factor of 2, a change of sign for the linear terms, and a slight change in the constant term:
+The formula is almost the same as in the version PTR-KZ in terms of $b$, but with a factor of 2, a change of sign for the linear terms, and a slight change in the constant term:
 
 \begin{align}
 \pm z_1z_2z_3 &\rightarrow 3 \pm \left( z_1 +  z_2 + z_3 + z_a \right) + 2z_a \left(z_1 + z_2 +z_3 \right) +  z_1z_2 + z_1z_3 + z_2z_3.
@@ -1123,9 +1313,9 @@ Similar to other methods of reducing one term, this method can reduce a positive
 
 The identity is given by:
 \begin{align}
-b_{1}b_{2}b_{3}&= \min_{b_a} \left( b_a-b_{2}b_a-b_{3}b_a+b_{1}b_a+b_{2}b_{3} \right)\\
-               &= \min_{b_a} \left( b_a-b_{1}b_a-b_{3}b_a+b_{2}b_a+b_{1}b_{3} \right)\\
-               &= \min_{b_a} \left( b_a-b_{1}b_a-b_{2}b_a+b_{3}b_a+b_{1}b_{2} \right).\\
+b_{1}b_{2}b_{3}\rightarrow   b_a-b_{2}b_a-b_{3}b_a+b_{1}b_a+b_{2}b_{3} \\
+               \rightarrow   b_a-b_{1}b_a-b_{3}b_a+b_{2}b_a+b_{1}b_{3}\\
+               \rightarrow   b_a-b_{1}b_a-b_{2}b_a+b_{3}b_a+b_{1}b_{2} .\\
 \end{align}
 
 \costsec
@@ -1145,7 +1335,8 @@ b_{1}b_{2}b_{3}&= \min_{b_a} \left( b_a-b_{2}b_a-b_{3}b_a+b_{1}b_a+b_{2}b_{3} \r
 
 \examplesec
 \begin{eqnarray}
-b_{1}b_{2}b_{3} + b_1 b_3 - b_2 &= \min_{b_a} \left( b_a-b_{1}b_a-b_{3}b_a+b_{2}b_a+2b_{1}b_{3} \right) - b_2
+%b_{1}b_{2}b_{3} + b_1 b_3 - b_2 &= \min_{b_a} \left( b_a-b_{1}b_a-b_{3}b_a+b_{2}b_a+2b_{1}b_{3} \right) - b_2
+b_{1}b_{2}b_{3} + b_1 b_3 - b_2 \rightarrow  \left( b_a-b_{1}b_a-b_{3}b_a+b_{2}b_a+2b_{1}b_{3} \right) - b_2
 \end{eqnarray}
 
 \refsec
@@ -1154,57 +1345,7 @@ b_{1}b_{2}b_{3} + b_1 b_3 - b_2 &= \min_{b_a} \left( b_a-b_{1}b_a-b_{3}b_a+b_{2}
 \end{itemize}
 
 \newpage
-\subsection{Bit flipping}
 
-\summarysec
-
-For any variable $b$, we can consider the negation $\bar{b}=1-b$.
-The process of exchanging $b$ for $\bar{b}$ is called \emph{flipping}.
-Using bit-flipping, an arbitrary function in $n$ variables can be represented using at most $2^{(n-2)}(n-3)+1$ variables, though this is a gross overestimate.
-
-Can be used in many different ways:
-\begin{enumerate}
-\item Flipping positive terms and using \ref{subsec:Negative-Monomial-Reduction}, recursively;
-\item For $\alpha<0$, we can reduce $\alpha\bar{b}_{1}\bar{b}_{2}...\bar{b}_{k}$ very efficiently to submodular form using \ref{subsec:Negative-Monomial-Reduction}.
-A generalized version exists for arbitrary combinations of flips in the monomial which makes reduction entirely submodular \cite{Ishikawa2011};
-\item When we have quadratized we can minimize the number of non-submodular terms by flipping.
-\item We can make use of both $b_{i}$ and $\bar{b}_{i}$ in the same Hamiltonian by adding on a sufficiently large penalty term: $\lambda(b_{i}+\bar{b}_{i}-1)^{2}=\lambda(1+2b_{i}\bar{b}_{i}-b_{i}-\bar{b}_{i})$.
-This is similar to the ideas in reduction by substitution or deduc-reduc.
-In this way, given a quadratic in $n$ variables we can make sure it only has at most $n$ nonsubmodular terms if we are willing to use the extra $n$ negation variables as well (so we have $2n$ variables in total).
-\end{enumerate}
-
-\costsec
-\begin{itemize}
-\item None, as replacing $b_{i}$ with it's negation $\bar{b}_{i}$ costs nothing except a trivial symbolic expansion.
-\end{itemize}
-
-\prossec
-\begin{itemize}
-\item Cheap and effective way of improving submodularity.
-\item Can be used to combine terms in clever ways, making other methods more efficient.
-\end{itemize}
-
-\conssec
-\begin{itemize}
-\item Unless the form of the Hamiltonian is known, spotting these 'factorizations' using negations is difficult.
-\item We need an auxiliary variable for each $b_i$ for which we also want to use $\bar{b_i}$ in the same Hamiltonian.
-\end{itemize}
-
-\examplesec
-
-By bit-flipping $b_2$ and $b_4$, i.e. substituting $b_2 = 1 - \bar{b}_{2}$ and $b_4 = 1 - \bar{b}_{4}$, we see that:
-\begin{eqnarray}
-H & = & 3b_{1}b_{2}+b_{2}b_{3}+2b_{1}b_{4}-4b_{2}b_{4}\protect\\
- & = & -3b_{1}\bar{b}_{2}-\bar{b}_{2}b_{3}-2b_{1}\bar{b}_{4}-\bar{b}_{2}\bar{b}_{4}+5b_{1}+b_{3}+4\bar{b}_{2}+4\bar{b}_{4}-4.
-\end{eqnarray}
-The first expression is highly non-submodular while the second is entirely submodular.
-
-\refsec
-\begin{itemize}
-\item Original paper: \cite{Ishikawa2011}.
-\end{itemize}
-
-\newpage
 \subsection{Symmetry Based Mappings}
 
 \summarysec
@@ -1276,43 +1417,536 @@ H_{2-\rm{local}}=2\,b_{a_1}-2\,b_{a_2}+2\,b_{a_3}-2\,b_{a_4}+ \lambda H_{4-\rm{c
 \end{itemize}
 
 
+\newpage
+
+
+
+\subsection{Bit flipping (Ishikawa, 2011)}
+
+\summarysec
+
+For any variable $b$, we can consider the negation $\bar{b}=1-b$.
+The process of exchanging $b$ for $\bar{b}$ is called \emph{flipping}.
+Using bit-flipping, an arbitrary function in $n$ variables can be represented using at most $2^{(n-2)}(n-3)+1$ variables, though this is a gross overestimate.
+
+Can be used in many different ways:
+\begin{enumerate}
+\item Flipping positive terms and using \ref{subsec:Negative-Monomial-Reduction}, recursively;
+\item For $\alpha<0$, we can reduce $\alpha\bar{b}_{1}\bar{b}_{2}...\bar{b}_{k}$ very efficiently to submodular form using \ref{subsec:Negative-Monomial-Reduction}.
+A generalized version exists for arbitrary combinations of flips in the monomial which makes reduction entirely submodular \cite{Ishikawa2011};
+\item When we have quadratized we can minimize the number of non-submodular terms by flipping.
+\item We can make use of both $b_{i}$ and $\bar{b}_{i}$ in the same Hamiltonian by adding on a sufficiently large penalty term: $\lambda(b_{i}+\bar{b}_{i}-1)^{2}=\lambda(1+2b_{i}\bar{b}_{i}-b_{i}-\bar{b}_{i})$.
+This is similar to the ideas in reduction by substitution or deduc-reduc.
+In this way, given a quadratic in $n$ variables we can make sure it only has at most $n$ nonsubmodular terms if we are willing to use the extra $n$ negation variables as well (so we have $2n$ variables in total).
+\end{enumerate}
+
+\costsec
+\begin{itemize}
+\item $n-2$ auxiliaries for any $n$-variable symmetric function.
+\item $n^2$ non-submodular quadratic terms (of the non-auxiliary variables).
+\item $n-2$ non-submodular linear terms (of the auxiliary variables).
+\end{itemize}
+
+\prossec
+\begin{itemize}
+\item Quadratization is symmetric in all non-auxiliary variables (this is not always true, for example some of the methods in the  NTR section).
+\item Reproduces the full spectrum.
+%\item They say this is linear in the auxiliary variables, but it doesn't seem to be, because we have b_{a_{i}}b_{j} terms where b_{a_{i}} are auxiliaries.
+\end{itemize}
+
+
+\conssec
+\begin{itemize}
+\item All quadratic terms of the non-auxiliary variables are non-sub-modular.
+\item All linear terms of the auxliaries are non-submodular.
+%\item Very complicated.
+%\item Uses far more auxiliaries than other ... well here we're doign the whole function in one go....
+\end{itemize}
+
+
+\examplesec
+
+By bit-flipping $b_2$ and $b_4$, i.e. substituting $b_2 = 1 - \bar{b}_{2}$ and $b_4 = 1 - \bar{b}_{4}$, we see that:
+\begin{eqnarray}
+H & = & 3b_{1}b_{2}+b_{2}b_{3}+2b_{1}b_{4}-4b_{2}b_{4}\protect\\
+ & = & -3b_{1}\bar{b}_{2}-\bar{b}_{2}b_{3}-2b_{1}\bar{b}_{4}-\bar{b}_{2}\bar{b}_{4}+5b_{1}+b_{3}+4\bar{b}_{2}+4\bar{b}_{4}-4.
+\end{eqnarray}
+The first expression is highly non-submodular while the second is entirely submodular.
+
+\refsec
+\begin{itemize}
+\item Original paper: \cite{Ishikawa2011}.
+\end{itemize}
+
+\newpage
+
+
+\section{Methods that quadratize MULTIPLE terms with the SAME auxiliaries (Case 1: Symmetric Function Reductions, SFR)}
+
+A symmetric function is one where if we switch any of the variable names (for example $b_1 \rightarrow b_5 \rightarrow b_8 \rightarrow b_1$), the function's output is unaffected. 
+
+\subsection{SFR-ABCG-1 (Anthony, Boros, Crama, Gruber, 2014)}
+
+\summarysec
+
+Any $n$-variable symmetric function $f\left(b_1,b_2,\ldots b_n\right)\equiv f(b)$  can be quadratized with $n-2$ auxiliaries:
+
+\begin{align}
+f(b)&\rightarrow -\alpha_{0}-\alpha_{0}\sum_{i}b_{i}+a_{2}\sum_{ij}b_{i}b_{j}+2\sum_{i}\left(\alpha_{i}-c\right)b_{a_{i}}\left(2i-\frac{1}{2}-\sum_{j}b_{j}\right) \\
+  c  &= \begin{cases}
+{\rm min}\left(\alpha_{2j}\right) & ,i\in\text{even}\\
+{\rm min}\left(\alpha_{2j-1}\right) & ,i\in\text{odd}
+\end{cases} \\
+a_2 &= \textrm{Determined from Page 12 of \cite{Anthony2015}}
+\end{align}
 
 
 
 
+\costsec
+\begin{itemize}
+\item None, as replacing $b_{i}$ with it's negation $\bar{b}_{i}$ costs nothing except a trivial symbolic expansion.
+\end{itemize}
+
+\prossec
+\begin{itemize}
+\item Cheap and effective way of improving submodularity.
+\item Can be used to combine terms in clever ways, making other methods more efficient.
+\end{itemize}
+
+\conssec
+\begin{itemize}
+\item Unless the form of the Hamiltonian is known, spotting these 'factorizations' using negations is difficult.
+\item We need an auxiliary variable for each $b_i$ for which we also want to use $\bar{b_i}$ in the same Hamiltonian.
+\end{itemize}
+
+\examplesec
+
+By bit-flipping $b_2$ and $b_4$, i.e. substituting $b_2 = 1 - \bar{b}_{2}$ and $b_4 = 1 - \bar{b}_{4}$, we see that:
+\begin{eqnarray}
+H & = & 3b_{1}b_{2}+b_{2}b_{3}+2b_{1}b_{4}-4b_{2}b_{4}\protect\\
+ & = & -3b_{1}\bar{b}_{2}-\bar{b}_{2}b_{3}-2b_{1}\bar{b}_{4}-\bar{b}_{2}\bar{b}_{4}+5b_{1}+b_{3}+4\bar{b}_{2}+4\bar{b}_{4}-4.
+\end{eqnarray}
+The first expression is highly non-submodular while the second is entirely submodular.
+
+\refsec
+\begin{itemize}
+\item 2014, original paper (Theorem 4.1, with $\alpha_i$ from Corollary 2.3): \cite{Anthony2014}.
+\end{itemize}
+
+\newpage
 
 
+\subsection{SFR-BCR-1 (Boros, Crama, Rodr\'{i}guez-Hector, 2018)}
+
+\summarysec
+% actually they say =1, not "non-zero"
+
+Any $n$-variable symmetric function $f\left(b_1,b_2,\ldots b_n\right)\equiv f(b)$  that is non-zero only when $\sum b_i = c$ where $\nicefrac{n}{2}\le c \le n$, can be quadratized with $m=\lceil \textrm{log}_2c \rceil +1$ auxiliary variables:
+
+{\scriptsize
+\begin{align}
+f(b) \rightarrow \alpha+\alpha^{b}\sum_{i}b_{i}+\alpha^{b_{a,1}}\sum_{i}^{m-1}b_{a_{i}}+\alpha^{b_{a,2}}b_{a_{m}}+\alpha^{bb}\sum_{ij}b_{i}b_{j}+\alpha^{bb_{a,1}}\sum_{i}\sum_{j}^{m-1}b_{i}b_{a_{j}}+\alpha^{bb_{a,2}}\sum_{i}b_{i}b_{a_{m}}+\alpha^{b_{a}b_{a}}\sum_{i,j}^{m-1}b_{a_{i}}b_{a_{j}},
+\end{align}
+}
+
+\noindent where:
+
+\begin{align}
+\begin{pmatrix}\alpha & \alpha^{bb}\\
+\alpha^{b} & \alpha^{bb_{a,1}}\\
+\alpha^{b_{a,1}} & \alpha^{bb_{a,2}}\\
+\alpha^{b_{a,2}} & \alpha^{b_{a}b_{a}}
+\end{pmatrix}=\begin{pmatrix}(c+1)^{2} & 1\\
+-2(c+1) & -2^{i}\\
+2(c+1) & -2\left(2m-2^{m-1}+1\right)\\
+2(c+1)\left(2c-2^{m-1}+1\right) & 2^{i+j-2}
+\end{pmatrix}.
+\end{align}
+
+\costsec
+\begin{itemize}
+\item $m=\lceil \textrm{log}_2 c \rceil + 1$ auxiliary variables. 
+\item $n^2 + m^2$ non-submodular quadratic terms (all possible quadratic terms involving only non-auxiliary or only auxiliary variables).
+\item $m$ non-submodular linear terms (all possible linear terms involving auxiliaries).
+\end{itemize}
+
+\prossec
+\begin{itemize}
+\item Small number of auxiliary terms
+\end{itemize}
+
+\conssec
+\begin{itemize}
+\item Only works for a special class of functions
+\item Introduces many linear and even more quadratic non-submodular terms.
+\end{itemize}
+
+\examplesec
+
+By bit-flipping $b_2$ and $b_4$, i.e. substituting $b_2 = 1 - \bar{b}_{2}$ and $b_4 = 1 - \bar{b}_{4}$, we see that:
+\begin{eqnarray}
+H & = & 3b_{1}b_{2}+b_{2}b_{3}+2b_{1}b_{4}-4b_{2}b_{4}\protect\\
+ & = & -3b_{1}\bar{b}_{2}-\bar{b}_{2}b_{3}-2b_{1}\bar{b}_{4}-\bar{b}_{2}\bar{b}_{4}+5b_{1}+b_{3}+4\bar{b}_{2}+4\bar{b}_{4}-4.
+\end{eqnarray}
+The first expression is highly non-submodular while the second is entirely submodular.
+
+\altformsec
+\begin{align}
+f\left(b_{1},b_{2},\ldots,b_{n}\right) &\rightarrow \left(-(c+1)+\sum_{i}b_{i}-\left(2c-2^{m-1}+1\right)b_{a_{m}}-\sum_{i}^{m-1}2^{i-1}b_{a_{i}}\right)^{2}
+\end{align}
 
 
+\refsec
+\begin{itemize}
+\item 2018, original paper (Theorem 1): \cite{Boros2018QuadratizationsOS}.
+\end{itemize}
+
+\newpage
+
+\subsection{SFR-BCR-2 (Boros, Crama, Rodr\'{i}guez-Hector, 2018)}
+
+\summarysec
+
+Any $n$-variable symmetric function $f\left(b_1,b_2,\ldots b_n\right)\equiv f(b)$  that is non-zero only when $\sum b_i = c$ where $0\le c \le\nicefrac{n}{2} $, can be quadratized with $m=\lceil \textrm{log}_2(n-c) \rceil +1$ auxiliary variables:
+
+{\scriptsize
+\begin{align}
+f(b)\rightarrow \left(\left(m-1\right)-\sum_{i}b_{i}-\left(2(n-m)-2^{\lceil\log(n-m)\rceil}+1\right)b_{a_{\lceil\log(n-m)\rceil+1}}-\sum_{i}^{\lceil\log(n-m)\rceil}2^{i-1}b_{a_{i}}\right)^{2}
+\end{align}
+}
+
+\noindent where:
+
+\begin{align}
+\begin{pmatrix}\alpha & \alpha^{bb}\\
+\alpha^{b} & \alpha^{bb_{a,1}}\\
+\alpha^{b_{a,1}} & \alpha^{bb_{a,2}}\\
+\alpha^{b_{a,2}} & \alpha^{b_{a}b_{a}}
+\end{pmatrix}=\begin{pmatrix}(c+1)^{2} & 1\\
+-2(c+1) & -2^{i}\\
+2(c+1) & -2\left(2m-2^{m-1}+1\right)\\
+2(c+1)\left(2c-2^{m-1}+1\right) & 2^{i+j-2}
+\end{pmatrix}.
+\end{align}
+
+\costsec
+\begin{itemize}
+\item $m=\lceil \textrm{log}_2 (n-c) \rceil + 1$ auxiliary variables.
+\item $n^2 + m^2$ non-submodular quadratic terms (all possible quadratic terms involving only non-auxiliary or only auxiliary variables).
+\item $m$ non-submodular linear terms (all possible linear terms involving auxiliaries).
+\end{itemize}
+
+\prossec
+\begin{itemize}
+\item Small number of auxiliary terms
+\end{itemize}
+
+\conssec
+\begin{itemize}
+\item Only works for a special class of functions
+\item Introduces many linear and even more quadratic non-submodular terms.
+\end{itemize}
+
+\examplesec
+
+By bit-flipping $b_2$ and $b_4$, i.e. substituting $b_2 = 1 - \bar{b}_{2}$ and $b_4 = 1 - \bar{b}_{4}$, we see that:
+\begin{eqnarray}
+H & = & 3b_{1}b_{2}+b_{2}b_{3}+2b_{1}b_{4}-4b_{2}b_{4}\protect\\
+ & = & -3b_{1}\bar{b}_{2}-\bar{b}_{2}b_{3}-2b_{1}\bar{b}_{4}-\bar{b}_{2}\bar{b}_{4}+5b_{1}+b_{3}+4\bar{b}_{2}+4\bar{b}_{4}-4.
+\end{eqnarray}
+The first expression is highly non-submodular while the second is entirely submodular.
+
+\refsec
+\begin{itemize}
+\item 2018, original paper (Theorem 1): \cite{Boros2018QuadratizationsOS}.
+\end{itemize}
+
+\newpage
+
+\subsection{SFR-BCR-3 (Boros, Crama, Rodr\'{i}guez-Hector, 2018)}
+
+\summarysec
+% actually they say =1, not "non-zero"
+
+Any $n$-variable symmetric function $f\left(b_1,b_2,\ldots b_n\right)\equiv f(b)$  that is non-zero only when $\sum b_i = c$ where $\nicefrac{n}{2}\le c \le n$, can be quadratized with $m=\lceil \textrm{log}_2c \rceil +1$ auxiliary variables $f\rightarrow$:
+
+{\scriptsize
+\begin{align}
+\frac{1}{2}\left(\sum_{i}b_{i}-\left(m-2^{c}\right)b_{a_{c+1}}-(m+1)(\left(1-b_{a_{c+1}}\right)-\sum_{i}^{c}2^{i-1}b_{a_{i}}\right)\left(\sum_{i}b_{i}-\left(m-2^{c}\right)b_{a_{c+1}}-(m+1)(\left(1-b_{a_{c+1}}\right)-\sum_{i}^{c}2^{i-1}b_{a_{i}}-1\right)
+\end{align}
+}
+
+\noindent where:
+
+\begin{align}
+\begin{pmatrix}\alpha & \alpha^{bb}\\
+\alpha^{b} & \alpha^{bb_{a,1}}\\
+\alpha^{b_{a,1}} & \alpha^{bb_{a,2}}\\
+\alpha^{b_{a,2}} & \alpha^{b_{a}b_{a}}
+\end{pmatrix}=\begin{pmatrix}(c+1)^{2} & 1\\
+-2(c+1) & -2^{i}\\
+2(c+1) & -2\left(2m-2^{m-1}+1\right)\\
+2(c+1)\left(2c-2^{m-1}+1\right) & 2^{i+j-2}
+\end{pmatrix}.
+\end{align}
+
+\costsec
+\begin{itemize}
+\item $m=\lceil \textrm{log}_2 c \rceil + 1$ auxiliary variables. 
+\item $n^2 + m^2$ non-submodular quadratic terms (all possible quadratic terms involving only non-auxiliary or only auxiliary variables).
+\item $m$ non-submodular linear terms (all possible linear terms involving auxiliaries).
+\end{itemize}
+
+\prossec
+\begin{itemize}
+\item Small number of auxiliary terms
+\end{itemize}
+
+\conssec
+\begin{itemize}
+\item Only works for a special class of functions
+\item Introduces many linear and even more quadratic non-submodular terms.
+\end{itemize}
+
+\examplesec
+
+By bit-flipping $b_2$ and $b_4$, i.e. substituting $b_2 = 1 - \bar{b}_{2}$ and $b_4 = 1 - \bar{b}_{4}$, we see that:
+\begin{eqnarray}
+H & = & 3b_{1}b_{2}+b_{2}b_{3}+2b_{1}b_{4}-4b_{2}b_{4}\protect\\
+ & = & -3b_{1}\bar{b}_{2}-\bar{b}_{2}b_{3}-2b_{1}\bar{b}_{4}-\bar{b}_{2}\bar{b}_{4}+5b_{1}+b_{3}+4\bar{b}_{2}+4\bar{b}_{4}-4.
+\end{eqnarray}
+The first expression is highly non-submodular while the second is entirely submodular.
+
+\altformsec
+\begin{align}
+f\left(b_{1},b_{2},\ldots,b_{n}\right)&\rightarrow \binom{\frac{1}{2}\left(\sum_{i}b_{i}-\left(m-2^{c}\right)b_{a_{c+1}}-(m+1)(\left(1-b_{a_{c+1}}\right)-\sum_{i}^{c}2^{i-1}b_{a_{i}}\right)}{2}
+\end{align}
 
 
+\refsec
+\begin{itemize}
+\item 2018, original paper (Theorem 2): \cite{Boros2018QuadratizationsOS}.
+\end{itemize}
+
+\newpage
+
+\subsection{SFR-BCR-4 (Boros, Crama, Rodr\'{i}guez-Hector, 2018)}
+
+\summarysec
+
+Any $n$-variable symmetric function $f\left(b_1,b_2,\ldots b_n\right)\equiv f(b)$  that is non-zero only when $\sum b_i = c$ where $0\le c \le\nicefrac{n}{2} $, can be quadratized with $m=\lceil \textrm{log}_2(n-c) \rceil +1$ auxiliary variables $f\rightarrow$:
+
+{\scriptsize
+\begin{align}
+\frac{1}{2}\left(\left(c-1\right)-\sum_{i}b_{i}-\left(2(n-c)-2^{m-1}+1\right)b_{a_{m}}-\sum_{i}^{m-1}2^{i-1}b_{a_{i}}\right)\left(\left(c-1\right)-\sum_{i}b_{i}-\left(2(n-c)-2^{m-1}+1\right)b_{a_{m}}-\sum_{i}^{m-1}2^{i-1}b_{a_{i}}-1\right)
+\end{align}
+}
+
+\noindent where:
+
+\begin{align}
+\begin{pmatrix}\alpha & \alpha^{bb}\\
+\alpha^{b} & \alpha^{bb_{a,1}}\\
+\alpha^{b_{a,1}} & \alpha^{bb_{a,2}}\\
+\alpha^{b_{a,2}} & \alpha^{b_{a}b_{a}}
+\end{pmatrix}=\begin{pmatrix}(c+1)^{2} & 1\\
+-2(c+1) & -2^{i}\\
+2(c+1) & -2\left(2m-2^{m-1}+1\right)\\
+2(c+1)\left(2c-2^{m-1}+1\right) & 2^{i+j-2}
+\end{pmatrix}.
+\end{align}
+
+\costsec
+\begin{itemize}
+\item $m=\lceil \textrm{log}_2 (n-c) \rceil + 1$ auxiliary variables.
+\item $n^2 + m^2$ non-submodular quadratic terms (all possible quadratic terms involving only non-auxiliary or only auxiliary variables).
+\item $m$ non-submodular linear terms (all possible linear terms involving auxiliaries).
+\end{itemize}
+
+\prossec
+\begin{itemize}
+\item Small number of auxiliary terms
+\end{itemize}
+
+\conssec
+\begin{itemize}
+\item Only works for a special class of functions
+\item Introduces many linear and even more quadratic non-submodular terms.
+\end{itemize}
+
+\examplesec
+
+By bit-flipping $b_2$ and $b_4$, i.e. substituting $b_2 = 1 - \bar{b}_{2}$ and $b_4 = 1 - \bar{b}_{4}$, we see that:
+\begin{eqnarray}
+H & = & 3b_{1}b_{2}+b_{2}b_{3}+2b_{1}b_{4}-4b_{2}b_{4}\protect\\
+ & = & -3b_{1}\bar{b}_{2}-\bar{b}_{2}b_{3}-2b_{1}\bar{b}_{4}-\bar{b}_{2}\bar{b}_{4}+5b_{1}+b_{3}+4\bar{b}_{2}+4\bar{b}_{4}-4.
+\end{eqnarray}
+The first expression is highly non-submodular while the second is entirely submodular.
+
+\altformsec
+\begin{align}
+f\left(b_{1},b_{2},\ldots,b_{n}\right)& \rightarrow \binom{\frac{1}{2}\left(\left(c-1\right)-\sum_{i}b_{i}-\left(2(n-c)-2^{m-1}+1\right)b_{a_{m}}-\sum_{i}^{m-1}2^{i-1}b_{a_{i}}\right)}{2}
+\end{align}
+
+\refsec
+\begin{itemize}
+\item 2018, original paper (Theorem 2): \cite{Boros2018QuadratizationsOS}.
+\end{itemize}
+
+\newpage
+
+\subsection{SFR-BCR-5 (Boros, Crama, Rodr\'{i}guez-Hector, 2018)}
+
+\summarysec
+
+For an $n$-variable symmetric function that is a function of the sum of all variables $f\left(b_1,b_2,\ldots b_n\right) =  f(\sum b_i)$, for some large value of $\lambda > \textrm{max}(f)$, and $\lceil \sqrt{n+1}\rceil$:
+
+{\footnotesize
+\begin{align}
+\begin{gathered}
+f\left(\sum b_i \right) \rightarrow  \sum_{ij}^{m}f\left((i-1)\left(m+1\right)+(j-1)\right)b_{a_{i}}b_{a_{c+j}}+\lambda\left(\left(1-\sum_{i}^{m}b_{a_{i}}\right)^{2}+\left(1-\sum_{i}^{m}b_{a_{c+i}}\right)^{2}+\right.\\
+\left.\left(\sum_{i}b_{i}-\left(\left(m+1\right)\sum_{i}^{m}(i-1)y_{a_{i}}+\sum_{i}^{m}(i-1)b_{a_{c+i}}\right)\right)^{2}+\left(\sum_{i}b_{i}-\left(\left(m+1\right)\sum_{i}^{m}(i-1)y_{a_{i}}+\sum_{i}^{m}(i-1)b_{a_{c+i}}\right)\right)^{2}\right)
+\end{gathered}
+\end{align}
+}
+
+\noindent where:
+
+\begin{align}
+\begin{pmatrix}\alpha & \alpha^{bb}\\
+\alpha^{b} & \alpha^{bb_{a,1}}\\
+\alpha^{b_{a,1}} & \alpha^{bb_{a,2}}\\
+\alpha^{b_{a,2}} & \alpha^{b_{a}b_{a}}
+\end{pmatrix}=\begin{pmatrix}(c+1)^{2} & 1\\
+-2(c+1) & -2^{i}\\
+2(c+1) & -2\left(2m-2^{m-1}+1\right)\\
+2(c+1)\left(2c-2^{m-1}+1\right) & 2^{i+j-2}
+\end{pmatrix}.
+\end{align}
+
+\costsec
+\begin{itemize}
+\item $m=\lceil \sqrt{n+1} \rceil $ auxiliary variables.
+\item $n^2 + m^2$ non-submodular quadratic terms (all possible quadratic terms involving only non-auxiliary or only auxiliary variables).
+\item $m$ non-submodular linear terms (all possible linear terms involving auxiliaries).
+\end{itemize}
+
+\prossec
+\begin{itemize}
+\item Small number of auxiliary terms
+\end{itemize}
+
+\conssec
+\begin{itemize}
+\item Only works for a special class of functions
+\item Introduces many linear and even more quadratic non-submodular terms.
+\end{itemize}
+
+\examplesec
+
+By bit-flipping $b_2$ and $b_4$, i.e. substituting $b_2 = 1 - \bar{b}_{2}$ and $b_4 = 1 - \bar{b}_{4}$, we see that:
+\begin{eqnarray}
+H & = & 3b_{1}b_{2}+b_{2}b_{3}+2b_{1}b_{4}-4b_{2}b_{4}\protect\\
+ & = & -3b_{1}\bar{b}_{2}-\bar{b}_{2}b_{3}-2b_{1}\bar{b}_{4}-\bar{b}_{2}\bar{b}_{4}+5b_{1}+b_{3}+4\bar{b}_{2}+4\bar{b}_{4}-4.
+\end{eqnarray}
+The first expression is highly non-submodular while the second is entirely submodular.
+
+\altformsec
+\begin{align}
+f\left(b_{1},b_{2},\ldots,b_{n}\right)& \rightarrow \binom{\frac{1}{2}\left(\left(c-1\right)-\sum_{i}b_{i}-\left(2(n-c)-2^{m-1}+1\right)b_{a_{m}}-\sum_{i}^{m-1}2^{i-1}b_{a_{i}}\right)}{2}
+\end{align}
+
+\refsec
+\begin{itemize}
+\item 2018, original paper (Theorem 9): \cite{Boros2018QuadratizationsOS}.
+\end{itemize}
+
+\newpage
+
+\subsection{SFR-BCR-6 (Boros, Crama, Rodr\'{i}guez-Hector, 2018)}
+
+\summarysec
+
+For an $n$-variable symmetric function that is a function of a \textit{weighted} sum of all variables $f\left(b_1,b_2,\ldots b_n\right) =  f(\sum w_ib_i)$, for some large value of $\lambda > \textrm{max}(f)$, and $\max \left( f\left(\sum w_i b_i \right)\right) < (m+1)^2$:
+
+%{\footnotesize
+\begin{align}
+\begin{gathered}
+f\left(\sum w_{i}b_{i}\right)\rightarrow\sum_{ij}^{m}\alpha_{ij}b_{a_{i}}b_{a_{m+i}}+\lambda\left(1+\left(\sum_{i}w_{i}b_{i}-(m-1)\sum_{i}^{m}b_{a_{i}}+\sum_{i}^{m}b_{a_{c+i}}\right)^{2}\right.\\
++\left.\sum_{i}^{m-1}\left(1-b_{a_{i}}\right)b_{a_{i+1}}+\sum_{i}^{m-1}\left(1-b_{a_{i+m}}\right)b_{a_{i+m+1}}\right)
+\end{gathered}
+\end{align}
+%}
+
+\noindent where:
+
+\begin{align}
+\sum_{i}^{\alpha}\sum_{j}^{\beta}\alpha_{ij}&=f\left(\alpha(m+1)+\beta\right)
+\end{align}
+
+\costsec
+\begin{itemize}
+\item $2m$ auxiliary variables, where $m> \sqrt{\max \left( f \left( \sum w_i b_i \right)  \right)}-1$.
+\item $n^2 + m^2$ non-submodular quadratic terms (all possible quadratic terms involving only non-auxiliary or only auxiliary variables).
+\item $m$ non-submodular linear terms (all possible linear terms involving auxiliaries).
+\end{itemize}
+
+\prossec
+\begin{itemize}
+\item Small number of auxiliary terms
+\end{itemize}
+
+\conssec
+\begin{itemize}
+\item Only works for a special class of functions
+\item Introduces many linear and even more quadratic non-submodular terms.
+\end{itemize}
+
+\examplesec
+
+By bit-flipping $b_2$ and $b_4$, i.e. substituting $b_2 = 1 - \bar{b}_{2}$ and $b_4 = 1 - \bar{b}_{4}$, we see that:
+\begin{eqnarray}
+H & = & 3b_{1}b_{2}+b_{2}b_{3}+2b_{1}b_{4}-4b_{2}b_{4}\protect\\
+ & = & -3b_{1}\bar{b}_{2}-\bar{b}_{2}b_{3}-2b_{1}\bar{b}_{4}-\bar{b}_{2}\bar{b}_{4}+5b_{1}+b_{3}+4\bar{b}_{2}+4\bar{b}_{4}-4.
+\end{eqnarray}
+The first expression is highly non-submodular while the second is entirely submodular.
+
+\altformsec
+\begin{align}
+f\left(b_{1},b_{2},\ldots,b_{n}\right)& \rightarrow \binom{\frac{1}{2}\left(\left(c-1\right)-\sum_{i}b_{i}-\left(2(n-c)-2^{m-1}+1\right)b_{a_{m}}-\sum_{i}^{m-1}2^{i-1}b_{a_{i}}\right)}{2}
+\end{align}
+
+\refsec
+\begin{itemize}
+\item 2018, original paper (Theorem 10): \cite{Boros2018QuadratizationsOS}.
+\end{itemize}
+
+\newpage
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Methods that quadratize MULTIPLE terms with the SAME auxiliaries (Case 2: Parity Functions)}
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%5
+%%%%%%%%%%%%%%%%%%%%%%%%%5
+%%%%%%%%%%%%%%%%%%%%%%%%%5
+%%%%%%%%%%%%%%%%%%%%%%%%%5
+%%%%%%%%%%%%%%%%%%%%%%%%%5
+%%%%%%%%%%%%%%%%%%%%%%%%%5
+%%%%%%%%%%%%%%%%%%%%%%%%%5
+%%%%%%%%%%%%%%%%%%%%%%%%%5
+%%%%%%%%%%%%%%%%%%%%%%%%%5
+%%%%%%%%%%%%%%%%%%%%%%%%%5
+%%%%%%%%%%%%%%%%%%%%%%%%%5
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\section{Methods that introduce auxiliary variables to quadratize MULTIPLE terms with the SAME auxiliaries}
-
-\subsection{Reduction by Substitution}
-
+\section{Methods that quadratize MULTIPLE terms with the SAME auxiliaries (Case 3: Arbitrary Functions)}
+\subsection{Reduction by Substitution (Rosenberg 1975)}
 \summarysec
 
 Pick a variable pair $(b_{i},b_{j})$ and substitute $b_{i}b_{j}$ with a  new auxiliary variable $b_{a_{ij}}$.
@@ -1353,8 +1987,47 @@ b_{1}b_{2}b_{3}+b_{1}b_{2}b_{4}\mapsto b_{3}b_a+b_{4}b_a+b_{1}b_{2}-2b_{1}b_a-2b
 \item Used in: \cite{Perdomo2008, Bian2013}. %Perdomo2013 is protein folding problem, Bian2013 is Ramsey number problem. 
 \end{itemize}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 \newpage
-\subsection{FGBZ Reduction (Fix-Gruber-Boros-Zabih)}
+
+
+\subsection{FGBZ Reduction (Fix-Gruber-Boros-Zabih, 2011)}
 
 \summarysec
 
