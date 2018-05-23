@@ -6,6 +6,7 @@
 \usepackage[latin9]{inputenc}
 \setcounter{secnumdepth}{3}
 \usepackage{color}
+\usepackage{xcolor}
 \usepackage{verbatim}
 \usepackage{units}
 \usepackage{amsmath}
@@ -13,6 +14,9 @@
 \usepackage{amssymb}
 \PassOptionsToPackage{normalem}{ulem}
 \usepackage{ulem}
+\usepackage{lipsum}
+%\usepackage{hyperref}
+
 %\usepackage{cleveref}
 
 %\usepackage{xpatch}
@@ -46,19 +50,23 @@
 \usepackage{color}
 
 
+% try increasing spacing between bibliography entries according to: https://tex.stackexchange.com/questions/93859/condense-the-space-between-bibliographic-entries But not working.
+\let\OLDthebibliography\thebibliography 
+\renewcommand\thebibliography[1]{
+  \OLDthebibliography{#1}
+  \setlength{\parskip}{0pt}
+  \setlength{\itemsep}{0pt plus 3.3ex}
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
+% Alternatively try this: http://www.math.cmu.edu/~gautam/sj/blog/20140712-bibtex-spacing.html [This way works!]
+\newlength{\bibitemsep}\setlength{\bibitemsep}{0.6\baselineskip plus .05\baselineskip minus .05\baselineskip}
+\newlength{\bibparskip}\setlength{\bibparskip}{0pt}
+\let\oldthebibliography\thebibliography
+\renewcommand\thebibliography[1]{%
+  \oldthebibliography{#1}%
+  \setlength{\parskip}{\bibitemsep}%
+  \setlength{\itemsep}{\bibparskip}%
+}
 
 
 \newcommand*{\mathcolor}{}
@@ -90,6 +98,29 @@
 \newcommand{\jb}[1]{\todo[inline]{{\textbf{[}JB: #1\textbf{]}}}}
 %%%%%%%%%%
 
+\makeatletter
+\let\@msm@th@eqref\eqref
+\renewcommand{\eqref}[1]{%
+  \begingroup
+  \leavevmode
+  \color{violet}%
+  \hypersetup{linkbordercolor=[named]{violet}}%
+%  \hypersetup{textcolor=[named]{violet}}%
+  \@msm@th@eqref{#1}%
+  \endgroup
+}
+\makeatother
+
+\def\eqref#1{\textcolor{black}{(\ref{#1})}}
+
+
+
+
+
+
+
+
+
 
 
 %% Set space of itemize environment
@@ -98,8 +129,15 @@
 
 
 % Bookmarks in PDF (navigation pane)
-\usepackage[colorlinks=true,linkcolor=black,urlcolor=black,bookmarksopen=true]{hyperref}
+\usepackage[colorlinks,urlcolor=blue,bookmarksopen=true]{hyperref}
 \usepackage{bookmark}
+
+%\hypersetup{
+%  colorlinks,
+%  citecolor=Violet,
+%  linkcolor=Red,
+%  urlcolor=Blue}
+
 
 \newcommand{\hi}{$H_{\rm init}$\xspace}
 \newcommand{\hf}{$H_{\rm final}$\xspace}
