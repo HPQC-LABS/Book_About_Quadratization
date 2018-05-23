@@ -148,29 +148,6 @@
   {\bibinfo  {journal} {IEEE Transactions on Pattern Analysis and Machine
   Intelligence}\ }\textbf {\bibinfo {volume} {33}},\ \bibinfo {pages}
   {1234--1249} (\bibinfo {year} {2011})}\BibitemShut {NoStop}%
-\bibitem [{\citenamefont {Anthony}\ \emph {et~al.}()\citenamefont {Anthony},
-  \citenamefont {Boros}, \citenamefont {Crama},\ and\ \citenamefont
-  {Gruber}}]{Anthony2015}%
-  \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Martin}\ \bibnamefont
-  {Anthony}}, \bibinfo {author} {\bibfnamefont {Endre}\ \bibnamefont {Boros}},
-  \bibinfo {author} {\bibfnamefont {Yves}\ \bibnamefont {Crama}}, \ and\
-  \bibinfo {author} {\bibfnamefont {Aritanan}\ \bibnamefont {Gruber}},\
-  }\bibfield  {title} {\enquote {\bibinfo {title} {{Quadratic reformulations of
-  nonlinear binary optimization problems}},}\ }\href@noop {} {\ }\BibitemShut
-  {NoStop}%
-\bibitem [{\citenamefont {Anthony}\ \emph {et~al.}(2014)\citenamefont
-  {Anthony}, \citenamefont {Boros}, \citenamefont {Crama},\ and\ \citenamefont
-  {Gruber}}]{Anthony2014}%
-  \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Martin}\ \bibnamefont
-  {Anthony}}, \bibinfo {author} {\bibfnamefont {Endre}\ \bibnamefont {Boros}},
-  \bibinfo {author} {\bibfnamefont {Yves}\ \bibnamefont {Crama}}, \ and\
-  \bibinfo {author} {\bibfnamefont {Aritanan}\ \bibnamefont {Gruber}},\
-  }\bibfield  {title} {\enquote {\bibinfo {title} {{Quadratization of Symmetric
-  Pseudo-Boolean Functions}},}\ }\href {https://arxiv.org/abs/1404.6535} {\
-  (\bibinfo {year} {2014})},\ \Eprint {http://arxiv.org/abs/1404.6535}
-  {arXiv:1404.6535} \BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Anthony}\ \emph {et~al.}(2016)\citenamefont
   {Anthony}, \citenamefont {Boros}, \citenamefont {Crama},\ and\ \citenamefont
   {Gruber}}]{Anthony2016}%
@@ -184,6 +161,18 @@
   {\bibfield  {journal} {\bibinfo  {journal} {Discrete Applied Mathematics}\
   }\textbf {\bibinfo {volume} {203}},\ \bibinfo {pages} {1--12} (\bibinfo
   {year} {2016})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Anthony}\ \emph {et~al.}(2014)\citenamefont
+  {Anthony}, \citenamefont {Boros}, \citenamefont {Crama},\ and\ \citenamefont
+  {Gruber}}]{Anthony2014}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Martin}\ \bibnamefont
+  {Anthony}}, \bibinfo {author} {\bibfnamefont {Endre}\ \bibnamefont {Boros}},
+  \bibinfo {author} {\bibfnamefont {Yves}\ \bibnamefont {Crama}}, \ and\
+  \bibinfo {author} {\bibfnamefont {Aritanan}\ \bibnamefont {Gruber}},\
+  }\bibfield  {title} {\enquote {\bibinfo {title} {{Quadratization of Symmetric
+  Pseudo-Boolean Functions}},}\ }\href {https://arxiv.org/abs/1404.6535} {\
+  (\bibinfo {year} {2014})},\ \Eprint {http://arxiv.org/abs/1404.6535}
+  {arXiv:1404.6535} \BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Kahl}\ and\ \citenamefont
   {Strandmark}(2011)}]{Kahl2011}%
   \BibitemOpen
@@ -203,6 +192,17 @@
   Quadratization of Pseudo-Boolean Functions}},}\ }\href
   {http://arxiv.org/abs/1404.6538} {\  (\bibinfo {year} {2014})},\ \Eprint
   {http://arxiv.org/abs/1404.6538} {arXiv:1404.6538} \BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Boros}\ \emph {et~al.}(2018)\citenamefont {Boros},
+  \citenamefont {Crama},\ and\ \citenamefont
+  {Rodr{\'i}guez-Heck}}]{Boros2018QuadratizationsOS}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Endre}\ \bibnamefont
+  {Boros}}, \bibinfo {author} {\bibfnamefont {Yves}\ \bibnamefont {Crama}}, \
+  and\ \bibinfo {author} {\bibfnamefont {Elisabeth}\ \bibnamefont
+  {Rodr{\'i}guez-Heck}},\ }\bibfield  {title} {\enquote {\bibinfo {title}
+  {Quadratizations of symmetric pseudo-boolean functions: sub-linear bounds on
+  the number of auxiliary variables},}\ }in\ \href@noop {} {\emph {\bibinfo
+  {booktitle} {ISAIM}}}\ (\bibinfo {year} {2018})\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Gallagher}\ \emph {et~al.}(2011)\citenamefont
   {Gallagher}, \citenamefont {Batra},\ and\ \citenamefont
   {Parikh}}]{Gallagher2011}%
@@ -215,17 +215,6 @@
   {\doibase 10.1109/CVPR.2011.5995452} {\emph {\bibinfo {booktitle} {CVPR
   2011}}}\ (\bibinfo  {publisher} {IEEE},\ \bibinfo {year} {2011})\ pp.\
   \bibinfo {pages} {1857--1864}\BibitemShut {NoStop}%
-\bibitem [{\citenamefont {Boros}\ \emph {et~al.}(2018)\citenamefont {Boros},
-  \citenamefont {Crama},\ and\ \citenamefont
-  {Rodr{\'i}guez-Heck}}]{Boros2018QuadratizationsOS}%
-  \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Endre}\ \bibnamefont
-  {Boros}}, \bibinfo {author} {\bibfnamefont {Yves}\ \bibnamefont {Crama}}, \
-  and\ \bibinfo {author} {\bibfnamefont {Elisabeth}\ \bibnamefont
-  {Rodr{\'i}guez-Heck}},\ }\bibfield  {title} {\enquote {\bibinfo {title}
-  {Quadratizations of symmetric pseudo-boolean functions: sub-linear bounds on
-  the number of auxiliary variables},}\ }in\ \href@noop {} {\emph {\bibinfo
-  {booktitle} {ISAIM}}}\ (\bibinfo {year} {2018})\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Chancellor}\ \emph
   {et~al.}(2016{\natexlab{a}})\citenamefont {Chancellor}, \citenamefont
   {Zohren},\ and\ \citenamefont {Warburton}}]{Chancellor2016b}%
@@ -300,6 +289,17 @@
   {\bibfield  {journal} {\bibinfo  {journal} {Scientific Reports}\ }\textbf
   {\bibinfo {volume} {6}} (\bibinfo {year} {2016}{\natexlab{b}}),\
   10.1038/srep37107}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Anthony}\ \emph {et~al.}()\citenamefont {Anthony},
+  \citenamefont {Boros}, \citenamefont {Crama},\ and\ \citenamefont
+  {Gruber}}]{Anthony2015}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Martin}\ \bibnamefont
+  {Anthony}}, \bibinfo {author} {\bibfnamefont {Endre}\ \bibnamefont {Boros}},
+  \bibinfo {author} {\bibfnamefont {Yves}\ \bibnamefont {Crama}}, \ and\
+  \bibinfo {author} {\bibfnamefont {Aritanan}\ \bibnamefont {Gruber}},\
+  }\bibfield  {title} {\enquote {\bibinfo {title} {{Quadratic reformulations of
+  nonlinear binary optimization problems}},}\ }\href@noop {} {\ }\BibitemShut
+  {NoStop}%
 \bibitem [{\citenamefont {Rosenberg}(1975)}]{Rosenberg1975}%
   \BibitemOpen
   \bibfield  {author} {\bibinfo {author} {\bibfnamefont {I.~G.}\ \bibnamefont
