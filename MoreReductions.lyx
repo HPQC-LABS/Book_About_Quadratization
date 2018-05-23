@@ -168,7 +168,6 @@ Nike Dattani
 \end_layout
 
 \begin_layout Author Email
-
 n.dattani@cfa.harvard.edu
 \end_layout
 
@@ -456,14 +455,14 @@ b_{1}b_{2}\cdots b_{k} & \rightarrow\alpha^{b}\sum_{i}b_{i}+\alpha^{b_{a_{1}}}\s
 \begin_layout Standard
 \begin_inset Formula 
 \begin{align}
-\begin{pmatrix}\alpha & \alpha^{bb}\\
-\alpha^{b} & \alpha^{bb_{a,1}}\\
+\begin{pmatrix}\alpha^{b} & \alpha^{bb_{a,1}}\\
 \alpha^{b_{a,1}} & \alpha^{bb_{a,2}}\\
-\alpha^{b_{a,2}} & \alpha^{b_{a}b_{a}}
-\end{pmatrix} & =\begin{pmatrix}0 & \nicefrac{1}{2}\\
--\nicefrac{1}{2} & -1\\
+\alpha^{b_{a,2}} & \alpha^{b_{a,1}b_{a,1}}\\
+\alpha^{bb} & \alpha^{b_{a,1}b_{a,2}}
+\end{pmatrix} & =\begin{pmatrix}-\nicefrac{1}{2} & -1\\
 1 & -2\\
-\frac{1}{2}(n-c+n^{2}-2cn+c^{2}) & -(n-c)
+\frac{1}{2}(n-m+n^{2}-2mn+m^{2}) & -(n-m)\\
+\nicefrac{1}{2} & 4(n-m)
 \end{pmatrix}.
 \end{align}
 
