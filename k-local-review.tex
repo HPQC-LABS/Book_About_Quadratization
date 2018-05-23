@@ -45,6 +45,22 @@
 
 \usepackage{color}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 \newcommand*{\mathcolor}{}
 \def\mathcolor#1#{\mathcoloraux{#1}}
 \newcommand*{\mathcoloraux}[3]{%
@@ -1006,24 +1022,35 @@ Let $m = \lceil \frac{k}{4} \rceil$,
 \begin{gathered}
 %b_1 \ldots b_k &= \min_{b'_1, \ldots b'_m} \frac{1}{2} \left( X - Nb'_1 - 2Y \right)
 %\left( X - Nb'_1 - 2Y - 1 \right)
-b_{1}b_{2}\cdots b_{k}	\rightarrow\alpha^{b}\sum_{i}b_{i}+\alpha^{b_{a_{1}}}\sum_{i}b_{a_{i}}+\alpha^{b_{a_{2}}}b_{a_{m}}+\alpha^{bb}\sum_{ij}b_{i}b_{j}+\alpha^{bb_{a_{1}}}\sum_{i}\sum_{j}^{m-1}b_{i}b_{a_{j}}+\\
-	\alpha^{bb_{a_{2}}}\sum_{i}b_{i}b_{a_{m}}+\alpha^{b_{a_{1}}b_{a_{1}}}\sum_{ij}^{m-1}b_{a_{i}}b_{a_{j}}+\alpha^{b_{a_{1}}b_{a_{2}}}\sum_{ij}^{m-1}b_{a_{i}}b_{a_{m}},
+b_{1}b_{2}\cdots b_{k}	\rightarrow\alpha^{b}\sum_{i}b_{i}+\alpha^{b_{a,1}}\sum_{i}b_{a_{i}}+\alpha^{b_{a,2}}b_{a_{m}}+\alpha^{bb}\sum_{ij}b_{i}b_{j}+\alpha^{bb_{a,1}}\sum_{i}\sum_{j}^{m-1}b_{i}b_{a_{j}}+\\
+	\alpha^{bb_{a,2}}\sum_{i}b_{i}b_{a_{m}}+\alpha^{b_{a,1}b_{a,1}}\sum_{ij}^{m-1}b_{a_{i}}b_{a_{j}}+\alpha^{b_{a,1}b_{a,2}}\sum_{i}^{m-1}b_{a_{i}}b_{a_{m}},
 \end{gathered}
 \end{align}
 
 \noindent where:
 
 \begin{align}
-\begin{pmatrix}\alpha & \alpha^{bb}\\
-\alpha^{b} & \alpha^{bb_{a,1}}\\
+\begin{pmatrix}\alpha^{b} & \alpha^{bb_{a,1}}\\
 \alpha^{b_{a,1}} & \alpha^{bb_{a,2}}\\
-\alpha^{b_{a,2}} & \alpha^{b_{a}b_{a}}
-\end{pmatrix}	=\begin{pmatrix}0 & \nicefrac{1}{2}\\
--\nicefrac{1}{2} & -1\\
+\alpha^{b_{a,2}} & \alpha^{b_{a,1}b_{a,1}}\\
+\alpha^{bb} & \alpha^{b_{a,1}b_{a,2}}
+\end{pmatrix}&=\begin{pmatrix}-\nicefrac{1}{2} & -1\\
 1 & -2\\
-\frac{1}{2}(k-m+k^{2}-2mk+m^{2}) & -(k-m)
+\frac{1}{2}(n-m+n^{2}-2mn+m^{2}) & -(n-m)\\
+\nicefrac{1}{2} & 4(n-m)
 \end{pmatrix}.
 \end{align}
+
+
+
+
+
+
+
+
+
+
+
 
 \costsec
 
@@ -1191,42 +1218,42 @@ b_1 \ldots b_k &= \min_{b'_1, \ldots b'_n} \frac{1}{2} \left( N + X - \sum^n_{i=
 
 \newpage
 
-\subsection{PTR-BCR-5 (Boros, Crama, and Rodr\'{i}guez-Heck, 2018)}
-
-\summarysec
-
-Split a $k$-local monomial with odd $k$ into a $(k-1)$-local term (with even degree) and a new odd $k$-local term which has negative coefficient:
-
-\begin{align}
-\begin{gathered}
-b_{1}b_{2}\cdots b_{k}	\rightarrow \prod_{i=1}^{k-1}b_{i}-\prod_{i=1}^{k-1}b_{i}(1-b_{k})
-\end{gathered}
-\end{align}
-
-\noindent We can use any of the PTR methods for even $k$ on the first term, and we can use any of the NTR methods on the second term. Can be generalized to split into different-degree factors when seeking an "optimum" quadratization. Can be generalized into more splits.
-
-\costsec
-\begin{itemize}
-\item Depends on the methods used for the PTR and NTR procedures.
-\end{itemize}
 
 
-\prossec
-\begin{itemize}
-\item Very flexible.
-\end{itemize}
 
-\conssec
-\begin{itemize}
-\item First turns one term into two terms, so might not be preferred when we wish to minimize the number of terms.
-\end{itemize}
 
-\refsec
-\begin{itemize}
-\item Original paper: \cite{Boros2018QuadratizationsOS}.
-\end{itemize}
 
-\newpage
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1258,7 +1285,7 @@ b_{1}b_{2}b_{3} & \rightarrow 1  - \left( b_a + b_1 + b_2 + b_3 \right) + b_a \l
 
 \altnamesec
 \begin{itemize}
-\item "Reduction by Minimum Selection" \cite{Gallagher2011}.
+\item "Reduction by Minimum Selection" \cite{Gallagher2011,Ishikawa2011}.
 \end{itemize}
 
 
@@ -2495,6 +2522,99 @@ The terms on the first line are all to enforce the relationship between a variab
 
 
 \newpage
+
+\section{Strategies for combining methods}
+
+\subsection{SCM-BCR (Boros, Crama, and Rodr\'{i}guez-Heck, 2018)}
+
+\summarysec
+
+Split a $k$-local monomial with odd $k$ into a $(k-1)$-local term (with even degree) and a new odd $k$-local term which has negative coefficient:
+
+\begin{align}
+\begin{gathered}
+b_{1}b_{2}\cdots b_{k}	\rightarrow \prod_{i=1}^{k-1}b_{i}-\prod_{i=1}^{k-1}b_{i}(1-b_{k})
+\end{gathered}
+\end{align}
+
+\noindent We can use any of the PTR methods for even $k$ on the first term, and we can use any of the NTR methods on the second term. Can be generalized to split into different-degree factors when seeking an "optimum" quadratization. Can be generalized into more splits.
+
+\costsec
+\begin{itemize}
+\item Depends on the methods used for the PTR and NTR procedures.
+\end{itemize}
+
+
+\prossec
+\begin{itemize}
+\item Very flexible.
+\end{itemize}
+
+\conssec
+\begin{itemize}
+\item First turns one term into two terms, so might not be preferred when we wish to minimize the number of terms.
+\end{itemize}
+
+\refsec
+\begin{itemize}
+\item Original paper: \cite{Boros2018QuadratizationsOS}.
+\end{itemize}
+
+\newpage
+
+\subsection{Decomposition into symmetric and anti-symmetric parts}
+
+\summarysec
+
+Split a any function $f$ into a symmetric part and anti-symmetric part:
+
+\begin{align}
+f\left(b_1,b_2,\ldots,b_n\right) &=  f_{\textrm{symmetric}} + f_{\textrm{anti-symmetric}}  ,\\
+f_{\textrm{symmetric}}                                 &\equiv \frac{1}{2}\left( f\left(b_1,b_2,\ldots,b_n\right) + f\left(1-b_1,1-b_2,\ldots,1-b_n\right)  \right) \\
+f_{\textrm{anti-symmetric}} &\equiv \frac{1}{2}\left( f\left(b_1,b_2,\ldots,b_n\right) - f\left(1-b_1,1-b_2,\ldots,1-b_n\right)  \right) 
+\end{align}
+
+\noindent  We can now use any of the methods described only for symmetric functions, on the symmetric part, and use the (perhaps less powerful) general methods on the anti-symmetric part.
+
+\costsec
+\begin{itemize}
+\item Depends on the methods used.
+\end{itemize}
+
+
+\prossec
+\begin{itemize}
+\item Allows non-symmetric functions to benefit from techniques designed only for symmetric functions.
+\end{itemize}
+
+\conssec
+\begin{itemize}
+\item May result in more terms than simply quadratizing the non-symmetric function directly.
+\end{itemize}
+
+\refsec
+\begin{itemize}
+\item Discussed in: \cite{Kahl2011}.
+\end{itemize}
+
+\newpage
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 %\section{Strategies for combining methods}
 %
