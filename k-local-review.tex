@@ -639,7 +639,7 @@ with $a=1$.
 \begin{itemize}
 \item 2004: Kolmogorov and Zabih presented this for cubic terms \cite{Kolmogorov2004}.
 \item 2005: Generalized to arbitrary order by Freedman and Drineas \cite{Freedman2005}.
-\item Discussion: \cite{Ishikawa2011}, \cite{Anthony2015}.
+\item Discussion: \cite{Ishikawa2011}, \cite{Anthony2016}.
 \end{itemize}
 
 \newpage
@@ -711,8 +711,8 @@ with $a=1$.
 
 \refsec
 \begin{itemize}
-\item 2014, First presentation: \cite{Anthony2014,Anthony2017}. 
-\item Further discussion: \cite{Anthony2016}.
+\item 2014, First presentation: \cite{Anthony2014,Anthony2016}. 
+\item Further discussion: \cite{Anthony2017}.
 \end{itemize}
 
 \newpage
@@ -1442,25 +1442,19 @@ In this way, given a quadratic in $n$ variables we can make sure it only has at 
 
 \costsec
 \begin{itemize}
-\item $n-2$ auxiliaries for any $n$-variable symmetric function.
-\item $n^2$ non-submodular quadratic terms (of the non-auxiliary variables).
-\item $n-2$ non-submodular linear terms (of the auxiliary variables).
+\item None, as replacing $b_{i}$ with it's negation $\bar{b}_{i}$ costs nothing except a trivial symbolic expansion.
 \end{itemize}
 
 \prossec
 \begin{itemize}
-\item Quadratization is symmetric in all non-auxiliary variables (this is not always true, for example some of the methods in the  NTR section).
-\item Reproduces the full spectrum.
-%\item They say this is linear in the auxiliary variables, but it doesn't seem to be, because we have b_{a_{i}}b_{j} terms where b_{a_{i}} are auxiliaries.
+\item Cheap and effective way of improving submodularity.
+\item Can be used to combine terms in clever ways, making other methods more efficient.
 \end{itemize}
-
 
 \conssec
 \begin{itemize}
-\item All quadratic terms of the non-auxiliary variables are non-sub-modular.
-\item All linear terms of the auxliaries are non-submodular.
-%\item Very complicated.
-%\item Uses far more auxiliaries than other ... well here we're doign the whole function in one go....
+\item Unless the form of the Hamiltonian is known, spotting these 'factorizations' using negations is difficult.
+\item We need an auxiliary variable for each $b_i$ for which we also want to use $\bar{b_i}$ in the same Hamiltonian.
 \end{itemize}
 
 
@@ -1500,34 +1494,33 @@ f(b)&\rightarrow -\alpha_{0}-\alpha_{0}\sum_{i}b_{i}+a_{2}\sum_{ij}b_{i}b_{j}+2\
 a_2 &= \textrm{Determined from Page 12 of \cite{Anthony2015}}
 \end{align}
 
-
-
-
 \costsec
 \begin{itemize}
-\item None, as replacing $b_{i}$ with it's negation $\bar{b}_{i}$ costs nothing except a trivial symbolic expansion.
+\item $n-2$ auxiliaries for any $n$-variable symmetric function.
+\item $n^2$ non-submodular quadratic terms (of the non-auxiliary variables).
+\item $n-2$ non-submodular linear terms (of the auxiliary variables).
 \end{itemize}
 
 \prossec
 \begin{itemize}
-\item Cheap and effective way of improving submodularity.
-\item Can be used to combine terms in clever ways, making other methods more efficient.
+\item Quadratization is symmetric in all non-auxiliary variables (this is not always true, for example some of the methods in the  NTR section).
+\item Reproduces the full spectrum.
+\item When there's a large number of terms, there's fewer auxiliary variables than quadratizing each positive monomial separately.
+%\item They say this is linear in the auxiliary variables, but it doesn't seem to be, because we have b_{a_{i}}b_{j} terms where b_{a_{i}} are auxiliaries.
 \end{itemize}
+
 
 \conssec
 \begin{itemize}
-\item Unless the form of the Hamiltonian is known, spotting these 'factorizations' using negations is difficult.
-\item We need an auxiliary variable for each $b_i$ for which we also want to use $\bar{b_i}$ in the same Hamiltonian.
+\item Only works on a specific class of functions, although the quadratizations of arbitrary functions can be related to the quadratizations of symmetric functions on a larger number of variables. % this is found in the proof for the lower bound, in the ABCG paper. But it looks like n variables becomes 2^(n-1), see Lemma 5.1 or the lower bounds for symmetric vs arbitrary
+\item All quadratic terms of the non-auxiliary variables are non-sub-modular.
+\item All linear terms of the auxliaries are non-submodular.
+\item Not meant so much to be practical, but rather an easy proof of an upper bound on the number of needed auxiliaries.
+%\item Very complicated.
+%\item Uses far more auxiliaries than other ... well here we're doign the whole function in one go....
 \end{itemize}
 
-\examplesec
 
-By bit-flipping $b_2$ and $b_4$, i.e. substituting $b_2 = 1 - \bar{b}_{2}$ and $b_4 = 1 - \bar{b}_{4}$, we see that:
-\begin{eqnarray}
-H & = & 3b_{1}b_{2}+b_{2}b_{3}+2b_{1}b_{4}-4b_{2}b_{4}\protect\\
- & = & -3b_{1}\bar{b}_{2}-\bar{b}_{2}b_{3}-2b_{1}\bar{b}_{4}-\bar{b}_{2}\bar{b}_{4}+5b_{1}+b_{3}+4\bar{b}_{2}+4\bar{b}_{4}-4.
-\end{eqnarray}
-The first expression is highly non-submodular while the second is entirely submodular.
 
 \refsec
 \begin{itemize}
@@ -1975,7 +1968,7 @@ The first expression is highly non-submodular while the second is entirely submo
 
 \refsec
 \begin{itemize}
-\item 2014, original paper (Theorem 4.6): \cite{Anthony2014,Anthony2017}.  % need to check if it's still 4.6 in the newest version !!!!!!1
+\item 2014, original paper (Theorem 4.6): \cite{Anthony2014,Anthony2016}.  % need to check if it's still 4.6 in the newest version !!!!!!1
 \end{itemize}
 
 \newpage
@@ -2027,11 +2020,24 @@ The first expression is highly non-submodular while the second is entirely submo
 
 \refsec
 \begin{itemize}
-\item 2014, original paper (Theorem 4.6): \cite{Anthony2014,Anthony2017}.
+\item 2014, original paper (Theorem 4.6): \cite{Anthony2014,Anthony2016}.
 \end{itemize}
 
 
 \newpage
+
+\subsection{Lower bounds for SFRs (Anthony, Boros, Crama, Gruber, 2014)}
+
+\begin{itemize}
+\item There exist symmetric functions on $n$ variables for which no quadratization can be done without at least $\Omega\left(\sqrt{n}\right)$  auxiliary variables (Theorem 5.3 from \cite{Anthony2014,Anthony2016}.  %$2\log_2\left( 1+\sqrt{257}  \right)-8$.
+\item There exist symmetric functions on $n$ variables for whcih no quadratization linear in the auxiliaries can be done without at least $\Omega\left( \frac{n}{\log_2(n)}\right)$ auxiliary variables (Theorem 5.5 from \cite{Anthony2014,Anthony2016}).
+\item The parity function on $n$ variables cannot be quadratized without quadratic terms involving the auxiliary variables, unless there is at least $\sqrt{\nicefrac{n}{4}-1}+1=\Omega\left( \sqrt{n}  \right)$ auxiliary variables (Theorem 5.6 from \cite{Anthony2014,Anthony2016}).
+\end{itemize}
+
+
+\newpage
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%5
 %%%%%%%%%%%%%%%%%%%%%%%%%5
@@ -2480,8 +2486,15 @@ The terms on the first line are all to enforce the relationship between a variab
 % 
 % \newpage
 
+\subsection{Lower bounds for arbitrary functions (Anthony, Boros, Crama, Gruber, 2015)}
+
+\begin{itemize}
+\item There exist functions on $n$ variables for which no quadratization can be done without at least $\frac{2^{\nicefrac{n}{2}}}{8}=\Omega\left(\sqrt{n}\right)$  auxiliary variables (Theorem 5.3 from \cite{Anthony2017}.  %$2\log_2\left( 1+\sqrt{257}  \right)-8$.
+\item There exist symmetric functions on $n$ variables for which no quadratization linear in the auxiliaries can be done without at least $\Omega\left( \frac{2^n}{n}\right)$ auxiliary variables (Theorem 5.5 from \cite{Anthony2017}).
+\end{itemize}
 
 
+\newpage
 
 %\section{Strategies for combining methods}
 %
