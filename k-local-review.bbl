@@ -6,7 +6,7 @@
 %Control: page (1) range
 %Control: year (0) verbatim
 %Control: production of eprint (0) enabled
-\begin{thebibliography}{44}%
+\begin{thebibliography}{50}%
 \makeatletter
 \providecommand \@ifxundefined [1]{%
  \@ifx{#1\undefined}
@@ -50,9 +50,9 @@
 \providecommand \BibitemShut  [1]{\csname bibitem#1\endcsname}%
 \let\auto@bib@innerbib\@empty
 %</preamble>
-\bibitem [{\citenamefont {Tanburn}\ \emph {et~al.}(2015)\citenamefont
-  {Tanburn}, \citenamefont {Okada},\ and\ \citenamefont
-  {Dattani}}]{Tanburn2015c}%
+\bibitem [{\citenamefont {Tanburn}\ \emph
+  {et~al.}(2015{\natexlab{a}})\citenamefont {Tanburn}, \citenamefont {Okada},\
+  and\ \citenamefont {Dattani}}]{Tanburn2015c}%
   \BibitemOpen
   \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Richard}\ \bibnamefont
   {Tanburn}}, \bibinfo {author} {\bibfnamefont {Emile}\ \bibnamefont {Okada}},
@@ -61,8 +61,8 @@
   interactions in adiabatic quantum computation without adding auxiliary
   qubits. Part 1: The "deduc-reduc" method and its application to quantum
   factorization of numbers}},}\ }\href {http://arxiv.org/abs/1508.04816} {\
-  (\bibinfo {year} {2015})},\ \Eprint {http://arxiv.org/abs/1508.04816}
-  {arXiv:1508.04816} \BibitemShut {NoStop}%
+  (\bibinfo {year} {2015}{\natexlab{a}})},\ \Eprint
+  {http://arxiv.org/abs/1508.04816} {arXiv:1508.04816} \BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Ishikawa}(2014)}]{Ishikawa2014}%
   \BibitemOpen
   \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Hiroshi}\ \bibnamefont
@@ -90,6 +90,30 @@
   geometry}},}\ }\href {http://arxiv.org/abs/1604.05796} {\  (\bibinfo {year}
   {2016})},\ \Eprint {http://arxiv.org/abs/1604.05796} {arXiv:1604.05796}
   \BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Ali}\ \emph {et~al.}(2008)\citenamefont {Ali},
+  \citenamefont {Farag},\ and\ \citenamefont {Gimel'farb}}]{Ali2008}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Asem~M.}\ \bibnamefont
+  {Ali}}, \bibinfo {author} {\bibfnamefont {Aly~A.}\ \bibnamefont {Farag}}, \
+  and\ \bibinfo {author} {\bibfnamefont {Georgy~L.}\ \bibnamefont
+  {Gimel'farb}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {{Optimizing
+  Binary MRFs with Higher Order Cliques}},}\ \ }(\bibinfo  {publisher}
+  {Springer, Berlin, Heidelberg},\ \bibinfo {year} {2008})\ pp.\ \bibinfo
+  {pages} {98--111}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Tanburn}\ \emph
+  {et~al.}(2015{\natexlab{b}})\citenamefont {Tanburn}, \citenamefont {Lunt},\
+  and\ \citenamefont {Dattani}}]{Tanburn2015d}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Richard}\ \bibnamefont
+  {Tanburn}}, \bibinfo {author} {\bibfnamefont {Oliver}\ \bibnamefont {Lunt}},
+  \ and\ \bibinfo {author} {\bibfnamefont {Nikesh~S.}\ \bibnamefont
+  {Dattani}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {{Crushing
+  runtimes in adiabatic quantum computation with Energy Landscape Manipulation
+  (ELM): Application to Quantum Factoring}},}\ }\href
+  {http://arxiv.org/abs/1510.07420} {\bibfield  {journal} {\bibinfo  {journal}
+  {Physical Review A (submitted).}\ } (\bibinfo {year} {2015}{\natexlab{b}})},\
+  \Eprint {http://arxiv.org/abs/1510.07420} {arXiv:1510.07420} \BibitemShut
+  {NoStop}%
 \bibitem [{\citenamefont {Okada}\ \emph {et~al.}(2015)\citenamefont {Okada},
   \citenamefont {Tanburn},\ and\ \citenamefont {Dattani}}]{Okada2015}%
   \BibitemOpen
@@ -552,4 +576,48 @@
   10.1109/TIP.2017.2722691} {\bibfield  {journal} {\bibinfo  {journal} {IEEE
   Transactions on Image Processing}\ }\textbf {\bibinfo {volume} {26}},\
   \bibinfo {pages} {4911--4922} (\bibinfo {year} {2017})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Boros}\ and\ \citenamefont
+  {Hammer}(2002)}]{Boros2002}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Endre}\ \bibnamefont
+  {Boros}}\ and\ \bibinfo {author} {\bibfnamefont {Peter~L.}\ \bibnamefont
+  {Hammer}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {{Pseudo-Boolean
+  optimization}},}\ }\href {\doibase 10.1016/S0166-218X(01)00341-9} {\bibfield
+  {journal} {\bibinfo  {journal} {Discrete Applied Mathematics}\ }\textbf
+  {\bibinfo {volume} {123}},\ \bibinfo {pages} {155--225} (\bibinfo {year}
+  {2002})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Schaller}\ and\ \citenamefont
+  {Sch{\"{u}}tzhold}(2010)}]{Schaller2010}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Gernot}\ \bibnamefont
+  {Schaller}}\ and\ \bibinfo {author} {\bibfnamefont {Ralf}\ \bibnamefont
+  {Sch{\"{u}}tzhold}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {{The
+  role of symmetries in adiabatic quantum algorithms}},}\ }\href
+  {http://dl.acm.org/citation.cfm?id=2011438.2011447} {\bibfield  {journal}
+  {\bibinfo  {journal} {Quantum Information {\&} Computation}\ }\textbf
+  {\bibinfo {volume} {10}},\ \bibinfo {pages} {109--140} (\bibinfo {year}
+  {2010})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Xu}\ \emph {et~al.}(2012)\citenamefont {Xu},
+  \citenamefont {Zhu}, \citenamefont {Lu}, \citenamefont {Zhou}, \citenamefont
+  {Peng},\ and\ \citenamefont {Du}}]{Xu2012}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Nanyang}\ \bibnamefont
+  {Xu}}, \bibinfo {author} {\bibfnamefont {Jing}\ \bibnamefont {Zhu}}, \bibinfo
+  {author} {\bibfnamefont {Dawei}\ \bibnamefont {Lu}}, \bibinfo {author}
+  {\bibfnamefont {Xianyi}\ \bibnamefont {Zhou}}, \bibinfo {author}
+  {\bibfnamefont {Xinhua}\ \bibnamefont {Peng}}, \ and\ \bibinfo {author}
+  {\bibfnamefont {Jiangfeng}\ \bibnamefont {Du}},\ }\bibfield  {title}
+  {\enquote {\bibinfo {title} {{Quantum Factorization of 143 on a
+  Dipolar-Coupling Nuclear Magnetic Resonance System}},}\ }\href {\doibase
+  10.1103/PhysRevLett.108.130501} {\bibfield  {journal} {\bibinfo  {journal}
+  {Physical Review Letters}\ }\textbf {\bibinfo {volume} {108}},\ \bibinfo
+  {pages} {130501} (\bibinfo {year} {2012})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Cunningham}(1985)}]{Cunningham1985}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {William~H.}\
+  \bibnamefont {Cunningham}},\ }\bibfield  {title} {\enquote {\bibinfo {title}
+  {{Minimum cuts, modular functions, and matroid polyhedra}},}\ }\href
+  {\doibase 10.1002/net.3230150206} {\bibfield  {journal} {\bibinfo  {journal}
+  {Networks}\ }\textbf {\bibinfo {volume} {15}},\ \bibinfo {pages} {205--215}
+  (\bibinfo {year} {1985})}\BibitemShut {NoStop}%
 \end{thebibliography}%

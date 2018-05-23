@@ -562,6 +562,77 @@ In both cases, the only global minima occur when:
 \end{comment}
 \newpage
 
+
+\subsection{Application of ELM (Present Work)}
+
+\vspace{-3mm}
+
+\summarysec
+
+We use the formula from \cite{Ali2008} for representing any function of three binary variables:
+
+{\footnotesize
+\begin{align}
+f(b_1,b_2,b_3) &= \left( f(1,1,1) + f(1,0,0) - f(1,1,0) - f(1,0,1) - f(0,1,1) - f(0,0,0) \right. + \\
+               & \left.   f(0,0,1) + f(0,1,0)  \right)b_1b_2b_3 + \left(f(0,1,1) + f(0,0,0) - f(0,0,1) - f(0,1,0)  \right)b_2b_3 ~+ \\
+               & \left( f(1,0,1) + f(0,0,0) - f(0,0,1) - f(1,0,0) \right)b_1b_3 + \\
+               & \left(f(1,1,0) + f(0,0,0) - f(1,0,0) - f(0,1,0)  \right)b_1b_2 ~+ \left( f(0,1,0) - f(0,0,0) \right)b_2  \\
+               &  + \left(f(1,0,0) - f(0,0,0)\right)b_1 + \left(  f(0,0,1) -\left. f(0,0,0)  \right)b_3 + f(0,0,0).\right.
+\end{align}
+}
+
+If the cubic term is zero, then the function becomes quadratic. We can use ELM (Energy Landscape Manipulation) to change the energy landscape \textit{without} changing the ground state \cite{Tanburn2015d}. In this case, we apply ELM in order to make the cubic term zero.
+
+
+\costsec
+\begin{itemize}
+
+\item No auxiliary variables.
+\item May require many evaluations of the cubic function varying coefficients in order to find the right ELM coefficients.
+\end{itemize}
+
+\prossec
+\begin{itemize}
+\item Can be generalized to arbitrary $k$-local functions, but the ELM constraints may become harder to achieve.
+\item Can quadratize an entire cubic function (or a cubic part of a more general function) with no auxiliary qubits.
+\item Can reproduce the full spectrum.
+\end{itemize}
+
+\conssec
+\begin{itemize}
+\item May not always be possible.
+\item May require a local search to find appropriate deductions.
+\end{itemize}
+
+\examplesec
+
+In order to reduce the number of constraints required for the cubic term to be zero, we will assume that Deduc-Reduc told us that $(1-b_1)(1-b_2) + (1-b_2)(1-b_3) + (1-b_1)(1-b_3) = 0$ when the overall function is minimized, which means the ground state only occurs when at least two variables are 1. This does not allow us to assign the linear terms, but assigns all quadratic terms to have $b_ib_j=1$. This also suggests that $b_1b_2b_3$ can also be reduced to a linear term, but we do not know whether it is $b_1$, $b_2$, or $b_3$. So we have the following constraing on the cubic term, after setting all $f(b_1,b_2,b_3)$ to zero if there is not at least two 1's:
+
+\begin{align}
+f(1,1,1) - f(1,1,0) - f(1,0,1) - f(0,1,1) = 0.
+\end{align}
+
+We now show an example of a function for which ELM has the power to enforce this constraint:
+
+%\refsec
+%\begin{itemize}
+%\item The method is new in the present work.
+%\end{itemize}
+
+\newpage
+
+
+
+
+
+
+
+
+
+
+
+
+
 \subsection{Split Reduction (Okada, Tanburn, Dattani, 2015)}
 
 \summarysec
@@ -2160,42 +2231,6 @@ b_{1}b_{2}b_{3}+b_{1}b_{2}b_{4}\mapsto b_{3}b_a+b_{4}b_a+b_{1}b_{2}-2b_{1}b_a-2b
 \end{itemize}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 \newpage
 
 
@@ -2280,6 +2315,70 @@ Algorithm that takes a quadratic Hamiltonian and tries to perform as much of the
 
 For computer image problems, it can be used with the above methods to optimize most of the image in seconds/minutes \cite{Ishikawa2014,Fix2011,Ishikawa2011}.
 \end{comment}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{comment}
+
+
+
 
 
 %\section{Methods that reproduce the full spectrum}
@@ -4152,6 +4251,13 @@ Note in this case the error terms added by deduc-reduc already appear in our Ham
 %\end{align}
 %%\sum_i\prod_{j}^k s_{ij} \mapsto \frac{\Delta}{4}\left( 9 - \sum_i \left( \sum_j  z_{a_{ij}} \right)^2 - \sum_j z_{a_{ij}}^2 + \frac{1}{\sqrt[3]{6\Delta}} x_{a_{ij}}  \right).
 
+%\newpage
+
+%\section
+
+
+
+
 \newpage
 
 \section{Further References}
@@ -4163,7 +4269,11 @@ Note in this case the error terms added by deduc-reduc already appear in our Ham
 \item More toric code gadgets: \cite{Brell2014}.
 \item Parity adiabatic quantum computing (LHZ lattice): \cite{Lechner2015}.
 \item Extensions of the LHZ scheme: \cite{Rocchetto2016}.
-\item Minimizing $k$-local discrete functions with the help of continuous variable calculus\cite{Shen2017a}.
+\item Minimizing $k$-local discrete functions with the help of continuous variable calculus \cite{Shen2017a}.
+\item ORI graph which attempts to give optimal quadratizations \cite{Gallagher2011}.
+\item Survey on pseudo-Boolean optimization \cite{Boros2002}.
+\item Linearization of equations before they are squared \cite{Schaller2010}, and its application to factoring numbers \cite{Xu2012}.
+\item Mentioned in \cite{Ali2008} as an early application of quadratization: \cite{Cunningham1985}.
 \end{itemize}
 
 \newpage
