@@ -1138,7 +1138,7 @@ b_{1}b_{2}\ldots b_{k}	\rightarrow\left(2^{m}-k+\sum_{i}b_{i}-\sum_{i}2^{i-1}b_{
 \summarysec
 
 %Suppose we have a monomial $b_1b_2b_3 \ldots b_k$.
-Pick $m$ such that $k < 2^{m+1}$,
+Pick $m$ such that $k \le 2^{m+1}$,
 
 \begin{align}
 b_1 \ldots b_k &\rightarrow   \frac{1}{2} \left( 2^{m+1}-k + \sum_ib_i - \sum^m_{i} 2^i b_{a_i} \right)
@@ -1168,8 +1168,8 @@ $\lceil \log k \rceil  - 1$ auxiliary qubits per positive monomial.
 \begin{eqnarray}
 %b_1 b_2 b_3 b_4 = \min_{b_{a_1}, b_{a_2}} \frac{1}{2}
 b_1 b_2 b_3 b_4 \rightarrow  \frac{1}{2}
-\left( 4 + b_1 + b_2 + b_3 + b_4 - b_{a_1} - 2b_{a_2} \right)
-\left( 3 + b_1 + b_2 + b_3 + b_4 - b_{a_1} - 2b_{a_2} \right)
+\left( b_1 + b_2 + b_3 + b_4 - 2b_a \right)
+\left( b_1 + b_2 + b_3 + b_4 - 2b_a - 1 \right)
 \end{eqnarray}
 
 \altformsec
