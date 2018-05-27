@@ -364,9 +364,12 @@ H_{4{\rm -local}}=b_{1}b_{2}(10+b_{3}+b_{3}b_{4})+b_{1}(b_{3}-3)+b_{2}(b_{3}-2b_
 Specifically, for the 4 assignments of $(b_{3},b_{4})$, we see that $b_{1}b_{2}=0$ at every minimum of $H_{4{\rm -local}}-F$.
 
 Using deduc-reduc we have:
+
+{\small
 \begin{equation}
 H_{2{\rm -local}}=12b_{1}b_{2}+b_{1}(b_{3}-3)+b_{2}(b_{3}-2b_{3}-b_{4}-1)+F(x_{3},x_{4},x_{5},\ldots,x_{N})
 \end{equation}
+}
 
 \noindent which has the same global minima as $H_{4-\textrm{local}}$ but one fewer quartic and one fewer cubic term.
 
@@ -3077,25 +3080,54 @@ Determine the $k$-local term, $H_{k-\rm{local}}$, whose degree we wish to reduce
 \item Original paper, and description of the choices of terms and factors used for the given example \cite{Subas2016}.
 \end{itemize}
 
-\subsection{NP-N (Nagaj, 2010)}
+\subsection{NP-Nagaj (Nagaj, 2010)}
 
-%\summarysec
+\summarysec
 
-%\costsec
+The Feynman Hamiltonian can be written as \cite{Feynman1985a}:
 
-%\prossec
-%\begin{itemize}
-%\item
-%\item
-%\end{itemize}
-%
-%\conssec
-%\begin{itemize}
-%\item
-%\item
-%\end{itemize}
+\begin{align}
+\frac{1}{4}\left(x_{1}x_{2}-{\rm i}y_{1}x_{2}+{\rm i}x_{1}y_{2}+y_{1}y_{2}\right)U_{{\rm 2-local}}+\frac{1}{4}\left(x_{1}x_{2}+{\rm i}y_{1}x_{2}-{\rm i}x_{1}y_{2}+y_{1}y_{2}\right)U_{{\rm 2-local}}^{\dagger},
+\end{align}
 
-%\examplesec
+\noindent where $U_{{\rm 2-{\rm local}}}$ is an arbitrary 2-local unitary matrix that acts on qubits different from the ones labeled by "1" and "2". It was shown in \cite{Nagaj2010} that this Hamiltonian that is 4-local on qubits can be transformed into one that is quadratic in qubits and qutrits. Here we show the 2-local Hamiltonian for the case where $U_{{\rm 2-local}}={\rm CNOT}\equiv\frac{1}{2}\left(\openone+z_{3}+x_{4}-z_{3}x_{4}\right).$ The 4-local Hamiltonian is:
+
+\begin{align}
+H_{{\rm 4-local}}=\frac{1}{4}\left(x_{1}x_{2}+y_{1}y_{2}+x_{1}x_{2}z_{3}+x_{1}x_{2}x_{4}+y_{1}y_{2}z_{3}+y_{1}y_{2}x_{4}-x_{1}x_{2}z_{3}x_{4}-y_{1}y_{2}z_{3}x_{4}\right),
+\end{align}
+
+\noindent and after adding 4 auxiliary qubits labeled by $a_{1}$ to $a_{4}$ and 6 auxiliary qutrits labeled by $a_{5}$ to $a_{10}$ and acted on by the Gell-Mann matrices $\lambda_{1}$ to $\lambda_{9}$ given in the Appendix, we get the following 2-local Hamiltonian:
+
+\begin{align}
+H_{{\rm 2-local}}      &=\lambda_{6,a_{8}}+\frac{1}{2}\left(x_{1}\lambda_{1,a_{5}}+y_{1}\lambda_{2,a_{5}}+\lambda_{6,a_{5}}-z_{3}\lambda_{6,a_{5}}+x_{a_{1}}\lambda_{4,a_{5}}+y_{a_{1}}\lambda_{5,a_{5}}+x_{a_{1}}\lambda_{1,a_{6}} +\\
+                       &y_{a_{1}}\lambda_{2,a_{6}}+2x_{4}\lambda_{6,a_{6}}+x_{a_{2}}\lambda_{4,a_{6}}+\right.\\
+&	y_{a_{2}}\lambda_{5,a_{6}}+x_{a_{2}}\lambda_{1,a_{7}}+y_{a_{2}}\lambda_{2,a_{7}}+\lambda_{6,a_{7}}-z_{a_{1}}\lambda_{6,a_{7}}+x_{2}\lambda_{4,a_{7}}+y_{2}\lambda_{5,a_{7}}+x_{1}\lambda_{1,a_{8}}+y_{1}\lambda_{2,a_{8}}+z_{3}\lambda_{6,a_{8}}+x_{a_{5}}\lambda_{4,a_{9}}+ \\
+&	\left.y_{a_{5}}\lambda_{5,a_{9}}+\lambda_{6,a_{9}}+x_{a_{6}}\lambda_{4,a_{9}}+y_{a_{6}}\lambda_{5,a_{9}}+x_{a_{6}}\lambda_{1,a_{10}}+y_{a_{6}}\lambda_{2,a_{10}}+\lambda_{6,a_{10}}+z_{3}\lambda_{6,a_{10}}+x_{2}\lambda_{4,a_{10}}+y_{2}\lambda_{5,a_{10}}\right),
+\end{align}
+
+\noindent which has the same low-lying spectrum as $H_{2-{\rm local}}$.
+
+
+
+
+
+
+
+\costsec
+
+\prossec
+\begin{itemize}
+\item
+\item
+\end{itemize}
+
+\conssec
+\begin{itemize}
+\item
+\item
+\end{itemize}
+
+\examplesec
 
 \refsec
 \begin{itemize}
