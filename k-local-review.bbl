@@ -6,7 +6,7 @@
 %Control: page (1) range
 %Control: year (0) verbatim
 %Control: production of eprint (0) enabled
-\begin{thebibliography}{50}%
+\begin{thebibliography}{51}%
 \makeatletter
 \providecommand \@ifxundefined [1]{%
  \@ifx{#1\undefined}
@@ -415,6 +415,14 @@
   {\doibase 10.1103/PhysRevA.94.012342} {\bibfield  {journal} {\bibinfo
   {journal} {Physical Review A}\ }\textbf {\bibinfo {volume} {94}},\ \bibinfo
   {pages} {012342} (\bibinfo {year} {2016})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Feynman}(1985)}]{Feynman1985a}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Richard~P.}\
+  \bibnamefont {Feynman}},\ }\bibfield  {title} {\enquote {\bibinfo {title}
+  {{Quantum Mechanical Computers}},}\ }\href {\doibase 10.1364/ON.11.2.000011}
+  {\bibfield  {journal} {\bibinfo  {journal} {Optics News}\ }\textbf {\bibinfo
+  {volume} {11}},\ \bibinfo {pages} {11} (\bibinfo {year} {1985})}\BibitemShut
+  {NoStop}%
 \bibitem [{\citenamefont {Nagaj}(2010)}]{Nagaj2010}%
   \BibitemOpen
   \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Daniel}\ \bibnamefont
