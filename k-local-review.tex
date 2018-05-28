@@ -320,7 +320,12 @@ Two-body physical interactions occur more naturally than many-body interactions 
 
 \subsection{Deduction Reduction (Deduc-reduc)} \label{subsec:deduc_reduc}
 
+
+\vspace{-5mm}
+
 \summarysec
+
+%
 
 We look for \emph{deductions} (e.g. $b_{1}b_{2}=0$) that must hold true at the global minimum.
 These can be found by \emph{a priori} knowledge of the given problem, or by enumerating solutions of a small subset of the variables.
@@ -4112,190 +4117,6 @@ H_{\textrm{2-local}} &= -\sum_{ij} \left( x_{8i+4,j}x_{8i+6,j} + x_{8i+3,j+1}x_{
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 \newpage
 \part{{\normalsize {\underline{Appendix}}}}
 
@@ -4388,11 +4209,30 @@ Note in this case the error terms added by deduc-reduc already appear in our Ham
 
 
 \newpage
+%\section{$2-$local to $2-$local gadgets}
+\section{$2\rightarrow 2$ gadgets}
+This review has only focused on $k-$local to $2-$local transformations where $k>2$. There is also a large number of $2-$local to $2-$-local transformations in the literature, which are used for various pruposes. Some of these are listed here:
+
+\vspace{10mm}
+
+\begin{itemize}
+\item Gadgetization of any $2-$local Hamiltonian into ${\openone,z,x,zz,xx}$ or ${\openone,z,x,zx}$ \cite{Biamonte2008}. Used for the proof that $xx + zz$ or $xz$ is universal is enough for universal quantum computation. In other words, \textit{any} computation can be transformed into a problem of finding the ground state of a $2-$local Hamiltonian containing terms from ${\openone,z,x,zz,xx}$ or from ${\openone,z,x,zx}$ with real coefficients, and the ground state can be found by adiabatic quantum computing with only polynomial time and space overhead over the best alternative algorithm for the problem.
+
+
+\item "Cross gadget", "fork gadget", and "triangle gadget" described in \cite{Oliveira2008}.
+\item Gadgetizeation of a $2-$local Hamiltonian with very strong couplings, into a $2-$local Hamiltonian with strengths in $\mathcal{O}\left( \nicefrac{1}{\textrm{poly}\left( \epsilon^{-1},n\right)}  \right)$, and $\textrm{poly}\left( \epsilon^{-1},n  \right)$ auxiliary qubits and $\textrm{poly}\left( \epsilon^{-1},n  \right)$ new quadratic terms. \cite{Cao2015a}.
+\item $yy$ creation gadget: Simulation of $yy$ terms  using ${\openone,z,x,zz,xx}$, with coupling strength restriction defined according to $\Delta = \Theta\left(\epsilon^{-4}\right)$ \cite{Cao2015}. % they do not even say they need \openone, but maybe they are ignoring it due to causing a constant shift. 
+\end{itemize}
+% chimera 
+
+\newpage
+
+
+
 
 \section{Further References}
 \begin{itemize}
 \item Gadgets for pseudo-Boolean optimization problems, with reduced precision requirements: \cite{Babbush2013}.
-\item Proof that $xx + zz$ or $xz$ is universal: \cite{Biamonte2008}.
 \item Formalization of pseudo-Boolean gadgets in quantum language. \cite{Biamonte2008a}.
 \item By adding more couplers and more auxiliary qubits, we can bring the error down arbitrarily low:  \cite{Cao2015a}.
 \item More toric code gadgets: \cite{Brell2014}.
@@ -4431,15 +4271,9 @@ Note in this case the error terms added by deduc-reduc already appear in our Ham
 % More Ishikawa
 % More Gruber?
 
-
-% 2-> 2 gadgets: Oliveira-Terhal's paper describe the cross-gadget, fork-gadget, and triangle-gadget.
-
 % Combining gadgets together. CBBK talks about parallel subdivision, and BDLT has a section on "combining the gadgets together" mainly useful for looking at the error analysis.
-%Cao and Nagaj have some 2->2 gadgets.
 
 \end{itemize}
-
-
 
 \newpage
 %\bibliographystyle{apsrev4-1}
