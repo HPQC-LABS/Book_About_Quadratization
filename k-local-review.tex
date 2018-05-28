@@ -3080,7 +3080,7 @@ Determine the $k$-local term, $H_{k-\rm{local}}$, whose degree we wish to reduce
 \item Original paper, and description of the choices of terms and factors used for the given example \cite{Subas2016}.
 \end{itemize}
 
-\subsection{NP-Nagaj (Nagaj, 2010)}
+\subsection{NP-Nagaj-1 (Nagaj, 2010)}
 
 \summarysec
 
@@ -3144,6 +3144,77 @@ The transformation presented above was for the case of $U_{2-\textrm{local}}={\r
 
 
 \newpage
+
+\subsection{NP-Nagaj-2 (Nagaj, 2012)}
+
+\summarysec
+
+Similar to NP-Nagaj-1 but instead of using qutrits, we use two qubits  for each qutrit, according to:
+
+\begin{align}
+|0\rangle \rightarrow |00\rangle , \qquad  |1\rangle \rightarrow  \frac{1}{\sqrt{2}}\left( |01\rangle + |10\rangle  \right),  \qquad |2\rangle \rightarrow  \left( |01\rangle - |10\rangle   \right).
+\end{align}
+
+\noindent 
+
+
+\begin{align}
+\frac{1}{4}\left(x_{1}x_{2}-{\rm i}y_{1}x_{2}+{\rm i}x_{1}y_{2}+y_{1}y_{2}\right)U_{{\rm 2-local}}+\frac{1}{4}\left(x_{1}x_{2}+{\rm i}y_{1}x_{2}-{\rm i}x_{1}y_{2}+y_{1}y_{2}\right)U_{{\rm 2-local}}^{\dagger},
+\end{align}
+
+\noindent where $U_{{\rm 2-{\rm local}}}$ is an arbitrary 2-local unitary matrix that acts on qubits different from the ones labeled by "1" and "2". This Hamiltonian that is 4-local on qubits can be transformed into one that is 2-local in qubits and qutrits. Here we show the 2-local Hamiltonian for the case where $U_{{\rm 2-local}}={\rm CNOT}\equiv\frac{1}{2}\left(\openone+z_{3}+x_{4}-z_{3}x_{4}\right).$ We start with the specific 4-local Hamiltonian:
+
+\vspace{-5mm}
+
+\begin{align}
+H_{{\rm 4-local}}=\frac{1}{4}\left(x_{1}x_{2}+y_{1}y_{2}+x_{1}x_{2}z_{3}+x_{1}x_{2}x_{4}+y_{1}y_{2}z_{3}+y_{1}y_{2}x_{4}-x_{1}x_{2}z_{3}x_{4}-y_{1}y_{2}z_{3}x_{4}\right),
+\end{align}
+
+\noindent and after adding 4 auxiliary qubits labeled by $a_{1}$ to $a_{4}$ and 6 auxiliary qutrits labeled by $a_{5}$ to $a_{10}$ and acted on by the Gell-Mann matrices $\lambda_{1}$ to $\lambda_{9}$, we get the following 2-local Hamiltonian:
+
+\vspace{-5mm}
+
+\begin{align}
+H_{{\rm 2-local}}      &=\nicefrac{1}{2}\left(2\lambda_{6,a_{8}} + x_{1}\lambda_{1,a_{5}}+y_{1}\lambda_{2,a_{5}}+\lambda_{6,a_{5}}-z_{3}\lambda_{6,a_{5}}+x_{a_{1}}\lambda_{4,a_{5}}+y_{a_{1}}\lambda_{5,a_{5}}+x_{a_{1}}\lambda_{1,a_{6}} + \right.\\
+                       &y_{a_{1}}\lambda_{2,a_{6}}+2x_{4}\lambda_{6,a_{6}}+x_{a_{2}}\lambda_{4,a_{6}}+y_{a_{2}}\lambda_{5,a_{6}}+x_{a_{2}}\lambda_{1,a_{7}}+y_{a_{2}}\lambda_{2,a_{7}}+\lambda_{6,a_{7}}-z_{a_{1}}\lambda_{6,a_{7}}+\\
+&x_{2}\lambda_{4,a_{7}}+y_{2}\lambda_{5,a_{7}}+x_{1}\lambda_{1,a_{8}}+ 	y_{1}\lambda_{2,a_{8}}+z_{3}\lambda_{6,a_{8}}+x_{a_{5}}\lambda_{4,a_{9}}+y_{a_{5}}\lambda_{5,a_{9}}+\lambda_{6,a_{9}}+ \\
+&\left.x_{a_{6}}\lambda_{4,a_{9}}+y_{a_{6}}\lambda_{5,a_{9}}+x_{a_{6}}\lambda_{1,a_{10}}+y_{a_{6}}\lambda_{2,a_{10}}+\lambda_{6,a_{10}}+z_{3}\lambda_{6,a_{10}}+x_{2}\lambda_{4,a_{10}}+y_{2}\lambda_{5,a_{10}}\right),
+\end{align}
+
+\noindent which has the same low-lying spectrum as $H_{2-{\rm local}}$.
+
+\costsec
+\begin{itemize}
+\item 6 auxiliary qutrits and 4 auxiliary qubits (10 extra qudits in total).
+\item 2 quartic, 4 cubic, and 2 quadratic terms becomes 27 quadratic terms and 5 linear terms in the Pauli-GellMann basis. 
+\end{itemize}
+
+\prossec
+\begin{itemize}
+\item Exact (non-perturbative). No special control precision demands.
+\item All coefficients are equal to each other, with a value of $\nicefrac{1}{2}$.
+\item With more auxiliary qubits, can be further reduced to only containing qubits.
+\end{itemize}
+
+\conssec
+\begin{itemize}
+\item Involves qutrits in all 32 terms.
+\item Only derived (so far) for the Feynman Hamiltonian.
+\item High overhead in terms of number of auxiliary qubits and number of terms (see following section).
+\end{itemize}
+
+\examplesec
+
+The transformation presented above was for the case of $U_{2-\textrm{local}}={\rm CNOT}\equiv\frac{1}{2}\left(\openone+z_{3}+x_{4}-z_{3}x_{4}\right)$, but similar transformations can be derived for any arbitrary unitary matrix $U_{2-\textrm{local}}$.
+
+
+\refsec
+\begin{itemize}
+\item Original paper: \cite{Nagaj2012}.
+\end{itemize}
+
+\newpage
+
 \section{Perturbative $(3\rightarrow2)$ Gadgets}
 
 The first gadgets for arbitrary Hamiltonians acting on some number of qubits, were designed to reproduce the spectrum of a 3-local Hamiltonian in the low-lying spectrum of a 2-local Hamiltonian.
