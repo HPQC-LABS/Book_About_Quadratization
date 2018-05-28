@@ -6,7 +6,7 @@
 %Control: page (1) range
 %Control: year (0) verbatim
 %Control: production of eprint (0) enabled
-\begin{thebibliography}{51}%
+\begin{thebibliography}{52}%
 \makeatletter
 \providecommand \@ifxundefined [1]{%
  \@ifx{#1\undefined}
@@ -431,6 +431,14 @@
   {\doibase 10.1063/1.3384661} {\bibfield  {journal} {\bibinfo  {journal}
   {Journal of Mathematical Physics}\ }\textbf {\bibinfo {volume} {51}},\
   \bibinfo {pages} {062201} (\bibinfo {year} {2010})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Nagaj}(2012)}]{Nagaj2012}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Daniel}\ \bibnamefont
+  {Nagaj}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {{Universal
+  two-body-Hamiltonian quantum computing}},}\ }\href {\doibase
+  10.1103/PhysRevA.85.032330} {\bibfield  {journal} {\bibinfo  {journal}
+  {Physical Review A}\ }\textbf {\bibinfo {volume} {85}},\ \bibinfo {pages}
+  {032330} (\bibinfo {year} {2012})}\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Duan}\ and\ \citenamefont {Chen}(2011)}]{Duan2011}%
   \BibitemOpen
   \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Qian-Heng}\
