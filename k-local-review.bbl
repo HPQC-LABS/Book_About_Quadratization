@@ -6,7 +6,7 @@
 %Control: page (1) range
 %Control: year (0) verbatim
 %Control: production of eprint (0) enabled
-\begin{thebibliography}{52}%
+\begin{thebibliography}{53}%
 \makeatletter
 \providecommand \@ifxundefined [1]{%
  \@ifx{#1\undefined}
@@ -510,6 +510,35 @@
   {\doibase 10.1088/1367-2630/13/5/053039} {\bibfield  {journal} {\bibinfo
   {journal} {New Journal of Physics}\ }\textbf {\bibinfo {volume} {13}},\
   \bibinfo {pages} {053039} (\bibinfo {year} {2011})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Biamonte}\ and\ \citenamefont
+  {Love}(2008)}]{Biamonte2008}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Jacob~D.}\
+  \bibnamefont {Biamonte}}\ and\ \bibinfo {author} {\bibfnamefont {Peter~J.}\
+  \bibnamefont {Love}},\ }\bibfield  {title} {\enquote {\bibinfo {title}
+  {{Realizable Hamiltonians for universal adiabatic quantum computers}},}\
+  }\href {\doibase 10.1103/PhysRevA.78.012352} {\bibfield  {journal} {\bibinfo
+  {journal} {Physical Review A}\ }\textbf {\bibinfo {volume} {78}},\ \bibinfo
+  {pages} {012352} (\bibinfo {year} {2008})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Lloyd}\ and\ \citenamefont
+  {Terhal}(2016)}]{Lloyd2016}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Seth}\ \bibnamefont
+  {Lloyd}}\ and\ \bibinfo {author} {\bibfnamefont {Barbara~M}\ \bibnamefont
+  {Terhal}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {{Adiabatic and
+  Hamiltonian computing on a 2D lattice with simple two-qubit interactions}},}\
+  }\href {\doibase 10.1088/1367-2630/18/2/023042} {\bibfield  {journal}
+  {\bibinfo  {journal} {New Journal of Physics}\ }\textbf {\bibinfo {volume}
+  {18}},\ \bibinfo {pages} {023042} (\bibinfo {year} {2016})}\BibitemShut
+  {NoStop}%
+\bibitem [{\citenamefont {Cao}\ and\ \citenamefont {Nagaj}(2015)}]{Cao2015a}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Yudong}\ \bibnamefont
+  {Cao}}\ and\ \bibinfo {author} {\bibfnamefont {Daniel}\ \bibnamefont
+  {Nagaj}},\ }\href {https://dl.acm.org/citation.cfm?id=2871363.2871370} {\emph
+  {\bibinfo {title} {Quantum Information {\&} Computation}}},\ Vol.~\bibinfo
+  {volume} {15}\ (\bibinfo  {publisher} {Rinton Press},\ \bibinfo {year}
+  {2015})\ pp.\ \bibinfo {pages} {1197--1222}\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Babbush}\ \emph {et~al.}(2013)\citenamefont
   {Babbush}, \citenamefont {O'Gorman},\ and\ \citenamefont
   {Aspuru-Guzik}}]{Babbush2013}%
@@ -523,24 +552,6 @@
   {\bibfield  {journal} {\bibinfo  {journal} {Annalen der Physik}\ }\textbf
   {\bibinfo {volume} {525}},\ \bibinfo {pages} {877--888} (\bibinfo {year}
   {2013})}\BibitemShut {NoStop}%
-\bibitem [{\citenamefont {Biamonte}\ and\ \citenamefont
-  {Love}(2008)}]{Biamonte2008}%
-  \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Jacob~D.}\
-  \bibnamefont {Biamonte}}\ and\ \bibinfo {author} {\bibfnamefont {Peter~J.}\
-  \bibnamefont {Love}},\ }\bibfield  {title} {\enquote {\bibinfo {title}
-  {{Realizable Hamiltonians for universal adiabatic quantum computers}},}\
-  }\href {\doibase 10.1103/PhysRevA.78.012352} {\bibfield  {journal} {\bibinfo
-  {journal} {Physical Review A}\ }\textbf {\bibinfo {volume} {78}},\ \bibinfo
-  {pages} {012352} (\bibinfo {year} {2008})}\BibitemShut {NoStop}%
-\bibitem [{\citenamefont {Cao}\ and\ \citenamefont {Nagaj}(2015)}]{Cao2015a}%
-  \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Yudong}\ \bibnamefont
-  {Cao}}\ and\ \bibinfo {author} {\bibfnamefont {Daniel}\ \bibnamefont
-  {Nagaj}},\ }\href {https://dl.acm.org/citation.cfm?id=2871363.2871370} {\emph
-  {\bibinfo {title} {Quantum Information {\&} Computation}}},\ Vol.~\bibinfo
-  {volume} {15}\ (\bibinfo  {publisher} {Rinton Press},\ \bibinfo {year}
-  {2015})\ pp.\ \bibinfo {pages} {1197--1222}\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Brell}\ \emph {et~al.}(2014)\citenamefont {Brell},
   \citenamefont {Bartlett},\ and\ \citenamefont {Doherty}}]{Brell2014}%
   \BibitemOpen

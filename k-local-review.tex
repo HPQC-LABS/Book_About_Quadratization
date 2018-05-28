@@ -3442,13 +3442,13 @@ a\prod_i^3 s_{i} \rightarrow \alpha   + \alpha_1^{s} s_1^2 + \alpha_2^s s_2^2 + 
 \alpha_{2}^{s} & \alpha_{23}^{ss}\\
 \alpha_{3}^{s} & \alpha_{3a}^{sz}\\
 \alpha_{a}^{z} & \alpha_{2a}^{sx}\\
-\cdot & \alpha_{2a}^{sx}
+ \textrm{N/A} & \alpha_{2a}^{sx}
 \end{pmatrix}&=\begin{pmatrix}\frac{\Delta}{2} & -\Delta^{1/3}\\
 -\frac{\alpha^{2/3}\Delta^{1/3}}{2} & a\frac{1}{2}\\
 \frac{\alpha^{2/3}\Delta^{1/3}}{2} & a\frac{1}{2}\\
 -\frac{\alpha^{1/3}\Delta^{2/3}}{2} & \frac{\alpha^{1/3}\Delta^{2/3}}{2}\\
 -\frac{\Delta}{2} & -\frac{\alpha^{1/3}\Delta^{2/3}}{\sqrt{2}}\\
-\cdot & \frac{\alpha^{1/3}\Delta^{2/3}}{\sqrt{2}}
+\textrm{N/A} & \frac{\alpha^{1/3}\Delta^{2/3}}{\sqrt{2}}
 \end{pmatrix}.
 %\alpha      &= \frac{\Delta}{2} \\
 %\alpha^{s}_1 &= -\frac{\alpha^{2/3}\Delta^{1/3}}{2} \\
@@ -3707,7 +3707,7 @@ The resulting Hamiltonian has a degree of 1 larger than the degree of whichever 
 \item Requires the ability to factor $k$-local terms into non-overlapping subspaces that are at most $\left(k-2\right)$-local in order to reduce $k$-locality. This is not possible for $z_1x_2x_3 + z_2z_3x_4$, for example. 
 \item $\Delta$ needs to be rather large.
 \item Cannot reduce 3-local to 2-local unless we generalize to a factor of 3 non-overlapping subspaces instead of 2. Needs to be combined with $3-\rightarrow2$ gadgets, for example.
-\item A lot of work may be needed to find the optiml reduction, since each $k$-local term can be factored in many ways, and some of these ways may affect the ability to reduce other $k$-local terms.
+\item A lot of work may be needed to find the optimal reduction, since each $k$-local term can be factored in many ways, and some of these ways may affect the ability to reduce other $k$-local terms.
 %\item Only beneficial for $k\ge5$.
 \end{itemize}  
                
@@ -4211,12 +4211,14 @@ Note in this case the error terms added by deduc-reduc already appear in our Ham
 \newpage
 %\section{$2-$local to $2-$local gadgets}
 \section{$2\rightarrow 2$ gadgets}
-This review has only focused on $k-$local to $2-$local transformations where $k>2$. There is also a large number of $2-$local to $2-$-local transformations in the literature, which are used for various pruposes. Some of these are listed here:
+This review has only focused on $k-$local to $2-$local transformations where $k>2$. There is also a large number of $2-$local to $2-$local transformations in the literature, which are used for various pruposes. Some of these are listed here:
 
 \vspace{10mm}
 
 \begin{itemize}
-\item Gadgetization of any $2-$local Hamiltonian into ${\openone,z,x,zz,xx}$ or ${\openone,z,x,zx}$ \cite{Biamonte2008}. Used for the proof that $xx + zz$ or $xz$ is universal is enough for universal quantum computation. In other words, \textit{any} computation can be transformed into a problem of finding the ground state of a $2-$local Hamiltonian containing terms from ${\openone,z,x,zz,xx}$ or from ${\openone,z,x,zx}$ with real coefficients, and the ground state can be found by adiabatic quantum computing with only polynomial time and space overhead over the best alternative algorithm for the problem.
+\item Gadgetization of any $2-$local Hamiltonian into $\{\openone,z,x,zz,xx\}$ or $\{\openone,z,x,zx\}$ \cite{Biamonte2008}. Used for the proof that $xx + zz$ or $xz$ is universal is enough for universal quantum computation. In other words, \textit{any} computation can be transformed into a problem of finding the ground state of a $2-$local Hamiltonian containing terms from $\{\openone,z,x,zz,xx\}$ or from $\{\openone,z,x,zx\}$ with real coefficients, and the ground state can be found by adiabatic quantum computing with only polynomial time and space overhead over the best alternative algorithm for the problem.
+
+\item Transformation of any $2-$local Hamiltonian into $\{\openone,z,x,zz,xx+yy\}$, without any perturbative gadgets, and only requiring the qubits to be connected in an almost 2D lattice \cite{Lloyd2016}. 
 
 
 \item "Cross gadget", "fork gadget", and "triangle gadget" described in \cite{Oliveira2008}.
