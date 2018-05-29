@@ -3088,8 +3088,9 @@ Determine the $k$-local term, $H_{k-\rm{local}}$, whose degree we wish to reduce
 \subsection{NP-Nagaj-1 (Nagaj, 2010)}
 
 \summarysec
-
+\vspace{-1mm}
 The Feynman Hamiltonian can be written as \cite{Feynman1985a}:
+\vspace{-5mm}
 
 \begin{align}
 \frac{1}{4}\left(x_{1}x_{2}-{\rm i}y_{1}x_{2}+{\rm i}x_{1}y_{2}+y_{1}y_{2}\right)U_{{\rm 2-local}}+\frac{1}{4}\left(x_{1}x_{2}+{\rm i}y_{1}x_{2}-{\rm i}x_{1}y_{2}+y_{1}y_{2}\right)U_{{\rm 2-local}}^{\dagger},
@@ -3125,7 +3126,7 @@ H_{{\rm 2-local}}      &=\nicefrac{1}{2}\left(2\lambda_{6,a_{8}} + x_{1}\lambda_
 \prossec
 \begin{itemize}
 \item Exact (non-perturbative). No special control precision demands.
-\item All coefficients are equal to each other, with a value of $\nicefrac{1}{2}$.
+\item All coefficients are equal to each other, with a value of $\nicefrac{1}{2}$, except one which is equal to 1.
 \item With more auxiliary qubits, can be further reduced to only containing qubits.
 \end{itemize}
 
@@ -3133,7 +3134,7 @@ H_{{\rm 2-local}}      &=\nicefrac{1}{2}\left(2\lambda_{6,a_{8}} + x_{1}\lambda_
 \begin{itemize}
 \item Involves qutrits in all 32 terms.
 \item Only derived (so far) for the Feynman Hamiltonian.
-\item High overhead in terms of number of auxiliary qubits and number of terms (see following section).
+\item High overhead in terms of number of auxiliary qubits and number of terms.
 \end{itemize}
 
 \examplesec
@@ -3156,11 +3157,14 @@ The transformation presented above was for the case of $U_{2-\textrm{local}}={\r
 
 Similar to NP-Nagaj-1 but instead of using qutrits, we use two qubits  for each qutrit, according to:
 
+\vspace{-7mm}
+
 \begin{align}
 |0\rangle \rightarrow |00\rangle , \qquad  |1\rangle \rightarrow  \frac{1}{\sqrt{2}}\left( |01\rangle + |10\rangle  \right),  \qquad |2\rangle \rightarrow \frac{1}{\sqrt{2}} \left( |01\rangle - |10\rangle   \right).
 \end{align}
 
 \noindent which leads to the following transformations:
+\vspace{-5mm}
 
 \begin{align}
 |01\rangle\langle10|_{ij}+h.c. &\rightarrow \frac{1}{\sqrt{2}}\left(|01\rangle\langle10|_{ij_{1}}+|01\rangle\langle10|_{ij_{2}}\right)+h.c.\\
@@ -3168,41 +3172,46 @@ Similar to NP-Nagaj-1 but instead of using qutrits, we use two qubits  for each 
 |1\rangle\langle2|_{j}+h.c.    &\rightarrow z_{j_{1}}-z_{j_{2}},
 \end{align}
 
-
+% the part with lambdas is still in terms of lamndas, which is wrong.
+\noindent and the following 2-local Hamiltonian involving only qubits:
+\vspace{-3mm}
 
 \begin{eqnarray}
 \begin{gathered}
-|1\rangle\langle1|_{3}\left(z_{a_{5}}-z_{a_{6}}+z_{a_{9}}-z_{a_{10}}\right)+|0\rangle\langle0|_{3}\left(z_{a_{11}}-z_{a_{12}}+z_{a_{15}}-z_{a_{16}}\right)+x_{4}\left(z_{a_{7}}-z_{a_{8}}\right)+z_{a_{13}}-z_{a_{14}} +\\
-\frac{1}{\sqrt{2}}\left(x_{1}\lambda_{1,a_{5}}+y_{1}\lambda_{2,a_{5}}+x_{1}\lambda_{1,a_{6}}+y_{1}\lambda_{2,a_{6}}+x_{a_{1}}\lambda_{1,a_{7}}+y_{a_{1}}\lambda_{2,a_{7}}+x_{a_{1}}\lambda_{1,a_{8}}+y_{1}\lambda_{2,a_{8}}\right. +\\
-x_{a_{2}}\lambda_{1,a_{7}}+y_{a_{2}}\lambda_{2,a_{7}}+x_{a_{2}}\lambda_{1,a_{8}}+y_{a_{2}}\lambda_{2,a_{8}}+x_{a_{2}}\lambda_{1,a_{9}}+y_{a_{2}}\lambda_{2,a_{9}}+x_{a_{2}}\lambda_{1,a_{10}}+y_{a_{2}}\lambda_{2,a_{10}}+x_{1}\lambda_{1,a_{11}}+\\
-y_{1}\lambda_{2,a_{11}}+x_{a_{4}}\lambda_{1,a_{15}}+y_{a_{4}}\lambda_{2,a_{15}}+x_{a_{1}}\lambda_{4,a_{5}}+y_{a_{1}}\lambda_{5,a_{5}}+x_{a_{2}}\lambda_{4,a_{7}}+y_{a_{2}}\lambda_{5,a_{7}}+x_{2}\lambda_{4,a_{9}}+y_{2}\lambda_{5,a_{9}} +\\
-x_{a_{3}}\lambda_{4,a_{11}}+y_{a_{3}}\lambda_{5,a_{11}}+x_{a_{4}}\lambda_{4,a_{13}}+y_{a_{4}}\lambda_{5,a_{13}}+x_{a_{2}}\lambda_{4,a_{15}}+y_{a_{2}}\lambda_{5,a_{15}}-\\
--x_{a_{1}}\lambda_{4,a_{6}}-y_{a_{1}}\lambda_{5,a_{6}}-x_{a_{2}}\lambda_{4,a_{8}}-y_{a_{2}}\lambda_{5,a_{8}}-x_{2}\lambda_{4,a_{10}}-y_{2}\lambda_{5,a_{10}}-x_{a_{3}}\lambda_{4,a_{12}}-y_{a_{3}}\lambda_{5,a_{12}}-\\
-\left.-x_{a_{4}}\lambda_{4,a_{14}}-y_{a_{4}}\lambda_{5,a_{14}}-x_{2}\lambda_{4,a_{16}}-y_{2}\lambda_{5,a_{16}}\right)
+H_{2-\textrm{local}}=\nicefrac{1}{2}\left(z_{a_{5}}-z_{a_{6}}+z_{a_{9}}-z_{a_{10}}-z_{a_{3}}z_{a_{5}}+z_{a_{3}}z_{a_{6}}-z_{a_{3}}z_{a_{9}}+z_{a_{3}}z_{a_{10}}+\right. \\
+\left.z_{a_{11}}-z_{a_{12}}+z_{a_{15}}-z_{a_{16}}+z_{a_{3}}z_{a_{11}}-z_{a_{3}}z_{a_{12}}+z_{a_{3}}z_{a_{15}}-z_{a_{3}}z_{a_{16}}\right)+x_{4}z_{a_{7}}-x_{4}z_{a_{8}}+z_{a_{13}}-z_{a_{14}}+\\
+\nicefrac{1}{\sqrt{2}}\left(x_{1}\lambda_{1,a_{5}}+y_{1}\lambda_{2,a_{5}}+x_{1}\lambda_{1,a_{6}}+y_{1}\lambda_{2,a_{6}}+x_{a_{1}}\lambda_{1,a_{7}}+y_{a_{1}}\lambda_{2,a_{7}}+x_{a_{1}}\lambda_{1,a_{8}}+y_{1}\lambda_{2,a_{8}}\right.+\\
+x_{a_{2}}\lambda_{1,a_{7}}+y_{a_{2}}\lambda_{2,a_{7}}+x_{a_{2}}\lambda_{1,a_{8}}+y_{a_{2}}\lambda_{2,a_{8}}+x_{a_{2}}\lambda_{1,a_{9}}+y_{a_{2}}\lambda_{2,a_{9}}+x_{a_{2}}\lambda_{1,a_{10}}+\\
+y_{a_{2}}\lambda_{2,a_{10}}+x_{1}\lambda_{1,a_{11}}+y_{1}\lambda_{2,a_{11}}+x_{a_{4}}\lambda_{1,a_{15}}+y_{a_{4}}\lambda_{2,a_{15}}+x_{a_{1}}\lambda_{4,a_{5}}+y_{a_{1}}\lambda_{5,a_{5}}+\\
+x_{a_{2}}\lambda_{4,a_{7}}+y_{a_{2}}\lambda_{5,a_{7}}+x_{2}\lambda_{4,a_{9}}+y_{2}\lambda_{5,a_{9}}+x_{a_{3}}\lambda_{4,a_{11}}+y_{a_{3}}\lambda_{5,a_{11}}+x_{a_{4}}\lambda_{4,a_{13}}-\\
+y_{a_{4}}\lambda_{5,a_{13}}+x_{a_{2}}\lambda_{4,a_{15}}+y_{a_{2}}\lambda_{5,a_{15}}-x_{a_{1}}\lambda_{4,a_{6}}-y_{a_{1}}\lambda_{5,a_{6}}-x_{a_{2}}\lambda_{4,a_{8}}-y_{a_{2}}\lambda_{5,a_{8}}-x_{2}\lambda_{4,a_{10}}-\\
+\left.-y_{2}\lambda_{5,a_{10}}-x_{a_{3}}\lambda_{4,a_{12}}-y_{a_{3}}\lambda_{5,a_{12}}-x_{a_{4}}\lambda_{4,a_{14}}-y_{a_{4}}\lambda_{5,a_{14}}-x_{2}\lambda_{4,a_{16}}-y_{2}\lambda_{5,a_{16}}\right),
 \end{gathered}
 \end{eqnarray}
 
+\vspace{2mm}
 
 \noindent whose low-lying  spectrum is equivalent to the spectrum of  $H_{2-{\rm local}}$.
 
 \costsec
 \begin{itemize}
-\item 6 auxiliary qutrits and 4 auxiliary qubits (10 extra qudits in total).
-\item 2 quartic, 4 cubic, and 2 quadratic terms becomes 27 quadratic terms and 5 linear terms in the Pauli-GellMann basis. 
+\item 16 auxiliary qubits.
+%\item 2 quartic, 4 cubic, and 2 quadratic terms becomes 27 quadratic terms and 5 linear terms in the Pauli-GellMann basis. 
 \end{itemize}
 
 \prossec
 \begin{itemize}
 \item Exact (non-perturbative). No special control precision demands.
-\item All coefficients are equal to each other, with a value of $\nicefrac{1}{2}$.
-\item With more auxiliary qubits, can be further reduced to only containing qubits.
+\item Only involves qubits (as opposed to NP-Nagaj-1 which contains qutrits and NP-OY which contains ququits.
+%\item All coefficients are equal to each other, with a value of $\nicefrac{1}{2}$.
+%\item With more auxiliary qubits, can be further reduced to only containing qubits.
 \end{itemize}
 
 \conssec
 \begin{itemize}
-\item Involves qutrits in all 32 terms.
+%\item Involves qutrits in all 32 terms.
 \item Only derived (so far) for the Feynman Hamiltonian.
-\item High overhead in terms of number of auxiliary qubits and number of terms (see following section).
+\item High overhead in terms of number of auxiliary qubits and number of terms.
 \end{itemize}
 
 \examplesec
@@ -4220,7 +4229,7 @@ This review has only focused on $k-$local to $2-$local transformations where $k>
 
 \item "Cross gadget", "fork gadget", and "triangle gadget" described in \cite{Oliveira2008}.
 \item Gadgetizeation of a $2-$local Hamiltonian with very strong couplings, into a $2-$local Hamiltonian with strengths in $\mathcal{O}\left( \nicefrac{1}{\textrm{poly}\left( \epsilon^{-1},n\right)}  \right)$, and $\textrm{poly}\left( \epsilon^{-1},n  \right)$ auxiliary qubits and $\textrm{poly}\left( \epsilon^{-1},n  \right)$ new quadratic terms. \cite{Cao2015a}.
-\item $yy$ creation gadget: Simulation of $yy$ terms  using ${\openone,z,x,zz,xx}$, with coupling strength restriction defined according to $\Delta = \Theta\left(\epsilon^{-4}\right)$ \cite{Cao2015}. % they do not even say they need \openone, but maybe they are ignoring it due to causing a constant shift. 
+\item $yy$ creation gadget: Simulation of $yy$ terms  using $\{\openone,z,x,zz,xx\}$, with coupling strength restriction defined according to $\Delta = \Theta\left(\epsilon^{-4}\right)$ \cite{Cao2015}. % they do not even say they need \openone, but maybe they are ignoring it due to causing a constant shift. 
 \end{itemize}
 % chimera 
 
