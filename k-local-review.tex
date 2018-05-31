@@ -963,6 +963,47 @@ with $a=1$.
 
 \newpage
 
+
+\subsection{Even or odd sector selection}
+
+\summarysec
+Extra binary or trinary variable is added to ensure that the energy of the odd or even parity sector is zero and the energy of the other sector is higher.
+
+\costsec
+
+1 auxiliary variable for a three or four local term
+
+\prossec
+\begin{itemize}
+\item Very efficient in terms of resources.
+\end{itemize}
+
+\conssec
+\begin{itemize}
+\item Only reproduces the ground state manifold, not higher excited states.
+\end{itemize}
+
+\examplesec
+\begin{eqnarray}
+(4\,b_a+2\,\sum_{i=1}^4 b_i-6)^2\begin{cases}=0 & \mathrm{iff}\, \sum_{i=1}^4 b_i \mathrm{\, is\, odd}  \\
+>0 & \mathrm{otherwise} \end{cases}
+\end{eqnarray}
+
+
+\altformsec
+\begin{eqnarray}
+(2\,z_a+\sum_{i=1}^4z_i)^2\begin{cases}=0 & \mathrm{iff}\, \sum_{i=1}^4 z_i=\pm 2 \\
+>0 & \mathrm{otherwise} \end{cases}
+\end{eqnarray}
+
+
+\refsec
+\begin{itemize}
+\item Discovered in: \cite{Rocchetto2016}.
+\end{itemize}
+
+\newpage
+
 \section{Methods that introduce auxiliary variables to quadratize a SINGLE positive term (Positive Term Reductions, PTR)}
 
 \subsection{Positive Term Reduction}
