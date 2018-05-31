@@ -361,18 +361,22 @@ Examples are difficult to illustrate in a paper, since they involve searching fo
 \end{comment}
 Consider the Hamiltonian: 
 \begin{equation}
-H_{4{\rm -local}}=b_{1}b_{2}(10+b_{3}+b_{3}b_{4})+b_{1}(b_{3}-3)+b_{2}(b_{3}-2b_{3}-b_{4}-1)+F(x_{3},x_{4},x_{5},\ldots,x_{N})
+H_{4{\rm -local}}=b_{1}b_{2}(4+b_{3}+b_{3}b_{4})+b_{1}(b_{3}-3)+b_{2}(1-2b_{3}-b_{4})+F(x_{3},x_{4},x_{5},\ldots,x_{N})
 \end{equation}
  where $F$ is any polynomial in $b_{i}$ for $i\ge 3$.
 
-\noindent Since the coefficient of $b_{1}b_{2}$ is 10, which is greater than the sum of all of the other coefficients involving $b_{1}$ or $b_{2}$, \uline{\textbf{\textit{it must be the case that $b_{1}b_{2}=0$}}}.
+\noindent Since 
+\begin{equation}
+H_{4{\rm -local}}\left(1, 1, b_3, b_4, ...\right) > H_{4{\rm -local}}\left(0, 0, b_3, b_4, ...\right), H_{4{\rm -local}}\left(0, 1, b_3, b_4, ...\right), H_{4{\rm -local}}\left(1, 0, b_3, b_4, ...\right),
+\end{equation}
+\uline{\textbf{\textit{it must be the case that $b_{1}b_{2}=0$}}}.
 Specifically, for the 4 assignments of $(b_{3},b_{4})$, we see that $b_{1}b_{2}=0$ at every minimum of $H_{4{\rm -local}}-F$.
 
 Using deduc-reduc we have:
 
 {\small
 \begin{equation}
-H_{2{\rm -local}}=12b_{1}b_{2}+b_{1}(b_{3}-3)+b_{2}(b_{3}-2b_{3}-b_{4}-1)+F(x_{3},x_{4},x_{5},\ldots,x_{N})
+H_{2{\rm -local}}=6b_{1}b_{2}+b_{1}(b_{3}-3)+b_{2}(1-2b_{3}-b_{4})+F(x_{3},x_{4},x_{5},\ldots,x_{N})
 \end{equation}
 }
 
