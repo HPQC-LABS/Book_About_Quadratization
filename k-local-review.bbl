@@ -1,12 +1,12 @@
 %merlin.mbs apsrev4-1.bst 2010-07-25 4.21a (PWD, AO, DPC) hacked
 %Control: key (0)
-%Control: author (72) initials jnrlst
+%Control: author (0) dotless jnrlst
 %Control: editor formatted (1) identically to author
-%Control: production of article title (-1) disabled
-%Control: page (0) single
-%Control: year (1) truncated
+%Control: production of article title (0) allowed
+%Control: page (1) range
+%Control: year (0) verbatim
 %Control: production of eprint (0) enabled
-\begin{thebibliography}{41}%
+\begin{thebibliography}{53}%
 \makeatletter
 \providecommand \@ifxundefined [1]{%
  \@ifx{#1\undefined}
@@ -50,146 +50,252 @@
 \providecommand \BibitemShut  [1]{\csname bibitem#1\endcsname}%
 \let\auto@bib@innerbib\@empty
 %</preamble>
-\bibitem [{\citenamefont {Tanburn}\ \emph {et~al.}(2015)\citenamefont
-  {Tanburn}, \citenamefont {Okada},\ and\ \citenamefont
-  {Dattani}}]{Tanburn2015c}%
+\bibitem [{\citenamefont {Tanburn}\ \emph
+  {et~al.}(2015{\natexlab{a}})\citenamefont {Tanburn}, \citenamefont {Okada},\
+  and\ \citenamefont {Dattani}}]{Tanburn2015c}%
   \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {R.}~\bibnamefont
-  {Tanburn}}, \bibinfo {author} {\bibfnamefont {E.}~\bibnamefont {Okada}}, \
-  and\ \bibinfo {author} {\bibfnamefont {N.}~\bibnamefont {Dattani}},\ }\href
-  {http://arxiv.org/abs/1508.04816} {\  (\bibinfo {year} {2015})},\ \Eprint
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Richard}\ \bibnamefont
+  {Tanburn}}, \bibinfo {author} {\bibfnamefont {Emile}\ \bibnamefont {Okada}},
+  \ and\ \bibinfo {author} {\bibfnamefont {Nike}\ \bibnamefont {Dattani}},\
+  }\bibfield  {title} {\enquote {\bibinfo {title} {{Reducing multi-qubit
+  interactions in adiabatic quantum computation without adding auxiliary
+  qubits. Part 1: The "deduc-reduc" method and its application to quantum
+  factorization of numbers}},}\ }\href {http://arxiv.org/abs/1508.04816} {\
+  (\bibinfo {year} {2015}{\natexlab{a}})},\ \Eprint
   {http://arxiv.org/abs/1508.04816} {arXiv:1508.04816} \BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Ishikawa}(2014)}]{Ishikawa2014}%
   \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {H.}~\bibnamefont
-  {Ishikawa}},\ }in\ \href {\doibase 10.1109/CVPR.2014.177} {\emph {\bibinfo
-  {booktitle} {2014 IEEE Conference on Computer Vision and Pattern
-  Recognition}}}\ (\bibinfo  {publisher} {IEEE},\ \bibinfo {year} {2014})\ pp.\
-  \bibinfo {pages} {1362--1369}\BibitemShut {NoStop}%
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Hiroshi}\ \bibnamefont
+  {Ishikawa}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {{Higher-Order
+  Clique Reduction without Auxiliary Variables}},}\ }in\ \href {\doibase
+  10.1109/CVPR.2014.177} {\emph {\bibinfo {booktitle} {2014 IEEE Conference on
+  Computer Vision and Pattern Recognition}}}\ (\bibinfo  {publisher} {IEEE},\
+  \bibinfo {year} {2014})\ pp.\ \bibinfo {pages} {1362--1369}\BibitemShut
+  {NoStop}%
 \bibitem [{\citenamefont {Bardet}(2002)}]{Bardet2002}%
   \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {M.}~\bibnamefont
-  {Bardet}},\ }\href {http://algo.inria.fr/seminars/.} {\bibfield  {journal}
-  {\bibinfo  {journal} {Algorithms Seminar}\ ,\ \bibinfo {pages} {85}}
-  (\bibinfo {year} {2002})}\BibitemShut {NoStop}%
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Magali}\ \bibnamefont
+  {Bardet}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {{On the
+  Complexity of a Gr{\"{o}}bner Basis Algorithm}},}\ }\href
+  {http://algo.inria.fr/seminars/.} {\bibfield  {journal} {\bibinfo  {journal}
+  {Algorithms Seminar}\ ,\ \bibinfo {pages} {85--92}} (\bibinfo {year}
+  {2002})}\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Dridi}\ and\ \citenamefont
   {Alghassi}(2016)}]{Dridi2016}%
   \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {R.}~\bibnamefont
-  {Dridi}}\ and\ \bibinfo {author} {\bibfnamefont {H.}~\bibnamefont
-  {Alghassi}},\ }\href {http://arxiv.org/abs/1604.05796} {\  (\bibinfo {year}
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Raouf}\ \bibnamefont
+  {Dridi}}\ and\ \bibinfo {author} {\bibfnamefont {Hedayat}\ \bibnamefont
+  {Alghassi}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {{Prime
+  factorization using quantum annealing and computational algebraic
+  geometry}},}\ }\href {http://arxiv.org/abs/1604.05796} {\  (\bibinfo {year}
   {2016})},\ \Eprint {http://arxiv.org/abs/1604.05796} {arXiv:1604.05796}
   \BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Ali}\ \emph {et~al.}(2008)\citenamefont {Ali},
+  \citenamefont {Farag},\ and\ \citenamefont {Gimel'farb}}]{Ali2008}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Asem~M.}\ \bibnamefont
+  {Ali}}, \bibinfo {author} {\bibfnamefont {Aly~A.}\ \bibnamefont {Farag}}, \
+  and\ \bibinfo {author} {\bibfnamefont {Georgy~L.}\ \bibnamefont
+  {Gimel'farb}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {{Optimizing
+  Binary MRFs with Higher Order Cliques}},}\ \ }(\bibinfo  {publisher}
+  {Springer, Berlin, Heidelberg},\ \bibinfo {year} {2008})\ pp.\ \bibinfo
+  {pages} {98--111}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Tanburn}\ \emph
+  {et~al.}(2015{\natexlab{b}})\citenamefont {Tanburn}, \citenamefont {Lunt},\
+  and\ \citenamefont {Dattani}}]{Tanburn2015d}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Richard}\ \bibnamefont
+  {Tanburn}}, \bibinfo {author} {\bibfnamefont {Oliver}\ \bibnamefont {Lunt}},
+  \ and\ \bibinfo {author} {\bibfnamefont {Nikesh~S.}\ \bibnamefont
+  {Dattani}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {{Crushing
+  runtimes in adiabatic quantum computation with Energy Landscape Manipulation
+  (ELM): Application to Quantum Factoring}},}\ }\href
+  {http://arxiv.org/abs/1510.07420} {\bibfield  {journal} {\bibinfo  {journal}
+  {Physical Review A (submitted).}\ } (\bibinfo {year} {2015}{\natexlab{b}})},\
+  \Eprint {http://arxiv.org/abs/1510.07420} {arXiv:1510.07420} \BibitemShut
+  {NoStop}%
 \bibitem [{\citenamefont {Okada}\ \emph {et~al.}(2015)\citenamefont {Okada},
   \citenamefont {Tanburn},\ and\ \citenamefont {Dattani}}]{Okada2015}%
   \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {E.}~\bibnamefont
-  {Okada}}, \bibinfo {author} {\bibfnamefont {R.}~\bibnamefont {Tanburn}}, \
-  and\ \bibinfo {author} {\bibfnamefont {N.~S.}\ \bibnamefont {Dattani}},\
-  }\href {http://arxiv.org/abs/1508.07190} {\ ,\ \bibinfo {pages} {5} (\bibinfo
-  {year} {2015})},\ \Eprint {http://arxiv.org/abs/1508.07190}
-  {arXiv:1508.07190} \BibitemShut {NoStop}%
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Emile}\ \bibnamefont
+  {Okada}}, \bibinfo {author} {\bibfnamefont {Richard}\ \bibnamefont
+  {Tanburn}}, \ and\ \bibinfo {author} {\bibfnamefont {Nikesh~S.}\ \bibnamefont
+  {Dattani}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {{Reducing
+  multi-qubit interactions in adiabatic quantum computation without adding
+  auxiliary qubits. Part 2: The "split-reduc" method and its application to
+  quantum determination of Ramsey numbers}},}\ }\href
+  {http://arxiv.org/abs/1508.07190} {\ ,\ \bibinfo {pages} {5} (\bibinfo {year}
+  {2015})},\ \Eprint {http://arxiv.org/abs/1508.07190} {arXiv:1508.07190}
+  \BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Anthony}\ \emph {et~al.}(2017)\citenamefont
+  {Anthony}, \citenamefont {Boros}, \citenamefont {Crama},\ and\ \citenamefont
+  {Gruber}}]{Anthony2017}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Martin}\ \bibnamefont
+  {Anthony}}, \bibinfo {author} {\bibfnamefont {Endre}\ \bibnamefont {Boros}},
+  \bibinfo {author} {\bibfnamefont {Yves}\ \bibnamefont {Crama}}, \ and\
+  \bibinfo {author} {\bibfnamefont {Aritanan}\ \bibnamefont {Gruber}},\
+  }\bibfield  {title} {\enquote {\bibinfo {title} {{Quadratic reformulations of
+  nonlinear binary optimization problems}},}\ }\href {\doibase
+  10.1007/s10107-016-1032-4} {\bibfield  {journal} {\bibinfo  {journal}
+  {Mathematical Programming}\ }\textbf {\bibinfo {volume} {162}},\ \bibinfo
+  {pages} {115--144} (\bibinfo {year} {2017})}\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Kolmogorov}\ and\ \citenamefont
   {Zabih}(2004)}]{Kolmogorov2004}%
   \BibitemOpen
   \bibfield  {author} {\bibinfo {author} {\bibfnamefont {V.}~\bibnamefont
   {Kolmogorov}}\ and\ \bibinfo {author} {\bibfnamefont {R.}~\bibnamefont
-  {Zabih}},\ }\href {\doibase 10.1109/TPAMI.2004.1262177} {\bibfield  {journal}
-  {\bibinfo  {journal} {IEEE Transactions on Pattern Analysis and Machine
-  Intelligence}\ }\textbf {\bibinfo {volume} {26}},\ \bibinfo {pages} {147}
-  (\bibinfo {year} {2004})}\BibitemShut {NoStop}%
+  {Zabih}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {{What energy
+  functions can be minimized via graph cuts?}}}\ }\href {\doibase
+  10.1109/TPAMI.2004.1262177} {\bibfield  {journal} {\bibinfo  {journal} {IEEE
+  Transactions on Pattern Analysis and Machine Intelligence}\ }\textbf
+  {\bibinfo {volume} {26}},\ \bibinfo {pages} {147--159} (\bibinfo {year}
+  {2004})}\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Freedman}\ and\ \citenamefont
   {Drineas}(2005)}]{Freedman2005}%
   \BibitemOpen
   \bibfield  {author} {\bibinfo {author} {\bibfnamefont {D.}~\bibnamefont
   {Freedman}}\ and\ \bibinfo {author} {\bibfnamefont {P.}~\bibnamefont
-  {Drineas}},\ }in\ \href {\doibase 10.1109/CVPR.2005.143} {\emph {\bibinfo
-  {booktitle} {2005 IEEE Computer Society Conference on Computer Vision and
-  Pattern Recognition (CVPR'05)}}},\ Vol.~\bibinfo {volume} {2}\ (\bibinfo
-  {publisher} {IEEE},\ \bibinfo {year} {2005})\ pp.\ \bibinfo {pages}
-  {939--946}\BibitemShut {NoStop}%
+  {Drineas}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {{Energy
+  Minimization via Graph Cuts: Settling What is Possible}},}\ }in\ \href
+  {\doibase 10.1109/CVPR.2005.143} {\emph {\bibinfo {booktitle} {2005 IEEE
+  Computer Society Conference on Computer Vision and Pattern Recognition
+  (CVPR'05)}}},\ Vol.~\bibinfo {volume} {2}\ (\bibinfo  {publisher} {IEEE},\
+  \bibinfo {year} {2005})\ pp.\ \bibinfo {pages} {939--946}\BibitemShut
+  {NoStop}%
 \bibitem [{\citenamefont {Ishikawa}(2011)}]{Ishikawa2011}%
   \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {H.}~\bibnamefont
-  {Ishikawa}},\ }\href {\doibase 10.1109/TPAMI.2010.91} {\bibfield  {journal}
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {H}~\bibnamefont
+  {Ishikawa}},\ }\bibfield  {title} {\enquote {\bibinfo {title}
+  {{Transformation of General Binary MRF Minimization to the First-Order
+  Case}},}\ }\href {\doibase 10.1109/TPAMI.2010.91} {\bibfield  {journal}
   {\bibinfo  {journal} {IEEE Transactions on Pattern Analysis and Machine
-  Intelligence}\ }\textbf {\bibinfo {volume} {33}},\ \bibinfo {pages} {1234}
-  (\bibinfo {year} {2011})}\BibitemShut {NoStop}%
-\bibitem [{\citenamefont {Anthony}\ \emph {et~al.}(2015)\citenamefont
+  Intelligence}\ }\textbf {\bibinfo {volume} {33}},\ \bibinfo {pages}
+  {1234--1249} (\bibinfo {year} {2011})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Anthony}\ \emph {et~al.}(2016)\citenamefont
   {Anthony}, \citenamefont {Boros}, \citenamefont {Crama},\ and\ \citenamefont
-  {Gruber}}]{Anthony2015}%
+  {Gruber}}]{Anthony2016}%
   \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {M.}~\bibnamefont
-  {Anthony}}, \bibinfo {author} {\bibfnamefont {E.}~\bibnamefont {Boros}},
-  \bibinfo {author} {\bibfnamefont {Y.}~\bibnamefont {Crama}}, \ and\ \bibinfo
-  {author} {\bibfnamefont {A.}~\bibnamefont {Gruber}},\ }\href
-  {http://orbi.ulg.ac.be/handle/2268/184526} {\  (\bibinfo {year}
-  {2015})}\BibitemShut {NoStop}%
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Martin}\ \bibnamefont
+  {Anthony}}, \bibinfo {author} {\bibfnamefont {Endre}\ \bibnamefont {Boros}},
+  \bibinfo {author} {\bibfnamefont {Yves}\ \bibnamefont {Crama}}, \ and\
+  \bibinfo {author} {\bibfnamefont {Aritanan}\ \bibnamefont {Gruber}},\
+  }\bibfield  {title} {\enquote {\bibinfo {title} {{Quadratization of symmetric
+  pseudo-Boolean functions}},}\ }\href {\doibase 10.1016/J.DAM.2016.01.001}
+  {\bibfield  {journal} {\bibinfo  {journal} {Discrete Applied Mathematics}\
+  }\textbf {\bibinfo {volume} {203}},\ \bibinfo {pages} {1--12} (\bibinfo
+  {year} {2016})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Anthony}\ \emph {et~al.}(2014)\citenamefont
+  {Anthony}, \citenamefont {Boros}, \citenamefont {Crama},\ and\ \citenamefont
+  {Gruber}}]{Anthony2014}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Martin}\ \bibnamefont
+  {Anthony}}, \bibinfo {author} {\bibfnamefont {Endre}\ \bibnamefont {Boros}},
+  \bibinfo {author} {\bibfnamefont {Yves}\ \bibnamefont {Crama}}, \ and\
+  \bibinfo {author} {\bibfnamefont {Aritanan}\ \bibnamefont {Gruber}},\
+  }\bibfield  {title} {\enquote {\bibinfo {title} {{Quadratization of Symmetric
+  Pseudo-Boolean Functions}},}\ }\href {https://arxiv.org/abs/1404.6535} {\
+  (\bibinfo {year} {2014})},\ \Eprint {http://arxiv.org/abs/1404.6535}
+  {arXiv:1404.6535} \BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Kahl}\ and\ \citenamefont
+  {Strandmark}(2011)}]{Kahl2011}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibnamefont {Kahl}}\ and\ \bibinfo
+  {author} {\bibnamefont {Strandmark}},\ }\bibfield  {title} {\enquote
+  {\bibinfo {title} {{Generalized Roof Duality for Pseudo-Boolean
+  Optimization}},}\ }\href
+  {http://www.maths.lth.se/vision/publdb/reports/pdf/kahl-strandmark-iccv-11.pdf}
+  {\bibfield  {journal} {\bibinfo  {journal} {International Conference on
+  Computer Vision}\ } (\bibinfo {year} {2011})}\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Boros}\ and\ \citenamefont
   {Gruber}(2014)}]{Boros2014}%
   \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {E.}~\bibnamefont
-  {Boros}}\ and\ \bibinfo {author} {\bibfnamefont {A.}~\bibnamefont {Gruber}},\
-  }\href {http://arxiv.org/abs/1404.6538} {\  (\bibinfo {year} {2014})},\
-  \Eprint {http://arxiv.org/abs/1404.6538} {arXiv:1404.6538} \BibitemShut
-  {NoStop}%
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Endre}\ \bibnamefont
+  {Boros}}\ and\ \bibinfo {author} {\bibfnamefont {Aritanan}\ \bibnamefont
+  {Gruber}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {{On
+  Quadratization of Pseudo-Boolean Functions}},}\ }\href
+  {http://arxiv.org/abs/1404.6538} {\  (\bibinfo {year} {2014})},\ \Eprint
+  {http://arxiv.org/abs/1404.6538} {arXiv:1404.6538} \BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Boros}\ \emph {et~al.}(2018)\citenamefont {Boros},
+  \citenamefont {Crama},\ and\ \citenamefont
+  {Rodr{\'i}guez-Heck}}]{Boros2018QuadratizationsOS}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Endre}\ \bibnamefont
+  {Boros}}, \bibinfo {author} {\bibfnamefont {Yves}\ \bibnamefont {Crama}}, \
+  and\ \bibinfo {author} {\bibfnamefont {Elisabeth}\ \bibnamefont
+  {Rodr{\'i}guez-Heck}},\ }\bibfield  {title} {\enquote {\bibinfo {title}
+  {Quadratizations of symmetric pseudo-boolean functions: sub-linear bounds on
+  the number of auxiliary variables},}\ }in\ \href@noop {} {\emph {\bibinfo
+  {booktitle} {ISAIM}}}\ (\bibinfo {year} {2018})\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Gallagher}\ \emph {et~al.}(2011)\citenamefont
+  {Gallagher}, \citenamefont {Batra},\ and\ \citenamefont
+  {Parikh}}]{Gallagher2011}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Andrew~C.}\
+  \bibnamefont {Gallagher}}, \bibinfo {author} {\bibfnamefont {Dhruv}\
+  \bibnamefont {Batra}}, \ and\ \bibinfo {author} {\bibfnamefont {Devi}\
+  \bibnamefont {Parikh}},\ }\bibfield  {title} {\enquote {\bibinfo {title}
+  {{Inference for order reduction in Markov random fields}},}\ }in\ \href
+  {\doibase 10.1109/CVPR.2011.5995452} {\emph {\bibinfo {booktitle} {CVPR
+  2011}}}\ (\bibinfo  {publisher} {IEEE},\ \bibinfo {year} {2011})\ pp.\
+  \bibinfo {pages} {1857--1864}\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Chancellor}\ \emph
   {et~al.}(2016{\natexlab{a}})\citenamefont {Chancellor}, \citenamefont
   {Zohren},\ and\ \citenamefont {Warburton}}]{Chancellor2016b}%
   \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {N.}~\bibnamefont
-  {Chancellor}}, \bibinfo {author} {\bibfnamefont {S.}~\bibnamefont {Zohren}},
-  \ and\ \bibinfo {author} {\bibfnamefont {P.~A.}\ \bibnamefont {Warburton}},\
-  }\href {\doibase 10.1038/s41534-017-0022-6} {\  (\bibinfo {year}
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Nicholas}\
+  \bibnamefont {Chancellor}}, \bibinfo {author} {\bibfnamefont {Stefan}\
+  \bibnamefont {Zohren}}, \ and\ \bibinfo {author} {\bibfnamefont {Paul~A.}\
+  \bibnamefont {Warburton}},\ }\bibfield  {title} {\enquote {\bibinfo {title}
+  {{Circuit design for multi-body interactions in superconducting quantum
+  annealing system with applications to a scalable architecture}},}\ }\href
+  {\doibase 10.1038/s41534-017-0022-6} {\  (\bibinfo {year}
   {2016}{\natexlab{a}}),\ 10.1038/s41534-017-0022-6},\ \Eprint
   {http://arxiv.org/abs/1603.09521} {arXiv:1603.09521} \BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Leib}\ \emph
   {et~al.}(2016{\natexlab{a}})\citenamefont {Leib}, \citenamefont {Zoller},\
   and\ \citenamefont {Lechner}}]{Leib2016a}%
   \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {M.}~\bibnamefont
-  {Leib}}, \bibinfo {author} {\bibfnamefont {P.}~\bibnamefont {Zoller}}, \ and\
-  \bibinfo {author} {\bibfnamefont {W.}~\bibnamefont {Lechner}},\ }\href
-  {http://arxiv.org/abs/1604.02359} {\  (\bibinfo {year}
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Martin}\ \bibnamefont
+  {Leib}}, \bibinfo {author} {\bibfnamefont {Peter}\ \bibnamefont {Zoller}}, \
+  and\ \bibinfo {author} {\bibfnamefont {Wolfgang}\ \bibnamefont {Lechner}},\
+  }\bibfield  {title} {\enquote {\bibinfo {title} {{A Transmon Quantum
+  Annealer: Decomposing Many-Body Ising Constraints Into Pair Interactions}},}\
+  }\href {http://arxiv.org/abs/1604.02359} {\  (\bibinfo {year}
   {2016}{\natexlab{a}})},\ \Eprint {http://arxiv.org/abs/1604.02359}
   {arXiv:1604.02359} \BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Leib}\ \emph
   {et~al.}(2016{\natexlab{b}})\citenamefont {Leib}, \citenamefont {Zoller},\
   and\ \citenamefont {Lechner}}]{Leib2016}%
   \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {M.}~\bibnamefont
-  {Leib}}, \bibinfo {author} {\bibfnamefont {P.}~\bibnamefont {Zoller}}, \ and\
-  \bibinfo {author} {\bibfnamefont {W.}~\bibnamefont {Lechner}},\ }\href
-  {http://stacks.iop.org/2058-9565/1/i=1/a=015008} {\bibfield  {journal}
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Martin}\ \bibnamefont
+  {Leib}}, \bibinfo {author} {\bibfnamefont {Peter}\ \bibnamefont {Zoller}}, \
+  and\ \bibinfo {author} {\bibfnamefont {Wolfgang}\ \bibnamefont {Lechner}},\
+  }\bibfield  {title} {\enquote {\bibinfo {title} {{A transmon quantum
+  annealer: decomposing many-body Ising constraints into pair interactions}},}\
+  }\href {http://stacks.iop.org/2058-9565/1/i=1/a=015008} {\bibfield  {journal}
   {\bibinfo  {journal} {Quantum Science and Technology}\ }\textbf {\bibinfo
   {volume} {1}},\ \bibinfo {pages} {15008} (\bibinfo {year}
   {2016}{\natexlab{b}})}\BibitemShut {NoStop}%
-\bibitem [{\citenamefont {Gallagher}\ \emph {et~al.}(2011)\citenamefont
-  {Gallagher}, \citenamefont {Batra},\ and\ \citenamefont
-  {Parikh}}]{Gallagher2011}%
-  \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {A.~C.}\ \bibnamefont
-  {Gallagher}}, \bibinfo {author} {\bibfnamefont {D.}~\bibnamefont {Batra}}, \
-  and\ \bibinfo {author} {\bibfnamefont {D.}~\bibnamefont {Parikh}},\ }in\
-  \href {\doibase 10.1109/CVPR.2011.5995452} {\emph {\bibinfo {booktitle} {CVPR
-  2011}}}\ (\bibinfo  {publisher} {IEEE},\ \bibinfo {year} {2011})\ pp.\
-  \bibinfo {pages} {1857--1864}\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Chancellor}\ \emph {et~al.}(2017)\citenamefont
   {Chancellor}, \citenamefont {Zohren},\ and\ \citenamefont
   {Warburton}}]{Chancellor2017}%
   \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {N.}~\bibnamefont
-  {Chancellor}}, \bibinfo {author} {\bibfnamefont {S.}~\bibnamefont {Zohren}},
-  \ and\ \bibinfo {author} {\bibfnamefont {P.~A.}\ \bibnamefont {Warburton}},\
-  }\href {\doibase 10.1038/s41534-017-0022-6} {\bibfield  {journal} {\bibinfo
-  {journal} {npj Quantum Information}\ }\textbf {\bibinfo {volume} {3}},\
-  \bibinfo {pages} {21} (\bibinfo {year} {2017})}\BibitemShut {NoStop}%
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {N}~\bibnamefont
+  {Chancellor}}, \bibinfo {author} {\bibfnamefont {S}~\bibnamefont {Zohren}}, \
+  and\ \bibinfo {author} {\bibfnamefont {P~A}\ \bibnamefont {Warburton}},\
+  }\bibfield  {title} {\enquote {\bibinfo {title} {{Circuit design for
+  multi-body interactions in superconducting quantum annealing systems with
+  applications to a scalable architecture}},}\ }\href {\doibase
+  10.1038/s41534-017-0022-6} {\bibfield  {journal} {\bibinfo  {journal} {npj
+  Quantum Information}\ }\textbf {\bibinfo {volume} {3}},\ \bibinfo {pages}
+  {21} (\bibinfo {year} {2017})}\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Chancellor}(2016)}]{Chancellor2016a}%
   \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {N.}~\bibnamefont
-  {Chancellor}},\ }\href@noop {} {\enquote {\bibinfo {title} {{Max-k-SAT,
-  Multi-Body Frustration, {\&} Multi-Body Sampling on a Two Local Ising
-  System}},}\ }\bibinfo {howpublished} {AQC 2016
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Nicholas}\
+  \bibnamefont {Chancellor}},\ }\href@noop {} {\enquote {\bibinfo {title}
+  {{Max-k-SAT, Multi-Body Frustration, {\&} Multi-Body Sampling on a Two Local
+  Ising System}},}\ }\bibinfo {howpublished} {AQC 2016
   https://www.youtube.com/watch?v=aC-6hg{\_}h3EA} (\bibinfo {year}
   {2016})\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Chancellor}\ \emph
@@ -199,235 +305,346 @@
   \BibitemOpen
   \bibfield  {author} {\bibinfo {author} {\bibfnamefont {N.}~\bibnamefont
   {Chancellor}}, \bibinfo {author} {\bibfnamefont {S.}~\bibnamefont {Zohren}},
-  \bibinfo {author} {\bibfnamefont {P.}~\bibnamefont {Warburton}}, \bibinfo
-  {author} {\bibfnamefont {S.}~\bibnamefont {Benjamin}}, \ and\ \bibinfo
-  {author} {\bibfnamefont {S.}~\bibnamefont {Roberts}},\ }\href {\doibase
-  10.1038/srep37107} {\bibfield  {journal} {\bibinfo  {journal} {Scientific
-  Reports}\ }\textbf {\bibinfo {volume} {6}} (\bibinfo {year}
-  {2016}{\natexlab{b}}),\ 10.1038/srep37107}\BibitemShut {NoStop}%
-\bibitem [{\citenamefont {Kahl}\ and\ \citenamefont
-  {Strandmark}(2011)}]{Kahl2011}%
+  \bibinfo {author} {\bibfnamefont {P.A.}\ \bibnamefont {Warburton}}, \bibinfo
+  {author} {\bibfnamefont {S.C.}\ \bibnamefont {Benjamin}}, \ and\ \bibinfo
+  {author} {\bibfnamefont {S.}~\bibnamefont {Roberts}},\ }\bibfield  {title}
+  {\enquote {\bibinfo {title} {{A Direct Mapping of Max k-SAT and High Order
+  Parity Checks to a Chimera Graph}},}\ }\href {\doibase 10.1038/srep37107}
+  {\bibfield  {journal} {\bibinfo  {journal} {Scientific Reports}\ }\textbf
+  {\bibinfo {volume} {6}} (\bibinfo {year} {2016}{\natexlab{b}}),\
+  10.1038/srep37107}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Anthony}\ \emph {et~al.}()\citenamefont {Anthony},
+  \citenamefont {Boros}, \citenamefont {Crama},\ and\ \citenamefont
+  {Gruber}}]{Anthony2015}%
   \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibnamefont {Kahl}}\ and\ \bibinfo
-  {author} {\bibnamefont {Strandmark}},\ }\href
-  {http://www.maths.lth.se/vision/publdb/reports/pdf/kahl-strandmark-iccv-11.pdf}
-  {\bibfield  {journal} {\bibinfo  {journal} {International Conference on
-  Computer Vision}\ } (\bibinfo {year} {2011})}\BibitemShut {NoStop}%
-\bibitem [{\citenamefont {Boros}\ \emph {et~al.}(2018)\citenamefont {Boros},
-  \citenamefont {Crama},\ and\ \citenamefont
-  {Rodr{\'i}guez-Heck}}]{Boros2018QuadratizationsOS}%
-  \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {E.}~\bibnamefont
-  {Boros}}, \bibinfo {author} {\bibfnamefont {Y.}~\bibnamefont {Crama}}, \ and\
-  \bibinfo {author} {\bibfnamefont {E.}~\bibnamefont {Rodr{\'i}guez-Heck}},\
-  }in\ \href@noop {} {\emph {\bibinfo {booktitle} {ISAIM}}}\ (\bibinfo {year}
-  {2018})\BibitemShut {NoStop}%
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Martin}\ \bibnamefont
+  {Anthony}}, \bibinfo {author} {\bibfnamefont {Endre}\ \bibnamefont {Boros}},
+  \bibinfo {author} {\bibfnamefont {Yves}\ \bibnamefont {Crama}}, \ and\
+  \bibinfo {author} {\bibfnamefont {Aritanan}\ \bibnamefont {Gruber}},\
+  }\bibfield  {title} {\enquote {\bibinfo {title} {{Quadratic reformulations of
+  nonlinear binary optimization problems}},}\ }\href@noop {} {\ }\BibitemShut
+  {NoStop}%
 \bibitem [{\citenamefont {Rosenberg}(1975)}]{Rosenberg1975}%
   \BibitemOpen
   \bibfield  {author} {\bibinfo {author} {\bibfnamefont {I.~G.}\ \bibnamefont
-  {Rosenberg}},\ }\href@noop {} {\bibfield  {journal} {\bibinfo  {journal}
-  {Cahiers du Centre d'Etudes de Recherche Operationnelle}\ }\textbf {\bibinfo
-  {volume} {17}},\ \bibinfo {pages} {71} (\bibinfo {year} {1975})}\BibitemShut
-  {NoStop}%
+  {Rosenberg}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {{Reduction of
+  Bivalent Maximization to the Quadratic Case}},}\ }\href@noop {} {\bibfield
+  {journal} {\bibinfo  {journal} {Cahiers du Centre d'Etudes de Recherche
+  Operationnelle}\ }\textbf {\bibinfo {volume} {17}},\ \bibinfo {pages}
+  {71--74} (\bibinfo {year} {1975})}\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Biamonte}(2008)}]{Biamonte2008a}%
   \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {J.~D.}\ \bibnamefont
-  {Biamonte}},\ }\href {\doibase 10.1103/PhysRevA.77.052331} {\bibfield
-  {journal} {\bibinfo  {journal} {Phys. Rev. A}\ }\textbf {\bibinfo {volume}
-  {77}},\ \bibinfo {pages} {52331} (\bibinfo {year} {2008})}\BibitemShut
-  {NoStop}%
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {J~D}\ \bibnamefont
+  {Biamonte}},\ }\bibfield  {title} {\enquote {\bibinfo {title}
+  {{Nonperturbative k-body to two-body commuting conversion Hamiltonians and
+  embedding problem instances into Ising spins}},}\ }\href {\doibase
+  10.1103/PhysRevA.77.052331} {\bibfield  {journal} {\bibinfo  {journal} {Phys.
+  Rev. A}\ }\textbf {\bibinfo {volume} {77}},\ \bibinfo {pages} {52331}
+  (\bibinfo {year} {2008})}\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Perdomo}\ \emph {et~al.}(2008)\citenamefont
   {Perdomo}, \citenamefont {Truncik}, \citenamefont {Tubert-Brohman},
   \citenamefont {Rose},\ and\ \citenamefont {Aspuru-Guzik}}]{Perdomo2008}%
   \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {A.}~\bibnamefont
-  {Perdomo}}, \bibinfo {author} {\bibfnamefont {C.}~\bibnamefont {Truncik}},
-  \bibinfo {author} {\bibfnamefont {I.}~\bibnamefont {Tubert-Brohman}},
-  \bibinfo {author} {\bibfnamefont {G.}~\bibnamefont {Rose}}, \ and\ \bibinfo
-  {author} {\bibfnamefont {A.}~\bibnamefont {Aspuru-Guzik}},\ }\href {\doibase
-  10.1103/PhysRevA.78.012320} {\bibfield  {journal} {\bibinfo  {journal} {Phys.
-  Rev. A}\ }\textbf {\bibinfo {volume} {78}},\ \bibinfo {pages} {12320}
-  (\bibinfo {year} {2008})}\BibitemShut {NoStop}%
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Alejandro}\
+  \bibnamefont {Perdomo}}, \bibinfo {author} {\bibfnamefont {Colin}\
+  \bibnamefont {Truncik}}, \bibinfo {author} {\bibfnamefont {Ivan}\
+  \bibnamefont {Tubert-Brohman}}, \bibinfo {author} {\bibfnamefont {Geordie}\
+  \bibnamefont {Rose}}, \ and\ \bibinfo {author} {\bibfnamefont {Al{\'{a}}n}\
+  \bibnamefont {Aspuru-Guzik}},\ }\bibfield  {title} {\enquote {\bibinfo
+  {title} {{Construction of model Hamiltonians for adiabatic quantum
+  computation and its application to finding low-energy conformations of
+  lattice protein models}},}\ }\href {\doibase 10.1103/PhysRevA.78.012320}
+  {\bibfield  {journal} {\bibinfo  {journal} {Phys. Rev. A}\ }\textbf {\bibinfo
+  {volume} {78}},\ \bibinfo {pages} {12320} (\bibinfo {year}
+  {2008})}\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Bian}\ \emph {et~al.}(2013)\citenamefont {Bian},
   \citenamefont {Chudak}, \citenamefont {Macready}, \citenamefont {Clark},\
   and\ \citenamefont {Gaitan}}]{Bian2013}%
   \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Z.}~\bibnamefont
-  {Bian}}, \bibinfo {author} {\bibfnamefont {F.}~\bibnamefont {Chudak}},
-  \bibinfo {author} {\bibfnamefont {W.~G.}\ \bibnamefont {Macready}}, \bibinfo
-  {author} {\bibfnamefont {L.}~\bibnamefont {Clark}}, \ and\ \bibinfo {author}
-  {\bibfnamefont {F.}~\bibnamefont {Gaitan}},\ }\href {\doibase
-  10.1103/PhysRevLett.111.130505} {\bibfield  {journal} {\bibinfo  {journal}
-  {Physical Review Letters}\ }\textbf {\bibinfo {volume} {111}},\ \bibinfo
-  {pages} {130505} (\bibinfo {year} {2013})}\BibitemShut {NoStop}%
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Zhengbing}\
+  \bibnamefont {Bian}}, \bibinfo {author} {\bibfnamefont {Fabian}\ \bibnamefont
+  {Chudak}}, \bibinfo {author} {\bibfnamefont {William~G.}\ \bibnamefont
+  {Macready}}, \bibinfo {author} {\bibfnamefont {Lane}\ \bibnamefont {Clark}},
+  \ and\ \bibinfo {author} {\bibfnamefont {Frank}\ \bibnamefont {Gaitan}},\
+  }\bibfield  {title} {\enquote {\bibinfo {title} {{Experimental Determination
+  of Ramsey Numbers}},}\ }\href {\doibase 10.1103/PhysRevLett.111.130505}
+  {\bibfield  {journal} {\bibinfo  {journal} {Physical Review Letters}\
+  }\textbf {\bibinfo {volume} {111}},\ \bibinfo {pages} {130505} (\bibinfo
+  {year} {2013})}\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Fix}\ \emph {et~al.}(2011)\citenamefont {Fix},
   \citenamefont {Gruber}, \citenamefont {Boros},\ and\ \citenamefont
   {Zabih}}]{Fix2011}%
   \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {A.}~\bibnamefont
-  {Fix}}, \bibinfo {author} {\bibfnamefont {A.}~\bibnamefont {Gruber}},
-  \bibinfo {author} {\bibfnamefont {E.}~\bibnamefont {Boros}}, \ and\ \bibinfo
-  {author} {\bibfnamefont {R.}~\bibnamefont {Zabih}},\ }in\ \href {\doibase
-  10.1109/ICCV.2011.6126347} {\emph {\bibinfo {booktitle} {2011 International
-  Conference on Computer Vision}}}\ (\bibinfo  {publisher} {IEEE},\ \bibinfo
-  {year} {2011})\ pp.\ \bibinfo {pages} {1020--1027}\BibitemShut {NoStop}%
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Alexander}\
+  \bibnamefont {Fix}}, \bibinfo {author} {\bibfnamefont {Aritanan}\
+  \bibnamefont {Gruber}}, \bibinfo {author} {\bibfnamefont {Endre}\
+  \bibnamefont {Boros}}, \ and\ \bibinfo {author} {\bibfnamefont {Ramin}\
+  \bibnamefont {Zabih}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {{A
+  graph cut algorithm for higher-order Markov Random Fields}},}\ }in\ \href
+  {\doibase 10.1109/ICCV.2011.6126347} {\emph {\bibinfo {booktitle} {2011
+  International Conference on Computer Vision}}}\ (\bibinfo  {publisher}
+  {IEEE},\ \bibinfo {year} {2011})\ pp.\ \bibinfo {pages}
+  {1020--1027}\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {De~las Cuevas}\ and\ \citenamefont
   {Cubitt}(2016)}]{DelasCuevasGemmaandCubitt2016}%
   \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {G.}~\bibnamefont
-  {De~las Cuevas}}\ and\ \bibinfo {author} {\bibfnamefont {T.~S.}\ \bibnamefont
-  {Cubitt}},\ }\href {\doibase 10.1126/science.aab3326} {\bibfield  {journal}
-  {\bibinfo  {journal} {Science}\ }\textbf {\bibinfo {volume} {351}},\ \bibinfo
-  {pages} {1180} (\bibinfo {year} {2016})}\BibitemShut {NoStop}%
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Gemma}\ \bibnamefont
+  {De~las Cuevas}}\ and\ \bibinfo {author} {\bibfnamefont {Toby~S.}\
+  \bibnamefont {Cubitt}},\ }\bibfield  {title} {\enquote {\bibinfo {title}
+  {{Simple universal models capture all classical spin physics}},}\ }\href
+  {\doibase 10.1126/science.aab3326} {\bibfield  {journal} {\bibinfo  {journal}
+  {Science}\ }\textbf {\bibinfo {volume} {351}},\ \bibinfo {pages}
+  {1180----1183} (\bibinfo {year} {2016})}\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Ocko}\ and\ \citenamefont
   {Yoshida}(2011)}]{Ocko2011}%
   \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {S.~A.}\ \bibnamefont
-  {Ocko}}\ and\ \bibinfo {author} {\bibfnamefont {B.}~\bibnamefont {Yoshida}},\
-  }\href {\doibase 10.1103/PhysRevLett.107.250502} {\bibfield  {journal}
-  {\bibinfo  {journal} {Physical Review Letters}\ }\textbf {\bibinfo {volume}
-  {107}},\ \bibinfo {pages} {250502} (\bibinfo {year} {2011})}\BibitemShut
-  {NoStop}%
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Samuel~A.}\
+  \bibnamefont {Ocko}}\ and\ \bibinfo {author} {\bibfnamefont {Beni}\
+  \bibnamefont {Yoshida}},\ }\bibfield  {title} {\enquote {\bibinfo {title}
+  {{Nonperturbative Gadget for Topological Quantum Codes}},}\ }\href {\doibase
+  10.1103/PhysRevLett.107.250502} {\bibfield  {journal} {\bibinfo  {journal}
+  {Physical Review Letters}\ }\textbf {\bibinfo {volume} {107}},\ \bibinfo
+  {pages} {250502} (\bibinfo {year} {2011})}\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Subasi}\ and\ \citenamefont
   {Jarzynski}(2016)}]{Subas2016}%
   \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Y.}~\bibnamefont
-  {Subasi}}\ and\ \bibinfo {author} {\bibfnamefont {C.}~\bibnamefont
-  {Jarzynski}},\ }\href {\doibase 10.1103/PhysRevA.94.012342} {\bibfield
-  {journal} {\bibinfo  {journal} {Physical Review A}\ }\textbf {\bibinfo
-  {volume} {94}},\ \bibinfo {pages} {012342} (\bibinfo {year}
-  {2016})}\BibitemShut {NoStop}%
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Yigit}\ \bibnamefont
+  {Subasi}}\ and\ \bibinfo {author} {\bibfnamefont {Christopher}\ \bibnamefont
+  {Jarzynski}},\ }\bibfield  {title} {\enquote {\bibinfo {title}
+  {{Nonperturbative embedding for highly nonlocal Hamiltonians}},}\ }\href
+  {\doibase 10.1103/PhysRevA.94.012342} {\bibfield  {journal} {\bibinfo
+  {journal} {Physical Review A}\ }\textbf {\bibinfo {volume} {94}},\ \bibinfo
+  {pages} {012342} (\bibinfo {year} {2016})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Feynman}(1985)}]{Feynman1985a}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Richard~P.}\
+  \bibnamefont {Feynman}},\ }\bibfield  {title} {\enquote {\bibinfo {title}
+  {{Quantum Mechanical Computers}},}\ }\href {\doibase 10.1364/ON.11.2.000011}
+  {\bibfield  {journal} {\bibinfo  {journal} {Optics News}\ }\textbf {\bibinfo
+  {volume} {11}},\ \bibinfo {pages} {11} (\bibinfo {year} {1985})}\BibitemShut
+  {NoStop}%
 \bibitem [{\citenamefont {Nagaj}(2010)}]{Nagaj2010}%
   \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {D.}~\bibnamefont
-  {Nagaj}},\ }\href {\doibase 10.1063/1.3384661} {\bibfield  {journal}
-  {\bibinfo  {journal} {Journal of Mathematical Physics}\ }\textbf {\bibinfo
-  {volume} {51}},\ \bibinfo {pages} {062201} (\bibinfo {year}
-  {2010})}\BibitemShut {NoStop}%
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Daniel}\ \bibnamefont
+  {Nagaj}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {{Fast universal
+  quantum computation with railroad-switch local Hamiltonians}},}\ }\href
+  {\doibase 10.1063/1.3384661} {\bibfield  {journal} {\bibinfo  {journal}
+  {Journal of Mathematical Physics}\ }\textbf {\bibinfo {volume} {51}},\
+  \bibinfo {pages} {062201} (\bibinfo {year} {2010})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Nagaj}(2012)}]{Nagaj2012}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Daniel}\ \bibnamefont
+  {Nagaj}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {{Universal
+  two-body-Hamiltonian quantum computing}},}\ }\href {\doibase
+  10.1103/PhysRevA.85.032330} {\bibfield  {journal} {\bibinfo  {journal}
+  {Physical Review A}\ }\textbf {\bibinfo {volume} {85}},\ \bibinfo {pages}
+  {032330} (\bibinfo {year} {2012})}\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Duan}\ and\ \citenamefont {Chen}(2011)}]{Duan2011}%
   \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Q.-H.}\ \bibnamefont
-  {Duan}}\ and\ \bibinfo {author} {\bibfnamefont {P.-X.}\ \bibnamefont
-  {Chen}},\ }\href {\doibase 10.1103/PhysRevA.84.042332} {\bibfield  {journal}
-  {\bibinfo  {journal} {Physical Review A}\ }\textbf {\bibinfo {volume} {84}},\
-  \bibinfo {pages} {042332} (\bibinfo {year} {2011})}\BibitemShut {NoStop}%
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Qian-Heng}\
+  \bibnamefont {Duan}}\ and\ \bibinfo {author} {\bibfnamefont {Ping-Xing}\
+  \bibnamefont {Chen}},\ }\bibfield  {title} {\enquote {\bibinfo {title}
+  {{Realization of universal adiabatic quantum computation with fewer physical
+  resources}},}\ }\href {\doibase 10.1103/PhysRevA.84.042332} {\bibfield
+  {journal} {\bibinfo  {journal} {Physical Review A}\ }\textbf {\bibinfo
+  {volume} {84}},\ \bibinfo {pages} {042332} (\bibinfo {year}
+  {2011})}\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Oliveira}\ and\ \citenamefont
   {Terhal}(2008)}]{Oliveira2008}%
   \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {R.}~\bibnamefont
-  {Oliveira}}\ and\ \bibinfo {author} {\bibfnamefont {B.~M.}\ \bibnamefont
-  {Terhal}},\ }\href {http://dl.acm.org/citation.cfm?id=2016985.2016987}
-  {\bibfield  {journal} {\bibinfo  {journal} {Quantum Info. Comput.}\ }\textbf
-  {\bibinfo {volume} {8}},\ \bibinfo {pages} {900} (\bibinfo {year}
-  {2008})}\BibitemShut {NoStop}%
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Roberto}\ \bibnamefont
+  {Oliveira}}\ and\ \bibinfo {author} {\bibfnamefont {Barbara~M.}\ \bibnamefont
+  {Terhal}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {The complexity
+  of quantum spin systems on a two-dimensional square lattice},}\ }\href
+  {http://dl.acm.org/citation.cfm?id=2016985.2016987} {\bibfield  {journal}
+  {\bibinfo  {journal} {Quantum Info. Comput.}\ }\textbf {\bibinfo {volume}
+  {8}},\ \bibinfo {pages} {900--924} (\bibinfo {year} {2008})}\BibitemShut
+  {NoStop}%
 \bibitem [{\citenamefont {Bravyi}\ \emph {et~al.}(2008)\citenamefont {Bravyi},
   \citenamefont {DiVincenzo}, \citenamefont {Loss},\ and\ \citenamefont
   {Terhal}}]{Bravyi2008}%
   \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {S.}~\bibnamefont
-  {Bravyi}}, \bibinfo {author} {\bibfnamefont {D.~P.}\ \bibnamefont
-  {DiVincenzo}}, \bibinfo {author} {\bibfnamefont {D.}~\bibnamefont {Loss}}, \
-  and\ \bibinfo {author} {\bibfnamefont {B.~M.}\ \bibnamefont {Terhal}},\
-  }\href {\doibase 10.1103/PhysRevLett.101.070503} {\bibfield  {journal}
-  {\bibinfo  {journal} {Physical Review Letters}\ }\textbf {\bibinfo {volume}
-  {101}},\ \bibinfo {pages} {070503} (\bibinfo {year} {2008})}\BibitemShut
-  {NoStop}%
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Sergey}\ \bibnamefont
+  {Bravyi}}, \bibinfo {author} {\bibfnamefont {David~P.}\ \bibnamefont
+  {DiVincenzo}}, \bibinfo {author} {\bibfnamefont {Daniel}\ \bibnamefont
+  {Loss}}, \ and\ \bibinfo {author} {\bibfnamefont {Barbara~M.}\ \bibnamefont
+  {Terhal}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {{Quantum
+  Simulation of Many-Body Hamiltonians Using Perturbation Theory with
+  Bounded-Strength Interactions}},}\ }\href {\doibase
+  10.1103/PhysRevLett.101.070503} {\bibfield  {journal} {\bibinfo  {journal}
+  {Physical Review Letters}\ }\textbf {\bibinfo {volume} {101}},\ \bibinfo
+  {pages} {070503} (\bibinfo {year} {2008})}\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Cao}\ \emph {et~al.}(2015)\citenamefont {Cao},
   \citenamefont {Babbush}, \citenamefont {Biamonte},\ and\ \citenamefont
   {Kais}}]{Cao2015}%
   \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Y.}~\bibnamefont
-  {Cao}}, \bibinfo {author} {\bibfnamefont {R.}~\bibnamefont {Babbush}},
-  \bibinfo {author} {\bibfnamefont {J.}~\bibnamefont {Biamonte}}, \ and\
-  \bibinfo {author} {\bibfnamefont {S.}~\bibnamefont {Kais}},\ }\href {\doibase
-  10.1103/PhysRevA.91.012315} {\bibfield  {journal} {\bibinfo  {journal}
-  {Physical Review A}\ }\textbf {\bibinfo {volume} {91}},\ \bibinfo {pages}
-  {012315} (\bibinfo {year} {2015})}\BibitemShut {NoStop}%
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Yudong}\ \bibnamefont
+  {Cao}}, \bibinfo {author} {\bibfnamefont {Ryan}\ \bibnamefont {Babbush}},
+  \bibinfo {author} {\bibfnamefont {Jacob}\ \bibnamefont {Biamonte}}, \ and\
+  \bibinfo {author} {\bibfnamefont {Sabre}\ \bibnamefont {Kais}},\ }\bibfield
+  {title} {\enquote {\bibinfo {title} {{Hamiltonian gadgets with reduced
+  resource requirements}},}\ }\href {\doibase 10.1103/PhysRevA.91.012315}
+  {\bibfield  {journal} {\bibinfo  {journal} {Physical Review A}\ }\textbf
+  {\bibinfo {volume} {91}},\ \bibinfo {pages} {012315} (\bibinfo {year}
+  {2015})}\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Jordan}\ and\ \citenamefont
   {Farhi}(2008)}]{Jordan2008}%
   \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {S.~P.}\ \bibnamefont
-  {Jordan}}\ and\ \bibinfo {author} {\bibfnamefont {E.}~\bibnamefont {Farhi}},\
-  }\href {\doibase 10.1103/PhysRevA.77.062329} {\bibfield  {journal} {\bibinfo
-  {journal} {Physical Review A}\ }\textbf {\bibinfo {volume} {77}},\ \bibinfo
-  {pages} {062329} (\bibinfo {year} {2008})}\BibitemShut {NoStop}%
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Stephen~P.}\
+  \bibnamefont {Jordan}}\ and\ \bibinfo {author} {\bibfnamefont {Edward}\
+  \bibnamefont {Farhi}},\ }\bibfield  {title} {\enquote {\bibinfo {title}
+  {{Perturbative gadgets at arbitrary orders}},}\ }\href {\doibase
+  10.1103/PhysRevA.77.062329} {\bibfield  {journal} {\bibinfo  {journal}
+  {Physical Review A}\ }\textbf {\bibinfo {volume} {77}},\ \bibinfo {pages}
+  {062329} (\bibinfo {year} {2008})}\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Brell}\ \emph {et~al.}(2011)\citenamefont {Brell},
   \citenamefont {Flammia}, \citenamefont {Bartlett},\ and\ \citenamefont
   {Doherty}}]{Brell2011}%
   \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {C.~G.}\ \bibnamefont
-  {Brell}}, \bibinfo {author} {\bibfnamefont {S.~T.}\ \bibnamefont {Flammia}},
-  \bibinfo {author} {\bibfnamefont {S.~D.}\ \bibnamefont {Bartlett}}, \ and\
-  \bibinfo {author} {\bibfnamefont {A.~C.}\ \bibnamefont {Doherty}},\ }\href
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Courtney~G}\
+  \bibnamefont {Brell}}, \bibinfo {author} {\bibfnamefont {Steven~T}\
+  \bibnamefont {Flammia}}, \bibinfo {author} {\bibfnamefont {Stephen~D}\
+  \bibnamefont {Bartlett}}, \ and\ \bibinfo {author} {\bibfnamefont {Andrew~C}\
+  \bibnamefont {Doherty}},\ }\bibfield  {title} {\enquote {\bibinfo {title}
+  {{Toric codes and quantum doubles from two-body Hamiltonians}},}\ }\href
   {\doibase 10.1088/1367-2630/13/5/053039} {\bibfield  {journal} {\bibinfo
   {journal} {New Journal of Physics}\ }\textbf {\bibinfo {volume} {13}},\
   \bibinfo {pages} {053039} (\bibinfo {year} {2011})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Biamonte}\ and\ \citenamefont
+  {Love}(2008)}]{Biamonte2008}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Jacob~D.}\
+  \bibnamefont {Biamonte}}\ and\ \bibinfo {author} {\bibfnamefont {Peter~J.}\
+  \bibnamefont {Love}},\ }\bibfield  {title} {\enquote {\bibinfo {title}
+  {{Realizable Hamiltonians for universal adiabatic quantum computers}},}\
+  }\href {\doibase 10.1103/PhysRevA.78.012352} {\bibfield  {journal} {\bibinfo
+  {journal} {Physical Review A}\ }\textbf {\bibinfo {volume} {78}},\ \bibinfo
+  {pages} {012352} (\bibinfo {year} {2008})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Lloyd}\ and\ \citenamefont
+  {Terhal}(2016)}]{Lloyd2016}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Seth}\ \bibnamefont
+  {Lloyd}}\ and\ \bibinfo {author} {\bibfnamefont {Barbara~M}\ \bibnamefont
+  {Terhal}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {{Adiabatic and
+  Hamiltonian computing on a 2D lattice with simple two-qubit interactions}},}\
+  }\href {\doibase 10.1088/1367-2630/18/2/023042} {\bibfield  {journal}
+  {\bibinfo  {journal} {New Journal of Physics}\ }\textbf {\bibinfo {volume}
+  {18}},\ \bibinfo {pages} {023042} (\bibinfo {year} {2016})}\BibitemShut
+  {NoStop}%
+\bibitem [{\citenamefont {Cao}\ and\ \citenamefont {Nagaj}(2015)}]{Cao2015a}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Yudong}\ \bibnamefont
+  {Cao}}\ and\ \bibinfo {author} {\bibfnamefont {Daniel}\ \bibnamefont
+  {Nagaj}},\ }\href {https://dl.acm.org/citation.cfm?id=2871363.2871370} {\emph
+  {\bibinfo {title} {Quantum Information {\&} Computation}}},\ Vol.~\bibinfo
+  {volume} {15}\ (\bibinfo  {publisher} {Rinton Press},\ \bibinfo {year}
+  {2015})\ pp.\ \bibinfo {pages} {1197--1222}\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Babbush}\ \emph {et~al.}(2013)\citenamefont
   {Babbush}, \citenamefont {O'Gorman},\ and\ \citenamefont
   {Aspuru-Guzik}}]{Babbush2013}%
   \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {R.}~\bibnamefont
-  {Babbush}}, \bibinfo {author} {\bibfnamefont {B.}~\bibnamefont {O'Gorman}}, \
-  and\ \bibinfo {author} {\bibfnamefont {A.}~\bibnamefont {Aspuru-Guzik}},\
-  }\href {\doibase 10.1002/andp.201300120} {\bibfield  {journal} {\bibinfo
-  {journal} {Annalen der Physik}\ }\textbf {\bibinfo {volume} {525}},\ \bibinfo
-  {pages} {877} (\bibinfo {year} {2013})}\BibitemShut {NoStop}%
-\bibitem [{\citenamefont {Biamonte}\ and\ \citenamefont
-  {Love}(2008)}]{Biamonte2008}%
-  \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {J.~D.}\ \bibnamefont
-  {Biamonte}}\ and\ \bibinfo {author} {\bibfnamefont {P.~J.}\ \bibnamefont
-  {Love}},\ }\href {\doibase 10.1103/PhysRevA.78.012352} {\bibfield  {journal}
-  {\bibinfo  {journal} {Physical Review A}\ }\textbf {\bibinfo {volume} {78}},\
-  \bibinfo {pages} {012352} (\bibinfo {year} {2008})}\BibitemShut {NoStop}%
-\bibitem [{\citenamefont {Cao}\ and\ \citenamefont {Nagaj}(2015)}]{Cao2015a}%
-  \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Y.}~\bibnamefont
-  {Cao}}\ and\ \bibinfo {author} {\bibfnamefont {D.}~\bibnamefont {Nagaj}},\
-  }\href {https://dl.acm.org/citation.cfm?id=2871363.2871370} {\emph {\bibinfo
-  {title} {Quantum Information {\&} Computation}}},\ Vol.~\bibinfo {volume}
-  {15}\ (\bibinfo  {publisher} {Rinton Press},\ \bibinfo {year} {2015})\ pp.\
-  \bibinfo {pages} {1197--1222}\BibitemShut {NoStop}%
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Ryan}\ \bibnamefont
+  {Babbush}}, \bibinfo {author} {\bibfnamefont {Bryan}\ \bibnamefont
+  {O'Gorman}}, \ and\ \bibinfo {author} {\bibfnamefont {Al{\'{a}}n}\
+  \bibnamefont {Aspuru-Guzik}},\ }\bibfield  {title} {\enquote {\bibinfo
+  {title} {{Resource efficient gadgets for compiling adiabatic quantum
+  optimization problems}},}\ }\href {\doibase 10.1002/andp.201300120}
+  {\bibfield  {journal} {\bibinfo  {journal} {Annalen der Physik}\ }\textbf
+  {\bibinfo {volume} {525}},\ \bibinfo {pages} {877--888} (\bibinfo {year}
+  {2013})}\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Brell}\ \emph {et~al.}(2014)\citenamefont {Brell},
   \citenamefont {Bartlett},\ and\ \citenamefont {Doherty}}]{Brell2014}%
   \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {C.~G.}\ \bibnamefont
-  {Brell}}, \bibinfo {author} {\bibfnamefont {S.~D.}\ \bibnamefont {Bartlett}},
-  \ and\ \bibinfo {author} {\bibfnamefont {A.~C.}\ \bibnamefont {Doherty}},\
-  }\href {\doibase 10.1088/1367-2630/16/12/123056} {\bibfield  {journal}
-  {\bibinfo  {journal} {New Journal of Physics}\ }\textbf {\bibinfo {volume}
-  {16}},\ \bibinfo {pages} {123056} (\bibinfo {year} {2014})}\BibitemShut
-  {NoStop}%
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Courtney~G}\
+  \bibnamefont {Brell}}, \bibinfo {author} {\bibfnamefont {Stephen~D}\
+  \bibnamefont {Bartlett}}, \ and\ \bibinfo {author} {\bibfnamefont {Andrew~C}\
+  \bibnamefont {Doherty}},\ }\bibfield  {title} {\enquote {\bibinfo {title}
+  {{Perturbative 2-body parent Hamiltonians for projected entangled pair
+  states}},}\ }\href {\doibase 10.1088/1367-2630/16/12/123056} {\bibfield
+  {journal} {\bibinfo  {journal} {New Journal of Physics}\ }\textbf {\bibinfo
+  {volume} {16}},\ \bibinfo {pages} {123056} (\bibinfo {year}
+  {2014})}\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Lechner}\ \emph {et~al.}(2015)\citenamefont
   {Lechner}, \citenamefont {Hauke},\ and\ \citenamefont
   {Zoller}}]{Lechner2015}%
   \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {W.}~\bibnamefont
-  {Lechner}}, \bibinfo {author} {\bibfnamefont {P.}~\bibnamefont {Hauke}}, \
-  and\ \bibinfo {author} {\bibfnamefont {P.}~\bibnamefont {Zoller}},\ }\href
-  {\doibase 10.1126/sciadv.1500838} {\bibfield  {journal} {\bibinfo  {journal}
-  {Science Advances}\ }\textbf {\bibinfo {volume} {1}} (\bibinfo {year}
-  {2015}),\ 10.1126/sciadv.1500838}\BibitemShut {NoStop}%
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Wolfgang}\
+  \bibnamefont {Lechner}}, \bibinfo {author} {\bibfnamefont {Philipp}\
+  \bibnamefont {Hauke}}, \ and\ \bibinfo {author} {\bibfnamefont {Peter}\
+  \bibnamefont {Zoller}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {{A
+  quantum annealing architecture with all-to-all connectivity from local
+  interactions}},}\ }\href {\doibase 10.1126/sciadv.1500838} {\bibfield
+  {journal} {\bibinfo  {journal} {Science Advances}\ }\textbf {\bibinfo
+  {volume} {1}} (\bibinfo {year} {2015}),\ 10.1126/sciadv.1500838}\BibitemShut
+  {NoStop}%
 \bibitem [{\citenamefont {Rocchetto}\ \emph {et~al.}(2016)\citenamefont
   {Rocchetto}, \citenamefont {Benjamin},\ and\ \citenamefont
   {Li}}]{Rocchetto2016}%
   \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {A.}~\bibnamefont
-  {Rocchetto}}, \bibinfo {author} {\bibfnamefont {S.~C.}\ \bibnamefont
-  {Benjamin}}, \ and\ \bibinfo {author} {\bibfnamefont {Y.}~\bibnamefont
-  {Li}},\ }\href {\doibase 10.1126/sciadv.1601246} {\bibfield  {journal}
-  {\bibinfo  {journal} {Science Advances}\ }\textbf {\bibinfo {volume} {2}}
-  (\bibinfo {year} {2016}),\ 10.1126/sciadv.1601246}\BibitemShut {NoStop}%
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Andrea}\ \bibnamefont
+  {Rocchetto}}, \bibinfo {author} {\bibfnamefont {Simon~C}\ \bibnamefont
+  {Benjamin}}, \ and\ \bibinfo {author} {\bibfnamefont {Ying}\ \bibnamefont
+  {Li}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {{Stabilizers as a
+  design tool for new forms of the Lechner-Hauke-Zoller annealer}},}\ }\href
+  {\doibase 10.1126/sciadv.1601246} {\bibfield  {journal} {\bibinfo  {journal}
+  {Science Advances}\ }\textbf {\bibinfo {volume} {2}} (\bibinfo {year}
+  {2016}),\ 10.1126/sciadv.1601246}\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Shen}\ \emph {et~al.}(2017)\citenamefont {Shen},
   \citenamefont {Peng}, \citenamefont {Dong}, \citenamefont {Shao},\ and\
   \citenamefont {Porikli}}]{Shen2017a}%
   \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {J.}~\bibnamefont
-  {Shen}}, \bibinfo {author} {\bibfnamefont {J.}~\bibnamefont {Peng}}, \bibinfo
-  {author} {\bibfnamefont {X.}~\bibnamefont {Dong}}, \bibinfo {author}
-  {\bibfnamefont {L.}~\bibnamefont {Shao}}, \ and\ \bibinfo {author}
-  {\bibfnamefont {F.}~\bibnamefont {Porikli}},\ }\href {\doibase
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Jianbing}\
+  \bibnamefont {Shen}}, \bibinfo {author} {\bibfnamefont {Jianteng}\
+  \bibnamefont {Peng}}, \bibinfo {author} {\bibfnamefont {Xingping}\
+  \bibnamefont {Dong}}, \bibinfo {author} {\bibfnamefont {Ling}\ \bibnamefont
+  {Shao}}, \ and\ \bibinfo {author} {\bibfnamefont {Fatih}\ \bibnamefont
+  {Porikli}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {{Higher Order
+  Energies for Image Segmentation}},}\ }\href {\doibase
   10.1109/TIP.2017.2722691} {\bibfield  {journal} {\bibinfo  {journal} {IEEE
   Transactions on Image Processing}\ }\textbf {\bibinfo {volume} {26}},\
-  \bibinfo {pages} {4911} (\bibinfo {year} {2017})}\BibitemShut {NoStop}%
+  \bibinfo {pages} {4911--4922} (\bibinfo {year} {2017})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Boros}\ and\ \citenamefont
+  {Hammer}(2002)}]{Boros2002}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Endre}\ \bibnamefont
+  {Boros}}\ and\ \bibinfo {author} {\bibfnamefont {Peter~L.}\ \bibnamefont
+  {Hammer}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {{Pseudo-Boolean
+  optimization}},}\ }\href {\doibase 10.1016/S0166-218X(01)00341-9} {\bibfield
+  {journal} {\bibinfo  {journal} {Discrete Applied Mathematics}\ }\textbf
+  {\bibinfo {volume} {123}},\ \bibinfo {pages} {155--225} (\bibinfo {year}
+  {2002})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Schaller}\ and\ \citenamefont
+  {Sch{\"{u}}tzhold}(2010)}]{Schaller2010}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Gernot}\ \bibnamefont
+  {Schaller}}\ and\ \bibinfo {author} {\bibfnamefont {Ralf}\ \bibnamefont
+  {Sch{\"{u}}tzhold}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {{The
+  role of symmetries in adiabatic quantum algorithms}},}\ }\href
+  {http://dl.acm.org/citation.cfm?id=2011438.2011447} {\bibfield  {journal}
+  {\bibinfo  {journal} {Quantum Information {\&} Computation}\ }\textbf
+  {\bibinfo {volume} {10}},\ \bibinfo {pages} {109--140} (\bibinfo {year}
+  {2010})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Xu}\ \emph {et~al.}(2012)\citenamefont {Xu},
+  \citenamefont {Zhu}, \citenamefont {Lu}, \citenamefont {Zhou}, \citenamefont
+  {Peng},\ and\ \citenamefont {Du}}]{Xu2012}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Nanyang}\ \bibnamefont
+  {Xu}}, \bibinfo {author} {\bibfnamefont {Jing}\ \bibnamefont {Zhu}}, \bibinfo
+  {author} {\bibfnamefont {Dawei}\ \bibnamefont {Lu}}, \bibinfo {author}
+  {\bibfnamefont {Xianyi}\ \bibnamefont {Zhou}}, \bibinfo {author}
+  {\bibfnamefont {Xinhua}\ \bibnamefont {Peng}}, \ and\ \bibinfo {author}
+  {\bibfnamefont {Jiangfeng}\ \bibnamefont {Du}},\ }\bibfield  {title}
+  {\enquote {\bibinfo {title} {{Quantum Factorization of 143 on a
+  Dipolar-Coupling Nuclear Magnetic Resonance System}},}\ }\href {\doibase
+  10.1103/PhysRevLett.108.130501} {\bibfield  {journal} {\bibinfo  {journal}
+  {Physical Review Letters}\ }\textbf {\bibinfo {volume} {108}},\ \bibinfo
+  {pages} {130501} (\bibinfo {year} {2012})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Cunningham}(1985)}]{Cunningham1985}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {William~H.}\
+  \bibnamefont {Cunningham}},\ }\bibfield  {title} {\enquote {\bibinfo {title}
+  {{Minimum cuts, modular functions, and matroid polyhedra}},}\ }\href
+  {\doibase 10.1002/net.3230150206} {\bibfield  {journal} {\bibinfo  {journal}
+  {Networks}\ }\textbf {\bibinfo {volume} {15}},\ \bibinfo {pages} {205--215}
+  (\bibinfo {year} {1985})}\BibitemShut {NoStop}%
 \end{thebibliography}%
