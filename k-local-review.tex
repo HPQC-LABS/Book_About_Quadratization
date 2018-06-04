@@ -325,8 +325,6 @@ Two-body physical interactions occur more naturally than many-body interactions 
 
 \summarysec
 
-%
-
 We look for \emph{deductions} (e.g. $b_{1}b_{2}=0$) that must hold true at the global minimum.
 These can be found by \emph{a priori} knowledge of the given problem, or by enumerating solutions of a small subset of the variables.
 We can then substitute high-order terms using the low-order terms of the deduction, and add on a penalty term to preserve the ground states \cite{Tanburn2015c}.
@@ -359,13 +357,14 @@ For highly connected systems (systems with a large number of non-zero $\alpha_{i
 \begin{comment}
 Examples are difficult to illustrate in a paper, since they involve searching for patterns in exhaustive searches. 
 \end{comment}
-Consider the Hamiltonian: 
+Consider the Hamiltonian:
+\vspace{-2mm}
 \begin{equation}
-H_{4{\rm -local}}=b_{1}b_{2}(4+b_{3}+b_{3}b_{4})+b_{1}(b_{3}-3)+b_{2}(1-2b_{3}-b_{4})+F(x_{3},x_{4},x_{5},\ldots,x_{N})
+H_{4{\rm -local}}=b_{1}b_{2}(4+b_{3}+b_{3}b_{4})+b_{1}(b_{3}-3)+b_{2}(1-2b_{3}-b_{4})+F(b_{3},b_{4},b_{5},\ldots,b_{N})
 \end{equation}
- where $F$ is any polynomial in $b_{i}$ for $i\ge 3$.
-
-\noindent Since 
+where $F$ is any quadratic polynomial in $b_{i}$ for $i\ge 3$.
+Since
+\vspace{-2mm}
 \begin{equation}
 H_{4{\rm -local}}\left(1, 1, b_3, b_4, ...\right) > H_{4{\rm -local}}\left(0, 0, b_3, b_4, ...\right), H_{4{\rm -local}}\left(0, 1, b_3, b_4, ...\right), H_{4{\rm -local}}\left(1, 0, b_3, b_4, ...\right),
 \end{equation}
@@ -373,14 +372,12 @@ H_{4{\rm -local}}\left(1, 1, b_3, b_4, ...\right) > H_{4{\rm -local}}\left(0, 0,
 Specifically, for the 4 assignments of $(b_{3},b_{4})$, we see that $b_{1}b_{2}=0$ at every minimum of $H_{4{\rm -local}}-F$.
 
 Using deduc-reduc we have:
-
-{\small
+\vspace{-2mm}
 \begin{equation}
-H_{2{\rm -local}}=6b_{1}b_{2}+b_{1}(b_{3}-3)+b_{2}(1-2b_{3}-b_{4})+F(x_{3},x_{4},x_{5},\ldots,x_{N})
+H_{2{\rm -local}}=6b_{1}b_{2}+b_{1}(b_{3}-3)+b_{2}(1-2b_{3}-b_{4})+F(b_{3},b_{4},b_{5},\ldots,b_{N}),
 \end{equation}
-}
-
-\noindent which has the same global minima as $H_{4-\textrm{local}}$ but one fewer quartic and one fewer cubic term.
+which has the same global minima as $H_{4-\textrm{local}}$ but one fewer quartic and one fewer cubic term.
+The coefficient of $b_1 b_2$ was chosen as $6$ because $6 \ge \max | 4+b_{3}+b_{3}b_{4} |$.
 
 \refsec
 \begin{itemize}
