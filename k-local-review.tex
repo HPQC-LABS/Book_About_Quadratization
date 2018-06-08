@@ -968,7 +968,7 @@ with $a=1$.
 
 \summarysec
 
-Extra binary or ternary variable is added to ensure that the energy of the even parity sector is zero and the energy of the odd sector is higher. Requires introduction of a ternary variable $T \in \{ -1,0,1\}$.
+Extra binary or ternary variable is added to ensure that the energy of the even parity sector is zero and the energy of the odd sector is higher. Requires introduction of a ternary variable $t_a \in \{ -1,0,1\}$.
 
 \costsec
 
@@ -990,7 +990,9 @@ Extra binary or ternary variable is added to ensure that the energy of the even 
 %>0 & \mathrm{otherwise} \end{cases}
 %\end{eqnarray}
 \begin{eqnarray}
--z_1z_2z_3z_4\rightarrow 16\,T+8\,T\sum_{i=1}^4 b_i+4\,\sum_{i=1}^4\sum_{j>i}^4b_i\,b_j+16
+-z_1z_2z_3z_4=-16\,b_1b_2b_3b_4+8\,(b_1b_2b_3+b_1b_2b_4+b_1b_3b_4+b_2b_3b_4)-\nonumber \\
+4\,(b_1b_2+b_1b_3+b_1b_4+b_2b_3+b_2b_4+b_3b_4)+2\,(b_1+b_2+b_3+b_4)-1 \nonumber \\
+\rightarrow 16\,t_a^2+8\,t_a\sum_{i=1}^4 b_i+8\,\sum_{i=1}^4\sum_{j>i}^4b_i\,b_j+16
 \end{eqnarray}
 
 
@@ -1000,7 +1002,7 @@ Extra binary or ternary variable is added to ensure that the energy of the even 
 %>0 & \mathrm{otherwise} \end{cases}
 %\end{eqnarray}
 \begin{eqnarray}
--z_1z_2z_3z_4\rightarrow (4T+\sum_{i=1}^4 z_i)^2
+-z_1z_2z_3z_4\rightarrow 16\,t_a^2+4\,t_a\,\sum_{i=1}^4 z_i+2\,\sum_{i=1}^4\sum_{j>i}^4z_i\,z_j+4
 \end{eqnarray}
 
 \refsec
@@ -2233,7 +2235,7 @@ The first expression is highly non-submodular while the second is entirely submo
 
 \summarysec
 
-Extra binary or ternary variable is added to ensure that the energy of the odd  parity sector is zero and the energy of the even sector is higher.
+Extra binary variable is added to ensure that the energy of the odd  parity sector is zero and the energy of the even sector is higher.
 
 \costsec
 
@@ -2255,7 +2257,9 @@ Extra binary or ternary variable is added to ensure that the energy of the odd  
 %>0 & \mathrm{otherwise} \end{cases}
 %\end{eqnarray}
 \begin{eqnarray}
-z_1z_2z_3z_4\rightarrow (4\,b_a+2\,\sum_{i=1}^4 b_i-6)^2
+z_1z_2z_3z_4=16\,b_1b_2b_3b_4-8\,(b_1b_2b_3+b_1b_2b_4+b_1b_3b_4+b_2b_3b_4)+\nonumber \\
+4\,(b_1b_2+b_1b_3+b_1b_4+b_2b_3+b_2b_4+b_3b_4)-2\,(b_1+b_2+b_3+b_4)+1 \nonumber \\
+\rightarrow 16\,b_a+8\,b_a\,\sum_{i=1}^4 b_i+8\,\sum_{i=1}^4\sum_{i<j}^4 b_i\,b_j+24\,b_a+12\,\sum_{i=1}^4 b_i+32
 \end{eqnarray}
 
 \altformsec
@@ -2264,7 +2268,7 @@ z_1z_2z_3z_4\rightarrow (4\,b_a+2\,\sum_{i=1}^4 b_i-6)^2
 %>0 & \mathrm{otherwise} \end{cases}
 %\end{eqnarray}
 \begin{eqnarray}
-z_1z_2z_3z_4\rightarrow (2\,z_a+\sum_{i=1}^4z_i)^2
+z_1z_2z_3z_4\rightarrow 2\,z_a\,\sum_{i=1}^4z_i+2\,\sum_{i=1}^4\sum_{i<j}^4 z_i\,z_j+4
 \end{eqnarray}
 
 \refsec
