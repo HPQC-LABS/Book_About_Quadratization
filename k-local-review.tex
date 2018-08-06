@@ -3817,14 +3817,18 @@ H_{k-\rm{local}} = \alpha H_{1,(\nicefrac{k}{2})-\rm{local}}H_{2,(\nicefrac{k}{2
 
 \summarysec
 
-For a sum of $M$ terms that are $k$-local, each subdivided into parts $A_{a_j}$ and $B_{b_j}$ with $j=1,2,\cdots,M$, introduce two sets of ancilla qubits: one set being the ``core ancilla qubits", which consists of $C$ qubits that are all-to-all connected via the Hamiltonian $H_\mathcal{C}$, the second set being the ``direct ancilla qubits", which are qubits that couple the $A_{a_j}$ and $B_{b_j}$ of each $k$-local term with the core ancilla qubits. For each term $j$ we introduce $R$ direct ancilla qubits, labelling them as $w_i^{(j)}$ with $i=1,2,\cdots,R$. Specifically, we accomplish the following transformation:
+For a sum of $M$ terms that are $k$-local, each subdivided into parts $A_{a_j}$ and $B_{b_j}$ with $j=1,2,\cdots,M$, introduce two sets of ancilla qubits: 
+one set being the ``core ancilla qubits", which consists of $C$ qubits that are all-to-all connected via the Hamiltonian $H_\mathcal{C}$, 
+the second set being the ``direct ancilla qubits", which are qubits that couple the $A_{a_j}$ and $B_{b_j}$ of each $k$-local term with the core ancilla qubits. 
+For each term $j$ we introduce $R$ direct ancilla qubits, labelling them as $w_i^{(j)}$ with $i=1,2,\cdots,R$. 
+Specifically, we accomplish the following transformation:
 
 \begin{equation}
 \begin{array}{ccl}
 \displaystyle
-H_\text{targ}=H_\text{else}+\sum_{j=1}^M\gamma_j A_{a_j}\otimes B_{b_j} & \rightarrow & \displaystyle \tilde{H}=
+H_\text{targ}=H_\text{else}+\sum_{j=1}^M\gamma_j A_{a_j} B_{b_j} & \rightarrow & \displaystyle \tilde{H}=
 \underbrace{\frac{J}{2} \sum_{j=1}^{M}\sum_{i=1}^{R} \sum_{c\in \mathcal{C}}(I-z_{w_i^{(j)}} z_c)+ H_\mathcal{C}}_{H} \\[0.1in]
-& & \displaystyle +\underbrace{H_\text{else}+\sum_{j=1}^M \beta_j \sum_{i=1}^{R} \left(A_{a_j}  - B_{b_j}\right)\otimes x_{w_i^{(j)}}}_{V}
+& & \displaystyle +\underbrace{H_\text{else}+\sum_{j=1}^M \beta_j \sum_{i=1}^{R} \left(A_{a_j}  - B_{b_j}\right) x_{w_i^{(j)}}}_{V}
 \end{array}
 \end{equation}
 where $H_\mathcal{C}$ is defined as the Hamiltonian of a set of $C$ all-to-all coupled qubits 
@@ -3832,7 +3836,8 @@ where $H_\mathcal{C}$ is defined as the Hamiltonian of a set of $C$ all-to-all c
 	H_\mathcal{C}=\frac{J}{2}\sum_{c\in \mathcal{C}}(I-z_c) + \frac{J}{2}\sum_{c,c' \in \mathcal{C}}(I-z_c z_{c'}).
 \end{equation}
 
-If we would like the spectrum of $H_\text{targ}$ to be close to that of $\tilde{H}$, say within difference $O(\epsilon)$. Then for any $d\in(0,1)$ we can choose 
+If we would like the spectrum of $H_\text{targ}$ to be close to that of $\tilde{H}$, say within difference $O(\epsilon)$. 
+Then for any $d\in(0,1)$ we can choose 
 \begin{align}
 \label{eq:RC}
 	R & \in \Omega\left( \max\left\{
@@ -3854,7 +3859,8 @@ where $\gamma_\text{max}=\max_{1,\cdots,M}|\gamma_j|$.
 \conssec
 \begin{itemize}
 \item Uses poly$(\epsilon^{-1})$ ancilla qubits (See Equations \ref{eq:RC} and \ref{eq:CC}).
-\item The construction only describes the asymptotic scaling of the parameters rather than concrete assignments of them. More work is needed for finding tight non-asymptotic error bounds in perturbative expansion.
+\item The construction only describes the asymptotic scaling of the parameters rather than concrete assignments of them. 
+More work is needed for finding tight non-asymptotic error bounds in perturbative expansion.
 \end{itemize}
 
 \examplesec
