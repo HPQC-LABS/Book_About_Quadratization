@@ -3817,7 +3817,11 @@ H_{k-\rm{local}} = \alpha H_{1,(\nicefrac{k}{2})-\rm{local}}H_{2,(\nicefrac{k}{2
 
 \summarysec
 
-For a sum of $M$ terms that are $k$-local, each subdivided into parts $A_{a_j}$ and $B_{b_j}$ with $j=1,2,\cdots,M$, introduce two sets of ancilla qubits: 
+For a sum of terms that are $k$-local, each term $j$ written as a product $H_{1j}H_{2j}$, introduce $N_{\rm core}$ ``core'' auxiliary qubits and $N_{\rm direct}$ ``direct'' auxiliary qubits.
+
+
+
+ $A_{a_j}$ and $B_{b_j}$ with $j=1,2,\cdots,M$, introduce two sets of ancilla qubits: 
 one set being the ``core ancilla qubits", which consists of $C$ qubits that are all-to-all connected via the Hamiltonian $H_\mathcal{C}$, 
 the second set being the ``direct ancilla qubits", which are qubits that couple the $A_{a_j}$ and $B_{b_j}$ of each $k$-local term with the core ancilla qubits. 
 For each term $j$ we introduce $R$ direct ancilla qubits, labelling them as $w_i^{(j)}$ with $i=1,2,\cdots,R$. 
@@ -3826,14 +3830,8 @@ Specifically, we accomplish the following transformation:
 \begin{equation}
 \begin{array}{ccl}
 \displaystyle
-H_\text{targ}=H_\text{else}+\sum_{j=1}^M\gamma_j A_{a_j} B_{b_j} & \rightarrow & \displaystyle \tilde{H}=
-\underbrace{\frac{J}{2} \sum_{j=1}^{M}\sum_{i=1}^{R} \sum_{c\in \mathcal{C}}(I-z_{w_i^{(j)}} z_c)+ H_\mathcal{C}}_{H} \\[0.1in]
-& & \displaystyle +\underbrace{H_\text{else}+\sum_{j=1}^M \beta_j \sum_{i=1}^{R} \left(A_{a_j}  - B_{b_j}\right) x_{w_i^{(j)}}}_{V}
+\sum_{j}a_j H_{1j} H_{2j} & \rightarrow & \alpha \sum_{ij} \left(1-z_{a_{ij}} z_{a_i} + \beta_j  \left(H_{1j}  - H_{2j}\right) x_{w_i^{(j)}} \right) + \alpha_2\sum_i(1-z_{a_i}) + \alpha_2\sum_{ii^\prime}\left(1-z_{a_i} z_{a_i^\prime}\right)  \\[0.1in]
 \end{array}
-\end{equation}
-where $H_\mathcal{C}$ is defined as the Hamiltonian of a set of $C$ all-to-all coupled qubits 
-\begin{equation}\label{eq:Hcdef}
-	H_\mathcal{C}=\frac{J}{2}\sum_{c\in \mathcal{C}}(I-z_c) + \frac{J}{2}\sum_{c,c' \in \mathcal{C}}(I-z_c z_{c'}).
 \end{equation}
 
 If we would like the spectrum of $H_\text{targ}$ to be close to that of $\tilde{H}$, say within difference $O(\epsilon)$. 
