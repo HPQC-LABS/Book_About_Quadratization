@@ -4076,20 +4076,20 @@ H_{k-\rm{local}} = \alpha H_{1,(\nicefrac{k}{2})-\rm{local}}H_{2,(\nicefrac{k}{2
 
 \summarysec
 
-For a sum of terms that are $k$-local, each term $j$ written as a product $H_{1j}H_{2j}$, introduce $N_{\rm core}$ ``core'' auxiliary qubits and $N_{\rm direct}$ ``direct'' auxiliary qubits.
+For a sum of terms that are $k$-local, with each term $j$ written as a product $H_{1j}H_{2j}$, introduce $N_{\rm core}$ `core' auxiliary qubits labeled by $a_i$ and $N_{\rm direct}$ `direct' auxiliary qubits labeled by $a_{ij}$ for each term $j$. Make all core auxiliary qubits couple to all others, and make the direct auxiliary qubits couple each $H_{1j}$ and $H_{2j}$ to the core auxiliary qubits.
 
 
 
- $A_{a_j}$ and $B_{b_j}$ with $j=1,2,\cdots,M$, introduce two sets of ancilla qubits: 
-one set being the ``core ancilla qubits", which consists of $C$ qubits that are all-to-all connected via the Hamiltonian $H_\mathcal{C}$, 
-the second set being the ``direct ancilla qubits", which are qubits that couple the $A_{a_j}$ and $B_{b_j}$ of each $k$-local term with the core ancilla qubits. 
-For each term $j$ we introduce $R$ direct ancilla qubits, labelling them as $w_i^{(j)}$ with $i=1,2,\cdots,R$. 
-Specifically, we accomplish the following transformation:
+% $A_{a_j}$ and $B_{b_j}$ with $j=1,2,\cdots,M$, introduce two sets of ancilla qubits: 
+%one set being the ``core ancilla qubits", which consists of $C$ qubits that are all-to-all connected via the Hamiltonian $H_\mathcal{C}$, 
+%the second set being the ``direct ancilla qubits", which are qubits that couple the $A_{a_j}$ and $B_{b_j}$ of each $k$-local term with the core ancilla qubits. 
+%For each term $j$ we introduce $R$ direct ancilla qubits, labelling them as $a_{d_{ij}}$ with $i=1,2,\cdots,R$. 
+%Specifically, we accomplish the following transformation:
 
 \begin{equation}
 \begin{array}{ccl}
 \displaystyle
-\sum_{j}a_j H_{1j} H_{2j} & \rightarrow & \alpha \sum_{ij} \left(1-z_{a_{ij}} z_{a_i} + \beta_j  \left(H_{1j}  - H_{2j}\right) x_{w_i^{(j)}} \right) + \alpha_2\left(\sum_i(1-z_{a_i}) + \sum_{ii^\prime}\left(1-z_{a_i} z_{a_i^\prime}\right)\right)  \\[0.1in]
+\sum_{j}a_j H_{1j} H_{2j} & \rightarrow & \alpha \sum_{ij} \left(1-z_{a_{ij}} z_{a_i} + \alpha_{j}x_{a_{ij}}  \left(H_{1j}  - H_{2j}\right)  \right) + \alpha \sum_i\left(1-z_{a_i} + \sum_{j}\left(1-z_{a_i} z_{a_j}\right)\right)  \\
 \end{array}
 \end{equation}
 
@@ -4097,14 +4097,14 @@ If we would like the spectrum of $H_\text{targ}$ to be close to that of $\tilde{
 Then for any $d\in(0,1)$ we can choose 
 \begin{align}
 \label{eq:RC}
-	R & \in \Omega\left( \max\left\{
+	N_{\rm{direct}} & \in \Omega\left( \max\left\{
 			\epsilon^{-\frac{2}{d}}, 
 			\left(\frac{\|H_\text{else}\|^2}{2M^4 \gamma_{\text{max}}}\right)^{\frac{1}{d}},
 			\left(M^3 \epsilon^{-2} \right)^{\frac{1}{1-d}}
 		\right\}\right),\\ 
         \label{eq:CC}
-        C & \in \Omega \left( M^3 R^d \,\epsilon^{-1}\right), \\
-        \beta_j, J & \in O(\epsilon) \label{eq:eps}
+        N_{\rm{core}} & \in \Omega \left( M^3 N_{\rm{direct}}^d \,\epsilon^{-1}\right), \\
+        \alpha_{j}, \alpha & \in O(\epsilon) \label{eq:eps}
 \end{align}
 where $\gamma_\text{max}=\max_{1,\cdots,M}|\gamma_j|$. 
 
