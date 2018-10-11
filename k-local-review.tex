@@ -4093,20 +4093,18 @@ For a sum of terms that are $k$-local, with each term $j$ written as a product $
 \end{array}
 \end{equation}
 
-If we would like the spectrum of $H_\text{targ}$ to be close to that of $\tilde{H}$, say within difference $O(\epsilon)$. 
-Then for any $d\in(0,1)$ we can choose 
+If we would like the spectrum of the RHS to be close to that of the LHS, with a difference of $O(\epsilon)$, then for any $d\in(0,1)$ we can choose 
 \begin{align}
 \label{eq:RC}
 	N_{\rm{direct}} & \in \Omega\left( \max\left\{
 			\epsilon^{-\frac{2}{d}}, 
-			\left(\frac{\|H_\text{else}\|^2}{2M^4 \gamma_{\text{max}}}\right)^{\frac{1}{d}},
+			\left(\frac{\|H_\text{else}\|^2}{2M^4 \max_j|a_j|}\right)^{\frac{1}{d}},
 			\left(M^3 \epsilon^{-2} \right)^{\frac{1}{1-d}}
 		\right\}\right),\\ 
         \label{eq:CC}
         N_{\rm{core}} & \in \Omega \left( M^3 N_{\rm{direct}}^d \,\epsilon^{-1}\right), \\
         \alpha_{j}, \alpha & \in O(\epsilon) \label{eq:eps}
-\end{align}
-where $\gamma_\text{max}=\max_{1,\cdots,M}|\gamma_j|$. 
+\end{align}.
 
 \prossec
 \begin{itemize}
