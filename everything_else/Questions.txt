@@ -1,0 +1,5 @@
+CBBK paper:
+1) alpha is complex? sgn(alpha) = complex signum function? Must be because otherwise kappa^2 = lambda^2
+2) Eq. 47: A^2 = identity, B^2 = identity
+3) Below Eq. 13, shouldn't Q^2 = identity?
+
