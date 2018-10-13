@@ -1,0 +1,585 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass revtex4-1
+\begin_preamble
+\usepackage{microtype}
+\usepackage{xspace}
+\usepackage{amsfonts}
+\usepackage{palatino}
+\usepackage{MnSymbol}
+\usepackage{bbm}
+%\usepackage{hyperref}
+%\usepackage[hyphenbreaks]{breakurl1}
+\usepackage{url}
+\usepackage{ragged2e}
+\edef\UrlBreaks{\do\-\UrlBreaks}% after loading url or hyperref
+\usepackage{accents}% needed for \underbar that's same as \bar (\underaccent)
+\usepackage{microtype}
+
+
+
+
+\newcommand*{\mathcolor}{}
+\def\mathcolor#1#{\mathcoloraux{#1}}
+\newcommand*{\mathcoloraux}[3]{%
+  \protect\leavevmode
+  \begingroup
+    \color#1{#2}#3%
+  \endgroup
+}
+%%% adding some commands to comment 
+%Some shortcuts added for edits
+%Some shortcuts added for edits
+% \usepackage{ulem}
+\definecolor{dred}{rgb}{.8,0.2,.2}
+\definecolor{ddred}{rgb}{.8,0.5,.5}
+\definecolor{dblue}{rgb}{.2,0.2,.8}
+% suggested change
+\newcommand{\add}[1]{\textcolor{dred}{*#1*}} 
+% \usepackage{ulem}
+\newcommand{\out}[1]{\textcolor{ddred}{\textbf{[}#1\textbf{]}}}
+% comment or remark
+%\newcommand{\yo}[1]{\textcolor{dblue}{\textbf{[}#1\textbf{]}}}
+% \newcommand{\todo}[1]{\textbf{\underline{\textcolor{dblue}{\textbf{[}#1\textbf{]}}}}}
+%\newcommand{\jb}[1]{\textcolor{dblue}{\textbf{[}JB: #1\textbf{]}}}
+
+\newcommand{\yo}[1]{\todo{{\textbf{[}JB: #1\textbf{]}}}}
+\newcommand{\jb}[1]{\todo[inline]{{\textbf{[}JB: #1\textbf{]}}}}
+%%%%%%%%%%
+
+
+
+%% Set space of itemize environment
+\usepackage{enumitem}% Used for setting height of itemize environments
+\setlist[itemize]{topsep=0pt}%topsep=0pt
+
+
+% Bookmarks in PDF (navigation pane)
+\usepackage{bookmark}
+
+
+\newcommand{\hi}{$H_{\rm init}$\xspace}
+\newcommand{\hf}{$H_{\rm final}$\xspace}
+
+%% Set formatting of headers
+\newcommand{\secspace}{\vspace{2mm}}
+
+\newcommand{\summarysec}{\secspace\emph{\textbf{Summary}}}
+\newcommand{\prossec}{\secspace\emph{\textbf{Pros}}}
+\newcommand{\conssec}{\secspace\emph{\textbf{Cons}}}
+\newcommand{\costsec}{\secspace\emph{\textbf{Cost}}}
+\newcommand{\examplesec}{\secspace\emph{\textbf{Example}}}
+\newcommand{\refsec}{\secspace\emph{\textbf{Bibliography}}}
+
+
+
+\usepackage{babel}
+\end_preamble
+\options notitlepage,showpacs,preprintnumbers,amsmath,amssymb,aps,nofootinbib
+\use_default_options false
+\begin_modules
+algorithm2e
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding iso8859-15
+\fontencoding T1
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 12
+\spacing single
+\use_hyperref true
+\pdf_bookmarks false
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks true
+\pdf_backref section
+\pdf_pdfusetitle false
+\pdf_quoted_options "linkcolor=black,urlcolor=black,bookmarksopen=true"
+\papersize default
+\use_geometry true
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2cm
+\topmargin 2cm
+\rightmargin 2cm
+\bottommargin 2cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Sub-division gadget of BDLT
+\end_layout
+
+\begin_layout Author
+Nike Dattani
+\end_layout
+
+\begin_layout Author Email
+
+n.dattani@cfa.harvard.edu
+\end_layout
+
+\begin_layout Affiliation
+Harvard-Smithsonian Center for Astrophysics
+\end_layout
+
+\begin_layout Standard
+It is stated in Oliveira-Terhal that a 5-local Hamiltonian 
+\series bold
+
+\begin_inset Formula $AB$
+\end_inset
+
+
+\series default
+ can be transformed into:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+H_{OT}=\Delta\left(\frac{1-z_{a}}{2}\right)+\frac{A^{2}}{2}+\frac{B^{2}}{2}+\sqrt{\frac{\Delta}{2}}(B-A)x_{a},
+\end{equation}
+
+\end_inset
+
+which has the same low-lying eigenspectrum as the original 5-local Hamiltonian
+ to within 
+\begin_inset Formula $\mathcal{O}(\epsilon)$
+\end_inset
+
+ as long as:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\Delta=\frac{\left({\rm max}\left(||A||,||B||\right)\Omega(\sqrt{2})\right)^{6}}{\epsilon^{2}}.
+\end{equation}
+
+\end_inset
+
+When 
+\begin_inset Formula $||A||,||B||\le1$
+\end_inset
+
+, this becomes:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\Delta=\epsilon^{-2}.
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The same result is obtained in Bravyi-DiVincenzo-Loss-Terhal, except the
+ proof is given by showing that for the 
+\begin_inset Formula $S$
+\end_inset
+
+ they choose, we have:
+\begin_inset Formula 
+\begin{align}
+e^{S}He^{-S} & =\begin{pmatrix}AB & 0\\
+0 & G
+\end{pmatrix}\label{eq:SW}\\
+Pe^{S}He^{-S}P & =AB,
+\end{align}
+
+\end_inset
+
+as long as 
+\begin_inset Formula $\Delta=\epsilon^{-2}$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In general the unitary transformation 
+\begin_inset Formula $e^{S}He^{-S}$
+\end_inset
+
+ will not preserve the eigenspectrum of 
+\begin_inset Formula $H$
+\end_inset
+
+ (and hence 
+\series bold
+
+\begin_inset Formula $Pe^{S}He^{-S}P$
+\end_inset
+
+ 
+\series default
+won't preserve the eigenspectrum of 
+\begin_inset Formula $AB$
+\end_inset
+
+) because unitary transformations preserve eigenvalues but not eigenvectors.
+ The eigenvectors of 
+\begin_inset Formula $Pe^{S}He^{-S}P$
+\end_inset
+
+ need to be multiplied by 
+\begin_inset Formula $e^{-S}$
+\end_inset
+
+ to recover the eigenvectors of 
+\begin_inset Formula $AB$
+\end_inset
+
+.
+ However it's possible that Eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:SW"
+
+\end_inset
+
+ holds true to within 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+ if 
+\begin_inset Formula $\Delta=\left(\epsilon^{-2}\right)$
+\end_inset
+
+, meaning we do not need to multiply by 
+\begin_inset Formula $e^{-S}$
+\end_inset
+
+ .
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let's calculate Eq.
+ 3 of 10.1103/PhysRevLett.101.070503 explicitly: 
+\end_layout
+
+\begin_layout Standard
+
+\size scriptsize
+\begin_inset Formula 
+\begin{align}
+H_{0} & =\Delta\left(\frac{1-z_{a}}{2}\right)\\
+V & =\sqrt{\frac{\Delta J}{2}}(B-A)x_{a}+\frac{J}{2}\left(A^{2}+B^{2}\right)\\
+S & =-{\rm i}\sqrt{\frac{J}{2\Delta}}(B-A)y_{a}\\
+H & =H_{0}+V\\{}
+[S,H] & =[S,H_{0}+V_{1}+V_{2}]\\
+ & =[S,H_{0}]+[S,V_{1}]+[S,V_{2}]\\{}
+[S,H_{0}] & =\left[-{\rm i}\sqrt{\frac{J}{2\Delta}}(B-A)y_{a},\Delta\left(\frac{1-z_{a}}{2}\right)\right]\\
+ & =\left[-{\rm i}\sqrt{\frac{J}{2\Delta}}(B-A)y_{a},\frac{\Delta}{2}\right]+\left[-{\rm i}\sqrt{\frac{J}{2\Delta}}(B-A)y_{a},\frac{-\Delta z_{a}}{2}\right]\\
+ & =\left[{\rm i}\sqrt{\frac{J}{2\Delta}}(B-A)y_{a},\frac{\Delta z_{a}}{2}\right]\\
+ & ={\rm i}\sqrt{\frac{J}{2\Delta}}(B-A)y_{a}\frac{\Delta z_{a}}{2}-\frac{\Delta z_{a}}{2}{\rm i}\sqrt{\frac{J}{2\Delta}}(B-A)y_{a}\\
+ & ={\rm i}\sqrt{\frac{J\Delta}{2^{3}}}(B-A)y_{a}z_{a}-z_{a}(B-A)y_{a}\\
+ & ={\rm i}\sqrt{\frac{J\Delta}{2^{3}}}(B-A)y_{a}z_{a}-(B-A)z_{a}y_{a}\\
+ & ={\rm i}\sqrt{\frac{J\Delta}{2^{3}}}(B-A)\left[y_{a},z_{a}\right]\\
+ & ={\rm i}\sqrt{\frac{J\Delta}{2^{3}}}(B-A)2{\rm i}x_{a}\\
+ & =-\sqrt{\frac{J\Delta}{2}}(B-A)x_{a}
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size scriptsize
+\begin_inset Formula 
+\begin{align}
+[S,V_{1}] & =\left[-{\rm i}\sqrt{\frac{J}{2\Delta}}(B-A)y_{a},\sqrt{\frac{\Delta J}{2}}(B-A)x_{a}\right]\\
+ & =-{\rm i}\sqrt{\frac{J}{2\Delta}}(B-A)y_{a}\sqrt{\frac{\Delta J}{2}}(B-A)x_{a}-\sqrt{\Delta J/2}(B-A)x_{a}\left(-{\rm i}\sqrt{\frac{J}{2\Delta}}(B-A)y_{a}\right)\\
+ & =-{\rm i}\sqrt{\frac{J}{2\Delta}}\sqrt{\frac{\Delta J}{2}}\left((B-A)y_{a}(B-A)x_{a}-(B-A)x_{a}(B-A)y_{a}\right)\\
+ & =-{\rm i}\sqrt{\frac{J}{2\Delta}}\sqrt{\frac{\Delta J}{2}}\left((B-A)^{2}y_{a}x_{a}-(B-A)^{2}x_{a}y_{a}\right)\\
+ & =-{\rm i}\sqrt{\frac{J}{2\Delta}}\sqrt{\frac{\Delta J}{2}}(B-A)^{2}[y_{a},x_{a}]\\
+ & =-{\rm i}\sqrt{\frac{J}{2\Delta}}\sqrt{\frac{\Delta J}{2}}(B-A)^{2}(-2{\rm i}z_{a})\\
+ & =-J(B-A)^{2}z_{a}\\
+ & =-J(B^{2}-BA+A^{2})z_{a},\,\text{but }\text{\ensuremath{BAz_{a}} is \ensuremath{(k+1)}-local}\\{}
+[S,V_{2}] & =\left[-{\rm i}\sqrt{\frac{J}{2\Delta}}(B-A)y_{a},\frac{J}{2}\left(A^{2}+B^{2}\right)\right]\\
+ & =-{\rm i}\sqrt{\frac{J}{2\Delta}}(B-A)y_{a}\frac{J}{2}\left(A^{2}+B^{2}\right)-\frac{J}{2}\left(A^{2}+B^{2}\right)\left(-{\rm i}\sqrt{\frac{J}{2\Delta}}(B-A)y_{a}\right)\\
+ & =-{\rm i}\sqrt{\frac{J^{3}}{2^{3}\Delta}}\left((B-A)\left(A^{2}+B^{2}\right)y_{a}-\left(A^{2}+B^{2}\right)(B-A)y_{a}\right)\\
+ & =-{\rm i}\sqrt{\frac{J^{3}}{2^{3}\Delta}}(B-A)\left(A^{2}+B^{2}\right)\left(y_{a}-y_{a}\right)\\
+ & =0\\{}
+[S,H] & =-\sqrt{\frac{J\Delta}{2}}(B-A)x_{a}-J(B-A)^{2}z_{a}\\{}
+[S,[S,H]] & =\left[-{\rm i}\sqrt{\frac{J}{2\Delta}}(B-A)y_{a},-\sqrt{\frac{J\Delta}{2}}(B-A)x_{a}-J(B-A)^{2}z_{a}\right]\\
+ & =\left[-{\rm i}\sqrt{\frac{J}{2\Delta}}(B-A)y_{a},-\sqrt{\frac{J\Delta}{2}}(B-A)x_{a}\right]+\left[-{\rm i}\sqrt{\frac{J}{2\Delta}}(B-A)y_{a},-J(B-A)^{2}z_{a}\right]\\
+\left[-{\rm i}\sqrt{\frac{J}{2\Delta}}(B-A)y_{a},-\sqrt{\frac{J\Delta}{2}}(B-A)x_{a}\right] & =-{\rm i}\sqrt{\frac{J}{2\Delta}}(B-A)y_{a}\left(-\sqrt{\frac{J\Delta}{2}}(B-A)x_{a}\right)-\left(-\sqrt{\frac{J\Delta}{2}}(B-A)x_{a}\right)\left(-{\rm i}\sqrt{\frac{J}{2\Delta}}(B-A)y_{a}\right)\\
+ & =-{\rm i}\sqrt{\frac{J}{2\Delta}}\left(-\sqrt{\frac{J\Delta}{2}}\right)\left((B-A)y_{a}(B-A)x_{a}-(B-A)x_{a}(B-A)y_{a}\right)\\
+ & ={\rm i}\frac{J(B-A)^{2}}{2}\left(y_{a}x_{a}-x_{a}y_{a}\right)\\
+ & ={\rm i}\frac{J(B-A)^{2}}{2}[y_{a},x_{a}]\\
+ & ={\rm i}\frac{J(B-A)^{2}}{2}\left(-2{\rm i}z_{a}\right)\\
+ & =J(B-A)^{2}z_{a}\\
+\left[-{\rm i}\sqrt{\frac{J}{2\Delta}}(B-A)y_{a},-J(B-A)^{2}z_{a}\right] & =-{\rm i}\sqrt{\frac{J}{2\Delta}}(B-A)y_{a}\left(-J(B-A)^{2}z_{a}\right)-\left(-J(B-A)^{2}z_{a}\right)\left(-{\rm i}\sqrt{\frac{J}{2\Delta}}(B-A)y_{a}\right)\\
+ & =-{\rm i}\sqrt{\frac{J}{2\Delta}}\left(-J\right)\left((B-A)y_{a}(B-A)^{2}z_{a}-\left((B-A)^{2}z_{a}\right)(B-A)y_{a}\right)\\
+ & ={\rm i}\sqrt{\frac{J^{3}}{2\Delta}}(B-A)^{3}\left(y_{a}z_{a}-z_{a}y_{a}\right)\\
+ & ={\rm i}\sqrt{\frac{J^{3}}{2\Delta}}(B-A)^{3}[y_{a},z_{a}]\\
+ & ={\rm i}\sqrt{\frac{J^{3}}{2\Delta}}(B-A)^{3}\left(2{\rm i}x_{a}\right)\\
+ & =-\sqrt{\frac{2J^{3}}{\Delta}}(B-A)^{3}x_{a},\,\text{contains \ensuremath{A^{2}Bx_{a}} and \ensuremath{B^{2}Ax_{a}} which both act on \ensuremath{k+1} qubits.}
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size scriptsize
+\begin_inset Formula 
+\begin{align}
+[S,[S,H]] & =\left[-{\rm i}\sqrt{\frac{J}{2\Delta}}(B-A)y_{a},-\sqrt{\frac{J\Delta}{2}}(B-A)x_{a}\right]+\left[-{\rm i}\sqrt{\frac{J}{2\Delta}}(B-A)y_{a},-J(B-A)^{2}z_{a}\right]\\
+ & =J(B-A)^{2}z_{a}-\sqrt{\frac{2J^{3}}{\Delta}}(B-A)^{3}x_{a}\\
+ & =J(B-A)^{2}\left(z_{a}-\sqrt{\frac{2J}{\Delta}}(B-A)x_{a}\right)\\{}
+[S,H]+\frac{1}{2}[S,[S,H]] & =-\sqrt{\frac{J\Delta}{2}}(B-A)x_{a}-J(B-A)^{2}z_{a}+\frac{J(B-A)^{2}}{2}\left(z_{a}-\sqrt{\frac{2J}{\Delta}}(B-A)x_{a}\right)\\
+ & =-\sqrt{\frac{J\Delta}{2}}(B-A)x_{a}+\left(\frac{J(B-A)^{2}}{2}-J(B-A)^{2}\right)z_{a}-\frac{J(B-A)^{2}}{2}\left(\sqrt{\frac{2J}{\Delta}}(B-A)x_{a}\right)\\
+ & =-\sqrt{\frac{J\Delta}{2}}(B-A)x_{a}-\frac{J(B-A)^{2}}{2}z_{a}-\frac{J}{2}\sqrt{\frac{2J}{\Delta}}(B-A)^{3}x_{a}\\
+ & =-\sqrt{\frac{J\Delta}{2}}(B-A)x_{a}-\frac{J(B-A)^{2}}{2}z_{a}-\sqrt{\frac{J^{3}}{2\Delta}}(B-A)^{3}x_{a}\\
+ & =\sqrt{\frac{J}{2}}(B-A)\left(\Delta x_{a}+\sqrt{\frac{J}{2}}(B-A)z_{a}+\sqrt{\frac{J^{2}}{\Delta}}(B-A)^{2}x_{a}\right)\\
+ & =\sqrt{\frac{J}{2}}(B-A)\left(\Delta x_{a}+\sqrt{\frac{J}{2}}(B-A)z_{a}\right)+\mathcal{O}\left(\sqrt{\frac{J^{3}}{\Delta}}\right)\\
+H+[S,H]+\frac{1}{2}[S,[S,H]] & =\Delta\left(\frac{1-z_{a}}{2}\right)+\sqrt{\frac{\Delta J}{2}}(B-A)x_{a}+\frac{J}{2}\left(A^{2}+B^{2}\right)+\sqrt{\frac{J}{2}}(B-A)\left(\Delta x_{a}+\sqrt{\frac{J}{2}}(B-A)z_{a}\right)+\mathcal{O}\left(\sqrt{\frac{J^{3}}{\Delta}}\right)\\
+ & =\Delta\left(\frac{1-z_{a}}{2}\right)+\frac{J}{2}\left(A^{2}+B^{2}\right)+\sqrt{\frac{J}{2}}(B-A)\left(2\Delta x_{a}+\sqrt{\frac{J}{2}}(B-A)z_{a}\right)+\mathcal{O}\left(\sqrt{\frac{J^{3}}{\Delta}}\right)\\
+ & =\Delta\left(\frac{1-z_{a}}{2}\right)+\frac{J}{2}\left(A^{2}+B^{2}\right)+\sqrt{2J}(B-A)\Delta x_{a}+\frac{J}{2}(B-A)^{2}z_{a}+\mathcal{O}\left(\sqrt{\frac{J^{3}}{\Delta}}\right)\\
+ & =\Delta\left(\frac{1-z_{a}}{2}\right)+\frac{J}{2}\left(A^{2}+B^{2}\right)+\sqrt{2J}(B-A)\Delta x_{a}+\frac{J}{2}(B^{2}-BA+A^{2})z_{a}+\mathcal{O}\left(\sqrt{\frac{J^{3}}{\Delta}}\right)
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size scriptsize
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\begin{align}
+[S,H] & =-{\rm i}\sqrt{\frac{J}{2\Delta}}\left[(B-A)y_{a},\Delta\left(\frac{1-z_{a}}{2}\right)+\sqrt{\Delta J/2}(B-A)x_{a}+\frac{J}{2}\left(A^{2}+B^{2}\right)\right]\\
+ & =-{\rm i}\sqrt{\frac{J}{2\Delta}}\left(\left[(B-A)y_{a},\Delta\left(\frac{1-z_{a}}{2}\right)\right]+\left[(B-A)y_{a},\sqrt{\Delta J/2}(B-A)x_{a}\right]+\left[(B-A)y_{a},\frac{J}{2}\left(A^{2}+B^{2}\right)\right]\right)\\
+ & =-{\rm i}\sqrt{\frac{J}{2\Delta}}\left(\frac{\Delta}{2}\left[(B-A)y_{a},z_{a}\right]+\sqrt{\Delta J/2}\left[(B-A)y_{a},(B-A)x_{a}\right]+0\right)\\
+ & =-{\rm i}\sqrt{\frac{J}{2\Delta}}\left(\frac{\Delta}{2}\left((B-A)y_{a}z_{a}-z_{a}(B-A)y_{a}\right)+\sqrt{\Delta J/2}\left((B-A)y_{a}(B-A)x_{a}-(B-A)x_{a}(B-A)y_{a}\right)\right)\\
+ & =-{\rm i}\sqrt{\frac{J}{2\Delta}}\left(\frac{\Delta}{2}(B-A)[y_{z},z_{a}]+\sqrt{\Delta J/2}(B-A)^{2}\left[y_{a},x_{a}\right]\right)\\
+ & =-{\rm i}\sqrt{\frac{J}{2\Delta}}\left(\frac{\Delta}{2}(B-A)2{\rm i}x_{a}+\sqrt{\Delta J/2}(B-A)^{2}(-1)2{\rm i}z_{a}\right)\\
+ & =-{\rm i}\sqrt{\frac{J}{2\Delta}}\left(\Delta(B-A){\rm i}x_{a}-\sqrt{\Delta J2}(B-A)^{2}{\rm i}z_{a}\right)\\
+ & =\sqrt{\frac{J}{2\Delta}}(B-A)\left(\Delta x_{a}-\sqrt{\Delta J2}(B-A)z_{a}\right)\\
+ & =\sqrt{\frac{J}{2}}(B-A)\left(\sqrt{\Delta}x_{a}-\sqrt{J2}(B-A)z_{a}\right)
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\begin_inset Formula 
+\begin{align}
+[S,[S,H]] & =-{\rm i}\sqrt{\frac{J}{2\Delta}}(B-A)y_{a}\sqrt{\frac{J}{2}}(B-A)\left(\sqrt{\Delta}x_{a}-\sqrt{J2}(B-A)z_{a}\right)-\sqrt{\frac{J}{2}}(B-A)\left(\sqrt{\Delta}x_{a}-\sqrt{J2}(B-A)z_{a}\right)\left(-{\rm i}\sqrt{\frac{J}{2\Delta}}(B-A)y_{a}\right)\\
+ & =-{\rm i}\sqrt{\frac{J}{2\Delta}}(B-A)\sqrt{\frac{J}{2}}(B-A)\left(y_{a}\left(\sqrt{\Delta}x_{a}-\sqrt{J2}(B-A)z_{a}\right)-\left(\sqrt{\Delta}x_{a}-\sqrt{J2}(B-A)z_{a}\right)y_{a}\right)\\
+ & =-{\rm i}\frac{J}{2\sqrt{\Delta}}(B-A)^{2}\left[y_{a},\sqrt{\Delta}x_{a}-\sqrt{J2}z_{a}\right]\\
+ & =-{\rm i}\frac{J}{2\sqrt{\Delta}}(B-A)^{2}\left(\left[y_{a},\sqrt{\Delta}x_{a}\right]-\left[y_{a},\sqrt{J2}z_{a}\right]\right)\\
+ & =-{\rm i}\frac{J}{2\sqrt{\Delta}}(B-A)^{2}\left(\left[y_{a},\sqrt{\Delta}x_{a}\right]-\left[y_{a},\sqrt{J2}z_{a}\right]\right)\\
+ & =-{\rm i}\frac{J}{2\sqrt{\Delta}}(B-A)^{2}\left(\sqrt{\Delta}\left[y_{a},x_{a}\right]-\sqrt{J2}\left[y_{a},z_{a}\right]\right)\\
+ & =-{\rm i}\frac{J}{2\sqrt{\Delta}}(B-A)^{2}\left(-\sqrt{\Delta}2{\rm i}z_{a}-\sqrt{J2}2{\rm i}x_{a}\right)\\
+ & =\frac{J}{\sqrt{\Delta}}(B-A)^{2}\left(-\sqrt{\Delta}z_{a}-\sqrt{J}x_{a}\right)\\
+ & =\frac{J}{\sqrt{\Delta}}(B-A)^{2}\left(-\sqrt{\Delta}z_{a}-\sqrt{J}x_{a}\right)\\
+ & =-J(B-A)^{2}z_{a}-\sqrt{\frac{J^{3}}{\Delta}}(B-A)^{2}x_{a}\\{}
+[S,H]+\frac{1}{2}[S,[S,H]] & =\sqrt{\frac{J}{2}}(B-A)\left(\sqrt{\Delta}x_{a}-\sqrt{J2}z_{a}\right)-\frac{J(B-A)^{2}}{2}z_{a}-\sqrt{\frac{J^{3}(B-A)}{4\Delta}}x_{a}\\
+ & =\sqrt{\frac{J}{2}}(B-A)\left(\sqrt{\Delta}x_{a}-\sqrt{J2}z_{a}\right)-J(B-A)^{2}z_{a}-\sqrt{\frac{J^{3}}{\Delta}}(B-A)^{2}x_{a}\\
+ & =\sqrt{\frac{J}{2}}(B-A)\left(\sqrt{\Delta}-\sqrt{\frac{J^{3}}{\Delta}}(B-A)^{2}\right)x_{a}-\sqrt{\frac{J}{2}}(B-A)\left(\sqrt{J2}+J(B-A)^{2}\right)z_{a}
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Let's consider the next term in the Hadamard Lemma (also called 
+\begin_inset Quotes eld
+\end_inset
+
+Lemma 1
+\begin_inset Quotes erd
+\end_inset
+
+ in the PRL paper):
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename HadamardLemma.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+The next term is involves 
+\begin_inset Formula $[S,[S,[S,H]]]$
+\end_inset
+
+ (note this is wrong because my 
+\begin_inset Formula $[S,[S,H]]$
+\end_inset
+
+ was wrong at the time of writing this):
+\end_layout
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\begin_inset Formula 
+\begin{align}
+[S,[S,[S,H]] & =\left[-{\rm i}\sqrt{\frac{J}{2\Delta}}(B-A)y_{a},-J(B-A)^{2}z_{a}-\sqrt{\frac{J^{3}}{\Delta}}(B-A)^{2}x_{a}\right]\\
+ & =\left[-{\rm i}\sqrt{\frac{J}{2\Delta}}(B-A)y_{a},-J(B-A)^{2}z_{a}\right]-\left[-{\rm i}\sqrt{\frac{J}{2\Delta}}(B-A)y_{a},-\sqrt{\frac{J^{3}}{\Delta}}(B-A)^{2}x_{a}\right]\\
+ & ={\rm i}\sqrt{\frac{J}{2\Delta}}(B-A)J(B-A)^{2}[y_{a},z_{a}]-{\rm i}\sqrt{\frac{J}{2\Delta}}(B-A)\sqrt{\frac{J^{3}}{\Delta}}(B-A)^{2}[z_{a},x_{a}]\\
+ & ={\rm \mathcal{O}}\left(\sqrt{\frac{J^{3}}{2\Delta}}\right)
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Adding the 
+\begin_inset Formula $[S,S,[S,[S,H]$
+\end_inset
+
+ term should allow us to get 
+\begin_inset Formula $\mathcal{O}\left(J^{2}\Delta^{-3/2}\right)$
+\end_inset
+
+ which means we only need 
+\begin_inset Formula $\Delta=\Omega\left(\frac{J}{\epsilon}\right)^{2/3}$
+\end_inset
+
+ which is even better than SD-CBBK
+\end_layout
+
+\begin_layout Plain Layout
+Anyway let's evaluate the whole gadget:
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\begin{align}
+H_{k-{\rm {local}}} & \rightarrow\Delta\frac{1-z_{a}}{2}+\frac{J}{2}H_{1}^{2}+\frac{J}{2}H_{2}^{2}+\sqrt{\frac{\Delta J}{2}}\left(-H_{1}+H_{2}\right)x_{a}+\sqrt{\frac{J}{2}}(B-A)\left(\sqrt{\Delta}-\sqrt{\frac{J^{3}}{\Delta}}(H_{2}-H_{1})^{2}\right)x_{a}-\sqrt{\frac{J}{2}}(H_{2}-H_{1})\left(\sqrt{J2}+J(H_{2}-H_{1})^{2}\right)z_{a}\\
+ & =\frac{\Delta}{2}+\frac{J}{2}H_{1}^{2}+\frac{J}{2}H_{2}^{2}-\frac{\Delta z_{a}}{2}+\sqrt{\frac{\Delta J}{2}}\left(H_{2}-H_{1}\right)x_{a}+\sqrt{\frac{J\Delta}{2}}(H_{2}-H_{1})x_{a}-\sqrt{\frac{J^{4}}{2\Delta}}(H_{2}-H_{1})^{3}x_{a}-\sqrt{\frac{2J^{2}}{2}}(H_{2}-H_{1})z_{z}-\sqrt{\frac{J^{3}}{2}}(H_{2}-H_{1})^{3}z_{a}\\
+ & =\alpha^{I}+\alpha^{H_{1}}H_{1}^{2}+\alpha^{H_{2}}H_{2}^{2}+\alpha^{z}z_{a}+\alpha^{H_{1}x}H_{1}x_{a}+\alpha^{H_{2}x}H_{2}x_{a}+\alpha^{H_{1}z}H_{1}z_{a}+\alpha^{H_{2}z}H_{2}z_{a}+cubicTerms
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

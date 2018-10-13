@@ -1,0 +1,365 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass revtex4-1
+\begin_preamble
+\usepackage{microtype}
+\usepackage{xspace}
+\usepackage{amsfonts}
+\usepackage{palatino}
+\usepackage{MnSymbol}
+\usepackage{bbm}
+%\usepackage{hyperref}
+%\usepackage[hyphenbreaks]{breakurl1}
+\usepackage{url}
+\usepackage{ragged2e}
+\edef\UrlBreaks{\do\-\UrlBreaks}% after loading url or hyperref
+\usepackage{accents}% needed for \underbar that's same as \bar (\underaccent)
+\usepackage{microtype}
+
+
+
+
+\newcommand*{\mathcolor}{}
+\def\mathcolor#1#{\mathcoloraux{#1}}
+\newcommand*{\mathcoloraux}[3]{%
+  \protect\leavevmode
+  \begingroup
+    \color#1{#2}#3%
+  \endgroup
+}
+%%% adding some commands to comment 
+%Some shortcuts added for edits
+%Some shortcuts added for edits
+% \usepackage{ulem}
+\definecolor{dred}{rgb}{.8,0.2,.2}
+\definecolor{ddred}{rgb}{.8,0.5,.5}
+\definecolor{dblue}{rgb}{.2,0.2,.8}
+% suggested change
+\newcommand{\add}[1]{\textcolor{dred}{*#1*}} 
+% \usepackage{ulem}
+\newcommand{\out}[1]{\textcolor{ddred}{\textbf{[}#1\textbf{]}}}
+% comment or remark
+%\newcommand{\yo}[1]{\textcolor{dblue}{\textbf{[}#1\textbf{]}}}
+% \newcommand{\todo}[1]{\textbf{\underline{\textcolor{dblue}{\textbf{[}#1\textbf{]}}}}}
+%\newcommand{\jb}[1]{\textcolor{dblue}{\textbf{[}JB: #1\textbf{]}}}
+
+\newcommand{\yo}[1]{\todo{{\textbf{[}JB: #1\textbf{]}}}}
+\newcommand{\jb}[1]{\todo[inline]{{\textbf{[}JB: #1\textbf{]}}}}
+%%%%%%%%%%
+
+
+
+%% Set space of itemize environment
+\usepackage{enumitem}% Used for setting height of itemize environments
+\setlist[itemize]{topsep=0pt}%topsep=0pt
+
+
+% Bookmarks in PDF (navigation pane)
+\usepackage{bookmark}
+
+
+\newcommand{\hi}{$H_{\rm init}$\xspace}
+\newcommand{\hf}{$H_{\rm final}$\xspace}
+
+%% Set formatting of headers
+\newcommand{\secspace}{\vspace{2mm}}
+
+\newcommand{\summarysec}{\secspace\emph{\textbf{Summary}}}
+\newcommand{\prossec}{\secspace\emph{\textbf{Pros}}}
+\newcommand{\conssec}{\secspace\emph{\textbf{Cons}}}
+\newcommand{\costsec}{\secspace\emph{\textbf{Cost}}}
+\newcommand{\examplesec}{\secspace\emph{\textbf{Example}}}
+\newcommand{\refsec}{\secspace\emph{\textbf{Bibliography}}}
+
+
+%\setmathfont[version=cambria]{Cambria Math}
+\usepackage{babel}
+\end_preamble
+\options notitlepage,showpacs,preprintnumbers,amsmath,amssymb,aps,nofootinbib
+\use_default_options false
+\begin_modules
+algorithm2e
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding iso8859-15
+\fontencoding T1
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "eulervm" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 12
+\spacing single
+\use_hyperref true
+\pdf_bookmarks false
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks true
+\pdf_backref section
+\pdf_pdfusetitle false
+\pdf_quoted_options "linkcolor=black,urlcolor=black,bookmarksopen=true"
+\papersize default
+\use_geometry false
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Code gadgets
+\end_layout
+
+\begin_layout Author
+Nike Dattani
+\end_layout
+
+\begin_layout Author Email
+
+n.dattani@cfa.harvard.edu
+\end_layout
+
+\begin_layout Affiliation
+Harvard-Smithsonian Center for Astrophysics
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+H_{{\rm 4-local}}=-z_{A}z_{B}z_{C}z_{D}-x_{A}x_{B}x_{C}x_{D}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+H_{{\rm 2-local}}= & -\sum_{i}x_{i}x_{i+2}-\sum_{i}x_{i+1}x_{i+3}-\sum_{i}z_{i}z_{i+1}-\sum_{i}z_{i+2}z_{i+3}\\
+ & -\lambda\sum_{i}x_{i}x_{j+3}-\lambda\sum_{i}x_{i+1}x_{k+2}-\lambda\sum_{i}x_{i+2}x_{l+1}-\lambda\sum_{i}x_{i+3}x_{m}\\
+ & -\lambda\sum_{i}z_{i}z_{j+3}-\lambda\sum_{i}z_{i+1}z_{k+2}-\lambda\sum_{i}z_{i+2}z_{l+1}-\lambda\sum_{i}z_{i+3}z_{m}
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+T_{l} & =\frac{1}{2}\left(1-z_{s1}+z_{s2}+z_{s1}z_{s2}\right)\\
+T_{d} & =\frac{1}{2}\left(1+z_{s1}-z_{s2}+z_{s1}z_{s2}\right)\\
+T_{u} & =\frac{1}{2}\left(1-z_{s1}-z_{s2}-z_{s1}z_{s2}\right)\\
+T_{r} & =\frac{1}{2}\left(z_{s1}+z_{s2}+z_{s1}z_{s2}-1\right)\\
+|m_{s_{ij}}=1\rangle\langle m_{s_{ij}}=0| & =\frac{1+z_{s1_{ij}}}{2}\frac{x_{s2_{ij}}-{\rm i}y_{s2_{ij}}}{2}\\
+|1\rangle\langle0|+|1\rangle\langle0|^{\dagger} & =\frac{1}{2}\left(x_{s2_{ij}}+z_{s1_{ij}}x_{s2_{ij}}\right)\\
+D_{s_{ij}}(m_{s_{ij}}=0) & =\frac{1}{4}\left(x_{s2_{ij}}-{\rm i}y_{s2_{ij}}+z_{s1_{ij}}x_{s2_{ij}}-{\rm i}z_{s1_{ij}}y_{s2_{ij}}\right)A_{s_{ij}}(m_{s_{ij}})\\
+ & =\frac{1}{4}\left(x_{s2_{ij}}-{\rm i}y_{s2_{ij}}+z_{s1_{ij}}x_{s2_{ij}}-{\rm i}z_{s1_{ij}}y_{s2_{ij}}\right)x_{ij3}x_{ij4}\\
+D_{s_{ij}}(m_{s_{ij}}=0)+D_{s_{ij}}^{\dagger}(m_{s_{ij}}=0) & =\frac{1}{2}\left(x_{s2_{ij}}+z_{s1_{ij}}x_{s2_{ij}}\right)x_{ij3}x_{ij4}\\
+D_{s_{ij}}(m_{s_{ij}}=1)+D_{s_{ij}}^{\dagger}(m_{s_{ij}}=1) & =\frac{1}{2}\left(x_{s1_{ij}}x_{s2_{ij}}+y_{s1_{ij}}y_{s2_{ij}}\right)x_{i,j+1,2}x_{i,j+1,4}\\
+D_{s_{ij}}(m_{s_{ij}}=2)+D_{s_{ij}}^{\dagger}(m_{s_{ij}}=2) & =\frac{1}{2}\left(x_{s2_{ij}}-z_{s1_{ij}}x_{s2_{ij}}\right)x_{i+1,j+1,1}x_{i+1,j+1,2}\\
+D_{s_{ij}}(m_{s_{ij}}=3)+D_{s_{ij}}^{\dagger}(m_{s_{ij}}=3) & =\frac{1}{2}\left(x_{s1_{ij}}x_{s2_{ij}}-y_{s1_{ij}}y_{s2_{ij}}\right)x_{i+1,j,1}x_{i+1,j,3}
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+\begin_inset Formula 
+\begin{align}
+H_{{\rm 8-body}} & =-J\sum_{ij}\left(x_{4i+3,j}x_{4i+2,j+1}x_{4i+4,j}x_{4i+4,j+1}x_{4i+5,j}x_{4i+5,j+1}x_{4i+7,j}x_{4i+6,j+1}+\right.\\
+ & \left.z_{4i+1,j}z_{4i+2,j}z_{4i+3,j}z_{4i+4i,j}+z_{4i,j}z_{4i+1,j}+z_{4i+2,j}z_{4i+3,j-1}+z_{4i+4,j}z_{4i+5,j}+z_{4i+3,j}z_{4i+2,j+1}\right)
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+H_{{\rm 8-body}} & =-J\sum_{ij}\left(x_{ij3}x_{ij+1,2}x_{ij4}x_{ij+1,4}x_{i+1j1}x_{i+1j+1,1}x_{i+1j3}x_{ij+1,2}+\right.\\
+ & \left.z_{ij1}z_{ij2}z_{ij3}z_{ij4}+z_{i-1j4}z_{ij1}+z_{ij2}z_{ij-1,3}+z_{ij4}z_{i+1j1}+z_{ij3}z_{ij+1,2}\right)
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\begin{align}
+H_{{\rm 2-body}} & =-J\sum_{ij}\left(x_{4i+3,j}x_{4i+2,j+1}x_{4i+4,j}x_{4i+4,j+1}x_{4i+5,j}x_{4i+5,j+1}x_{4i+7,j}x_{4i+6,j+1}+\right.\\
+ & =\frac{U}{2}\left(z_{a2_{ij}}+z_{a1_{ij}}z_{a2_{ij}}+z_{a1_{ij}}-1\right)+\\
+ & =\frac{t}{2}\left(x_{s2_{ij}}+{\rm i}y_{s2_{ij}}+z_{s1_{ij}}x_{s2_{ij}}+{\rm i}z_{s1_{ij}}y_{s2_{ij}}\right.
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Introduce now index 
+\begin_inset Formula $k$
+\end_inset
+
+ to describe which of the 4 qubits in a plaquette 
+\begin_inset Formula $ij$
+\end_inset
+
+ is being looked at:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+H_{{\rm 4-body}} & =-\sum_{ij}\alpha\left(z_{ij1}z_{ij2}z_{ij3}z_{ij4}+z_{i,j,-1,4}z_{ij1}+z_{ij2}z_{i,j-1,3}+z_{ij4}z_{i+1,j,1}+z_{ij3}z_{i,j+1,2}\right.\\
+ & \left(1-z_{a1_{ij}}+z_{a2_{ij}}+z_{a1_{ij}}z_{a2_{ij}}\right)\left(z_{a1_{i,j+1}}+z_{a2_{i,j+1}}+z_{a1_{i,j+1}}z_{a2_{i,j+1}}-1\right)+\\
+ & \left.\left(1+z_{a1_{ij}}-z_{a2_{ij}}+z_{a1_{ij}}z_{a2_{ij}}\right)\left(1-z_{a1_{i+1,j}}-z_{a2_{i+1,j}}-z_{a1_{i+1,j}}z_{a2_{i+1,j}}\right)\right)+\\
+ & \frac{U}{2}\left(z_{a1_{ij}}+z_{a2_{ij}}+z_{a1_{ij}}z_{a2_{ij}}-1\right)+\\
+ & \frac{t}{2}\left(\left(x_{a2_{ij}}+z_{a1_{ij}}x_{a2_{ij}}\right)x_{ij3}x_{ij4}+\left(x_{a1_{ij}}x_{a2_{ij}}+y_{a1_{ij}}y_{a2_{ij}}\right)x_{i,j+1,2}x_{i,j+1,4}+\right.\\
+ & \left.\left(x_{a2_{ij}}-z_{a1_{ij}}x_{a2_{ij}}\right)x_{i+1,j+1,1}x_{i+1,j+1,2}+\left(x_{a1_{ij}}x_{a2_{ij}}-y_{a1_{ij}}y_{a2_{ij}}\right)x_{i+1,j,1}x_{i+1,j,3}\right)
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+H_{{\rm 4-body}} & =-\sum_{ij}\alpha\left(z_{ij1}z_{ij2}z_{ij3}z_{ij4}+z_{i,j,-1,4}z_{ij1}+z_{ij2}z_{i,j-1,3}+z_{ij4}z_{i+1,j,1}+z_{ij3}z_{i,j+1,2}\right.\\
+ & \left(1-z_{a_{ij1}}+z_{a_{ij2}}+z_{a_{ij1}}z_{a_{ij2}}\right)\left(z_{a_{i,j+1,1}}+z_{a_{i,j+1,2}}+z_{a_{i,j+1,1}}z_{a_{i,j+1,2}}-1\right)+\\
+ & \left.\left(1+z_{a_{ij1}}-z_{a_{ij2}}+z_{a_{ij1}}z_{a_{ij2}}\right)\left(1-z_{a_{i+1,j1}}-z_{a_{i+1,j2}}-z_{a_{i+1,j1}}z_{a_{i+1,j2}}\right)\right)+\\
+ & \frac{U}{2}\left(z_{a_{ij1}}+z_{a_{ij2}}+z_{a_{ij1}}z_{a_{ij2}}-1\right)+\\
+ & \frac{t}{2}\left(\left(x_{a_{ij2}}+z_{a_{ij1}}x_{a_{ij2}}\right)x_{ij3}x_{ij4}+\left(x_{a_{ij1}}x_{a_{ij2}}+y_{a_{ij1}}y_{a_{ij2}}\right)x_{i,j+1,2}x_{i,j+1,4}+\right.\\
+ & \left.\left(x_{a_{ij2}}-z_{a_{ij1}}x_{a_{ij2}}\right)x_{i+1,j+1,1}x_{i+1,j+1,2}+\left(x_{a_{ij1}}x_{a_{ij2}}-y_{a_{ij1}}y_{a_{ij2}}\right)x_{i+1,j,1}x_{i+1,j,3}\right)
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now introducing the following 1-body matrices, each of size 
+\begin_inset Formula $4\times4$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+s_{ijki^{\prime}j^{\prime}k^{\prime}}^{zz} & =z_{ijk}z_{i^{\prime}j^{\prime}k^{\prime}}\\
+s_{a_{ij}1}^{zz} & =\left(1-z_{a1_{ij}}+z_{a2_{ij}}+z_{a1_{ij}}z_{a2_{ij}}\right)\\
+s_{a_{ij}2}^{zz} & =\left(z_{a1_{ij}}+z_{a2_{ij}}+z_{a1_{ij}}z_{a2_{ij}}-1\right)\\
+s_{a_{ij}3}^{zz} & =\left(1+z_{a1_{ij}}-z_{a2_{ij}}+z_{a1_{ij}}z_{a2_{ij}}\right)\\
+s_{a_{ij}4}^{zz} & =\left(1-z_{a1_{ij}}-z_{a2_{ij}}-z_{a1_{ij}}z_{a2_{ij}}\right)=-s_{a_{ij}3}^{zz}\\
+s_{a_{ij}1}^{xz} & =\left(x_{a2_{ij}}+z_{a1_{ij}}x_{a2_{ij}}\right)\\
+s_{a_{ij}2}^{xz} & =\left(x_{a2_{ij}}-z_{a1_{ij}}x_{a2_{ij}}\right)\\
+s_{ijki^{\prime}j^{\prime}k^{\prime}}^{xx} & =x_{ijk}x_{i^{\prime}j^{\prime}k^{\prime}}\\
+s_{a_{ij}1}^{xy} & =\left(x_{a1_{ij}}x_{a2_{ij}}+y_{a1_{ij}}y_{a2_{ij}}\right)\\
+s_{a_{ij}2}^{xy} & =\left(x_{a1_{ij}}x_{a2_{ij}}-y_{a1_{ij}}y_{a2_{ij}}\right)
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We can write 
+\begin_inset Formula $H_{{\rm 4-body}}$
+\end_inset
+
+ as a 2-body Hamiltonian:
+\size footnotesize
+
+\begin_inset Formula 
+\begin{align}
+H_{{\rm 2-body}} & =-\sum_{ij}\left(\alpha\left(s_{ij1ij2}^{zz}s_{ij3ij4}^{zz}+s_{ij-1,4ij1}^{zz}+s_{ij2ij-1,3}^{zz}+s_{ij4i+1j1}^{zz}+s_{ij3ij+1,2}^{zz}+s_{a_{ij}1}^{zz}s_{a_{ij+1}2}^{zz}-s_{a_{ij}3}^{zz}s_{a_{i+1j}3}^{zz}\right)\right.\\
+ & \left.+\frac{U}{2}s_{a_{ij},1}^{zz}+\frac{t}{2}\left(s_{a_{ij}1}^{xz}s_{ij3ij4}^{xx}+s_{a_{ij}1}^{xy}s_{ij+1,2ij+1,4}^{xx}+s_{a_{ij}2}^{xz}s_{i+1,j+1,1i+1,j+1,2}^{xx}+s_{a_{ij}2}^{xy}s_{i+1j1,i+1,j3}^{xx}\right)\right)
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
