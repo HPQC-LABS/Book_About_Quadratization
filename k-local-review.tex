@@ -1886,7 +1886,16 @@ Any $n$-variable symmetric function $f\left(b_1,b_2,\ldots b_n\right)\equiv f(b)
 
 {\scriptsize
 \begin{align}
-f(b) \rightarrow \alpha+\alpha^{b}\sum_{i}b_{i}+\alpha^{b_{a,1}}\sum_{i}^{m-1}b_{a_{i}}+\alpha^{b_{a,2}}b_{a_{m}}+\alpha^{bb}\sum_{ij}b_{i}b_{j}+\alpha^{bb_{a,1}}\sum_{i}\sum_{j}^{m-1}b_{i}b_{a_{j}}+\alpha^{bb_{a,2}}\sum_{i}b_{i}b_{a_{m}}+\alpha^{b_{a}b_{a}}\sum_{i,j}^{m-1}b_{a_{i}}b_{a_{j}},
+%f(b) \rightarrow \alpha+\alpha^{b}\sum_{i}b_{i}+\alpha^{b_{a,1}}\sum_{i}^{m-1}b_{a_{i}}+\alpha^{b_{a,2}}b_{a_{m}}+\alpha^{bb}\sum_{ij}b_{i}b_{j}+\alpha^{bb_{a,1}}\sum_{i}\sum_{j}^{m-1}b_{i}b_{a_{j}}+\alpha^{bb_{a,2}}\sum_{i}b_{i}b_{a_{m}}+\alpha^{b_{a}b_{a}}\sum_{i,j}^{m-1}b_{a_{i}}b_{a_{j}},
+f(b) \rightarrow \alpha
++\alpha^{b}\sum_{i}b_{i}
++\sum_{i}^{m-1}\alpha^{b_{a,1}}b_{a_{i}}
++\alpha^{b_{a,2}}b_{a_{m}}
++\alpha^{bb}\sum_{ij}b_{i}b_{j}
++\sum_{i}\sum_{j}^{m-1}\alpha^{bb_{a,1}}b_{i}b_{a_{j}}
++\alpha^{bb_{a,2}}\sum_{i}b_{i}b_{a_{m}}
++\sum_{i,j}^{m-1}\alpha^{b_{a}b_{a,1}}b_{a_{i}}b_{a_{j}},
++\sum_{i}^{m-1}\alpha^{b_{a}b_{a,2}}b_{a_{i}}b_{a_{m}},
 \end{align}
 }
 
@@ -1896,11 +1905,13 @@ f(b) \rightarrow \alpha+\alpha^{b}\sum_{i}b_{i}+\alpha^{b_{a,1}}\sum_{i}^{m-1}b_
 \begin{pmatrix}\alpha & \alpha^{bb}\\
 \alpha^{b} & \alpha^{bb_{a,1}}\\
 \alpha^{b_{a,1}} & \alpha^{bb_{a,2}}\\
-\alpha^{b_{a,2}} & \alpha^{b_{a}b_{a}}
+\alpha^{b_{a,2}} & \alpha^{b_{a}b_{a,1}}\\
+ & \alpha^{b_{a}b_{a,2}}
 \end{pmatrix}=\begin{pmatrix}(c+1)^{2} & 1\\
--2(c+1) & -2^{i}\\
-2(c+1) & -2\left(2m-2^{m-1}+1\right)\\
-2(c+1)\left(2c-2^{m-1}+1\right) & 2^{i+j-2}
+-2(c+1) & -2^{i+1}\\
+(c+1)2^{i+1} & 2\left(1+2^{m-1}\right)\\
+\left(1+2^{m-1}\right)\left(2^{m-1}-2c-1\right) & 2^{i+j}\\
+ & - \left(1+2^{m-1}\right)2^{i}
 \end{pmatrix}.
 \end{align}
 
@@ -1933,7 +1944,7 @@ The first expression is highly non-submodular while the second is entirely submo
 
 \altformsec
 \begin{align}
-f\left(b_{1},b_{2},\ldots,b_{n}\right) &\rightarrow \left(-(c+1)+\sum_{i}b_{i}-\left(2c-2^{m-1}+1\right)b_{a_{m}}-\sum_{i}^{m-1}2^{i-1}b_{a_{i}}\right)^{2}
+f\left(b_{1},b_{2},\ldots,b_{n}\right) &\rightarrow \left(-(c+1)+\sum_{i}b_{i}-\sum_{i}^{m-1}2^{i-1}b_{a_{i}}+\left(1+2^{m-1}\right)b_{a_{m}}\right)^{2}
 \end{align}
 
 
@@ -1952,7 +1963,15 @@ Any $n$-variable symmetric function $f\left(b_1,b_2,\ldots b_n\right)\equiv f(b)
 
 {\scriptsize
 \begin{align}
-f(b)\rightarrow \left(\left(m-1\right)-\sum_{i}b_{i}-\left(2(n-m)-2^{\lceil\log(n-m)\rceil}+1\right)b_{a_{\lceil\log(n-m)\rceil+1}}-\sum_{i}^{\lceil\log(n-m)\rceil}2^{i-1}b_{a_{i}}\right)^{2}
+f(b) \rightarrow \alpha
++\alpha^{b}\sum_{i}b_{i}
++\sum_{i}^{m-1}\alpha^{b_{a,1}}b_{a_{i}}
++\alpha^{b_{a,2}}b_{a_{m}}
++\alpha^{bb}\sum_{ij}b_{i}b_{j}
++\sum_{i}\sum_{j}^{m-1}\alpha^{bb_{a,1}}b_{i}b_{a_{j}}
++\alpha^{bb_{a,2}}\sum_{i}b_{i}b_{a_{m}}
++\sum_{i,j}^{m-1}\alpha^{b_{a}b_{a,1}}b_{a_{i}}b_{a_{j}},
++\sum_{i}^{m-1}\alpha^{b_{a}b_{a,2}}b_{a_{i}}b_{a_{m}},
 \end{align}
 }
 
@@ -1962,11 +1981,13 @@ f(b)\rightarrow \left(\left(m-1\right)-\sum_{i}b_{i}-\left(2(n-m)-2^{\lceil\log(
 \begin{pmatrix}\alpha & \alpha^{bb}\\
 \alpha^{b} & \alpha^{bb_{a,1}}\\
 \alpha^{b_{a,1}} & \alpha^{bb_{a,2}}\\
-\alpha^{b_{a,2}} & \alpha^{b_{a}b_{a}}
-\end{pmatrix}=\begin{pmatrix}(c+1)^{2} & 1\\
--2(c+1) & -2^{i}\\
-2(c+1) & -2\left(2m-2^{m-1}+1\right)\\
-2(c+1)\left(2c-2^{m-1}+1\right) & 2^{i+j-2}
+\alpha^{b_{a,2}} & \alpha^{b_{a}b_{a,1}}\\
+ & \alpha^{b_{a}b_{a,2}}
+\end{pmatrix}=\begin{pmatrix}(c-1)^{2} & 1\\
+-2(c-1) & +2^{i+1}\\
+(1-c)2^{i+1} &-2\left(1+2^{m-1}\right)\\
+\left(1+2^{m-1}\right)\left(2^{m-1}+2c-1\right) & 2^{i+j}\\
+ & - \left(1+2^{m-1}\right)2^{i}
 \end{pmatrix}.
 \end{align}
 
@@ -1997,6 +2018,11 @@ H & = & 3b_{1}b_{2}+b_{2}b_{3}+2b_{1}b_{4}-4b_{2}b_{4}\protect\\
 \end{eqnarray}
 The first expression is highly non-submodular while the second is entirely submodular.
 
+\altformsec
+\begin{align}
+f\left(b_{1},b_{2},\ldots,b_{n}\right) &\rightarrow \left((c-1)-\sum_{i}b_{i}-\sum_{i}^{m-1}2^{i-1}b_{a_{i}}+\left(1+2^{m-1}\right)b_{a_{m}}\right)^{2}
+\end{align}
+
 \refsec
 \begin{itemize}
 \item 2018, original paper (Theorem 1): \cite{Boros2018QuadratizationsOS}.
@@ -2009,11 +2035,19 @@ The first expression is highly non-submodular while the second is entirely submo
 \summarysec
 % actually they say =1, not "non-zero"
 
-Any $n$-variable symmetric function $f\left(b_1,b_2,\ldots b_n\right)\equiv f(b)$  that is non-zero only when $\sum b_i = c$ where $\nicefrac{n}{2}\le c \le n$, can be quadratized with $m=\lceil \textrm{log}_2c \rceil +1$ auxiliary variables $f\rightarrow$:
+Any $n$-variable symmetric function $f\left(b_1,b_2,\ldots b_n\right)\equiv f(b)$  that is non-zero only when $\sum b_i = c$ where $\nicefrac{n}{2}\le c \le n$, can be quadratized with $m=\lceil \textrm{log}_2c \rceil $ auxiliary variables $f\rightarrow$:
 
 {\scriptsize
 \begin{align}
-\frac{1}{2}\left(\sum_{i}b_{i}-\left(m-2^{c}\right)b_{a_{c+1}}-(m+1)(\left(1-b_{a_{c+1}}\right)-\sum_{i}^{c}2^{i-1}b_{a_{i}}\right)\left(\sum_{i}b_{i}-\left(m-2^{c}\right)b_{a_{c+1}}-(m+1)(\left(1-b_{a_{c+1}}\right)-\sum_{i}^{c}2^{i-1}b_{a_{i}}-1\right)
+f(b) \rightarrow \alpha
++\alpha^{b}\sum_{i}b_{i}
++\sum_{i}^{m-1}\alpha^{b_{a,1}}b_{a_{i}}
++\alpha^{b_{a,2}}b_{a_{m}}
++\alpha^{bb}\sum_{ij}b_{i}b_{j}
++\sum_{i}\sum_{j}^{m-1}\alpha^{bb_{a,1}}b_{i}b_{a_{j}}
++\alpha^{bb_{a,2}}\sum_{i}b_{i}b_{a_{m}}
++\sum_{i,j}^{m-1}\alpha^{b_{a}b_{a,1}}b_{a_{i}}b_{a_{j}},
++\sum_{i}^{m-1}\alpha^{b_{a}b_{a,2}}b_{a_{i}}b_{a_{m}},
 \end{align}
 }
 
@@ -2023,17 +2057,19 @@ Any $n$-variable symmetric function $f\left(b_1,b_2,\ldots b_n\right)\equiv f(b)
 \begin{pmatrix}\alpha & \alpha^{bb}\\
 \alpha^{b} & \alpha^{bb_{a,1}}\\
 \alpha^{b_{a,1}} & \alpha^{bb_{a,2}}\\
-\alpha^{b_{a,2}} & \alpha^{b_{a}b_{a}}
-\end{pmatrix}=\begin{pmatrix}(c+1)^{2} & 1\\
--2(c+1) & -2^{i}\\
-2(c+1) & -2\left(2m-2^{m-1}+1\right)\\
-2(c+1)\left(2c-2^{m-1}+1\right) & 2^{i+j-2}
+\alpha^{b_{a,2}} & \alpha^{b_{a}b_{a,1}}\\
+ & \alpha^{b_{a}b_{a,2}}
+\end{pmatrix}=\begin{pmatrix}\frac{1}{2}(c^2+3c+2) & \frac{1}{2}\\
+-c & -2^{i}\\
+(1+c)2^{i} & \left(1+2^{m}\right)\\
+\left(1+2^{m}\right)\left(2^{m-1}-c-1\right) & 2^{i+j-1}\\
+ & - \left(1+2^{m}\right)2^{i-1}
 \end{pmatrix}.
 \end{align}
 
 \costsec
 \begin{itemize}
-\item $m=\lceil \textrm{log}_2 c \rceil + 1$ auxiliary variables. 
+\item $m=\lceil \textrm{log}_2 c \rceil$ auxiliary variables. 
 \item $n^2 + m^2$ non-submodular quadratic terms (all possible quadratic terms involving only non-auxiliary or only auxiliary variables).
 \item $m$ non-submodular linear terms (all possible linear terms involving auxiliaries).
 \end{itemize}
@@ -2060,7 +2096,7 @@ The first expression is highly non-submodular while the second is entirely submo
 
 \altformsec
 \begin{align}
-f\left(b_{1},b_{2},\ldots,b_{n}\right)&\rightarrow \binom{\frac{1}{2}\left(\sum_{i}b_{i}-\left(m-2^{c}\right)b_{a_{c+1}}-(m+1)(\left(1-b_{a_{c+1}}\right)-\sum_{i}^{c}2^{i-1}b_{a_{i}}\right)}{2}
+f\left(b_{1},b_{2},\ldots,b_{n}\right)&\rightarrow \binom{-(c+1)+\sum_{i}b_{i}-\sum_{i}^{m-1}2^{i-1}b_{a_{i}}+\left(1+2^{m-1}\right)b_{a_{m}}}{2}
 \end{align}
 
 
@@ -2075,11 +2111,19 @@ f\left(b_{1},b_{2},\ldots,b_{n}\right)&\rightarrow \binom{\frac{1}{2}\left(\sum_
 
 \summarysec
 
-Any $n$-variable symmetric function $f\left(b_1,b_2,\ldots b_n\right)\equiv f(b)$  that is non-zero only when $\sum b_i = c$ where $0\le c \le\nicefrac{n}{2} $, can be quadratized with $m=\lceil \textrm{log}_2(n-c) \rceil +1$ auxiliary variables $f\rightarrow$:
+Any $n$-variable symmetric function $f\left(b_1,b_2,\ldots b_n\right)\equiv f(b)$  that is non-zero only when $\sum b_i = c$ where $0\le c \le\nicefrac{n}{2} $, can be quadratized with $m=\lceil \textrm{log}_2(n-c) \rceil $ auxiliary variables $f\rightarrow$:
 
 {\scriptsize
 \begin{align}
-\frac{1}{2}\left(\left(c-1\right)-\sum_{i}b_{i}-\left(2(n-c)-2^{m-1}+1\right)b_{a_{m}}-\sum_{i}^{m-1}2^{i-1}b_{a_{i}}\right)\left(\left(c-1\right)-\sum_{i}b_{i}-\left(2(n-c)-2^{m-1}+1\right)b_{a_{m}}-\sum_{i}^{m-1}2^{i-1}b_{a_{i}}-1\right)
+f(b) \rightarrow \alpha
++\alpha^{b}\sum_{i}b_{i}
++\sum_{i}^{m-1}\alpha^{b_{a,1}}b_{a_{i}}
++\alpha^{b_{a,2}}b_{a_{m}}
++\alpha^{bb}\sum_{ij}b_{i}b_{j}
++\sum_{i}\sum_{j}^{m-1}\alpha^{bb_{a,1}}b_{i}b_{a_{j}}
++\alpha^{bb_{a,2}}\sum_{i}b_{i}b_{a_{m}}
++\sum_{i,j}^{m-1}\alpha^{b_{a}b_{a,1}}b_{a_{i}}b_{a_{j}},
++\sum_{i}^{m-1}\alpha^{b_{a}b_{a,2}}b_{a_{i}}b_{a_{m}},
 \end{align}
 }
 
@@ -2089,17 +2133,20 @@ Any $n$-variable symmetric function $f\left(b_1,b_2,\ldots b_n\right)\equiv f(b)
 \begin{pmatrix}\alpha & \alpha^{bb}\\
 \alpha^{b} & \alpha^{bb_{a,1}}\\
 \alpha^{b_{a,1}} & \alpha^{bb_{a,2}}\\
-\alpha^{b_{a,2}} & \alpha^{b_{a}b_{a}}
-\end{pmatrix}=\begin{pmatrix}(c+1)^{2} & 1\\
--2(c+1) & -2^{i}\\
-2(c+1) & -2\left(2m-2^{m-1}+1\right)\\
-2(c+1)\left(2c-2^{m-1}+1\right) & 2^{i+j-2}
+\alpha^{b_{a,2}} & \alpha^{b_{a}b_{a,1}}\\
+ & \alpha^{b_{a}b_{a,2}}
+\end{pmatrix}=\begin{pmatrix}\frac{1}{2}(c^2-3c+2) & \frac{1}{2}\\
+-c+1 & +2^{i}\\
+(1-c)2^{i} &-\left(1+2^{m}\right)\\
+\left(1+2^{m}\right)\left(2^{m-1}+c-1\right) & 2^{i+j-1}\\
+ & - \left(1+2^{m}\right)2^{i-1}
 \end{pmatrix}.
 \end{align}
 
+
 \costsec
 \begin{itemize}
-\item $m=\lceil \textrm{log}_2 (n-c) \rceil + 1$ auxiliary variables.
+\item $m=\lceil \textrm{log}_2 (n-c) \rceil$ auxiliary variables.
 \item $n^2 + m^2$ non-submodular quadratic terms (all possible quadratic terms involving only non-auxiliary or only auxiliary variables).
 \item $m$ non-submodular linear terms (all possible linear terms involving auxiliaries).
 \end{itemize}
@@ -2126,7 +2173,7 @@ The first expression is highly non-submodular while the second is entirely submo
 
 \altformsec
 \begin{align}
-f\left(b_{1},b_{2},\ldots,b_{n}\right)& \rightarrow \binom{\frac{1}{2}\left(\left(c-1\right)-\sum_{i}b_{i}-\left(2(n-c)-2^{m-1}+1\right)b_{a_{m}}-\sum_{i}^{m-1}2^{i-1}b_{a_{i}}\right)}{2}
+f\left(b_{1},b_{2},\ldots,b_{n}\right)& \rightarrow \binom{(c-1)-\sum_{i}b_{i}-\sum_{i}^{m-1}2^{i-1}b_{a_{i}}+\left(1+2^{m-1}\right)b_{a_{m}}}{2}
 \end{align}
 
 \refsec
