@@ -6,7 +6,7 @@
   title = {Quadratization in Pseudo-Boolean Optimization and Adiabatic Quantum Computing},<br>
   year = {2016},<br>
   journal = {GitHub repository},<br>
-  howpublished = {\url{https://github.com/HPQC-LABS/Book_About_Quadratization}},<br>
+  howpublished = {\url{https://github.com/HPQC-LABS/Book_About_Quadratization }},<br>
 }
 
 ## Mendeley:
