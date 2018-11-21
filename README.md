@@ -1,12 +1,12 @@
 # Quadratization in Pseudo-Boolean Optimization and Adiabatic Quantum Computing
 
 ## Citation
-@misc{QUADRATIZATION,
-  author = {Dattani, N.},
-  title = {Quadratization in Pseudo-Boolean Optimization and Adiabatic Quantum Computing},
-  year = {2016},
-  journal = {GitHub repository},
-  howpublished = {\url{https://github.com/HPQC-LABS/Book_About_Quadratization}},
+@misc{QUADRATIZATION,<br>
+  author = {Dattani, N.},<br>
+  title = {Quadratization in Pseudo-Boolean Optimization and Adiabatic Quantum Computing},<br>
+  year = {2016},<br>
+  journal = {GitHub repository},<br>
+  howpublished = {\url{https://github.com/HPQC-LABS/Book_About_Quadratization}},<br>
 }
 
 ## Mendeley
