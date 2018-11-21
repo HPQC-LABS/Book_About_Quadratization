@@ -10,4 +10,4 @@
 <hr>
 
 <b>This book would not have been possible without the amazing contributors that have helped immensely:</b><br>
-Richard Tanburn, Nicholas Chancellor, Szilard Szalay, Yudong, Cao, Daniel Nagaj, Jacob Biamonte
+Richard Tanburn, Nicholas Chancellor, Szilard Szalay, Yudong, Cao, Daniel Nagaj
