@@ -1019,7 +1019,7 @@ Extra binary or ternary variable is added to ensure that the energy of the even 
 
 \costsec
 \begin{itemize}
-\item 1 auxiliary ternary variable 
+\item 1 auxiliary ternary variable (see appendix for mapping to binary variable)
 \end{itemize}
 
 \prossec
@@ -4683,6 +4683,16 @@ This review has only focused on $k-$local to $2-$local transformations where $k>
 % Combining gadgets together. CBBK talks about parallel subdivision, and BDLT has a section on "combining the gadgets together" mainly useful for looking at the error analysis.
 
 \end{itemize}
+
+\newpage
+
+\section{Appendix: mapping from ternary to two binary variables}
+
+\begin{eqnarray}
+H_{\textrm{ternary}} = -\lambda (z_1\,z_2+z_1-z_2)   
+\end{eqnarray}
+
+In this implementation the variable $\frac{1}{2}(z_1+z_2)$ plays the role of $t$, assuming $\lambda$ is large and positive. For instance, when coupled to a binary variable $t\, z_3\rightarrow \frac{1}{2}(z_1+z_2)\,z_3$.
 
 \newpage
 %\bibliographystyle{apsrev4-1}
