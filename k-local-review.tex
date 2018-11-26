@@ -1019,7 +1019,7 @@ Extra binary or ternary variable is added to ensure that the energy of the even 
 
 \costsec
 \begin{itemize}
-\item 1 auxiliary ternary variable (see appendix for mapping to binary variable)
+\item 1 auxiliary ternary variable (see appendix for transformation to a binary variable)
 \end{itemize}
 
 \prossec
@@ -4505,6 +4505,17 @@ H_{\textrm{2-local}} &= -\sum_{ij} \left( x_{8i+4,j}x_{8i+6,j} + x_{8i+3,j+1}x_{
 \newpage
 \part{{\normalsize {\underline{Appendix}}}}
 
+
+%\newpage
+
+\section{Transformations from ternary to binary variables}
+
+\begin{eqnarray}
+H_{\textrm{ternary}} = -\lambda (z_1\,z_2+z_1-z_2)   
+\end{eqnarray}
+
+In this implementation the variable $\frac{1}{2}(z_1+z_2)$ plays the role of $t$, assuming $\lambda$ is large and positive. For instance, when coupled to a binary variable $t\, z_3\rightarrow \frac{1}{2}(z_1+z_2)\,z_3$.
+
 %\section{Notation}
 %
 %The left Kronecker product by a $2\times2$ identity matrix is implied by Eqs. \eqref{eq:XZ+Z} and \eqref{eq:XX+Z} in the following way for qubit operators $q\in\{z,x\}$, assuming $i<j$:
@@ -4550,7 +4561,7 @@ H_{\textrm{2-local}} &= -\sum_{ij} \left( x_{8i+4,j}x_{8i+6,j} + x_{8i+3,j+1}x_{
 %possible states , and the configuration of spin up and spin down electrons
 %encodes the desired computation.
 %
-%\newpage
+\newpage
 \section{Further Examples}
 
 \examplesec \label{subsec:Example_Ramsey_deduc_reduc}
@@ -4684,15 +4695,15 @@ This review has only focused on $k-$local to $2-$local transformations where $k>
 
 \end{itemize}
 
-\newpage
 
-\section{Appendix: mapping from ternary to two binary variables}
 
-\begin{eqnarray}
-H_{\textrm{ternary}} = -\lambda (z_1\,z_2+z_1-z_2)   
-\end{eqnarray}
 
-In this implementation the variable $\frac{1}{2}(z_1+z_2)$ plays the role of $t$, assuming $\lambda$ is large and positive. For instance, when coupled to a binary variable $t\, z_3\rightarrow \frac{1}{2}(z_1+z_2)\,z_3$.
+
+
+
+
+
+
 
 \newpage
 %\bibliographystyle{apsrev4-1}
