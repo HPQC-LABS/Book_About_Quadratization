@@ -6,7 +6,7 @@
 %Control: page (1) range
 %Control: year (0) verbatim
 %Control: production of eprint (0) enabled
-\begin{thebibliography}{53}%
+\begin{thebibliography}{54}%
 \makeatletter
 \providecommand \@ifxundefined [1]{%
  \@ifx{#1\undefined}
@@ -207,6 +207,18 @@
   {http://www.maths.lth.se/vision/publdb/reports/pdf/kahl-strandmark-iccv-11.pdf}
   {\bibfield  {journal} {\bibinfo  {journal} {International Conference on
   Computer Vision}\ } (\bibinfo {year} {2011})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Rocchetto}\ \emph {et~al.}(2016)\citenamefont
+  {Rocchetto}, \citenamefont {Benjamin},\ and\ \citenamefont
+  {Li}}]{Rocchetto2016}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Andrea}\ \bibnamefont
+  {Rocchetto}}, \bibinfo {author} {\bibfnamefont {Simon~C}\ \bibnamefont
+  {Benjamin}}, \ and\ \bibinfo {author} {\bibfnamefont {Ying}\ \bibnamefont
+  {Li}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {{Stabilizers as a
+  design tool for new forms of the Lechner-Hauke-Zoller annealer}},}\ }\href
+  {\doibase 10.1126/sciadv.1601246} {\bibfield  {journal} {\bibinfo  {journal}
+  {Science Advances}\ }\textbf {\bibinfo {volume} {2}} (\bibinfo {year}
+  {2016}),\ 10.1126/sciadv.1601246}\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Boros}\ and\ \citenamefont
   {Gruber}(2014)}]{Boros2014}%
   \BibitemOpen
@@ -324,6 +336,16 @@
   }\bibfield  {title} {\enquote {\bibinfo {title} {{Quadratic reformulations of
   nonlinear binary optimization problems}},}\ }\href@noop {} {\ }\BibitemShut
   {NoStop}%
+\bibitem [{\citenamefont {Boros}\ \emph {et~al.}()\citenamefont {Boros},
+  \citenamefont {Crama},\ and\ \citenamefont
+  {Rodr{\'i}guez-Heck}}]{Boros2018boundsPaper}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Endre}\ \bibnamefont
+  {Boros}}, \bibinfo {author} {\bibfnamefont {Yves}\ \bibnamefont {Crama}}, \
+  and\ \bibinfo {author} {\bibfnamefont {Elisabeth}\ \bibnamefont
+  {Rodr{\'i}guez-Heck}},\ }\bibfield  {title} {\enquote {\bibinfo {title}
+  {Compact quadratizations for pseudo-boolean functions},}\ }in\ \href@noop {}
+  {\emph {\bibinfo {booktitle} {unpublished}}}\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Rosenberg}(1975)}]{Rosenberg1975}%
   \BibitemOpen
   \bibfield  {author} {\bibinfo {author} {\bibfnamefont {I.~G.}\ \bibnamefont
@@ -487,6 +509,14 @@
   {\bibfield  {journal} {\bibinfo  {journal} {Physical Review A}\ }\textbf
   {\bibinfo {volume} {91}},\ \bibinfo {pages} {012315} (\bibinfo {year}
   {2015})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Cao}\ and\ \citenamefont {Nagaj}(2015)}]{Cao2015a}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Yudong}\ \bibnamefont
+  {Cao}}\ and\ \bibinfo {author} {\bibfnamefont {Daniel}\ \bibnamefont
+  {Nagaj}},\ }\href {https://dl.acm.org/citation.cfm?id=2871363.2871370} {\emph
+  {\bibinfo {title} {Quantum Information {\&} Computation}}},\ Vol.~\bibinfo
+  {volume} {15}\ (\bibinfo  {publisher} {Rinton Press},\ \bibinfo {year}
+  {2015})\ pp.\ \bibinfo {pages} {1197--1222}\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Jordan}\ and\ \citenamefont
   {Farhi}(2008)}]{Jordan2008}%
   \BibitemOpen
@@ -531,14 +561,6 @@
   {\bibinfo  {journal} {New Journal of Physics}\ }\textbf {\bibinfo {volume}
   {18}},\ \bibinfo {pages} {023042} (\bibinfo {year} {2016})}\BibitemShut
   {NoStop}%
-\bibitem [{\citenamefont {Cao}\ and\ \citenamefont {Nagaj}(2015)}]{Cao2015a}%
-  \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Yudong}\ \bibnamefont
-  {Cao}}\ and\ \bibinfo {author} {\bibfnamefont {Daniel}\ \bibnamefont
-  {Nagaj}},\ }\href {https://dl.acm.org/citation.cfm?id=2871363.2871370} {\emph
-  {\bibinfo {title} {Quantum Information {\&} Computation}}},\ Vol.~\bibinfo
-  {volume} {15}\ (\bibinfo  {publisher} {Rinton Press},\ \bibinfo {year}
-  {2015})\ pp.\ \bibinfo {pages} {1197--1222}\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Babbush}\ \emph {et~al.}(2013)\citenamefont
   {Babbush}, \citenamefont {O'Gorman},\ and\ \citenamefont
   {Aspuru-Guzik}}]{Babbush2013}%
@@ -577,18 +599,6 @@
   {journal} {\bibinfo  {journal} {Science Advances}\ }\textbf {\bibinfo
   {volume} {1}} (\bibinfo {year} {2015}),\ 10.1126/sciadv.1500838}\BibitemShut
   {NoStop}%
-\bibitem [{\citenamefont {Rocchetto}\ \emph {et~al.}(2016)\citenamefont
-  {Rocchetto}, \citenamefont {Benjamin},\ and\ \citenamefont
-  {Li}}]{Rocchetto2016}%
-  \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Andrea}\ \bibnamefont
-  {Rocchetto}}, \bibinfo {author} {\bibfnamefont {Simon~C}\ \bibnamefont
-  {Benjamin}}, \ and\ \bibinfo {author} {\bibfnamefont {Ying}\ \bibnamefont
-  {Li}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {{Stabilizers as a
-  design tool for new forms of the Lechner-Hauke-Zoller annealer}},}\ }\href
-  {\doibase 10.1126/sciadv.1601246} {\bibfield  {journal} {\bibinfo  {journal}
-  {Science Advances}\ }\textbf {\bibinfo {volume} {2}} (\bibinfo {year}
-  {2016}),\ 10.1126/sciadv.1601246}\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Shen}\ \emph {et~al.}(2017)\citenamefont {Shen},
   \citenamefont {Peng}, \citenamefont {Dong}, \citenamefont {Shao},\ and\
   \citenamefont {Porikli}}]{Shen2017a}%
