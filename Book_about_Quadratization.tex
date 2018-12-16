@@ -1259,13 +1259,9 @@ b_{1}b_{2}\cdots b_{k}	\rightarrow\alpha^{b}\sum_{i}b_{i}+\alpha^{b_{a,1}}\sum_{
 \end{pmatrix}.
 \end{align}
 
-
-
-
-
-
-
-
+%%%%%%
+% See also Theorem 10 of BCR 2018 bounds Paper !!!
+%%%%%%
 
 
 
@@ -1426,9 +1422,6 @@ b_1 \ldots b_k &= \min_{b'_1, \ldots b'_n} \frac{1}{2} \left( N + X - \sum^n_{i=
 \left( N + X - \sum^n_{i=1} 2^i b'_i - 1 \right).
 \end{align}
 
-
-
-
 \refsec
 \begin{itemize}
 \item Original paper (Theorem 5): \cite{Boros2018QuadratizationsOS}.
@@ -1436,43 +1429,123 @@ b_1 \ldots b_k &= \min_{b'_1, \ldots b'_n} \frac{1}{2} \left( N + X - \sum^n_{i=
 
 \newpage
 
+\subsection{PTR-BCR-5 (Boros, Crama, and Rodr\'{i}guez-Heck, 2018)} 
 
+\summarysec
 
+%Suppose we have a monomial $b_1b_2b_3 \ldots b_k$.
+Pick $m$ such that $k \le 2^{m+1}$,
 
+\begin{align}
+b_1 \ldots b_k &\rightarrow   \frac{1}{2} \left( 2^{m+1}-k + \sum_ib_i - \sum^m_{i} 2^i b_{a_i} \right)
+\left( 2^{m+1}-k + \sum_i b_i - \sum^m_{i} 2^i b_{a_i} - 1 \right).
+\end{align}
 
+\costsec
 
+$\lceil \log n \rceil  - 1$ auxiliary qubits per positive monomial.
 
+\prossec
+\begin{itemize}
+\item Logarithmic number of auxiliary variables.
+\item "As mentioned in Section 1, Theorem 9 provides a significant improvement
+over the best previously known quadratizations for the Positive monomial,
+and the upper bound on the number of auxiliary variables precisely matches
+the lower bound presented in Section 3."
+\end{itemize}
 
+\conssec
+\begin{itemize}
+\item Introduces many non-submodular terms.
+\end{itemize}
 
+\examplesec
 
+% Here we should really show extremely large k-local, not just 4-local
 
+%Consider $k=4$, so that $n=2$, $N = 4$.
+%Then:
+\begin{eqnarray}
+%b_1 b_2 b_3 b_4 = \min_{b_{a_1}, b_{a_2}} \frac{1}{2}
+b_1 b_2 b_3 b_4 \rightarrow  \frac{1}{2}
+\left( b_1 + b_2 + b_3 + b_4 - 2b_a \right)
+\left( b_1 + b_2 + b_3 + b_4 - 2b_a - 1 \right)
+\end{eqnarray}
 
+\altformsec
 
+Let $X = \sum b_i$ and $N = 2^{m+1} - k$,
 
+\begin{align}
+b_1 \ldots b_k &= \min_{b'_1, \ldots b'_n} \frac{1}{2} \left( N + X - \sum^n_{i=1} 2^i b'_i \right)
+\left( N + X - \sum^n_{i=1} 2^i b'_i - 1 \right).
+\end{align}
 
+\refsec
+\begin{itemize}
+\item Original paper (Theorem 9): \cite{Boros2018boundsPaper}.
+\end{itemize}
 
+\newpage
 
+\subsection{PTR-BCR-6 (Boros, Crama, and Rodr\'{i}guez-Heck, 2018)} 
 
+\summarysec
 
+%Suppose we have a monomial $b_1b_2b_3 \ldots b_k$.
+Pick $m$ such that $k \le 2^{m+1}$,
 
+\begin{align}
+b_1 \ldots b_k &\rightarrow   \frac{1}{2} \left( 2^{m+1}-k + \sum_ib_i - \sum^m_{i} 2^i b_{a_i} \right)
+\left( 2^{m+1}-k + \sum_i b_i - \sum^m_{i} 2^i b_{a_i} - 1 \right).
+\end{align}
 
+\costsec
 
+$\lceil \log n \rceil  $ auxiliary qubits per positive monomial.
 
+\prossec
+\begin{itemize}
+\item Logarithmic number of auxiliary variables.
+\item "As mentioned in Section 1, Theorem 9 provides a significant improvement
+over the best previously known quadratizations for the Positive monomial,
+and the upper bound on the number of auxiliary variables precisely matches
+the lower bound presented in Section 3."
+\end{itemize}
 
+\conssec
+\begin{itemize}
+\item Introduces many non-submodular terms.
+\end{itemize}
 
+\examplesec
 
+% Here we should really show extremely large k-local, not just 4-local
 
+%Consider $k=4$, so that $n=2$, $N = 4$.
+%Then:
+\begin{eqnarray}
+%b_1 b_2 b_3 b_4 = \min_{b_{a_1}, b_{a_2}} \frac{1}{2}
+b_1 b_2 b_3 b_4 \rightarrow  \frac{1}{2}
+\left( b_1 + b_2 + b_3 + b_4 - 2b_a \right)
+\left( b_1 + b_2 + b_3 + b_4 - 2b_a - 1 \right)
+\end{eqnarray}
 
+\altformsec
 
+Let $X = \sum b_i$ and $N = 2^{m+1} - k$,
 
+\begin{align}
+b_1 \ldots b_k &= \min_{b'_1, \ldots b'_n} \frac{1}{2} \left( N + X - \sum^n_{i=1} 2^i b'_i \right)
+\left( N + X - \sum^n_{i=1} 2^i b'_i - 1 \right).
+\end{align}
 
+\refsec
+\begin{itemize}
+\item Original paper (Remark 5): \cite{Boros2018boundsPaper}.
+\end{itemize}
 
-
-
-
-
-
-
+\newpage
 
 
 \subsection{PTR-KZ (Kolmogorov \& Zabih, 2004)}
@@ -2428,16 +2501,329 @@ The first expression is highly non-submodular while the second is entirely submo
 \item 2014, original paper (Theorem 4.6): \cite{Anthony2014,Anthony2016}.
 \end{itemize}
 
+\newpage
+
+\subsection{SFR-BCR-7 (Boros, Crama,  Rodr\'{i}guez-Heck, 2018)}
+
+\summarysec
+
+For a symmetric function such that $f\left(|c|\right)=0$ for $c>n$, then with with $2\lceil \sqrt{n+1}\rceil$ auxiliary variables, we have:
+
+\begin{align}
+f\left(b_{1},b_{2},\ldots,b_{n}\right)\rightarrow1+2\sum_{ij}b_{i}b_{j}-\sum_{i}b_{i}+4\sum_{2i}^{n-1}b_{a_{i}}\left(i-\sum_{j}^{n}b_{j}\right)
+\end{align}
+
+\costsec
+\begin{itemize}
+\item $m=\lceil \sqrt{n+1}\rceil$ auxiliary variables.
+\item $\lfloor 0.5n\rfloor$ non-submodular linear terms. % needs to be fixed
+\item $ n^2$ non-submodular quadratic terms. % needs to be fixed
+\end{itemize}
+
+\prossec
+\begin{itemize}
+\item Smaller number of auxiliary variables than the most naive methods. % needs to be fixed
+\item Fewer non-submodular linear terms than in the analogous quadratization for its complement (the parity function). % needs to be fixed
+\end{itemize}
+
+\conssec
+\begin{itemize}
+\item Only works for a special class of functions
+\item Introduces many linear and even more quadratic non-submodular terms (everything is non-submodular except for $0.5n^2$ quadratic terms involving the auxiliaries with the non-auxiliaries, and all $n$ linear terms involving only the non-auxiliaries).% needs to be fixed
+\item non-submodular terms can be rather large compared to the submodular terms (about $4n$ times as big).% needs to be fixed
+\end{itemize}
+
+\examplesec
+
+By bit-flipping $b_2$ and $b_4$, i.e. substituting $b_2 = 1 - \bar{b}_{2}$ and $b_4 = 1 - \bar{b}_{4}$, we see that:
+\begin{eqnarray}
+H & = & 3b_{1}b_{2}+b_{2}b_{3}+2b_{1}b_{4}-4b_{2}b_{4}\protect\\
+ & = & -3b_{1}\bar{b}_{2}-\bar{b}_{2}b_{3}-2b_{1}\bar{b}_{4}-\bar{b}_{2}\bar{b}_{4}+5b_{1}+b_{3}+4\bar{b}_{2}+4\bar{b}_{4}-4.
+\end{eqnarray}
+The first expression is highly non-submodular while the second is entirely submodular.
+
+%\altformsec
+%\begin{align}
+%f\left(b_{1},b_{2},\ldots,b_{n}\right)& \rightarrow \binom{\frac{1}{2}\left(\left(c-1\right)-\sum_{i}b_{i}-\left(2(n-c)-2^{m-1}+1\right)b_{a_{m}}-\sum_{i}^{m-1}2^{i-1}b_{a_{i}}\right)}{2}
+%\end{align}
+
+\refsec
+\begin{itemize}
+\item 2018, original paper (Theorem 6): \cite{Boros2018boundsPaper}.
+\end{itemize}
+
+\newpage
+
+\subsection{SFR-BCR-8 (Boros, Crama,  Rodr\'{i}guez-Heck, 2018)}
+
+\summarysec
+
+For a symmetric function such that $f\left(|c|\right)=0$ for $c>n$, then with with $\max\left( \lceil \log(c)\rceil , \lceil \log(n-c)\rceil  \right)$ auxiliary variables, we have:
+
+\begin{align}
+f\left(b_{1},b_{2},\ldots,b_{n}\right)\rightarrow1+2\sum_{ij}b_{i}b_{j}-\sum_{i}b_{i}+4\sum_{2i}^{n-1}b_{a_{i}}\left(i-\sum_{j}^{n}b_{j}\right)
+\end{align}
+
+\costsec
+\begin{itemize}
+\item $\max\left( \lceil \log(c)\rceil , \lceil \log(n-c)\rceil  \right)$ auxiliary variables.
+\item $\lfloor 0.5n\rfloor$ non-submodular linear terms. % needs to be fixed
+\item $ n^2$ non-submodular quadratic terms. % needs to be fixed
+\end{itemize}
+
+\prossec
+\begin{itemize}
+\item Smaller number of auxiliary variables than the most naive methods. % needs to be fixed
+\item Fewer non-submodular linear terms than in the analogous quadratization for its complement (the parity function). % needs to be fixed
+\end{itemize}
+
+\conssec
+\begin{itemize}
+\item Only works for a special class of functions
+\item Introduces many linear and even more quadratic non-submodular terms (everything is non-submodular except for $0.5n^2$ quadratic terms involving the auxiliaries with the non-auxiliaries, and all $n$ linear terms involving only the non-auxiliaries).% needs to be fixed
+\item non-submodular terms can be rather large compared to the submodular terms (about $4n$ times as big).% needs to be fixed
+\end{itemize}
+
+\examplesec
+
+By bit-flipping $b_2$ and $b_4$, i.e. substituting $b_2 = 1 - \bar{b}_{2}$ and $b_4 = 1 - \bar{b}_{4}$, we see that:
+\begin{eqnarray}
+H & = & 3b_{1}b_{2}+b_{2}b_{3}+2b_{1}b_{4}-4b_{2}b_{4}\protect\\
+ & = & -3b_{1}\bar{b}_{2}-\bar{b}_{2}b_{3}-2b_{1}\bar{b}_{4}-\bar{b}_{2}\bar{b}_{4}+5b_{1}+b_{3}+4\bar{b}_{2}+4\bar{b}_{4}-4.
+\end{eqnarray}
+The first expression is highly non-submodular while the second is entirely submodular.
+
+%\altformsec
+%\begin{align}
+%f\left(b_{1},b_{2},\ldots,b_{n}\right)& \rightarrow \binom{\frac{1}{2}\left(\left(c-1\right)-\sum_{i}b_{i}-\left(2(n-c)-2^{m-1}+1\right)b_{a_{m}}-\sum_{i}^{m-1}2^{i-1}b_{a_{i}}\right)}{2}
+%\end{align}
+
+\refsec
+\begin{itemize}
+\item 2018, original paper (Theorem 7): \cite{Boros2018boundsPaper}.
+\end{itemize}
+
+\newpage
+
+\subsection{SFR-BCR-9 (Boros, Crama,  Rodr\'{i}guez-Heck, 2018)}
+
+\summarysec
+
+For a symmetric function such that $f\left(|c|\right)=0$ for $c>n$, then with with $\max\left( \lceil \log(c)\rceil , \lceil \log(n-c)\rceil  \right)$ auxiliary variables, we have:
+
+\begin{align}
+f\left(b_{1},b_{2},\ldots,b_{n}\right)\rightarrow1+2\sum_{ij}b_{i}b_{j}-\sum_{i}b_{i}+4\sum_{2i}^{n-1}b_{a_{i}}\left(i-\sum_{j}^{n}b_{j}\right)
+\end{align}
+
+\costsec
+\begin{itemize}
+\item $\max\left( \lceil \log(c)\rceil , \lceil \log(n-c)\rceil  \right)$ auxiliary variables.
+\item $\lfloor 0.5n\rfloor$ non-submodular linear terms. % needs to be fixed
+\item $ n^2$ non-submodular quadratic terms. % needs to be fixed
+\end{itemize}
+
+\prossec
+\begin{itemize}
+\item Smaller number of auxiliary variables than the most naive methods. % needs to be fixed
+\item Fewer non-submodular linear terms than in the analogous quadratization for its complement (the parity function). % needs to be fixed
+\end{itemize}
+
+\conssec
+\begin{itemize}
+\item Only works for a special class of functions
+\item Introduces many linear and even more quadratic non-submodular terms (everything is non-submodular except for $0.5n^2$ quadratic terms involving the auxiliaries with the non-auxiliaries, and all $n$ linear terms involving only the non-auxiliaries).% needs to be fixed
+\item non-submodular terms can be rather large compared to the submodular terms (about $4n$ times as big).% needs to be fixed
+\end{itemize}
+
+\examplesec
+
+By bit-flipping $b_2$ and $b_4$, i.e. substituting $b_2 = 1 - \bar{b}_{2}$ and $b_4 = 1 - \bar{b}_{4}$, we see that:
+\begin{eqnarray}
+H & = & 3b_{1}b_{2}+b_{2}b_{3}+2b_{1}b_{4}-4b_{2}b_{4}\protect\\
+ & = & -3b_{1}\bar{b}_{2}-\bar{b}_{2}b_{3}-2b_{1}\bar{b}_{4}-\bar{b}_{2}\bar{b}_{4}+5b_{1}+b_{3}+4\bar{b}_{2}+4\bar{b}_{4}-4.
+\end{eqnarray}
+The first expression is highly non-submodular while the second is entirely submodular.
+
+%\altformsec
+%\begin{align}
+%f\left(b_{1},b_{2},\ldots,b_{n}\right)& \rightarrow \binom{\frac{1}{2}\left(\left(c-1\right)-\sum_{i}b_{i}-\left(2(n-c)-2^{m-1}+1\right)b_{a_{m}}-\sum_{i}^{m-1}2^{i-1}b_{a_{i}}\right)}{2}
+%\end{align}
+
+\refsec
+\begin{itemize}
+\item 2018, original paper (Theorem 7): \cite{Boros2018boundsPaper}.
+\end{itemize}
+
+\newpage
+
+\subsection{PFR-BCR-1 (Boros, Crama,  Rodr\'{i}guez-Heck, 2018)}
+
+\summarysec
+
+The parity function for even $n$ can be quadratized with:
+
+\begin{align}
+f\left(b_{1},b_{2},\ldots,b_{n}\right)\rightarrow1+2\sum_{ij}b_{i}b_{j}-\sum_{i}b_{i}+4\sum_{2i}^{n-1}b_{a_{i}}\left(i-\sum_{j}^{n}b_{j}\right)
+\end{align}
+
+\costsec
+\begin{itemize}
+\item $\lceil \log(n)\rceil -1$ auxiliary variables.
+\item $\lfloor 0.5n\rfloor$ non-submodular linear terms. % needs to be fixed
+\item $ n^2$ non-submodular quadratic terms. % needs to be fixed
+\end{itemize}
+
+\prossec
+\begin{itemize}
+\item Smaller number of auxiliary variables than the most naive methods. % needs to be fixed
+\item Fewer non-submodular linear terms than in the analogous quadratization for its complement (the parity function). % needs to be fixed
+\end{itemize}
+
+\conssec
+\begin{itemize}
+\item Only works for a special class of functions
+\item Introduces many linear and even more quadratic non-submodular terms (everything is non-submodular except for $0.5n^2$ quadratic terms involving the auxiliaries with the non-auxiliaries, and all $n$ linear terms involving only the non-auxiliaries).% needs to be fixed
+\item non-submodular terms can be rather large compared to the submodular terms (about $4n$ times as big).% needs to be fixed
+\end{itemize}
+
+\examplesec
+
+By bit-flipping $b_2$ and $b_4$, i.e. substituting $b_2 = 1 - \bar{b}_{2}$ and $b_4 = 1 - \bar{b}_{4}$, we see that:
+\begin{eqnarray}
+H & = & 3b_{1}b_{2}+b_{2}b_{3}+2b_{1}b_{4}-4b_{2}b_{4}\protect\\
+ & = & -3b_{1}\bar{b}_{2}-\bar{b}_{2}b_{3}-2b_{1}\bar{b}_{4}-\bar{b}_{2}\bar{b}_{4}+5b_{1}+b_{3}+4\bar{b}_{2}+4\bar{b}_{4}-4.
+\end{eqnarray}
+The first expression is highly non-submodular while the second is entirely submodular.
+
+%\altformsec
+%\begin{align}
+%f\left(b_{1},b_{2},\ldots,b_{n}\right)& \rightarrow \binom{\frac{1}{2}\left(\left(c-1\right)-\sum_{i}b_{i}-\left(2(n-c)-2^{m-1}+1\right)b_{a_{m}}-\sum_{i}^{m-1}2^{i-1}b_{a_{i}}\right)}{2}
+%\end{align}
+
+\refsec
+\begin{itemize}
+\item 2018, original paper (Theorem 11): \cite{Boros2018boundsPaper}.
+\end{itemize}
+
+\newpage
+
+\subsection{PFR-BCR-2 (Boros, Crama,  Rodr\'{i}guez-Heck, 2018)}
+
+\summarysec
+
+The parity function for odd $n$ can be quadratized with:
+
+\begin{align}
+f\left(b_{1},b_{2},\ldots,b_{n}\right)\rightarrow1+2\sum_{ij}b_{i}b_{j}-\sum_{i}b_{i}+4\sum_{2i}^{n-1}b_{a_{i}}\left(i-\sum_{j}^{n}b_{j}\right)
+\end{align}
+
+\costsec
+\begin{itemize}
+\item $\lceil \log(n)\rceil -1$ auxiliary variables.
+\item $\lfloor 0.5n\rfloor$ non-submodular linear terms. % needs to be fixed
+\item $ n^2$ non-submodular quadratic terms. % needs to be fixed
+\end{itemize}
+
+\prossec
+\begin{itemize}
+\item Smaller number of auxiliary variables than the most naive methods. % needs to be fixed
+\item Fewer non-submodular linear terms than in the analogous quadratization for its complement (the parity function). % needs to be fixed
+\end{itemize}
+
+\conssec
+\begin{itemize}
+\item Only works for a special class of functions
+\item Introduces many linear and even more quadratic non-submodular terms (everything is non-submodular except for $0.5n^2$ quadratic terms involving the auxiliaries with the non-auxiliaries, and all $n$ linear terms involving only the non-auxiliaries).% needs to be fixed
+\item non-submodular terms can be rather large compared to the submodular terms (about $4n$ times as big).% needs to be fixed
+\end{itemize}
+
+\examplesec
+
+By bit-flipping $b_2$ and $b_4$, i.e. substituting $b_2 = 1 - \bar{b}_{2}$ and $b_4 = 1 - \bar{b}_{4}$, we see that:
+\begin{eqnarray}
+H & = & 3b_{1}b_{2}+b_{2}b_{3}+2b_{1}b_{4}-4b_{2}b_{4}\protect\\
+ & = & -3b_{1}\bar{b}_{2}-\bar{b}_{2}b_{3}-2b_{1}\bar{b}_{4}-\bar{b}_{2}\bar{b}_{4}+5b_{1}+b_{3}+4\bar{b}_{2}+4\bar{b}_{4}-4.
+\end{eqnarray}
+The first expression is highly non-submodular while the second is entirely submodular.
+
+%\altformsec
+%\begin{align}
+%f\left(b_{1},b_{2},\ldots,b_{n}\right)& \rightarrow \binom{\frac{1}{2}\left(\left(c-1\right)-\sum_{i}b_{i}-\left(2(n-c)-2^{m-1}+1\right)b_{a_{m}}-\sum_{i}^{m-1}2^{i-1}b_{a_{i}}\right)}{2}
+%\end{align}
+
+\refsec
+\begin{itemize}
+\item 2018, original paper (Theorem 11): \cite{Boros2018boundsPaper}.
+\end{itemize}
 
 \newpage
 
 \subsection{Lower bounds for SFRs (Anthony, Boros, Crama, Gruber, 2014)}
 
+%% There's also upper bounds for example Theorem 6 of BCR-2018-boundsPaper.
+%\item Corollary 4 of \cite{Boros2018boundsPaper} gives an upper bound of $d\lceil \log(n)\rceil$ for the number of auxiliary variables for the parity function.
+
 \begin{itemize}
 \item There exist symmetric functions on $n$ variables for which no quadratization can be done without at least $\Omega\left(\sqrt{n}\right)$  auxiliary variables (Theorem 5.3 from \cite{Anthony2014,Anthony2016}.  %$2\log_2\left( 1+\sqrt{257}  \right)-8$.
 \item There exist symmetric functions on $n$ variables for whcih no quadratization linear in the auxiliaries can be done without at least $\Omega\left( \frac{n}{\log_2(n)}\right)$ auxiliary variables (Theorem 5.5 from \cite{Anthony2014,Anthony2016}).
 \item The parity function on $n$ variables cannot be quadratized without quadratic terms involving the auxiliary variables, unless there is at least $\sqrt{\nicefrac{n}{4}-1}+1=\Omega\left( \sqrt{n}  \right)$ auxiliary variables (Theorem 5.6 from \cite{Anthony2014,Anthony2016}).
+\item Theorem 5 of \cite{Boros2018boundsPaper} gives an even tighter bound of $\lceil \log(n)\rceil -1$ for the minimum number of auxiliary variables for the parity function.
+\item Corollary 5 of \cite{Boros2018boundsPaper} gives $m\ge \log\left( 1/2 - \mu\right) + \log(n) -1$.
 \end{itemize}
+
+\subsection{Lower bounds for positive monomials (Boros, Crama, Rodr\'{i}guez-Heck, 2018)}
+
+\begin{itemize}
+\item A positive monomial with $n$ variables cannot be quadratized with fewer than $\lceil \log(n)\rangle - 1$ auxiliary variables, unless there is some extra deduction we can make about the optimization problem, as in for example deduc-reduc (Corollary 1 from \cite{Boros2018boundsPaper}).
+\item ALCN (at least $c$ out of $n$) and ECN (exact $c$ out of $n$) functions also cannot be quadratized with fewer than $\lceil \log(n)\rangle - 1$ auxiliary variables (Corollaries 2 and 3 from \cite{Boros2018boundsPaper}).
+\item ECN (exact $c$ out of $n$) functions also cannot be quadratized with fewer than $\max\left(\lceil \log(c)\rceil , \lceil \log(n-c)\rceil  \right)-1$ auxiliary variables (Corollaries 2 and 3 from \cite{Boros2018boundsPaper}).
+\end{itemize}
+
+\newpage
+
+\subsection{Lower bounds for ZUCs (Boros, Crama, Rodr\'{i}guez-Heck, 2018)}
+
+\begin{itemize}
+\item There exist ZUC (zero until $c$) functions such that every quadratization must involve at least $\Omega\left(2^{n/2}\right)$ auxiliary variables, no matter what the value of $c$ (Theorem 2 from \cite{Boros2018boundsPaper}). This is true for almost all ZUC functions because the set of ZUCs requiring fewer auxiliary variables has Lebesgue measure zero.
+\item For any $c\ge 0$, the number of auxiliary variables is $m\ge \lceil \log(c) \rceil -1$ (Theorem 3 of \cite{Boros2018boundsPaper}).
+\end{itemize}
+
+\subsection{Lower bounds for $d$-sublinear functions (Boros, Crama, Rodr\'{i}guez-Heck, 2018)}
+
+\begin{itemize}
+\item The number of auxiliary variables $m$ is such that $2^{m+1} \ge \frac{\beta(q_1)}{2} -d +1$ (Theorem 12 from \cite{Boros2018boundsPaper}).
+\item For any $c\ge 0$, the number of auxiliary variables is $m\ge \lceil \log(c) \rceil -1$ (Theorem 3 of \cite{Boros2018boundsPaper}).
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 \newpage
