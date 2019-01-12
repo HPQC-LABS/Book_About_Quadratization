@@ -185,8 +185,8 @@
 %\noindent\rule{\textwidth}{0.4pt}
 \begin{abstract}
 %\noindent {\bf Abstract.}
-\vspace{10mm} %%%%%%%%%%%%%%%%%%%%%%%% REMOVE WHEN ADDING BACK AUTHORSHIP
-A collaborative, evolving, open Book on $k$-local to 2-local transformations (quadratizations) in classical computing, quantum annealing, and universal adiabatic quantum computing. 
+\vspace{4mm} %%%%%%%%%%%%%%%%%%%%%%%% REMOVE WHEN ADDING BACK AUTHORSHIP
+A collaborative, evolving, open book on $k$-local to 2-local transformations (quadratizations) in classical computing, quantum annealing, and universal adiabatic quantum computing. 
 
 %\vspace{-7mm}  %%%%%%%%%%%%%%%%%%%%%%%% UNCOMMENT WHEN ADDING BACK AUTHORSHIP
 
@@ -1066,7 +1066,7 @@ Extra binary or ternary variable is added to ensure that the energy of the even 
 
 \section{Methods that introduce auxiliary variables to quadratize a SINGLE positive term (Positive Term Reductions, PTR)}
 
-\subsection{Positive Term Reduction}
+\subsection{PTR-BG (Boros and Gruber, 2014)}
 
 \summarysec
 
@@ -2849,7 +2849,11 @@ The first expression is highly non-submodular while the second is entirely submo
 \summarysec
 
 Pick a variable pair $(b_{i},b_{j})$ and substitute $b_{i}b_{j}$ with a  new auxiliary variable $b_{a_{ij}}$.
-Enforce equality in the ground states by adding some scalar multiple of the penalty $P=b_{i}b_{j}-2b_{i}b_{a_{ij}}-2b_{j}b_{a_{ij}}+3b_{a_{ij}}$ or similar. Since $P > 0$ if and only if $b_{a_{ij}}\ne b_ib_j$, the minimum of the new $(k-1)$-local function will satisfy $b_{a_ij}=b_{i}b_{j})$, which means that at the minimum, we have precisely the original function. Repeat $(k-2)$ times for each $k$-local term and the resulting function will be 2-local. 
+Enforce equality in the ground states by adding some scalar multiple of the penalty $P=b_{i}b_{j}-2b_{i}b_{a_{ij}}-2b_{j}b_{a_{ij}}+3b_{a_{ij}}$ or similar. Since $P > 0$ if and only if $b_{a_{ij}}\ne b_ib_j$, the minimum of the new $(k-1)$-local function will satisfy $b_{a_ij}=b_{i}b_{j})$, which means that at the minimum, we have precisely the original function. Repeat $(k-2)$ times for each $k$-local term and the resulting function will be 2-local. For an arbitrary cubic term we have:
+
+\begin{equation}
+b_ib_jb\cdot b_k \rightarrow b_ab_k + b_ib_j - 2b_ib_a - 2b_jb_a + 3b_a.
+\end{equation}
 
 \costsec
 \begin{itemize}
@@ -5152,7 +5156,10 @@ This review has only focused on $k-$local to $2-$local transformations where $k>
 \item Elisabeth also pointed us to what became the following section: (1) ABCG Reduction.
 \end{itemize}
 
-% Jake Biamonte (check contributions)
+\subsection*{Jacob Biamonte} 
+\begin{itemize}
+\item Jacob made valuable edits during a proof-reading of the book.
+\end{itemize}
 
 
 
