@@ -950,6 +950,8 @@ with $a=1$.
 - b_{1}b_{2}b_{3} + b_1 b_3 - b_2 &= \min_{b_a} \left( b_a-b_{1}b_a-b_{3}b_a+b_{2}b_a+2b_{1}b_{3} \right) - b_2
 \end{eqnarray}
 
+%% SHOULD THERE BE BRACKETS IN THE EQUATION BELOW? SEEMS TO MAKE SENSE, BUT SINCE THERE'S ONLY ONE B_A ANYWAY, IT MIGHT HAVE ACTUALLY BEEN INTENTIONAL NOT TO HAVE THE BRACKETS.
+
 \altformsec
 \begin{align}
 -b_{1}b_{2}b_{3}&= \min_{b_a} b_a  -b_1 + b_2 + b_3   -b_1b_2 - b_1b_3 + b_1 
@@ -969,7 +971,7 @@ with $a=1$.
 Using a ternary variable $t_q \in {-1,0,1}$ we have:
 
 \begin{equation}
-z_1z_2z_3 \rightarrow (1 + 4t_a + z_1 + z_2 + z_3)^2 -1.
+z_1z_2z_3 \rightarrow \left(1 + 4t_a + z_1 + z_2 + z_3\right)^2 -1.
 \end{equation}
 
 \costsec
@@ -2859,7 +2861,7 @@ Pick a variable pair $(b_{i},b_{j})$ and substitute $b_{i}b_{j}$ with a  new aux
 Enforce equality in the ground states by adding some scalar multiple of the penalty $P=b_{i}b_{j}-2b_{i}b_{a_{ij}}-2b_{j}b_{a_{ij}}+3b_{a_{ij}}$ or similar. Since $P > 0$ if and only if $b_{a_{ij}}\ne b_ib_j$, the minimum of the new $(k-1)$-local function will satisfy $b_{a_ij}=b_{i}b_{j})$, which means that at the minimum, we have precisely the original function. Repeat $(k-2)$ times for each $k$-local term and the resulting function will be 2-local. For an arbitrary cubic term we have:
 
 \begin{equation}
-b_ib_jb\cdot b_k \rightarrow b_ab_k + b_ib_j - 2b_ib_a - 2b_jb_a + 3b_a.
+b_ib_j b_k \rightarrow b_ab_k + b_ib_j - 2b_ib_a - 2b_jb_a + 3b_a.
 \end{equation}
 
 \costsec
