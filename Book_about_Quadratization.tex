@@ -5,6 +5,8 @@
 \usepackage[T1]{fontenc}
 \usepackage[latin9]{inputenc}
 \setcounter{secnumdepth}{3}
+%\usepackage{titling} % for moving title up
+\usepackage[paper=a4paper,top=1in,bottom=1in,right=1in,left=1in]{geometry} % needed to move title page up: https://tex.stackexchange.com/questions/31705/different-margins-for-title-page
 \usepackage{color}
 \usepackage{xcolor}
 \usepackage{verbatim}
@@ -23,6 +25,8 @@
 %\xpatchcmd\bibsection{19}{19}{}{}
 %\xpatchcmd\bibsection{\begingroup}{\vskip BEFOREpt\begingroup}{}{}
 
+%\setlength{\droptitle}{-10em} % move title up (requires titling package)
+\renewcommand\footnoterule{} % remove line above email address.
 
 %pics 
 \usepackage[pdftex]{graphicx}
@@ -153,11 +157,11 @@
 \usepackage{babel}
 \begin{document}
 
-%\vspace{-20mm}
-
 %\noindent\rule{\textwidth}{0.4pt}
-\vspace{-10mm}
-\title{Quadratization in Discrete Optimization and Quantum Mechanics}
+\vspace{-40mm}
+\newgeometry{top=0.85in,left=0.75in,right=0.75in}
+\begin{titlepage}
+\title{\vspace{-2.0cm}Quadratization in Discrete Optimization and Quantum Mechanics}
 
 %\author{Richard Tanburn}
 %\email{richard.tanburn@gmail.com}
@@ -174,21 +178,21 @@
 
 %\email{jacob.biamonte@qubit.org}
 
-%\author{Nike Dattani}
-%\email{nik.dattani@gmail.com}
+%\vspace{-2mm}
+
+\author{\vspace{2mm}Nike Dattani}
+\email{nik.dattani@gmail.com}
 %\affiliation{Oxford University, Department of Mathematics}
 %\affiliation{McMaster University, Department of Chemistry and Chemical Biology}
-%\affiliation{Harvard-Smithsonian Center for Astrophysics}
-
-
+\affiliation{Harvard Smithsonian Center for Astrophysics, Cambridge, Massachusetts}
 
 %\noindent\rule{\textwidth}{0.4pt}
 \begin{abstract}
 %\noindent {\bf Abstract.}
-\vspace{4mm} %%%%%%%%%%%%%%%%%%%%%%%% REMOVE WHEN ADDING BACK AUTHORSHIP
-A collaborative, evolving, open book on $k$-local to 2-local transformations (quadratizations) in classical computing, quantum annealing, and universal adiabatic quantum computing. 
+\vspace{10mm} %%%%%%%%%%%%%%%%%%%%%%%% REMOVE WHEN ADDING BACK AUTHORSHIP
+An open source Book on quadratizations for classical computing, quantum annealing, and universal adiabatic quantum computing. 
 
-%\vspace{-7mm}  %%%%%%%%%%%%%%%%%%%%%%%% UNCOMMENT WHEN ADDING BACK AUTHORSHIP
+\vspace{-5mm}  %%%%%%%%%%%%%%%%%%%%%%%% UNCOMMENT WHEN ADDING BACK AUTHORSHIP
 
 \noindent 
 %{\bf Keywords.} pseudo Boolean optimization, Ising model, quadratic binary optimization, Hamiltonian gadget, penalty function\\~\\~\\
@@ -202,27 +206,33 @@ A collaborative, evolving, open book on $k$-local to 2-local transformations (qu
 %\section{Introduction}
 %\vspace{5mm} \indent  
 \noindent\rule{\textwidth}{0.4pt}
-\vspace{2mm} %%%%%%%%%%%%%%%%%%%%%%%% REMOVE WHEN ADDING BACK AUTHORSHIP
-
+\vspace{-1.25mm} %%%%%%%%%%%%%%%%%%%%%%%% REMOVE WHEN ADDING BACK AUTHORSHIP
 
 \indent When optimizing discrete functions, it is often easier when the function is qudaratic than if it is of higher degree. But notice that the cubic and quadratic funcitons:
+
+\vspace{-4mm}
 
 \begin{align}
 b_1b_2+b_2b_3+b_3b_4 -4b_1b_2b_3 & \hspace{5mm} \textrm{(cubic)},\label{eq:intro_cubic}\\
 b_1b_2 + b_2b_3 + b_3b_4 + 4b_1 -4b_1b_2 -4b_1b_3 & \hspace{5mm}\textrm{(quadratic)},\label{eq:intro_quadratic}
 \end{align}
 
-\noindent where each $b_i$ can either be 0 or 1, both never go below the value of -1, and all minima have the form $(b_1,b_2,b_3,b_4) = (1,1,1,b_4)$.  Therefore if we are interested in the ground state of a discrete function of degree $k$, we may optimize either function and get exactly the same result. { \textbf{Part \ref{partDiagonal}}} gives more than 15 different ways to do this. 
+\vspace{1mm}
+
+
+\noindent where each $b_i$ can either be 0 or 1, both never go below the value of -2, and all minima have the form $(b_1,b_2,b_3,b_4) = (1,1,1,0)$.  Therefore if we are interested in the ground state of a discrete function of degree $k$, we may optimize either function and get exactly the same result. { \textbf{Part \ref{partDiagonal}}} gives more than 40 different ways to do this, almost all of them published within the last 5 years. 
 
 %\vspace{15mm}
 
-\vspace{2mm} %%%%%%%%%%%%%%%%%%%%%%%% REMOVE WHEN ADDING BACK AUTHORSHIP
-%\vspace{0.5mm}
+%\vspace{2mm} %%%%%%%%%%%%%%%%%%%%%%%% REMOVE WHEN ADDING BACK AUTHORSHIP
+\vspace{0.5mm}
 \noindent\rule{\textwidth}{0.4pt}
 %\vspace{0.5mm}
-\vspace{2mm} %%%%%%%%%%%%%%%%%%%%%%%% REMOVE WHEN ADDING BACK AUTHORSHIP
-
-The binary variables $b_i$ can be either of the eigenvalues of the matrix $b$ below, which is related to the Pauli $z$ matrix by $z=2b-\openone$. Other Pauli matrices are listed below:
+%\vspace{2mm} %%%%%%%%%%%%%%%%%%%%%%%% REMOVE WHEN ADDING BACK AUTHORSHIP
+\\
+\vspace{-2mm}
+\\
+\indent The binary variables $b_i$ can be either of the eigenvalues of the matrix $b$ below, which is related to the Pauli $z$ matrix by $z=2b-\openone$. Other Pauli matrices are listed below:
 
 \begin{equation}
 b\equiv\begin{pmatrix}1 & 0\\
@@ -249,14 +259,15 @@ z_1x_2+x_2y_3+z_3z_4 -4y_1y_2z_3 & \hspace{5mm} \textrm{(cubic)},\label{eq:intro
 
 \noindent where the coefficients tell us about the strengths of couplings between these particles. The Schr\"{o}dinger equation tells us that the eigenvalues of the Hamiltonian are the allowed energy levels and their eigenvectors (wavefunctions) are the corresponding physical states. More generally these do not have to be spins but can be any type of qubits, and we can encode the solution to \textit{any} problem in the ground state of a Hamiltonian, then solve the problem by finding the lowest energy state of the physical system (this is called adiabatic quantum computing). 
 
-Two-body physical interactions occur more naturally than many-body interactions so \textbf{Parts \ref{partTransverseIsing}-\ref{partGeneral}} give more than 10 different ways to quadratize genreal Hamiltonians (some of these methods do not even require the $s_i$ to be $2\times2$ matrices, meaning that we can have types of qudits that are not qubits). 
+Two-body physical interactions occur more naturally than many-body interactions so \textbf{Parts \ref{partTransverseIsing}-\ref{partGeneral}} give more than 30 different ways to quadratize genreal Hamiltonians (some of these methods do not even require the $s_i$ to be $2\times2$ matrices, meaning that we can have types of qudits that are not qubits). All of these methods were published during the last 15 years.
 
 %A quantum computer whose Hamiltonian is at least quadratic in $x$ and $z$ can find this ground state with only polynomial runtime overhead over the best alternative algorithm to find that solution. 
  The optimization problems of Eqs. \eqref{eq:intro_cubic}-\eqref{eq:intro_quadratic} are specific cases of the type in Eq. \eqref{eq:intro_quantum_cubic} where only $z$ matrices are present. 
 
 \noindent\rule{\textwidth}{0.4pt}
+\end{titlepage}
 
-
+\restoregeometry
 
 %\section{Introduction}
 %
@@ -314,7 +325,7 @@ Two-body physical interactions occur more naturally than many-body interactions 
 
 \section{Methods that introduce ZERO auxiliary variables}
 
-\subsection{Deduction Reduction (Deduc-reduc)} \label{subsec:deduc_reduc}
+\subsection{Deduction Reduction (Deduc-reduc; Tanburn, Okada, Dattani, 2015)} \label{subsec:deduc_reduc}
 
 
 \vspace{-5mm}
@@ -382,7 +393,7 @@ The coefficient of $b_1 b_2$ was chosen as $6$ because $6 \ge \max \left( 4+b_{3
 
 \newpage
 
-\subsection{ELC Reduction (Ishikawa 2014)}
+\subsection{ELC Reduction (Ishikawa, 2014)}
 
 \summarysec
 
