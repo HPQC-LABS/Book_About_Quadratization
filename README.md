@@ -1,13 +1,13 @@
 ## Citation:
-@article{Dattani2019,
-archivePrefix = {arXiv},
-arxivId = {1901.04405},
-author = {Dattani, Nike},
-eprint = {1901.04405},
-month = {jan},
-title = {{Quadratization in discrete optimization and quantum mechanics}},
-url = {http://arxiv.org/abs/1901.04405},
-year = {2019}
+@article{Dattani2019,<br>
+archivePrefix = {arXiv},<br>
+arxivId = {1901.04405},<br>
+author = {Dattani, Nike},<br>
+eprint = {1901.04405},<br>
+month = {jan},<br>
+title = {{Quadratization in discrete optimization and quantum mechanics}},<br>
+url = {http://arxiv.org/abs/1901.04405},<br>
+year = {2019}<br>
 }
 
 <hr>
