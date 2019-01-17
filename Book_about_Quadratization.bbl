@@ -6,7 +6,7 @@
 %Control: page (1) range
 %Control: year (0) verbatim
 %Control: production of eprint (0) enabled
-\begin{thebibliography}{54}%
+\begin{thebibliography}{55}%
 \makeatletter
 \providecommand \@ifxundefined [1]{%
  \@ifx{#1\undefined}
@@ -251,6 +251,16 @@
   {\doibase 10.1109/CVPR.2011.5995452} {\emph {\bibinfo {booktitle} {CVPR
   2011}}}\ (\bibinfo  {publisher} {IEEE},\ \bibinfo {year} {2011})\ pp.\
   \bibinfo {pages} {1857--1864}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Boros}\ \emph {et~al.}()\citenamefont {Boros},
+  \citenamefont {Crama},\ and\ \citenamefont
+  {Rodr{\'i}guez-Heck}}]{Boros2018boundsPaper}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Endre}\ \bibnamefont
+  {Boros}}, \bibinfo {author} {\bibfnamefont {Yves}\ \bibnamefont {Crama}}, \
+  and\ \bibinfo {author} {\bibfnamefont {Elisabeth}\ \bibnamefont
+  {Rodr{\'i}guez-Heck}},\ }\bibfield  {title} {\enquote {\bibinfo {title}
+  {Compact quadratizations for pseudo-boolean functions},}\ }in\ \href@noop {}
+  {\emph {\bibinfo {booktitle} {unpublished}}}\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Chancellor}\ \emph
   {et~al.}(2016{\natexlab{a}})\citenamefont {Chancellor}, \citenamefont
   {Zohren},\ and\ \citenamefont {Warburton}}]{Chancellor2016b}%
@@ -336,16 +346,6 @@
   }\bibfield  {title} {\enquote {\bibinfo {title} {{Quadratic reformulations of
   nonlinear binary optimization problems}},}\ }\href@noop {} {\ }\BibitemShut
   {NoStop}%
-\bibitem [{\citenamefont {Boros}\ \emph {et~al.}()\citenamefont {Boros},
-  \citenamefont {Crama},\ and\ \citenamefont
-  {Rodr{\'i}guez-Heck}}]{Boros2018boundsPaper}%
-  \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Endre}\ \bibnamefont
-  {Boros}}, \bibinfo {author} {\bibfnamefont {Yves}\ \bibnamefont {Crama}}, \
-  and\ \bibinfo {author} {\bibfnamefont {Elisabeth}\ \bibnamefont
-  {Rodr{\'i}guez-Heck}},\ }\bibfield  {title} {\enquote {\bibinfo {title}
-  {Compact quadratizations for pseudo-boolean functions},}\ }in\ \href@noop {}
-  {\emph {\bibinfo {booktitle} {unpublished}}}\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Rosenberg}(1975)}]{Rosenberg1975}%
   \BibitemOpen
   \bibfield  {author} {\bibinfo {author} {\bibfnamefont {I.~G.}\ \bibnamefont
@@ -657,4 +657,13 @@
   {\doibase 10.1002/net.3230150206} {\bibfield  {journal} {\bibinfo  {journal}
   {Networks}\ }\textbf {\bibinfo {volume} {15}},\ \bibinfo {pages} {205--215}
   (\bibinfo {year} {1985})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Crama}\ and\ \citenamefont {{Rodriguez
+  Heck}}(2014)}]{Crama2014a}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Yves}\ \bibnamefont
+  {Crama}}\ and\ \bibinfo {author} {\bibfnamefont {Elisabeth}\ \bibnamefont
+  {{Rodriguez Heck}}},\ }\href {https://orbi.uliege.be/handle/2268/170649}
+  {\emph {\bibinfo {title} {{Short Prime Quadratizations of Cubic Negative
+  Monomials}}}}\ (\bibinfo  {publisher} {HEC ULg},\ \bibinfo {year}
+  {2014})\BibitemShut {NoStop}%
 \end{thebibliography}%
