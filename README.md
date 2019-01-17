@@ -1,10 +1,13 @@
 ## Citation:
-@misc{QUADRATIZATION,<br>
-  author = {Dattani, N.},<br>
-  title = {Quadratization in Pseudo-Boolean Optimization and Adiabatic Quantum Computing},<br>
-  year = {2016},<br>
-  journal = {GitHub repository},<br>
-  howpublished = {\url{https://github.com/HPQC-LABS/Book_About_Quadratization }},<br>
+@article{Dattani2019,
+archivePrefix = {arXiv},
+arxivId = {1901.04405},
+author = {Dattani, Nike},
+eprint = {1901.04405},
+month = {jan},
+title = {{Quadratization in discrete optimization and quantum mechanics}},
+url = {http://arxiv.org/abs/1901.04405},
+year = {2019}
 }
 
 <hr>
