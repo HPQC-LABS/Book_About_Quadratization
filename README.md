@@ -12,5 +12,5 @@ year = {2019}<br>
 
 <hr>
 
-<b>This book would not have been possible without the contributors that have helped immensely:</b><br>
+<b>This book would not have been possible without the additional contributors that have helped immensely:</b><br>
 Richard Tanburn, Nicholas Chancellor, Szilard Szalay, Yudong, Cao, Daniel Nagaj, Jacob Biamonte
