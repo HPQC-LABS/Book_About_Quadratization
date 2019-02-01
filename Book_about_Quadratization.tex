@@ -872,7 +872,7 @@ with $a=1$.
 \summarysec
 
 For a negative term $-b_{1}b_{2}...b_{k}$, introduce a single auxiliary variable $b_a$ and make the substitution:
-\begin{align}
+\begin{align} \label{eqn:NTR-ABCG-2}
 -b_{1}b_{2}\ldots b_{k}	&\rightarrow\left(2k-1\right)b_{a}-2\sum_{i}b_{i}b_{a}
 \end{align}
 
@@ -927,6 +927,12 @@ with $a=1$.
   - b_1 b_2 \dots b_k = 2 b_{a} \left(k - \frac12 - \sum_{i=1}^k b_i \right)
 \end{align}
 
+\eqref{eqn:NTR-ABCG-2} can be generalized as follows:
+
+\begin{align} \label{eqn:NTR-ABCG-2-gen}
+-b_{1}b_{2}\ldots b_{k}	&\rightarrow\left(Ck-1\right)b_{a}-C\sum_{i}b_{i}b_{a}
+\end{align}
+where $C \geq 1$ is a constant. NTR-KZFD is a particular case of \eqref{eqn:NTR-ABCG-2-gen} where $C = 1$.
 
 %\altnamesec 
 %\begin{itemize}
