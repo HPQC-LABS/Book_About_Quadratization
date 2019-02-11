@@ -6,7 +6,7 @@
 %Control: page (1) range
 %Control: year (0) verbatim
 %Control: production of eprint (0) enabled
-\begin{thebibliography}{55}%
+\begin{thebibliography}{56}%
 \makeatletter
 \providecommand \@ifxundefined [1]{%
  \@ifx{#1\undefined}
@@ -197,16 +197,18 @@
   Pseudo-Boolean Functions}},}\ }\href {https://arxiv.org/abs/1404.6535} {\
   (\bibinfo {year} {2014})},\ \Eprint {http://arxiv.org/abs/1404.6535}
   {arXiv:1404.6535} \BibitemShut {NoStop}%
-\bibitem [{\citenamefont {Kahl}\ and\ \citenamefont
-  {Strandmark}(2011)}]{Kahl2011}%
+\bibitem [{\citenamefont {Gallagher}\ \emph {et~al.}(2011)\citenamefont
+  {Gallagher}, \citenamefont {Batra},\ and\ \citenamefont
+  {Parikh}}]{Gallagher2011}%
   \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibnamefont {Kahl}}\ and\ \bibinfo
-  {author} {\bibnamefont {Strandmark}},\ }\bibfield  {title} {\enquote
-  {\bibinfo {title} {{Generalized Roof Duality for Pseudo-Boolean
-  Optimization}},}\ }\href
-  {http://www.maths.lth.se/vision/publdb/reports/pdf/kahl-strandmark-iccv-11.pdf}
-  {\bibfield  {journal} {\bibinfo  {journal} {International Conference on
-  Computer Vision}\ } (\bibinfo {year} {2011})}\BibitemShut {NoStop}%
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Andrew~C.}\
+  \bibnamefont {Gallagher}}, \bibinfo {author} {\bibfnamefont {Dhruv}\
+  \bibnamefont {Batra}}, \ and\ \bibinfo {author} {\bibfnamefont {Devi}\
+  \bibnamefont {Parikh}},\ }\bibfield  {title} {\enquote {\bibinfo {title}
+  {{Inference for order reduction in Markov random fields}},}\ }in\ \href
+  {\doibase 10.1109/CVPR.2011.5995452} {\emph {\bibinfo {booktitle} {CVPR
+  2011}}}\ (\bibinfo  {publisher} {IEEE},\ \bibinfo {year} {2011})\ pp.\
+  \bibinfo {pages} {1857--1864}\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Rocchetto}\ \emph {et~al.}(2016)\citenamefont
   {Rocchetto}, \citenamefont {Benjamin},\ and\ \citenamefont
   {Li}}]{Rocchetto2016}%
@@ -239,18 +241,6 @@
   {Quadratizations of symmetric pseudo-boolean functions: sub-linear bounds on
   the number of auxiliary variables},}\ }in\ \href@noop {} {\emph {\bibinfo
   {booktitle} {ISAIM}}}\ (\bibinfo {year} {2018})\BibitemShut {NoStop}%
-\bibitem [{\citenamefont {Gallagher}\ \emph {et~al.}(2011)\citenamefont
-  {Gallagher}, \citenamefont {Batra},\ and\ \citenamefont
-  {Parikh}}]{Gallagher2011}%
-  \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Andrew~C.}\
-  \bibnamefont {Gallagher}}, \bibinfo {author} {\bibfnamefont {Dhruv}\
-  \bibnamefont {Batra}}, \ and\ \bibinfo {author} {\bibfnamefont {Devi}\
-  \bibnamefont {Parikh}},\ }\bibfield  {title} {\enquote {\bibinfo {title}
-  {{Inference for order reduction in Markov random fields}},}\ }in\ \href
-  {\doibase 10.1109/CVPR.2011.5995452} {\emph {\bibinfo {booktitle} {CVPR
-  2011}}}\ (\bibinfo  {publisher} {IEEE},\ \bibinfo {year} {2011})\ pp.\
-  \bibinfo {pages} {1857--1864}\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Boros}\ \emph {et~al.}()\citenamefont {Boros},
   \citenamefont {Crama},\ and\ \citenamefont
   {Rodr{\'i}guez-Heck}}]{Boros2018boundsPaper}%
@@ -417,6 +407,16 @@
   {\doibase 10.1126/science.aab3326} {\bibfield  {journal} {\bibinfo  {journal}
   {Science}\ }\textbf {\bibinfo {volume} {351}},\ \bibinfo {pages}
   {1180----1183} (\bibinfo {year} {2016})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Kahl}\ and\ \citenamefont
+  {Strandmark}(2011)}]{Kahl2011}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibnamefont {Kahl}}\ and\ \bibinfo
+  {author} {\bibnamefont {Strandmark}},\ }\bibfield  {title} {\enquote
+  {\bibinfo {title} {{Generalized Roof Duality for Pseudo-Boolean
+  Optimization}},}\ }\href
+  {http://www.maths.lth.se/vision/publdb/reports/pdf/kahl-strandmark-iccv-11.pdf}
+  {\bibfield  {journal} {\bibinfo  {journal} {International Conference on
+  Computer Vision}\ } (\bibinfo {year} {2011})}\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Ocko}\ and\ \citenamefont
   {Yoshida}(2011)}]{Ocko2011}%
   \BibitemOpen
@@ -666,4 +666,15 @@
   {\emph {\bibinfo {title} {{Short Prime Quadratizations of Cubic Negative
   Monomials}}}}\ (\bibinfo  {publisher} {HEC ULg},\ \bibinfo {year}
   {2014})\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Boros}\ and\ \citenamefont
+  {Lari}(2014)}]{BorosLari2014}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Endre}\ \bibnamefont
+  {Boros}}\ and\ \bibinfo {author} {\bibfnamefont {Isabella}\ \bibnamefont
+  {Lari}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {Cones of
+  nonnegative quadratic pseudo-boolean functions},}\ }in\ \href
+  {http://www.cs.uic.edu/pub/Isaim2014/WebPreferences/ISAIM2014\_Boolean\_Boros\_Lari.pdf}
+  {\emph {\bibinfo {booktitle} {International Symposium on Artificial
+  Intelligence and Mathematics, {ISAIM} 2014, Fort Lauderdale, FL, USA, January
+  6-8, 2014}}}\ (\bibinfo {year} {2014})\BibitemShut {NoStop}%
 \end{thebibliography}%

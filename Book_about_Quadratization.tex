@@ -800,7 +800,7 @@ with $a=1$.
 
 For a negative term $-b_{1}b_{2}...b_{k}$, introduce a single auxiliary variable $b_a$ and make the substitution:
 \begin{equation}
--b_{1}b_{2} \ldots b_{k} \rightarrow-\sum_{i}b_{i}-\sum_{i}b_{i}b_{k}-\sum_{i}b_{i}b_{a}+(k-1)b_{k}b_{a}.
+-b_{1}b_{2} \ldots b_{k} \rightarrow \sum_{i}b_{i}-\sum_{i}b_{i}b_{k}-\sum_{i}b_{i}b_{a}+(k-1)b_{k}b_{a}.
 \end{equation}
 
 \costsec
@@ -872,7 +872,7 @@ with $a=1$.
 \summarysec
 
 For a negative term $-b_{1}b_{2}...b_{k}$, introduce a single auxiliary variable $b_a$ and make the substitution:
-\begin{align}
+\begin{align} \label{eqn:NTR-ABCG-2}
 -b_{1}b_{2}\ldots b_{k}	&\rightarrow\left(2k-1\right)b_{a}-2\sum_{i}b_{i}b_{a}
 \end{align}
 
@@ -922,10 +922,17 @@ has the same unique minimum energy, and it occurs at the same place,
 with $a=1$.
 \end{comment}
 
-%\altformsec  SEE the Anthony2016 paper, they write it with a 2 on the outsize and a 1/2 on the inside.
-%\begin{align}
-%\end{align}
+\altformsec 
+\begin{align}
+  - b_1 b_2 \dots b_k = 2 b_{a} \left(k - \frac12 - \sum_{i=1}^k b_i \right)
+\end{align}
 
+\eqref{eqn:NTR-ABCG-2} can be generalized as follows:
+
+\begin{align} \label{eqn:NTR-ABCG-2-gen}
+-b_{1}b_{2}\ldots b_{k}	&\rightarrow\left(Ck-1\right)b_{a}-C\sum_{i}b_{i}b_{a}
+\end{align}
+where $C \geq 1$ is a constant. NTR-KZFD is a particular case of \eqref{eqn:NTR-ABCG-2-gen} where $C = 1$.
 
 %\altnamesec 
 %\begin{itemize}
@@ -976,6 +983,10 @@ with $a=1$.
 \begin{align}
 -b_{1}b_{2}b_{3}&= \min_{b_a} b_a  -b_1 + b_2 + b_3   -b_1b_2 - b_1b_3 + b_1 
 \end{align}
+
+\begin{itemize}
+\item By exchanging the roles of $b_1$ and $b_3$, and flipping $b_a$, NTR-GBP is the same as NTR-ABCG for cubic monomials.
+\end{itemize}
 
 \refsec
 \begin{itemize}
@@ -5123,6 +5134,7 @@ This review has only focused on $k-$local to $2-$local transformations where $k>
 \item Linearization of equations before they are squared \cite{Schaller2010}, and its application to factoring numbers \cite{Xu2012}.
 \item Mentioned in \cite{Ali2008} as an early application of quadratization: \cite{Cunningham1985}.
 \item Characterizaton of NTRs for cubics: \cite{Crama2014a}.
+\item Relation between cones of nonnegative quadratic pseudo-Boolean functions and the Boolean Quadric Polytope \cite{BorosLari2014}.
 % 25:30 of Lechner's 2016 AQC talk mentions another paper that can do 4-local to 2-local with 1 auxiliary using 5 connections (better than Ishikawa which requires 15?). 
 % LHZ can do k-local to 4-local (?) with maybe (N choose k) auxiliaries. (N choose 2) for 2-local, (N choose 3) for 3-local, etc. look into 
 % Lechner's talk says that Rocchetto's scheme can add k-locals to LHZ lattice by sacrificing not being able to do all-2-all
