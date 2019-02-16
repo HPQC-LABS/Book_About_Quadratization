@@ -2046,12 +2046,13 @@ f(b) \rightarrow
 
 \examplesec
 
-By bit-flipping $b_2$ and $b_4$, i.e. substituting $b_2 = 1 - \bar{b}_{2}$ and $b_4 = 1 - \bar{b}_{4}$, we see that:
+For $n = 4$ and $c = 2$, we have $m = 2$, and 
 \begin{eqnarray}
-H & = & 3b_{1}b_{2}+b_{2}b_{3}+2b_{1}b_{4}-4b_{2}b_{4}\protect\\
- & = & -3b_{1}\bar{b}_{2}-\bar{b}_{2}b_{3}-2b_{1}\bar{b}_{4}-\bar{b}_{2}\bar{b}_{4}+5b_{1}+b_{3}+4\bar{b}_{2}+4\bar{b}_{4}-4.
+	& &\hspace{-10mm}(b_1 b_2 +b_1 b_3 + b_1 b_4 + b_2 b_3 + b_2 b_4 + b_3 b_4)  
+	- 3(b_1 b_2 b_3 + b_1 b_2 b_4 + b_1 b_3 b_4 + b_2 b_3 b_4) + 6 b_1 b_2 b_3 b_4 \\
+	&\to&  \left(-3 + b_1+b_2 + b_3 + b_4 - b_{a_1} + 3 b_{a_2}\right)^2
 \end{eqnarray}
-The first expression is highly non-submodular while the second is entirely submodular.
+using the alternate form below.
 
 \altformsec
 \begin{align}
@@ -2124,12 +2125,13 @@ f(b) \rightarrow
 
 \examplesec
 
-By bit-flipping $b_2$ and $b_4$, i.e. substituting $b_2 = 1 - \bar{b}_{2}$ and $b_4 = 1 - \bar{b}_{4}$, we see that:
+For $n = 4$ and $c = 2$, we have $m = 2$, and 
 \begin{eqnarray}
-H & = & 3b_{1}b_{2}+b_{2}b_{3}+2b_{1}b_{4}-4b_{2}b_{4}\protect\\
- & = & -3b_{1}\bar{b}_{2}-\bar{b}_{2}b_{3}-2b_{1}\bar{b}_{4}-\bar{b}_{2}\bar{b}_{4}+5b_{1}+b_{3}+4\bar{b}_{2}+4\bar{b}_{4}-4.
+	& &\hspace{-10mm}(b_1 b_2 +b_1 b_3 + b_1 b_4 + b_2 b_3 + b_2 b_4 + b_3 b_4)  
+	- 3(b_1 b_2 b_3 + b_1 b_2 b_4 + b_1 b_3 b_4 + b_2 b_3 b_4) + 6 b_1 b_2 b_3 b_4 \\
+	&\to&  \left(1 - b_1 -b_2 - b_3 - b_4 - b_{a_1} + 3 b_{a_2}\right)^2
 \end{eqnarray}
-The first expression is highly non-submodular while the second is entirely submodular.
+using the alternate form below.
 
 \altformsec
 \begin{align}
@@ -2204,17 +2206,20 @@ f(b) \rightarrow
 
 \examplesec
 
-By bit-flipping $b_2$ and $b_4$, i.e. substituting $b_2 = 1 - \bar{b}_{2}$ and $b_4 = 1 - \bar{b}_{4}$, we see that:
+For $n = 4$ and $c = 2$, we have $m = 1$, and 
 \begin{eqnarray}
-H & = & 3b_{1}b_{2}+b_{2}b_{3}+2b_{1}b_{4}-4b_{2}b_{4}\protect\\
- & = & -3b_{1}\bar{b}_{2}-\bar{b}_{2}b_{3}-2b_{1}\bar{b}_{4}-\bar{b}_{2}\bar{b}_{4}+5b_{1}+b_{3}+4\bar{b}_{2}+4\bar{b}_{4}-4.
+	& &\hspace{-15mm}(b_1 b_2 +b_1 b_3 + b_1 b_4 + b_2 b_3 + b_2 b_4 + b_3 b_4)  
+	- 3(b_1 b_2 b_3 + b_1 b_2 b_4 + b_1 b_3 b_4 + b_2 b_3 b_4) + 6 b_1 b_2 b_3 b_4 \\
+	&\to&  \binom{-3+b_1 + b_2 + b_3 + b_4 + 3b_{a_1}}{2}
 \end{eqnarray}
-The first expression is highly non-submodular while the second is entirely submodular.
+using the alternate form below.
+
 
 \altformsec
 \begin{align}
-f\left(b_{1},b_{2},\ldots,b_{n}\right)&\rightarrow \binom{-(c+1)+\sum_{i}b_{i}-\sum_{i}^{m-1}2^{i-1}b_{a_{i}}+\left(1+2^{m-1}\right)b_{a_{m}}}{2}
+f\left(b_{1},b_{2},\ldots,b_{n}\right)&\rightarrow \binom{-(c+1)+\sum_{i}b_{i}-\sum_{i}^{m-1}2^{i}b_{a_{i}}+\left(1+2^{m}\right)b_{a_{m}}}{2}
 \end{align}
+
 
 
 \refsec
@@ -2285,16 +2290,17 @@ f(b) \rightarrow
 
 \examplesec
 
-By bit-flipping $b_2$ and $b_4$, i.e. substituting $b_2 = 1 - \bar{b}_{2}$ and $b_4 = 1 - \bar{b}_{4}$, we see that:
+For $n = 4$ and $c = 2$, we have $m = 1$, and 
 \begin{eqnarray}
-H & = & 3b_{1}b_{2}+b_{2}b_{3}+2b_{1}b_{4}-4b_{2}b_{4}\protect\\
- & = & -3b_{1}\bar{b}_{2}-\bar{b}_{2}b_{3}-2b_{1}\bar{b}_{4}-\bar{b}_{2}\bar{b}_{4}+5b_{1}+b_{3}+4\bar{b}_{2}+4\bar{b}_{4}-4.
+	& &\hspace{-15mm}(b_1 b_2 +b_1 b_3 + b_1 b_4 + b_2 b_3 + b_2 b_4 + b_3 b_4)  
+	- 3(b_1 b_2 b_3 + b_1 b_2 b_4 + b_1 b_3 b_4 + b_2 b_3 b_4) + 6 b_1 b_2 b_3 b_4 \\
+	&\to&  \binom{1 - b_1 - b_2 - b_3 - b_4 + 3b_{a_1}}{2}
 \end{eqnarray}
-The first expression is highly non-submodular while the second is entirely submodular.
+using the alternate form below.
 
 \altformsec
 \begin{align}
-f\left(b_{1},b_{2},\ldots,b_{n}\right)& \rightarrow \binom{(c-1)-\sum_{i}b_{i}-\sum_{i}^{m-1}2^{i-1}b_{a_{i}}+\left(1+2^{m-1}\right)b_{a_{m}}}{2}
+f\left(b_{1},b_{2},\ldots,b_{n}\right)& \rightarrow \binom{(c-1)-\sum_{i}b_{i}-\sum_{i}^{m-1}2^{i}b_{a_{i}}+\left(1+2^{m}\right)b_{a_{m}}}{2}
 \end{align}
 
 \refsec
