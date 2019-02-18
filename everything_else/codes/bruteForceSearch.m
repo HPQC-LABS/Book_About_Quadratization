@@ -11,6 +11,7 @@ c=ones(2^n,1);
 
 LHS=b1.*b2.*b3.*b4.*b5 + b1.*b2.*b3.*b4 + b1.*b3.*b4.*b5 + b1.*b2.*b4.*b5 + b1.*b2.*b3.*b5 + b2.*b3.*b4.*b5;
 
+%%
 %b1.*b2+ b1.*b3+ b1.*b4+ b1.*b5+ b2.*b3+ b2.*b4+ b2.*b5+ b3.*b4+ b3.*b5+ b4.*b5+ b1+ b2+ b3+ b4+ b5;
 coeffsQ=ones(22,1);
 [b1.*b2 b1.*b3 b1.*b4 b1.*b5 b1.*ba b2.*b3 b2.*b4 b2.*b5 b2.*ba b3.*b4 b3.*b5 b3.*ba b4.*b5 b4.*ba b5.*ba b1 b2 b3 b4 b5 ba c]*coeffsQ;
@@ -22,3 +23,7 @@ RHS(1:2:2^n-1) = min(RHS(1:2:2^n-1), RHS(2:2:2^n));
 RHS(2:2:2^n) = RHS(1:2:2^n-1);
 if LHS==RHS; disp('found_a_quadratization'); end
 end
+
+%%
+RHS=[b1.*b2 b1.*b3 b1.*b4 b1.*b5 b1.*ba b2.*b3 b2.*b4 b2.*b5 b2.*ba b3.*b4 b3.*b5 b3.*ba b4.*b5 b4.*ba b5.*ba b1 b2 b3 b4 b5 ba c];
+
