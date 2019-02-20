@@ -798,6 +798,20 @@ with $a=1$.
 
 \summarysec
 
+%%%%%%%%%%%%%%%%%%
+% From Eq. the 2nd alternative form, we have for k=3:
+% For n=3 we have:
+%   b3ba - b1(ba -1  + b3) - b2(ba -1  +b3)
+% = b3ba - b1ba  +b1 -b1b3 - b2ba  +b2 -b2b3
+% = b1   + b2  -b1b3 -b2b3 - b2ba  +b3ba
+% = b1   + b2  -b1b3 -b2b3 - b2ba  -b3ba + b3ba
+
+% This means the first sum only goes up to k-1, 
+% the second term goes up to k-1,
+% the third term does not have b1ba, so it starts from i=2
+% I'm not sure if this is true for general k though !!!
+%%%%%%%%%%%%%%%%%%
+
 For a negative term $-b_{1}b_{2}...b_{k}$, introduce a single auxiliary variable $b_a$ and make the substitution:
 \begin{equation}
 -b_{1}b_{2} \ldots b_{k} \rightarrow \sum_{i}b_{i}-\sum_{i}b_{i}b_{k}-\sum_{i}b_{i}b_{a}+(k-1)b_{k}b_{a}.
