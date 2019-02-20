@@ -968,7 +968,9 @@ where $C \geq 1$ is a constant. NTR-KZFD is a particular case of \eqref{eqn:NTR-
 
 \summarysec
 \begin{align}
--b_{1}b_{2}b_{3}&\rightarrow  b_a \left( -b_1 + b_2 + b_3  \right) -b_1b_2 - b_1b_3 + b_1 
+-b_{1}b_{2}b_{3}&\rightarrow  b_a \left( -b_1 + b_2 + b_3  \right) -b_1b_2 - b_1b_3 + b_1 \\
+                &\rightarrow  b_a \left( -b_2 + b_1 + b_3  \right) -b_1b_2 - b_2b_3 + b_2 \\
+                &\rightarrow  b_a \left( -b_3 + b_1 + b_2  \right) -b_2b_3 - b_1b_3 + b_3 \label{eqn:NTR-GBP,3}
 \end{align}
 
 \costsec
@@ -995,11 +997,11 @@ where $C \geq 1$ is a constant. NTR-KZFD is a particular case of \eqref{eqn:NTR-
 
 \altformsec
 \begin{align}
--b_{1}b_{2}b_{3}&= \min_{b_a} b_a  -b_1 + b_2 + b_3   -b_1b_2 - b_1b_3 + b_1 
+-b_{1}b_{2}b_{3}&= \min_{b_a} \left( b_a  -b_1 + b_2 + b_3   -b_1b_2 - b_1b_3 + b_1 \right)
 \end{align}
 
 \begin{itemize}
-\item By exchanging the roles of $b_1$ and $b_3$, and flipping $b_a$, NTR-GBP is the same as NTR-ABCG for cubic monomials.
+\item By starting with \eqref{eqn:NTR-GBP,3}, flipping $b_a$ (i.e. setting $b_a \rightarrow 1- \bar{b}_a$ and relabelling $b_a \rightarrow \bar{b}_a$ since $b_a$ does not appear anywhere else in the function being quadratized), and then re-labeling $b_1 \rightarrow b_2$, we see that NTR-GBP can actually be derived from NTR-ABCG with $k=3$).
 \end{itemize}
 
 \refsec
