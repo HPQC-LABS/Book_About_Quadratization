@@ -5,7 +5,7 @@ N = 5;
 quadratisations = cell((2*N+1)^5, 1);
 hasQuad = zeros((2*N+1)^5, 1);
 restartId = 0;
-perCheck = 3200;
+perCheck = 100;
 
 n=5;
 allCombos=dec2bin(0:2^n-1) -'0';
@@ -34,7 +34,7 @@ for checkpoint = restartId : floor(((2*N+1)^5-1)/perCheck)
         alpha341 = mod(floor(k/(2*N+1)^2), 2*N+1) - N;
         alpha412 = mod(floor(k/(2*N+1)), 2*N+1) - N;
         alpha1234 = mod(k, 2*N+1) - N;
-        temp = zeros(0,n*(n+1)/2+1i);
+        temp = zeros(n*(n+1)/2+1,0);
         LHS=alpha123.*b{1}.*b{2}.*b{3} + alpha234.*b{2}.*b{3}.*b{4} + alpha341.*b{3}.*b{4}.*b{1} ...
             + alpha412 .* b{4} .* b{1} .* b{2} + alpha1234 .* b{1} .* b{2} .* b{3} .* b{4};
         
