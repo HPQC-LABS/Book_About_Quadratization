@@ -34,7 +34,7 @@ for checkpoint = restartId : floor(((2*N+1)^5-1)/perCheck)
         alpha341 = mod(floor(k/(2*N+1)^2), 2*N+1) - N;
         alpha412 = mod(floor(k/(2*N+1)), 2*N+1) - N;
         alpha1234 = mod(k, 2*N+1) - N;
-        temp = zeros(n*(n+1)/2+1i, 0);
+        temp = zeros(0,n*(n+1)/2+1i);
         LHS=alpha123.*b{1}.*b{2}.*b{3} + alpha234.*b{2}.*b{3}.*b{4} + alpha341.*b{3}.*b{4}.*b{1} ...
             + alpha412 .* b{4} .* b{1} .* b{2} + alpha1234 .* b{1} .* b{2} .* b{3} .* b{4};
         
