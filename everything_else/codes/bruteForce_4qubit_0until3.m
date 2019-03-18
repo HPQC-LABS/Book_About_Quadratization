@@ -1,5 +1,5 @@
 tic
-warning("off");
+warning('off');
 
 N = 5;
 quadratisations = cell((2*N+1)^5, 1);
@@ -28,13 +28,13 @@ fileid1 = fopen('allQuadratisations.txt', 'wt');
 fileid2 = fopen('failedFunctions.txt', 'wt');
 for checkpoint = restartId : floor(((2*N+1)^5-1)/perCheck)
     parfor k = checkpoint*perCheck : min((2*N+1)^5 - 1, (checkpoint+1)*perCheck - 1)
-        warning("off");
+        warning('off');
         alpha123 = floor(k/(2*N+1)^4) - N;
         alpha234 = mod(floor(k/(2*N+1)^3), 2*N+1) - N;
         alpha341 = mod(floor(k/(2*N+1)^2), 2*N+1) - N;
         alpha412 = mod(floor(k/(2*N+1)), 2*N+1) - N;
         alpha1234 = mod(k, 2*N+1) - N;
-        temp = zeros(0, n*(n+1)/2+1);
+        temp = zeros(n*(n+1)/2+1i, 0);
         LHS=alpha123.*b{1}.*b{2}.*b{3} + alpha234.*b{2}.*b{3}.*b{4} + alpha341.*b{3}.*b{4}.*b{1} ...
             + alpha412 .* b{4} .* b{1} .* b{2} + alpha1234 .* b{1} .* b{2} .* b{3} .* b{4};
         
@@ -57,7 +57,7 @@ for checkpoint = restartId : floor(((2*N+1)^5-1)/perCheck)
             
             if max(abs(LHS(1:2:2^n-1)-RHS))<1e-5
                 hasQuad(k+1) = 1;
-                temp = [temp', coeffsQ];
+                temp = [temp, coeffsQ];
             end
         end
         quadratisations{k+1}{1} = [alpha123; alpha234; alpha341; alpha412; alpha1234];
@@ -88,4 +88,4 @@ end
 fclose(fileid1);
 fclose(fileid2);
 toc
-warning("on", "all");
+warning('on', 'all');
