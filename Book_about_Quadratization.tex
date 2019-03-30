@@ -268,7 +268,13 @@ z_1x_2+x_2y_3+z_3z_4 -4y_1y_2z_3 & \hspace{5mm} \textrm{(cubic)},\label{eq:intro
 Two-body physical interactions occur more naturally than many-body interactions so \textbf{Parts \ref{partTransverseIsing}-\ref{partGeneral}} give more than 30 different ways to quadratize genreal Hamiltonians (some of these methods do not even require the $s_i$ to be $2\times2$ matrices, meaning that we can have types of qudits that are not qubits). All of these methods were published during the last 15 years.
 
 %A quantum computer whose Hamiltonian is at least quadratic in $x$ and $z$ can find this ground state with only polynomial runtime overhead over the best alternative algorithm to find that solution. 
- The optimization problems of Eqs. \eqref{eq:intro_cubic}-\eqref{eq:intro_quadratic} are specific cases of the type in Eq. \eqref{eq:intro_quantum_cubic} where only $z$ matrices are present. 
+ The optimization problems of Eqs. \eqref{eq:intro_cubic}-\eqref{eq:intro_quadratic} are specific cases of the type in Eq. \eqref{eq:intro_quantum_cubic} where only $z$ matrices are present. An example of a possible quadratization of Eq. \eqref{eq:intro_quantum_cubic} using an auxiliary qubit labeled $a$ is:
+ 
+\vspace{-5mm}
+
+\begin{align}
+z_1x_2+x_2y_3+z_3z_4 -4x_a & \hspace{5mm} \textrm{(quadratic)},\label{eq:intro_quantum_quadratic}
+\end{align}
 
 \noindent\rule{\textwidth}{0.4pt}
 \end{titlepage}
