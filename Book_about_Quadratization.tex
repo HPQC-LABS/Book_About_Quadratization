@@ -226,7 +226,7 @@ b_1b_2 + b_2b_3 + b_3b_4 + 4b_1 -4b_1b_2 -4b_1b_3 & \hspace{5mm}\textrm{(quadrat
 \vspace{1mm}
 
 
-\noindent where each $b_i$ can either be 0 or 1, both never go below the value of -2, and all minima occur at $(b_1,b_2,b_3,b_4) = (1,1,1,0)$.  Therefore if we are interested in the ground state of a discrete function of degree $k$, we may optimize either function and get exactly the same result. { \textbf{Part \ref{partDiagonal}}} gives more than 40 different ways to do this, almost all of them published within the last 5 years. 
+\noindent where each $b_i$ can either be 0 or 1, both never go below the value of -2, and all minima occur at $(b_1,b_2,b_3,b_4) = (1,1,1,0)$.  Therefore if we are interested in the ground state of a discrete function of degree $k$, we may optimize either function and get exactly the same result. { \textbf{Part \ref{partDiagonal}}} gives more than 40 different ways to do this, almost all of them published in the last 5 years. 
 
 %\vspace{15mm}
 
@@ -239,7 +239,7 @@ b_1b_2 + b_2b_3 + b_3b_4 + 4b_1 -4b_1b_2 -4b_1b_3 & \hspace{5mm}\textrm{(quadrat
 \vspace{-2mm}
 \\
 \indent The binary variables $b_i$ can be either of the eigenvalues of the matrix $b$ below, which is related to the Pauli $z$ matrix by $z=2b-\openone$. Other Pauli matrices are listed below:
-
+\vspace{0mm}
 \begin{equation}
 b\equiv\begin{pmatrix}1 & 0\\
 0 & 0
@@ -258,23 +258,17 @@ b\equiv\begin{pmatrix}1 & 0\\
 \vspace{-5mm}
 
 \begin{align}
-z_1x_2+x_2y_3+z_3z_4 -4y_1y_2z_3 & \hspace{5mm} \textrm{(cubic)},\label{eq:intro_quantum_cubic}
-\end{align}  
-
+z_1x_2+x_2y_3+z_3z_4 -4y_1y_2z_3 & \hspace{5mm} \textrm{(cubic)},\label{eq:intro_quantum_cubic}\\
+z_1x_2+x_2y_3+z_3z_4 -4x_a & \hspace{5mm} \textrm{(quadratic)},\label{eq:intro_quantum_quadratic}
+\end{align}
 %where each spin $s_i$ can be any of the Pauli matrices, and
 
-\noindent where the coefficients tell us about the strengths of couplings between these particles. The Schr\"{o}dinger equation tells us that the eigenvalues of the Hamiltonian are the allowed energy levels and their eigenvectors (wavefunctions) are the corresponding physical states. More generally these do not have to be spins but can be any type of qubits, and we can encode the solution to \textit{any} problem in the ground state of a Hamiltonian, then solve the problem by finding the lowest energy state of the physical system (this is called adiabatic quantum computing). 
+\noindent where the coefficients tell us about the strengths of couplings between these particles. The Schr\"{o}dinger equation tells us that the eigenvalues of the Hamiltonian are the allowed energy levels and their eigenvectors (wavefunctions) are the corresponding physical states. More generally these do not have to be spins but can be any type of qubits, and we can encode the solution to \textit{any} problem in the ground state of a Hamiltonian, then solve the problem by finding the lowest energy state of the physical system (this is called adiabatic quantum computing). Here, Eq.\eqref{eq:intro_quantum_quadratic} is a possible quadratization of Eq.\eqref{eq:intro_quantum_cubic} using an auxiliary qubit $a$.
 
 Two-body physical interactions occur more naturally than many-body interactions so \textbf{Parts \ref{partTransverseIsing}-\ref{partGeneral}} give more than 30 different ways to quadratize genreal Hamiltonians (some of these methods do not even require the $s_i$ to be $2\times2$ matrices, meaning that we can have types of qudits that are not qubits). All of these methods were published during the last 15 years.
 
 %A quantum computer whose Hamiltonian is at least quadratic in $x$ and $z$ can find this ground state with only polynomial runtime overhead over the best alternative algorithm to find that solution. 
- The optimization problems of Eqs. \eqref{eq:intro_cubic}-\eqref{eq:intro_quadratic} are specific cases of the type in Eq. \eqref{eq:intro_quantum_cubic} where only $z$ matrices are present. An example of a possible quadratization of Eq. \eqref{eq:intro_quantum_cubic} using an auxiliary qubit labeled $a$ is:
- 
-\vspace{-5mm}
-
-\begin{align}
-z_1x_2+x_2y_3+z_3z_4 -4x_a & \hspace{5mm} \textrm{(quadratic)},\label{eq:intro_quantum_quadratic}
-\end{align}
+ The optimization problems of Eqs. \eqref{eq:intro_cubic}-\eqref{eq:intro_quadratic} are specific cases of the type in Eq. \eqref{eq:intro_quantum_cubic} where only $z$ matrices are present.
 
 \noindent\rule{\textwidth}{0.4pt}
 \end{titlepage}
