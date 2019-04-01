@@ -6,9 +6,9 @@ N = 2; % coefficients of terms in H are in [-N,N]
 quadratisations = cell((2*N+1)^2, 1);
 hasQuad = zeros((2*N+1)^2, 1);
 sigma = cell(4,1);
-sigma{1} = [0,1;1,0];
-sigma{2} = [0,-sqrt(-1);sqrt(-1),0];
-sigma{3} = [1,0;0,-1];
+sigma{1} = [0 1 ; 1 0];
+sigma{2} = [0 -1i ; 1i 0];
+sigma{3} = [1 0 ; 0 -1];
 sigma{4} = eye(2);
 
 allbits = zeros(2^n,0);
