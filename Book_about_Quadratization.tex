@@ -698,8 +698,8 @@ H_{1} & = & 1+b_{2}b_{5}+b_{6}b_{7}b_{8}+b_{3}b_{4}b_{8}-b_{3}b_{4}.
 
 To solve $H_{1}$, we can split again on $b_{8}$, resulting in problems:
 \begin{eqnarray}
-H_{1,0} & = & 1+b_{2}b_{5}+b_{6}b_{7}\\
-H_{1,1} & = & 1+b_{2}b_{5}+b_{3}b_{4}.
+H_{1,0} & = & 1+b_{2}b_{5}-b_{3}b_{4}\\
+H_{1,1} & = & 1+b_{2}b_{5}+b_{6}b_{7}.
 \end{eqnarray}
 Now both of these problems are quadratic.
 Hence we have reduced our original, hard problem into 3 easy problems, requiring only 2 extra (much easier) runs of our minimization algorithm, and without needing any auxiliary variables.
