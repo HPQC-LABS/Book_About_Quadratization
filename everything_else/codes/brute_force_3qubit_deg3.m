@@ -58,11 +58,8 @@ for T=1:N_of_Types
             end
             [V,d] = eig(LHS);
             V_gs = V(:,diag(d)==min(diag(d))); %ground state of H
+            R_gs = rref(V_gs');
             gs_num_of_vec = size(V_gs,2);
-            
-            for m = 1:gs_num_of_vec
-                V_gs(:,m) = V_gs(:,m)/norm(V_gs(:,m));
-            end
             
             coeffsQ = ones(allbits_size,1);
             numbers = int64(1:2^n);
@@ -85,10 +82,8 @@ for T=1:N_of_Types
                 V = V(:,diag(d)==min(diag(d))); %ground state of RHS
                 
                 if ( size(V,2)==gs_num_of_vec ) %i.e. same number of eigenvectors
-                    for m = 1:gs_num_of_vec
-                        V(:,m) = V(:,m)/norm(V(:,m));
-                    end
-                    if ( (max(max(abs(V-V_gs)))<1e-5) && (max(coeffsQ)>1e-5) )
+                    R = rref(V');
+                    if ( (max(max(abs(R-R_gs)))<1e-5) && (max(coeffsQ)>1e-5) )
                         hasQuad(k+1) = 1;
                         temp = [temp, coeffsQ];
                     end
