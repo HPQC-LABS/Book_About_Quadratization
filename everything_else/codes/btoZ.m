@@ -1,3 +1,5 @@
+% may need MATLAB R2019a
+
 function latexstr = btoZ(fb, quadb)
 % btoZ('- b1*b2*b3*b4 - b2*b3*b4*b5 - b3*b4*b5*b1 - b4*b5*b1*b2 - b5*b1*b2*b3 + 3*b1*b2*b3*b4*b5', '3*ba - b1*ba - b2*ba - b3*ba - b4*ba - b5*ba') 
 
