@@ -1,8 +1,8 @@
 tic
 warning('off');
 
-H = { ["ZZX" "ZXX" "ZZY" "ZYY"] [ "XYY" "YYX" "XYZ" "XZY" "XZZ" "YZX" "YYZ" "ZYY" "ZXY" ] }; %Types of Hamiltonians  
-N = 1; % coefficients of terms in H are in [-N,N]
+H = { ["ZZX" "ZXX" "ZZY" "ZYY"] }; %Types of Hamiltonians  
+N1 = 2; N2 = 2; % coefficients of terms in H are (a + bi) with {a,b} = [-N1,N1] x [-N2,N2] 
 
 n = 3; % number of qubits
 N_of_Types = size(H,2);
@@ -38,15 +38,18 @@ fileid{4} = fopen('Quads_ground_energy_plus_more.txt', 'wt');
 fileid{5} = fopen('failedFunctions.txt', 'wt');
 
 for T=1:N_of_Types
-    quadratisations = cell((2*N+1)^N_of_terms(T), 1);
-    hasQuad = zeros((2*N+1)^N_of_terms(T), 1);
+    quadratisations = cell( ((2*N1+1)*(2*N2+1))^N_of_terms(T), 1);
+    hasQuad = zeros( ((2*N1+1)*(2*N2+1))^N_of_terms(T), 1);
     
-    for checkpoint = restartId : floor(((2*N+1)^N_of_terms(T)-1)/perCheck)
-        parfor k = checkpoint*perCheck : min((2*N+1)^N_of_terms(T) - 1, (checkpoint+1)*perCheck - 1)
+    for checkpoint = restartId : floor( (((2*N1+1)*(2*N2+1))^N_of_terms(T)-1)/perCheck )
+        parfor k = checkpoint*perCheck : min( ((2*N1+1)*(2*N2+1))^N_of_terms(T) - 1, (checkpoint+1)*perCheck - 1)
             warning('off');
             alpha = zeros(N_of_terms(T));
             for t = 1:N_of_terms(T)
-                alpha(t) = mod(floor(k/(2*N+1)^(t-1)), 2*N+1) - N;
+                temp = mod(floor( k / ((2*N1+1)*(2*N2+1))^(t-1) ), (2*N1+1)*(2*N2+1) );
+                a = floor(temp/(2*N2+1))-N1;
+                b = mod(temp,2*N2+1) - N2;
+                alpha(t) = a + 1i*b;
             end
             
             temp1 = zeros(allbits_size,0);
@@ -60,7 +63,7 @@ for T=1:N_of_Types
                     kron(sigma{H{T}{t}(2)-87},sigma{H{T}{t}(3)-87}));
             end
             
-            if max(max(abs(LHS))) < 1e-5 % need some coeff non-zero
+            if (max(max(abs(LHS))) < 1e-5) || ( ~ishermitian(LHS) ) % need some coeff non-zero
                     continue;
             end
             
@@ -84,10 +87,10 @@ for T=1:N_of_Types
                 end
                 
                 coeffsQ = B\reshape(LHS(indexlist,:)',[],1);
-                if sum( coeffsQ ~= real(coeffsQ) )
+                RHS = allbits*kron(coeffsQ,eye(2^n));
+                if ~ishermitian(RHS)
                     continue;
                 end
-                RHS = allbits*kron(coeffsQ,eye(2^n));
                 
                 [V, d] = eig(RHS);
                 RHS_spectrum = uniquetol( diag(d) , 1e-5 );
@@ -115,58 +118,83 @@ for T=1:N_of_Types
                 end
             end
             quadratisations{k+1}{1} = alpha;
-            temp1 = uniquetol(temp1',1e-5,'ByRows',true);
-            temp2 = uniquetol(temp2',1e-5,'ByRows',true);
-            temp3 = uniquetol(temp3',1e-5,'ByRows',true);
-            temp4 = uniquetol(temp4',1e-5,'ByRows',true);
-            quadratisations{k+1}{2} = temp1';
-            quadratisations{k+1}{3} = temp2';
-            quadratisations{k+1}{4} = temp3';
-            quadratisations{k+1}{5} = temp4';
+            %remove multiple entries
+            if ~sum(sum(real(temp1)~=temp1))
+                temp1 = uniquetol(temp1',1e-5,'ByRows',true)';
+            end
+            if ~sum(sum(real(temp2)~=temp2))
+                temp2 = uniquetol(temp2',1e-5,'ByRows',true)';
+            end
+            if ~sum(sum(real(temp3)~=temp3))
+                temp3 = uniquetol(temp3',1e-5,'ByRows',true)';
+            end
+            if ~sum(sum(real(temp4)~=temp4))
+                temp4 = uniquetol(temp4',1e-5,'ByRows',true)';
+            end
+            quadratisations{k+1}{2} = temp1;
+            quadratisations{k+1}{3} = temp2;
+            quadratisations{k+1}{4} = temp3;
+            quadratisations{k+1}{5} = temp4;
         end
         
-        for k = checkpoint*perCheck : min((2*N+1)^N_of_terms(T) - 1, (checkpoint+1)*perCheck - 1)
+        for k = checkpoint*perCheck : min( ((2*N1+1)*(2*N2+1))^N_of_terms(T) - 1, (checkpoint+1)*perCheck - 1)
             alpha = zeros(N_of_terms(T));
-            for m = 1:N_of_terms(T)
-                alpha(m) = mod(floor(k/(2*N+1)^(m-1)), 2*N+1) - N;
+            for t = 1:N_of_terms(T)
+                temp = mod(floor( k / ((2*N1+1)*(2*N2+1))^(t-1) ), (2*N1+1)*(2*N2+1) );
+                a = floor(temp/(2*N2+1))-N1;
+                b = mod(temp,2*N2+1) - N2;
+                alpha(t) = a + 1i*b;
             end
-            if max(abs(alpha)) < 1e-5 % need some coeff non-zero
+            if norm(alpha) < 1e-5 % need some coeff non-zero
                 continue;
             end
             
             if hasQuad(k+1) == 0
-                fprintf(fileid{5}, "no quadratisation for");
-                for m = 1:N_of_terms(T)
-                    fprintf(fileid{5}, " %+d%c1%c2%c3", alpha(m), H{T}{m}(1), H{T}{m}(2), H{T}{m}(3));
+                fprintf(fileid{5}, "No quadratisation for (%d%+di)%c1%c2%c3", real(alpha(1)), imag(alpha(1)), H{T}{1}(1), H{T}{1}(2), H{T}{1}(3));
+                for m = 2:N_of_terms(T)
+                    fprintf(fileid{5}, " + (%d%+di)%c1%c2%c3", real(alpha(m)), imag(alpha(m)), H{T}{m}(1), H{T}{m}(2), H{T}{m}(3));
                 end
                 fprintf(fileid{5}, "\n");
             else
                 for tempm=1:4
                     temp = quadratisations{k+1}{tempm+1};
                     if size(temp,2)
-                        fprintf(fileid{tempm}, "\n");
+                        plus_flag = false;
                         for m = 1:N_of_terms(T)
-                           fprintf(fileid{tempm}, "%+d%c1%c2%c3 ", alpha(m), H{T}{m}(1), H{T}{m}(2), H{T}{m}(3));
+                                if plus_flag
+                                    fprintf(fileid{tempm}, " + ");
+                                end
+                                fprintf(fileid{tempm}, "(%d%+di)%c1%c2%c3", real(alpha(m)), imag(alpha(m)), H{T}{m}(1), H{T}{m}(2), H{T}{m}(3));
+                                plus_flag = true;
                         end
-                        fprintf(fileid{tempm}, 'has quadratisations:\n');
+                        fprintf(fileid{tempm}, " has quadratisations:\n");
                         %print possible quadratisations
                         for count=1:size(temp,2)
                             m = 0;
+                            plus_flag = false;
                             for i=1:4
                                 for j=1:4
                                     for l=1:4
                                         if (i==4||j==4||l==4)
                                             m = m+1;
-                                            if(abs(temp(m,count))>1e-5)
-                                                fprintf(fileid{tempm}, "% +.1f", temp(m,count));
+                                            if norm(temp(m,count)) > 1e-5
+                                                if imag(temp(m,count)) > 1e-5
+                                                    if plus_flag
+                                                        fprintf(fileid{tempm}, " + ");
+                                                    end
+                                                    fprintf(fileid{tempm}, "(%.1f%+.1fi)", real(temp(m,count)), imag(temp(m,count)));
+                                                else
+                                                    fprintf(fileid{tempm}, " %+ .1f", real(temp(m,count)));
+                                                end
+                                                plus_flag = true;
                                                 if(i~=4)
                                                     fprintf(fileid{tempm}, "%c1", char(87+i));
                                                 end
                                                 if(j~=4)
-                                                    fprintf(fileid{tempm}, "%c2", char(87+j));
+                                                	fprintf(fileid{tempm}, "%c2", char(87+j));
                                                 end
                                                 if(l~=4)
-                                                    fprintf(fileid{tempm}, "%c3", char(87+l));
+                                                	fprintf(fileid{tempm}, "%c3", char(87+l));
                                                 end
                                             end
                                         end
@@ -175,11 +203,12 @@ for T=1:N_of_Types
                             end
                             fprintf(fileid{tempm}, "\n");
                         end
+                        fprintf(fileid{tempm}, "\n");
                     end
                 end
             end
         end
-        fprintf('progress %.3f%%, restart id = %d\n', min((checkpoint+1)*perCheck/((2*N+1)^N_of_terms(T) - 1), 1) * 100, checkpoint);
+        fprintf('progress %.3f%%, restart id = %d\n', min((checkpoint+1)*perCheck/(((2*N1+1)*(2*N2+1))^N_of_terms(T) - 1), 1) * 100, checkpoint);
     end
 end
 
