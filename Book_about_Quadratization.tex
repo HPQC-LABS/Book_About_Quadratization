@@ -195,7 +195,7 @@
 %\noindent\rule{\textwidth}{0.4pt}
 \begin{abstract}
 %\noindent {\bf Abstract.}
-\vspace{10mm} %%%%%%%%%%%%%%%%%%%%%%%% REMOVE WHEN ADDING BACK AUTHORSHIP
+\vspace{6mm} %%%%%%%%%%%%%%%%%%%%%%%% REMOVE WHEN ADDING BACK AUTHORSHIP
 An open source Book on quadratizations for classical computing, quantum annealing, and universal adiabatic quantum computing. 
 
 \vspace{-5mm}  %%%%%%%%%%%%%%%%%%%%%%%% UNCOMMENT WHEN ADDING BACK AUTHORSHIP
@@ -258,17 +258,17 @@ b\equiv\begin{pmatrix}1 & 0\\
 \vspace{-5mm}
 
 \begin{align}
-z_1x_2+x_2y_3+z_3z_4 -4y_1y_2z_3 & \hspace{5mm} \textrm{(cubic)},\label{eq:intro_quantum_cubic}\\
-z_1x_2+x_2y_3+z_3z_4 -4x_a & \hspace{5mm} \textrm{(quadratic)},\label{eq:intro_quantum_quadratic}
+x_1y_2z_3y_4 + y_1x_2z_3y_4 + x_1x_2y_3 & \hspace{5mm} \textrm{(cubic)},\label{eq:intro_quantum_cubic}\\
+x_1y_4 + x_2y_4 + x_3 & \hspace{5mm} \textrm{(quadratic)},\label{eq:intro_quantum_quadratic}
 \end{align}
 %where each spin $s_i$ can be any of the Pauli matrices, and
 
-\noindent where the coefficients tell us about the strengths of couplings between these particles. The Schr\"{o}dinger equation tells us that the eigenvalues of the Hamiltonian are the allowed energy levels and their eigenvectors (wavefunctions) are the corresponding physical states. More generally these do not have to be spins but can be any type of qubits, and we can encode the solution to \textit{any} problem in the ground state of a Hamiltonian, then solve the problem by finding the lowest energy state of the physical system (this is called adiabatic quantum computing). Here, Eq.\eqref{eq:intro_quantum_quadratic} is a possible quadratization of Eq.\eqref{eq:intro_quantum_cubic} using an auxiliary qubit $a$.
+\noindent where the coefficients tell us about the strengths of couplings between these particles. The Schr\"{o}dinger equation tells us that the eigenvalues of the Hamiltonian are the allowed energy levels and their eigenvectors (wavefunctions) are the corresponding physical states. More generally these do not have to be spins but can be any type of qubits, and we can encode the solution to \textit{any} problem in the ground state of a Hamiltonian, then solve the problem by finding the lowest energy state of the physical system (this is called adiabatic quantum computing). Eqs. \eqref{eq:intro_quantum_quadratic} and \eqref{eq:intro_quantum_cubic} have exactly the same energy spectra, so Eq. \eqref{eq:intro_quantum_quadratic} is a quadratization.
 
 Two-body physical interactions occur more naturally than many-body interactions so \textbf{Parts \ref{partTransverseIsing}-\ref{partGeneral}} give more than 30 different ways to quadratize general Hamiltonians (some of these methods do not even require the $s_i$ to be $2\times2$ matrices, meaning that we can have types of qudits that are not qubits). All of these methods were published during the last 15 years.
 
 %A quantum computer whose Hamiltonian is at least quadratic in $x$ and $z$ can find this ground state with only polynomial runtime overhead over the best alternative algorithm to find that solution. 
- The optimization problems of Eqs. \eqref{eq:intro_cubic}-\eqref{eq:intro_quadratic} are specific cases of the type in Eq. \eqref{eq:intro_quantum_cubic} where only $z$ matrices are present.
+ The optimization problems of Eqs. \eqref{eq:intro_cubic}-\eqref{eq:intro_quadratic} are specific cases of the type in Eqs. \eqref{eq:intro_quantum_cubic}-\eqref{eq:intro_quantum_quadratic}, but with only $b$ matrices.
 
 \noindent\rule{\textwidth}{0.4pt}
 \end{titlepage}
