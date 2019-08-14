@@ -1,1005 +1,680 @@
-@inproceedings{BorosLari2014,
-  author    = {Endre Boros and
-               Isabella Lari},
-  title     = {Cones of Nonnegative Quadratic Pseudo-Boolean Functions},
-  booktitle = {International Symposium on Artificial Intelligence and Mathematics,
-               {ISAIM} 2014, Fort Lauderdale, FL, USA, January 6-8, 2014},
-  year      = {2014},
-  crossref  = {DBLP:conf/isaim/2014},
-  url       = {http://www.cs.uic.edu/pub/Isaim2014/WebPreferences/ISAIM2014\_Boolean\_Boros\_Lari.pdf},
-  timestamp = {Wed, 04 Jun 2014 19:37:11 +0200},
-  biburl    = {https://dblp.org/rec/bib/conf/isaim/BorosL14},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}
-@book{Crama2014a,
-author = {Crama, Yves and {Rodriguez Heck}, Elisabeth},
-keywords = {integer programming,quadratic optimization},
-month = {jul},
-publisher = {HEC ULg},
-title = {{Short Prime Quadratizations of Cubic Negative Monomials}},
-url = {https://orbi.uliege.be/handle/2268/170649},
-year = {2014}
-}
-
-@misc{Chancellor2016a,
-author = {Chancellor, Nicholas},
-howpublished = {AQC 2016 https://www.youtube.com/watch?v=aC-6hg{\_}h3EA},
-title = {{Max-k-SAT, Multi-Body Frustration, {\&} Multi-Body Sampling on a Two Local Ising System}},
-year = {2016}
-}
-@article{Pastawski2016,
-author = {Pastawski, Fernando and Preskill, John},
-doi = {10.1103/PhysRevA.93.052325},
-journal = {Phys. Rev. A},
-month = {may},
-number = {5},
-pages = {52325},
-publisher = {American Physical Society},
-title = {{Error correction for encoded quantum annealing}},
-url = {https://link.aps.org/doi/10.1103/PhysRevA.93.052325},
-volume = {93},
-year = {2016}
-}
-@article{Glaetzle2017,
-author = {Glaetzle, A W and van Bijnen, R M W and Zoller, P and Lechner, W},
-journal = {Nature Communications},
-month = {jun},
-pages = {15813},
-publisher = {The Author(s)},
-title = {{A coherent quantum annealer with Rydberg atoms}},
-url = {http://dx.doi.org/10.1038/ncomms15813 10.1038/ncomms15813 https://www.nature.com/articles/ncomms15813{\#}supplementary-information},
-volume = {8},
-year = {2017}
-}
-@article{Albash2016,
-author = {Albash, Tameem and Vinci, Walter and Lidar, Daniel A},
-doi = {10.1103/PhysRevA.94.022327},
-journal = {Phys. Rev. A},
-month = {aug},
-number = {2},
-pages = {22327},
-publisher = {American Physical Society},
-title = {{Simulated-quantum-annealing comparison between all-to-all connectivity schemes}},
-url = {https://link.aps.org/doi/10.1103/PhysRevA.94.022327},
-volume = {94},
-year = {2016}
-}
-@article{Lechner2015,
-abstract = {Quantum annealers are physical devices that aim at solving NP-complete optimization problems by exploiting quantum mechanics. The basic principle of quantum annealing is to encode the optimization problem in Ising interactions between quantum bits (qubits). A fundamental challenge in building a fully programmable quantum annealer is the competing requirements of full controllable all-to-all connectivity and the quasi-locality of the interactions between physical qubits. We present a scalable architecture with full connectivity, which can be implemented with local interactions only. The input of the optimization problem is encoded in local fields acting on an extended set of physical qubits. The output isin the spirit of topological quantum memoriesredundantly encoded in the physical qubits, resulting in an intrinsic fault tolerance. Our model can be understood as a lattice gauge theory, where long-range interactions are mediated by gauge constraints. The architecture can be realized on various platforms with local controllability, including superconducting qubits, NV-centers, quantum dots, and atomic systems.},
-author = {Lechner, Wolfgang and Hauke, Philipp and Zoller, Peter},
-doi = {10.1126/sciadv.1500838},
-journal = {Science Advances},
-number = {9},
-publisher = {American Association for the Advancement of Science},
-title = {{A quantum annealing architecture with all-to-all connectivity from local interactions}},
-url = {http://advances.sciencemag.org/content/1/9/e1500838},
-volume = {1},
-year = {2015}
-}
-@article{Rocchetto2016,
-abstract = {In a recent paper, Lechner, Hauke, and Zoller (LHZ) described a means to translate a Hamiltonian of N spin-1/2 particles with all-to-all interactions into a larger physical lattice with only on-site energies and local parity constraints. LHZ used this mapping to propose a novel form of quantum annealing. We provide a stabilizer-based formulation within which we can describe both this prior approach and a wide variety of variants. Examples include a triangular array supporting all-to-all connectivity as well as arrangements requiring only 2N or N log N spins but providing interesting bespoke connectivities. Further examples show that arbitrarily high-order logical terms can be efficiently realized, even in a strictly two-dimensional layout. Our stabilizers can correspond to either even-parity constraints, as in the LHZ proposal, or odd-parity constraints. Considering the latter option applied to the original LHZ layout, we note that it may simplify the physical realization because the required ancillas are only spin-1/2 systems (that is, qubits rather than qutrits); moreover, the interactions are very simple. We make a preliminary assessment of the impact of these design choices by simulating small (few-qubit) systems; we find some indications that the new variant may maintain a larger minimum energy gap during the annealing process.},
-author = {Rocchetto, Andrea and Benjamin, Simon C and Li, Ying},
-doi = {10.1126/sciadv.1601246},
-journal = {Science Advances},
-number = {10},
-publisher = {American Association for the Advancement of Science},
-title = {{Stabilizers as a design tool for new forms of the Lechner-Hauke-Zoller annealer}},
-url = {http://advances.sciencemag.org/content/2/10/e1601246},
-volume = {2},
-year = {2016}
-}
-@article{Bian2014,
-abstract = {This paper discusses techniques for solving discrete optimization problems using quantum
-annealing. Practical issues likely to affect the computation include precision limitations, finite
-temperature, bounded energy range, sparse connectivity, and small numbers of qubits. To
-address these concerns we propose a way of finding energy representations with large classical
-gaps between ground and first excited states, efficient algorithms for mapping non-compatible
-Ising models into the hardware, and the use of decomposition methods for problems that are
-too large to fit in hardware. We validate the approach by describing experiments with D-Wave
-quantum hardware for low density parity check decoding with up to 1000 variables.},
-author = {Bian, Zhengbing and Chudak, Fabian and Israel, Robert and Lackey, Brad and Macready, William G and Roy, Aidan},
-doi = {10.3389/fphy.2014.00056},
-issn = {2296-424X},
-journal = {Frontiers in Physics},
-pages = {56},
-title = {{Discrete optimization using quantum annealing on sparse Ising models}},
-url = {http://journal.frontiersin.org/article/10.3389/fphy.2014.00056},
-volume = {2},
-year = {2014}
-}
-@article{Biamonte2008a,
-author = {Biamonte, J D},
-doi = {10.1103/PhysRevA.77.052331},
-journal = {Phys. Rev. A},
-month = {may},
-number = {5},
-pages = {52331},
-publisher = {American Physical Society},
-title = {{Nonperturbative k-body to two-body commuting conversion Hamiltonians and embedding problem instances into Ising spins}},
-url = {https://link.aps.org/doi/10.1103/PhysRevA.77.052331},
-volume = {77},
-year = {2008}
-}
-@article{Perdomo2008,
-author = {Perdomo, Alejandro and Truncik, Colin and Tubert-Brohman, Ivan and Rose, Geordie and Aspuru-Guzik, Al{\'{a}}n},
-doi = {10.1103/PhysRevA.78.012320},
-journal = {Phys. Rev. A},
-month = {jul},
-number = {1},
-pages = {12320},
-publisher = {American Physical Society},
-title = {{Construction of model Hamiltonians for adiabatic quantum computation and its application to finding low-energy conformations of lattice protein models}},
-url = {https://link.aps.org/doi/10.1103/PhysRevA.78.012320},
-volume = {78},
-year = {2008}
-}
-@article{Leib2016,
-abstract = {Adiabatic quantum computing is an analogue quantum computing scheme with various applications in solving optimisation problems. In the parity picture of quantum optimization, the problem is encoded in local fields that act on qubits that are connected via local four-body terms We present an implementation of a parity annealer with Transmon qubits with a specifically tailored Ising interaction from Josephson ring modulators.},
-author = {Leib, Martin and Zoller, Peter and Lechner, Wolfgang},
-journal = {Quantum Science and Technology},
-number = {1},
-pages = {15008},
-title = {{A transmon quantum annealer: decomposing many-body Ising constraints into pair interactions}},
-url = {http://stacks.iop.org/2058-9565/1/i=1/a=015008},
-volume = {1},
-year = {2016}
-}
-@article{DelasCuevasGemmaandCubitt2016,
-abstract = {The idea of finding an all-encompassing model to describe the world around us has appealed to generations of scientists. Although we are very far from this ultimate goal, more modest steps can be taken if we focus on particular problems. De las Cuevas and Cubitt used concepts borrowed from computer science to show that all classical spin models (introduced initially to study magnetism) can be solved by tackling a slightly more complex, universal model (see the Perspective by Wehner). Thanks to these findings, it may be possible to physically simulate systems with complex interactions, using the well-understood two-dimensional Ising model with fields.Science, this issue p. 1180; see also p. 1156Spin models are used in many studies of complex systems because they exhibit rich macroscopic behavior despite their microscopic simplicity. Here, we prove that all the physics of every classical spin model is reproduced in the low-energy sector of certain {\{}$\backslash$textquotedblleft{\}}universal models,{\{}$\backslash$textquotedblright{\}} with at most polynomial overhead. This holds for classical models with discrete or continuous degrees of freedom. We prove necessary and sufficient conditions for a spin model to be universal and show that one of the simplest and most widely studied spin models, the two-dimensional Ising model with fields, is universal. Our results may facilitate physical simulations of Hamiltonians with complex interactions.},
-author = {De las Cuevas, Gemma and Cubitt, Toby S.},
-doi = {10.1126/science.aab3326},
-journal = {Science},
-number = {6278},
-pages = {1180----1183},
-title = {{Simple universal models capture all classical spin physics}},
-volume = {351},
-year = {2016}
-}
-@article{Choi2010a,
-author = {Choi, Vicky},
-journal = {CoRR},
-title = {{Adiabatic Quantum Algorithms for the NP-Complete Maximum-Weight Independent Set, Exact Cover and 3SAT Problems}},
-volume = {abs/1004.2},
-year = {2010}
-}
-@article{Chancellor2016,
-abstract = {? 2016 The Author(s).We demonstrate a direct mapping of max k-SAT problems (and weighted max k-SAT) to a Chimera graph, which is the non-planar hardware graph of the devices built by D-Wave Systems Inc. We further show that this mapping can be used to map a similar class of maximum satisfiability problems where the clauses are replaced by parity checks over potentially large numbers of bits. The latter is of specific interest for applications in decoding for communication. We discuss an example in which the decoding of a turbo code, which has been demonstrated to perform near the Shannon limit, can be mapped to a Chimera graph. The weighted max k-SAT problem is the most general class of satisfiability problems, so our result effectively demonstrates how any satisfiability problem may be directly mapped to a Chimera graph. Our methods faithfully reproduce the low energy spectrum of the target problems, so therefore may also be used for maximum entropy inference.},
-author = {Chancellor, N. and Zohren, S. and Warburton, P.A. and Benjamin, S.C. and Roberts, S.},
-doi = {10.1038/srep37107},
-issn = {20452322},
-journal = {Scientific Reports},
-title = {{A Direct Mapping of Max k-SAT and High Order Parity Checks to a Chimera Graph}},
-volume = {6},
-year = {2016}
-}
-@article{Chancellor2017,
-abstract = {Quantum annealing provides a way of solving optimization problems by encoding them as Ising spin models which are implemented using physical qubits. The solution of the optimization problem then corresponds to the ground state of the system. Quantum tunneling is harnessed to enable the system to move to the ground state in a potentially high non-convex energy landscape. A major difficulty in encoding optimization problems in physical quantum annealing devices is the fact that many real world optimization problems require interactions of higher connectivity, as well as multi-body terms beyond the limitations of the physical hardware. In this work we address the question of how to implement multi-body interactions using hardware which natively only provides two-body interactions. The main result is an efficient circuit design of such multi-body terms using superconducting flux qubits in which effective N-body interactions are implemented using N ancilla qubits and only two inductive couplers. It is then shown how this circuit can be used as the unit cell of a scalable architecture by applying it to a recently proposed embedding technique for constructing an architecture of logical qubits with arbitrary connectivity using physical qubits which have nearest-neighbor four-body interactions. It is further shown that this design is robust to non-linear effects in the coupling loops, as well as mismatches in some of the circuit parameters.},
-author = {Chancellor, N and Zohren, S and Warburton, P A},
-doi = {10.1038/s41534-017-0022-6},
-issn = {2056-6387},
-journal = {npj Quantum Information},
-number = {1},
-pages = {21},
-title = {{Circuit design for multi-body interactions in superconducting quantum annealing systems with applications to a scalable architecture}},
-url = {https://doi.org/10.1038/s41534-017-0022-6},
-volume = {3},
-year = {2017}
-}
-@article{Biamonte2008,
-author = {Biamonte, Jacob D. and Love, Peter J.},
-doi = {10.1103/PhysRevA.78.012352},
-issn = {1050-2947},
-journal = {Physical Review A},
-month = {jul},
-number = {1},
-pages = {012352},
-publisher = {American Physical Society},
-title = {{Realizable Hamiltonians for universal adiabatic quantum computers}},
-url = {https://link.aps.org/doi/10.1103/PhysRevA.78.012352},
-volume = {78},
-year = {2008}
-}
-@article{Dattani2014,
-abstract = {The largest number factored on a quantum device reported until now was 143. That quantum computation, which used only 4 qubits at 300K, actually also factored much larger numbers such as 3599, 11663, and 56153, without the awareness of the authors of that work. Furthermore, unlike the implementations of Shor's algorithm performed thus far, these 4-qubit factorizations do not need to use prior knowledge of the answer. However, because they only use 4 qubits, these factorizations can also be performed trivially on classical computers. We discover a class of numbers for which the power of quantum information actually comes into play. We then demonstrate a 3-qubit factorization of 175, which would be the first quantum factorization of a triprime.},
-archivePrefix = {arXiv},
-arxivId = {1411.6758},
-author = {Dattani, Nikesh S. and Bryans, Nathaniel},
-eprint = {1411.6758},
-month = {nov},
-title = {{Quantum factorization of 56153 with only 4 qubits}},
-url = {http://arxiv.org/abs/1411.6758},
-year = {2014}
-}
-@article{Altaisky2016,
-abstract = {We propose an implementation of quantum neural networks using an array of quantum dots with dipole-dipole interactions. We demonstrate that this implementation is both feasible and versatile by studying it within the framework of GaAs based quantum dot qubits coupled to a reservoir of acoustic phonons. Using numerically exact Feynman integral calculations, we have found that the quantum coherence in our neural networks survive for over a hundred ps even at liquid nitrogen temperatures (77 K), which is three orders of magnitude higher than current implementations, which are based on SQUID-based systems operating at temperatures in the mK range.},
-author = {Altaisky, Mikhail V. and Zolnikova, Nadezhda N. and Kaputkina, Natalia E. and Krylov, Victor A. and Lozovik, Yurii E. and Dattani, Nikesh S.},
-doi = {10.1063/1.4943622},
-file = {::},
-issn = {0003-6951},
-journal = {Applied Physics Letters},
-keywords = {III-V semiconductors,gallium arsenide,integral equations,neural nets,phonons,quantum computing,semiconductor quantum dots},
-month = {mar},
-number = {10},
-pages = {103108},
-publisher = {AIP Publishing LLC},
-title = {{Towards a feasible implementation of quantum neural networks using quantum dots}},
-url = {http://aip.scitation.org/doi/10.1063/1.4943622},
-volume = {108},
-year = {2016}
-}
-@article{Gaitan2012,
-abstract = {The graph-theoretic Ramsey numbers are notoriously difficult to calculate. In fact, for the two-color Ramsey numbers R(m, n) with m, n ≥ 3, only nine are currently known. We present a quantum algorithm for the computation of the Ramsey numbers R(m, n). We show how the computation of R(m, n) can be mapped to a combinatorial optimization problem whose solution can be found using adiabatic quantum evolution. We numerically simulate this adiabatic quantum algorithm and show that it correctly determines the Ramsey numbers R(3, 3) and R(2, s) for 5 ≤ s ≤ 7. We then discuss the algorithm's experimental implementation, and close by showing that Ramsey number computation belongs to the quantum complexity class QMA. PACS numbers: 03.67.Ac,02.10.Ox,89.75.Hc In an arbitrary party of N people one might ask whether there is a group of m people who are all mu-tually acquainted, or a group of n people who are all mutual strangers. Using Ramsey theory [1, 2], it can be shown that a threshold value R(m, n) exists for the party size N so that when N ≥ R(m, n), all parties of N people will either contain m mutual acquaintances, or n mutual strangers. The threshold value R(m, n) is an example of a two-color Ramsey number. Other types of Ramsey numbers exist, though we will focus on two color Ramsey numbers in this paper. One can represent the N -person party problem by an N -vertex graph. Here each person is associated with a vertex, and an edge is drawn between a pair of vertices only when the corresponding people know each other. In the case where m people are mutual acquaintances, there will be an edge connecting any pair of the m correspond-ing vertices. Similarly, if n people are mutual strangers, there will be no edge between any of the n correspond-ing vertices. In the language of graph theory [3], the m vertices form an m-clique, and the n vertices form an n-independent set. The party problem is now a statement in graph theory: if N ≥ R(m, n), every graph with N ver-tices will contain either an m-clique, or an n-independent set. Ramsey numbers can also be introduced using color-ings of complete graphs, and R(m, n) corresponds to the case where only two colors are used. Ramsey theory has found applications in mathematics, information theory, and theoretical computer science [6]. An application of fundamental significance appears in the Paris-Harrington (PH) theorem of mathematical logic [4] which established that a particular statement in Ramsey theory related to graph colorings and natural numbers is true, though unprovable within the axioms of Peano arithmetic. Such statements are known to exist as a con-sequence of Godel's incompleteness theorem, though the PH theorem provided the first natural example. Deep connections have also been shown to exist between Ram-sey theory, topological dynamics, and ergodic theory [5].},
-archivePrefix = {arXiv},
-arxivId = {arXiv:1103.1345v3},
-author = {Gaitan, Frank and Clark, Lane},
-eprint = {arXiv:1103.1345v3},
-keywords = {()},
-title = {{Ramsey numbers and adiabatic quantum computing}},
-year = {2012}
-}
-@article{Bian2013,
-author = {Bian, Zhengbing and Chudak, Fabian and Macready, William G. and Clark, Lane and Gaitan, Frank},
-doi = {10.1103/PhysRevLett.111.130505},
-issn = {0031-9007},
-journal = {Physical Review Letters},
-month = {sep},
-number = {13},
-pages = {130505},
-publisher = {American Physical Society},
-title = {{Experimental Determination of Ramsey Numbers}},
-url = {https://link.aps.org/doi/10.1103/PhysRevLett.111.130505},
-volume = {111},
-year = {2013}
-}
-@article{Mizel2007incorrect,
-annote = {This paper is incorrect!},
-author = {Mizel, Ari and Lidar, Daniel A and Mitchell, Morgan},
-doi = {10.1103/PhysRevLett.99.070502},
-issn = {0031-9007},
-journal = {Physical Review Letters},
-month = {aug},
-number = {7},
-pages = {70502},
-title = {{Simple Proof of Equivalence between Adiabatic Quantum Computation and the Circuit Model}},
-url = {http://link.aps.org/doi/10.1103/PhysRevLett.99.070502},
-volume = {99},
-year = {2007}
-}
-@article{Aharonov2008,
-abstract = {The model of adiabatic quantum computation is a relatively recent model of quantum computation that has attracted attention in the physics and computer science communities. We describe an efficient adiabatic simulation of any given quantum circuit. This implies that the adiabatic computation model and the standard circuit-based quantum computation model are polynomially equivalent. Our result can be extended to the physically realistic setting of particles arranged on a two-dimensional grid with nearest neighbor interactions. The equivalence between the models allows one to state the main open problems in quantum computation using well-studied mathematical objects such as eigenvectors and spectral gaps of Hamiltonians.},
-author = {Aharonov, Dorit and van Dam, Wim and Kempe, Julia and Landau, Zeph and Lloyd, Seth and Regev, Oded},
-doi = {10.1137/080734479},
-issn = {0036-1445},
-journal = {SIAM Review},
-keywords = {68Q05,81P68,adiabatic computation,nearest neighbor interactions,quantum computation},
-month = {jan},
-number = {4},
-pages = {755--787},
-publisher = {Society for Industrial and Applied Mathematics},
-title = {{Adiabatic Quantum Computation Is Equivalent to Standard Quantum Computation}},
-url = {http://epubs.siam.org/doi/abs/10.1137/080734479},
-volume = {50},
-year = {2008}
-}
-@article{Denchev2016,
-author = {Denchev, Vasil S and Boixo, Sergio and Isakov, Sergei V and Ding, Nan and Babbush, Ryan and Smelyanskiy, Vadim and Martinis, John and Neven, Hartmut},
-doi = {10.1103/PhysRevX.6.031015},
-journal = {Phys. Rev. X},
-month = {aug},
-number = {3},
-pages = {31015},
-publisher = {American Physical Society},
-title = {{What is the Computational Value of Finite-Range Tunneling?}},
-url = {https://link.aps.org/doi/10.1103/PhysRevX.6.031015},
-volume = {6},
-year = {2016}
-}
-@article{Mandra2016,
-author = {Mandr{\`{a}}, Salvatore and Zhu, Zheng and Wang, Wenlong and Perdomo-Ortiz, Alejandro and Katzgraber, Helmut G},
-doi = {10.1103/PhysRevA.94.022337},
-journal = {Phys. Rev. A},
-month = {aug},
-number = {2},
-pages = {22337},
-publisher = {American Physical Society},
-title = {{Strengths and weaknesses of weak-strong cluster problems: A detailed overview of state-of-the-art classical heuristics versus quantum approaches}},
-url = {https://link.aps.org/doi/10.1103/PhysRevA.94.022337},
-volume = {94},
-year = {2016}
-}
-@article{Rother,
-abstract = {Many computer vision applications rely on the efficient optimization of challenging, so-called non-submodular, bi-nary pairwise MRFs. A promising graph cut based ap-proach for optimizing such MRFs known as " roof duality " was recently introduced into computer vision. We study two methods which extend this approach. First, we discuss an efficient implementation of the " probing " technique intro-duced recently by Boros et al. [5]. It simplifies the MRF while preserving the global optimum. Our code is 400-700 faster on some graphs than the implementation of [5]. Sec-ond, we present a new technique which takes an arbitrary input labeling and tries to improve its energy. We give theo-retical characterizations of local minima of this procedure. We applied both techniques to many applications, in-cluding image segmentation, new view synthesis, super-resolution, diagram recognition, parameter learning, tex-ture restoration, and image deconvolution. For several ap-plications we see that we are able to find the global mini-mum very efficiently, and considerably outperform the orig-inal roof duality approach. In comparison to existing tech-niques, such as graph cut, TRW, BP, ICM, and simulated annealing, we nearly always find a lower energy.},
-author = {Rother, Carsten and Kolmogorov, Vladimir and Lempitsky, Victor and Szummer, Martin},
-title = {{Optimizing Binary MRFs via Extended Roof Duality}},
-url = {https://pub.ist.ac.at/{~}vnk/papers/RKLS-CVPR07.pdf}
-}
-@inproceedings{Fix2011,
-annote = {FGBZ
-Random Markov Fields
-Review
-Ishikawa substitution},
-author = {Fix, Alexander and Gruber, Aritanan and Boros, Endre and Zabih, Ramin},
-booktitle = {2011 International Conference on Computer Vision},
-doi = {10.1109/ICCV.2011.6126347},
-isbn = {978-1-4577-1102-2},
-keywords = {Computational modeling,Computer vision,Educational institutions,Markov processes,Optimization,Polynomials,Transforms,computer vision,exact solution,first-order MRF,fusion moves,graph cut algorithm,graph cut technique,graph theory,higher-order Markov random fields,local completeness property,natural images,optimal labeling,pseudo-Boolean optimization techniques},
-month = {nov},
-pages = {1020--1027},
-publisher = {IEEE},
-title = {{A graph cut algorithm for higher-order Markov Random Fields}},
-url = {http://ieeexplore.ieee.org/lpdocs/epic03/wrapper.htm?arnumber=6126347},
-year = {2011}
-}
-@article{Roth,
-abstract = {We develop a framework for learning generic, expressive image priors that capture the statistics of natural scenes and can be used for a variety of machine vision tasks. The approach extends traditional Markov Random Field (MRF) models by learning potential functions over ex-tended pixel neighborhoods. Field potentials are modeled using a Products-of-Experts framework that exploits non-linear functions of many linear filter responses. In contrast to previous MRF approaches all parameters, including the linear filters themselves, are learned from training data. We demonstrate the capabilities of this Field of Experts model with two example applications, image denoising and image inpainting, which are implemented using a simple, approx-imate inference scheme. While the model is trained on a generic image database and is not tuned toward a specific application, we obtain results that compete with and even outperform specialized techniques.},
-author = {Roth, Stefan and Black, Michael J},
-title = {{Fields of Experts: A Framework for Learning Image Priors}},
-url = {http://cs.brown.edu/{~}roth/pubs/cvpr05roth.pdf}
-}
-@article{Aharonov2007,
-address = {Philadelphia, PA, USA},
-author = {Aharonov, Dorit and van Dam, Wim and Kempe, Julia and Landau, Zeph and Lloyd, Seth and Regev, Oded},
-doi = {10.1137/S0097539705447323},
-issn = {0097-5397},
-journal = {SIAM J. Comput.},
-keywords = {adiabatic computation,nearest neighbor interactions,quantum computation},
-month = {apr},
-number = {1},
-pages = {166--194},
-publisher = {Society for Industrial and Applied Mathematics},
-title = {{Adiabatic Quantum Computation is Equivalent to Standard Quantum Computation}},
-url = {http://dx.doi.org/10.1137/S0097539705447323},
-volume = {37},
-year = {2007}
-}
-@article{Boros2014,
-abstract = {We survey current term-wise techniques for quadratizing high-degree pseudo-Boolean functions and introduce a new one, which allows multiple splits of terms. We also introduce the first aggregative approach, which splits a collection of terms based on their common parts.},
-archivePrefix = {arXiv},
-arxivId = {1404.6538},
-author = {Boros, Endre and Gruber, Aritanan},
-eprint = {1404.6538},
-month = {apr},
-title = {{On Quadratization of Pseudo-Boolean Functions}},
-url = {http://arxiv.org/abs/1404.6538},
-year = {2014}
-}
-@inproceedings{Gallagher2011,
-author = {Gallagher, Andrew C. and Batra, Dhruv and Parikh, Devi},
-booktitle = {CVPR 2011},
-doi = {10.1109/CVPR.2011.5995452},
-isbn = {978-1-4577-0394-2},
-keywords = {Approximation algorithms,Gold,Inference algorithms,Labeling,Markov processes,Markov random fields,Polynomials,Search problems,computer vision,energy minimization problem,high order Markov random fields,inference mechanisms,order reduction inference,pairwise inference problems,vision applications},
-month = {jun},
-pages = {1857--1864},
-publisher = {IEEE},
-title = {{Inference for order reduction in Markov random fields}},
-url = {http://ieeexplore.ieee.org/lpdocs/epic03/wrapper.htm?arnumber=5995452},
-year = {2011}
-}
-@article{Gruber2015a,
-annote = {Contains note about polynomial run time of quadratics with all negative coefficients},
-author = {Gruber, Aritanan G.},
-doi = {doi:10.7282/T3PZ5BHQ},
-keywords = {Algebra,Algebraic functions,Boolean,Operations Research},
-language = {eng},
-title = {{Algorithmic and complexity results for boolean and pseudo-boolean functions}},
-url = {https://rucore.libraries.rutgers.edu/rutgers-lib/46349/},
-year = {2015}
-}
-@article{Bardet2002,
-abstract = {While the computation of Gr{\"{o}}bner bases is known to be an expspace-complete problem, the generic behaviour of algorithms for their computation is much better. We study generic properties of Gr{\"{o}}bner bases and analyse precisely the best algorithm currently known, F 5 .},
-author = {Bardet, Magali},
-journal = {Algorithms Seminar},
-pages = {85--92},
-title = {{On the Complexity of a Gr{\"{o}}bner Basis Algorithm}},
-url = {http://algo.inria.fr/seminars/.},
-year = {2002}
-}
-@article{Anthony2015,
-annote = {PhD},
-author = {Anthony, Martin and Boros, Endre and Crama, Yves and Gruber, Aritanan},
-keywords = {nonlinear binary optimization,optimisation,pseudo-Boolean functions,pseudoboolean,quadratic binary optimization,quadratization,reformulation methods},
-mendeley-tags = {optimisation,pseudoboolean,quadratization},
-month = {aug},
-title = {{Quadratic reformulations of nonlinear binary optimization problems}},
-%url = {http://orbi.ulg.ac.be/handle/2268/184526},
-year = {2015}
-}
-@inproceedings{Freedman2005,
-annote = {Quadratization of negative monomials},
-author = {Freedman, D. and Drineas, P.},
-booktitle = {2005 IEEE Computer Society Conference on Computer Vision and Pattern Recognition (CVPR'05)},
-doi = {10.1109/CVPR.2005.143},
-isbn = {0-7695-2372-2},
-keywords = {Algorithm design and analysis,Application software,Computer science,Computer vision,Explosions,Minimization methods,NP-complete problem,Polynomials,Stereo vision,Sufficient conditions,approximate algorithm,computer vision,energy function minimization,energy minimization,functions,graph cut method,graph cuts,graph theory,k-wise pixel interaction,minimisation},
-pages = {939--946},
-publisher = {IEEE},
-title = {{Energy Minimization via Graph Cuts: Settling What is Possible}},
-url = {http://ieeexplore.ieee.org/lpdocs/epic03/wrapper.htm?arnumber=1467543},
-volume = {2},
-year = {2005}
-}
-@inproceedings{Ishikawa2014,
-author = {Ishikawa, Hiroshi},
-booktitle = {2014 IEEE Conference on Computer Vision and Pattern Recognition},
-doi = {10.1109/CVPR.2014.177},
-isbn = {978-1-4799-5118-5},
-keywords = {Approximation algorithms,Approximation methods,Benchmark testing,Graph cuts,Higher order,Markov processes,Markov random field,Markov random fields,Minimization,Order reduction,Polynomials,Pseudo-Boolean functions,Vectors,higher-order clique reduction,polynomial approximation,polynomial representation,random processes,roof-dual algorithm,value assignment},
-month = {jun},
-pages = {1362--1369},
-publisher = {IEEE},
-title = {{Higher-Order Clique Reduction without Auxiliary Variables}},
-url = {http://ieeexplore.ieee.org/lpdocs/epic03/wrapper.htm?arnumber=6909573},
-year = {2014}
-}
-@inproceedings{Ishikawa2009,
-author = {Ishikawa, Hiroshi},
-booktitle = {2009 IEEE Conference on Computer Vision and Pattern Recognition},
-doi = {10.1109/CVPR.2009.5206689},
-isbn = {978-1-4244-3992-8},
-keywords = {Belief propagation,Biology,Energy capture,Higher order statistics,Image restoration,Iterative algorithms,Labeling,Layout,Markov processes,Markov random fields,Optimization methods,QPBO algorithm,binary graph cut,computer vision,fields of experts model,graph theory,higher-order Markov random field,higher-order clique reduction,higher-order multilabel problem,image restoration,natural image,natural scene,natural scenes,statistics,third-order energy},
-month = {jun},
-pages = {2993--3000},
-publisher = {IEEE},
-title = {{Higher-order clique reduction in binary graph cut}},
-url = {http://ieeexplore.ieee.org/lpdocs/epic03/wrapper.htm?arnumber=5206689},
-year = {2009}
-}
-@article{Dridi2016,
-abstract = {We investigate prime factorization from two perspectives: quantum annealing and computational algebraic geometry, specifically Gr$\backslash$"obner bases. We present a novel scalable algorithm which combines the two approaches and leads to the factorization of all bi-primes up to just over {\$}200 \backslash, 000{\$}, the largest number factored to date using a quantum processor.},
-archivePrefix = {arXiv},
-arxivId = {1604.05796},
-author = {Dridi, Raouf and Alghassi, Hedayat},
-eprint = {1604.05796},
-month = {apr},
-title = {{Prime factorization using quantum annealing and computational algebraic geometry}},
-url = {http://arxiv.org/abs/1604.05796},
-year = {2016}
-}
-@article{Rosenberg1975,
-author = {Rosenberg, I. G.},
-journal = {Cahiers du Centre d'Etudes de Recherche Operationnelle},
-pages = {71--74},
-title = {{Reduction of Bivalent Maximization to the Quadratic Case}},
-volume = {17},
-year = {1975}
-}
-@article{Boros2002,
-abstract = {This survey examines the state of the art of a variety of problems related to pseudo-Boolean optimization, i.e. to the optimization of set functions represented by closed algebraic expressions. The main parts of the survey examine general pseudo-Boolean optimization, the specially important case of quadratic pseudo-Boolean optimization (to which every pseudo-Boolean optimization can be reduced), several other important special classes, and approximation algorithms.},
-author = {Boros, Endre and Hammer, Peter L.},
-doi = {10.1016/S0166-218X(01)00341-9},
-issn = {0166218X},
-journal = {Discrete Applied Mathematics},
-keywords = {general optimization,quadratic optimization},
-mendeley-tags = {general optimization,quadratic optimization},
-month = {nov},
-number = {1-3},
-pages = {155--225},
-title = {{Pseudo-Boolean optimization}},
-url = {http://www.sciencedirect.com/science/article/pii/S0166218X01003419},
-volume = {123},
-year = {2002}
-}
-@article{Tanburn2015c,
-abstract = {Adiabatic quantum computing has recently been used to factor 56153 [Dattani {\&} Bryans, arXiv:1411.6758] at room temperature, which is orders of magnitude larger than any number attempted yet using Shor's algorithm (circuit-based quantum computation). However, this number is still vastly smaller than RSA-768 which is the largest number factored thus far on a classical computer. We address a major issue arising in the scaling of adiabatic quantum factorization to much larger numbers. Namely, the existence of many 4-qubit, 3-qubit and 2-qubit interactions in the Hamiltonians. We showcase our method on various examples, one of which shows that we can remove 94{\%} of the 4-qubit interactions and 83{\%} of the 3-qubit interactions in the factorization of a 25-digit number with almost no effort, without adding any auxiliary qubits. Our method is not limited to quantum factoring. Its importance extends to the wider field of discrete optimization. Any CSP (constraint-satisfiability problem), psuedo-boolean optimization problem, or QUBO (quadratic unconstrained Boolean optimization) problem can in principle benefit from the "deduction-reduction" method which we introduce in this paper. We provide an open source code which takes in a Hamiltonian (or a discrete discrete function which needs to be optimized), and returns a Hamiltonian that has the same unique ground state(s), no new auxiliary variables, and as few multi-qubit (multi-variable) terms as possible with deduc-reduc.},
-archivePrefix = {arXiv},
-arxivId = {1508.04816},
-author = {Tanburn, Richard and Okada, Emile and Dattani, Nike},
-eprint = {1508.04816},
-month = {aug},
-title = {{Reducing multi-qubit interactions in adiabatic quantum computation without adding auxiliary qubits. Part 1: The "deduc-reduc" method and its application to quantum factorization of numbers}},
-url = {http://arxiv.org/abs/1508.04816},
-year = {2015}
-}
-@article{Ishikawa2011,
-annote = {Submodular drawbacks of other methods.
-First tractable method (according to FGBZ)
-Improvements on Ishikawa substitution},
-author = {Ishikawa, H},
-doi = {10.1109/TPAMI.2010.91},
-issn = {0162-8828},
-journal = {IEEE Transactions on Pattern Analysis and Machine Intelligence},
-keywords = {Algorithms,Artificial Intelligence,Automated,Belief propagation,Computer vision,Energy capture,Energy minimization,Higher order statistics,Image Enhancement,Image segmentation,Layout,Markov Chains,Markov processes,Markov random field,Markov random fields,Minimization methods,Optimization methods,Pattern Recognition,QPBO algorithms,Stereo vision,computer vision,computer vision problems,first-order case,general binary MRF minimization transformation,graph cuts.,higher-order MRFs,pseudo-Boolean function},
-month = {jun},
-number = {6},
-pages = {1234--1249},
-publisher = {IEEE},
-title = {{Transformation of General Binary MRF Minimization to the First-Order Case}},
-url = {http://ieeexplore.ieee.org/lpdocs/epic03/wrapper.htm?arnumber=5444874},
-volume = {33},
-year = {2011}
-}
-@article{Parrilo2001,
-abstract = {We compare algorithms for global optimization of polynomial functions in many variables. It is demonstrated that existing algebraic methods (Gr$\backslash$"obner bases, resultants, homotopy methods) are dramatically outperformed by a relaxation technique, due to N.Z. Shor and the first author, which involves sums of squares and semidefinite programming. This opens up the possibility of using semidefinite programming relaxations arising from the Positivstellensatz for a wide range of computational problems in real algebraic geometry.   This paper was presented at the Workshop on Algorithmic and Quantitative Aspects of Real Algebraic Geometry in Mathematics and Computer Science, held at DIMACS, Rutgers University, March 12-16, 2001.},
-annote = {Discusses limitations of Groebner bases for minimizing polynomials},
-archivePrefix = {arXiv},
-arxivId = {math/0103170},
-author = {Parrilo, Pablo A. and Sturmfels, Bernd},
-eprint = {0103170},
-keywords = {groebner},
-mendeley-tags = {groebner},
-month = {mar},
-primaryClass = {math},
-title = {{Minimizing Polynomial Functions}},
-url = {http://arxiv.org/abs/math/0103170},
-year = {2001}
-}
-@book{Cox2007,
-abstract = {3rd ed. Preface to the First Edition -- Preface to the Second Edition -- Preface to the Third Edition -- Geometry, Algebra, and Algorithms -- Groebner Bases -- Elimination Theory -- The Algebra-Geometry Dictionary -- Polynomial and Rational Functions on a Variety -- Robotics and Automatic Geometric Theorem Proving -- Invariant Theory of Finite Groups -- Projective Algebraic Geometry -- The Dimension of a Variety -- Appendix A. Some Concepts from Algebra -- Appendix B. Pseudocode -- Appendix C. Computer Algebra Systems -- Appendix D. Independent Projects -- References -- Index.},
-author = {Cox, David A. and Little, John B. and O'Shea, Donal.},
-isbn = {9780387356501},
-pages = {551},
-publisher = {Springer},
-title = {{Ideals, Varieties and Algorithms : An Introduction to Computational Algebraic Geometry and Commutative Algebra}},
-year = {2007}
-}
-@article{Okada2015,
-abstract = {Quantum annealing has recently been used to determine the Ramsey numbers R(m,2) for 3 {\textless} m {\textless} 9 and R(3,3) [Bian et al. (2013) PRL 111, 130505]. This was greatly celebrated as the largest experimental implementation of an adiabatic evolution algorithm to that date. However, in that computation, more than 66{\%} of the qubits used were auxiliary qubits, so the sizes of the Ramsey number Hamiltonians used were tremendously smaller than the full 128-qubit capacity of the device used. The reason these auxiliary qubits were needed was because the best quantum annealing devices at the time (and still now) cannot implement multi-qubit interactions beyond 2-qubit interactions, and they are also limited in their capacity for 2-qubit interactions. We present a method which allows the full qubit capacity of a quantum annealing device to be used, by reducing multi-qubit and 2-qubit interactions. With our method, the device used in the 2013 Ramsey number quantum computation could have determined R(16,2) and R(4,3) with under 10 minutes of runtime.},
-archivePrefix = {arXiv},
-arxivId = {1508.07190},
-author = {Okada, Emile and Tanburn, Richard and Dattani, Nikesh S.},
-eprint = {1508.07190},
-keywords = {split-reduc},
-mendeley-tags = {split-reduc},
-month = {aug},
-pages = {5},
-title = {{Reducing multi-qubit interactions in adiabatic quantum computation without adding auxiliary qubits. Part 2: The "split-reduc" method and its application to quantum determination of Ramsey numbers}},
-url = {http://arxiv.org/abs/1508.07190},
-year = {2015}
-}
-@article{Jordan2008,
-author = {Jordan, Stephen P. and Farhi, Edward},
-doi = {10.1103/PhysRevA.77.062329},
-file = {::},
-issn = {1050-2947},
-journal = {Physical Review A},
-month = {jun},
-number = {6},
-pages = {062329},
-publisher = {American Physical Society},
-title = {{Perturbative gadgets at arbitrary orders}},
-url = {https://link.aps.org/doi/10.1103/PhysRevA.77.062329},
-volume = {77},
-year = {2008}
-}
-@article{Subas2016,
-author = {Subasi, Yigit and Jarzynski, Christopher},
-doi = {10.1103/PhysRevA.94.012342},
-file = {:home/nike/Documents/Mendeley Desktop/Subaşi, Jarzynski - 2016 - Nonperturbative embedding for highly nonlocal Hamiltonians.pdf:pdf},
-issn = {2469-9926},
-journal = {Physical Review A},
-month = {jul},
-number = {1},
-pages = {012342},
-publisher = {American Physical Society},
-title = {{Nonperturbative embedding for highly nonlocal Hamiltonians}},
-url = {https://link.aps.org/doi/10.1103/PhysRevA.94.012342},
-volume = {94},
-year = {2016}
-}
-@article{Kolmogorov2004,
-author = {Kolmogorov, V. and Zabih, R.},
-doi = {10.1109/TPAMI.2004.1262177},
-issn = {0162-8828},
-journal = {IEEE Transactions on Pattern Analysis and Machine Intelligence},
-mendeley-groups = {Review Paper},
-month = {feb},
-number = {2},
-pages = {147--159},
-title = {{What energy functions can be minimized via graph cuts?}},
-url = {http://ieeexplore.ieee.org/document/1262177/},
-volume = {26},
-year = {2004}
-}
-@article{Duan2011,
-author = {Duan, Qian-Heng and Chen, Ping-Xing},
-doi = {10.1103/PhysRevA.84.042332},
-issn = {1050-2947},
-journal = {Physical Review A},
-month = {oct},
-number = {4},
-pages = {042332},
-publisher = {American Physical Society},
-title = {{Realization of universal adiabatic quantum computation with fewer physical resources}},
-url = {https://link.aps.org/doi/10.1103/PhysRevA.84.042332},
-volume = {84},
-year = {2011}
-}
-@article{Oliveira2008,
- author = {Oliveira, Roberto and Terhal, Barbara M.},
- title = {The Complexity of Quantum Spin Systems on a Two-dimensional Square Lattice},
- journal = {Quantum Info. Comput.},
- issue_date = {November 2008},
- volume = {8},
- number = {10},
- month = nov,
- year = {2008},
- issn = {1533-7146},
- pages = {900--924},
- numpages = {25},
- url = {http://dl.acm.org/citation.cfm?id=2016985.2016987},
- acmid = {2016987},
- publisher = {Rinton Press, Incorporated},
- address = {Paramus, NJ},
-}
-@article{Cao2015,
-author = {Cao, Yudong and Babbush, Ryan and Biamonte, Jacob and Kais, Sabre},
-doi = {10.1103/PhysRevA.91.012315},
-issn = {1050-2947},
-journal = {Physical Review A},
-month = {jan},
-number = {1},
-pages = {012315},
-publisher = {American Physical Society},
-title = {{Hamiltonian gadgets with reduced resource requirements}},
-url = {http://link.aps.org/doi/10.1103/PhysRevA.91.012315},
-volume = {91},
-year = {2015}
-}
-@article{Bravyi2008,
-author = {Bravyi, Sergey and DiVincenzo, David P. and Loss, Daniel and Terhal, Barbara M.},
-doi = {10.1103/PhysRevLett.101.070503},
-file = {:home/nike/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Bravyi et al. - 2008 - Quantum Simulation of Many-Body Hamiltonians Using Perturbation Theory with Bounded-Strength Interactions.pdf:pdf},
-issn = {0031-9007},
-journal = {Physical Review Letters},
-month = {aug},
-number = {7},
-pages = {070503},
-publisher = {American Physical Society},
-title = {{Quantum Simulation of Many-Body Hamiltonians Using Perturbation Theory with Bounded-Strength Interactions}},
-url = {https://link.aps.org/doi/10.1103/PhysRevLett.101.070503},
-volume = {101},
-year = {2008}
-}
-@article{Nagaj2010,
-abstract = {We present two universal models of quantum computation with a time-independent, frustration-free Hamiltonian. The first construction uses 3-local (qubit) projectors and the second one requires only 2-local qubit-qutrit projectors. We build on Feynman's Hamiltonian computer idea [R. Feynman, Optics News 11, 11 (1985)] and use a railroad-switch-type clock register. The resources required to simulate a quantum circuit with L gates in this model are O(L) small-dimensional quantum systems (qubits or qutrits), a time-independent Hamiltonian composed of O(L) local, constant norm, projector terms, the possibility to prepare computational basis product states, a running time O(L log2 L), and the possibility to measure a few qubits in the computational basis. Our models also give a simplified proof of the universality of 3-local adiabatic quantum computation.},
-author = {Nagaj, Daniel},
-doi = {10.1063/1.3384661},
-file = {:home/nike/Documents/Mendeley Desktop/Nagaj - 2010 - Fast universal quantum computation with railroad-switch local Hamiltonians.pdf:pdf},
-issn = {0022-2488},
-journal = {Journal of Mathematical Physics},
-keywords = {quantum computing},
-month = {jun},
-number = {6},
-pages = {062201},
-publisher = {American Institute of Physics},
-title = {{Fast universal quantum computation with railroad-switch local Hamiltonians}},
-url = {http://aip.scitation.org/doi/10.1063/1.3384661},
-volume = {51},
-year = {2010}
-}
-@book{Cao2015a,
-author = {Cao, Yudong and Nagaj, Daniel},
-booktitle = {Quantum Information {\&} Computation},
-issn = {1533-7146},
-keywords = {local Hamiltonian,perturbation theory,quantum complexity},
-number = {13-14},
-pages = {1197--1222},
-publisher = {Rinton Press},
-title = {{Perturbative gadgets without strong interactions}},
-url = {https://dl.acm.org/citation.cfm?id=2871363.2871370},
-volume = {15},
-year = {2015}
-}
-@article{Brell2011,
-author = {Brell, Courtney G and Flammia, Steven T and Bartlett, Stephen D and Doherty, Andrew C},
-doi = {10.1088/1367-2630/13/5/053039},
-file = {:home/nike/Documents/Mendeley Desktop/Brell et al. - 2011 - Toric codes and quantum doubles from two-body Hamiltonians.pdf:pdf},
-issn = {1367-2630},
-journal = {New Journal of Physics},
-month = {may},
-number = {5},
-pages = {053039},
-publisher = {IOP Publishing},
-title = {{Toric codes and quantum doubles from two-body Hamiltonians}},
-url = {http://stacks.iop.org/1367-2630/13/i=5/a=053039?key=crossref.46bae15eeb0fd6bf104472bfcf5a8fd9},
-volume = {13},
-year = {2011}
-}
-@article{Brell2014,
-author = {Brell, Courtney G and Bartlett, Stephen D and Doherty, Andrew C},
-doi = {10.1088/1367-2630/16/12/123056},
-file = {:home/nike/Documents/Mendeley Desktop/Brell, Bartlett, Doherty - 2014 - Perturbative 2-body parent Hamiltonians for projected entangled pair states.pdf:pdf},
-issn = {1367-2630},
-journal = {New Journal of Physics},
-month = {dec},
-number = {12},
-pages = {123056},
-publisher = {IOP Publishing},
-title = {{Perturbative 2-body parent Hamiltonians for projected entangled pair states}},
-url = {http://stacks.iop.org/1367-2630/16/i=12/a=123056?key=crossref.eeae1f6d6c8ec4881d131c1064f3f52f},
-volume = {16},
-year = {2014}
-}
-@article{Babbush2013,
-author = {Babbush, Ryan and O'Gorman, Bryan and Aspuru-Guzik, Al{\'{a}}n},
-doi = {10.1002/andp.201300120},
-file = {:home/nike/Documents/Mendeley Desktop/Babbush, O'Gorman, Aspuru-Guzik - 2013 - Resource efficient gadgets for compiling adiabatic quantum optimization problems.pdf:pdf},
-issn = {00033804},
-journal = {Annalen der Physik},
-keywords = {Adiabatic quantum computing,optimization,quantum information,quantum simulation},
-month = {nov},
-number = {10-11},
-pages = {877--888},
-publisher = {Wiley-Blackwell},
-title = {{Resource efficient gadgets for compiling adiabatic quantum optimization problems}},
-url = {http://doi.wiley.com/10.1002/andp.201300120},
-volume = {525},
-year = {2013}
-}
-@article{Shen2017a,
-author = {Shen, Jianbing and Peng, Jianteng and Dong, Xingping and Shao, Ling and Porikli, Fatih},
-doi = {10.1109/TIP.2017.2722691},
-issn = {1057-7149},
-journal = {IEEE Transactions on Image Processing},
-month = {oct},
-number = {10},
-pages = {4911--4922},
-title = {{Higher Order Energies for Image Segmentation}},
-url = {http://ieeexplore.ieee.org/document/7967759/},
-volume = {26},
-year = {2017}
-}
-@article{Ocko2011,
-author = {Ocko, Samuel A. and Yoshida, Beni},
-doi = {10.1103/PhysRevLett.107.250502},
-file = {:home/nike/Documents/Mendeley Desktop/Ocko, Yoshida - 2011 - Nonperturbative Gadget for Topological Quantum Codes.pdf:pdf},
-issn = {0031-9007},
-journal = {Physical Review Letters},
-month = {dec},
-number = {25},
-pages = {250502},
-publisher = {American Physical Society},
-title = {{Nonperturbative Gadget for Topological Quantum Codes}},
-url = {https://link.aps.org/doi/10.1103/PhysRevLett.107.250502},
-volume = {107},
-year = {2011}
-}
-@article{Chancellor2016b,
-abstract = {Quantum annealing provides a way of solving optimization problems by encoding them as Ising spin models which are implemented using physical qubits. The solution of the optimization problem then corresponds to the ground state of the system. Quantum tunnelling is harnessed to enable the system to move to the ground state in a potentially highly non-convex energy landscape. A major difficulty in encoding optimization problems in physical quantum annealing devices is the fact that many real world optimization problems require interactions of higher connectivity as well as multi-body terms beyond the limitations of the physical hardware. In this work we address the question of how to implement multi-body interactions using hardware which natively only provides two-body interactions. The main result is an efficient circuit design of such multi-body terms using superconducting flux qubits in which effective N-body interactions are implemented using N ancilla qubits and only two inductive couplers. It is then shown how this circuit can be used as the unit cell of a scalable architecture by applying it to a recently proposed embedding technique for constructing an architecture of logical qubits with arbitrary connectivity using physical qubits which have nearest-neighbor four-body interactions. It is further shown that this design is robust to non-linear effects in the coupling loops as well as mismatches in some of the circuit parameters.},
-archivePrefix = {arXiv},
-arxivId = {1603.09521},
-author = {Chancellor, Nicholas and Zohren, Stefan and Warburton, Paul A.},
-doi = {10.1038/s41534-017-0022-6},
-eprint = {1603.09521},
-file = {::},
-issn = {2056-6387},
-month = {mar},
-title = {{Circuit design for multi-body interactions in superconducting quantum annealing system with applications to a scalable architecture}},
-url = {http://arxiv.org/abs/1603.09521{\%}0Ahttp://dx.doi.org/10.1038/s41534-017-0022-6},
-year = {2016}
-}
-@article{Leib2016a,
-abstract = {Adiabatic quantum computing is an analog quantum computing scheme with various applications in solving optimization problems. In the parity picture of quantum optimization, the problem is encoded in local fields that act on qubits which are connected via local 4-body terms. We present an implementation of a parity annealer with Transmon qubits with a specifically tailored Ising interaction from Josephson ring modulators.},
-archivePrefix = {arXiv},
-arxivId = {1604.02359},
-author = {Leib, Martin and Zoller, Peter and Lechner, Wolfgang},
-eprint = {1604.02359},
-file = {::},
-month = {apr},
-title = {{A Transmon Quantum Annealer: Decomposing Many-Body Ising Constraints Into Pair Interactions}},
-url = {http://arxiv.org/abs/1604.02359},
-year = {2016}
-}
-@article{Kahl2011,
-author = {Kahl and Strandmark},
-journal = {International Conference on Computer Vision},
-mendeley-groups = {csp-reduce,Review Paper},
-title = {{Generalized Roof Duality for Pseudo-Boolean Optimization}},
-url = {http://www.maths.lth.se/vision/publdb/reports/pdf/kahl-strandmark-iccv-11.pdf},
-year = {2011}
-}
-@inproceedings{Boros2018QuadratizationsOS,
-  title={Quadratizations of symmetric pseudo-Boolean functions: sub-linear bounds on the number of auxiliary variables},
-  author={Endre Boros and Yves Crama and Elisabeth Rodr{\'i}guez-Heck},
-  booktitle={ISAIM},
-  year={2018}
-}
-@article{Brell2011,
-author = {Brell, Courtney G and Flammia, Steven T and Bartlett, Stephen D and Doherty, Andrew C},
-doi = {10.1088/1367-2630/13/5/053039},
-file = {:home/nike/Documents/Mendeley Desktop/Brell et al. - 2011 - Toric codes and quantum doubles from two-body Hamiltonians.pdf:pdf},
-issn = {1367-2630},
-journal = {New Journal of Physics},
-month = {may},
-number = {5},
-pages = {053039},
-publisher = {IOP Publishing},
-title = {{Toric codes and quantum doubles from two-body Hamiltonians}},
-url = {http://stacks.iop.org/1367-2630/13/i=5/a=053039?key=crossref.46bae15eeb0fd6bf104472bfcf5a8fd9},
-volume = {13},
-year = {2011}
-}
-@article{Brell2014,
-author = {Brell, Courtney G and Bartlett, Stephen D and Doherty, Andrew C},
-doi = {10.1088/1367-2630/16/12/123056},
-file = {:home/nike/Documents/Mendeley Desktop/Brell, Bartlett, Doherty - 2014 - Perturbative 2-body parent Hamiltonians for projected entangled pair states.pdf:pdf},
-issn = {1367-2630},
-journal = {New Journal of Physics},
-month = {dec},
-number = {12},
-pages = {123056},
-publisher = {IOP Publishing},
-title = {{Perturbative 2-body parent Hamiltonians for projected entangled pair states}},
-url = {http://stacks.iop.org/1367-2630/16/i=12/a=123056?key=crossref.eeae1f6d6c8ec4881d131c1064f3f52f},
-volume = {16},
-year = {2014}
-}
-@article{Anthony2017,
-author = {Anthony, Martin and Boros, Endre and Crama, Yves and Gruber, Aritanan},
-doi = {10.1007/s10107-016-1032-4},
-file = {:home/nike/Documents/Mendeley Desktop/Anthony et al. - 2017 - Quadratic reformulations of nonlinear binary optimization problems.pdf:pdf},
-issn = {0025-5610},
-journal = {Mathematical Programming},
-month = {mar},
-number = {1-2},
-pages = {115--144},
-publisher = {Springer Berlin Heidelberg},
-title = {{Quadratic reformulations of nonlinear binary optimization problems}},
-url = {http://link.springer.com/10.1007/s10107-016-1032-4},
-volume = {162},
-year = {2017}
-}
-@article{Anthony2014,
-archivePrefix = {arXiv},
-arxivId = {1404.6535},
-author = {Anthony, Martin and Boros, Endre and Crama, Yves and Gruber, Aritanan},
-eprint = {1404.6535},
-file = {::},
-month = {apr},
-title = {{Quadratization of Symmetric Pseudo-Boolean Functions}},
-url = {https://arxiv.org/abs/1404.6535},
-year = {2014}
-}
-@article{Anthony2016,
-author = {Anthony, Martin and Boros, Endre and Crama, Yves and Gruber, Aritanan},
-doi = {10.1016/J.DAM.2016.01.001},
-issn = {0166-218X},
-journal = {Discrete Applied Mathematics},
-month = {apr},
-pages = {1--12},
-publisher = {North-Holland},
-title = {{Quadratization of symmetric pseudo-Boolean functions}},
-url = {https://www.sciencedirect.com/science/article/pii/S0166218X16000020},
-volume = {203},
-year = {2016}
-}
-@article{Boros2002,
-author = {Boros, Endre and Hammer, Peter L.},
-doi = {10.1016/S0166-218X(01)00341-9},
-issn = {0166218X},
-journal = {Discrete Applied Mathematics},
-month = {nov},
-number = {1-3},
-pages = {155--225},
-publisher = {Elsevier Science Publishers B. V.},
-title = {{Pseudo-Boolean optimization}},
-url = {http://dl.acm.org/citation.cfm?id=772382.772388},
-volume = {123},
-year = {2002}
-}
-@article{Schaller2010,
-author = {Schaller, Gernot and Sch{\"{u}}tzhold, Ralf},
-issn = {1533-7146},
-journal = {Quantum Information {\&} Computation},
-keywords = {computational complexity,quantum adiabatic evolution,quantum phase transitions},
-month = {jan},
-number = {1},
-pages = {109--140},
-publisher = {Rinton Press, Incorporated},
-title = {{The role of symmetries in adiabatic quantum algorithms}},
-url = {http://dl.acm.org/citation.cfm?id=2011438.2011447},
-volume = {10},
-year = {2010}
-}
-@article{Xu2012,
-author = {Xu, Nanyang and Zhu, Jing and Lu, Dawei and Zhou, Xianyi and Peng, Xinhua and Du, Jiangfeng},
-doi = {10.1103/PhysRevLett.108.130501},
-issn = {0031-9007},
-journal = {Physical Review Letters},
-month = {mar},
-number = {13},
-pages = {130501},
-title = {{Quantum Factorization of 143 on a Dipolar-Coupling Nuclear Magnetic Resonance System}},
-url = {http://link.aps.org/doi/10.1103/PhysRevLett.108.130501},
-volume = {108},
-year = {2012}
-}
-@article{Cunningham1985,
-author = {Cunningham, William H.},
-doi = {10.1002/net.3230150206},
-file = {:home/nike/Documents/Mendeley Desktop/Cunningham - 1985 - Minimum cuts, modular functions, and matroid polyhedra.pdf:pdf},
-issn = {00283045},
-journal = {Networks},
-number = {2},
-pages = {205--215},
-publisher = {Wiley-Blackwell},
-title = {{Minimum cuts, modular functions, and matroid polyhedra}},
-url = {http://doi.wiley.com/10.1002/net.3230150206},
-volume = {15},
-year = {1985}
-}
-@incollection{Windheuser2012,
-author = {Windheuser, Thomas and Ishikawa, Hiroshi and Cremers, Daniel},
-doi = {10.1007/978-3-642-33783-3_29},
-file = {:home/nike/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Windheuser, Ishikawa, Cremers - 2012 - Generalized Roof Duality for Multi-Label Optimization Optimal Lower Bounds and Persistency.pdf:pdf},
-pages = {400--413},
-publisher = {Springer, Berlin, Heidelberg},
-title = {{Generalized Roof Duality for Multi-Label Optimization: Optimal Lower Bounds and Persistency}},
-url = {http://link.springer.com/10.1007/978-3-642-33783-3{\_}29},
-year = {2012}
-}
-@article{Tanburn2015d,
-abstract = {We introduce two methods for speeding up adiabatic quantum computations by increasing the energy between the ground and first excited states. Our methods are even more general. They can be used to shift a Hamiltonian's density of states away from the ground state, so that fewer states occupy the low-lying energies near the minimum, hence allowing for faster adiabatic passages to find the ground state with less risk of getting caught in an undesired low-lying excited state during the passage. Even more generally, our methods can be used to transform a discrete optimization problem into a new one whose unique minimum still encodes the desired answer, but with the objective function's values forming a different landscape. Aspects of the landscape such as the objective function's range, or the values of certain coefficients, or how many different inputs lead to a given output value, can be decreased *or* increased. One of the many examples for which these methods are useful is in finding the ground state of a Hamiltonian using NMR: If it is difficult to find a molecule such that the distances between the spins match the interactions in the Hamiltonian, the interactions in the Hamiltonian can be changed without at all changing the ground state. We apply our methods to an AQC algorithm for integer factorization, and the first method reduces the maximum runtime in our example by up to 754{\%}, and the second method reduces the maximum runtime of another example by up to 250{\%}. These two methods may also be combined.},
-archivePrefix = {arXiv},
-arxivId = {1510.07420},
-author = {Tanburn, Richard and Lunt, Oliver and Dattani, Nikesh S.},
-eprint = {1510.07420},
-file = {:home/nike/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Tanburn, Lunt, Dattani - 2015 - Crushing runtimes in adiabatic quantum computation with Energy Landscape Manipulation (ELM) Application.pdf:pdf},
-journal = {Physical Review A (submitted).},
-month = {oct},
-title = {{Crushing runtimes in adiabatic quantum computation with Energy Landscape Manipulation (ELM): Application to Quantum Factoring}},
-url = {http://arxiv.org/abs/1510.07420},
-year = {2015}
-}
-@incollection{Ali2008,
-author = {Ali, Asem M. and Farag, Aly A. and Gimel'farb, Georgy L.},
-doi = {10.1007/978-3-540-88690-7_8},
-file = {:home/nike/Documents/Mendeley Desktop/Ali, Farag, Gimel'farb - 2008 - Optimizing Binary MRFs with Higher Order Cliques.pdf:pdf},
-month = {oct},
-pages = {98--111},
-publisher = {Springer, Berlin, Heidelberg},
-title = {{Optimizing Binary MRFs with Higher Order Cliques}},
-url = {http://link.springer.com/10.1007/978-3-540-88690-7{\_}8},
-year = {2008}
-}
-@article{Feynman1985a,
-author = {Feynman, Richard P.},
-doi = {10.1364/ON.11.2.000011},
-file = {:home/nike/Documents/Mendeley Desktop/Feynman - 1985 - Quantum Mechanical Computers.pdf:pdf},
-issn = {0098-907X},
-journal = {Optics News},
-month = {feb},
-number = {2},
-pages = {11},
-publisher = {Optical Society of America},
-title = {{Quantum Mechanical Computers}},
-url = {https://www.osapublishing.org/abstract.cfm?URI=on-11-2-11},
-volume = {11},
-year = {1985}
-}
-@article{Nagaj2012,
-author = {Nagaj, Daniel},
-doi = {10.1103/PhysRevA.85.032330},
-file = {:home/nike/Documents/Mendeley Desktop/Nagaj - 2012 - Universal two-body-Hamiltonian quantum computing.pdf:pdf},
-issn = {1050-2947},
-journal = {Physical Review A},
-month = {mar},
-number = {3},
-pages = {032330},
-publisher = {American Physical Society},
-title = {{Universal two-body-Hamiltonian quantum computing}},
-url = {https://link.aps.org/doi/10.1103/PhysRevA.85.032330},
-volume = {85},
-year = {2012}
-}
-@article{Lloyd2016,
-author = {Lloyd, Seth and Terhal, Barbara M},
-doi = {10.1088/1367-2630/18/2/023042},
-file = {:home/nike/Documents/Mendeley Desktop/Lloyd, Terhal - 2016 - Adiabatic and Hamiltonian computing on a 2D lattice with simple two-qubit interactions.pdf:pdf},
-issn = {1367-2630},
-journal = {New Journal of Physics},
-month = {feb},
-number = {2},
-pages = {023042},
-publisher = {IOP Publishing},
-title = {{Adiabatic and Hamiltonian computing on a 2D lattice with simple two-qubit interactions}},
-url = {http://stacks.iop.org/1367-2630/18/i=2/a=023042?key=crossref.7f2d1ca7c038918d7ed9c5ae2cce9b91},
-volume = {18},
-year = {2016}
-}
-@inproceedings{Boros2018boundsPaper,
-  title={Compact quadratizations for pseudo-Boolean functions},
-  author={Endre Boros and Yves Crama and Elisabeth Rodr{\'i}guez-Heck},
-  booktitle={unpublished},
-  year={2018}
+%merlin.mbs apsrev4-1.bst 2010-07-25 4.21a (PWD, AO, DPC) hacked
+%Control: key (0)
+%Control: author (0) dotless jnrlst
+%Control: editor formatted (1) identically to author
+%Control: production of article title (0) allowed
+%Control: page (1) range
+%Control: year (0) verbatim
+%Control: production of eprint (0) enabled
+\begin{thebibliography}{56}%
+\makeatletter
+\providecommand \@ifxundefined [1]{%
+ \@ifx{#1\undefined}
+}%
+\providecommand \@ifnum [1]{%
+ \ifnum #1\expandafter \@firstoftwo
+ \else \expandafter \@secondoftwo
+ \fi
+}%
+\providecommand \@ifx [1]{%
+ \ifx #1\expandafter \@firstoftwo
+ \else \expandafter \@secondoftwo
+ \fi
+}%
+\providecommand \natexlab [1]{#1}%
+\providecommand \enquote  [1]{``#1''}%
+\providecommand \bibnamefont  [1]{#1}%
+\providecommand \bibfnamefont [1]{#1}%
+\providecommand \citenamefont [1]{#1}%
+\providecommand \href@noop [0]{\@secondoftwo}%
+\providecommand \href [0]{\begingroup \@sanitize@url \@href}%
+\providecommand \@href[1]{\@@startlink{#1}\@@href}%
+\providecommand \@@href[1]{\endgroup#1\@@endlink}%
+\providecommand \@sanitize@url [0]{\catcode `\\12\catcode `\$12\catcode
+  `\&12\catcode `\#12\catcode `\^12\catcode `\_12\catcode `\%12\relax}%
+\providecommand \@@startlink[1]{}%
+\providecommand \@@endlink[0]{}%
+\providecommand \url  [0]{\begingroup\@sanitize@url \@url }%
+\providecommand \@url [1]{\endgroup\@href {#1}{\urlprefix }}%
+\providecommand \urlprefix  [0]{URL }%
+\providecommand \Eprint [0]{\href }%
+\providecommand \doibase [0]{http://dx.doi.org/}%
+\providecommand \selectlanguage [0]{\@gobble}%
+\providecommand \bibinfo  [0]{\@secondoftwo}%
+\providecommand \bibfield  [0]{\@secondoftwo}%
+\providecommand \translation [1]{[#1]}%
+\providecommand \BibitemOpen [0]{}%
+\providecommand \bibitemStop [0]{}%
+\providecommand \bibitemNoStop [0]{.\EOS\space}%
+\providecommand \EOS [0]{\spacefactor3000\relax}%
+\providecommand \BibitemShut  [1]{\csname bibitem#1\endcsname}%
+\let\auto@bib@innerbib\@empty
+%</preamble>
+\bibitem [{\citenamefont {Tanburn}\ \emph
+  {et~al.}(2015{\natexlab{a}})\citenamefont {Tanburn}, \citenamefont {Okada},\
+  and\ \citenamefont {Dattani}}]{Tanburn2015c}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Richard}\ \bibnamefont
+  {Tanburn}}, \bibinfo {author} {\bibfnamefont {Emile}\ \bibnamefont {Okada}},
+  \ and\ \bibinfo {author} {\bibfnamefont {Nike}\ \bibnamefont {Dattani}},\
+  }\bibfield  {title} {\enquote {\bibinfo {title} {{Reducing multi-qubit
+  interactions in adiabatic quantum computation without adding auxiliary
+  qubits. Part 1: The "deduc-reduc" method and its application to quantum
+  factorization of numbers}},}\ }\href {http://arxiv.org/abs/1508.04816} {\
+  (\bibinfo {year} {2015}{\natexlab{a}})},\ \Eprint
+  {http://arxiv.org/abs/1508.04816} {arXiv:1508.04816} \BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Ishikawa}(2014)}]{Ishikawa2014}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Hiroshi}\ \bibnamefont
+  {Ishikawa}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {{Higher-Order
+  Clique Reduction without Auxiliary Variables}},}\ }in\ \href {\doibase
+  10.1109/CVPR.2014.177} {\emph {\bibinfo {booktitle} {2014 IEEE Conference on
+  Computer Vision and Pattern Recognition}}}\ (\bibinfo  {publisher} {IEEE},\
+  \bibinfo {year} {2014})\ pp.\ \bibinfo {pages} {1362--1369}\BibitemShut
+  {NoStop}%
+\bibitem [{\citenamefont {Bardet}(2002)}]{Bardet2002}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Magali}\ \bibnamefont
+  {Bardet}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {{On the
+  Complexity of a Gr{\"{o}}bner Basis Algorithm}},}\ }\href
+  {http://algo.inria.fr/seminars/.} {\bibfield  {journal} {\bibinfo  {journal}
+  {Algorithms Seminar}\ ,\ \bibinfo {pages} {85--92}} (\bibinfo {year}
+  {2002})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Dridi}\ and\ \citenamefont
+  {Alghassi}(2016)}]{Dridi2016}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Raouf}\ \bibnamefont
+  {Dridi}}\ and\ \bibinfo {author} {\bibfnamefont {Hedayat}\ \bibnamefont
+  {Alghassi}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {{Prime
+  factorization using quantum annealing and computational algebraic
+  geometry}},}\ }\href {http://arxiv.org/abs/1604.05796} {\  (\bibinfo {year}
+  {2016})},\ \Eprint {http://arxiv.org/abs/1604.05796} {arXiv:1604.05796}
+  \BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Ali}\ \emph {et~al.}(2008)\citenamefont {Ali},
+  \citenamefont {Farag},\ and\ \citenamefont {Gimel'farb}}]{Ali2008}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Asem~M.}\ \bibnamefont
+  {Ali}}, \bibinfo {author} {\bibfnamefont {Aly~A.}\ \bibnamefont {Farag}}, \
+  and\ \bibinfo {author} {\bibfnamefont {Georgy~L.}\ \bibnamefont
+  {Gimel'farb}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {{Optimizing
+  Binary MRFs with Higher Order Cliques}},}\ \ }(\bibinfo  {publisher}
+  {Springer, Berlin, Heidelberg},\ \bibinfo {year} {2008})\ pp.\ \bibinfo
+  {pages} {98--111}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Tanburn}\ \emph
+  {et~al.}(2015{\natexlab{b}})\citenamefont {Tanburn}, \citenamefont {Lunt},\
+  and\ \citenamefont {Dattani}}]{Tanburn2015d}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Richard}\ \bibnamefont
+  {Tanburn}}, \bibinfo {author} {\bibfnamefont {Oliver}\ \bibnamefont {Lunt}},
+  \ and\ \bibinfo {author} {\bibfnamefont {Nikesh~S.}\ \bibnamefont
+  {Dattani}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {{Crushing
+  runtimes in adiabatic quantum computation with Energy Landscape Manipulation
+  (ELM): Application to Quantum Factoring}},}\ }\href
+  {http://arxiv.org/abs/1510.07420} {\bibfield  {journal} {\bibinfo  {journal}
+  {Physical Review A (submitted).}\ } (\bibinfo {year} {2015}{\natexlab{b}})},\
+  \Eprint {http://arxiv.org/abs/1510.07420} {arXiv:1510.07420} \BibitemShut
+  {NoStop}%
+\bibitem [{\citenamefont {Okada}\ \emph {et~al.}(2015)\citenamefont {Okada},
+  \citenamefont {Tanburn},\ and\ \citenamefont {Dattani}}]{Okada2015}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Emile}\ \bibnamefont
+  {Okada}}, \bibinfo {author} {\bibfnamefont {Richard}\ \bibnamefont
+  {Tanburn}}, \ and\ \bibinfo {author} {\bibfnamefont {Nikesh~S.}\ \bibnamefont
+  {Dattani}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {{Reducing
+  multi-qubit interactions in adiabatic quantum computation without adding
+  auxiliary qubits. Part 2: The "split-reduc" method and its application to
+  quantum determination of Ramsey numbers}},}\ }\href
+  {http://arxiv.org/abs/1508.07190} {\ ,\ \bibinfo {pages} {5} (\bibinfo {year}
+  {2015})},\ \Eprint {http://arxiv.org/abs/1508.07190} {arXiv:1508.07190}
+  \BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Anthony}\ \emph {et~al.}(2017)\citenamefont
+  {Anthony}, \citenamefont {Boros}, \citenamefont {Crama},\ and\ \citenamefont
+  {Gruber}}]{Anthony2017}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Martin}\ \bibnamefont
+  {Anthony}}, \bibinfo {author} {\bibfnamefont {Endre}\ \bibnamefont {Boros}},
+  \bibinfo {author} {\bibfnamefont {Yves}\ \bibnamefont {Crama}}, \ and\
+  \bibinfo {author} {\bibfnamefont {Aritanan}\ \bibnamefont {Gruber}},\
+  }\bibfield  {title} {\enquote {\bibinfo {title} {{Quadratic reformulations of
+  nonlinear binary optimization problems}},}\ }\href {\doibase
+  10.1007/s10107-016-1032-4} {\bibfield  {journal} {\bibinfo  {journal}
+  {Mathematical Programming}\ }\textbf {\bibinfo {volume} {162}},\ \bibinfo
+  {pages} {115--144} (\bibinfo {year} {2017})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Kolmogorov}\ and\ \citenamefont
+  {Zabih}(2004)}]{Kolmogorov2004}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {V.}~\bibnamefont
+  {Kolmogorov}}\ and\ \bibinfo {author} {\bibfnamefont {R.}~\bibnamefont
+  {Zabih}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {{What energy
+  functions can be minimized via graph cuts?}}}\ }\href {\doibase
+  10.1109/TPAMI.2004.1262177} {\bibfield  {journal} {\bibinfo  {journal} {IEEE
+  Transactions on Pattern Analysis and Machine Intelligence}\ }\textbf
+  {\bibinfo {volume} {26}},\ \bibinfo {pages} {147--159} (\bibinfo {year}
+  {2004})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Freedman}\ and\ \citenamefont
+  {Drineas}(2005)}]{Freedman2005}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {D.}~\bibnamefont
+  {Freedman}}\ and\ \bibinfo {author} {\bibfnamefont {P.}~\bibnamefont
+  {Drineas}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {{Energy
+  Minimization via Graph Cuts: Settling What is Possible}},}\ }in\ \href
+  {\doibase 10.1109/CVPR.2005.143} {\emph {\bibinfo {booktitle} {2005 IEEE
+  Computer Society Conference on Computer Vision and Pattern Recognition
+  (CVPR'05)}}},\ Vol.~\bibinfo {volume} {2}\ (\bibinfo  {publisher} {IEEE},\
+  \bibinfo {year} {2005})\ pp.\ \bibinfo {pages} {939--946}\BibitemShut
+  {NoStop}%
+\bibitem [{\citenamefont {Ishikawa}(2011)}]{Ishikawa2011}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {H}~\bibnamefont
+  {Ishikawa}},\ }\bibfield  {title} {\enquote {\bibinfo {title}
+  {{Transformation of General Binary MRF Minimization to the First-Order
+  Case}},}\ }\href {\doibase 10.1109/TPAMI.2010.91} {\bibfield  {journal}
+  {\bibinfo  {journal} {IEEE Transactions on Pattern Analysis and Machine
+  Intelligence}\ }\textbf {\bibinfo {volume} {33}},\ \bibinfo {pages}
+  {1234--1249} (\bibinfo {year} {2011})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Anthony}\ \emph {et~al.}(2016)\citenamefont
+  {Anthony}, \citenamefont {Boros}, \citenamefont {Crama},\ and\ \citenamefont
+  {Gruber}}]{Anthony2016}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Martin}\ \bibnamefont
+  {Anthony}}, \bibinfo {author} {\bibfnamefont {Endre}\ \bibnamefont {Boros}},
+  \bibinfo {author} {\bibfnamefont {Yves}\ \bibnamefont {Crama}}, \ and\
+  \bibinfo {author} {\bibfnamefont {Aritanan}\ \bibnamefont {Gruber}},\
+  }\bibfield  {title} {\enquote {\bibinfo {title} {{Quadratization of symmetric
+  pseudo-Boolean functions}},}\ }\href {\doibase 10.1016/J.DAM.2016.01.001}
+  {\bibfield  {journal} {\bibinfo  {journal} {Discrete Applied Mathematics}\
+  }\textbf {\bibinfo {volume} {203}},\ \bibinfo {pages} {1--12} (\bibinfo
+  {year} {2016})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Anthony}\ \emph {et~al.}(2014)\citenamefont
+  {Anthony}, \citenamefont {Boros}, \citenamefont {Crama},\ and\ \citenamefont
+  {Gruber}}]{Anthony2014}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Martin}\ \bibnamefont
+  {Anthony}}, \bibinfo {author} {\bibfnamefont {Endre}\ \bibnamefont {Boros}},
+  \bibinfo {author} {\bibfnamefont {Yves}\ \bibnamefont {Crama}}, \ and\
+  \bibinfo {author} {\bibfnamefont {Aritanan}\ \bibnamefont {Gruber}},\
+  }\bibfield  {title} {\enquote {\bibinfo {title} {{Quadratization of Symmetric
+  Pseudo-Boolean Functions}},}\ }\href {https://arxiv.org/abs/1404.6535} {\
+  (\bibinfo {year} {2014})},\ \Eprint {http://arxiv.org/abs/1404.6535}
+  {arXiv:1404.6535} \BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Gallagher}\ \emph {et~al.}(2011)\citenamefont
+  {Gallagher}, \citenamefont {Batra},\ and\ \citenamefont
+  {Parikh}}]{Gallagher2011}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Andrew~C.}\
+  \bibnamefont {Gallagher}}, \bibinfo {author} {\bibfnamefont {Dhruv}\
+  \bibnamefont {Batra}}, \ and\ \bibinfo {author} {\bibfnamefont {Devi}\
+  \bibnamefont {Parikh}},\ }\bibfield  {title} {\enquote {\bibinfo {title}
+  {{Inference for order reduction in Markov random fields}},}\ }in\ \href
+  {\doibase 10.1109/CVPR.2011.5995452} {\emph {\bibinfo {booktitle} {CVPR
+  2011}}}\ (\bibinfo  {publisher} {IEEE},\ \bibinfo {year} {2011})\ pp.\
+  \bibinfo {pages} {1857--1864}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Rocchetto}\ \emph {et~al.}(2016)\citenamefont
+  {Rocchetto}, \citenamefont {Benjamin},\ and\ \citenamefont
+  {Li}}]{Rocchetto2016}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Andrea}\ \bibnamefont
+  {Rocchetto}}, \bibinfo {author} {\bibfnamefont {Simon~C}\ \bibnamefont
+  {Benjamin}}, \ and\ \bibinfo {author} {\bibfnamefont {Ying}\ \bibnamefont
+  {Li}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {{Stabilizers as a
+  design tool for new forms of the Lechner-Hauke-Zoller annealer}},}\ }\href
+  {\doibase 10.1126/sciadv.1601246} {\bibfield  {journal} {\bibinfo  {journal}
+  {Science Advances}\ }\textbf {\bibinfo {volume} {2}} (\bibinfo {year}
+  {2016}),\ 10.1126/sciadv.1601246}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Boros}\ and\ \citenamefont
+  {Gruber}(2014)}]{Boros2014}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Endre}\ \bibnamefont
+  {Boros}}\ and\ \bibinfo {author} {\bibfnamefont {Aritanan}\ \bibnamefont
+  {Gruber}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {{On
+  Quadratization of Pseudo-Boolean Functions}},}\ }\href
+  {http://arxiv.org/abs/1404.6538} {\  (\bibinfo {year} {2014})},\ \Eprint
+  {http://arxiv.org/abs/1404.6538} {arXiv:1404.6538} \BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Boros}\ \emph {et~al.}(2018)\citenamefont {Boros},
+  \citenamefont {Crama},\ and\ \citenamefont
+  {Rodr{\'i}guez-Heck}}]{Boros2018QuadratizationsOS}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Endre}\ \bibnamefont
+  {Boros}}, \bibinfo {author} {\bibfnamefont {Yves}\ \bibnamefont {Crama}}, \
+  and\ \bibinfo {author} {\bibfnamefont {Elisabeth}\ \bibnamefont
+  {Rodr{\'i}guez-Heck}},\ }\bibfield  {title} {\enquote {\bibinfo {title}
+  {Quadratizations of symmetric pseudo-boolean functions: sub-linear bounds on
+  the number of auxiliary variables},}\ }in\ \href@noop {} {\emph {\bibinfo
+  {booktitle} {ISAIM}}}\ (\bibinfo {year} {2018})\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Boros}\ \emph {et~al.}()\citenamefont {Boros},
+  \citenamefont {Crama},\ and\ \citenamefont
+  {Rodr{\'i}guez-Heck}}]{Boros2018boundsPaper}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Endre}\ \bibnamefont
+  {Boros}}, \bibinfo {author} {\bibfnamefont {Yves}\ \bibnamefont {Crama}}, \
+  and\ \bibinfo {author} {\bibfnamefont {Elisabeth}\ \bibnamefont
+  {Rodr{\'i}guez-Heck}},\ }\bibfield  {title} {\enquote {\bibinfo {title}
+  {Compact quadratizations for pseudo-boolean functions},}\ }in\ \href@noop {}
+  {\emph {\bibinfo {booktitle} {unpublished}}}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Chancellor}\ \emph
+  {et~al.}(2016{\natexlab{a}})\citenamefont {Chancellor}, \citenamefont
+  {Zohren},\ and\ \citenamefont {Warburton}}]{Chancellor2016b}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Nicholas}\
+  \bibnamefont {Chancellor}}, \bibinfo {author} {\bibfnamefont {Stefan}\
+  \bibnamefont {Zohren}}, \ and\ \bibinfo {author} {\bibfnamefont {Paul~A.}\
+  \bibnamefont {Warburton}},\ }\bibfield  {title} {\enquote {\bibinfo {title}
+  {{Circuit design for multi-body interactions in superconducting quantum
+  annealing system with applications to a scalable architecture}},}\ }\href
+  {\doibase 10.1038/s41534-017-0022-6} {\  (\bibinfo {year}
+  {2016}{\natexlab{a}}),\ 10.1038/s41534-017-0022-6},\ \Eprint
+  {http://arxiv.org/abs/1603.09521} {arXiv:1603.09521} \BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Leib}\ \emph
+  {et~al.}(2016{\natexlab{a}})\citenamefont {Leib}, \citenamefont {Zoller},\
+  and\ \citenamefont {Lechner}}]{Leib2016a}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Martin}\ \bibnamefont
+  {Leib}}, \bibinfo {author} {\bibfnamefont {Peter}\ \bibnamefont {Zoller}}, \
+  and\ \bibinfo {author} {\bibfnamefont {Wolfgang}\ \bibnamefont {Lechner}},\
+  }\bibfield  {title} {\enquote {\bibinfo {title} {{A Transmon Quantum
+  Annealer: Decomposing Many-Body Ising Constraints Into Pair Interactions}},}\
+  }\href {http://arxiv.org/abs/1604.02359} {\  (\bibinfo {year}
+  {2016}{\natexlab{a}})},\ \Eprint {http://arxiv.org/abs/1604.02359}
+  {arXiv:1604.02359} \BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Leib}\ \emph
+  {et~al.}(2016{\natexlab{b}})\citenamefont {Leib}, \citenamefont {Zoller},\
+  and\ \citenamefont {Lechner}}]{Leib2016}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Martin}\ \bibnamefont
+  {Leib}}, \bibinfo {author} {\bibfnamefont {Peter}\ \bibnamefont {Zoller}}, \
+  and\ \bibinfo {author} {\bibfnamefont {Wolfgang}\ \bibnamefont {Lechner}},\
+  }\bibfield  {title} {\enquote {\bibinfo {title} {{A transmon quantum
+  annealer: decomposing many-body Ising constraints into pair interactions}},}\
+  }\href {http://stacks.iop.org/2058-9565/1/i=1/a=015008} {\bibfield  {journal}
+  {\bibinfo  {journal} {Quantum Science and Technology}\ }\textbf {\bibinfo
+  {volume} {1}},\ \bibinfo {pages} {15008} (\bibinfo {year}
+  {2016}{\natexlab{b}})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Chancellor}\ \emph {et~al.}(2017)\citenamefont
+  {Chancellor}, \citenamefont {Zohren},\ and\ \citenamefont
+  {Warburton}}]{Chancellor2017}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {N}~\bibnamefont
+  {Chancellor}}, \bibinfo {author} {\bibfnamefont {S}~\bibnamefont {Zohren}}, \
+  and\ \bibinfo {author} {\bibfnamefont {P~A}\ \bibnamefont {Warburton}},\
+  }\bibfield  {title} {\enquote {\bibinfo {title} {{Circuit design for
+  multi-body interactions in superconducting quantum annealing systems with
+  applications to a scalable architecture}},}\ }\href {\doibase
+  10.1038/s41534-017-0022-6} {\bibfield  {journal} {\bibinfo  {journal} {npj
+  Quantum Information}\ }\textbf {\bibinfo {volume} {3}},\ \bibinfo {pages}
+  {21} (\bibinfo {year} {2017})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Chancellor}(2016)}]{Chancellor2016a}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Nicholas}\
+  \bibnamefont {Chancellor}},\ }\href@noop {} {\enquote {\bibinfo {title}
+  {{Max-k-SAT, Multi-Body Frustration, {\&} Multi-Body Sampling on a Two Local
+  Ising System}},}\ }\bibinfo {howpublished} {AQC 2016
+  https://www.youtube.com/watch?v=aC-6hg{\_}h3EA} (\bibinfo {year}
+  {2016})\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Chancellor}\ \emph
+  {et~al.}(2016{\natexlab{b}})\citenamefont {Chancellor}, \citenamefont
+  {Zohren}, \citenamefont {Warburton}, \citenamefont {Benjamin},\ and\
+  \citenamefont {Roberts}}]{Chancellor2016}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {N.}~\bibnamefont
+  {Chancellor}}, \bibinfo {author} {\bibfnamefont {S.}~\bibnamefont {Zohren}},
+  \bibinfo {author} {\bibfnamefont {P.A.}\ \bibnamefont {Warburton}}, \bibinfo
+  {author} {\bibfnamefont {S.C.}\ \bibnamefont {Benjamin}}, \ and\ \bibinfo
+  {author} {\bibfnamefont {S.}~\bibnamefont {Roberts}},\ }\bibfield  {title}
+  {\enquote {\bibinfo {title} {{A Direct Mapping of Max k-SAT and High Order
+  Parity Checks to a Chimera Graph}},}\ }\href {\doibase 10.1038/srep37107}
+  {\bibfield  {journal} {\bibinfo  {journal} {Scientific Reports}\ }\textbf
+  {\bibinfo {volume} {6}} (\bibinfo {year} {2016}{\natexlab{b}}),\
+  10.1038/srep37107}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Anthony}\ \emph {et~al.}()\citenamefont {Anthony},
+  \citenamefont {Boros}, \citenamefont {Crama},\ and\ \citenamefont
+  {Gruber}}]{Anthony2015}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Martin}\ \bibnamefont
+  {Anthony}}, \bibinfo {author} {\bibfnamefont {Endre}\ \bibnamefont {Boros}},
+  \bibinfo {author} {\bibfnamefont {Yves}\ \bibnamefont {Crama}}, \ and\
+  \bibinfo {author} {\bibfnamefont {Aritanan}\ \bibnamefont {Gruber}},\
+  }\bibfield  {title} {\enquote {\bibinfo {title} {{Quadratic reformulations of
+  nonlinear binary optimization problems}},}\ }\href@noop {} {\ }\BibitemShut
+  {NoStop}%
+\bibitem [{\citenamefont {Rosenberg}(1975)}]{Rosenberg1975}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {I.~G.}\ \bibnamefont
+  {Rosenberg}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {{Reduction of
+  Bivalent Maximization to the Quadratic Case}},}\ }\href@noop {} {\bibfield
+  {journal} {\bibinfo  {journal} {Cahiers du Centre d'Etudes de Recherche
+  Operationnelle}\ }\textbf {\bibinfo {volume} {17}},\ \bibinfo {pages}
+  {71--74} (\bibinfo {year} {1975})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Biamonte}(2008)}]{Biamonte2008a}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {J~D}\ \bibnamefont
+  {Biamonte}},\ }\bibfield  {title} {\enquote {\bibinfo {title}
+  {{Nonperturbative k-body to two-body commuting conversion Hamiltonians and
+  embedding problem instances into Ising spins}},}\ }\href {\doibase
+  10.1103/PhysRevA.77.052331} {\bibfield  {journal} {\bibinfo  {journal} {Phys.
+  Rev. A}\ }\textbf {\bibinfo {volume} {77}},\ \bibinfo {pages} {52331}
+  (\bibinfo {year} {2008})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Perdomo}\ \emph {et~al.}(2008)\citenamefont
+  {Perdomo}, \citenamefont {Truncik}, \citenamefont {Tubert-Brohman},
+  \citenamefont {Rose},\ and\ \citenamefont {Aspuru-Guzik}}]{Perdomo2008}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Alejandro}\
+  \bibnamefont {Perdomo}}, \bibinfo {author} {\bibfnamefont {Colin}\
+  \bibnamefont {Truncik}}, \bibinfo {author} {\bibfnamefont {Ivan}\
+  \bibnamefont {Tubert-Brohman}}, \bibinfo {author} {\bibfnamefont {Geordie}\
+  \bibnamefont {Rose}}, \ and\ \bibinfo {author} {\bibfnamefont {Al{\'{a}}n}\
+  \bibnamefont {Aspuru-Guzik}},\ }\bibfield  {title} {\enquote {\bibinfo
+  {title} {{Construction of model Hamiltonians for adiabatic quantum
+  computation and its application to finding low-energy conformations of
+  lattice protein models}},}\ }\href {\doibase 10.1103/PhysRevA.78.012320}
+  {\bibfield  {journal} {\bibinfo  {journal} {Phys. Rev. A}\ }\textbf {\bibinfo
+  {volume} {78}},\ \bibinfo {pages} {12320} (\bibinfo {year}
+  {2008})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Bian}\ \emph {et~al.}(2013)\citenamefont {Bian},
+  \citenamefont {Chudak}, \citenamefont {Macready}, \citenamefont {Clark},\
+  and\ \citenamefont {Gaitan}}]{Bian2013}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Zhengbing}\
+  \bibnamefont {Bian}}, \bibinfo {author} {\bibfnamefont {Fabian}\ \bibnamefont
+  {Chudak}}, \bibinfo {author} {\bibfnamefont {William~G.}\ \bibnamefont
+  {Macready}}, \bibinfo {author} {\bibfnamefont {Lane}\ \bibnamefont {Clark}},
+  \ and\ \bibinfo {author} {\bibfnamefont {Frank}\ \bibnamefont {Gaitan}},\
+  }\bibfield  {title} {\enquote {\bibinfo {title} {{Experimental Determination
+  of Ramsey Numbers}},}\ }\href {\doibase 10.1103/PhysRevLett.111.130505}
+  {\bibfield  {journal} {\bibinfo  {journal} {Physical Review Letters}\
+  }\textbf {\bibinfo {volume} {111}},\ \bibinfo {pages} {130505} (\bibinfo
+  {year} {2013})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Fix}\ \emph {et~al.}(2011)\citenamefont {Fix},
+  \citenamefont {Gruber}, \citenamefont {Boros},\ and\ \citenamefont
+  {Zabih}}]{Fix2011}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Alexander}\
+  \bibnamefont {Fix}}, \bibinfo {author} {\bibfnamefont {Aritanan}\
+  \bibnamefont {Gruber}}, \bibinfo {author} {\bibfnamefont {Endre}\
+  \bibnamefont {Boros}}, \ and\ \bibinfo {author} {\bibfnamefont {Ramin}\
+  \bibnamefont {Zabih}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {{A
+  graph cut algorithm for higher-order Markov Random Fields}},}\ }in\ \href
+  {\doibase 10.1109/ICCV.2011.6126347} {\emph {\bibinfo {booktitle} {2011
+  International Conference on Computer Vision}}}\ (\bibinfo  {publisher}
+  {IEEE},\ \bibinfo {year} {2011})\ pp.\ \bibinfo {pages}
+  {1020--1027}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {De~las Cuevas}\ and\ \citenamefont
+  {Cubitt}(2016)}]{DelasCuevasGemmaandCubitt2016}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Gemma}\ \bibnamefont
+  {De~las Cuevas}}\ and\ \bibinfo {author} {\bibfnamefont {Toby~S.}\
+  \bibnamefont {Cubitt}},\ }\bibfield  {title} {\enquote {\bibinfo {title}
+  {{Simple universal models capture all classical spin physics}},}\ }\href
+  {\doibase 10.1126/science.aab3326} {\bibfield  {journal} {\bibinfo  {journal}
+  {Science}\ }\textbf {\bibinfo {volume} {351}},\ \bibinfo {pages}
+  {1180----1183} (\bibinfo {year} {2016})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Kahl}\ and\ \citenamefont
+  {Strandmark}(2011)}]{Kahl2011}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibnamefont {Kahl}}\ and\ \bibinfo
+  {author} {\bibnamefont {Strandmark}},\ }\bibfield  {title} {\enquote
+  {\bibinfo {title} {{Generalized Roof Duality for Pseudo-Boolean
+  Optimization}},}\ }\href
+  {http://www.maths.lth.se/vision/publdb/reports/pdf/kahl-strandmark-iccv-11.pdf}
+  {\bibfield  {journal} {\bibinfo  {journal} {International Conference on
+  Computer Vision}\ } (\bibinfo {year} {2011})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Ocko}\ and\ \citenamefont
+  {Yoshida}(2011)}]{Ocko2011}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Samuel~A.}\
+  \bibnamefont {Ocko}}\ and\ \bibinfo {author} {\bibfnamefont {Beni}\
+  \bibnamefont {Yoshida}},\ }\bibfield  {title} {\enquote {\bibinfo {title}
+  {{Nonperturbative Gadget for Topological Quantum Codes}},}\ }\href {\doibase
+  10.1103/PhysRevLett.107.250502} {\bibfield  {journal} {\bibinfo  {journal}
+  {Physical Review Letters}\ }\textbf {\bibinfo {volume} {107}},\ \bibinfo
+  {pages} {250502} (\bibinfo {year} {2011})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Subasi}\ and\ \citenamefont
+  {Jarzynski}(2016)}]{Subas2016}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Yigit}\ \bibnamefont
+  {Subasi}}\ and\ \bibinfo {author} {\bibfnamefont {Christopher}\ \bibnamefont
+  {Jarzynski}},\ }\bibfield  {title} {\enquote {\bibinfo {title}
+  {{Nonperturbative embedding for highly nonlocal Hamiltonians}},}\ }\href
+  {\doibase 10.1103/PhysRevA.94.012342} {\bibfield  {journal} {\bibinfo
+  {journal} {Physical Review A}\ }\textbf {\bibinfo {volume} {94}},\ \bibinfo
+  {pages} {012342} (\bibinfo {year} {2016})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Feynman}(1985)}]{Feynman1985a}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Richard~P.}\
+  \bibnamefont {Feynman}},\ }\bibfield  {title} {\enquote {\bibinfo {title}
+  {{Quantum Mechanical Computers}},}\ }\href {\doibase 10.1364/ON.11.2.000011}
+  {\bibfield  {journal} {\bibinfo  {journal} {Optics News}\ }\textbf {\bibinfo
+  {volume} {11}},\ \bibinfo {pages} {11} (\bibinfo {year} {1985})}\BibitemShut
+  {NoStop}%
+\bibitem [{\citenamefont {Nagaj}(2010)}]{Nagaj2010}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Daniel}\ \bibnamefont
+  {Nagaj}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {{Fast universal
+  quantum computation with railroad-switch local Hamiltonians}},}\ }\href
+  {\doibase 10.1063/1.3384661} {\bibfield  {journal} {\bibinfo  {journal}
+  {Journal of Mathematical Physics}\ }\textbf {\bibinfo {volume} {51}},\
+  \bibinfo {pages} {062201} (\bibinfo {year} {2010})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Nagaj}(2012)}]{Nagaj2012}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Daniel}\ \bibnamefont
+  {Nagaj}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {{Universal
+  two-body-Hamiltonian quantum computing}},}\ }\href {\doibase
+  10.1103/PhysRevA.85.032330} {\bibfield  {journal} {\bibinfo  {journal}
+  {Physical Review A}\ }\textbf {\bibinfo {volume} {85}},\ \bibinfo {pages}
+  {032330} (\bibinfo {year} {2012})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Duan}\ and\ \citenamefont {Chen}(2011)}]{Duan2011}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Qian-Heng}\
+  \bibnamefont {Duan}}\ and\ \bibinfo {author} {\bibfnamefont {Ping-Xing}\
+  \bibnamefont {Chen}},\ }\bibfield  {title} {\enquote {\bibinfo {title}
+  {{Realization of universal adiabatic quantum computation with fewer physical
+  resources}},}\ }\href {\doibase 10.1103/PhysRevA.84.042332} {\bibfield
+  {journal} {\bibinfo  {journal} {Physical Review A}\ }\textbf {\bibinfo
+  {volume} {84}},\ \bibinfo {pages} {042332} (\bibinfo {year}
+  {2011})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Oliveira}\ and\ \citenamefont
+  {Terhal}(2008)}]{Oliveira2008}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Roberto}\ \bibnamefont
+  {Oliveira}}\ and\ \bibinfo {author} {\bibfnamefont {Barbara~M.}\ \bibnamefont
+  {Terhal}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {The complexity
+  of quantum spin systems on a two-dimensional square lattice},}\ }\href
+  {http://dl.acm.org/citation.cfm?id=2016985.2016987} {\bibfield  {journal}
+  {\bibinfo  {journal} {Quantum Info. Comput.}\ }\textbf {\bibinfo {volume}
+  {8}},\ \bibinfo {pages} {900--924} (\bibinfo {year} {2008})}\BibitemShut
+  {NoStop}%
+\bibitem [{\citenamefont {Bravyi}\ \emph {et~al.}(2008)\citenamefont {Bravyi},
+  \citenamefont {DiVincenzo}, \citenamefont {Loss},\ and\ \citenamefont
+  {Terhal}}]{Bravyi2008}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Sergey}\ \bibnamefont
+  {Bravyi}}, \bibinfo {author} {\bibfnamefont {David~P.}\ \bibnamefont
+  {DiVincenzo}}, \bibinfo {author} {\bibfnamefont {Daniel}\ \bibnamefont
+  {Loss}}, \ and\ \bibinfo {author} {\bibfnamefont {Barbara~M.}\ \bibnamefont
+  {Terhal}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {{Quantum
+  Simulation of Many-Body Hamiltonians Using Perturbation Theory with
+  Bounded-Strength Interactions}},}\ }\href {\doibase
+  10.1103/PhysRevLett.101.070503} {\bibfield  {journal} {\bibinfo  {journal}
+  {Physical Review Letters}\ }\textbf {\bibinfo {volume} {101}},\ \bibinfo
+  {pages} {070503} (\bibinfo {year} {2008})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Cao}\ \emph {et~al.}(2015)\citenamefont {Cao},
+  \citenamefont {Babbush}, \citenamefont {Biamonte},\ and\ \citenamefont
+  {Kais}}]{Cao2015}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Yudong}\ \bibnamefont
+  {Cao}}, \bibinfo {author} {\bibfnamefont {Ryan}\ \bibnamefont {Babbush}},
+  \bibinfo {author} {\bibfnamefont {Jacob}\ \bibnamefont {Biamonte}}, \ and\
+  \bibinfo {author} {\bibfnamefont {Sabre}\ \bibnamefont {Kais}},\ }\bibfield
+  {title} {\enquote {\bibinfo {title} {{Hamiltonian gadgets with reduced
+  resource requirements}},}\ }\href {\doibase 10.1103/PhysRevA.91.012315}
+  {\bibfield  {journal} {\bibinfo  {journal} {Physical Review A}\ }\textbf
+  {\bibinfo {volume} {91}},\ \bibinfo {pages} {012315} (\bibinfo {year}
+  {2015})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Cao}\ and\ \citenamefont {Nagaj}(2015)}]{Cao2015a}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Yudong}\ \bibnamefont
+  {Cao}}\ and\ \bibinfo {author} {\bibfnamefont {Daniel}\ \bibnamefont
+  {Nagaj}},\ }\href {https://dl.acm.org/citation.cfm?id=2871363.2871370} {\emph
+  {\bibinfo {title} {Quantum Information {\&} Computation}}},\ Vol.~\bibinfo
+  {volume} {15}\ (\bibinfo  {publisher} {Rinton Press},\ \bibinfo {year}
+  {2015})\ pp.\ \bibinfo {pages} {1197--1222}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Jordan}\ and\ \citenamefont
+  {Farhi}(2008)}]{Jordan2008}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Stephen~P.}\
+  \bibnamefont {Jordan}}\ and\ \bibinfo {author} {\bibfnamefont {Edward}\
+  \bibnamefont {Farhi}},\ }\bibfield  {title} {\enquote {\bibinfo {title}
+  {{Perturbative gadgets at arbitrary orders}},}\ }\href {\doibase
+  10.1103/PhysRevA.77.062329} {\bibfield  {journal} {\bibinfo  {journal}
+  {Physical Review A}\ }\textbf {\bibinfo {volume} {77}},\ \bibinfo {pages}
+  {062329} (\bibinfo {year} {2008})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Brell}\ \emph {et~al.}(2011)\citenamefont {Brell},
+  \citenamefont {Flammia}, \citenamefont {Bartlett},\ and\ \citenamefont
+  {Doherty}}]{Brell2011}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Courtney~G}\
+  \bibnamefont {Brell}}, \bibinfo {author} {\bibfnamefont {Steven~T}\
+  \bibnamefont {Flammia}}, \bibinfo {author} {\bibfnamefont {Stephen~D}\
+  \bibnamefont {Bartlett}}, \ and\ \bibinfo {author} {\bibfnamefont {Andrew~C}\
+  \bibnamefont {Doherty}},\ }\bibfield  {title} {\enquote {\bibinfo {title}
+  {{Toric codes and quantum doubles from two-body Hamiltonians}},}\ }\href
+  {\doibase 10.1088/1367-2630/13/5/053039} {\bibfield  {journal} {\bibinfo
+  {journal} {New Journal of Physics}\ }\textbf {\bibinfo {volume} {13}},\
+  \bibinfo {pages} {053039} (\bibinfo {year} {2011})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Biamonte}\ and\ \citenamefont
+  {Love}(2008)}]{Biamonte2008}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Jacob~D.}\
+  \bibnamefont {Biamonte}}\ and\ \bibinfo {author} {\bibfnamefont {Peter~J.}\
+  \bibnamefont {Love}},\ }\bibfield  {title} {\enquote {\bibinfo {title}
+  {{Realizable Hamiltonians for universal adiabatic quantum computers}},}\
+  }\href {\doibase 10.1103/PhysRevA.78.012352} {\bibfield  {journal} {\bibinfo
+  {journal} {Physical Review A}\ }\textbf {\bibinfo {volume} {78}},\ \bibinfo
+  {pages} {012352} (\bibinfo {year} {2008})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Lloyd}\ and\ \citenamefont
+  {Terhal}(2016)}]{Lloyd2016}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Seth}\ \bibnamefont
+  {Lloyd}}\ and\ \bibinfo {author} {\bibfnamefont {Barbara~M}\ \bibnamefont
+  {Terhal}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {{Adiabatic and
+  Hamiltonian computing on a 2D lattice with simple two-qubit interactions}},}\
+  }\href {\doibase 10.1088/1367-2630/18/2/023042} {\bibfield  {journal}
+  {\bibinfo  {journal} {New Journal of Physics}\ }\textbf {\bibinfo {volume}
+  {18}},\ \bibinfo {pages} {023042} (\bibinfo {year} {2016})}\BibitemShut
+  {NoStop}%
+\bibitem [{\citenamefont {Babbush}\ \emph {et~al.}(2013)\citenamefont
+  {Babbush}, \citenamefont {O'Gorman},\ and\ \citenamefont
+  {Aspuru-Guzik}}]{Babbush2013}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Ryan}\ \bibnamefont
+  {Babbush}}, \bibinfo {author} {\bibfnamefont {Bryan}\ \bibnamefont
+  {O'Gorman}}, \ and\ \bibinfo {author} {\bibfnamefont {Al{\'{a}}n}\
+  \bibnamefont {Aspuru-Guzik}},\ }\bibfield  {title} {\enquote {\bibinfo
+  {title} {{Resource efficient gadgets for compiling adiabatic quantum
+  optimization problems}},}\ }\href {\doibase 10.1002/andp.201300120}
+  {\bibfield  {journal} {\bibinfo  {journal} {Annalen der Physik}\ }\textbf
+  {\bibinfo {volume} {525}},\ \bibinfo {pages} {877--888} (\bibinfo {year}
+  {2013})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Brell}\ \emph {et~al.}(2014)\citenamefont {Brell},
+  \citenamefont {Bartlett},\ and\ \citenamefont {Doherty}}]{Brell2014}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Courtney~G}\
+  \bibnamefont {Brell}}, \bibinfo {author} {\bibfnamefont {Stephen~D}\
+  \bibnamefont {Bartlett}}, \ and\ \bibinfo {author} {\bibfnamefont {Andrew~C}\
+  \bibnamefont {Doherty}},\ }\bibfield  {title} {\enquote {\bibinfo {title}
+  {{Perturbative 2-body parent Hamiltonians for projected entangled pair
+  states}},}\ }\href {\doibase 10.1088/1367-2630/16/12/123056} {\bibfield
+  {journal} {\bibinfo  {journal} {New Journal of Physics}\ }\textbf {\bibinfo
+  {volume} {16}},\ \bibinfo {pages} {123056} (\bibinfo {year}
+  {2014})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Lechner}\ \emph {et~al.}(2015)\citenamefont
+  {Lechner}, \citenamefont {Hauke},\ and\ \citenamefont
+  {Zoller}}]{Lechner2015}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Wolfgang}\
+  \bibnamefont {Lechner}}, \bibinfo {author} {\bibfnamefont {Philipp}\
+  \bibnamefont {Hauke}}, \ and\ \bibinfo {author} {\bibfnamefont {Peter}\
+  \bibnamefont {Zoller}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {{A
+  quantum annealing architecture with all-to-all connectivity from local
+  interactions}},}\ }\href {\doibase 10.1126/sciadv.1500838} {\bibfield
+  {journal} {\bibinfo  {journal} {Science Advances}\ }\textbf {\bibinfo
+  {volume} {1}} (\bibinfo {year} {2015}),\ 10.1126/sciadv.1500838}\BibitemShut
+  {NoStop}%
+\bibitem [{\citenamefont {Shen}\ \emph {et~al.}(2017)\citenamefont {Shen},
+  \citenamefont {Peng}, \citenamefont {Dong}, \citenamefont {Shao},\ and\
+  \citenamefont {Porikli}}]{Shen2017a}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Jianbing}\
+  \bibnamefont {Shen}}, \bibinfo {author} {\bibfnamefont {Jianteng}\
+  \bibnamefont {Peng}}, \bibinfo {author} {\bibfnamefont {Xingping}\
+  \bibnamefont {Dong}}, \bibinfo {author} {\bibfnamefont {Ling}\ \bibnamefont
+  {Shao}}, \ and\ \bibinfo {author} {\bibfnamefont {Fatih}\ \bibnamefont
+  {Porikli}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {{Higher Order
+  Energies for Image Segmentation}},}\ }\href {\doibase
+  10.1109/TIP.2017.2722691} {\bibfield  {journal} {\bibinfo  {journal} {IEEE
+  Transactions on Image Processing}\ }\textbf {\bibinfo {volume} {26}},\
+  \bibinfo {pages} {4911--4922} (\bibinfo {year} {2017})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Boros}\ and\ \citenamefont
+  {Hammer}(2002)}]{Boros2002}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Endre}\ \bibnamefont
+  {Boros}}\ and\ \bibinfo {author} {\bibfnamefont {Peter~L.}\ \bibnamefont
+  {Hammer}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {{Pseudo-Boolean
+  optimization}},}\ }\href {\doibase 10.1016/S0166-218X(01)00341-9} {\bibfield
+  {journal} {\bibinfo  {journal} {Discrete Applied Mathematics}\ }\textbf
+  {\bibinfo {volume} {123}},\ \bibinfo {pages} {155--225} (\bibinfo {year}
+  {2002})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Schaller}\ and\ \citenamefont
+  {Sch{\"{u}}tzhold}(2010)}]{Schaller2010}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Gernot}\ \bibnamefont
+  {Schaller}}\ and\ \bibinfo {author} {\bibfnamefont {Ralf}\ \bibnamefont
+  {Sch{\"{u}}tzhold}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {{The
+  role of symmetries in adiabatic quantum algorithms}},}\ }\href
+  {http://dl.acm.org/citation.cfm?id=2011438.2011447} {\bibfield  {journal}
+  {\bibinfo  {journal} {Quantum Information {\&} Computation}\ }\textbf
+  {\bibinfo {volume} {10}},\ \bibinfo {pages} {109--140} (\bibinfo {year}
+  {2010})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Xu}\ \emph {et~al.}(2012)\citenamefont {Xu},
+  \citenamefont {Zhu}, \citenamefont {Lu}, \citenamefont {Zhou}, \citenamefont
+  {Peng},\ and\ \citenamefont {Du}}]{Xu2012}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Nanyang}\ \bibnamefont
+  {Xu}}, \bibinfo {author} {\bibfnamefont {Jing}\ \bibnamefont {Zhu}}, \bibinfo
+  {author} {\bibfnamefont {Dawei}\ \bibnamefont {Lu}}, \bibinfo {author}
+  {\bibfnamefont {Xianyi}\ \bibnamefont {Zhou}}, \bibinfo {author}
+  {\bibfnamefont {Xinhua}\ \bibnamefont {Peng}}, \ and\ \bibinfo {author}
+  {\bibfnamefont {Jiangfeng}\ \bibnamefont {Du}},\ }\bibfield  {title}
+  {\enquote {\bibinfo {title} {{Quantum Factorization of 143 on a
+  Dipolar-Coupling Nuclear Magnetic Resonance System}},}\ }\href {\doibase
+  10.1103/PhysRevLett.108.130501} {\bibfield  {journal} {\bibinfo  {journal}
+  {Physical Review Letters}\ }\textbf {\bibinfo {volume} {108}},\ \bibinfo
+  {pages} {130501} (\bibinfo {year} {2012})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Cunningham}(1985)}]{Cunningham1985}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {William~H.}\
+  \bibnamefont {Cunningham}},\ }\bibfield  {title} {\enquote {\bibinfo {title}
+  {{Minimum cuts, modular functions, and matroid polyhedra}},}\ }\href
+  {\doibase 10.1002/net.3230150206} {\bibfield  {journal} {\bibinfo  {journal}
+  {Networks}\ }\textbf {\bibinfo {volume} {15}},\ \bibinfo {pages} {205--215}
+  (\bibinfo {year} {1985})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Crama}\ and\ \citenamefont {{Rodriguez
+  Heck}}(2014)}]{Crama2014a}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Yves}\ \bibnamefont
+  {Crama}}\ and\ \bibinfo {author} {\bibfnamefont {Elisabeth}\ \bibnamefont
+  {{Rodriguez Heck}}},\ }\href {https://orbi.uliege.be/handle/2268/170649}
+  {\emph {\bibinfo {title} {{Short Prime Quadratizations of Cubic Negative
+  Monomials}}}}\ (\bibinfo  {publisher} {HEC ULg},\ \bibinfo {year}
+  {2014})\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Boros}\ and\ \citenamefont
+  {Lari}(2014)}]{BorosLari2014}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Endre}\ \bibnamefont
+  {Boros}}\ and\ \bibinfo {author} {\bibfnamefont {Isabella}\ \bibnamefont
+  {Lari}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {Cones of
+  nonnegative quadratic pseudo-boolean functions},}\ }in\ \href
+  {http://www.cs.uic.edu/pub/Isaim2014/WebPreferences/ISAIM2014\_Boolean\_Boros\_Lari.pdf}
+  {\emph {\bibinfo {booktitle} {International Symposium on Artificial
+  Intelligence and Mathematics, {ISAIM} 2014, Fort Lauderdale, FL, USA, January
+  6-8, 2014}}}\ (\bibinfo {year} {2014})\BibitemShut {NoStop}%
+\end{thebibliography}%
