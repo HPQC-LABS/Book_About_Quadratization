@@ -6,7 +6,7 @@
 %Control: page (1) range
 %Control: year (0) verbatim
 %Control: production of eprint (0) enabled
-\begin{thebibliography}{58}%
+\begin{thebibliography}{59}%
 \makeatletter
 \providecommand \@ifxundefined [1]{%
  \@ifx{#1\undefined}
@@ -275,6 +275,15 @@
   {journal} {Quantum Information Processing}\ }\textbf {\bibinfo {volume}
   {7}},\ \bibinfo {pages} {193--209} (\bibinfo {year} {2008})}\BibitemShut
   {NoStop}%
+\bibitem [{\citenamefont {Kumar}(2008)}]{k08}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {T.~K.~Satish}\
+  \bibnamefont {Kumar}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {A
+  framework for hybrid tractability results in {Boolean} weighted constraint
+  satisfaction problems},}\ }in\ \href {\doibase 10.1007/978-3-540-85958-1\_19}
+  {\emph {\bibinfo {booktitle} {the International Conference on Principles and
+  Practice of Constraint Programming}}}\ (\bibinfo {year} {2008})\ pp.\
+  \bibinfo {pages} {282--297}\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Chancellor}\ \emph
   {et~al.}(2016{\natexlab{a}})\citenamefont {Chancellor}, \citenamefont
   {Zohren},\ and\ \citenamefont {Warburton}}]{Chancellor2016b}%
