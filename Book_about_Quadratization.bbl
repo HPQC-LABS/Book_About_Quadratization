@@ -6,7 +6,7 @@
 %Control: page (1) range
 %Control: year (0) verbatim
 %Control: production of eprint (0) enabled
-\begin{thebibliography}{56}%
+\begin{thebibliography}{58}%
 \makeatletter
 \providecommand \@ifxundefined [1]{%
  \@ifx{#1\undefined}
@@ -230,9 +230,9 @@
   Quadratization of Pseudo-Boolean Functions}},}\ }\href
   {http://arxiv.org/abs/1404.6538} {\  (\bibinfo {year} {2014})},\ \Eprint
   {http://arxiv.org/abs/1404.6538} {arXiv:1404.6538} \BibitemShut {NoStop}%
-\bibitem [{\citenamefont {Boros}\ \emph {et~al.}(2018)\citenamefont {Boros},
-  \citenamefont {Crama},\ and\ \citenamefont
-  {Rodr{\'i}guez-Heck}}]{Boros2018QuadratizationsOS}%
+\bibitem [{\citenamefont {Boros}\ \emph
+  {et~al.}(2018{\natexlab{a}})\citenamefont {Boros}, \citenamefont {Crama},\
+  and\ \citenamefont {Rodr{\'i}guez-Heck}}]{Boros2018QuadratizationsOS}%
   \BibitemOpen
   \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Endre}\ \bibnamefont
   {Boros}}, \bibinfo {author} {\bibfnamefont {Yves}\ \bibnamefont {Crama}}, \
@@ -241,16 +241,40 @@
   {Quadratizations of symmetric pseudo-boolean functions: sub-linear bounds on
   the number of auxiliary variables},}\ }in\ \href@noop {} {\emph {\bibinfo
   {booktitle} {ISAIM}}}\ (\bibinfo {year} {2018})\BibitemShut {NoStop}%
-\bibitem [{\citenamefont {Boros}\ \emph {et~al.}()\citenamefont {Boros},
-  \citenamefont {Crama},\ and\ \citenamefont
-  {Rodr{\'i}guez-Heck}}]{Boros2018boundsPaper}%
+\bibitem [{\citenamefont {Boros}\ \emph
+  {et~al.}(2018{\natexlab{b}})\citenamefont {Boros}, \citenamefont {Crama},\
+  and\ \citenamefont {Rodr{\'i}guez-Heck}}]{Boros2018boundsPaper}%
   \BibitemOpen
   \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Endre}\ \bibnamefont
   {Boros}}, \bibinfo {author} {\bibfnamefont {Yves}\ \bibnamefont {Crama}}, \
   and\ \bibinfo {author} {\bibfnamefont {Elisabeth}\ \bibnamefont
   {Rodr{\'i}guez-Heck}},\ }\bibfield  {title} {\enquote {\bibinfo {title}
   {Compact quadratizations for pseudo-boolean functions},}\ }in\ \href@noop {}
-  {\emph {\bibinfo {booktitle} {unpublished}}}\BibitemShut {NoStop}%
+  {\emph {\bibinfo {booktitle} {unpublished}}}\ (\bibinfo {year}
+  {2018})\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Yip}\ \emph {et~al.}(2019)\citenamefont {Yip},
+  \citenamefont {Xu}, \citenamefont {Kumar},\ and\ \citenamefont
+  {Koenig}}]{yxkk19}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Ka~Wa}\ \bibnamefont
+  {Yip}}, \bibinfo {author} {\bibfnamefont {Hong}\ \bibnamefont {Xu}}, \bibinfo
+  {author} {\bibfnamefont {T.~K.~Satish}\ \bibnamefont {Kumar}}, \ and\
+  \bibinfo {author} {\bibfnamefont {Sven}\ \bibnamefont {Koenig}},\ }\bibfield
+  {title} {\enquote {\bibinfo {title} {Quadratic reformulation of nonlinear
+  pseudo-boolean functions via the constraint composite graph},}\ }in\ \href
+  {\doibase 10.1007/978-3-030-19212-9\_43} {\emph {\bibinfo {booktitle} {the
+  International Conference on Integration of Artificial Intelligence and
+  Operations Research Techniques in Constraint Programming}}}\ (\bibinfo {year}
+  {2019})\ pp.\ \bibinfo {pages} {643--660}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Choi}(2008)}]{vchoi08}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Vicky}\ \bibnamefont
+  {Choi}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {Minor-embedding in
+  adiabatic quantum computation: {I}. the parameter setting problem},}\ }\href
+  {\doibase 10.1007/s11128-008-0082-9} {\bibfield  {journal} {\bibinfo
+  {journal} {Quantum Information Processing}\ }\textbf {\bibinfo {volume}
+  {7}},\ \bibinfo {pages} {193--209} (\bibinfo {year} {2008})}\BibitemShut
+  {NoStop}%
 \bibitem [{\citenamefont {Chancellor}\ \emph
   {et~al.}(2016{\natexlab{a}})\citenamefont {Chancellor}, \citenamefont
   {Zohren},\ and\ \citenamefont {Warburton}}]{Chancellor2016b}%
