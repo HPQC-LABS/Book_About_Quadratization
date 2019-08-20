@@ -1600,19 +1600,19 @@ b_1 \ldots b_k &= \min_{b'_1, \ldots b'_n} \frac{1}{2} \left( N + X - \sum^n_{i=
 
 \newpage
 
-\subsection{CCG-based (Yip, Xu, Koenig and Kumar, 2019)}
+\subsection{Constraint Composite Graph (Yip, Xu, Koenig and Kumar, 2019)}
 \summarysec
 
-The CCG-based quadratization algorithm is an iterative algorithm. The CCG (Constraint composite graph) is a combinatorial structure associated with an optimization problem posed as the weighted constraint satisfaction problem. 
+The constraint composite graph (CCG)-based quadratization algorithm is an iterative algorithm. The CCG is a combinatorial structure associated with an optimization problem posed as an instance of the weighted constraint satisfaction problem. 
 %\begin{align}
 %f\left(b_{1},b_{2},\ldots,b_{n}\right)\rightarrow1+2\sum_{ij}b_{i}b_{j}-\sum_{i}b_{i}+4\sum_{2i}^{n-1}b_{a_{i}}\left(i-\sum_{j}^{n}b_{j}\right)
 %\end{align}
 
 \costsec
 \begin{itemize}
-\item Each positive monomial of degree $i$ generates 2 auxiliary variables when it is reduced to the sum of a quadratic polynomial and a monomial of degree $i-1$, which can then be combined with existing monomials of degree $i-1$ if they are composed of the same variables. This combination of monomials can take place in each iteration, until the whole pseudo-Boolean function (PBF) becomes quadratic.
-\item Same as Ishikawa's method, use 1 auxiliary variable for each negative monomial.
-\item  For a $k$-local Hamiltonian, use a factor of $k$ less of auxiliary variables asymptotically compared to Ishikawa's method.
+\item Each negative monomial generates $1$ auxiliary variable, same as in Ishikawa's method.
+\item Each positive monomial of degree $d$ generates $2$ auxiliary variables and is reduced to the sum of a quadratic polynomial and a monomial of degree $d-1$, which can then be combined with existing monomials of degree $d-1$ if they are composed of the same variables. This combination of monomials can take place in each iteration, until the whole pseudo-Boolean function (PBF) becomes quadratic.
+\item Each $k$-local Hamiltonian asymptotically generates $1/k$ of the auxiliary variables compared to Ishikawa's method.
 \end{itemize}
 
 \prossec
@@ -1622,38 +1622,37 @@ The CCG-based quadratization algorithm is an iterative algorithm. The CCG (Const
 %\end{itemize}
 \begin{itemize}
 \item Due to the recombinations
-of terms during its iterative reduction process, the resulting number of auxiliary variables is less than Ishikawa's method especially for PBFs with many positive monomials and many terms (the difficult case).
-\item The higher the degree of the PBF is,
-the more advantageous the CCG-based quadratization method is. It
-works particularly well for problems in real life such as planning problem that requires a high-degree PBF formulation.
-\item Due to the nature of recombinations
-of terms during each iteration, the number of quadratic terms in the finalized quadratic PBFs is less than Ishikawa's method.
+of monomials in the iterative reduction process, the resulting number of auxiliary variables is less than Ishikawa's method, especially for the difficult case of PBFs with many (positive) monomials.
+\item The CCG-based quadratization method is more advantageous when the degree of the PBF is higher. It
+works particularly well for real-world problems such as planning and multi-echelon problems that require high-degree PBF formulations.
+\item Due to the recombinations
+of monomials during each iteration, the number of quadratic terms in the final quadratic PBF is typically less than Ishikawa's method.
 \end{itemize}
 
 \conssec
 \begin{itemize}
-\item Can lead to more auxiliary variables for sparse PBFs (the number of monomials is much less than the maximum number the PBFs can have) and PBFs with low degree.
+\item It can lead to more auxiliary variables for sparse PBFs (when the number of monomials is much less than the maximum possible) and low-degree PBFs.
 
 \end{itemize}
 
 \examplesec
 
-Each degree-\(d\) monomial in the PBF \(f(\vec x)\) in one reduction step is substituted as:
+In one reduction step, each degree-\(d\) monomial in the PBF \(f(\vec b)\) is rewritten as:
 \begin{align}
   \begin{split}\label{eq:ccgqdr}
-ax_1\ldots x_d =& \min_{x_a, x_L} \left[ax_a + Lx_L + J\sum_{i=1}^{d-1} (1-x_i)(1-x_a)  \right. \\
-+ &\left.    J(1-x_d)(1-x_L) +J (1-x_L)(1-x_a) \vphantom{\sum_{xxx}^{xxx}}\right]\\
-- &L(1-x_d) - a + ax_1\ldots x_{d-1},
+ab_1\ldots b_d =& \min_{b_a, b_L} \left[ab_a + Lb_L + J\sum_{i=1}^{d-1} (1-b_i)(1-b_a)  \right. \\
++ &\left.    J(1-b_d)(1-b_L) +J (1-b_L)(1-b_a) \vphantom{\sum_{xxx}^{xxx}}\right]\\
+- &L(1-b_d) - a + ab_1\ldots b_{d-1},
   \end{split}\\
-  -ax_1\ldots x_d =&  \min_{x_{a'}} \left[ax_{a'} + J\sum_{i=1}^d (1-x_i)(1-x_{a'}) \right] - a \label{eq:ccgqdrnegative}
+  -ab_1\ldots b_d =&  \min_{b_{a'}} \left[ab_{a'} + J\sum_{i=1}^d (1-b_i)(1-b_{a'}) \right] - a \label{eq:ccgqdrnegative}
 \end{align}
-where $J \geq L > a > 0$. $x_a$ and $x_L$ are the two auxiliary variables introduced for positive monomial and $x_{a'}$ is the auxiliary variable introduced for negative monomial.
+where $J \geq L > a > 0$. $b_a$ and $b_L$ are the two auxiliary variables introduced for a positive monomial and $b_{a'}$ is the auxiliary variable introduced for a negative monomial.
 
 
 \refsec
 \begin{itemize}
-\item Original paper: \cite{yxkk19}. Derivation (Theorem 1), inspired by 2008, (Theorem 3): \cite{vchoi08}.
-\item Background on CCG (Constraint composite graph): \cite{k08}.
+\item Original paper:~\cite{yxkk19}. Derivation (Theorem 1) is inspired by (Theorem 3) in~\cite{vchoi08}.
+\item Background on CCG:~\cite{k08}.
 \end{itemize}
 
 

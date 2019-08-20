@@ -253,25 +253,25 @@
   {\emph {\bibinfo {booktitle} {unpublished}}}\ (\bibinfo {year}
   {2018})\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Yip}\ \emph {et~al.}(2019)\citenamefont {Yip},
-  \citenamefont {Xu}, \citenamefont {Kumar},\ and\ \citenamefont
-  {Koenig}}]{yxkk19}%
+  \citenamefont {Xu}, \citenamefont {Koenig},\ and\ \citenamefont
+  {Kumar}}]{yxkk19}%
   \BibitemOpen
   \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Ka~Wa}\ \bibnamefont
   {Yip}}, \bibinfo {author} {\bibfnamefont {Hong}\ \bibnamefont {Xu}}, \bibinfo
-  {author} {\bibfnamefont {T.~K.~Satish}\ \bibnamefont {Kumar}}, \ and\
-  \bibinfo {author} {\bibfnamefont {Sven}\ \bibnamefont {Koenig}},\ }\bibfield
+  {author} {\bibfnamefont {Sven}\ \bibnamefont {Koenig}}, \ and\ \bibinfo
+  {author} {\bibfnamefont {T.~K.~Satish}\ \bibnamefont {Kumar}},\ }\bibfield
   {title} {\enquote {\bibinfo {title} {Quadratic reformulation of nonlinear
   pseudo-boolean functions via the constraint composite graph},}\ }in\ \href
   {\doibase 10.1007/978-3-030-19212-9\_43} {\emph {\bibinfo {booktitle} {the
-  International Conference on Integration of Artificial Intelligence and
-  Operations Research Techniques in Constraint Programming}}}\ (\bibinfo {year}
-  {2019})\ pp.\ \bibinfo {pages} {643--660}\BibitemShut {NoStop}%
+  International Conference on Integration of Constraint Programming, Artificial
+  Intelligence, and Operations Research}}}\ (\bibinfo {year} {2019})\ pp.\
+  \bibinfo {pages} {643--660}\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Choi}(2008)}]{vchoi08}%
   \BibitemOpen
   \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Vicky}\ \bibnamefont
   {Choi}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {Minor-embedding in
-  adiabatic quantum computation: {I}. the parameter setting problem},}\ }\href
-  {\doibase 10.1007/s11128-008-0082-9} {\bibfield  {journal} {\bibinfo
+  adiabatic quantum computation: {I}. {T}he parameter setting problem},}\
+  }\href {\doibase 10.1007/s11128-008-0082-9} {\bibfield  {journal} {\bibinfo
   {journal} {Quantum Information Processing}\ }\textbf {\bibinfo {volume}
   {7}},\ \bibinfo {pages} {193--209} (\bibinfo {year} {2008})}\BibitemShut
   {NoStop}%
