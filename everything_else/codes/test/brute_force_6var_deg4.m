@@ -91,6 +91,9 @@ for checkpoint = restartId : floor( int64(3^21-1)/perCheck )
                     count = count + 1;
                 end
             end
+            if conflicts(1) == 0
+                break;
+            end
         end
         %{
         % not used for parfor implementation
