@@ -49,7 +49,7 @@ index_temp = [0 0; 0 1; 0 2; 1 1; 1 2; 2 2];
 index_init = [];
 for i = 1:6
     for j = 1:6
-        for k = 1:6
+        for k = i:6
             for l = 1:3
                 index_init = [index_init; [index_temp(i,:) index_temp(j,:) index_temp(k,:) index_temp(l,2)] ];
             end
@@ -61,13 +61,13 @@ count = 0;
 unit_mod3 = 1:3:3*28;
 
 restartId = 0;
-perCheck = 100;
+perCheck = 1000;
 t_init = t;
 t = cputime;
 for checkpoint = restartId : floor( int64(3^21-1)/perCheck )
 	parfor i = int64(checkpoint*perCheck) : min( int64(3^21-1), int64((checkpoint+1)*perCheck) - 1 )
         index_last = dec2base(i,3,21)-'0';
-        for j = 1:648
+        for j = 1:378
             indexlist = [index_last index_init(j,:)];
             indexlist = indexlist + unit_mod3;
             coeffs = allcoeffs(indexlist);
@@ -95,7 +95,7 @@ for checkpoint = restartId : floor( int64(3^21-1)/perCheck )
         %{
         % not used for parfor implementation
         if mod(i,1000) == 0
-            fprintf('step(x648000) = %4d,  step time: %8.4f,  total time: %8.4f', i/1000,cputime - t,cputime - t_init);
+            fprintf('step(x378000) = %4d,  step time: %8.4f,  total time: %8.4f', i/1000,cputime - t,cputime - t_init);
             for k = 1:number_queries
                 fprintf('  count%d = %d,',k,count(k));
             end
