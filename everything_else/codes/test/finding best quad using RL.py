@@ -2,10 +2,17 @@ import numpy as np
 from scipy.io import loadmat
 
 # hyperparameters
-n = 5              # number of variables
+n = 7              # number of variables
 aux = True
+conflict_threshold = 0.1
 n_sessions = 100
+t_max = 50
+c_conflict = 1
+c_distance = 1
+c_entropy = 0.4
 percentile = 70
+hidden_layers = (20,30,40)
+np.random.seed(1)
 # -----------------------------------------------------------------------------------------
 
 coeffs_size = int( n*(n+1)/2 )
@@ -23,7 +30,8 @@ allbits = loadmat('data.mat')['allbits']
 allbits = np.transpose(allbits)
 
 reset_state = loadmat('data.mat')['reset_state']
-reset_state.shape = (coeffs_size,)
+reset_state.shape = (coeffs_size,-1)
+reset_state = np.repeat(reset_state,n_sessions,1)
 
 one_hot = np.zeros((coeffs_size,n_actions))
 for i in range(coeffs_size):
@@ -40,9 +48,18 @@ class environment:
         self.state = np.add( self.state, one_hot[:,action])
         return self.state
 
+def reward(conflict, dist, entropy):
+    r_conflict = 1 - conflict**(1/3)             # "preserving states" reward
+    r_distance = 1 - dist**(1/3)                 # "staying close"     reward
+    r_entropy  = entropy                         # "being an explorer" reward
+    #if np.max(np.abs(new_s)) >= 4:
+    #    r -= 1                           # punishment for large coefficients
+    
+    return c_conflict * r_conflict + c_distance * r_distance + c_entropy * r_entropy
+
 def rhs(s):
-    RHS = allbits.dot(s.reshape(coeffs_size,1))
-    RHS = RHS - np.min(RHS)
+    RHS = allbits.dot(s)
+    RHS = RHS - np.min(RHS,0)
     if aux:
         RHS = np.minimum(RHS[::2],RHS[1::2])    # when using aux
     
@@ -52,25 +69,24 @@ def rhs(s):
 def accuracy(s):
     RHS = rhs(s)
     difference = np.abs( np.subtract(RHS,LHS) )
-    distance = np.sum(difference)
-    preserved_pct = 100*np.size(np.where(difference == 0))/(2*LHS_size)
+    distance = np.sum(difference,0)
+    distance = np.minimum(1,distance/12) #LHS_size? or maybe changing at runtime?
+    conflict = np.sum(difference != 0,0) / LHS_size
     
-    return preserved_pct, distance
+    return conflict, distance
 
 
 # create agent
 from sklearn.neural_network import MLPClassifier
 agent = MLPClassifier(
-    hidden_layer_sizes=(20,20),
+    hidden_layer_sizes = hidden_layers,
     activation='tanh',
-    warm_start=True,  # keep progress between .fit() calls
+    warm_start=False,#True,  # keep progress between .fit() calls
     max_iter=1,       # make only 1 iteration on each .fit()
 
 )
 env = environment()
 # initialize agent to the dimension of state and number of actions
-agent.fit([env.reset()]*n_actions, range(n_actions))
-
 init_training = loadmat('data.mat')['input']
 size = init_training.shape[0]
 
@@ -88,46 +104,41 @@ agent.fit(train_data, target)
 def generate_session(t_max = 50):
     states,actions = [],[]
     total_reward = 0
-    
+   
     s = env.reset()
-    old_accuracy,temp = accuracy(s)
-    
+        
     for t in range(t_max):
         
-        # a vector of action probabilities in current state
-        probs = agent.predict_proba([s])[0]
+        probs = agent.predict_proba(np.transpose(s))
         
-        #choose 100 of those
-        a = np.random.choice(n_actions, p = probs)
+        # choose actions w.r.t. probs
+        c = probs.cumsum(axis = 1)
+        u = np.random.rand(len(c),1)
+        a = (u < c).argmax(axis = 1)
         
         new_s = env.step(a)
         
-        new_accuracy,dist = accuracy(new_s)
+        conflict,dist = accuracy(new_s)
+        entropy = -np.sum( np.multiply(probs,np.log(probs)/np.log(coeffs_size)), 1)
         
-        # Reward System
-        r = (new_accuracy - old_accuracy)   # reward/punishment for number of states preserved        
-        if dist > LHS_size:
-            r -= (dist - LHS_size)          # punishment for distance away from LHS
-        if np.max(np.abs(new_s)) >= 4:
-            r -= 10                         # punishment for large coefficients
+        r = reward(conflict, dist, entropy)
         
-        if new_accuracy >= 80:
-            flag = True
-            for k in range(len(good)):
-                if (good[k] == new_s).all:
-                    flag = False
-            if flag:
-                good.append(new_s)
-            print(new_s,new_accuracy)
-            #print(rhs(new_s))
-            #wait = input("press enter to continue")
+        if any(conflict <= conflict_threshold):
+            #flag = True
+            #for k in range(len(good)):
+            #    if (good[k] == new_s).all:
+            #        flag = False
+            #if flag:
+            #   good.append(new_s)
+            #print(conflict)
+            print( new_s[:,conflict <= conflict_threshold], 100*(1-conflict[conflict <= conflict_threshold]) )
+            wait = input("press enter to continue")
         
-        states.append(s)
+        states.append(np.transpose(s))
         actions.append(a)
         total_reward += r
         
         s = new_s
-        old_accuracy = new_accuracy
         
     return states, actions, total_reward
 
@@ -143,10 +154,13 @@ def select_elites(states_batch,actions_batch,rewards_batch,percentile=50):
     """
     
     reward_threshold = np.percentile(rewards_batch, percentile)
-    mask = rewards_batch > reward_threshold
+    mask = (rewards_batch > reward_threshold)
     
-    elite_states  = [ item for i in range(len(states_batch))  for item in states_batch[i]  if mask[i] ]
-    elite_actions = [ item for i in range(len(actions_batch)) for item in actions_batch[i] if mask[i] ]
+    states_batch = np.array(states_batch).transpose(1,0,2).reshape(n_sessions,-1)
+    elite_states = states_batch[mask].reshape(-1,coeffs_size)
+    
+    actions_batch = np.transpose(actions_batch)
+    elite_actions = actions_batch[mask].reshape(-1,1)
     
     return elite_states, elite_actions
 
@@ -179,19 +193,20 @@ def show_progress(batch_rewards, percentile, reward_range=[0,100]):
 
 Log  = []
 good = []
-for i in range(200):
-    #generate new sessions
-    sessions = [ generate_session() for _ in range(n_sessions) ]
-
-    batch_states,batch_actions,batch_rewards = map(np.array, zip(*sessions))
+for i in range(500):
+    #sessions = [ generate_session() for _ in range(n_sessions) ]
+    sessions = generate_session(t_max)
+    
+    #batch_states,batch_actions,batch_rewards = map(np.array, zip(*sessions))
+    batch_states,batch_actions,batch_rewards = sessions[0], sessions[1], sessions[2]
     #print(batch_rewards)
     #wait = input("rewards")
     elite_states, elite_actions = select_elites(batch_states, batch_actions, batch_rewards, percentile)
-
-    agent.fit(elite_states, elite_actions)
-
+    
+    agent.partial_fit(elite_states, elite_actions)
+    
     show_progress(batch_rewards, percentile, reward_range=[0,np.max(batch_rewards)])
-
+    
 #    if np.mean(batch_rewards)> 50:
  #       print("You Win!!! You may stop training now")
 
