@@ -130,9 +130,25 @@ b_{1}b_{2}b_{3}\ldots b_{k}=\min\left(b_{1},b_{2},b_{3},\ldots,b_{k}\right)
 \end_layout
 
 \begin_layout Standard
+More generally,
+\end_layout
+
+\begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-b_{1}b_{2}b_{3}\ldots b_{k}=\min\left(b_{1}b_{2}\ldots b_{k_{1}},b_{k_{1}+1}b_{k_{1}+2}\ldots b_{k_{2}},b_{k_{2}+1}b_{k_{2}+2}\ldots b_{k_{3}},\right)
+b_{1}b_{2}b_{3}\ldots b_{k}=\min\left(b_{1}b_{2}\ldots b_{k_{1}},b_{k_{1}+1}b_{k_{1}+2}\ldots b_{k_{2}},b_{k_{2}+1}b_{k_{2}+2}\ldots b_{k_{3}},...,b_{k_{n}+1}b_{k_{n}+2}...b_{k}\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For example,
+\begin_inset Formula 
+\begin{equation}
+b_{1}b_{2}b_{3}b_{4}=\min\left(b_{1}b_{2},b_{3}b_{4}\right)
 \end{equation}
 
 \end_inset
@@ -153,9 +169,24 @@ b_{1}b_{2}b_{3}b_{4}+b_{3}b_{4}b_{5}b_{6}=\min\left(b_{2}b_{3}+b_{3}b_{6},b_{1}b
 \end_layout
 
 \begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+ & \negthickspace\negthickspace\negthickspace\negthickspace\negthickspace\negthickspace\negthickspace\negthickspace\negthickspace\negthickspace\negthickspace\negthickspace b_{1}b_{2}b_{3}b_{4}b_{5}b_{6}+b_{2}b_{3}b_{4}b_{5}b_{6}b_{7}:\\
+\longrightarrow & \,\,\,2b_{3}b_{6}\\
+\longrightarrow & \,\,\,2b_{4}b_{5}-b_{5}b_{6}+b_{5}\\
+\longrightarrow & \,\,\,b_{1}b_{4}-b_{2}b_{5}+b_{2}b_{6}+b_{2}b_{7}+b_{5}b_{7}-b_{6}b_{7}-b_{5}-b_{6}+2\\
+\longrightarrow & \,\,\,b_{1}b_{2}-b_{1}b_{5}+b_{1}b_{7}+b_{2}b_{3}+b_{3}b_{6}-b_{3}b_{7}-b_{4}b_{5}-b_{5}b_{6}-b_{3}+b_{5}+2
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \align left
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align left
@@ -182,6 +213,25 @@ b_{1}b_{2}b_{3}b_{4}+b_{5}b_{6}b_{7}b_{8}=\min\left(b_{1}b_{2}+b_{6}b_{8}+b_{a}\
 \longrightarrow & \,\,\,b_{3}b_{4}+b_{6}b_{8}+2b_{8}b_{a}\\
 \longrightarrow & \,\,\,b_{2}b_{3}+b_{5}b_{7}+b_{a}\left(1-b_{6}+b_{7}\right)\\
 \longrightarrow & \,\,\,b_{1}b_{4}+b_{5}b_{7}-b_{6}b_{8}+b_{7}b_{a}+b_{6}
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+ & \negthickspace\negthickspace\negthickspace\negthickspace\negthickspace\negthickspace\negthickspace\negthickspace\negthickspace\negthickspace\negthickspace\negthickspace b_{1}b_{2}b_{3}b_{4}b_{5}+b_{6}b_{7}b_{8}b_{9}b_{10}:\\
+\longrightarrow & \,\,\,b_{2}b_{3}+b_{6}b_{9}+b_{9}b_{a}\\
+\longrightarrow & \,\,\,b_{1}b_{4}+b_{8}b_{10}+b_{9}b_{a}\\
+\longrightarrow & \,\,\,b_{3}b_{5}+b_{7}b_{10}+b_{1}b_{a}+b_{9}b_{a}\\
+\longrightarrow & \,\,\,b_{4}b_{5}+b_{6}b_{9}+b_{9}b_{a}\\
+\longrightarrow & \thinspace\thinspace\thinspace b_{1}b_{2}+b_{7}b_{9}+b_{9}b_{a}\\
+\longrightarrow & \thinspace\thinspace\thinspace b_{2}b_{5}+b_{6}b_{8}+b_{9}b_{a}\\
+\longrightarrow & \thinspace\thinspace\thinspace b_{2}b_{3}+b_{8}b_{10}+b_{9}b_{a}\\
+\longrightarrow & \thinspace\thinspace\thinspace b_{1}b_{4}+b_{6}b_{7}+b_{9}b_{a}
 \end{align}
 
 \end_inset
