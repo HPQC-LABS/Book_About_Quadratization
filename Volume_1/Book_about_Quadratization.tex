@@ -822,7 +822,7 @@ with $a=1$.
 
 For a negative term $-b_{1}b_{2}...b_{k}$, introduce a single auxiliary variable $b_a$ and make the substitution:
 \begin{equation}
--b_{1}b_{2} \ldots b_{k} \rightarrow \sum_{i}b_{i}-\sum_{i}b_{i}b_{k}-\sum_{i}b_{i}b_{a}+(k-1)b_{k}b_{a}.
+-b_{1}b_{2} \ldots b_{k} \rightarrow \sum_{i}^{k-1}b_{i}-\sum_{i}^{k-1}b_{i}b_{k}-\sum_{i}^kb_{i}b_{a}+(k-1)b_{k}b_{a}.
 \end{equation}
 
 \costsec
@@ -1020,14 +1020,14 @@ where $C \geq 1$ is a constant. NTR-KZFD is a particular case of \eqref{eqn:NTR-
 
 \newpage
 
-\subsection{NTR-RBL-(3$\rightarrow$2) (Rocchetto, Benjamin, Li, 2016)}
+\subsection{NTR-RBL (Rocchetto, Benjamin, Li, 2016)}
 
 \summarysec
 
 Using a ternary variable $t_q \in {-1,0,1}$ we have:
 
 \begin{equation}
-z_1z_2z_3 \rightarrow \left(1 + 4t_a + z_1 + z_2 + z_3\right)^2 -1.
+-z_1z_2z_3 \rightarrow \left(1 + 4t_a + z_1 + z_2 + z_3\right)^2 -1.
 \end{equation}
 
 \costsec
@@ -1067,7 +1067,7 @@ z_1z_2z_3 \rightarrow \left(1 + 4t_a + z_1 + z_2 + z_3\right)^2 -1.
 \newpage
 
 
-\subsection{NTR-RBL-(4$\rightarrow$2) (Rocchetto, Benjamin, Li, 2016)}
+\subsection{NTR-LHZ (Lechner, Hauke, Zoller, 2015)}
 
 \summarysec
 
@@ -1115,7 +1115,8 @@ Extra binary or ternary variable is added to ensure that the energy of the even 
 
 \refsec
 \begin{itemize}
-\item Original paper: \cite{Rocchetto2016}.
+\item Original paper: \cite{Lechner2015} (Eq. 4).
+\item Also given in Eq. 10 of \cite{Rocchetto2016} for $i+2<j$.
 \end{itemize}
 
 \newpage
@@ -1376,7 +1377,7 @@ b_{1}b_{2}\ldots b_{k}	&\rightarrow \alpha+\alpha^{b}\sum_{i}b_{i}+\alpha^{b_{a_
 \alpha^{b_{a}} & \alpha^{b_{a}b_{a}}
 \end{pmatrix}=\begin{pmatrix}\left(2^{m}-k\right)^{2} & 1\\
 2\left(2^{m}-k\right) & 2^{j-1}\\
--2\left(2^{m}-k\right) & 2^{i+-2}
+-2\left(2^{m}-k\right) & 2^{i+j-2}
 \end{pmatrix}.
 \end{align}
 
@@ -1841,7 +1842,7 @@ z_1z_2z_3 \rightarrow (1 + 4t_a + z_1 + z_2 + z_3)^2 -1.
 Extra binary or ternary variable is added to ensure that the energy of the even parity sector is zero and the energy of the odd sector is higher: 
 
 \begin{equation}
--z_1z_2z_3z_4\rightarrow 16\,t_a^2+4\,t_a\,\sum_{i=1}^4 z_i+2\,\sum_{i=1}^4\sum_{j>i}^4z_i\,z_j+4.
+z_1z_2z_3z_4\rightarrow 16\,t_a^2+4\,t_a\,\sum_{i=1}^4 z_i+2\,\sum_{i=1}^4\sum_{j>i}^4z_i\,z_j+4.
 \end{equation}
 
 \costsec
@@ -1873,14 +1874,14 @@ Extra binary or ternary variable is added to ensure that the energy of the even 
 \end{eqnarray}
 
 
-\altformsec
+%\altformsec
 %\begin{eqnarray}
 %(2\,z_a+\sum_{i=1}^4z_i)^2\begin{cases}=0 & \mathrm{iff}\, \sum_{i=1}^4 z_i=\pm 2 \\
 %>0 & \mathrm{otherwise} \end{cases}
 %\end{eqnarray}
-\begin{eqnarray}
--z_1z_2z_3z_4\rightarrow 16\,t_a^2+4\,t_a\,\sum_{i=1}^4 z_i+2\,\sum_{i=1}^4\sum_{j>i}^4z_i\,z_j+4
-\end{eqnarray}
+%\begin{eqnarray}
+%-z_1z_2z_3z_4\rightarrow 16\,t_a^2+4\,t_a\,\sum_{i=1}^4 z_i+2\,\sum_{i=1}^4\sum_{j>i}^4z_i\,z_j+4
+%\end{eqnarray}
 
 \refsec
 \begin{itemize}
@@ -2899,7 +2900,7 @@ The first expression is highly non-submodular while the second is entirely submo
 %\item Corollary 4 of \cite{Boros2018boundsPaper} gives an upper bound of $d\lceil \log(n)\rceil$ for the number of auxiliary variables for the parity function.
 
 \begin{itemize}
-\item There exist symmetric functions on $n$ variables for which no quadratization can be done without at least $\Omega\left(\sqrt{n}\right)$  auxiliary variables (Theorem 5.3 from \cite{Anthony2014,Anthony2016}.  %$2\log_2\left( 1+\sqrt{257}  \right)-8$.
+\item There exist symmetric functaons on $n$ variables for which no quadratization can be done without at least $\Omega\left(\sqrt{n}\right)$  auxiliary variables (Theorem 5.3 from \cite{Anthony2014,Anthony2016}.  %$2\log_2\left( 1+\sqrt{257}  \right)-8$.
 \item There exist symmetric functions on $n$ variables for whcih no quadratization linear in the auxiliaries can be done without at least $\Omega\left( \frac{n}{\log_2(n)}\right)$ auxiliary variables (Theorem 5.5 from \cite{Anthony2014,Anthony2016}).
 \item The parity function on $n$ variables cannot be quadratized without quadratic terms involving the auxiliary variables, unless there is at least $\sqrt{\nicefrac{n}{4}-1}+1=\Omega\left( \sqrt{n}  \right)$ auxiliary variables (Theorem 5.6 from \cite{Anthony2014,Anthony2016}).
 \item Theorem 5 of \cite{Boros2018boundsPaper} gives an even tighter bound of $\lceil \log(n)\rceil -1$ for the minimum number of auxiliary variables for the parity function.
@@ -2909,8 +2910,8 @@ The first expression is highly non-submodular while the second is entirely submo
 \subsection{Lower bounds for positive monomials (Boros, Crama, Rodr\'{i}guez-Heck, 2018)}
 
 \begin{itemize}
-\item A positive monomial with $n$ variables cannot be quadratized with fewer than $\lceil \log(n)\rangle - 1$ auxiliary variables, unless there is some extra deduction we can make about the optimization problem, as in for example deduc-reduc (Corollary 1 from \cite{Boros2018boundsPaper}).
-\item ALCN (at least $c$ out of $n$) and ECN (exact $c$ out of $n$) functions also cannot be quadratized with fewer than $\lceil \log(n)\rangle - 1$ auxiliary variables (Corollaries 2 and 3 from \cite{Boros2018boundsPaper}).
+\item A positive monomial with $n$ variables cannot be quadratized with fewer than $\lceil \log(n)\rceil - 1$ auxiliary variables, unless there is some extra deduction we can make about the optimization problem, as in for example deduc-reduc (Corollary 1 from \cite{Boros2018boundsPaper}).
+\item ALCN (at least $c$ out of $n$) and ECN (exact $c$ out of $n$) functions also cannot be quadratized with fewer than $\lceil \log(n)\reil - 1$ auxiliary variables (Corollaries 2 and 3 from \cite{Boros2018boundsPaper}).
 \item ECN (exact $c$ out of $n$) functions also cannot be quadratized with fewer than $\max\left(\lceil \log(c)\rceil , \lceil \log(n-c)\rceil  \right)-1$ auxiliary variables (Corollaries 2 and 3 from \cite{Boros2018boundsPaper}).
 \end{itemize}
 

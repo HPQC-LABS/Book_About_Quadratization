@@ -228,6 +228,19 @@
   {\doibase 10.1126/sciadv.1601246} {\bibfield  {journal} {\bibinfo  {journal}
   {Science Advances}\ }\textbf {\bibinfo {volume} {2}} (\bibinfo {year}
   {2016}),\ 10.1126/sciadv.1601246}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Lechner}\ \emph {et~al.}(2015)\citenamefont
+  {Lechner}, \citenamefont {Hauke},\ and\ \citenamefont
+  {Zoller}}]{Lechner2015}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Wolfgang}\
+  \bibnamefont {Lechner}}, \bibinfo {author} {\bibfnamefont {Philipp}\
+  \bibnamefont {Hauke}}, \ and\ \bibinfo {author} {\bibfnamefont {Peter}\
+  \bibnamefont {Zoller}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {{A
+  quantum annealing architecture with all-to-all connectivity from local
+  interactions}},}\ }\href {\doibase 10.1126/sciadv.1500838} {\bibfield
+  {journal} {\bibinfo  {journal} {Science Advances}\ }\textbf {\bibinfo
+  {volume} {1}} (\bibinfo {year} {2015}),\ 10.1126/sciadv.1500838}\BibitemShut
+  {NoStop}%
 \bibitem [{\citenamefont {Boros}\ and\ \citenamefont
   {Gruber}(2014)}]{Boros2014}%
   \BibitemOpen
@@ -617,19 +630,6 @@
   {journal} {\bibinfo  {journal} {New Journal of Physics}\ }\textbf {\bibinfo
   {volume} {16}},\ \bibinfo {pages} {123056} (\bibinfo {year}
   {2014})}\BibitemShut {NoStop}%
-\bibitem [{\citenamefont {Lechner}\ \emph {et~al.}(2015)\citenamefont
-  {Lechner}, \citenamefont {Hauke},\ and\ \citenamefont
-  {Zoller}}]{Lechner2015}%
-  \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Wolfgang}\
-  \bibnamefont {Lechner}}, \bibinfo {author} {\bibfnamefont {Philipp}\
-  \bibnamefont {Hauke}}, \ and\ \bibinfo {author} {\bibfnamefont {Peter}\
-  \bibnamefont {Zoller}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {{A
-  quantum annealing architecture with all-to-all connectivity from local
-  interactions}},}\ }\href {\doibase 10.1126/sciadv.1500838} {\bibfield
-  {journal} {\bibinfo  {journal} {Science Advances}\ }\textbf {\bibinfo
-  {volume} {1}} (\bibinfo {year} {2015}),\ 10.1126/sciadv.1500838}\BibitemShut
-  {NoStop}%
 \bibitem [{\citenamefont {Shen}\ \emph {et~al.}(2017)\citenamefont {Shen},
   \citenamefont {Peng}, \citenamefont {Dong}, \citenamefont {Shao},\ and\
   \citenamefont {Porikli}}]{Shen2017a}%
