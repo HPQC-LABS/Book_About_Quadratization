@@ -587,13 +587,14 @@ In both cases, the only global minima occur when:
 \newpage
 
 
-\subsection{Application of ELM (new in this book, 2018)}
+\subsection{Application of ELM (Dattani, 2018)}
 
 \vspace{-3mm}
 
 \summarysec
 
 We use the formula from \cite{Ali2008} for representing any function of three binary variables:
+\vspace{-4mm}
 
 {\footnotesize
 \begin{align}
@@ -605,6 +606,8 @@ f(b_1,b_2,b_3) &= \left( f(1,1,1) + f(1,0,0) - f(1,1,0) - f(1,0,1) - f(0,1,1) - 
 \end{align}
 }
 
+\vspace{-4mm}
+
 If the cubic term is zero, then the function becomes quadratic. We can use ELM (Energy Landscape Manipulation) to change the energy landscape \textit{without} changing the ground state \cite{Tanburn2015d}. In this case, we apply ELM in order to make the cubic term zero.
 
 
@@ -612,7 +615,8 @@ If the cubic term is zero, then the function becomes quadratic. We can use ELM (
 \begin{itemize}
 
 \item No auxiliary variables.
-\item May require many evaluations of the cubic function varying coefficients in order to find the right ELM coefficients.
+\item May require many evaluations of the cubic function, varying coefficients in order to find the right ELM coefficients.
+\item For a particular value of $m$, we have $\binom{n}{m}$ different $m$-variable subsets of the $n$ variable problem, and $\binom{n}{m} 2^m$ evaluations of the objective function to find all possible $m$-variable deductions, whereas $2^n$ evaluations is enough to solve the entire problem. We therefore choose $m \lll n$.
 \end{itemize}
 
 \prossec
@@ -626,6 +630,7 @@ If the cubic term is zero, then the function becomes quadratic. We can use ELM (
 \begin{itemize}
 \item May not always be possible.
 \item May require a local search to find appropriate deductions.
+%\item May require many evaluations of the cubic function, varying coefficients in order to find the right ELM coefficients.
 \end{itemize}
 
 \examplesec
@@ -639,10 +644,10 @@ f(1,1,1) - f(1,1,0) - f(1,0,1) - f(0,1,1) = 0.
 %% PLEASE DO THIS SOMEONE !!!
 %We now show an example of a function for which ELM has the power to enforce this constraint:
 
-%\refsec
-%\begin{itemize}
-%\item The method is new in the present work.
-%\end{itemize}
+\refsec
+\begin{itemize}
+\item The method was first presented in the first arXiv version of this book \cite{Dattani2019}.
+\end{itemize}
 
 \newpage
 

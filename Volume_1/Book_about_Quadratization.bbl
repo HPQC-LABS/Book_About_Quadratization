@@ -6,7 +6,7 @@
 %Control: page (1) range
 %Control: year (0) verbatim
 %Control: production of eprint (0) enabled
-\begin{thebibliography}{58}%
+\begin{thebibliography}{59}%
 \makeatletter
 \providecommand \@ifxundefined [1]{%
  \@ifx{#1\undefined}
@@ -114,6 +114,13 @@
   {Physical Review A (submitted).}\ } (\bibinfo {year} {2015}{\natexlab{b}})},\
   \Eprint {http://arxiv.org/abs/1510.07420} {arXiv:1510.07420} \BibitemShut
   {NoStop}%
+\bibitem [{\citenamefont {Dattani}(2019)}]{Dattani2019}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Nike}\ \bibnamefont
+  {Dattani}},\ }\href {http://arxiv.org/abs/1901.04405} {\emph {\bibinfo
+  {title} {{Quadratization in discrete optimization and quantum mechanics}}}}\
+  (\bibinfo {year} {2019})\ \Eprint {http://arxiv.org/abs/1901.04405}
+  {arXiv:1901.04405} \BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Okada}\ \emph {et~al.}(2015)\citenamefont {Okada},
   \citenamefont {Tanburn},\ and\ \citenamefont {Dattani}}]{Okada2015}%
   \BibitemOpen
