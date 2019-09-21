@@ -186,7 +186,7 @@
 
 %\vspace{-2mm}
 
-\author{\vspace{2mm}Nike Dattani}
+\author{\vspace{1.5mm}Nike Dattani}
 \email{nik.dattani@gmail.com}
 %\affiliation{Oxford University, Department of Mathematics}
 %\affiliation{McMaster University, Department of Chemistry and Chemical Biology}
@@ -362,7 +362,7 @@ We can then substitute high-order terms using the low-order terms of the deducti
 \conssec
 \begin{itemize}
 \item When deductions cannot be determined naturally (as in the Ramsey number determination problem, see Example \ref{subsec:Example_Ramsey_deduc_reduc}), deductions need to be found by `brute force', which scales exponentially with respect to $m$.
-For highly connected systems (systems with a large number of non-zero $\alpha_{ij}$ coefficients), the value of $m$ required to find even one deduction can be prohibitively large.
+For highly connected systems (systems with a large number of non-zero coefficients), the value of $m$ required to find even one deduction can be prohibitively large.
 %\item Deductions do not always exist, or are too hard to find.
 \end{itemize}
 
@@ -371,7 +371,7 @@ For highly connected systems (systems with a large number of non-zero $\alpha_{i
 \begin{comment}
 Examples are difficult to illustrate in a paper, since they involve searching for patterns in exhaustive searches. 
 \end{comment}
-Consider the Hamiltonian:
+Consider the objective function:
 \vspace{-2mm}
 \begin{equation}
 H_{4{\rm -local}}=b_{1}b_{2}(4+b_{3}+b_{3}b_{4})+b_{1}(b_{3}-3)+b_{2}(1-2b_{3}-b_{4})+F(b_{3},b_{4},b_{5},\ldots,b_{N})
@@ -407,7 +407,7 @@ The coefficient of $b_1 b_2$ was chosen as $6$ because $6 \ge \max \left( 4+b_{3
 An Excludable Local Configuration (ELC) is a partial assignment of variables that make it impossible to achieve the minimum.
 We can therefore add a term that corresponds to the energy of this ELC without changing the solution to the minimization problem.
 In practice we can eliminate all monomials with a variable in which a variable is set to 0, and reduce any variable set to 1.
-Given a general Hamiltonian we can try to find ELCs by enumerating solutions of a small subset of variables in the problem \cite{Ishikawa2014}. 
+Given a general objective function we can try to find ELCs by enumerating solutions of a small subset of variables in the problem \cite{Ishikawa2014}. 
 
 \costsec
 \begin{itemize}
@@ -435,7 +435,7 @@ Given a general Hamiltonian we can try to find ELCs by enumerating solutions of 
 
 \examplesec
 
-Consider the Hamiltonian: 
+Consider the objective function: 
 \begin{equation}
 H_{{\rm 3-local}}=b_{1}b_{2}+b_{2}b_{3}+b_{3}b_{4}-4b_{1}b_{2}b_{3}. \label{eq:ELCexample}
 \end{equation}
@@ -538,7 +538,7 @@ Work has been done in the field of 'Boolean Groebner bases', but while the varia
 \conssec
 \begin{itemize}
 \item Best algorithms for finding Groebner bases scale double exponentially in $n$.
-\item Only works for Hamiltonians whose minimization corresponds to solving systems of discrete equations, as the method only preserves roots, not minima.
+\item Only works for objective functions whose minimization corresponds to solving systems of discrete equations, as the method only preserves roots, not minima.
 \end{itemize}
 
 \examplesec
@@ -564,7 +564,7 @@ From this we can immediately read off the solutions $b_1=1$, $b_2=1-b_3$ and red
 \end{itemize}
 
 \begin{comment}
-To quadratize the Hamiltonian: 
+To quadratize the objective function: 
 \begin{equation}
 H_{4{\rm -local}}=(z_{1}z_{2}-z_{3}z_{4}-1)^{2},
 \end{equation}
@@ -1183,7 +1183,7 @@ where $n_{k}=\left\lfloor \frac{k-1}{2}\right\rfloor $ and $c_{i,k}=\begin{cases
 \costsec
 \begin{itemize}
 \item $\left\lfloor \frac{k-1}{2}\right\rfloor $ auxiliary variables for each $k$-order term
-\item $\mathcal{O}(kt)$ for a $k$-local Hamiltonian with $t$ terms.
+\item $\mathcal{O}(kt)$ for a $k$-local objective function with $t$ terms.
 \end{itemize}
 
 \prossec
@@ -1612,7 +1612,7 @@ The CCG-based quadratization algorithm is an iterative algorithm. The CCG (Const
 \begin{itemize}
 \item Each positive monomial of degree $i$ generates 2 auxiliary variables when it is reduced to the sum of a quadratic polynomial and a monomial of degree $i-1$, which can then be combined with existing monomials of degree $i-1$ if they are composed of the same variables. This combination of monomials can take place in each iteration, until the whole pseudo-Boolean function (PBF) becomes quadratic.
 \item Same as Ishikawa's method, use 1 auxiliary variable for each negative monomial.
-\item  For a $k$-local Hamiltonian, use a factor of $k$ less of auxiliary variables asymptotically compared to Ishikawa's method.
+\item  For a $k$-local objective function, use a factor of $k$ less of auxiliary variables asymptotically compared to Ishikawa's method.
 \end{itemize}
 
 \prossec
@@ -1884,7 +1884,7 @@ Extra binary or ternary variable is added to ensure that the energy of the even 
 
 \summarysec
 
-Auxilliary qubits can be made to ``count'' the number of logical qubits in the $1$ configuration. By applying single qubit terms to the auxilliary qubits, the spectrum of \emph{any} permutation symmetric Hamiltonian can be reproduced. 
+Auxilliary qubits can be made to ``count'' the number of logical qubits in the $1$ configuration. By applying single qubit terms to the auxilliary qubits, the spectrum of \emph{any} permutation symmetric objective function can be reproduced. 
 
 \costsec
 \begin{itemize}
@@ -1969,7 +1969,7 @@ Can be used in many different ways:
 \item For $\alpha<0$, we can reduce $\alpha\bar{b}_{1}\bar{b}_{2}...\bar{b}_{k}$ very efficiently to submodular form using \ref{subsec:Negative-Monomial-Reduction}.
 A generalized version exists for arbitrary combinations of flips in the monomial which makes reduction entirely submodular \cite{Ishikawa2011};
 \item When we have quadratized we can minimize the number of non-submodular terms by flipping.
-\item We can make use of both $b_{i}$ and $\bar{b}_{i}$ in the same Hamiltonian by adding on a sufficiently large penalty term: $\lambda(b_{i}+\bar{b}_{i}-1)^{2}=\lambda(1+2b_{i}\bar{b}_{i}-b_{i}-\bar{b}_{i})$.
+\item We can make use of both $b_{i}$ and $\bar{b}_{i}$ in the same objective function by adding on a sufficiently large penalty term: $\lambda(b_{i}+\bar{b}_{i}-1)^{2}=\lambda(1+2b_{i}\bar{b}_{i}-b_{i}-\bar{b}_{i})$.
 This is similar to the ideas in reduction by substitution or deduc-reduc.
 In this way, given a quadratic in $n$ variables we can make sure it only has at most $n$ nonsubmodular terms if we are willing to use the extra $n$ negation variables as well (so we have $2n$ variables in total).
 \end{enumerate}
@@ -1987,8 +1987,8 @@ In this way, given a quadratic in $n$ variables we can make sure it only has at 
 
 \conssec
 \begin{itemize}
-\item Unless the form of the Hamiltonian is known, spotting these 'factorizations' using negations is difficult.
-\item We need an auxiliary variable for each $b_i$ for which we also want to use $\bar{b_i}$ in the same Hamiltonian.
+\item Unless the form of the objective function is known, spotting these 'factorizations' using negations is difficult.
+\item We need an auxiliary variable for each $b_i$ for which we also want to use $\bar{b_i}$ in the same objective function.
 \end{itemize}
 
 
@@ -2983,12 +2983,12 @@ b_ib_j b_k \rightarrow b_ab_k + b_ib_j - 2b_ib_a - 2b_jb_a + 3b_a.
 \costsec
 \begin{itemize}
 \item 1 auxiliary variable per reduction.
-\item  At most $k\,t$  auxiliary variables for a $k$-local Hamiltonian of $t$ terms, but usually fewer.
+\item  At most $k\,t$  auxiliary variables for a $k$-local objective function of $t$ terms, but usually fewer.
 \end{itemize}
 
 \prossec
 \begin{itemize}
-\item Variable can be used across the entire Hamiltonian, reducing many terms at once.
+\item Variable can be used across the entire objective function, reducing many terms at once.
 \item Very easy to implement.
 \item Reproduces not only the ground state, but the full spectrum.
 \end{itemize}
@@ -3023,7 +3023,7 @@ b_{1}b_{2}b_{3}+b_{1}b_{2}b_{4}\mapsto b_{3}b_a+b_{4}b_a+b_{1}b_{2}-2b_{1}b_a-2b
 
 \summarysec
 
-Here we consider a set $C$ of variables which occur in multiple monomials throughout the Hamiltonian.
+Here we consider a set $C$ of variables which occur in multiple monomials throughout the objective function.
 Each application 'rips out' this common component from each term \cite{Fix2011}\cite{Boros2014}.
 
 Let $\mathcal{H}$ be a set of monomials, where $C \subseteq H$ for each $H\in\mathcal{H}$ and each monomial $H$ has a weight $\alpha_{H}$.
@@ -3049,7 +3049,7 @@ The algorithm comes in 2 parts: when all $\alpha_{H}>0$ and when all $\alpha_{H}
 
 \prossec
 \begin{itemize}
-\item Can reduce the connectivity of a Hamiltonian, as it breaks interactions between variables.
+\item Can reduce the connectivity of an objective function, as it breaks interactions between variables.
 \end{itemize}
 
 \conssec
@@ -3081,7 +3081,7 @@ now we can use \ref{subsec:Negative-Monomial-Reduction}:
 
 \summarysec
 
-Here we consider a set $C$ of variables which occur in multiple monomials throughout the Hamiltonian.
+Here we consider a set $C$ of variables which occur in multiple monomials throughout the objective function.
 Each application 'rips out' this common component from each term \cite{Fix2011}\cite{Boros2014}.
 
 Let $\mathcal{H}$ be a set of monomials, where $C \subseteq H$ for each $H\in\mathcal{H}$ and each monomial $H$ has a weight $\alpha_{H}$.
@@ -3107,7 +3107,7 @@ The algorithm comes in 2 parts: when all $\alpha_{H}>0$ and when all $\alpha_{H}
 
 \prossec
 \begin{itemize}
-\item Can reduce the connectivity of a Hamiltonian, as it breaks interactions between variables.
+\item Can reduce the connectivity of an objective function, as it breaks interactions between variables.
 \end{itemize}
 
 \conssec
@@ -3153,7 +3153,7 @@ duality you're referring to.
 
 \summarysec
 
-Algorithm that takes a quadratic Hamiltonian and tries to perform as much of the optimization as possible.
+Algorithm that takes a quadratic objective function and tries to perform as much of the optimization as possible.
 
 \costsec
 
