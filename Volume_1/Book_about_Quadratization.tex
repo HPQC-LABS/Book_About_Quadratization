@@ -667,12 +667,12 @@ f(1,1,1) - f(1,1,0) - f(1,0,1) - f(0,1,1) = 0.
 
 \summarysec
 
-It has been shown in \cite{Okada2015} that, if multiple runs of a minimization algorithm is permitted, it is possible to reduce a lot of the problem by conditioning on the most connected variables.
+It is possible to reduce a lot of the problem by conditioning on the most connected variables.
 We call each of these operations a \emph{split}.
 
 \costsec
 
-Exponential in the number of splits, as the number of problems to solve doubles with every split.
+Usually slightly sub-exponential in the number of splits, as the number of problems to solve at most doubles with every split, but often does not double (since entire cases can get eliminated by some splits, as in the example below).
 
 \prossec
 \begin{itemize}
@@ -681,7 +681,7 @@ Exponential in the number of splits, as the number of problems to solve doubles 
 
 \conssec
 \begin{itemize}
-\item Exponential cost in the worst case.
+\item Multiple runs of the optimization procedure need to be made, and the number of runs can often grow  almost exponentially with respect to the number of splits.
 \end{itemize}
 
 \examplesec
@@ -690,7 +690,7 @@ Consider the simple objective function
 \begin{equation}
 H=1+b_{1}b_{2}b_{5}+b_{1}b_{6}b_{7}b_{8}+b_{3}b_{4}b_{8}-b_{1}b_{3}b_{4}.
 \end{equation}
-In order to quadratize $H$, we first have to choose a variable to split over.
+In order to quadratize $H$, we first have to choose a variable over which to split.
 In this case $b_{1}$ is the obvious choice since it is present in the most terms and contributes to the quartic term.
 
 We then obtain two different problems:
@@ -701,13 +701,17 @@ H_{1} & = & 1+b_{2}b_{5}+b_{6}b_{7}b_{8}+b_{3}b_{4}b_{8}-b_{3}b_{4}.
 
 \noindent At this point, we could split $H_{0}$ again and solve it entirely, or use a variable we saved in the previous split to quadratize our only problem.
 
-To solve $H_{1}$, we can split again on $b_{8}$, resulting in problems:
+To solve $H_{1}$, we can split again on $b_{8}$, resulting in two quadratic problems:
 \begin{eqnarray}
 H_{1,0} & = & 1+b_{2}b_{5}-b_{3}b_{4}\\
 H_{1,1} & = & 1+b_{2}b_{5}+b_{6}b_{7}.
 \end{eqnarray}
 Now both of these problems are quadratic.
 Hence we have reduced our original, hard problem into 3 easy problems, requiring only 2 extra (much easier) runs of our minimization algorithm, and without needing any auxiliary variables.
+
+\vspace{5mm}
+
+Note that the number of quadratic problems to solve is 3, which is smaller than 2$^2$ which would be the "exponential" cost if the number of problems were (hypothetically) to double with each split. This is a good example of the typical \textit{\textbf{sub}}-exponential scaling of split-reduc.
 
 \refsec
 \begin{itemize}
