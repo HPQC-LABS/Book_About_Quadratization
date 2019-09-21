@@ -2911,7 +2911,7 @@ The first expression is highly non-submodular while the second is entirely submo
 
 \begin{itemize}
 \item A positive monomial with $n$ variables cannot be quadratized with fewer than $\lceil \log(n)\rceil - 1$ auxiliary variables, unless there is some extra deduction we can make about the optimization problem, as in for example deduc-reduc (Corollary 1 from \cite{Boros2018boundsPaper}).
-\item ALCN (at least $c$ out of $n$) and ECN (exact $c$ out of $n$) functions also cannot be quadratized with fewer than $\lceil \log(n)\reil - 1$ auxiliary variables (Corollaries 2 and 3 from \cite{Boros2018boundsPaper}).
+\item ALCN (at least $c$ out of $n$) and ECN (exact $c$ out of $n$) functions also cannot be quadratized with fewer than $\lceil \log(n)\rceil - 1$ auxiliary variables (Corollaries 2 and 3 from \cite{Boros2018boundsPaper}).
 \item ECN (exact $c$ out of $n$) functions also cannot be quadratized with fewer than $\max\left(\lceil \log(c)\rceil , \lceil \log(n-c)\rceil  \right)-1$ auxiliary variables (Corollaries 2 and 3 from \cite{Boros2018boundsPaper}).
 \end{itemize}
 
@@ -3029,7 +3029,7 @@ b_{1}b_{2}b_{3}+b_{1}b_{2}b_{4}\mapsto b_{3}b_a+b_{4}b_a+b_{1}b_{2}-2b_{1}b_a-2b
 \newpage
 
 
-\subsection{FGBZ Reduction (Fix-Gruber-Boros-Zabih, 2011)}
+\subsection{FGBZ Reduction for Negative Terms (Fix-Gruber-Boros-Zabih, 2011)}
 
 \summarysec
 
@@ -3087,7 +3087,66 @@ now we can use \ref{subsec:Negative-Monomial-Reduction}:
 \item Original paper and application to image denoising: \citep{Fix2011}.
 \end{itemize}
 
-\subsection{ABCG Reduction (Anthony-Boros-Crama-Gruber, 2017)}
+\subsection{FGBZ Reduction for Positive Terms (Fix-Gruber-Boros-Zabih, 2011)}
+
+\summarysec
+
+Here we consider a set $C$ of variables which occur in multiple monomials throughout the objective function.
+Each application 'rips out' this common component from each term \cite{Fix2011}\cite{Boros2014}.
+
+Let $\mathcal{H}$ be a set of monomials, where $C \subseteq H$ for each $H\in\mathcal{H}$ and each monomial $H$ has a weight $\alpha_{H}$.
+The algorithm comes in 2 parts: when all $\alpha_{H}>0$ and when all $\alpha_{H}<0$. Combining the 2 gives the final method:
+
+\begin{enumerate}
+\item $\alpha_{H}>0$ 
+\begin{equation}
+\sum_{H\in\mathcal{H}}\alpha_{H}\prod_{j\in H}b_{j}=\min_{b_a}\left(\sum_{H\in\mathcal{H}}\alpha_{H}\right)b_a\prod_{j\in C}b_{j}+\sum_{H\in\mathcal{H}}\alpha_{H}(1-b_a)\prod_{j\in H\setminus C}b_{j}
+\end{equation}
+\item $\alpha_{H}<0$
+\begin{equation}
+\sum_{H\in\mathcal{H}}\alpha_{H}\prod_{j\in H}b_{j}=\min_{b_a}\sum_{H\in\mathcal{H}}\alpha_{H}\left(1-\prod_{j\in C}b_{j}-\prod_{j\in H\setminus C}b_{j}\right)b_a
+\end{equation}
+\end{enumerate}
+
+\costsec
+\begin{itemize}
+
+\item One auxiliary variable per application.
+\item In combination with \ref{subsec:Negative-Monomial-Reduction}, it can be used to make an algorithm which can reduce $t$ positive monomials of degree $d$ in $n$ variables using $n+t(d-1)$ auxiliary variables in the worst case.
+\end{itemize}
+
+\prossec
+\begin{itemize}
+\item Can reduce the connectivity of an objective function, as it breaks interactions between variables.
+\end{itemize}
+
+\conssec
+\begin{itemize}
+\item $\alpha_{H}>0$ method converts positive terms into negative ones of same order rather than reducing them, though these can then be reduced more easily.
+\item $\alpha_{H}<0$ method only works for $|C|>1$, and cannot quadratize cubic terms.
+\end{itemize}
+
+\examplesec
+
+First let $C=b_{1}$ and use the positive weight version:
+\begin{eqnarray}
+b_{1}b_{2}b_{3}+b_{1}b_{2}b_{4} & \mapsto & 2b_{a_1}b_{1}+(1-b_{a_1})b_{2}b_{3}+(1-b_{a_1})b_{2}b_{4}\\
+ & = & 2b_{a_1}b_{1}+b_{2}b_{3}+b_{2}b_{4}-b_{a_1}b_{2}b_{3}-b_{a_1}b_{2}b_{4}
+\end{eqnarray}
+now we can use \ref{subsec:Negative-Monomial-Reduction}:
+
+\begin{eqnarray}
+-b_{a_1}b_{2}b_{3}-b_{a_1}b_{2}b_{4} & \mapsto & 2b_{a_2}-b_{a_1}b_{a_2}-b_{a_2}b_{2}-b_{a_2}b_{3}+2b_{a_2}-b_{a_1}b_{a_2}-b_{a_2}b_{2}-b_{a_2}b_{4}\\
+ & = & 4b_{a_2}-2b_{a_1}b_{a_2}-2b_{a_2}b_{2}-b_{a_2}b_{3}-b_{a_2}b_{4}.
+\end{eqnarray}
+
+\refsec
+\begin{itemize}
+\item Original paper and application to image denoising: \citep{Fix2011}.
+\end{itemize}
+
+
+\subsection{Pairwise Covers (Anthony-Boros-Crama-Gruber, 2017)}
 
 \summarysec
 
