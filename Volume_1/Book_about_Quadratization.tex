@@ -190,12 +190,12 @@
 \email{nik.dattani@gmail.com}
 %\affiliation{Oxford University, Department of Mathematics}
 %\affiliation{McMaster University, Department of Chemistry and Chemical Biology}
-\affiliation{Harvard Smithsonian Center for Astrophysics, Cambridge, Massachusetts}
+%\affiliation{Harvard Smithsonian Center for Astrophysics, Cambridge, Massachusetts}
 
 %\noindent\rule{\textwidth}{0.4pt}
 \begin{abstract}
 %\noindent {\bf Abstract.}
-\vspace{6mm} %%%%%%%%%%%%%%%%%%%%%%%% REMOVE WHEN ADDING BACK AUTHORSHIP
+\vspace{4mm} %%%%%%%%%%%%%%%%%%%%%%%% REMOVE WHEN ADDING BACK AUTHORSHIP
 An open source Book on quadratizations for classical computing, quantum annealing, and universal adiabatic quantum computing. 
 
 \vspace{-5mm}  %%%%%%%%%%%%%%%%%%%%%%%% UNCOMMENT WHEN ADDING BACK AUTHORSHIP
@@ -238,7 +238,7 @@ b_1b_2 + b_2b_3 + b_3b_4 + 4b_1 -4b_1b_2 -4b_1b_3 & \hspace{5mm}\textrm{(quadrat
 \\
 \vspace{-2mm}
 \\
-\indent The binary variables $b_i$ can be either of the eigenvalues of the matrix $b$ below, which is related to the Pauli $z$ matrix by $z=2b-\openone$. Other Pauli matrices are listed below:
+\indent The binary variables $b_i$ can be either of the eigenvalues of the matrix $b$ below, which is related to the Pauli $z$ matrix by $z=2b-\openone$. The Pauli matrices $x,y,z,\openone$ are listed below:
 \vspace{0mm}
 \begin{equation}
 b\equiv\begin{pmatrix}1 & 0\\
@@ -250,10 +250,10 @@ b\equiv\begin{pmatrix}1 & 0\\
                       \textrm{i} & 0
                      \end{pmatrix},\,\openone\equiv\begin{pmatrix}1 & 0\\ 
                                       0 & 1
-                     \end{pmatrix}. 
+                     \end{pmatrix}.  \label{eq:pauli}
 \end{equation}  
 
-\noindent Any Hermitian $2\times 2$ matrix can be written as a linear combination of the Pauli matrices $z,x,y,\openone$, so we can therefore describe the Hamiltonian of any number of spin-$\nicefrac{1}{2}$ particles by a function of Pauli matrices acting on each particle, for instance:
+\noindent Any Hermitian $2\times 2$ matrix can be written as a linear combination of the Pauli matrices, so we can therefore describe the Hamiltonian of any number of spin-$\nicefrac{1}{2}$ particles by a function of Pauli matrices acting on each particle, for instance:
 
 \vspace{-5mm}
 
@@ -263,9 +263,9 @@ x_1y_4 + x_2y_4 + x_3 & \hspace{5mm} \textrm{(quadratic)},\label{eq:intro_quantu
 \end{align}
 %where each spin $s_i$ can be any of the Pauli matrices, and
 
-\noindent where the coefficients tell us about the strengths of couplings between these particles. The Schr\"{o}dinger equation tells us that the eigenvalues of the Hamiltonian are the allowed energy levels and their eigenvectors (wavefunctions) are the corresponding physical states. More generally these do not have to be spins but can be any type of qubits, and we can encode the solution to \textit{any} problem in the ground state of a Hamiltonian, then solve the problem by finding the lowest energy state of the physical system (this is called adiabatic quantum computing). Eqs. \eqref{eq:intro_quantum_quadratic} and \eqref{eq:intro_quantum_cubic} have exactly the same energy spectra, so Eq. \eqref{eq:intro_quantum_quadratic} is a quadratization.
+\noindent where the coefficients tell us about the strengths of couplings between these particles. The Schr\"{o}dinger equation tells us that the eigenvalues of the Hamiltonian are the allowed energy levels and their eigenvectors (wavefunctions) are the corresponding physical states. More generally these do not have to be spins but can be any type of qubits, and we can encode the solution to \textit{any} problem in the ground state of a Hamiltonian, then solve the problem by finding the lowest energy state of the physical system (this is called adiabatic quantum computing). Eqs. \eqref{eq:intro_quantum_quadratic} and \eqref{eq:intro_quantum_cubic} have exactly the same energy spectra, so Eq. \eqref{eq:intro_quantum_quadratic} is an example of a type of quadratization.
 
-Two-body physical interactions occur more naturally than many-body interactions so \textbf{Parts \ref{partTransverseIsing}-\ref{partGeneral}} give more than 30 different ways to quadratize general Hamiltonians (some of these methods do not even require the $s_i$ to be $2\times2$ matrices, meaning that we can have types of qudits that are not qubits). All of these methods were published during the last 15 years.
+Two-body physical interactions occur more naturally than many-body interactions so \textbf{Parts \ref{partTransverseIsing}-\ref{partGeneral}} give more than 30 different ways to quadratize general Hamiltonians (some of these methods may use $d\times d$ matrices instead of only the $2\times2$ matrices in Eq. \eqref{eq:pauli}, meaning that we can have types of qudits that are not qubits). All of these methods were published during the last 15 years.
 
 %A quantum computer whose Hamiltonian is at least quadratic in $x$ and $z$ can find this ground state with only polynomial runtime overhead over the best alternative algorithm to find that solution. 
  The optimization problems of Eqs. \eqref{eq:intro_cubic}-\eqref{eq:intro_quadratic} are specific cases of the type in Eqs. \eqref{eq:intro_quantum_cubic}-\eqref{eq:intro_quantum_quadratic}, but with only $b$ matrices.
