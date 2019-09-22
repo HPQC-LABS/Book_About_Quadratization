@@ -6,7 +6,7 @@
 %Control: page (1) range
 %Control: year (0) verbatim
 %Control: production of eprint (0) enabled
-\begin{thebibliography}{69}%
+\begin{thebibliography}{72}%
 \makeatletter
 \providecommand \@ifxundefined [1]{%
  \@ifx{#1\undefined}
@@ -515,6 +515,27 @@
   {journal} {\bibinfo  {journal} {Physical Review A}\ }\textbf {\bibinfo
   {volume} {84}},\ \bibinfo {pages} {042332} (\bibinfo {year}
   {2011})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Kempe}\ \emph {et~al.}(2004)\citenamefont {Kempe},
+  \citenamefont {Kitaev},\ and\ \citenamefont {Regev}}]{Kempe2004a}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Julia}\ \bibnamefont
+  {Kempe}}, \bibinfo {author} {\bibfnamefont {Alexei}\ \bibnamefont {Kitaev}},
+  \ and\ \bibinfo {author} {\bibfnamefont {Oded}\ \bibnamefont {Regev}},\
+  }\bibfield  {title} {\enquote {\bibinfo {title} {{The Complexity of the Local
+  Hamiltonian Problem}},}\ }\href {http://arxiv.org/abs/quant-ph/0406180} {\
+  (\bibinfo {year} {2004})},\ \Eprint {http://arxiv.org/abs/0406180}
+  {arXiv:0406180 [quant-ph]} \BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Kempe}\ \emph {et~al.}(2006)\citenamefont {Kempe},
+  \citenamefont {Kitaev},\ and\ \citenamefont {Regev}}]{Kempe2006}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Julia}\ \bibnamefont
+  {Kempe}}, \bibinfo {author} {\bibfnamefont {Alexei}\ \bibnamefont {Kitaev}},
+  \ and\ \bibinfo {author} {\bibfnamefont {Oded}\ \bibnamefont {Regev}},\
+  }\bibfield  {title} {\enquote {\bibinfo {title} {{The Complexity of the Local
+  Hamiltonian Problem}},}\ }\href {\doibase 10.1137/S0097539704445226}
+  {\bibfield  {journal} {\bibinfo  {journal} {SIAM Journal on Computing}\
+  }\textbf {\bibinfo {volume} {35}},\ \bibinfo {pages} {1070--1097} (\bibinfo
+  {year} {2006})}\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Oliveira}\ and\ \citenamefont
   {Terhal}(2008)}]{Oliveira2008}%
   \BibitemOpen
@@ -708,6 +729,21 @@
   {\emph {\bibinfo {booktitle} {International Symposium on Artificial
   Intelligence and Mathematics, {ISAIM} 2014, Fort Lauderdale, FL, USA, January
   6-8, 2014}}}\ (\bibinfo {year} {2014})\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Cohen}\ \emph {et~al.}(2019)\citenamefont {Cohen},
+  \citenamefont {Luo}, \citenamefont {Guther}, \citenamefont {Dobrautz},
+  \citenamefont {Tew},\ and\ \citenamefont {Alavi}}]{Cohen2019}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Aron~J.}\ \bibnamefont
+  {Cohen}}, \bibinfo {author} {\bibfnamefont {Hongjun}\ \bibnamefont {Luo}},
+  \bibinfo {author} {\bibfnamefont {Kai}\ \bibnamefont {Guther}}, \bibinfo
+  {author} {\bibfnamefont {Werner}\ \bibnamefont {Dobrautz}}, \bibinfo {author}
+  {\bibfnamefont {David~P.}\ \bibnamefont {Tew}}, \ and\ \bibinfo {author}
+  {\bibfnamefont {Ali}\ \bibnamefont {Alavi}},\ }\bibfield  {title} {\enquote
+  {\bibinfo {title} {{Similarity transformation of the electronic
+  Schr{\"{o}}dinger equation via Jastrow factorization}},}\ }\href {\doibase
+  10.1063/1.5116024} {\bibfield  {journal} {\bibinfo  {journal} {The Journal of
+  Chemical Physics}\ }\textbf {\bibinfo {volume} {151}},\ \bibinfo {pages}
+  {061101} (\bibinfo {year} {2019})}\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Strand}\ \emph {et~al.}(2017)\citenamefont {Strand},
   \citenamefont {Przybysz}, \citenamefont {Ferguson},\ and\ \citenamefont
   {Zick}}]{Strand2017}%
@@ -729,9 +765,10 @@
   {Ferguson}}, \bibinfo {author} {\bibfnamefont {Anthony}\ \bibnamefont
   {Przybysz}}, \ and\ \bibinfo {author} {\bibfnamefont {Joel}\ \bibnamefont
   {Strand}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {{ZZZ coupler for
-  superconducting qubits}},}\ }\href@noop {} {\bibfield  {journal} {\bibinfo
-  {journal} {US Patent: 20180261752A1}\ } (\bibinfo {year} {2017})}\BibitemShut
-  {NoStop}%
+  superconducting qubits}},}\ }\href
+  {https://patents.google.com/patent/US20180261752A1/en} {\bibfield  {journal}
+  {\bibinfo  {journal} {US Patent: 20180261752A1}\ } (\bibinfo {year}
+  {2017})}\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Ferguson}\ \emph {et~al.}(2018)\citenamefont
   {Ferguson}, \citenamefont {Przybysz},\ and\ \citenamefont
   {Strand}}]{Ferguson2018}%
@@ -740,9 +777,10 @@
   {Ferguson}}, \bibinfo {author} {\bibfnamefont {Anthony}\ \bibnamefont
   {Przybysz}}, \ and\ \bibinfo {author} {\bibfnamefont {Joel}\ \bibnamefont
   {Strand}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {{ZZZ coupler for
-  superconducting qubits}},}\ }\href@noop {} {\bibfield  {journal} {\bibinfo
-  {journal} {US Patent: 20180342663A1}\ } (\bibinfo {year} {2018})}\BibitemShut
-  {NoStop}%
+  superconducting qubits}},}\ }\href
+  {https://patents.google.com/patent/US20180342663A1/en} {\bibfield  {journal}
+  {\bibinfo  {journal} {US Patent: 20180342663A1}\ } (\bibinfo {year}
+  {2018})}\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Kerman}(2018{\natexlab{a}})}]{Kerman2018}%
   \BibitemOpen
   \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Andrew}\ \bibnamefont
@@ -772,22 +810,25 @@
   \BibitemOpen
   \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Andrew}\ \bibnamefont
   {Kerman}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {{Four Spin
-  Couplers for Quantum Information Processing}},}\ }\href@noop {} {\bibfield
-  {journal} {\bibinfo  {journal} {US Patent: 20180309452A1}\ } (\bibinfo {year}
+  Couplers for Quantum Information Processing}},}\ }\href
+  {https://patents.google.com/patent/US20180309452A1/en} {\bibfield  {journal}
+  {\bibinfo  {journal} {US Patent: 20180309452A1}\ } (\bibinfo {year}
   {2018}{\natexlab{b}})}\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Kerman}(2019{\natexlab{a}})}]{Kerman2019}%
   \BibitemOpen
   \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Andrew}\ \bibnamefont
   {Kerman}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {{Four Spin
-  Couplers for Quantum Information Processing}},}\ }\href@noop {} {\bibfield
-  {journal} {\bibinfo  {journal} {US Patent: 10187065B2}\ } (\bibinfo {year}
+  Couplers for Quantum Information Processing}},}\ }\href
+  {https://patents.google.com/patent/US10187065B2/en} {\bibfield  {journal}
+  {\bibinfo  {journal} {US Patent: 10187065B2}\ } (\bibinfo {year}
   {2019}{\natexlab{a}})}\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Kerman}(2019{\natexlab{b}})}]{Kerman2019a}%
   \BibitemOpen
   \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Andrew}\ \bibnamefont
   {Kerman}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {{Four Spin
-  Couplers for Quantum Information Processing}},}\ }\href@noop {} {\bibfield
-  {journal} {\bibinfo  {journal} {US Patent: 20190158098A1}\ } (\bibinfo {year}
+  Couplers for Quantum Information Processing}},}\ }\href
+  {https://patents.google.com/patent/US20190158098A1/en} {\bibfield  {journal}
+  {\bibinfo  {journal} {US Patent: 20190158098A1}\ } (\bibinfo {year}
   {2019}{\natexlab{b}})}\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Sch{\"{o}}ndorf}\ and\ \citenamefont
   {Wilhelm}(2018)}]{Schondorf2018}%

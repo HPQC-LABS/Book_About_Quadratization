@@ -4341,7 +4341,6 @@ x_1z_2y_3 - 3x_1x_2y_4 + z_1x_2 &\rightarrow \alpha +  \alpha^z(z_{a_1} + z_{a_2
 \subsection{P$(3\rightarrow2)$-KKR (Kempe, Kitaev, Regev, 2004)}
 
 \summarysec
-
  For any 3-local term (product of commuting matrices $s_i$) in the Hamiltonian, we can define three auxiliary qubits labeled by $a_{i}$  and  make the transformation:
 %Group all $3$-local terms together and express their sum as a sum of products of commuting matrices $s_{ij}$:
 
@@ -4352,7 +4351,6 @@ x_1z_2y_3 - 3x_1x_2y_4 + z_1x_2 &\rightarrow \alpha +  \alpha^z(z_{a_1} + z_{a_2
 \begin{align}
 \prod_i^3 s_{i} \rightarrow \alpha   + \alpha_i^{ss} \sum_i s_i^2 + \alpha_i^{sx}\sum_i  s_ix_{a_i} + \alpha^{zz} \sum_{ij} z_{a_i}z_{a_j} 
 \end{align}
-
 
 \begin{align}
 \alpha      &= -\frac{1}{8\Delta} \\
@@ -4392,7 +4390,18 @@ x_1z_2y_3 - 3x_1x_2y_4 + z_1x_2 \rightarrow \alpha   + \alpha^{zx}_{2a_{12}}z_2x
 \end{align}
 }
 
+\refsec
+
+\begin{itemize}
+\item Original paper on arXiv: \cite{Kempe2004a}
+\item Journal publication two years later: \cite{Kempe2006}
+% there's also a conference paper published in 2005 proceedings: FSTTC 2004: Foundations of Software Technology and Theoretical Computer Science (Springer Berlin Heidelberg, Berlin, Heidelberg, 2005) pp. 372-383
+\end{itemize}
+
 \newpage
+
+
+
 
 
 \subsection{P$(3\rightarrow2)$-OT (Oliveira-Terhal, 2005)}
@@ -5288,6 +5297,8 @@ This review has only focused on $k-$local to $2-$local transformations where $k>
 \item Mentioned in \cite{Ali2008} as an early application of quadratization: \cite{Cunningham1985}.
 \item Characterizaton of NTRs for cubics: \cite{Crama2014a}.
 \item Relation between cones of nonnegative quadratic pseudo-Boolean functions and the Boolean quadric polytope \cite{BorosLari2014}.
+\item Relation between cones of nonnegative quadratic pseudo-Boolean functions and the Boolean quadric polytope \cite{BorosLari2014}.
+\item Effective non-Hermitian Hamiltonian with 3-body interactions which helps to calcualte electronic structure energies closer to the complete basis set limit \cite{Cohen2019}.
 %\item Verma-Lewis paper
 %\item Aritanan Gruber's thesis on quadratization \cite{}.
 % 25:30 of Lechner's 2016 AQC talk mentions another paper that can do 4-local to 2-local with 1 auxiliary using 5 connections (better than Ishikawa which requires 15?). 
@@ -5335,7 +5346,12 @@ This review has only focused on $k-$local to $2-$local transformations where $k>
 
 \subsection*{Szilard Szalay}
 \begin{itemize}
-\item Szilard re-derived Nike's transformations for the sections (1) SFR-BCR-1, (2) SFR-BCR-2, (3) SFR-BCR-3, and (4) SFR-BCR-4 from the notation of the original paper, into the format consistent with the rest of the book. In doing so he corrected errors in Nike's work and also fixed them in the main document.
+\item Szilard re-derived Nike's transformations for the sections: (1) SFR-BCR-1, (2) SFR-BCR-2, (3) SFR-BCR-3, and (4) SFR-BCR-4 from the notation of the original paper, into the format consistent with the rest of the book. In doing so he corrected errors in Nike's work and also fixed them in the main document.
+\end{itemize}
+
+\subsection*{Ka Wa Yip}
+\begin{itemize}
+\item Ka Wa Yip added the page about his own method co-authored with Xu, Koenig and Kumar.
 \end{itemize}
 
 \subsection*{Yudong Cao}
@@ -5347,7 +5363,6 @@ This review has only focused on $k-$local to $2-$local transformations where $k>
 \begin{itemize}
 \item Daniel provided a .tex document to Nike in May 2018 which helped Nike to write the following sections: (1) NP-Nagaj-1, (2) NP-Nagaj-2. The document that Daniel provided made it easier for Nike to write these sections than the original papers.
 \end{itemize}
-
 
 \subsection*{Aritanan Gruber} 
 \begin{itemize}
@@ -5363,6 +5378,18 @@ This review has only focused on $k-$local to $2-$local transformations where $k>
 \begin{itemize}
 \item Elisabeth provided us with a 2-page PDF document with valuable comments on the entire Book.
 \item Elisabeth also pointed us to what became the following section: (1) ABCG Reduction.
+\end{itemize}
+
+\subsection*{Hou Tin Chau}
+\begin{itemize}
+\item Tin made the examples for the following sections: SFR-BCR-1,2,3,4.
+\item Tin fixed a typo in the alternative forms of the following sections: SFR-BCR-3,4.
+\end{itemize}
+
+\subsection*{Andreas Soteriou}
+\begin{itemize}
+\item Andreas found typos on the opening page in the arXiv version which surprisingly no one else found (or pointed out), and he diligently fixed them.
+\item Andreas created the example involving $x$,$y$, and $z$ presented on the opening page in the September 2019 version (I plan to have this example further improved at a later time). 
 \end{itemize}
 
 \subsection*{Jacob Biamonte} 
@@ -5383,7 +5410,6 @@ This review has only focused on $k-$local to $2-$local transformations where $k>
 \item We thank Aritanan Gruber and Endre Boros of Rutgers University, who in August 2015 shared with Nike Dattani and Richard Tanburn some of their wisdom about sub-modularity, and Aritanan Gruber for pointing us to the then very recent paper of Hiroshi Ishikawa on what we call in this review "ELC reductions", which was also a valuable paper due to the references in it. We also thank him for helping us in our quest to determine whether or not "deduc-reduc" was a re-discovery by Richard, Emile, and Nike, or perhaps a novel quadratization scheme.
 \item We thank Toby Cathcart-Burn of Oxford University, who during the third year of undergraduate study, worked with Nike Dattani and Richard Tanburn and in Autumn 2015 and Winter 2016 helped us gain insights about the application of deduc-reduc and bit flipping to the problem of determining Ramsey numbers via discrete optimization, and for insights into the trade-offs between Ishikawa's symmetric reduction and reduction by substitution. 
 \item  We thank Hiroshi Ishikawa of Waseda University, who Nike Dattani had the memorable opportunity to visit in November 2015, and through discussions about the computer vision problem and neural network problem (two examples of real-world discrete optimization problems that benefit from quadratization), provided insights about the role of quadratization for calculations on classical computers. In particular, solving the computer vision problem in which he had experience solving on classical computers, was very different from the integer factoring problem and Ramsey number problem which we had been attempting to quadratize for D-Wave and NMR devices. He taught us that far more total (original plus auxiliary) variables can be tolerated on classical computers than on D-Wave machines or NMR systems, and approximate solutions to the optimization problems are acceptable (unlike for the factorization and Ramsey number problems in which we were interested). This gave us more insight into what trade-offs one might wish to prioritize when quadratizing optially. We also thank him for helping us in our quest to determine whether or not "deduc-reduc" was a re-discovery by Richard, Emile, and Nike, or perhaps a novel quadratization scheme.
-\item We thank Paul Ayers of McMaster University who begged us over and over again for early copies of this Book when we kept saying it was still not presentable, and when we finally gave it to him, he asked us copious numbers of questions which we always answered and then he said that he would use some of our ideas for a paper about Hamiltonian transformations in quantum chemistry applications. He also used references given to him by us, for his 2017 NSERC grant application. 
 \item Last but indubitably not least, we thank Jacob Biamonte of Skolkovo Institute of Technology, who Nike Dattani enjoyed visiting in Hangzhou in January 2017 and meeting at Harvard University in April 2018. Jacob provided us plenty of insights about perturbative gadgets, made valuable comments on early versions of our manuscript, and has been a major supporter of this review paper since the idea was presented to him in December 2016. At many points during the preparation of this review, we had prioritized other commitments and put preparation of this review aside. Jake's frequent encouragement was often what got us working on this review again. Without him, we are not certain this paper would have been completed by this time (or ever!).
 %Mike Mosca for Grubner Bases suggestion.
 %Bill McGreedy for finding bug in split-redc code.
