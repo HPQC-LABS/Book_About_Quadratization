@@ -6,7 +6,7 @@
 %Control: page (1) range
 %Control: year (0) verbatim
 %Control: production of eprint (0) enabled
-\begin{thebibliography}{59}%
+\begin{thebibliography}{69}%
 \makeatletter
 \providecommand \@ifxundefined [1]{%
  \@ifx{#1\undefined}
@@ -708,4 +708,106 @@
   {\emph {\bibinfo {booktitle} {International Symposium on Artificial
   Intelligence and Mathematics, {ISAIM} 2014, Fort Lauderdale, FL, USA, January
   6-8, 2014}}}\ (\bibinfo {year} {2014})\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Strand}\ \emph {et~al.}(2017)\citenamefont {Strand},
+  \citenamefont {Przybysz}, \citenamefont {Ferguson},\ and\ \citenamefont
+  {Zick}}]{Strand2017}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Joel}\ \bibnamefont
+  {Strand}}, \bibinfo {author} {\bibfnamefont {Anthony}\ \bibnamefont
+  {Przybysz}}, \bibinfo {author} {\bibfnamefont {David}\ \bibnamefont
+  {Ferguson}}, \ and\ \bibinfo {author} {\bibfnamefont {Ken}\ \bibnamefont
+  {Zick}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {{ZZZ coupler for
+  native embedding of MAX-3SAT problem instances in quantum annealing
+  hardware}},}\ }\href@noop {} {\bibfield  {journal} {\bibinfo  {journal}
+  {Bulletin of the American Physical Society}\ }\textbf {\bibinfo {volume}
+  {Volume 62, Number 4}} (\bibinfo {year} {2017})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Ferguson}\ \emph {et~al.}(2017)\citenamefont
+  {Ferguson}, \citenamefont {Przybysz},\ and\ \citenamefont
+  {Strand}}]{Ferguson2017}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {David}\ \bibnamefont
+  {Ferguson}}, \bibinfo {author} {\bibfnamefont {Anthony}\ \bibnamefont
+  {Przybysz}}, \ and\ \bibinfo {author} {\bibfnamefont {Joel}\ \bibnamefont
+  {Strand}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {{ZZZ coupler for
+  superconducting qubits}},}\ }\href@noop {} {\bibfield  {journal} {\bibinfo
+  {journal} {US Patent: 20180261752A1}\ } (\bibinfo {year} {2017})}\BibitemShut
+  {NoStop}%
+\bibitem [{\citenamefont {Ferguson}\ \emph {et~al.}(2018)\citenamefont
+  {Ferguson}, \citenamefont {Przybysz},\ and\ \citenamefont
+  {Strand}}]{Ferguson2018}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {David}\ \bibnamefont
+  {Ferguson}}, \bibinfo {author} {\bibfnamefont {Anthony}\ \bibnamefont
+  {Przybysz}}, \ and\ \bibinfo {author} {\bibfnamefont {Joel}\ \bibnamefont
+  {Strand}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {{ZZZ coupler for
+  superconducting qubits}},}\ }\href@noop {} {\bibfield  {journal} {\bibinfo
+  {journal} {US Patent: 20180342663A1}\ } (\bibinfo {year} {2018})}\BibitemShut
+  {NoStop}%
+\bibitem [{\citenamefont {Kerman}(2018{\natexlab{a}})}]{Kerman2018}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Andrew}\ \bibnamefont
+  {Kerman}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {{Design and
+  simulation of complex superconducting circuits for advanced quantum annealing
+  hardware}},}\ }\href@noop {} {\bibfield  {journal} {\bibinfo  {journal}
+  {Bulletin of the American Physical Society}\ }\textbf {\bibinfo {volume}
+  {Volume 63}} (\bibinfo {year} {2018}{\natexlab{a}})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Menke}\ \emph {et~al.}(2019)\citenamefont {Menke},
+  \citenamefont {Hirjibehedin}, \citenamefont {Weber}, \citenamefont {Samach},
+  \citenamefont {Gustavsson}, \citenamefont {Aspuru-Guzik}, \citenamefont
+  {Oliver},\ and\ \citenamefont {Kerman}}]{Menke2019}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Tim}\ \bibnamefont
+  {Menke}}, \bibinfo {author} {\bibfnamefont {Cyrus}\ \bibnamefont
+  {Hirjibehedin}}, \bibinfo {author} {\bibfnamefont {Steven}\ \bibnamefont
+  {Weber}}, \bibinfo {author} {\bibfnamefont {Gabriel}\ \bibnamefont {Samach}},
+  \bibinfo {author} {\bibfnamefont {Simon}\ \bibnamefont {Gustavsson}},
+  \bibinfo {author} {\bibfnamefont {Alan}\ \bibnamefont {Aspuru-Guzik}},
+  \bibinfo {author} {\bibfnamefont {William}\ \bibnamefont {Oliver}}, \ and\
+  \bibinfo {author} {\bibfnamefont {Andrew}\ \bibnamefont {Kerman}},\
+  }\bibfield  {title} {\enquote {\bibinfo {title} {{A many-body coupler for
+  coherent 4-local interaction of superconducting flux qubits}},}\ }\href@noop
+  {} {\bibfield  {journal} {\bibinfo  {journal} {APS March Meeting 2019,
+  abstract id.A42.011}\ } (\bibinfo {year} {2019})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Kerman}(2018{\natexlab{b}})}]{Kerman2018a}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Andrew}\ \bibnamefont
+  {Kerman}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {{Four Spin
+  Couplers for Quantum Information Processing}},}\ }\href@noop {} {\bibfield
+  {journal} {\bibinfo  {journal} {US Patent: 20180309452A1}\ } (\bibinfo {year}
+  {2018}{\natexlab{b}})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Kerman}(2019{\natexlab{a}})}]{Kerman2019}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Andrew}\ \bibnamefont
+  {Kerman}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {{Four Spin
+  Couplers for Quantum Information Processing}},}\ }\href@noop {} {\bibfield
+  {journal} {\bibinfo  {journal} {US Patent: 10187065B2}\ } (\bibinfo {year}
+  {2019}{\natexlab{a}})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Kerman}(2019{\natexlab{b}})}]{Kerman2019a}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Andrew}\ \bibnamefont
+  {Kerman}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {{Four Spin
+  Couplers for Quantum Information Processing}},}\ }\href@noop {} {\bibfield
+  {journal} {\bibinfo  {journal} {US Patent: 20190158098A1}\ } (\bibinfo {year}
+  {2019}{\natexlab{b}})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Sch{\"{o}}ndorf}\ and\ \citenamefont
+  {Wilhelm}(2018)}]{Schondorf2018}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {M.}~\bibnamefont
+  {Sch{\"{o}}ndorf}}\ and\ \bibinfo {author} {\bibfnamefont {F.~K.}\
+  \bibnamefont {Wilhelm}},\ }\bibfield  {title} {\enquote {\bibinfo {title}
+  {{Non-pairwise interactions induced by virtual transitions}},}\ }\href
+  {http://arxiv.org/abs/1811.07683} {\  (\bibinfo {year} {2018})},\ \Eprint
+  {http://arxiv.org/abs/1811.07683} {arXiv:1811.07683} \BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Melanson}\ \emph {et~al.}(2019)\citenamefont
+  {Melanson}, \citenamefont {Martinez}, \citenamefont {Bedkihal},\ and\
+  \citenamefont {Lupascu}}]{Melanson2019}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Denis}\ \bibnamefont
+  {Melanson}}, \bibinfo {author} {\bibfnamefont {Antonio~J.}\ \bibnamefont
+  {Martinez}}, \bibinfo {author} {\bibfnamefont {Salil}\ \bibnamefont
+  {Bedkihal}}, \ and\ \bibinfo {author} {\bibfnamefont {Adrian}\ \bibnamefont
+  {Lupascu}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {{Tunable
+  three-body coupler for superconducting flux qubits}},}\ }\href
+  {http://arxiv.org/abs/1909.02091} {\  (\bibinfo {year} {2019})},\ \Eprint
+  {http://arxiv.org/abs/1909.02091} {arXiv:1909.02091} \BibitemShut {NoStop}%
 \end{thebibliography}%
