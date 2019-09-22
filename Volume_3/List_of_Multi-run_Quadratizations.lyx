@@ -161,7 +161,7 @@ b_{1}b_{2}b_{3}b_{4} & =\min\left(b_{1}b_{2},b_{3}b_{4}\right) & \text{ (Example
 \begin_layout Standard
 \begin_inset Formula 
 \begin{flalign}
- & \negthickspace\negthickspace\negthickspace\negthickspace\negthickspace b_{1}b_{2}b_{3}b_{4}b_{5}b_{6}b_{7}b_{8}:\\
+ & \negthickspace\negthickspace\negthickspace\negthickspace\negthickspace b_{1}b_{2}b_{3}b_{4}b_{5}b_{6}b_{7}b_{8}: & \text{ }\\
 \longrightarrow & \,\,\,3b_{a}+b_{1}b_{2}+b_{1}b_{3}+b_{1}b_{4}+b_{2}b_{3}+b_{2}b_{4}+b_{3}b_{4}-2b_{a}(b_{1}+b_{2}+b_{3}+b_{4})\\
 \longrightarrow & \,\,\,3b_{a}+b_{5}b_{6}+b_{5}b_{7}+b_{5}b_{8}+b_{6}b_{7}+b_{6}b_{8}+b_{7}b_{8}-2b_{a}(b_{5}+b_{6}+b_{7}+b_{8})
 \end{flalign}
