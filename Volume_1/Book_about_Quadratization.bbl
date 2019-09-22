@@ -6,7 +6,7 @@
 %Control: page (1) range
 %Control: year (0) verbatim
 %Control: production of eprint (0) enabled
-\begin{thebibliography}{72}%
+\begin{thebibliography}{76}%
 \makeatletter
 \providecommand \@ifxundefined [1]{%
  \@ifx{#1\undefined}
@@ -626,6 +626,52 @@
   {\bibinfo  {journal} {New Journal of Physics}\ }\textbf {\bibinfo {volume}
   {18}},\ \bibinfo {pages} {023042} (\bibinfo {year} {2016})}\BibitemShut
   {NoStop}%
+\bibitem [{\citenamefont {Neven}\ \emph {et~al.}(2009)\citenamefont {Neven},
+  \citenamefont {Denchev}, \citenamefont {Drew-Brook}, \citenamefont {Zhang},
+  \citenamefont {Macready},\ and\ \citenamefont {Rose}}]{Neven2009}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Hartmut}\ \bibnamefont
+  {Neven}}, \bibinfo {author} {\bibfnamefont {Vasil~S}\ \bibnamefont
+  {Denchev}}, \bibinfo {author} {\bibfnamefont {Marshall}\ \bibnamefont
+  {Drew-Brook}}, \bibinfo {author} {\bibfnamefont {Jiayong}\ \bibnamefont
+  {Zhang}}, \bibinfo {author} {\bibfnamefont {William~G}\ \bibnamefont
+  {Macready}}, \ and\ \bibinfo {author} {\bibfnamefont {Geordie}\ \bibnamefont
+  {Rose}},\ }\href
+  {https://static.googleusercontent.com/media/www.google.com/en//googleblogs/pdfs/nips{\_}demoreport{\_}120709{\_}research.pdf}
+  {\emph {\bibinfo {title} {{NIPS 2009 Demonstration: Binary Classification
+  using Hardware Implementation of Quantum Annealing}}}},\ \bibinfo {type}
+  {Tech. Rep.}\ (\bibinfo {year} {2009})\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Choi}(2011)}]{Choi2011a}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Vicky}\ \bibnamefont
+  {Choi}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {{Minor-embedding
+  in adiabatic quantum computation: II. Minor-universal graph design}},}\
+  }\href {\doibase 10.1007/s11128-010-0200-3} {\bibfield  {journal} {\bibinfo
+  {journal} {Quantum Information Processing}\ }\textbf {\bibinfo {volume}
+  {10}},\ \bibinfo {pages} {343--353} (\bibinfo {year} {2011})}\BibitemShut
+  {NoStop}%
+\bibitem [{\citenamefont {Dattani}\ \emph {et~al.}(2019)\citenamefont
+  {Dattani}, \citenamefont {Szalay},\ and\ \citenamefont
+  {Chancellor}}]{Dattani2019b}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Nikesh~S.}\
+  \bibnamefont {Dattani}}, \bibinfo {author} {\bibfnamefont {Szilard}\
+  \bibnamefont {Szalay}}, \ and\ \bibinfo {author} {\bibfnamefont {Nicholas}\
+  \bibnamefont {Chancellor}},\ }\bibfield  {title} {\enquote {\bibinfo {title}
+  {{Pegasus: The second connectivity graph for large-scale quantum annealing
+  hardware}},}\ }\href {https://arxiv.org/abs/1901.07636} {\bibfield  {journal}
+  {\bibinfo  {journal} {Pegasus: The second connectivity graph for large-scale
+  quantum annealing hardware}\ } (\bibinfo {year} {2019})},\ \Eprint
+  {http://arxiv.org/abs/1901.07636} {arXiv:1901.07636} \BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Dattani}\ and\ \citenamefont
+  {Chancellor}(2019)}]{Dattani2019c}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Nike}\ \bibnamefont
+  {Dattani}}\ and\ \bibinfo {author} {\bibfnamefont {Nick}\ \bibnamefont
+  {Chancellor}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {{Embedding
+  quadratization gadgets on Chimera and Pegasus graphs}},}\ }\href
+  {http://arxiv.org/abs/1901.07676} {\  (\bibinfo {year} {2019})},\ \Eprint
+  {http://arxiv.org/abs/1901.07676} {arXiv:1901.07676} \BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Babbush}\ \emph {et~al.}(2013)\citenamefont
   {Babbush}, \citenamefont {O'Gorman},\ and\ \citenamefont
   {Aspuru-Guzik}}]{Babbush2013}%
