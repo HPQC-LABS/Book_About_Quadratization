@@ -3025,36 +3025,31 @@ b_{1}b_{2}b_{3}+b_{1}b_{2}b_{4}\mapsto b_{3}b_a+b_{4}b_a+b_{1}b_{2}-2b_{1}b_a-2b
 \item Used in: \cite{Perdomo2008, Bian2013}. %Perdomo2013 is protein folding problem, Bian2013 is Ramsey number problem. 
 \end{itemize}
 
-
 \newpage
-
 
 \subsection{FGBZ Reduction for Negative Terms (Fix-Gruber-Boros-Zabih, 2011)}
 
 \summarysec
 
-Here we consider a set $C$ of variables which occur in multiple monomials throughout the objective function.
-Each application 'rips out' this common component from each term \cite{Fix2011}\cite{Boros2014}.
+We consider a set $C$ of variables which can occur in multiple terms throughout the objective function.
+Each application `rips out' this common component from each term \cite{Fix2011,Boros2014}.
 
-Let $\mathcal{H}$ be a set of monomials, where $C \subseteq H$ for each $H\in\mathcal{H}$ and each monomial $H$ has a weight $\alpha_{H}$.
-The algorithm comes in 2 parts: when all $\alpha_{H}>0$ and when all $\alpha_{H}<0$. Combining the 2 gives the final method:
-
-\begin{enumerate}
-\item $\alpha_{H}>0$ 
+%\begin{enumerate}
+%\item $\alpha_{H}>0$ 
+%\begin{equation}
+%\sum_{H\in\mathcal{H}}\alpha_{H}\prod_{j\in H}b_{j}=\min_{b_a}\left(\sum_{H\in\mathcal{H}}\alpha_{H}\right)b_a\prod_{j\in C}b_{j}+\sum_{H\in\mathcal{H}}\alpha_{H}(1-b_a)\prod_{j\in H\setminus C}b_{j}
+%\end{equation}
+%\item $\alpha_{H}<0$
 \begin{equation}
-\sum_{H\in\mathcal{H}}\alpha_{H}\prod_{j\in H}b_{j}=\min_{b_a}\left(\sum_{H\in\mathcal{H}}\alpha_{H}\right)b_a\prod_{j\in C}b_{j}+\sum_{H\in\mathcal{H}}\alpha_{H}(1-b_a)\prod_{j\in H\setminus C}b_{j}
+\sum_{H}\alpha_{H}\prod_{j\in H}b_{j}\rightarrow\sum_{H}\alpha_{H}\left(1-\prod_{j\in C}b_{j}-\prod_{j\in H\setminus C}b_{j}\right)b_a
 \end{equation}
-\item $\alpha_{H}<0$
-\begin{equation}
-\sum_{H\in\mathcal{H}}\alpha_{H}\prod_{j\in H}b_{j}=\min_{b_a}\sum_{H\in\mathcal{H}}\alpha_{H}\left(1-\prod_{j\in C}b_{j}-\prod_{j\in H\setminus C}b_{j}\right)b_a
-\end{equation}
-\end{enumerate}
+%\end{enumerate}
 
 \costsec
 \begin{itemize}
 
 \item One auxiliary variable per application.
-\item In combination with \ref{subsec:Negative-Monomial-Reduction}, it can be used to make an algorithm which can reduce $t$ positive monomials of degree $d$ in $n$ variables using $n+t(d-1)$ auxiliary variables in the worst case.
+\item In combination with \ref{subsec:Negative-Monomial-Reduction}, it can reduce $t$ positive terms of degree $k$ in $n$ variables using $n+t(k-1)$ auxiliary variables in the worst case.
 \end{itemize}
 
 \prossec
@@ -3064,8 +3059,7 @@ The algorithm comes in 2 parts: when all $\alpha_{H}>0$ and when all $\alpha_{H}
 
 \conssec
 \begin{itemize}
-\item $\alpha_{H}>0$ method converts positive terms into negative ones of same order rather than reducing them, though these can then be reduced more easily.
-\item $\alpha_{H}<0$ method only works for $|C|>1$, and cannot quadratize cubic terms.
+\item Cannot reduce the degree of the original function if $|C|\le 1$, and cannot quadratize anything for the other values of $|C|$ (but it can reduce their degree).
 \end{itemize}
 
 \examplesec
@@ -3086,54 +3080,61 @@ now we can use \ref{subsec:Negative-Monomial-Reduction}:
 \begin{itemize}
 \item Original paper and application to image denoising: \citep{Fix2011}.
 \end{itemize}
+
+\newpage
+
 
 \subsection{FGBZ Reduction for Positive Terms (Fix-Gruber-Boros-Zabih, 2011)}
 
 \summarysec
 
-Here we consider a set $C$ of variables which occur in multiple monomials throughout the objective function.
-Each application 'rips out' this common component from each term \cite{Fix2011}\cite{Boros2014}.
+We consider a set $C$ of variables which can occur in multiple terms throughout the objective function.
+Each application `rips out' this common component from each term \cite{Fix2011,Boros2014}:
 
-Let $\mathcal{H}$ be a set of monomials, where $C \subseteq H$ for each $H\in\mathcal{H}$ and each monomial $H$ has a weight $\alpha_{H}$.
-The algorithm comes in 2 parts: when all $\alpha_{H}>0$ and when all $\alpha_{H}<0$. Combining the 2 gives the final method:
+%Let $\mathcal{H}$ be a function, where $C \subseteq H$ for each $H\in\mathcal{H}$ and each term has a coefficient $\alpha_{H}$.
+%The algorithm comes in 2 parts: when all $\alpha_{H}>0$ and when all $\alpha_{H}<0$. Combining the 2 gives the final method:
 
-\begin{enumerate}
-\item $\alpha_{H}>0$ 
+%Each term $i$ of the objective function will involve some variables $b_{j_i}$ 
+
+%\begin{enumerate}
+%\item $\alpha_{H}>0$ 
 \begin{equation}
-\sum_{H\in\mathcal{H}}\alpha_{H}\prod_{j\in H}b_{j}=\min_{b_a}\left(\sum_{H\in\mathcal{H}}\alpha_{H}\right)b_a\prod_{j\in C}b_{j}+\sum_{H\in\mathcal{H}}\alpha_{H}(1-b_a)\prod_{j\in H\setminus C}b_{j}
+\sum_{H}\alpha_H\prod_{j\in H} b_{j} \rightarrow \sum_{H}\alpha_{H}b_a\prod_{j\in C}b_{j}+\sum_{H}\alpha_{H}(1-b_a)\prod_{j\in H\setminus C}b_{j}.
 \end{equation}
-\item $\alpha_{H}<0$
-\begin{equation}
-\sum_{H\in\mathcal{H}}\alpha_{H}\prod_{j\in H}b_{j}=\min_{b_a}\sum_{H\in\mathcal{H}}\alpha_{H}\left(1-\prod_{j\in C}b_{j}-\prod_{j\in H\setminus C}b_{j}\right)b_a
-\end{equation}
-\end{enumerate}
+%\item $\alpha_{H}<0$
+%\begin{equation}
+%\sum_{H\in\mathcal{H}}\alpha_{H}\prod_{j\in H}b_{j}\rightarrow - \sum_{H\in\mathcal{H}}\alpha_{H}\left(1-\prod_{j\in C}b_{j}-\prod_{j\in H\setminus C}b_{j}\right)b_a
+%\end{equation}
+%\end{enumerate}
 
 \costsec
 \begin{itemize}
 
 \item One auxiliary variable per application.
-\item In combination with \ref{subsec:Negative-Monomial-Reduction}, it can be used to make an algorithm which can reduce $t$ positive monomials of degree $d$ in $n$ variables using $n+t(d-1)$ auxiliary variables in the worst case.
+\item In combination with \ref{subsec:Negative-Monomial-Reduction}, it can reduce $t$ positive terms of degree $k$ in $n$ variables using $n+t(k-1)$ auxiliary variables in the worst case.
 \end{itemize}
 
 \prossec
 \begin{itemize}
+\item It is a `perfect' transformation, meaning that after minimizing over $b_a$, the original degree-$k$ function is recovered.
 \item Can reduce the connectivity of an objective function, as it breaks interactions between variables.
 \end{itemize}
 
 \conssec
 \begin{itemize}
-\item $\alpha_{H}>0$ method converts positive terms into negative ones of same order rather than reducing them, though these can then be reduced more easily.
-\item $\alpha_{H}<0$ method only works for $|C|>1$, and cannot quadratize cubic terms.
+\item  If $|C|=1$ the first sum will result in a quadratic but the second sum will have degree $k$. If $|C|=k-1$ the second sum will be quadratic but the first term will have degree $k$. For any other value of $|C|$, both sums will be super-quadratic, but the part of the second sum involving $b_a$ will be negative and therefore can be quadratized easily.
+%\item Converts positive terms into negative ones of same order rather than reducing them, though negative terms can be quadratized more easily.
+%\item $\alpha_{H}<0$ method only works for $|C|>1$, and cannot quadratize any super-quadratic terms, but it can `sub-divide' a degree-$k$ term into a degree-$(|C|+1)$ term and a degree-$(k-|C|+1)$-term, so it can in fact reduce the overall degree.
 \end{itemize}
 
 \examplesec
 
-First let $C=b_{1}$ and use the positive weight version:
+With $C=b_{1}$ we can get:
 \begin{eqnarray}
-b_{1}b_{2}b_{3}+b_{1}b_{2}b_{4} & \mapsto & 2b_{a_1}b_{1}+(1-b_{a_1})b_{2}b_{3}+(1-b_{a_1})b_{2}b_{4}\\
+b_{1}b_{2}b_{3}+b_{1}b_{2}b_{4} & \rightarrow & 2b_{a_1}b_{1}+(1-b_{a_1})b_{2}b_{3}+(1-b_{a_1})b_{2}b_{4}\\
  & = & 2b_{a_1}b_{1}+b_{2}b_{3}+b_{2}b_{4}-b_{a_1}b_{2}b_{3}-b_{a_1}b_{2}b_{4}
 \end{eqnarray}
-now we can use \ref{subsec:Negative-Monomial-Reduction}:
+now we can use \ref{subsec:Negative-Monomial-Reduction} to quadratize the two negative cubic terms:
 
 \begin{eqnarray}
 -b_{a_1}b_{2}b_{3}-b_{a_1}b_{2}b_{4} & \mapsto & 2b_{a_2}-b_{a_1}b_{a_2}-b_{a_2}b_{2}-b_{a_2}b_{3}+2b_{a_2}-b_{a_1}b_{a_2}-b_{a_2}b_{2}-b_{a_2}b_{4}\\
@@ -3145,6 +3146,8 @@ now we can use \ref{subsec:Negative-Monomial-Reduction}:
 \item Original paper and application to image denoising: \citep{Fix2011}.
 \end{itemize}
 
+
+\newpage
 
 \subsection{Pairwise Covers (Anthony-Boros-Crama-Gruber, 2017)}
 
