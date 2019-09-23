@@ -538,9 +538,9 @@ Decomposition of degree-
 \begin_inset Formula 
 \begin{flalign}
  & \negthickspace\negthickspace\negthickspace\negthickspace\negthickspace b_{1}b_{2}b_{3}b_{4}+b_{2}b_{3}b_{4}b_{5}+b_{3}b_{4}b_{5}b_{6}: & \text{ \ensuremath{(k,n)=(4,6)}.}\\
-\longrightarrow & \,\,\,3b_{3}b_{4}+b_{3}b_{5}+b_{4}b_{5}-b_{3}-b_{4}-b_{5}+1 & 41/64(\approx64\%)\\
-\longrightarrow & \,\,\,b_{1}b_{4}+b_{3}b_{5}+b_{4}b_{5} & 56/64(\approx88\%)\\
-\longrightarrow & \,\,\,b_{1}b_{2}+b_{2}b_{6}+b_{3}b_{5}+b_{5}b_{6}+b_{2}-b_{3}-b_{4}-b_{5}+2 & 64/64(100\%)
+\longrightarrow & \,\,\,3b_{3}b_{4}+b_{3}b_{5}+b_{4}b_{5}-b_{3}-b_{4}-b_{5}+1 & 41/64\,\,(64\%)\\
+\longrightarrow & \,\,\,b_{1}b_{4}+b_{3}b_{5}+b_{4}b_{5} & 56/64\,\,(88\%)\\
+\longrightarrow & \,\,\,b_{1}b_{2}+b_{2}b_{6}+b_{3}b_{5}+b_{5}b_{6}+b_{2}-b_{3}-b_{4}-b_{5}+2 & 64/64\,\,(100\%)
 \end{flalign}
 
 \end_inset
@@ -552,11 +552,11 @@ Decomposition of degree-
 \begin_inset Formula 
 \begin{flalign}
  & \negthickspace\negthickspace\negthickspace\negthickspace\negthickspace b_{1}b_{2}b_{3}b_{4}+b_{3}b_{4}b_{5}b_{6}+b_{5}b_{6}b_{7}b_{8}: & \text{ \ensuremath{(k,n)=(4,8)}.}\\
-\longrightarrow & \,\,\,b_{1}b_{4}+2b_{5}b_{6} & 159/256(\approx62\%)\\
-\longrightarrow & \,\,\,b_{2}b_{3}+b_{3}b_{5}+b_{7}b_{8} & 225/256(\approx88\%)\\
-\longrightarrow & \,\,\,b_{1}b_{4}+b_{3}b_{4}-b_{5}b_{7}+b_{6}b_{7}+b_{7}b_{8}-b_{6}+1 & 244/256(\approx95.3\%)\\
-\longrightarrow & \,\,\,b_{2}b_{3}+b_{6}b_{8}+b_{6} & 253/256(\approx98.8\%)\\
-\longrightarrow & \,\,\,b_{2}b_{3}+b_{5}b_{7}+b_{5} & 256/256(100\%)
+\longrightarrow & \,\,\,b_{1}b_{4}+2b_{5}b_{6} & 159/256\,\,(62\%)\\
+\longrightarrow & \,\,\,b_{2}b_{3}+b_{3}b_{5}+b_{7}b_{8} & 225/256\,\,(88\%)\\
+\longrightarrow & \,\,\,b_{1}b_{4}+b_{3}b_{4}-b_{5}b_{7}+b_{6}b_{7}+b_{7}b_{8}-b_{6}+1 & 244/256\,\,(95.3\%)\\
+\longrightarrow & \,\,\,b_{2}b_{3}+b_{6}b_{8}+b_{6} & 253/256\,\,(98.8\%)\\
+\longrightarrow & \,\,\,b_{2}b_{3}+b_{5}b_{7}+b_{5} & 256/256\,\,(100\%)
 \end{flalign}
 
 \end_inset
@@ -630,7 +630,7 @@ Decomposition of degree-
 \longrightarrow & \,\,\,b_{1}b_{3}+b_{7}b_{10}-b_{9}b_{11}+b_{7}+b_{9}\\
 \longrightarrow & \,\,\,b_{2}b_{4}+b_{4}b_{7}-b_{9}b_{11}+2b_{10}b_{11}+b_{9}\\
 \longrightarrow & \,\,\,b_{2}b_{6}+b_{6}b_{7}+b_{6}b_{8}-b_{9}b_{11}+b_{9}\\
-\longrightarrow & \,\,\,b_{1}b_{4}-b_{2}b_{5}-b_{3}b_{10}+b_{5}b_{8}-b_{7}b_{11}+b_{8}b_{10}-b_{9}b_{11}+b_{10}b_{11}+b_{9}+2 & 1020/1024(\approx99.6\%)
+\longrightarrow & \,\,\,b_{1}b_{4}-b_{2}b_{5}-b_{3}b_{10}+b_{5}b_{8}-b_{7}b_{11}+b_{8}b_{10}-b_{9}b_{11}+b_{10}b_{11}+b_{9}+2 & 1020/1024\,\,(99.6\%)
 \end{flalign}
 
 \end_inset
@@ -650,7 +650,7 @@ Decomposition of degree-
 \longrightarrow & \,\,\,b_{2}b_{3}+b_{8}b_{10}+b_{a}(1-b_{9})+b_{6}-b_{9}+1\\
 \longrightarrow & \,\,\,b_{1}b_{2}+b_{5}b_{7}+b_{8}b_{10}+b_{a}(1-b_{9})-b_{3}+1\\
 \longrightarrow & \,\,\,b_{5}b_{6}+b_{a}(1-b_{9})+b_{3}+b_{9}\\
-\longrightarrow & \,\,\,b_{7}b_{8}+b_{2}+b_{7} & 1023/1024(\approx99.9\%)
+\longrightarrow & \,\,\,b_{7}b_{8}+b_{2}+b_{7} & 1023/1024\,\,(99.9\%)
 \end{flalign}
 
 \end_inset
@@ -716,7 +716,7 @@ Decomposition of degree-
 \longrightarrow & \,\,\,b_{2}b_{3}+b_{2}b_{8}+b_{3}b_{9}-b_{5}b_{7}+b_{6}b_{9}-b_{a}(1+b_{10})-b_{7}+b_{9}+b_{10}+3\\
 \longrightarrow & \,\,\,b_{2}b_{3}-b_{6}b_{7}+b_{6}b_{8}+b_{7}b_{8}-b_{a}(b_{9}+b_{10})+b_{8}+b_{9}+b_{10}+1\\
 \longrightarrow & \,\,\,-b_{1}b_{2}+b_{1}b_{4}+b_{2}b_{5}-b_{4}b_{9}+b_{5}b_{8}+b_{5}b_{9}-b_{a}(b_{9}+b_{10})-b_{4}+b_{5}-b_{7}+2b_{9}+b_{10}+2\\
-\longrightarrow & \,\,\,b_{2}b_{8}+b_{8}b_{10}+b_{a}(b_{8}-b_{9}-b_{10})+b_{1}+b_{9}+b_{10} & 1021/1024(\approx99.7\%)
+\longrightarrow & \,\,\,b_{2}b_{8}+b_{8}b_{10}+b_{a}(b_{8}-b_{9}-b_{10})+b_{1}+b_{9}+b_{10} & 1021/1024\,\,(99.7\%)
 \end{flalign}
 
 \end_inset
