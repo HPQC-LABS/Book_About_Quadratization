@@ -1,4 +1,9 @@
-function [input,LHS,allbits,reset_state] = pretrain(Case,n,aux)
+function [input,LHS,allbits,reset_state,n] = pretrain(aux,LHS_string)
+
+    b_ind = regexp(LHS_string,'b*');
+    numbers = LHS_string(b_ind+1) - '0';
+    n = max(numbers) + aux;
+    
     coeffs_range = -1:1;
     allCombos = dec2bin(0:2^n-1) -'0';
 
@@ -6,7 +11,31 @@ function [input,LHS,allbits,reset_state] = pretrain(Case,n,aux)
     for i = 1:n
         b{i} = allCombos(:,i);
     end
-
+    
+    LHS = 0;
+    term = 1;
+    if LHS_string(1) == '+' || LHS_string(1) == '-'
+    	term = 0;
+    end
+    i = 1;
+    while i <= size(LHS_string,2)
+        if LHS_string(i) == 'b'
+            term = term.*b{LHS_string(i+1) - '0'};
+            i = i + 1;
+        elseif LHS_string(i) == '+'
+            LHS = LHS + term;
+            term = 1;
+        elseif LHS_string(i) == '-'
+            LHS = LHS + term;
+            term = -1;
+        elseif LHS_string(i) ~= ' '
+            term = term * ( LHS_string(i) - '0' );
+        end
+        i = i + 1;
+    end
+    LHS = LHS + term;
+    
+    %{
     switch Case
         case 0
             LHS = b{1}.*b{2}.*b{3}.*b{4} + b{2}.*b{3}.*b{4}.*b{5} + b{3}.*b{4}.*b{5}.*b{6} + b{4}.*b{5}.*b{6}.*b{7};
@@ -15,6 +44,7 @@ function [input,LHS,allbits,reset_state] = pretrain(Case,n,aux)
         case 2
             LHS = b{1}.*b{2}.*b{3}.*b{4} - b{2}.*b{3}.*b{4}.*b{5} - b{3}.*b{4}.*b{5}.*b{6} + b{4}.*b{5}.*b{6}.*b{7};
     end
+    %}
     %LHS = b{1}.*b{2}.*b{3}.*b{4} + b{4}.*b{5}.*b{6}.*b{7};
     LHS = LHS';
     if aux == 1

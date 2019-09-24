@@ -4,9 +4,10 @@ import matlab.engine
 from sklearn.neural_network import MLPClassifier
 
 # hyperparameters
-n = 7              # number of variables including aux
-aux = 1
-num_cases = 3
+#n = 7              # number of variables including aux
+#aux = 1
+fileID = "LHS.txt"
+num_cases = 1
 new_input = True
 
 n_sessions = 100
@@ -109,7 +110,7 @@ def generate_session(t_max = 50):
             coeffs_number = np.sum( new_s[:,condition] != 0 , 0 )
             score = c_accuracy*(1 - conflict[condition]) - c_strength*coeffs_strength - c_num_of_terms*coeffs_number
             score_condition = ( score > worst_score )
-        
+            
             if any(score_condition):
                 stop_condition = 0
                 found = 1
@@ -215,10 +216,15 @@ for Case in range(num_cases):
     
     if new_input:
         
+        file1 = open(fileID,"r+")
+        
+        LHS_string = file1.readline()
+        aux = int( file1.readline() )
+        
         # Run Matlab to pretrain RL model
         eng = matlab.engine.start_matlab()
         #eng.brute_force_for_RL_input_data(nargout = 0)
-        [init_training, LHS, allbits, reset_state] = eng.pretrain(Case, n, aux, nargout = 4)
+        [init_training, LHS, allbits, reset_state, n] = eng.pretrain(aux, LHS_string, nargout = 5)
         
         coeffs_size = int( n*(n+1)/2 ) + 1
         n_actions = 2*coeffs_size + 1   # number of actions
