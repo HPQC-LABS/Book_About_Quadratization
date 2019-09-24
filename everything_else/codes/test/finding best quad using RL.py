@@ -47,6 +47,7 @@ def reward(conflict, dist, entropy):
 
 def rhs(s):
     RHS = allbits.dot(s)
+    RHS = RHS - np.min(RHS,0) + min(LHS)
     if aux == 1:
         RHS  = np.minimum(RHS[::2],RHS[1::2])
     if aux == 2:
@@ -226,7 +227,7 @@ for Case in range(num_cases):
         #eng.brute_force_for_RL_input_data(nargout = 0)
         [init_training, LHS, allbits, reset_state, n] = eng.pretrain(aux, LHS_string, nargout = 5)
         
-        coeffs_size = int( n*(n+1)/2 ) + 1
+        coeffs_size = int( n*(n+1)/2 )
         n_actions = 2*coeffs_size + 1   # number of actions
         
         LHS_size = 2**(n-aux)

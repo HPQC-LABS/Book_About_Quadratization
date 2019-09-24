@@ -19,17 +19,22 @@ function [input,LHS,allbits,reset_state,n] = pretrain(aux,LHS_string)
     end
     i = 1;
     while i <= size(LHS_string,2)
-        if LHS_string(i) == 'b'
-            term = term.*b{LHS_string(i+1) - '0'};
-            i = i + 1;
-        elseif LHS_string(i) == '+'
-            LHS = LHS + term;
-            term = 1;
-        elseif LHS_string(i) == '-'
-            LHS = LHS + term;
-            term = -1;
-        elseif LHS_string(i) ~= ' '
-            term = term * ( LHS_string(i) - '0' );
+        switch LHS_string(i)
+            case 'b'
+                term = term.*b{LHS_string(i+1) - '0'};
+                i = i + 1;
+            case '+'
+                LHS = LHS + term;
+                term = 1;
+            case '-'
+                LHS = LHS + term;
+                term = -1;
+            case '\'
+                break;
+            case num2cell('1':'9')
+                temp = sscanf(LHS_string(i:end),'%d');
+                term = term * temp;
+                i = i + floor( log(temp)/log(10) ) ;
         end
         i = i + 1;
     end
@@ -47,12 +52,8 @@ function [input,LHS,allbits,reset_state,n] = pretrain(aux,LHS_string)
     %}
     %LHS = b{1}.*b{2}.*b{3}.*b{4} + b{4}.*b{5}.*b{6}.*b{7};
     LHS = LHS';
-    if aux == 1
-        LHS = LHS(2:2:2^n);
-    elseif aux == 2
-        LHS = LHS(4:4:2^n);
-    end
-
+    LHS = LHS(1:2^aux:2^n);
+    
     allbits = [];
     for i = 1:n
         for j = i+1:n
@@ -63,10 +64,10 @@ function [input,LHS,allbits,reset_state,n] = pretrain(aux,LHS_string)
     for i = 1:n
         allbits = [allbits b{i}];
     end
-	allbits = [allbits ones(2^n,1)];
+	%allbits = [allbits ones(2^n,1)];
     allbits = allbits';
 
-    coeffs_size = n*(n+1)/2 + 1;
+    coeffs_size = n*(n+1)/2;
     base = size(coeffs_range,2);
     init = int2str( (base-1)/2 );
 
@@ -98,7 +99,7 @@ function [input,LHS,allbits,reset_state,n] = pretrain(aux,LHS_string)
             RHS = min(min1,min2);
         end
 
-        %RHS = RHS - min(RHS,[],2);
+        RHS = RHS - min(RHS,[],2) + min(LHS);
 
         conflicts_percent = mean( RHS ~= LHS , 2 ) * 100; % percentage of overall conflicts
         index_good = (conflicts_percent <= conflicts_threshold);
@@ -134,9 +135,8 @@ function [input,LHS,allbits,reset_state,n] = pretrain(aux,LHS_string)
         min2 = min(RHS(:,3:4:2^n-1),RHS(:,4:4:2^n));
         RHS = min(min1,min2);
     end
-    %const_term = -min(RHS,[],2);
-    %RHS = RHS + const_term;
-
+    RHS = RHS - min(RHS,[],2) + min(LHS);
+    
     accuracy_percent = mean( RHS == LHS , 2 ) * 100; % percentage of overall conflicts
     index_good = (accuracy_percent >= 60);
     if sum(index_good) == 0
