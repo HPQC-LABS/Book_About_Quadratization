@@ -183,7 +183,19 @@ Decomposition of binomials of degree-
 \align left
 \begin_inset Formula 
 \begin{flalign}
-b_{1}b_{2}b_{3}b_{4}+b_{3}b_{4}b_{5}b_{6} & =\min\left(b_{2}b_{3}+b_{3}b_{6},b_{1}b_{4}+b_{4}b_{5},b_{1}b_{2}+b_{5}b_{6}-b_{3}-b_{4}+2\right) & \text{ \ensuremath{(k,n)=(4,6)}.}
+b_{1}b_{2}b_{3}b_{4}+b_{3}b_{4}b_{5}b_{6} & =\min\left(b_{2}b_{3}+b_{3}b_{6},\,b_{1}b_{4}+b_{4}b_{5},\,b_{1}b_{2}+b_{5}b_{6}-b_{3}-b_{4}+2\right) & \text{ \ensuremath{(k,n)=(4,6)}.}
+\end{flalign}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align left
+\begin_inset Formula 
+\begin{flalign}
+b_{1}b_{2}b_{3}b_{4}+b_{3}b_{4}b_{5}b_{6} & =\min\left(b_{2}b_{3}+b_{a}(1-b_{2}-b_{3}+2b_{4})+b_{3}b_{4},\,b_{1}b_{2}+b_{5}b_{6}+b_{5}b_{a}\right) & \text{ \ensuremath{(k,n)=(4,6)}.}
 \end{flalign}
 
 \end_inset
