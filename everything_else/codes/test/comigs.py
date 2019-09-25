@@ -22,7 +22,7 @@ c_strength = 2
 c_accuracy = 10000
 
 percentile = 70
-max_comigs = 10
+max_comigs = 15
 comigs_each_run = 1
 # -----------------------------------------------------------------------------------------
 
@@ -217,10 +217,11 @@ for Case in range(num_cases):
     
     if new_input:
         
-        file1 = open(fileID,"r+")
+        file1 = open(fileID,"r")
         
         LHS_string = file1.readline()
         aux = int( file1.readline() )
+        file1.close()
         
         # Run Matlab to pretrain RL model
         eng = matlab.engine.start_matlab()
@@ -368,11 +369,53 @@ for Case in range(num_cases):
         if num_COMIGs < best_num_of_comigs:
             best_num_of_comigs = num_COMIGs
             Best_score = score
-            savemat('data' + str(Case) + '.mat',{'coef':coef[:num_COMIGs]})
+            best_coef = coef[:num_COMIGs]
+            savemat('data.mat',{ ('coef' + str(Case)) :best_coef} )
         elif num_COMIGs == best_num_of_comigs:
-            if score > Best_score:
-                savemat('data' + str(Case) + '.mat',{'coef':coef[:num_COMIGs]})
+            if score > Best_score:                
+                best_coef = coef[:num_COMIGs]
+                savemat('data.mat',{ ('coef' + str(Case)) :best_coef} )
     
     print('Done!')
     print('best num of comigs = ',best_num_of_comigs,'\n')
+    
+    # verify coef and get const_terms
+    [verified, const_terms] = eng.verify(n, aux, LHS.tolist(), allbits.tolist(), best_coef.tolist(), nargout = 2)
+    
+    file1 = open(fileID,"a")
+    
+    if (np.min(rhs(np.transpose(best_coef)),1) != np.transpose(LHS)).any():
+        file1.write('\nNot verified!\n')
+    else:
+        file1.write('\nVerified!\n')
+    
+    for m in range(best_coef.shape[0]):
+        vec = best_coef[m,:]
+        k = 0
+        for i in range(1,n):
+            for j in range(i+1,n+1):
+                if vec[k] != 0:
+                    if vec[k] == 1:
+                        file1.write(' + b_{%d}b_{%d}' % (i, j) )
+                    elif vec[k] == -1:
+                        file1.write(' - b_{%d}b_{%d}' % (i, j) )
+                    else:
+                        file1.write(' %+d b_{%d}b_{%d}' % (vec[k], i, j) )
+                k += 1
+    
+        for i in range(1,n+1):
+            if vec[k] != 0:
+                if vec[k] == 1:
+                    file1.write(' + b_{%d}' % i)
+                elif vec[k] == -1:
+                    file1.write(' - b_{%d}' % i)
+                else:
+                    file1.write(' %+d b_{%d}' % (vec[k], i) )
+            k += 1
+        
+        if np.floor(const_terms[m]) != 0:
+            file1.write(' %+d' % np.floor(const_terms[m]) )
+        file1.write('\n')
+    
+    file1.close()
 
