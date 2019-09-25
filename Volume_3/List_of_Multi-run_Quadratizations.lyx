@@ -204,6 +204,28 @@ b_{1}b_{2}b_{3}b_{4}+b_{3}b_{4}b_{5}b_{6} & =\min_{b_{a}}\left(b_{2}b_{3}+b_{a}(
 \end_layout
 
 \begin_layout Standard
+\align left
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+\align left
+\begin_inset Formula 
+\begin{flalign}
+b_{1}b_{2}b_{3}b_{4}+b_{4}b_{5}b_{6}b_{7} & =\min_{b_{a}}\left(b_{2}b_{3}+b_{5}b_{6}+b_{a}(1-b_{5}-b_{6}+b_{7})\textcolor{red}{\textcolor{blue}{\boldsymbol{,}}}\,b_{1}b_{4}+b_{4}+b_{a}\textcolor{red}{\textcolor{blue}{\boldsymbol{,}}}\,b_{5}b_{6}+b_{1}+b_{a}(1-b_{5}-b_{6}+b_{7})\right) & \text{ \ensuremath{(k,n)=(4,7)}.}
+\end{flalign}
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset Formula 
 \begin{flalign}
  & \negthickspace\negthickspace\negthickspace\negthickspace\negthickspace b_{1}b_{2}b_{3}b_{4}+b_{4}b_{5}b_{6}b_{7}: & \text{ \ensuremath{(k,n)=(4,7)}.}\\
