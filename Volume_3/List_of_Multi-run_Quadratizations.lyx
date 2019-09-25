@@ -126,7 +126,7 @@ Decomposition of a monomial
 \align left
 \begin_inset Formula 
 \begin{flalign}
-b_{1}b_{2}b_{3}\ldots b_{k} & =\min\left(b_{1}b_{2}\ldots b_{k_{1}},b_{k_{1}+1}b_{k_{1}+2}\ldots b_{k_{2}},b_{k_{2}+1}b_{k_{2}+2}\ldots b_{k_{3}},...,b_{k_{n}+1}b_{k_{n}+2}...b_{k}\right) & {}\label{eq:monomialDecomp}
+b_{1}b_{2}b_{3}\ldots b_{k} & =\min\left(b_{1}b_{2}\ldots b_{k_{1}}\textcolor{red}{\textcolor{blue}{\boldsymbol{,}}}b_{k_{1}+1}b_{k_{1}+2}\ldots b_{k_{2}}\textcolor{red}{\textcolor{blue}{\boldsymbol{,}}}b_{k_{2}+1}b_{k_{2}+2}\ldots b_{k_{3}}\textcolor{red}{\textcolor{blue}{\boldsymbol{,}}}...\textcolor{red}{\textcolor{blue}{\boldsymbol{,}}}b_{k_{n}+1}b_{k_{n}+2}...b_{k}\right) & {}\label{eq:monomialDecomp}
 \end{flalign}
 
 \end_inset
@@ -138,7 +138,7 @@ b_{1}b_{2}b_{3}\ldots b_{k} & =\min\left(b_{1}b_{2}\ldots b_{k_{1}},b_{k_{1}+1}b
 \align left
 \begin_inset Formula 
 \begin{flalign}
-b_{1}b_{2}b_{3}\ldots b_{k} & =\min\left(b_{1},b_{2},b_{3},\ldots,b_{k}\right) & \text{ (Example of Eq. \ref{eq:monomialDecomp}: Linearization of a degree-k monomial).}
+b_{1}b_{2}b_{3}\ldots b_{k} & =\min\left(b_{1}\textcolor{red}{\textcolor{blue}{\boldsymbol{,}}}b_{2}\textcolor{red}{\boldsymbol{\textcolor{blue}{,}}}b_{3}\textcolor{red}{\boldsymbol{\textcolor{blue}{,}}}\ldots\textcolor{red}{\textcolor{blue}{\boldsymbol{,}}}b_{k}\right) & \text{ (Example of Eq. \ref{eq:monomialDecomp}: Linearization of a degree-\ensuremath{k} monomial).}
 \end{flalign}
 
 \end_inset
@@ -150,7 +150,7 @@ b_{1}b_{2}b_{3}\ldots b_{k} & =\min\left(b_{1},b_{2},b_{3},\ldots,b_{k}\right) &
 \align left
 \begin_inset Formula 
 \begin{flalign}
-b_{1}b_{2}b_{3}b_{4} & =\min\left(b_{1}b_{2},b_{3}b_{4}\right) & \text{ (Example of Eq. \ref{eq:monomialDecomp}: Quadratization of a degree-4 monomial).}
+b_{1}b_{2}b_{3}b_{4} & =\min\left(b_{1}b_{2}\textcolor{red}{\textcolor{blue}{\boldsymbol{,}}}b_{3}b_{4}\right) & \text{ (Example of Eq. \ref{eq:monomialDecomp}: Quadratization of a degree-4 monomial).}
 \end{flalign}
 
 \end_inset
@@ -183,7 +183,7 @@ Decomposition of binomials of degree-
 \align left
 \begin_inset Formula 
 \begin{flalign}
-b_{1}b_{2}b_{3}b_{4}+b_{3}b_{4}b_{5}b_{6} & =\min\left(b_{2}b_{3}+b_{3}b_{6},\,b_{1}b_{4}+b_{4}b_{5},\,b_{1}b_{2}+b_{5}b_{6}-b_{3}-b_{4}+2\right) & \text{ \ensuremath{(k,n)=(4,6)}.}
+b_{1}b_{2}b_{3}b_{4}+b_{3}b_{4}b_{5}b_{6} & =\min\left(b_{2}b_{3}+b_{3}b_{6}\textcolor{red}{\textcolor{blue}{\boldsymbol{,}}}\,b_{1}b_{4}+b_{4}b_{5}\textcolor{red}{\textcolor{blue}{\boldsymbol{,}}}\,b_{1}b_{2}+b_{5}b_{6}-b_{3}-b_{4}+2\right) & \text{ \ensuremath{(k,n)=(4,6)}.}
 \end{flalign}
 
 \end_inset
@@ -195,7 +195,7 @@ b_{1}b_{2}b_{3}b_{4}+b_{3}b_{4}b_{5}b_{6} & =\min\left(b_{2}b_{3}+b_{3}b_{6},\,b
 \align left
 \begin_inset Formula 
 \begin{flalign}
-b_{1}b_{2}b_{3}b_{4}+b_{3}b_{4}b_{5}b_{6} & =\min\left(b_{2}b_{3}+b_{a}(1-b_{2}-b_{3}+2b_{4})+b_{3}b_{4},\,b_{1}b_{2}+b_{5}b_{6}+b_{5}b_{a}\right) & \text{ \ensuremath{(k,n)=(4,6)}.}
+b_{1}b_{2}b_{3}b_{4}+b_{3}b_{4}b_{5}b_{6} & =\min_{b_{a}}\left(b_{2}b_{3}+b_{a}(1-b_{2}-b_{3}+2b_{4})+b_{3}b_{4}\textcolor{red}{\textcolor{blue}{\boldsymbol{,}}}\,b_{1}b_{2}+b_{5}b_{6}+b_{5}b_{a}\right) & \text{ \ensuremath{(k,n)=(4,6)}.}
 \end{flalign}
 
 \end_inset
