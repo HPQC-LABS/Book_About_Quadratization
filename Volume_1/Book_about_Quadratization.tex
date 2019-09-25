@@ -17,6 +17,9 @@
 \PassOptionsToPackage{normalem}{ulem}
 \usepackage{ulem}
 \usepackage{lipsum}
+\usepackage{tocloft} % so that table of contents secton numbers and section titles don't collide.
+\addtolength{\cftsecnumwidth}{14pt}
+
 %\usepackage{hyperref}
 
 %\usepackage{cleveref}
@@ -135,7 +138,7 @@
 
 
 % Bookmarks in PDF (navigation pane)
-\usepackage[colorlinks,urlcolor=blue,bookmarksopen=true]{hyperref}
+\usepackage[colorlinks,urlcolor=blue,bookmarksopen=true,linktocpage]{hyperref}
 \usepackage{bookmark}
 
 %\hypersetup{
@@ -332,6 +335,10 @@ Two-body physical interactions occur more naturally than many-body interactions 
 %
 %Positive quadratic terms (non-submodular), particularly with large positive coefficients, are hard for a lot of reasons, classically (Ishikawa TGBMM....) \cite{Ishikawa2011}.
 %\end{comment}
+
+\newpage
+
+\tableofcontents
 
 \newpage
 
