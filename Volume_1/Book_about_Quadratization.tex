@@ -1534,7 +1534,8 @@ b_1 \ldots b_k &\rightarrow   \frac{1}{2} \left( 2^{m+1}-k + \sum_ib_i - \sum^m_
 
 \costsec
 
-$\lceil \log k \rceil  - 1$ auxiliary qubits per positive monomial.
+%$\lceil \log  k/2 \rceil  $ auxiliary qubits per positive monomial.
+$\lceil \log \nicefrac{k}{2}  \rceil  $ auxiliary qubits per positive monomial. % better than k/2 without \nicefrac because then it's a BIT ambiguous about if it's log(k)/2 vs log(k/2)
 
 \prossec
 \begin{itemize}
@@ -1593,7 +1594,7 @@ b_1 \ldots b_k &\rightarrow   \frac{1}{2} \left( 2^{m+1}-k + \sum_ib_i - \sum^m_
 
 \costsec
 
-$\lceil \log n \rceil  - 1$ auxiliary qubits per positive monomial.
+$\lceil \log \nicefrac{n}{2} \rceil  $ auxiliary qubits per positive monomial.
 
 \prossec
 \begin{itemize}
@@ -2996,7 +2997,7 @@ f\left(b_{1},b_{2},\ldots,b_{n}\right)\rightarrow1+2\sum_{ij}b_{i}b_{j}-\sum_{i}
 
 \costsec
 \begin{itemize}
-\item $\lceil \log(n)\rceil -1$ auxiliary variables.
+\item $\lceil \log \nicefrac{n}{2} \rceil $ auxiliary variables.
 \item $\lfloor 0.5n\rfloor$ non-submodular linear terms. % needs to be fixed
 \item $ n^2$ non-submodular quadratic terms. % needs to be fixed
 \end{itemize}
@@ -3046,7 +3047,7 @@ f\left(b_{1},b_{2},\ldots,b_{n}\right)\rightarrow1+2\sum_{ij}b_{i}b_{j}-\sum_{i}
 
 \costsec
 \begin{itemize}
-\item $\lceil \log(n)\rceil -1$ auxiliary variables.
+\item $\lceil \log \nicefrac{n}{2} \rceil $ auxiliary variables.
 \item $\lfloor 0.5n\rfloor$ non-submodular linear terms. % needs to be fixed
 \item $ n^2$ non-submodular quadratic terms. % needs to be fixed
 \end{itemize}
