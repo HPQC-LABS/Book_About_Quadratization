@@ -6,7 +6,7 @@
 %Control: page (1) range
 %Control: year (0) verbatim
 %Control: production of eprint (0) enabled
-\begin{thebibliography}{76}%
+\begin{thebibliography}{79}%
 \makeatletter
 \providecommand \@ifxundefined [1]{%
  \@ifx{#1\undefined}
@@ -216,6 +216,29 @@
   {\doibase 10.1109/CVPR.2011.5995452} {\emph {\bibinfo {booktitle} {CVPR
   2011}}}\ (\bibinfo  {publisher} {IEEE},\ \bibinfo {year} {2011})\ pp.\
   \bibinfo {pages} {1857--1864}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Yip}\ \emph {et~al.}(2019)\citenamefont {Yip},
+  \citenamefont {Xu}, \citenamefont {Kumar},\ and\ \citenamefont
+  {Koenig}}]{yxkk19}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Ka~Wa}\ \bibnamefont
+  {Yip}}, \bibinfo {author} {\bibfnamefont {Hong}\ \bibnamefont {Xu}}, \bibinfo
+  {author} {\bibfnamefont {T.~K.~Satish}\ \bibnamefont {Kumar}}, \ and\
+  \bibinfo {author} {\bibfnamefont {Sven}\ \bibnamefont {Koenig}},\ }\bibfield
+  {title} {\enquote {\bibinfo {title} {Quadratic reformulation of nonlinear
+  pseudo-boolean functions via the constraint composite graph},}\ }in\ \href
+  {\doibase 10.1007/978-3-030-19212-9\_43} {\emph {\bibinfo {booktitle} {the
+  International Conference on Integration of Artificial Intelligence and
+  Operations Research Techniques in Constraint Programming}}}\ (\bibinfo {year}
+  {2019})\ pp.\ \bibinfo {pages} {643--660}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Choi}(2008)}]{vchoi08}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Vicky}\ \bibnamefont
+  {Choi}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {Minor-embedding in
+  adiabatic quantum computation: {I}. the parameter setting problem},}\ }\href
+  {\doibase 10.1007/s11128-008-0082-9} {\bibfield  {journal} {\bibinfo
+  {journal} {Quantum Information Processing}\ }\textbf {\bibinfo {volume}
+  {7}},\ \bibinfo {pages} {193--209} (\bibinfo {year} {2008})}\BibitemShut
+  {NoStop}%
 \bibitem [{\citenamefont {Rocchetto}\ \emph {et~al.}(2016)\citenamefont
   {Rocchetto}, \citenamefont {Benjamin},\ and\ \citenamefont
   {Li}}]{Rocchetto2016}%
@@ -272,29 +295,6 @@
   {Compact quadratizations for pseudo-boolean functions},}\ }in\ \href@noop {}
   {\emph {\bibinfo {booktitle} {unpublished}}}\ (\bibinfo {year}
   {2018})\BibitemShut {NoStop}%
-\bibitem [{\citenamefont {Yip}\ \emph {et~al.}(2019)\citenamefont {Yip},
-  \citenamefont {Xu}, \citenamefont {Kumar},\ and\ \citenamefont
-  {Koenig}}]{yxkk19}%
-  \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Ka~Wa}\ \bibnamefont
-  {Yip}}, \bibinfo {author} {\bibfnamefont {Hong}\ \bibnamefont {Xu}}, \bibinfo
-  {author} {\bibfnamefont {T.~K.~Satish}\ \bibnamefont {Kumar}}, \ and\
-  \bibinfo {author} {\bibfnamefont {Sven}\ \bibnamefont {Koenig}},\ }\bibfield
-  {title} {\enquote {\bibinfo {title} {Quadratic reformulation of nonlinear
-  pseudo-boolean functions via the constraint composite graph},}\ }in\ \href
-  {\doibase 10.1007/978-3-030-19212-9\_43} {\emph {\bibinfo {booktitle} {the
-  International Conference on Integration of Artificial Intelligence and
-  Operations Research Techniques in Constraint Programming}}}\ (\bibinfo {year}
-  {2019})\ pp.\ \bibinfo {pages} {643--660}\BibitemShut {NoStop}%
-\bibitem [{\citenamefont {Choi}(2008)}]{vchoi08}%
-  \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Vicky}\ \bibnamefont
-  {Choi}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {Minor-embedding in
-  adiabatic quantum computation: {I}. the parameter setting problem},}\ }\href
-  {\doibase 10.1007/s11128-008-0082-9} {\bibfield  {journal} {\bibinfo
-  {journal} {Quantum Information Processing}\ }\textbf {\bibinfo {volume}
-  {7}},\ \bibinfo {pages} {193--209} (\bibinfo {year} {2008})}\BibitemShut
-  {NoStop}%
 \bibitem [{\citenamefont {Chancellor}\ \emph
   {et~al.}(2016{\natexlab{a}})\citenamefont {Chancellor}, \citenamefont
   {Zohren},\ and\ \citenamefont {Warburton}}]{Chancellor2016b}%
@@ -790,6 +790,30 @@
   10.1063/1.5116024} {\bibfield  {journal} {\bibinfo  {journal} {The Journal of
   Chemical Physics}\ }\textbf {\bibinfo {volume} {151}},\ \bibinfo {pages}
   {061101} (\bibinfo {year} {2019})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Stratonovich}(1957)}]{Stratonovich1957}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {R.~L.}\ \bibnamefont
+  {Stratonovich}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {{On a
+  Method of Calculating Quantum Distribution Functions}},}\ }\href@noop {}
+  {\bibfield  {journal} {\bibinfo  {journal} {Soviet Physics Doklady}\ }\textbf
+  {\bibinfo {volume} {2}},\ \bibinfo {pages} {416} (\bibinfo {year}
+  {1957})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Hubbard}(1959)}]{Hubbard1959}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {J.}~\bibnamefont
+  {Hubbard}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {{Calculation of
+  partition functions}},}\ }\href {\doibase 10.1103/PhysRevLett.3.77}
+  {\bibfield  {journal} {\bibinfo  {journal} {Physical Review Letters}\
+  }\textbf {\bibinfo {volume} {3}},\ \bibinfo {pages} {77--78} (\bibinfo {year}
+  {1959})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Hirsch}(1983)}]{Hirsch1983}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {J.~E.}\ \bibnamefont
+  {Hirsch}},\ }\bibfield  {title} {\enquote {\bibinfo {title} {{Discrete
+  Hubbard-Stratonovich transformation for fermion lattice models}},}\ }\href
+  {\doibase 10.1103/PhysRevB.28.4059} {\bibfield  {journal} {\bibinfo
+  {journal} {Physical Review B}\ }\textbf {\bibinfo {volume} {28}},\ \bibinfo
+  {pages} {4059--4061} (\bibinfo {year} {1983})}\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Strand}\ \emph {et~al.}(2017)\citenamefont {Strand},
   \citenamefont {Przybysz}, \citenamefont {Ferguson},\ and\ \citenamefont
   {Zick}}]{Strand2017}%
