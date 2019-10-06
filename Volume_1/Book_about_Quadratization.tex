@@ -2017,6 +2017,7 @@ z_1z_2z_3z_4\rightarrow 16\,t_a^2+4\,t_a\,\sum_{i=1}^4 z_i+2\,\sum_{i=1}^4\sum_{
 For $\alpha_1 \ge \alpha_2 > 1$ we can reduce a degree-$k$ positive term to a degree-$(k-1)$ positive term, plus some extra terms which are at most quadratic:
 
 \begin{eqnarray}
+\label{eq: ptryxkkgeneral}
 b_1b_2\cdots b_k \rightarrow &\hspace{-7mm} b_1b_2\cdots b_{k-1} + b_{a_1} + \alpha_1 b_{a_2} + 
 \alpha_2 \sum_i^{k-1}\left(1-b_i\right)\left(1-b_{a_1}\right) + \\
 & \alpha_2\left(1-b_k\right)\left(1-b_{a_2}\right) +
@@ -2051,6 +2052,7 @@ b_1b_2\cdots b_k \rightarrow &\hspace{-7mm} b_1b_2\cdots b_{k-1} + b_{a_1} + \al
 %works particularly well for problems in real life such as planning problem that requires a high-degree PBF formulation.
 %\item Due to the nature of recombinations
 %of terms during each iteration, the number of quadratic terms in the finalized quadratic PBFs is less than Ishikawa's method.
+\item Can in some very special cases, also eliminate up to $(k-3)$ negative terms (at most one of each  from 3-local to $(k-1)$-local) of the user's choice, without any extra auxiliary qubits, if all of the variables in these negative terms are included in the higher-degree terms being reduced in the appropriate intermediate application of Eq. \eqref{eq: ptryxkkgeneral}.
 \end{itemize}
 
 \conssec
