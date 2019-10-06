@@ -1037,7 +1037,7 @@ where $C \geq 1$ is a constant. NTR-KZFD is a particular case of \eqref{eqn:NTR-
 \subsection{NTR-YXKK (Yip, Xu, Koenig and Kumar, 2019)}
 \summarysec
 
-For $\alpha \ge  0$ we can quadratize a degree-$k$ negative term with one auxiliary variable $b_a$:
+For $\alpha > 1$ we can quadratize a degree-$k$ negative term with one auxiliary variable $b_a$:
 
 \begin{eqnarray}
 -b_1b_2\cdots b_k \rightarrow b_a + \alpha\sum_i^k \left(1-b_i\right)\left(1-b_a\right) - 1.
@@ -1060,7 +1060,7 @@ For $\alpha \ge  0$ we can quadratize a degree-$k$ negative term with one auxili
 
 \prossec
 \begin{itemize}
-\item The  coefficient $\alpha$ is adjustable, so there is flexibility in its size.
+\item The coefficient $\alpha$ is adjustable, so there is flexibility in its size.
 \item Many of the introduced quadratic terms are submodular.
 \item It is a `perfect' quadratization, meaning that after minimizing over the auxiliary variable, the original function is exactly reproduced.
 %\item Smaller number of auxiliary variables than the most naive methods. % needs to be fixed
@@ -1079,15 +1079,19 @@ For $\alpha \ge  0$ we can quadratize a degree-$k$ negative term with one auxili
 %\end{itemize}
 
 \examplesec
-
-\begin{eqnarray}
-b_1b_2\cdots b_k \rightarrow &\hspace{-7mm} b_1b_2\cdots b_{k-1} + b_{a_1} + \alpha_1 b_{a_2} + 
-\alpha_2 \sum_i^{k-1}\left(1-b_i\right)\left(1-b_{a_1}\right) + \\
-& \alpha_2\left(1-b_k\right)\left(1-b_{a_2}\right) +
-\alpha_2\left(1-b_{a_2}\right)\left(1-b_{a_1}\right) - 
-\alpha_1\left(1-b_k\right) - 1  .
-\end{eqnarray}
-
+%
+%\begin{eqnarray}
+%b_1b_2\cdots b_k \rightarrow &\hspace{-7mm} b_1b_2\cdots b_{k-1} + b_{a_1} + \alpha_1 b_{a_2} + 
+%\alpha_2 \sum_i^{k-1}\left(1-b_i\right)\left(1-b_{a_1}\right) + \\
+%& \alpha_2\left(1-b_k\right)\left(1-b_{a_2}\right) +
+%\alpha_2\left(1-b_{a_2}\right)\left(1-b_{a_1}\right) - 
+%\alpha_1\left(1-b_k\right) - 1  .
+%\end{eqnarray}
+%
+%
+\begin{equation}
+-b_1b_2b_3b_4b_5 \rightarrow   b_a + 2\sum_{i=1}^{5}(1-b_i)(1-b_a) - 1 \,.
+\end{equation}
 
 %Each degree-\(d\) monomial in the PBF \(f(\vec x)\) in one reduction step is substituted as:
 %\begin{align}
@@ -1105,6 +1109,7 @@ b_1b_2\cdots b_k \rightarrow &\hspace{-7mm} b_1b_2\cdots b_{k-1} + b_{a_1} + \al
 \begin{itemize}
 \item Original paper (Theorem 1): \cite{yxkk19}.
 \item Inspired by Theorem 3 of \cite{vchoi08}.
+\item More technical details (Constraint Composite Graph): \cite{k08}.
 \end{itemize}
 
 
@@ -2009,7 +2014,7 @@ z_1z_2z_3z_4\rightarrow 16\,t_a^2+4\,t_a\,\sum_{i=1}^4 z_i+2\,\sum_{i=1}^4\sum_{
 \subsection{PTR-YXKK (Yip, Xu, Koenig and Kumar, 2019)}
 \summarysec
 
-For $\alpha_1 \ge \alpha_2 \ge 0$ we can reduce a degree-$k$ positive term to a degree-$(k-1)$ positive term, plus some extra terms which are at most quadratic:
+For $\alpha_1 \ge \alpha_2 > 1$ we can reduce a degree-$k$ positive term to a degree-$(k-1)$ positive term, plus some extra terms which are at most quadratic:
 
 \begin{eqnarray}
 b_1b_2\cdots b_k \rightarrow &\hspace{-7mm} b_1b_2\cdots b_{k-1} + b_{a_1} + \alpha_1 b_{a_2} + 
@@ -2036,7 +2041,7 @@ b_1b_2\cdots b_k \rightarrow &\hspace{-7mm} b_1b_2\cdots b_{k-1} + b_{a_1} + \al
 
 \prossec
 \begin{itemize}
-\item The  coefficients $\alpha_1$ and $\alpha_2$ are adjustable, so there is flexibility in the size of the coefficients.
+\item The coefficients $\alpha_1$ and $\alpha_2$ are adjustable, so there is flexibility in the size of the coefficients.
 \item Many terms are submodular.
 \item It is a `perfect' quadratization, meaning that after minimizing over the auxiliary variables, the original function is exactly reproduced.
 %\item Smaller number of auxiliary variables than the most naive methods. % needs to be fixed
@@ -2055,13 +2060,18 @@ b_1b_2\cdots b_k \rightarrow &\hspace{-7mm} b_1b_2\cdots b_{k-1} + b_{a_1} + \al
 \end{itemize}
 
 \examplesec
-
+%
+%\begin{eqnarray}
+%b_1b_2\cdots b_k \rightarrow &\hspace{-7mm} b_1b_2\cdots b_{k-1} + b_{a_1} + \alpha_1 b_{a_2} + 
+%\alpha_2 \sum_i^{k-1}\left(1-b_i\right)\left(1-b_{a_1}\right) + \\
+%& \alpha_2\left(1-b_k\right)\left(1-b_{a_2}\right) +
+%\alpha_2\left(1-b_{a_2}\right)\left(1-b_{a_1}\right) - 
+%\alpha_1\left(1-b_k\right) - 1  .
+%\end{eqnarray}
+%
 \begin{eqnarray}
-b_1b_2\cdots b_k \rightarrow &\hspace{-7mm} b_1b_2\cdots b_{k-1} + b_{a_1} + \alpha_1 b_{a_2} + 
-\alpha_2 \sum_i^{k-1}\left(1-b_i\right)\left(1-b_{a_1}\right) + \\
-& \alpha_2\left(1-b_k\right)\left(1-b_{a_2}\right) +
-\alpha_2\left(1-b_{a_2}\right)\left(1-b_{a_1}\right) - 
-\alpha_1\left(1-b_k\right) - 1  .
+b_{1}b_{2}b_{3} + b_{1}b_{3} - b_{2} \rightarrow &\hspace{-2mm}  b_1b_2 + b_{a_1} + 2b_{a_2} + 2(1-b_1)(1-b_{a_1}) + 2(1-b_2)(1-b_{a_1})\\
+&\hspace{-15mm}+ 2(1-b_3)(1-b_{a_2}) + 2(1-b_{a_2})(1-b_{a_1}) -2(1-b_{3})-1 + b_{1}b_{3} - b_{2} \,.
 \end{eqnarray}
 
 
@@ -2081,6 +2091,7 @@ b_1b_2\cdots b_k \rightarrow &\hspace{-7mm} b_1b_2\cdots b_{k-1} + b_{a_1} + \al
 \begin{itemize}
 \item Original paper (Theorem 1): \cite{yxkk19}.
 \item Inspired by Theorem 3 of \cite{vchoi08}.
+\item More technical details (Constraint Composite Graph): \cite{k08}.
 \end{itemize}
 
 
