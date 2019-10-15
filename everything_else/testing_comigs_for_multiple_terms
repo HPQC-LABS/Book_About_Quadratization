@@ -9,4 +9,4 @@ b5=kron(ones(1,16),b)
 
 cubic=(b1.*b2.*b3 + b3.*b4.*b5)'
 quadratics=[(b1.*b2 + b3.*b4)' (b1.*b2 + b5)' (b3 + b3.*b4)' (b3 + b5)']
-[min(quadratics,[],2) cubic)]
+[min(quadratics,[],2) cubic]
