@@ -57,3 +57,14 @@ LHS=z1*z2*z3*z4;
 RHS=4*za+2*(z1+z2+z3+z4)+4*za*(z1+z2+z3+z4)+2*(z1*z2+z1*z3+z1*z4+z2*z3+z2*z4+z3*z4)+9;
 
 [diag(LHS) diag(RHS)];
+
+%% RBS-Rosenberg: b1b2b3 = min_ba(b1ba + b2b3 -2b2ba -2b3ba + 3ba
+
+b=[0 1];
+b1=kron(b,ones(1,8));
+b2=kron(kron(ones(1,2),b),ones(1,4));
+b3=kron(kron(ones(1,4),b),ones(1,2));
+ba=kron(ones(1,8),b);
+
+LHS=b1.*b2.*b3;
+RHS=b1.*ba + b2.*b3 -2*b2.*ba - 2*b3.*ba + 3*ba;
