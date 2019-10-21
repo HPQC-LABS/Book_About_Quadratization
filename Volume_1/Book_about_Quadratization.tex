@@ -1549,7 +1549,7 @@ b_1 \ldots b_k &\rightarrow   \frac{1}{2} \left( 2^{m+1}-k + \sum_ib_i - \sum^m_
 % $\lceil \log  k/2 \rceil  $ auxiliary qubits per positive monomial.
 \begin{itemize}
 \item $\lceil \log \nicefrac{k}{2}  \rceil  $ auxiliary qubits per positive monomial. % better than k/2 without \nicefrac because then it's a BIT ambiguous about if it's log(k)/2 vs log(k/2)
-\item coefficients range from $-\frac{k}{4}$ to $+\frac{k^2}{8}$ when $k$ is a power of 2 (best case scenario) and from $-\frac{(k-1)(k-2)}{2}$ to $+\frac{(k-1)^2}{2}$ when $k$ is not a power of 2 (worst case scenario)
+\item coefficients range from $-\frac{k}{4}$ to $\frac{k^2}{8}$ when $k$ is a power of 2 (best case scenario) and from $-\frac{(k-1)(k-2)}{2}$ to $\frac{(k-1)^2}{2}$ when $k$ is not a power of 2 (worst case scenario).
 \end{itemize}
 
 \prossec
@@ -5615,6 +5615,7 @@ This review has only focused on $k-$local to $2-$local transformations where $k>
 \begin{itemize}
 \item Andreas found typos on the opening page in the arXiv version which surprisingly no one else found (or pointed out), and he diligently fixed them.
 \item Andreas created the example involving $x$,$y$, and $z$ presented on the opening page in the September 2019 version (I plan to have this example further improved at a later time). 
+\item Andreas added the minimum and maximum coefficient ranges into the cost section for PTR-BCR-4. 
 \end{itemize}
 
 \subsection*{Jacob Biamonte} 
