@@ -1547,7 +1547,8 @@ b_1 \ldots b_k &\rightarrow   \frac{1}{2} \left( 2^{m+1}-k + \sum_ib_i - \sum^m_
 \costsec
 
 %$\lceil \log  k/2 \rceil  $ auxiliary qubits per positive monomial.
-$\lceil \log \nicefrac{k}{2}  \rceil  $ auxiliary qubits per positive monomial. % better than k/2 without \nicefrac because then it's a BIT ambiguous about if it's log(k)/2 vs log(k/2)
+\item $\lceil \log \nicefrac{k}{2}  \rceil  $ auxiliary qubits per positive monomial. % better than k/2 without \nicefrac because then it's a BIT ambiguous about if it's log(k)/2 vs log(k/2)
+\item coefficients range from $-\frac{k}{4}$ to $+\frac{k^2}{8}$ when $k$ is a power of 2 (best case scenario) and from $-\frac{(k-1)(k-2)}{2}$ to $+\frac{(k-1)^2}{2}$ when $k$ is not a power of 2 (worst case scenario)
 
 \prossec
 \begin{itemize}
