@@ -5,7 +5,7 @@ b1=b(:,1);b2=b(:,2);b3=b(:,3);b4=b(:,4);
 LHS=b1.*b2 + b2.*b3 + b3.*b4 - 4*b1.*b2.*b3;
 RHS=b1.*b2 + b2.*b3 + b3.*b4 + 4*b1 - 4*b1.*b2 - 4*b1.*b3;
 
-%% Pg. 2, Eqs 3-4 (see abstract for AQC 2019, the code is in there, might also be saved on computer)
+%% Pg. 1, Eqs 3-4 (see abstract for AQC 2019, the code is in there, might also be saved on computer)
 
 z=[1 0; 0 -1];
 %% PTR-RBL, k=4, middle of LHZ
