@@ -5,15 +5,27 @@ b1=b(:,1);b2=b(:,2);b3=b(:,3);b4=b(:,4);
 LHS=b1.*b2 + b2.*b3 + b3.*b4 - 4*b1.*b2.*b3;
 RHS=b1.*b2 + b2.*b3 + b3.*b4 + 4*b1 - 4*b1.*b2 - 4*b1.*b3;
 
-%% Pg. 3, Eqs 9 and 11
+%% Pg. 1, Eqs 4-5 
+
+%% Pg. 6, Eqs 8 and 10
 
 LHS=b1.*b2 + b2.*b3 + b3.*b4 - 4*b1.*b2.*b3;
 RHS=b1.*b2 + b2.*b3 + b3.*b4 + 4*b1 - 4*b1.*b2 - 4*b1.*b3;
 
-%% Pg. 1, Eqs 3-4 (see abstract for AQC 2019, the code is in there, might also be saved on computer)
+%% Pg. 10, Eqs 25-26
+
+b= dec2bin(2^7-1:-1:0)-'0';
+b1=b(:,1);b2=b(:,2);b3=b(:,3);b4=b(:,4);
+
+LHS=
+RHS=
+
+%%
 
 z=[1 0; 0 -1];
+
 %% PTR-RBL, k=4, middle of LHZ
+
 z1 = kron(z,eye(16));
 z2 = kron(kron(eye(2),z),eye(8));
 z3 = kron(kron(eye(4),z),eye(4));
