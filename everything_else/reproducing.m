@@ -101,3 +101,19 @@ RHS=b1.*ba + b2.*b3 -2*b2.*ba - 2*b3.*ba + 3*ba;
 LHS=min(reshape(b1.*b2.*b3,2,[]));
 RHS=min(reshape(1 - (b4+b1+b2+b3) + b4.*(b1+b2+b3) +b1.*b2+b1.*b3+b2.*b3,2,[]));
 isequal(LHS,RHS);
+
+%% PTR-GBP: b1b2b3 = min_ba(ba - b2ba - b3ba +b1ba +b2b3)
+
+LHS = min(reshape(b1.*b2.*b3,2,[]));
+RHSa = min(reshape(b4 - b2.*b4 - b3.*b4 + b1.*b4 +b2.*b3,2,[]));
+RHSb = min(reshape(b4 - b1.*b4 - b3.*b4 + b2.*b4 + b1.*b3,2,[]));
+RHSc = min(reshape(b4 - b1.*b4 - b2.*b4 + b3.*b4 + b1.*b2,2,[]));
+isequal(LHS,RHSa,RHSb,RHSc);
+
+%% example eq. (79)
+LHS = min(reshape(b1.*b2.*b3 + b1.*b3 - b2,2,[]));
+RHS = min(reshape((b4 - b1.*b4 - b3.*b4 + b2.*b4 + 2*b1.*b3)-b2,2,[]));
+isequal(LHS,RHS);
+
+
+
