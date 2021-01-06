@@ -122,14 +122,14 @@ LHS=min(reshape(b1.*b2.*b3 + b1.*b3 - b2,4,[]));
 RHS=min(reshape(b1.*b2 + ba1 + 2*ba2 + 2*(1-b1).*(1-ba1) + 2*(1-b2).*(1-ba1) + 2*(1-b3).*(1-ba2) + 2*(1-ba2).*(1-ba1) - 2*(1-b3) - 1 + b1.*b3 - b2,4,[]));
 isequal(LHS,RHS);
 
-%% SFR-BCR-1: (b1b2+b1b3+b1b4+b2b3+b2b4+b3b4)−3(b1b2b3+b1b2b4+b1b3b4+b2b3b4)+6b1b2b3b4 -> (−3 + b1 + b2 + b3 + b4 − ba1 + 3ba2)^2
+%% SFR-BCR-1: (b1b2 + b1b3 + b1b4 + b2b3 + b2b4 + b3b4) − 3(b1b2b3 + b1b2b4 + b1b3b4 + b2b3b4) + 6b1b2b3b4 -> (−3 + b1 + b2 + b3 + b4 − ba1 + 3ba2)^2
 b= dec2bin(2^6-1:-1:0)-'0';
 b1=b(:,1); b2=b(:,2); b3=b(:,3); b4=b(:,4); ba1=b(:,5); ba2=b(:,6);
 LHS= min(reshape( (b1.*b2 + b1.*b3 + b1.*b4 + b2.*b3 + b2.*b4 + b3.*b4) - 3*(b1.*b2.*b3 + b1.*b2.*b4 + b1.*b3.*b4 + b2.*b3.*b4) + 6*b1.*b2.*b3.*b4 ,4,[]));
 RHS= min(reshape( (-3 + b1 + b2 + b3 + b4 - ba1 + 3*ba2).^2 ,4,[]));
 isequal(LHS, RHS);
 
-%% SFR-BCR-2: (b1b2 + b1b3+b1b4+b2b3+b2b4+b3b4)−3(b1b2b3+b1b2b4+b1b3b4+b2b3b4)+6b1b2b3b4 -> (1−b1−b2−b3−b4−ba1+3ba2)^2
+%% SFR-BCR-2: (b1b2 + b1b3 + b1b4 + b2b3 + b2b4 + b3b4)−3(b1b2b3 + b1b2b4 + b1b3b4 + b2b3b4) + 6b1b2b3b4 -> (1 − b1 − b2 − b3 − b4 − ba1 + 3ba2)^2
 b= dec2bin(2^6-1:-1:0)-'0';
 b1=b(:,1); b2=b(:,2); b3=b(:,3); b4=b(:,4); ba1=b(:,5); ba2=b(:,6);
 LHS= min(reshape( (b1.*b2 + b1.*b3 + b1.*b4 + b2.*b3 + b2.*b4 + b3.*b4) - 3*(b1.*b2.*b3 + b1.*b2.*b4 + b1.*b3.*b4 + b2.*b3.*b4) + 6*b1.*b2.*b3.*b4 ,4,[]));
