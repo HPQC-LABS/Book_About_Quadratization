@@ -28,15 +28,11 @@ b1=b(:,1);b2=b(:,2);b3=b(:,3);b4=b(:,4);b5=b(:,5);b6=b(:,6);ba=b(:,7);
 LHS=(-2)*b1.*b2.*b3.*b4.*b5.*b6 + b5.*b6;
 RHS=2*(5*ba - b1.*ba - b2.*ba - b3.*ba - b4.*ba - b5.*ba - b6.*ba) + b5.*b6;
 
-%% Pg. 10, Eqs 27
+%% Pg. 10, Eq 27
 
-LHS=-b1.*b2.*b3.*b4.*b5.*b6;
-RHS=(6 - 1 - b1 - b2 - b3 - b4 - b5 - b6).*ba;
-
-LHS=reshape(LHS,2,64);
-RHS=reshape(RHS,2,64);
-LHS=transpose(LHS(1,:));
-RHS=transpose(min(RHS));
+LHS=min(reshape(-b1.*b2.*b3.*b4.*b5.*b6,2,[]));
+RHS=min(reshape((6 - 1 - b1 - b2 - b3 - b4 - b5 - b6).*ba,2,[]));
+isequal(LHS,RHS);
 
 %%
 
