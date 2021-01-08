@@ -7,6 +7,14 @@ RHS=b1.*b2 + b2.*b3 + b3.*b4 + 4*b1 - 4*b1.*b2 - 4*b1.*b3;
 
 %% Pg. 1, Eqs 4-5 
 
+x = [0 1 ; 1 0]; y = [0 -1i ; 1i 0]; z = [1 0 ; 0 -1];
+x1 = kron(x, eye(8)); x2 = kron(kron(eye(2), x), eye(4)); x3 = kron(kron(eye(4), x), eye(2)); x4 = kron(eye(8), x);
+y1 = kron(y, eye(8)); y2 = kron(kron(eye(2), y), eye(4)); y3 = kron(kron(eye(4), y), eye(2)); y4 = kron(eye(8), y);
+z1 = kron(z, eye(8)); z2 = kron(kron(eye(2), z), eye(4)); z3 = kron(kron(eye(4), z), eye(2)); z4 = kron(eye(8), z);
+LHS = x1*y2*z3*y4 + y1*x2*z3*y4 + x1*x2*y3;
+RHS = x1*y4 + x2*y4 + x3;
+[eig(LHS) eig(RHS)];
+
 %% Pg. 6, Eqs 8 and 10
 
 LHS=b1.*b2 + b2.*b3 + b3.*b4 - 4*b1.*b2.*b3;
