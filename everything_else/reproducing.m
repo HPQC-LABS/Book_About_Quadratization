@@ -34,6 +34,17 @@ LHS=min(reshape(-b1.*b2.*b3.*b4.*b5.*b6,2,[]));
 RHS=min(reshape((6 - 1 - b1 - b2 - b3 - b4 - b5 - b6).*ba,2,[]));
 isequal(LHS,RHS);
 
+%% NTR-GBP: -b1b2b3 = min_ba(ba - b1 + b2 + b3 - b1b2 - b1b3 + b1)
+
+b= dec2bin(2^4-1:-1:0)-'0';
+b1=b(:,1);b2=b(:,2);b3=b(:,3);ba=b(:,4);
+LHS = min(reshape(-1*b1.*b2.*b3,2,[]));
+RHSa = min(reshape(ba.*(-b1 + b2 + b3) - b1.*b2 - b1.*b3 + b1,2,[]));
+RHSb = min(reshape(ba.*(-b2 + b1 + b3) - b1.*b2 - b2.*b3 + b2,2,[]));
+RHSc = min(reshape(ba.*(-b3 + b1 + b2) - b2.*b3 - b1.*b3 + b3,2,[]));
+isequal(LHS,RHSa,RHSb,RHSc);
+
+
 %%
 
 z=[1 0; 0 -1];
