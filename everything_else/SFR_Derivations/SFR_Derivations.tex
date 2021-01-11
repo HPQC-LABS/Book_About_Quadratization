@@ -52,14 +52,24 @@ We have the functions
 \label{eq:Ak}
 A_k(X,y,z) = X - (k-2^l)z - (k+1)(1-z) - \sum_{j=0}2^jy_j.
 \end{equation}
+After substituting for X, and collecting the terms, the equation for SFR-BCR-1 becomes
+\begin{equation}
+\label{eq:Ak1}
+A_k(X,y,z) = -(1+k) +\sum_i x_i - \sum_{j}2^jy_j + (1+2^l).
+\end{equation}
+Similarly for SFR-BCR-2 we have
+\begin{equation}
+\label{eq:Ak2}
+A_{n-k}({n-X},y,z) = -(1-k) +\sum_i x_i - \sum_{j}2^jy_j + (1+2^l).
+\end{equation}
 For the  two cases
 (top/bottom = SFR-BCR-1/SFR-BCR-2),
-after substituting and collecting the terms,
+by recognizing their similarities we can simplify the equation to
 \begin{equation}
 \label{eq:Ak12}
 \left.\begin{aligned}
 &A_k(X,y,z) \\
-&A_{n-k}({n-X},y,z) 
+&A_{n-k}({n-X},y,z)
 \end{aligned}\right\}
 = -(1\pm k) \pm \sum_i x_i - \sum_j 2^jy_j + (1+2^l)z.
 \end{equation}
