@@ -100,7 +100,18 @@ RHS=4*za+2*(z1+z2+z3+z4)+4*za*(z1+z2+z3+z4)+2*(z1*z2+z1*z3+z1*z4+z2*z3+z2*z4+z3*
 
 [diag(LHS) diag(RHS)];
 
-%% RBS-Rosenberg: b1b2b3 = min_ba(b3ba + b4ba + 2*b1b2 - 4*b1ba - 4*b2ba + 6ba)
+%% RBS-Rosenberg: b1b2b3 = min_ba(b1ba + b2b3 - 2*b2ba -2*b3ba + 3*ba) (Eq 150)
+
+b=[0 1];
+b1=kron(b,ones(1,8));
+b2=kron(kron(ones(1,2),b),ones(1,4));
+b3=kron(kron(ones(1,4),b),ones(1,2));
+ba=kron(ones(1,8),b);
+LHS=min(reshape(b1.*b2.*b3,2,[]));
+RHS=min(reshape(b1.*ba + b2.*b3 - 2*b2.*ba - 2*b3.*ba + 3*ba,2,[]));
+isequal(LHS,RHS);
+
+%% RBS-Rosenberg: b1b2b3 + b1b2b4 = min_ba(b3ba + b4ba + 2*b1b2 - 4*b1ba - 4*b2ba + 6ba) (Eq 151)
 
 b=dec2bin(2^5-1:-1:0)-'0';
 b1=b(:,1);b2=b(:,2);b3=b(:,3);b4=b(:,4);ba=b(:,5);
