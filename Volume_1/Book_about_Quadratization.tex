@@ -3170,7 +3170,7 @@ b_ib_j b_k \rightarrow b_ab_k + b_ib_j - 2b_ib_a - 2b_jb_a + 3b_a.
 We pick the pair $(b_{1},b_{2})$ and combine.
 
 \begin{equation}
-b_{1}b_{2}b_{3}+b_{1}b_{2}b_{4}\mapsto b_{3}b_a+b_{4}b_a+b_{1}b_{2}-2b_{1}b_a-2b_{1}b_a+3b_a
+b_{1}b_{2}b_{3}+b_{1}b_{2}b_{4}\mapsto b_{3}b_a+b_{4}b_a+2b_{1}b_{2}-4b_{1}b_a-4b_{2}b_a+6b_a
 \end{equation}
 
 \refsec
@@ -3204,7 +3204,7 @@ Each application `rips out' this common component from each term \cite{Fix2011,B
 \begin{itemize}
 
 \item One auxiliary variable per application.
-\item In combination with \ref{subsec:Negative-Monomial-Reduction}, it can reduce $t$ positive terms of degree $k$ in $n$ variables using $n+t(k-1)$ auxiliary variables in the worst case.
+\item In combination with \ref{subsec:Negative-Monomial-Reduction}, it can reduce $t$ negative terms of degree $k$ in $n$ variables using $n+t(k-2)$ auxiliary variables in the worst case.
 \end{itemize}
 
 \prossec
@@ -3219,16 +3219,16 @@ Each application `rips out' this common component from each term \cite{Fix2011,B
 
 \examplesec
 
-First let $C=b_{1}$ and use the positive weight version:
+First let $C=b_{1}b_{2}$ and we can get:
 \begin{eqnarray}
-b_{1}b_{2}b_{3}+b_{1}b_{2}b_{4} & \mapsto & 2b_{a_1}b_{1}+(1-b_{a_1})b_{2}b_{3}+(1-b_{a_1})b_{2}b_{4}\\
- & = & 2b_{a_1}b_{1}+b_{2}b_{3}+b_{2}b_{4}-b_{a_1}b_{2}b_{3}-b_{a_1}b_{2}b_{4}
+-b_{1}b_{2}b_{3}-b_{1}b_{2}b_{4} & \mapsto & (1-b_{1}b_{2}-b_{3})b_{a_1}+(1-b_{1}b_{2}-b_{4})b_{a_1}\\
+ & = & 2b_{a_1}-b_{3}b_{a_1}-b_{4}b_{a_1}-2b_{1}b_{2}b_{a_1}
 \end{eqnarray}
 now we can use \ref{subsec:Negative-Monomial-Reduction}:
 
 \begin{eqnarray}
-\hspace{-9mm}-b_{a_1}b_{2}b_{3}-b_{a_1}b_{2}b_{4} & \mapsto & 2b_{a_2}-b_{a_1}b_{a_2}-b_{a_2}b_{2}-b_{a_2}b_{3}+2b_{a_2}-b_{a_1}b_{a_2}-b_{a_2}b_{2}-b_{a_2}b_{4}\\
- & = & 4b_{a_2}-2b_{a_1}b_{a_2}-2b_{a_2}b_{2}-b_{a_2}b_{3}-b_{a_2}b_{4}.
+\hspace{-9mm}-2b_{1}b_{2}b_{a_1} & \mapsto & 2(2-b_{1}-b_{2}-b_{a_1})b_{a_2}\\
+ & = & 4b_{a_2}-2b_{1}b_{a_2}-2b_{2}b_{a_2}-2b_{a_1}b_{a_2}.
 \end{eqnarray}
 
 \refsec
