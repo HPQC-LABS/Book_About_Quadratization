@@ -100,16 +100,45 @@ RHS=4*za+2*(z1+z2+z3+z4)+4*za*(z1+z2+z3+z4)+2*(z1*z2+z1*z3+z1*z4+z2*z3+z2*z4+z3*
 
 [diag(LHS) diag(RHS)];
 
-%% RBS-Rosenberg: b1b2b3 = min_ba(b1ba + b2b3 -2b2ba -2b3ba + 3ba)
+%% RBS-Rosenberg: b1b2b3 = min_ba(b3ba + b4ba + 2*b1b2 - 4*b1ba - 4*b2ba + 6ba)
 
-b=[0 1];
-b1=kron(b,ones(1,8));
-b2=kron(kron(ones(1,2),b),ones(1,4));
-b3=kron(kron(ones(1,4),b),ones(1,2));
-ba=kron(ones(1,8),b);
+b=dec2bin(2^5-1:-1:0)-'0';
+b1=b(:,1);b2=b(:,2);b3=b(:,3);b4=b(:,4);ba=b(:,5);
+LHS=min(reshape(b1.*b2.*b3 + b1.*b2.*b4,2,[]));
+RHS=min(reshape(b3.*ba + b4.*ba + 2*b1.*b2 - 4*b1.*ba - 4*b2.*ba + 6*ba,2,[]));
+isequal(LHS,RHS);
 
-LHS=b1.*b2.*b3;
-RHS=b1.*ba + b2.*b3 -2*b2.*ba - 2*b3.*ba + 3*ba;
+%% FGBZ for negative: -b1b2b3 - b1b2b4 = min_ba((1 - b1b2 - b3)ba1 + (1 - b1b2 - b4)ba1)  (Eqs 153-154)
+
+b=dec2bin(2^6-1:-1:0)-'0';
+b1=b(:,1);b2=b(:,2);b3=b(:,3);b4=b(:,4);ba1=b(:,5);ba2=b(:,6);
+LHS=min(reshape(-b1.*b2.*b3 - b1.*b2.*b4,4,[]));
+RHSa=min(reshape((1 - b1.*b2 - b3).*ba1 + (1 - b1.*b2 - b4).*ba1,4,[]));
+RHSb=min(reshape(2*ba1 - b3.*ba1 - b4.*ba1 - 2*b1.*b2.*ba1,4,[]));
+isequal(LHS,RHSa,RHSb);
+
+%% FGBZ for negative: -b1b2b3 - b1b2b4 = min_ba(2*ba1 - b3ba1 - b4ba1 + 2*(2 - b1 - b2 - ba1)ba2)  (Eqs 155-156)
+
+LHS=min(reshape(-b1.*b2.*b3 - b1.*b2.*b4,4,[]));
+RHSa=min(reshape(2*ba1 - b3.*ba1 - b4.*ba1 + 2*(2 - b1 - b2 - ba1).*ba2,4,[]));
+RHSb=min(reshape(2*ba1 - b3.*ba1 - b4.*ba1 + 4*ba2 - 2*b1.*ba2 - 2*b2.*ba2 - 2*ba1.*ba2,4,[]));
+isequal(LHS,RHSa,RHSb);
+
+%% FGBZ for positive: b1b2b3 + b1b2b4 = min_ba(2*ba1b1 + (1 - ba1)b2b3 + (1 - ba1)b2b4)  (Eqs 158-159)
+
+b=dec2bin(2^6-1:-1:0)-'0';
+b1=b(:,1);b2=b(:,2);b3=b(:,3);b4=b(:,4);ba1=b(:,5);ba2=b(:,6);
+LHS=min(reshape(b1.*b2.*b3 + b1.*b2.*b4,4,[]));
+RHSa=min(reshape(2*ba1.*b1 + (1 - ba1).*b2.*b3 + (1 - ba1).*b2.*b4,4,[]));
+RHSb=min(reshape(2*ba1.*b1 + b2.*b3 + b2.*b4 - ba1.*b2.*b3 - ba1.*b2.*b4,4,[]));
+isequal(LHS,RHSa,RHSb);
+
+%% FGBZ for positive: b1b2b3 + b1b2b4 = min_ba(2*ba1b1 + b2b3 + b2b4 + 4*ba2 - 2*ba2ba1 - 2*ba2b2 - ba2b3 - ba2b4)  (Eqs 160-161)
+
+LHS=min(reshape(b1.*b2.*b3 + b1.*b2.*b4,4,[]));
+RHSa=min(reshape(2*ba1.*b1 + b2.*b3 + b2.*b4 + 2*ba2 - ba2.*ba1 - ba2.*b2 - ba2.*b3 + 2*ba2 - ba2.*ba1 - ba2.*b2 - ba2.*b4,4,[]));
+RHSb=min(reshape(2*ba1.*b1 + b2.*b3 + b2.*b4 + 4*ba2 - 2*ba2.*ba1 - 2*ba2.*b2 - ba2.*b3 - ba2.*b4,4,[]));
+isequal(LHS,RHSa,RHSb);
 
 %% PTR-KZ: b1b2b3 = min_ba(1 − (ba + b1 + b2 + b3) + ba (b1 + b2 + b3) + b1b2 + b1b3 + b2b3)
 
