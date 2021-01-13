@@ -3141,7 +3141,7 @@ The first expression is highly non-submodular while the second is entirely submo
 Pick a variable pair $(b_{i},b_{j})$ and substitute $b_{i}b_{j}$ with a  new auxiliary variable $b_{a_{ij}}$.
 Enforce equality in the ground states by adding some scalar multiple of the penalty $P=b_{i}b_{j}-2b_{i}b_{a_{ij}}-2b_{j}b_{a_{ij}}+3b_{a_{ij}}$ or similar. Since $P > 0$ if and only if $b_{a_{ij}}\ne b_ib_j$, the minimum of the new $(k-1)$-local function will satisfy $b_{a_ij}=b_{i}b_{j})$, which means that at the minimum, we have precisely the original function. Repeat $(k-2)$ times for each $k$-local term and the resulting function will be 2-local. For an arbitrary cubic term we have:
 
-\begin{equation}
+\begin{equation}\label{eq:rosenberg}
 b_ib_j b_k \rightarrow b_ab_k + b_ib_j - 2b_ib_a - 2b_jb_a + 3b_a.
 \end{equation}
 
@@ -3167,10 +3167,10 @@ b_ib_j b_k \rightarrow b_ab_k + b_ib_j - 2b_ib_a - 2b_jb_a + 3b_a.
 
 \examplesec
 
-We pick the pair $(b_{1},b_{2})$ and combine.
+We pick a pair, for example $b_{1},b_{2}$ and apply Eq. \eqref{eq:rosenberg}:
 
 \begin{equation}
-b_{1}b_{2}b_{3}+b_{1}b_{2}b_{4}\mapsto b_{3}b_a+b_{4}b_a+2b_{1}b_{2}-4b_{1}b_a-4b_{2}b_a+6b_a
+b_{1}b_{2}b_{3}+b_{1}b_{2}b_{4}\mapsto b_{3}b_a+b_{4}b_a+2b_{1}b_{2}-4b_{1}b_a-4b_{2}b_a+6b_a.
 \end{equation}
 
 \refsec
