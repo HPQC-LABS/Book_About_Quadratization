@@ -13,4 +13,4 @@ year = {2019}<br>
 <hr>
 
 <b>This book would not have been possible without the additional contributors that have helped immensely:</b><br>
-Richard Tanburn, Andreas Soteriou, Nicholas Chancellor, Szilard Szalay, Elisabeth Rodriguez-Heck, Hou Tin Chau, Ka Wa Yip, Yudong Cao, Daniel Nagaj, Ruby Kong, Tim Li, Erika Bruulsema, Jacob Biamonte.
+Richard Tanburn, Andreas Soteriou, Nicholas Chancellor, Szilard Szalay, Elisabeth Rodriguez-Heck, Hou Tin Chau, Ka Wa Yip, Yudong Cao, Daniel Nagaj, Ruby Kong, Tim Li, Matthew Charbonneau, Erika Bruulsema, Jacob Biamonte.
