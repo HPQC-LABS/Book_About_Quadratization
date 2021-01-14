@@ -3309,60 +3309,44 @@ now we can use \ref{subsec:Negative-Monomial-Reduction} to quadratize the two ne
 
 \summarysec
 
-Here we consider a set $C$ of variables which occur in multiple monomials throughout the objective function.
-Each application 'rips out' this common component from each term \cite{Fix2011}\cite{Boros2014}.
+Let $S$ be a set of monomials, where $\mathcal{H} \subseteq S$ for each $H\in\mathcal{H}$ and each $H$ has a weight $\alpha_{H}$. $\mathcal {H}$ is a pairwise cover of the function. We can partition each term of the objective function into a product of two monomials $A(S), B(S)$, which will be replaced by auxiliary variables. Each application replaces original monomials with selected auxiliary variables \cite{Anthony2017}:
 
-Let $\mathcal{H}$ be a set of monomials, where $C \subseteq H$ for each $H\in\mathcal{H}$ and each monomial $H$ has a weight $\alpha_{H}$.
-The algorithm comes in 2 parts: when all $\alpha_{H}>0$ and when all $\alpha_{H}<0$. Combining the 2 gives the final method:
-
-\begin{enumerate}
-\item $\alpha_{H}>0$ 
 \begin{equation}
-\sum_{H\in\mathcal{H}}\alpha_{H}\prod_{j\in H}b_{j}=\min_{b_a}\left(\sum_{H\in\mathcal{H}}\alpha_{H}\right)b_a\prod_{j\in C}b_{j}+\sum_{H\in\mathcal{H}}\alpha_{H}(1-b_a)\prod_{j\in H\setminus C}b_{j}
+\sum_{S\in\mathcal{F}}\alpha_{S}\prod_{j\in S}b_{j}=\min_{b_a}\sum_{S\in\mathcal{F}}\alpha_{S}\prod_{H\in R(S)}b_{H}+\sum_{H\in\mathcal{H}}|\alpha_{H}|\left(b_{H}\left(2|H|-1-2\sum_{j\in H}b_{j}\right)+\prod_{j\in H}b_{j}\right)
 \end{equation}
-\item $\alpha_{H}<0$
-\begin{equation}
-\sum_{H\in\mathcal{H}}\alpha_{H}\prod_{j\in H}b_{j}=\min_{b_a}\sum_{H\in\mathcal{H}}\alpha_{H}\left(1-\prod_{j\in C}b_{j}-\prod_{j\in H\setminus C}b_{j}\right)b_a
-\end{equation}
-\end{enumerate}
 
 \costsec
 \begin{itemize}
-
-\item One auxiliary variable per application.
-\item In combination with \ref{subsec:Negative-Monomial-Reduction}, it can be used to make an algorithm which can reduce $t$ positive monomials of degree $d$ in $n$ variables using $n+t(d-1)$ auxiliary variables in the worst case.
+\item One auxiliary variable per replaced monomial.
+\item Using at most $|\mathcal{H}|$ auxiliary variables.
 \end{itemize}
 
 \prossec
 \begin{itemize}
+\item Can quadratize complex objective functions directly
 \item Can reduce the connectivity of an objective function, as it breaks interactions between variables.
 \end{itemize}
 
 \conssec
 \begin{itemize}
-\item $\alpha_{H}>0$ method converts positive terms into negative ones of same order rather than reducing them, though these can then be reduced more easily.
-\item $\alpha_{H}<0$ method only works for $|C|>1$, and cannot quadratize cubic terms.
+\item Determining optimal substitutions can be expensive.
+\item It can lead to a large number of quadratic terms and auxiliary variables in the quadratization result.
 \end{itemize}
 
 \examplesec
 
-First let $C=b_{1}$ and use the positive weight version:
+We choose $b_{a_1}=b_{1}b_{3}, b_{a_2}=b_{2}b_{4}$:
 \begin{eqnarray}
-b_{1}b_{2}b_{3}+b_{1}b_{2}b_{4} & \mapsto & 2b_{a_1}b_{1}+(1-b_{a_1})b_{2}b_{3}+(1-b_{a_1})b_{2}b_{4}\\
- & = & 2b_{a_1}b_{1}+b_{2}b_{3}+b_{2}b_{4}-b_{a_1}b_{2}b_{3}-b_{a_1}b_{2}b_{4}
-\end{eqnarray}
-now we can use \ref{subsec:Negative-Monomial-Reduction}:
-
-\begin{eqnarray}
--b_{a_1}b_{2}b_{3}-b_{a_1}b_{2}b_{4} & \mapsto & 2b_{a_2}-b_{a_1}b_{a_2}-b_{a_2}b_{2}-b_{a_2}b_{3}+2b_{a_2}-b_{a_1}b_{a_2}-b_{a_2}b_{2}-b_{a_2}b_{4}\\
- & = & 4b_{a_2}-2b_{a_1}b_{a_2}-2b_{a_2}b_{2}-b_{a_2}b_{3}-b_{a_2}b_{4}.
+&\hspace{-1cm}5b_{1}b_{2}b_{3}b_{4}+4b_{1}b_{2}b_{4}-3b_{1}b_{3}-2b_{2}b_{3}b_{4} \mapsto 5b_{a_1}b_{a_2}+4b_{1}b_{a_2}-3b_{a_1}-2b_{3}b_{a_2}+\\
+&\hspace{3cm}8\left(b_{a_1}\left(3-2b_{1}-2b_{3}\right)+b_{1}b_{3}\right)+11\left(b_{a_2}\left(3-2b_{2}-2b_{4}\right)+b_{2}b_{4}\right)
 \end{eqnarray}
 
 \refsec
 \begin{itemize}
-\item Theorem 4 of: \citep{Anthony2017}.
+\item Theorem 4 of: \cite{Anthony2017}.
 \end{itemize}
 
+\newpage
 
 \begin{comment}
 
