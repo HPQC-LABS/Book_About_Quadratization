@@ -1,0 +1,273 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{commath}
+\usepackage{comment}
+\usepackage{hyperref}
+\usepackage{multicol}
+\hypersetup{
+ bookmarks=true,                % show bookmarks bar?
+ unicode=false,                 % non-Latin characters in Acrobat’s bookmarks
+ pdftoolbar=true,               % show Acrobat’s toolbar?
+ pdfmenubar=true,               % show Acrobat’s menu?
+ pdffitwindow=false,            % window fit to page when opened
+ pdfstartview={FitH},           % fits the width of the page to the window
+ pdftitle={SFR derivations},    % title
+ pdfauthor={Szil{\'a}rd Szalay},        % author
+ pdfsubject={},       % subject of the document
+ pdfcreator={pdflatex},         % creator of the document
+ pdfproducer={vim},             % producer of the document
+ pdfkeywords={SFR} {BCR}, % list of keywords
+ pdfnewwindow=true,             % links in new window
+ colorlinks=true,               % false: boxed links; true: colored links
+ linktoc=page,                  % defines which part of an entry in the table of contents is made into a link
+%%%%%%%%% colored links
+ linkcolor=blue,                % color of internal links       (red)
+ citecolor=blue,                % color of links to bibliography
+ filecolor=magenta,             % color of file links
+ urlcolor=blue                  % color of external links
+}
+%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[inline]{showlabels}
+\renewcommand{\showlabelfont}{\footnotesize\ttfamily\color{OliveGreen}}
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\newcommand{\ceil}[1]{\lceil #1 \rceil}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\section{PTR-BCR}
+
+Binary variables: $x_1,x_2,\dots,x_n\in\{0,1\}$,
+and let $X = |x|:=\sum_{i=1}^n x_i$
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{PTR-BCR-1}
+
+Let's begin with the equation for the quadratization of P. (In the formulas, summations for $i,i' = 1,2,\dots,n$ are understood unless stated otherwise.)\\(Theorem 4.3, Anthony et al. [14])
+\begin{equation}
+\begin{split}
+  \left.
+  g(x,y)
+  \right.
+  &= -2\Big[n - \frac{1}{2} - l\Big]^{-} + E''(l)\\
+  &= \frac{l(l+1)}{2} + \sum_{\substack{i = 1:\\ i\:odd}}^{n-2}2y_i\Big[i-\frac{1}{2}-l\Big]^-\\
+  &= \sum_i x_i + \sum_{1\leq i<j\leq n}x_ix_j + \mathop{min}_{y}\sum_{\substack{i = 1:\\ i\:odd}}^{n-2}2y_i\Big(i-\frac{1}{2}-l\Big)
+  \end{split}
+\end{equation}
+
+\noindent Using the relationship $l = \sum_{j=1}^n x_j$ we get
+\begin{equation}
+  g(x,y) = \sum_i x_i + \sum_{1\leq i<j\leq n}x_ix_j + \mathop{min}_{y}\sum_{\substack{i = 1:\\ i\:odd}}^{n-2}2y_i\Big(i-\frac{1}{2}-\sum_j x_j\Big)
+\end{equation}
+
+\noindent Finally, after rearranging we end with the equation
+\begin{equation}
+  g(x,y) = \sum_i x_i + \sum_{2i - 1}(2(2i - 1)-1)y_{2i - 1} + \sum_{1\leq i<j\leq n}x_ix_j - \sum_{2i - 1}\sum_jy_{2i - 1} x_j
+\end{equation}
+
+\noindent Dictionary:\\
+$x_{i,j}\mapsto b_{i,j}$,\\
+$y_{2i-1}\mapsto b_{a_{2i-1}}$\\
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{PTR-BCR-2}
+
+To begin, we start with the following equation: (In the formulas, summations for $i,i' = 1,2,\dots,n$ and $j,j' = 0,1,\dots,m$ are understood.)\\(Theorem 10, Boros et al. [23])
+\begin{equation}
+  g(x,y) = \frac{1}{2}\Big(\abs{x} - 2\abs{y} - (N - 2)y_1\Big)\Big(\abs{x} - 2\abs{y} - (N - 2)y_1 - 1\Big)
+\end{equation}
+
+\noindent \\Substituting for x, y, and N using $\sum_i x_i$, $\sum_j y_j$, and $n - 2m$, respectively, we get
+\begin{equation}
+  g(x,y) = \frac{1}{2}\Big(\sum_i x_i - 2\sum_j y_j - (n - 2m - 2)y_1\Big)\Big(\sum_i x_i - 2\sum_j y_j - (n - 2m - 2)y_1 - 1\Big)
+\end{equation}
+
+\noindent \\After expanding and simplifying, the equation becomes
+\begin{equation}
+\begin{split}
+  \left.
+  g(x,y)
+  \right.
+  = -\frac{1}{2}\sum_i x_i + \sum_j y_j + \frac{1}{2}(n-2m-2)y_1\\
+  + \frac{1}{2}\sum_{i,i'}x_i x_{i'} -2\sum_i \sum_j x_i y_j -(n-1m-2)\sum_i x_i y_{1}\\
+  + 2\sum_{j,j'} y_j y_{j'} + 2(n-2m-2)\sum_{j,j'} y_j y_{1} + \frac{1}{2}((n-2m-2)y_1)^2
+\end{split}
+\end{equation}
+
+\noindent Because $y_{1}\in\{0,1\}$, we have $y_{1}^2=y_{1}$, so we can join the two terms,
+\begin{equation}
+  \frac{1}{2}(n-2m-2)y_1 + \frac{1}{2}((n-2m-2)y_1)^2 = \frac{1}{2}(-3n + 6m + n^2 - 4mn + 4m^2 + 2)y_1
+\end{equation}
+
+\noindent \\Thus we are left with
+\begin{equation}
+\begin{split}
+  \left.
+  g(x,y)
+  \right.
+  = \underbrace{-\frac{1}{2}}_{\alpha^b}\sum_i x_i
+  + \underbrace{1}_{\alpha^{b_{a,1}}}\sum_j y_j
+  + \underbrace{\frac{1}{2}(-3n + 6m + n^2 - 4mn + 4m^2 + 2)}_{\alpha^{b_{a,2}}}y_1\\
+  + \underbrace{\frac{1}{2}}_{\alpha^{bb}}\sum_{i,i'}x_i x_{i'}
+  + \underbrace{-2}_{\alpha^{bb_{a,1}}}\sum_i \sum_j x_i y_j
+  + \underbrace{-(n-2m-2)}_{\alpha^{bb_{a,2}}}\sum_i x_i y_{1}\\
+  + \underbrace{2}_{\alpha^{b_{a,1}b_{a,1}}}\sum_{j,j'} y_j y_{j'}
+  + \underbrace{2(n-2m-2)}_{\alpha^{b_{a,1}b_{a,1}}}\sum_{j,j'} y_j y_{1}
+\end{split}
+\end{equation}
+
+\noindent The coefficients are
+\begin{subequations}
+\begin{align}
+\alpha^b &= -\frac{1}{2}\\
+\alpha^{b_{a,1}} &= 1\\
+\alpha^{b_{a,2}} &= \frac{1}{2}(-3n + 6m + n^2 - 4mn + 4m^2 + 2)\\
+\alpha^{bb} &= \frac{1}{2}\\
+\alpha^{bb_{a,1}} &= -2\\
+\alpha^{bb_{a,2}} &= -(n-2m-2)\\
+\alpha^{b_{a,1}b_{a,1}} &= 2\\
+\alpha^{b_{a,1}b_{a,2}} &= 2(n-2m-2)
+\end{align}
+\end{subequations}
+
+\noindent Dictionary:\\
+$y_{1}\mapsto b_{a_m}$,\\
+$x_i\mapsto b_i$,\\
+$y_j\mapsto b_{a_i}$\\
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{PTR-BCR-3} %From Theorem 4: [22].
+
+We begin with the following equation:
+(In the formulas, summations for $i,i' = 1,2,\dots,n$ and $j,j' = 0,1,\dots,k-1$ are understood.)
+\\(Theorem 4, Boros et al. [23])
+
+\begin{equation}
+  g(x,y) = \Big(K + X - \sum_{j} 2^j y_j\Big)^2
+\end{equation}
+
+\noindent Knowing that $X = \sum_{i=1}^n x_i$ and $K = 2^k - n$, we substitute to get
+\begin{equation}
+  g(x,y) = \Big(2^k - n + \sum_i x_i - \sum_{j} 2^j y_j\Big)^2
+\end{equation}
+
+\noindent Expanding the square and collecting like terms we end with
+\begin{equation}
+\begin{comment}
+  Full expansion w/o rearranging or collecting like terms
+  = 2^{2k} - 2^kn + 2^k\sum_{i'} x_{i'} - \sum_{j'} 2^j y_j - 2^kn + n^2 - n\sum_{i'} x_{i'}\\
+  + n\sum_{j'} 2^j y_j + 2^k\sum_{i} x_{i} - n\sum_{i} x_{i} + \sum_{i}\sum_{i'}x_ix_{i'}\\
+  + \sum_{i}\sum_{j'}2^{j'}x_iy_{j'} - \sum_j 2^{j+k}y_j + n\sum_j 2^j y_j\\
+  - \sum_{i'}\sum_j 2^j x_{i'}y_j + \sum_j\sum_{j'}2^{j+j'}y_j y_j'
+\end{comment}
+\begin{split}
+\left.
+g(x,y)
+\right.
+= \underbrace{(2^k-n)^2}_{\alpha}
++ \underbrace{2(2^k-n)}_{\alpha^b}\sum_i x_i
++ \underbrace{-2(2^k-n)}_{\alpha^{b_a}}\sum_j 2^j y_j\\
++ \underbrace{1}_{\alpha^{bb}}\sum_{i,i'}x_i x_{i'}
++ \sum_i\sum_j\underbrace{2^{j-1}}_{\alpha^{bb_a}}x_i y_j
++ \sum_{j,j'}\underbrace{2^{j+j'}}_{\alpha^{b_ab_a}}y_j y_{j'}
+\end{split}
+\end{equation}
+
+\noindent The coefficients are
+\begin{subequations}
+\begin{align}
+\alpha &= (2^k-n)^2\\
+\alpha^b &= 2(2^k-n)\\
+\alpha^{b_a} &= -2(2^k-n)\\
+\alpha^{bb} &= 1\\
+\alpha^{bb_a} &= 2^{j-1}\\
+\alpha^{b_ab_a} &= 2^{j+j'}
+\end{align}
+\end{subequations}
+
+\noindent Dictionary:
+\begin{multicols}{2}
+\noindent $k\mapsto m$,\\
+$n\mapsto k,$\\
+\columnbreak
+$x_i\mapsto b_i$,\\
+$x_{i'}\mapsto b_j$,\\
+$y_j\mapsto b_{a_i}$,\\
+$y_{j'}\mapsto b_{a_j}$\\
+\end{multicols}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{PTR-BCR-4} %From Theorem 9: [23]
+
+We start with the following equation for the quadratization of PTR-BCR-4: (In the formulas, summations for $i,i' = 1,2,\dots,n$ and $j,j' = 0,1,\dots,l-1$ are understood.)
+\\(Theorem 9, Boros et al. [23])
+
+\begin{equation}
+g(x,y) = \frac{1}{2}\Big(\abs{x} - 2^l - n - \sum_j 2^j y_j\Big)\Big(\abs{x} - 2^l - n - \sum_j 2^j y_j - 1\Big)
+\end{equation}
+
+\noindent After substituting for X, we end with
+\begin{equation}
+g(x,y) = \frac{1}{2}\Big(-2^l - n + \sum_i x_i - \sum_j 2^j y_j\Big)\Big(-2^l - n + \sum_i x_i - \sum_j 2^j y_j - 1\Big)
+\end{equation}
+
+\noindent Dictionary:
+\begin{multicols}{2}
+\noindent $l\mapsto m + 1$,\\
+\columnbreak
+$n\mapsto k$,\\
+$x_i\mapsto b_i$,\\
+$y_j\mapsto b_{a_i}$,\\
+\end{multicols}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{PTR-BCR-5} %From Remark 5: [23]
+With $log(n)$ auxiliary variables we have the equation:
+(In the formulas, summations for $i,i' = 1,2,\dots,n$ and $j,j' = 0,1,\dots,l-1$ are understood.)
+\\(Remark 5 from Theorem 9, Boros et al. [23])
+
+\begin{equation}
+  g'(x,y) = \Big(\abs{x} - \sum_{j}2^jy_j\Big)^2
+\end{equation}
+We can express x using the formula $\abs{x} = \sum_i x_i$
+
+\begin{equation}
+  g'(x,y) = \Big(\sum_{i}x_i - \sum_{j}2^jy_j\Big)^2
+\end{equation}
+
+\noindent By expanding and collecting like terms the equation finally becomes
+\begin{equation}
+\begin{split}
+\left.
+g'(x,y)
+\right.
+= \underbrace{1}_{\alpha^{bb}}\sum_{i,i'}x_i x_{i'}
++ \sum_{i,j}\underbrace{2^{j-1}}_{\alpha^{bb_a}} x_i y_j
++ \sum_{j,j'}\underbrace{2^{j+j'}}_{\alpha^{b_ab_a}}y_j y_{j'}
+\end{split}
+\end{equation}
+
+\noindent The coefficients are
+\begin{subequations}
+\begin{align}
+\alpha^{bb} &= 1\\
+\alpha^{bb_a} &= 2^{j-1}\\
+\alpha^{b_ab_a} &= 2^{j+j'}
+\end{align}
+\end{subequations}
+
+\noindent Dictionary:\\
+$x_i\mapsto b_i$,\\
+$y_j\mapsto b_{a_i}$\\
+
+\end{document}
