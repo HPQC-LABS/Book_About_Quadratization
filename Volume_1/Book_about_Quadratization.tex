@@ -1595,29 +1595,23 @@ b_1 \ldots b_k &= \min_{b'_1, \ldots b'_n} \frac{1}{2} \left( N + X - \sum^n_{i=
 
 \newpage
 
-\subsection{PTR-BCR-5 (Boros, Crama, and Rodr\'{i}guez-Heck, 2018)} 
+\subsection{PTR-BCR-5 (Boros, Crama, and Rodr\'{i}guez-Heck, 2018)}
 
 \summarysec
 
 %Suppose we have a monomial $b_1b_2b_3 \ldots b_k$.
-Pick $m$ such that $k \le 2^{m+1}$,
-
+This is a more general form of the previous reduction, PTR-BCR-4, in which $k=2^{m+1}$:
 \begin{align}
-b_1 \ldots b_k &\rightarrow   \frac{1}{2} \left( 2^{m+1}-k + \sum_ib_i - \sum^m_{i} 2^i b_{a_i} \right)
-\left( 2^{m+1}-k + \sum_i b_i - \sum^m_{i} 2^i b_{a_i} - 1 \right).
+b_1 \ldots b_k &\rightarrow  \sum_{ij}b_ib_j + \sum_{ij}^m 2^{i+j}b_{a_i}b_{a_j} - \sum_i \sum_j^m 2^{j+1}b_ib_{a_i}.
 \end{align}
 
 \costsec
 
-$\lceil \log n \rceil  $ auxiliary qubits per positive monomial.
+$\log(n)$ auxiliary qubits per positive monomial.
 
 \prossec
 \begin{itemize}
 \item Logarithmic number of auxiliary variables.
-\item "As mentioned in Section 1, Theorem 9 provides a significant improvement
-over the best previously known quadratizations for the Positive monomial,
-and the upper bound on the number of auxiliary variables precisely matches
-the lower bound presented in Section 3."
 \end{itemize}
 
 \conssec
@@ -1633,18 +1627,15 @@ the lower bound presented in Section 3."
 %Then:
 \begin{eqnarray}
 %b_1 b_2 b_3 b_4 = \min_{b_{a_1}, b_{a_2}} \frac{1}{2}
-b_1 b_2 b_3 b_4 \rightarrow  \frac{1}{2}
-\left( b_1 + b_2 + b_3 + b_4 - 2b_a \right)
-\left( b_1 + b_2 + b_3 + b_4 - 2b_a - 1 \right)
+b_1 b_2 b_3 b_4 \rightarrow
+\left( b_1 + b_2 + b_3 + b_4 - 2b_a \right)^2
 \end{eqnarray}
 
 \altformsec
-
-Let $X = \sum b_i$ and $N = 2^{m+1} - k$,
+\\\indent Let $|x|=\sum_{i=1}^nb_i$
 
 \begin{align}
-b_1 \ldots b_k &= \min_{b'_1, \ldots b'_n} \frac{1}{2} \left( N + X - \sum^n_{i=1} 2^i b'_i \right)
-\left( N + X - \sum^n_{i=1} 2^i b'_i - 1 \right).
+b_1 \ldots b_k &= \left(|x| - \sum_{i=0}^m 2^i b_{a_i} \right)^2.
 \end{align}
 
 \refsec
