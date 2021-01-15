@@ -38,19 +38,21 @@
 
 \begin{document}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section{SFR-BCR}
 
-Binary variables: $x_1,x_2,\dots,x_n\in\{0,1\}$, 
+Binary variables: $x_1,x_2,\dots,x_n\in\{0,1\}$,
 and let $X:=\sum_{i=1}^n x_i$, $2\leq k\in\mathbb{N}$, $l = \ceil{\log k}$
 
 \subsection{SFR-BCR-1,2}
 We have the $l+1$ auxiliary variables $y_0,y_1,\dots,y_{l-1},z\in\{0,1\}$.
-(In the formulas, summations for $i,i' = 1,2,\dots,n$ and $j,j' = 0,1,\dots,l-1$ are understood.)
+(In the formulas, summations for $i,i' = 1,2,\dots,n$ and $j,j' = 0,1,\dots,l-1$ are understood.)\\
 
-We have the functions
+We have the function (See Observation 1. from [22]) %% Would a proper citation be needed
 \begin{equation}
 \label{eq:Ak}
-A_k(X,y,z) = X - (k-2^l)z - (k+1)(1-z) - \sum_{j=0}2^jy_j.
+A_k(X,y,z) = X - (k-2^l)z - (k+1)(1-z) - \sum_{j}2^jy_j.
 \end{equation}
 After substituting for X, and collecting the terms, the equation for SFR-BCR-1 becomes
 \begin{equation}
@@ -79,7 +81,7 @@ Then the squares are
 \begin{split}
 \left.\begin{aligned}
 &A_k(X,y,z)^2 \\
-&A_{n-k}({n-X},y,z)^2 
+&A_{n-k}({n-X},y,z)^2
 \end{aligned}\right\}
 = (1\pm k)^2 \mp2(1\pm k)\sum_i x_i +2(1\pm k)\sum_j 2^jy_j -2(1\pm k)(1+2^l)z & \\
 + \sum_i\sum_{i'} x_ix_{i'} \mp2\sum_i\sum_j 2^jx_iy_j \pm2 (1+2^l)\sum_i zx_i & \\
@@ -97,13 +99,13 @@ so we end up with
 \begin{split}
 &\left.\begin{aligned}
 &A_k(X,y,z)^2 \\
-&A_{n-k}({n-X},y,z)^2 
+&A_{n-k}({n-X},y,z)^2
 \end{aligned}\right\} = \\
-&\underbrace{(1\pm k)^2}_{\alpha} 
-+ \underbrace{\mp 2(1\pm k)}_{\alpha^{b}} \sum_i x_i 
+&\underbrace{(1\pm k)^2}_{\alpha}
++ \underbrace{\mp 2(1\pm k)}_{\alpha^{b}} \sum_i x_i
 + \sum_j \underbrace{(1\pm k)2^{j+1}}_{\alpha^{b_{a,1}}}y_j
 + \underbrace{(1+2^l)(2^l\mp2k-1)}_{\alpha^{b_{a,2}}}z \\
-&+ \underbrace{1}_{\alpha^{bb}} \sum_{i,i'} x_ix_{i'} 
+&+ \underbrace{1}_{\alpha^{bb}} \sum_{i,i'} x_ix_{i'}
 + \sum_{i,j} \underbrace{\mp2^{j+1}}_{\alpha^{bb_{a,1}}}x_iy_j
 + \underbrace{\pm2(1+2^l)}_{\alpha^{bb_{a,2}}}\sum_i x_iz \\
 &+ \sum_{j,j'} \underbrace{2^{j+j'}}_{\alpha^{b_ab_{a,1}}}y_jy_{j'}
@@ -141,6 +143,7 @@ Note that, in this case, the $j$ indices of the auxiliary bits have to be shifte
 (This is not the case in the next subsection.)
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{SFR-BCR-3,4}
 We have now the $l$ auxiliary variables $y_1,y_2,\dots,y_{l-1},z\in\{0,1\}$.
@@ -149,7 +152,7 @@ We have now the $l$ auxiliary variables $y_1,y_2,\dots,y_{l-1},z\in\{0,1\}$.
 We have the functions
 \begin{equation}
 \label{eq:Akp}
-A'_k(X,y,z) = X - (k-2^l)z - (k+1)(1-z) - \sum_{j=1}^{l-1}2^jy_j.
+A'_k(X,y,z) = X - (k-2^l)z - (k+1)(1-z) - \sum_{j}2^jy_j.
 \end{equation}
 Note that, compared to \eqref{eq:Ak},
  the difference is only in the range of index $j$ of the sum in the last term.
@@ -160,17 +163,17 @@ after substituting and collecting the terms,
 \label{eq:Akp34}
 \left.\begin{aligned}
 &A'_k(X,y,z) \\
-&A'_{n-k}({n-X},y,z) 
+&A'_{n-k}({n-X},y,z)
 \end{aligned}\right\}
 = -(1\pm k) \pm \sum_i x_i - \sum_j 2^jy_j + (1+2^l)z.
 \end{equation}
-(Again, although not written out explicitly, 
+(Again, although not written out explicitly,
 the difference is in the range of $j$ of the summation, c.f., \eqref{eq:Ak12})
 
 We can obtain the $\alpha^{\dots}$ coefficients for BCR-3,4
 from those of BCR-1,2.
 Instead of taking the squares, $A_k(X,y,z)^2$ and $A_{n-k}(n-X,y,z)^2$,
-for BCR-3,4 we have to take 
+for BCR-3,4 we have to take
 $\frac12 A'_k(X,y,z)\bigl(A'_k(X,y,z)-1\bigr)=\frac12\bigl(A'_k(X,y,z)^2-A'_k(X,y,z)\bigr)$ and
 $\frac12 A'_{n-k}(n-X,y,z)\bigl(A'_{n-k}(n-X,y,z)-1\bigr)=\frac12\bigl(A'_{n-k}(n-X,y,z)^2-A'_{n-k}(n-X,y,z)\bigr)$,
 so, to get the new $\alpha^{\dots}$ coefficients,
@@ -200,12 +203,78 @@ from the old ones \eqref{eq:BCR12alpha}, and divide by $2$.
 Dictionary: \\
 $l\mapsto m$, ($l=m$ auxiliary variables),\\
 $x_i\mapsto b_i$, \\
-$y_j\mapsto b_{a_j},$ 
+$y_j\mapsto b_{a_j},$
 ($b_{\text{a},j}$ would be a better choice, $\text{a}$ is a label, $j$ is an index, they should be on the same level.
 Also the indexing of the $\alpha^{\dots}$ coefficients could be made more expressive.)\\
 $z\mapsto b_{a_m}$, ($b_{\text{a},m}$ would be better)\\
 $k\mapsto c$.
 
 
-\end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\subsection{SFR-BCR-5,6}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{SFR-ABCG-2}
+
+We begin with the following representation of the parity function.
+\\(Theorem 4.6, Anthony et al. [14])
+
+\begin{equation}
+  \prod{(x)} = \sum_{j=1}^n x_j + 2\sum_{i=1}^{n-1}(-1)^{i-1}\left[i - \sum_{j=1}^{n}x_j\right]^-
+\end{equation}
+
+\noindent Adding $E(l) = l(l-1) + 2\sum_{i=1}^{n-1}\left[i-l\right]^-$ where $l = \sum_{j=1}^n x_j$, we get the quadratization
+
+\begin{equation}
+\begin{split}
+  \left.
+  g(x,y)
+  \right.
+  &= 2\sum_{i<j}x_ix_j + \sum_{j=1}^n x_j + 4\sum_{\substack{i = 1:\\ i\:odd}}^{n-1}y_i\Big(i - \sum_{j=1}^n x_j\Big)\\
+  &= \sum_{i}x_i + 2\sum_{ij}x_ix_j + 4\sum_{2i-1}^{n-1}y_i\Big(2i - 1 - \sum_{j}x_j\Big)
+  \end{split}
+\end{equation}
+
+\noindent Dictionary:\\
+$x_{i,j}\mapsto b_{i,j}$,\\
+$y_{i}\mapsto b_{a_i}$\\
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{SFR-ABCG-3}
+We begin with the complement of the previous function from SFR-ABCG-2:
+\\(Theorem 4.6, Anthony et al. [14])
+
+\begin{equation}
+  \overline{\prod}(x) = 1 - \sum_{j=1}^n x_j + 2\sum_{i=1}^{n-1}(-1)^{i}\left[i - \sum_{j=1}^{n}x_j\right]^-
+\end{equation}
+
+\noindent Adding $E(l) = l(l-1) + 2\sum_{i=1}^{n-1}\left[i-l\right]^-$ where $l = \sum_{j=1}^n x_j$, we get the quadratization
+
+\begin{equation}
+\begin{split}
+  \left.
+  g(x,y)'
+  \right.
+  &= 1 + 2\sum_{i<j}x_ix_j - \sum_{i}^n x_i + 4\sum_{\substack{i = 2:\\ i\:even}}^{n-1}y_i\Big(i - \sum_{j=1}^n x_j\Big)\\
+  &= 1 + 2\sum_{ij}x_ix_j - \sum_{i} x_i + 4\sum_{2i}^{n-1}y_i\Big(i - \sum_{j} x_j\Big)
+  \end{split}
+\end{equation}
+
+\noindent Dictionary:\\
+$x_{i,j}\mapsto b_{i,j}$,\\
+$y_{i}\mapsto b_{a_i}$\\
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{SFR-BCR-7,8}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{SFR-BCR-9}
+
+\end{document}
