@@ -212,10 +212,93 @@ $k\mapsto c$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{SFR-BCR-5,6}
+\subsection{SFR-BCR-5}
+
+We begin with the quadratization of f:
+\\(Theorem 6, Boros et al. [23])
+
+\begin{equation}
+  \begin{split}
+  \left.
+  g(x,y,z)
+  \right.
+  &= \sum_{i=0}^{l-1}\sum_{j=0}^{l-1}r(il+j)y_iz_j
+  + 2M\left(1-\sum_{i=0}^{l-1}y_i\right)^2 + 2M\left(1-\sum_{j=0}^{l-1}z_j\right)^2\\
+  &+ 2M\left(|x| - \left(l\sum_{i=0}^{l-1}iy_i + \sum_{j=0}^{l-1}jz_j\right)\right)^2
+  \end{split}
+\end{equation}
+
+After rearranging and substituting $|x| = \sum_ix_i$ we get the equation
+
+\begin{equation}
+  \begin{split}
+  \left.
+  g(x,y,z)
+  \right.
+  &= \sum_{i,j=1}^{l-1}r((i-1)l+(j-1))y_iz_j
+  + 2M\Bigg[\left(1-\sum_{i=0}^{l-1}y_i\right)^2 + \left(1-\sum_{j=0}^{l-1}z_j\right)^2\\
+  &+ \left(\sum_ix_i - \left(l\sum_{i=1}^{l-1}(i-1)y_i + \sum_{j=1}^{l-1}(j-1)z_j\right)\right)^2\Bigg]
+  \end{split}
+\end{equation}
+
+Dictionary: \\
+$l\mapsto m + 1$,\\
+$x_i\mapsto b_i$, \\
+$y_j\mapsto b_{a_j},$\\
+$z\mapsto b_{a_{c+i}},$\\
+$\lambda\mapsto 2M$\\
+$r(x)\mapsto f(x)$
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\subsection{SFR-BCR-6}
+
+Lets start with the following quadratization of f:
+\\(Theorem 10, Boros et al. [22])
+
+\begin{equation}
+  \begin{split}
+  \left.
+  g(x,y,z)
+  \right.
+  &= \sum_{i=1}^{l-1}\sum_{j=1}^{l-1}a_{i,j}\cdot y_i\cdot z_j + M
+  + M\cdot(X-Y-1)\cdot(X-Y+1)\\
+  &+ M\cdot\sum_{i=1}^{l-2}(1-y_i)\cdot y_{i+1} + M\cdot\sum_{j=1}^{l-2}(1-z_j)\cdot z_{j+1}
+  \end{split}
+\end{equation}
+
+After factoring out M
+\begin{equation}
+  \begin{split}
+  \left.
+  g(x,y,z)
+  \right.
+  &= \sum_{i,j}^{l-1}a_{ij}y_iz_j + M\Big(1 + \Big((X-Y-1)(X-Y+1)\Big)\\
+  &+ \sum_{i=1}^{l-2}(1-y_i)y_{i+1} + \sum_{j=1}^{l-2}(1-z_j)z_{j+1}\Big)
+  \end{split}
+\end{equation}
+
+\noindent \\Substituting for X, Y, and m using $\sum_i w_ix_i$, $l\left(\sum_{j=1}^{l-1}y_j\right) + \sum_{j=1}^{l-1} z_j$, and $l-1$, respectively, we get
+\begin{equation}
+  \begin{split}
+  \left.
+  g(x,y,z)
+  \right.
+  &= \sum_{i,j}^{m}a_{ij}y_iz_j + M\Big[1 + \Big(\sum_i w_ix_i-(m-1)\sum_{j=1}^{m}y_j + \sum_{j=1}^{m} z_j-1\Big)\\
+  &\Big(\sum_i w_ix_i-(m-1)\sum_{j=1}^{m}y_j + \sum_{j=1}^{m} z_j+1\Big)
+  + \sum_{i=1}^{m-1}(1-y_i)y_{i+1} + \sum_{j=1}^{m-1}(1-z_j)z_{j+1}\Big]
+  \end{split}
+\end{equation}
+
+Dictionary: \\
+$l\mapsto m + 1$,\\
+$x_i\mapsto b_i$, \\
+$y_j\mapsto b_{a_j},$\\
+$z\mapsto b_{a_{c+i}},$\\
+$\lambda\mapsto M$
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{SFR-ABCG-2}
 
 We begin with the following representation of the parity function.
@@ -271,10 +354,69 @@ $y_{i}\mapsto b_{a_i}$\\
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{SFR-BCR-7,8}
+\subsection{SFR-BCR-7}
+
+Beginning with the quadratization of f:
+\\(Theorem 9, Boros et al. [23])
+
+\begin{equation}
+  \begin{split}
+  \left.
+  g(x,y,z)
+  \right.
+  &= \sum_{i=0}^{l-1}\sum_{j=0}^{l-1}r(il+j)y_iz_j
+  + 2M\left(1-\sum_{i=0}^{l-1}y_i\right)^2 + 2M\left(1-\sum_{j=0}^{l-1}z_j\right)^2\\
+  &+ 2M\left(|x| - \left(l\sum_{i=0}^{l-1}iy_i + \sum_{j=0}^{l-1}jz_j\right)\right)^2
+  \end{split}
+\end{equation}
+
+\noindent Finally, we end with the equation
+\begin{equation}
+  g(x,y) = \sum_i x_i + \sum_{2i - 1}(2(2i - 1)-1)y_{2i - 1} + \sum_{1\leq i<j\leq n}x_ix_j - \sum_{2i - 1}\sum_jy_{2i - 1} x_j
+\end{equation}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
+\subsection{SFR-BCR-8}
+
+Take the quadratization of the exact k-out-of-n function $f_{=k}$:
+\\(Theorem 7, Boros et al. [23])
+
+\begin{equation}
+  G_k(x,y,z) = \frac{1}{2}A_k(x,y,z)(A_k(x,y,z)-1)
+\end{equation}
+
+\noindent Where
+\begin{equation}
+  A_k(X,y,z) = |x| - (k-2^l)z - (k+1)(1-z) - \sum_{j}^{l-1}2^jy_j.
+\end{equation}
+
+
+\noindent Finally, we end with the equation
+\begin{equation}
+  g(x,y) = \sum_i x_i + \sum_{2i - 1}(2(2i - 1)-1)y_{2i - 1} + \sum_{1\leq i<j\leq n}x_ix_j - \sum_{2i - 1}\sum_jy_{2i - 1} x_j
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{SFR-BCR-9}
+
+Take the quadratization of the at least k-out-of-n function $f_{\geq k}$:
+\\(Theorem 8, Boros et al. [23])
+
+\begin{equation}
+  G_k(x,y,z) = \frac{1}{2}A_k(x,y,z)(A_k(x,y,z)-1) + (1-z)
+\end{equation}
+
+\noindent Where
+\begin{equation}
+  A_k(X,y,z) = |x| - (k-2^l)z - (k+1)(1-z) - \sum_{j}^{l-1}2^jy_j.
+\end{equation}
+
+\noindent Finally, we end with the equation
+\begin{equation}
+  g(x,y) = \sum_i x_i + \sum_{2i - 1}(2(2i - 1)-1)y_{2i - 1} + \sum_{1\leq i<j\leq n}x_ix_j - \sum_{2i - 1}\sum_jy_{2i - 1} x_j
+\end{equation}
+
 
 \end{document}
