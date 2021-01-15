@@ -199,3 +199,22 @@ b1=b(:,1); b2=b(:,2); b3=b(:,3); b4=b(:,4); ba1=b(:,5); ba2=b(:,6);
 LHS= min(reshape( (b1.*b2 + b1.*b3 + b1.*b4 + b2.*b3 + b2.*b4 + b3.*b4) - 3*(b1.*b2.*b3 + b1.*b2.*b4 + b1.*b3.*b4 + b2.*b3.*b4) + 6*b1.*b2.*b3.*b4 ,4,[]));
 RHS= min(reshape( (1 - b1 - b2 - b3 - b4 - ba1 + 3*ba2).^2 ,4,[]));
 isequal(LHS, RHS);
+
+%% NP - SJ (4z5 - 3x1 + 2*z1*y2*x5 + 9*x1*x2*x3*x4 - x1*y2*z3*x5 -> 9*xa1 + 4*za2*z5 - 3*za3*x1 - za3*xa2 + 2*xa3*x5)
+x = [0 1;1 0];
+y = [0 -1i;1i 0];
+z = [1 0;0 -1];
+
+x1 = kron(x,eye(128));x2 = kron(kron(eye(2),x),eye(64));x3 = kron(kron(eye(4),x),eye(32));x4 = kron(kron(eye(8),x),eye(16));x5 = kron(kron(eye(16),x),eye(8));
+xa1 = kron(kron(eye(32),x),eye(4));xa2 = kron(kron(eye(64),x),eye(2));xa3 = kron(eye(128),x);
+y2 = kron(kron(eye(2),y),eye(64));
+z1 = kron(z,eye(128));z3 = kron(kron(eye(4),z),eye(32));z5 = kron(kron(eye(16),z),eye(8));
+za2 = kron(kron(eye(64),z),eye(2));
+za3 = kron(eye(128),z);
+
+LHS = 4*z5 - 3*x1 + 2*z1*y2*x5 + 9*x1*x2*x3*x4 - x1*y2*z3*x5;
+RHS = 9*xa1 + 4*za2*z5 - 3*za3*x1 - za3*xa2 + 2*xa3*x5;
+
+[eig(LHS) eig(RHS)];
+
+
