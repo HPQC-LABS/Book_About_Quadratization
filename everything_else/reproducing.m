@@ -215,6 +215,4 @@ za3 = kron(eye(128),z);
 LHS = 4*z5 - 3*x1 + 2*z1*y2*x5 + 9*x1*x2*x3*x4 - x1*y2*z3*x5;
 RHS = 9*xa1 + 4*za2*z5 - 3*za3*x1 - za3*xa2 + 2*xa3*x5;
 
-[eig(LHS) eig(RHS)];
-
-
+max(eig(LHS)-eig(RHS))<1e-13; % gives 1.
