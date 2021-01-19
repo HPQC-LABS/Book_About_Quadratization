@@ -225,7 +225,7 @@ alpha_zzka = alpha_zzja;
 
 LHS = alpha*zi*zj*zk;
 RHS = alpha_I + alpha_zi*zi + alpha_zj*zj + alpha_zk*zk + alpha_za*za + alpha_xa*xa + alpha_zzia*zi*za + alpha_zzja*zj*za + alpha_zzka*zk*za;
-min(eig(LHS))-min(eig(RHS))
+min(eig(LHS))-min(eig(RHS));
 end
 
 %% NP - SJ (4z5 - 3x1 + 2*z1*y2*x5 + 9*x1*x2*x3*x4 - x1*y2*z3*x5 -> 9*xa1 + 4*za2*z5 - 3*za3*x1 - za3*xa2 + 2*xa3*x5)
@@ -244,3 +244,31 @@ LHS = 4*z5 - 3*x1 + 2*z1*y2*x5 + 9*x1*x2*x3*x4 - x1*y2*z3*x5;
 RHS = 9*xa1 + 4*za2*z5 - 3*za3*x1 - za3*xa2 + 2*xa3*x5;
 
 max(eig(LHS)-eig(RHS))<1e-13; % gives 1.
+
+%%P(3->2)-KKR 
+
+x = [0 1;1 0];
+y = [0 -1i;1i 0];
+z = [1 0;0 -1];
+
+z1 = kron(z,eye(512));z2 = kron(kron(z,eye(2)),eye(256));
+x1 = kron(x,eye(512));x2 = kron(kron(x,eye(2)),eye(256));
+xa_11 = kron(kron(x,eye(16)),eye(32));
+xa_12 = kron(kron(x,eye(32)),eye(16));
+xa_13 = kron(kron(x,eye(64)),eye(8));
+xa_21 = kron(kron(x,eye(128)),eye(4));
+xa_22 = kron(kron(x,eye(256)),eye(2));
+xa_23 = kron(eye(512),x);
+y3 = kron(kron(y,eye(4)),eye(128));y4 = kron(kron(y,eye(8)),eye(64));
+
+
+for delta = 1:100:1000
+alpha = -(1/(8*delta));
+alpha_ss = -(1/(6*delta^(1/3)));
+alpha_sx = 1/(6*delta^(2/3));
+alpha_zz = 1/(24*delta);
+
+LHS = x1*z2*y3 - 3*x1*x2*y4 + z1*x2;
+RHS = alpha + alpha_sx*z2*xa_12 + alpha_ss*x1*x2 + alpha_sx*x1*xa_11 + alpha_sx*x1*xa_21 + alpha_sx*x2*xa_22 + alpha_sx*y3*xa_13 + alpha_sx*y4*xa_23;
+min(eig(LHS))-min(eig(RHS));
+end
