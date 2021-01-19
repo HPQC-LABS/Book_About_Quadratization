@@ -1,4 +1,4 @@
-\documentclass[a4paper,11pt]{article}
+\documentclass[a4paper,english,notitlepage,longbibliography,showpacs,preprintnumbers,amsmath,amssymb,aps,prx,nofootinbib,12pt,superscriptaddress]{revtex4-1}
 \usepackage{geometry}
 \usepackage{amsmath}
 \usepackage{amsfonts}
@@ -42,14 +42,14 @@
 
 \section{SFR-BCR}
 
-Binary variables: $x_1,x_2,\dots,x_n\in\{0,1\}$,
+\noindent Binary variables: $x_1,x_2,\dots,x_n\in\{0,1\}$,
 and let $X:=\sum_{i=1}^n x_i$, $2\leq k\in\mathbb{N}$, $l = \ceil{\log k}$
 
 \subsection{SFR-BCR-1,2}
-We have the $l+1$ auxiliary variables $y_0,y_1,\dots,y_{l-1},z\in\{0,1\}$.
+\noindent We have the $l+1$ auxiliary variables $y_0,y_1,\dots,y_{l-1},z\in\{0,1\}$.
 (In the formulas, summations for $i,i' = 1,2,\dots,n$ and $j,j' = 0,1,\dots,l-1$ are understood.)\\
 
-We have the function (See Observation 1. from [22]) %% Would a proper citation be needed
+\noindent We have the function (See Observation 1. from \cite{Boros2018QuadratizationsOS}) %% Would a proper citation be needed
 \begin{equation}
 \label{eq:Ak}
 A_k(X,y,z) = X - (k-2^l)z - (k+1)(1-z) - \sum_{j}2^jy_j.
@@ -215,7 +215,7 @@ $k\mapsto c$.
 \subsection{SFR-BCR-5}
 
 We begin with the quadratization of f:
-\\(Theorem 6, Boros et al. [23])
+\\(Theorem 6, \cite{Boros2018boundsPaper})
 
 \begin{equation}
   \begin{split}
@@ -254,7 +254,7 @@ $r(x)\mapsto f(x)$
 \subsection{SFR-BCR-6}
 
 Lets start with the following quadratization of f:
-\\(Theorem 10, Boros et al. [22])
+\\(Theorem 10, \cite{Boros2018QuadratizationsOS})
 
 \begin{equation}
   \begin{split}
@@ -302,7 +302,7 @@ $\lambda\mapsto M$
 \subsection{SFR-ABCG-2}
 
 We begin with the following representation of the parity function.
-\\(Theorem 4.6, Anthony et al. [14])
+\\(Theorem 4.6, \cite{Anthony2014})
 
 \begin{equation}
   \prod{(x)} = \sum_{j=1}^n x_j + 2\sum_{i=1}^{n-1}(-1)^{i-1}\left[i - \sum_{j=1}^{n}x_j\right]^-
@@ -329,7 +329,7 @@ $y_{i}\mapsto b_{a_i}$\\
 
 \subsection{SFR-ABCG-3}
 We begin with the complement of the previous function from SFR-ABCG-2:
-\\(Theorem 4.6, Anthony et al. [14])
+\\(Theorem 4.6, \cite{Anthony2014})
 
 \begin{equation}
   \overline{\prod}(x) = 1 - \sum_{j=1}^n x_j + 2\sum_{i=1}^{n-1}(-1)^{i}\left[i - \sum_{j=1}^{n}x_j\right]^-
@@ -357,7 +357,7 @@ $y_{i}\mapsto b_{a_i}$\\
 \subsection{SFR-BCR-7}
 
 Beginning with the quadratization of f:
-\\(Theorem 9, Boros et al. [23])
+\\(Theorem 9, \cite{Boros2018boundsPaper})
 
 \begin{equation}
   \begin{split}
@@ -372,7 +372,7 @@ Beginning with the quadratization of f:
 
 \noindent Finally, we end with the equation
 \begin{equation}
-  g(x,y) = \sum_i x_i + \sum_{2i - 1}(2(2i - 1)-1)y_{2i - 1} + \sum_{1\leq i<j\leq n}x_ix_j - \sum_{2i - 1}\sum_jy_{2i - 1} x_j
+  g(x,y) = 1 + 2\sum_{ij}x_ix_j - \sum_{i} x_i + 4\sum_{2i}^{n-1}y_i\Big(i - \sum_{j} x_j\Big)
 \end{equation}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -381,7 +381,7 @@ Beginning with the quadratization of f:
 \subsection{SFR-BCR-8}
 
 Take the quadratization of the exact k-out-of-n function $f_{=k}$:
-\\(Theorem 7, Boros et al. [23])
+\\(Theorem 7, \cite{Boros2018boundsPaper})
 
 \begin{equation}
   G_k(x,y,z) = \frac{1}{2}A_k(x,y,z)(A_k(x,y,z)-1)
@@ -395,14 +395,14 @@ Take the quadratization of the exact k-out-of-n function $f_{=k}$:
 
 \noindent Finally, we end with the equation
 \begin{equation}
-  g(x,y) = \sum_i x_i + \sum_{2i - 1}(2(2i - 1)-1)y_{2i - 1} + \sum_{1\leq i<j\leq n}x_ix_j - \sum_{2i - 1}\sum_jy_{2i - 1} x_j
+  g(x,y) = 1 + 2\sum_{ij}x_ix_j - \sum_{i} x_i + 4\sum_{2i}^{n-1}y_i\Big(i - \sum_{j} x_j\Big)
 \end{equation}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{SFR-BCR-9}
 
 Take the quadratization of the at least k-out-of-n function $f_{\geq k}$:
-\\(Theorem 8, Boros et al. [23])
+\\(Theorem 8, \cite{Boros2018boundsPaper})
 
 \begin{equation}
   G_k(x,y,z) = \frac{1}{2}A_k(x,y,z)(A_k(x,y,z)-1) + (1-z)
@@ -415,8 +415,10 @@ Take the quadratization of the at least k-out-of-n function $f_{\geq k}$:
 
 \noindent Finally, we end with the equation
 \begin{equation}
-  g(x,y) = \sum_i x_i + \sum_{2i - 1}(2(2i - 1)-1)y_{2i - 1} + \sum_{1\leq i<j\leq n}x_ix_j - \sum_{2i - 1}\sum_jy_{2i - 1} x_j
+  g(x,y) = 1 + 2\sum_{ij}x_ix_j - \sum_{i} x_i + 4\sum_{2i}^{n-1}y_i\Big(i - \sum_{j} x_j\Big)
 \end{equation}
+
+\bibliography{SFRBibliography}
 
 
 \end{document}
