@@ -13,7 +13,7 @@ y1 = kron(y, eye(8)); y2 = kron(kron(eye(2), y), eye(4)); y3 = kron(kron(eye(4),
 z1 = kron(z, eye(8)); z2 = kron(kron(eye(2), z), eye(4)); z3 = kron(kron(eye(4), z), eye(2)); z4 = kron(eye(8), z);
 LHS = x1*y2*z3*y4 + y1*x2*z3*y4 + x1*x2*y3;
 RHS = x1*y4 + x2*y4 + x3;
-[eig(LHS) eig(RHS)];
+max(eig(LHS)-eig(RHS))<1e-13; % gives 1
 
 %% Pg. 6, Eqs 8 and 10
 
