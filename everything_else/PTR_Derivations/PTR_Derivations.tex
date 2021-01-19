@@ -1,24 +1,23 @@
-\documentclass[a4paper,11pt]{article}
+\documentclass[english,notitlepage,longbibliography,showpacs,preprintnumbers,amsmath,amssymb,aps,prx,nofootinbib,12pt,superscriptaddress]{revtex4-1}
 \usepackage{geometry}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{commath}
 \usepackage{comment}
 \usepackage{hyperref}
-\usepackage{multicol}
+
 \hypersetup{
- bookmarks=true,                % show bookmarks bar?
  unicode=false,                 % non-Latin characters in Acrobat’s bookmarks
  pdftoolbar=true,               % show Acrobat’s toolbar?
  pdfmenubar=true,               % show Acrobat’s menu?
  pdffitwindow=false,            % window fit to page when opened
  pdfstartview={FitH},           % fits the width of the page to the window
- pdftitle={SFR derivations},    % title
- pdfauthor={Szil{\'a}rd Szalay},        % author
+ pdftitle={PTR derivations},    % title
+ pdfauthor={Matthew Charbonneau},        % author
  pdfsubject={},       % subject of the document
  pdfcreator={pdflatex},         % creator of the document
  pdfproducer={vim},             % producer of the document
- pdfkeywords={SFR} {BCR}, % list of keywords
+ pdfkeywords={PTR} {BCR}, % list of keywords
  pdfnewwindow=true,             % links in new window
  colorlinks=true,               % false: boxed links; true: colored links
  linktoc=page,                  % defines which part of an entry in the table of contents is made into a link
@@ -32,6 +31,7 @@
 \usepackage[usenames,dvipsnames]{xcolor}
 \usepackage[inline]{showlabels}
 \renewcommand{\showlabelfont}{\footnotesize\ttfamily\color{OliveGreen}}
+
 %%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -47,7 +47,8 @@ and let $X = |x|:=\sum_{i=1}^n x_i$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{PTR-BCR-1}
 
-Let's begin with the equation for the quadratization of P. (In the formulas, summations for $i,i' = 1,2,\dots,n$ are understood unless stated otherwise.)\\(Theorem 4.3, Anthony et al. [14])
+Let's begin with the equation for the quadratization of P. (In the formulas, summations for $i,i' = 1,2,\dots,n$ are understood unless stated otherwise.)\\
+(Theorem 4.3, \cite{Anthony2014})
 \begin{equation}
 \begin{split}
   \left.
@@ -73,10 +74,12 @@ Let's begin with the equation for the quadratization of P. (In the formulas, sum
 $x_{i,j}\mapsto b_{i,j}$,\\
 $y_{2i-1}\mapsto b_{a_{2i-1}}$\\
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{PTR-BCR-2}
 
-To begin, we start with the following equation: (In the formulas, summations for $i,i' = 1,2,\dots,n$ and $j,j' = 0,1,\dots,m$ are understood.)\\(Theorem 10, Boros et al. [23])
+To begin, we start with the following equation: (In the formulas, summations for $i,i' = 1,2,\dots,n$ and $j,j' = 0,1,\dots,m$ are understood.)\\
+(Theorem 10, \cite{Boros2018boundsPaper})
 \begin{equation}
   g(x,y) = \frac{1}{2}\Big(\abs{x} - 2\abs{y} - (N - 2)y_1\Big)\Big(\abs{x} - 2\abs{y} - (N - 2)y_1 - 1\Big)
 \end{equation}
@@ -146,7 +149,7 @@ $y_j\mapsto b_{a_i}$\\
 
 We begin with the following equation:
 (In the formulas, summations for $i,i' = 1,2,\dots,n$ and $j,j' = 0,1,\dots,k-1$ are understood.)
-\\(Theorem 4, Boros et al. [23])
+\\(Theorem 4, \cite{Boros2018boundsPaper})
 
 \begin{equation}
   g(x,y) = \Big(K + X - \sum_{j} 2^j y_j\Big)^2
@@ -192,15 +195,14 @@ g(x,y)
 \end{subequations}
 
 \noindent Dictionary:
-\begin{multicols}{2}
+
 \noindent $k\mapsto m$,\\
 $n\mapsto k,$\\
-\columnbreak
 $x_i\mapsto b_i$,\\
 $x_{i'}\mapsto b_j$,\\
 $y_j\mapsto b_{a_i}$,\\
 $y_{j'}\mapsto b_{a_j}$\\
-\end{multicols}
+
 
 
 
@@ -208,7 +210,7 @@ $y_{j'}\mapsto b_{a_j}$\\
 \subsection{PTR-BCR-4} %From Theorem 9: [23]
 
 We start with the following equation for the quadratization of PTR-BCR-4: (In the formulas, summations for $i,i' = 1,2,\dots,n$ and $j,j' = 0,1,\dots,l-1$ are understood.)
-\\(Theorem 9, Boros et al. [23])
+\\(Theorem 9, \cite{Boros2018boundsPaper})
 
 \begin{equation}
 g(x,y) = \frac{1}{2}\Big(\abs{x} - 2^l - n - \sum_j 2^j y_j\Big)\Big(\abs{x} - 2^l - n - \sum_j 2^j y_j - 1\Big)
@@ -220,13 +222,10 @@ g(x,y) = \frac{1}{2}\Big(-2^l - n + \sum_i x_i - \sum_j 2^j y_j\Big)\Big(-2^l - 
 \end{equation}
 
 \noindent Dictionary:
-\begin{multicols}{2}
 \noindent $l\mapsto m + 1$,\\
-\columnbreak
 $n\mapsto k$,\\
 $x_i\mapsto b_i$,\\
 $y_j\mapsto b_{a_i}$,\\
-\end{multicols}
 
 
 
@@ -234,7 +233,7 @@ $y_j\mapsto b_{a_i}$,\\
 \subsection{PTR-BCR-5} %From Remark 5: [23]
 With $log(n)$ auxiliary variables we have the equation:
 (In the formulas, summations for $i,i' = 1,2,\dots,n$ and $j,j' = 0,1,\dots,l-1$ are understood.)
-\\(Remark 5 from Theorem 9, Boros et al. [23])
+\\(Remark 5 from Theorem 9, \cite{Boros2018boundsPaper})
 
 \begin{equation}
   g'(x,y) = \Big(\abs{x} - \sum_{j}2^jy_j\Big)^2
@@ -267,7 +266,10 @@ g'(x,y)
 \end{subequations}
 
 \noindent Dictionary:\\
+$l\mapsto m+1$,\\
 $x_i\mapsto b_i$,\\
 $y_j\mapsto b_{a_i}$\\
+
+\bibliography{PTRBibliography}
 
 \end{document}
