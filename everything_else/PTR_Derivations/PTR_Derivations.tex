@@ -40,34 +40,62 @@
 
 \begin{document}
 
-\section{PTR-BCR}
+\section{\large PTR Derivations}
 
 Binary variables: $x_1,x_2,\dots,x_n\in\{0,1\}$,
 and let $X = |x|:=\sum_{i=1}^n x_i$
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{PTR-BG}
+\noindent We begin with the equation for the quadratization of negative monomials:
+(Equations 5 and 6, \cite{Boros2014})
+
+\begin{equation}
+  f(x) = \min_{w\in B}w\left((d-1) - \sum_{j=1}^dx_j\right)
+\end{equation}
+
+\noindent However, by introducting negated literals $\overline{x_i} = 1-x_i$ the quadratization can be extended for polynomials.
+
+\begin{equation}
+  f(x) = \min_{w\in B^{d-2}}\sum_{i=1}^{d-2}w_i\left(d-i-\overline{x_i} - \sum_{j=i+1}^dx_j\right)
+\end{equation}
+
+\noindent Substituting for the negated literal we get
+
+\begin{equation}
+  f(x) = \min_{w\in B^{d-2}}\sum_{i=1}^{d-2}w_i\left(d-i-1+x_i - \sum_{j=i+1}^dx_j\right)
+\end{equation}
+
+\noindent Dictionary:\\
+$d\mapsto k$,\\
+$x_{i,j}\mapsto b_{i,j}$,\\
+$w_i\mapsto b_{a_i}$\\
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{PTR-BCR-1}
 
-Let's begin with the equation for the quadratization of P. (In the formulas, summations for $i,i' = 1,2,\dots,n$ are understood unless stated otherwise.)\\
+Let's begin with the equation for the quadratization. (In the formulas, summations for $i,i' = 1,2,\dots,n$ are understood unless stated otherwise.)\\
 (Theorem 4.3, \cite{Anthony2014})
 \begin{equation}
 \begin{split}
   \left.
   g(x,y)
   \right.
-  &= -2\Big[n - \frac{1}{2} - l\Big]^{-} + E''(l)\\
-  &= \frac{l(l+1)}{2} + \sum_{\substack{i = 1:\\ i\:odd}}^{n-2}2y_i\Big[i-\frac{1}{2}-l\Big]^-\\
-  &= \sum_i x_i + \sum_{1\leq i<j\leq n}x_ix_j + \mathop{min}_{y}\sum_{\substack{i = 1:\\ i\:odd}}^{n-2}2y_i\Big(i-\frac{1}{2}-l\Big)
+  &= -2\left[n - \frac{1}{2} - l\right]^{-} + E''(l)\\
+  &= \frac{l(l+1)}{2} + \sum_{\substack{i = 1:\\ i\:odd}}^{n-2}2y_i\left[i-\frac{1}{2}-l\right]^-\\
+  &= \sum_i x_i + \sum_{1\leq i<j\leq n}x_ix_j + \min_y\sum_{\substack{i = 1:\\ i\:odd}}^{n-2}2y_i\left(i-\frac{1}{2}-l\right)
   \end{split}
 \end{equation}
 
 \noindent Using the relationship $l = \sum_{j=1}^n x_j$ we get
 \begin{equation}
-  g(x,y) = \sum_i x_i + \sum_{1\leq i<j\leq n}x_ix_j + \mathop{min}_{y}\sum_{\substack{i = 1:\\ i\:odd}}^{n-2}2y_i\Big(i-\frac{1}{2}-\sum_j x_j\Big)
+  g(x,y) = \sum_i x_i + \sum_{1\leq i<j\leq n}x_ix_j + \min_y\sum_{\substack{i = 1:\\ i\:odd}}^{n-2}2y_i\left(i-\frac{1}{2}-\sum_j x_j\right)
 \end{equation}
 
 \noindent Finally, after rearranging we end with the equation
 \begin{equation}
-  g(x,y) = \sum_i x_i + \sum_{2i - 1}(2(2i - 1)-1)y_{2i - 1} + \sum_{1\leq i<j\leq n}x_ix_j - \sum_{2i - 1}\sum_jy_{2i - 1} x_j
+  g(x,y) = \sum_i x_i + \sum_{2i - 1}\left(2(2i - 1)-1\right)y_{2i - 1} + \sum_{1\leq i<j\leq n}x_ix_j - \sum_{2i - 1}\sum_jy_{2i - 1} x_j
 \end{equation}
 
 \noindent Dictionary:\\
@@ -81,12 +109,12 @@ $y_{2i-1}\mapsto b_{a_{2i-1}}$\\
 To begin, we start with the following equation: (In the formulas, summations for $i,i' = 1,2,\dots,n$ and $j,j' = 0,1,\dots,m$ are understood.)\\
 (Theorem 10, \cite{Boros2018boundsPaper})
 \begin{equation}
-  g(x,y) = \frac{1}{2}\Big(\abs{x} - 2\abs{y} - (N - 2)y_1\Big)\Big(\abs{x} - 2\abs{y} - (N - 2)y_1 - 1\Big)
+  g(x,y) = \frac{1}{2}\left(\abs{x} - 2\abs{y} - (N - 2)y_1\right)\left(\abs{x} - 2\abs{y} - (N - 2)y_1 - 1\right)
 \end{equation}
 
 \noindent \\Substituting for x, y, and N using $\sum_i x_i$, $\sum_j y_j$, and $n - 2m$, respectively, we get
 \begin{equation}
-  g(x,y) = \frac{1}{2}\Big(\sum_i x_i - 2\sum_j y_j - (n - 2m - 2)y_1\Big)\Big(\sum_i x_i - 2\sum_j y_j - (n - 2m - 2)y_1 - 1\Big)
+  g(x,y) = \frac{1}{2}\left(\sum_i x_i - 2\sum_j y_j - (n - 2m - 2)y_1\right)\left(\sum_i x_i - 2\sum_j y_j - (n - 2m - 2)y_1 - 1\right)
 \end{equation}
 
 \noindent \\After expanding and simplifying, the equation becomes
@@ -95,9 +123,9 @@ To begin, we start with the following equation: (In the formulas, summations for
   \left.
   g(x,y)
   \right.
-  = -\frac{1}{2}\sum_i x_i + \sum_j y_j + \frac{1}{2}(n-2m-2)y_1\\
-  + \frac{1}{2}\sum_{i,i'}x_i x_{i'} -2\sum_i \sum_j x_i y_j -(n-1m-2)\sum_i x_i y_{1}\\
-  + 2\sum_{j,j'} y_j y_{j'} + 2(n-2m-2)\sum_{j,j'} y_j y_{1} + \frac{1}{2}((n-2m-2)y_1)^2
+  = -\frac{1}{2}\sum_i x_i + \sum_j y_j + \frac{1}{2}\left(n-2m-2\right)y_1\\
+  + \frac{1}{2}\sum_{i,i'}x_i x_{i'} -2\sum_i \sum_j x_i y_j -\left(n-1m-2\right)\sum_i x_i y_{1}\\
+  + 2\sum_{j,j'} y_j y_{j'} + 2\left(n-2m-2\right)\sum_{j,j'} y_j y_{1} + \frac{1}{2}\left((n-2m-2)y_1\right)^2
 \end{split}
 \end{equation}
 
@@ -114,12 +142,12 @@ To begin, we start with the following equation: (In the formulas, summations for
   \right.
   = \underbrace{-\frac{1}{2}}_{\alpha^b}\sum_i x_i
   + \underbrace{1}_{\alpha^{b_{a,1}}}\sum_j y_j
-  + \underbrace{\frac{1}{2}(-3n + 6m + n^2 - 4mn + 4m^2 + 2)}_{\alpha^{b_{a,2}}}y_1\\
+  + \underbrace{\frac{1}{2}\left(-3n + 6m + n^2 - 4mn + 4m^2 + 2\right)}_{\alpha^{b_{a,2}}}y_1\\
   + \underbrace{\frac{1}{2}}_{\alpha^{bb}}\sum_{i,i'}x_i x_{i'}
   + \underbrace{-2}_{\alpha^{bb_{a,1}}}\sum_i \sum_j x_i y_j
-  + \underbrace{-(n-2m-2)}_{\alpha^{bb_{a,2}}}\sum_i x_i y_{1}\\
+  + \underbrace{-\left(n-2m-2\right)}_{\alpha^{bb_{a,2}}}\sum_i x_i y_{1}\\
   + \underbrace{2}_{\alpha^{b_{a,1}b_{a,1}}}\sum_{j,j'} y_j y_{j'}
-  + \underbrace{2(n-2m-2)}_{\alpha^{b_{a,1}b_{a,1}}}\sum_{j,j'} y_j y_{1}
+  + \underbrace{2\left(n-2m-2\right)}_{\alpha^{b_{a,1}b_{a,1}}}\sum_{j,j'} y_j y_{1}
 \end{split}
 \end{equation}
 
@@ -128,7 +156,7 @@ To begin, we start with the following equation: (In the formulas, summations for
 \begin{align}
 \alpha^b &= -\frac{1}{2}\\
 \alpha^{b_{a,1}} &= 1\\
-\alpha^{b_{a,2}} &= \frac{1}{2}(-3n + 6m + n^2 - 4mn + 4m^2 + 2)\\
+\alpha^{b_{a,2}} &= \frac{1}{2}\left(-3n + 6m + n^2 - 4mn + 4m^2 + 2\right)\\
 \alpha^{bb} &= \frac{1}{2}\\
 \alpha^{bb_{a,1}} &= -2\\
 \alpha^{bb_{a,2}} &= -(n-2m-2)\\
@@ -174,8 +202,8 @@ We begin with the following equation:
 g(x,y)
 \right.
 = \underbrace{(2^k-n)^2}_{\alpha}
-+ \underbrace{2(2^k-n)}_{\alpha^b}\sum_i x_i
-+ \underbrace{-2(2^k-n)}_{\alpha^{b_a}}\sum_j 2^j y_j\\
++ \underbrace{2\left(2^k-n\right)}_{\alpha^b}\sum_i x_i
++ \underbrace{-2\left(2^k-n\right)}_{\alpha^{b_a}}\sum_j 2^j y_j\\
 + \underbrace{1}_{\alpha^{bb}}\sum_{i,i'}x_i x_{i'}
 + \sum_i\sum_j\underbrace{2^{j-1}}_{\alpha^{bb_a}}x_i y_j
 + \sum_{j,j'}\underbrace{2^{j+j'}}_{\alpha^{b_ab_a}}y_j y_{j'}
@@ -213,12 +241,12 @@ We start with the following equation for the quadratization of PTR-BCR-4: (In th
 \\(Theorem 9, \cite{Boros2018boundsPaper})
 
 \begin{equation}
-g(x,y) = \frac{1}{2}\Big(\abs{x} - 2^l - n - \sum_j 2^j y_j\Big)\Big(\abs{x} - 2^l - n - \sum_j 2^j y_j - 1\Big)
+g(x,y) = \frac{1}{2}\left(\abs{x} - 2^l - n - \sum_j 2^j y_j\right)\left(\abs{x} - 2^l - n - \sum_j 2^j y_j - 1\right)
 \end{equation}
 
 \noindent After substituting for X, we end with
 \begin{equation}
-g(x,y) = \frac{1}{2}\Big(-2^l - n + \sum_i x_i - \sum_j 2^j y_j\Big)\Big(-2^l - n + \sum_i x_i - \sum_j 2^j y_j - 1\Big)
+g(x,y) = \frac{1}{2}\left(-2^l - n + \sum_i x_i - \sum_j 2^j y_j\right)\left(-2^l - n + \sum_i x_i - \sum_j 2^j y_j - 1\right)
 \end{equation}
 
 \noindent Dictionary:
@@ -236,12 +264,12 @@ With $log(n)$ auxiliary variables we have the equation:
 \\(Remark 5 from Theorem 9, \cite{Boros2018boundsPaper})
 
 \begin{equation}
-  g'(x,y) = \Big(\abs{x} - \sum_{j}2^jy_j\Big)^2
+  g'(x,y) = \left(\abs{x} - \sum_{j}2^jy_j\right)^2
 \end{equation}
 We can express x using the formula $\abs{x} = \sum_i x_i$
 
 \begin{equation}
-  g'(x,y) = \Big(\sum_{i}x_i - \sum_{j}2^jy_j\Big)^2
+  g'(x,y) = \left(\sum_{i}x_i - \sum_{j}2^jy_j\right)^2
 \end{equation}
 
 \noindent By expanding and collecting like terms the equation finally becomes
