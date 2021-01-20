@@ -35,10 +35,10 @@
 %\setlength{\droptitle}{-10em} % move title up (requires titling package)
 \renewcommand\footnoterule{} % remove line above email address.
 
-%pics 
+%pics
 \usepackage[pdftex]{graphicx}
 
-%defs 
+%defs
 \newtheorem{theorem}{Theorem}[section]
 
 \makeatletter
@@ -69,7 +69,7 @@
 
 
 % try increasing spacing between bibliography entries according to: https://tex.stackexchange.com/questions/93859/condense-the-space-between-bibliographic-entries But not working.
-\let\OLDthebibliography\thebibliography 
+\let\OLDthebibliography\thebibliography
 \renewcommand\thebibliography[1]{
   \OLDthebibliography{#1}
   \setlength{\parskip}{0pt}
@@ -95,7 +95,7 @@
     \color#1{#2}#3%
   \endgroup
 }
-%%% adding some commands to comment 
+%%% adding some commands to comment
 \usepackage{color}
 %Some shortcuts added for edits
 %Some shortcuts added for edits
@@ -104,7 +104,7 @@
 \definecolor{ddred}{rgb}{.8,0.5,.5}
 \definecolor{dblue}{rgb}{.2,0.2,.8}
 % suggested change
-\newcommand{\add}[1]{\textcolor{dred}{*#1*}} 
+\newcommand{\add}[1]{\textcolor{dred}{*#1*}}
 % \usepackage{ulem}
 \newcommand{\out}[1]{\textcolor{ddred}{\textbf{[}#1\textbf{]}}}
 % comment or remark
@@ -187,12 +187,12 @@
 %\noindent\rule{\textwidth}{0.4pt}
 \begin{abstract}
 %\noindent {\bf Abstract.}
-\vspace{4mm} 
-An open source Book on quadratizations for classical computing, quantum annealing, and universal adiabatic quantum computing. 
+\vspace{4mm}
+An open source Book on quadratizations for classical computing, quantum annealing, and universal adiabatic quantum computing.
 
-\vspace{-5mm} 
+\vspace{-5mm}
 
-\noindent 
+\noindent
 %{\bf Keywords.} pseudo Boolean optimization, Ising model, quadratic binary optimization, Hamiltonian gadget, penalty function\\~\\~\\
 \end{abstract}
 
@@ -202,9 +202,9 @@ An open source Book on quadratizations for classical computing, quantum annealin
 \title{\tableofcontents{}}
 
 %\section{Introduction}
-%\vspace{5mm} \indent  
+%\vspace{5mm} \indent
 \noindent\rule{\textwidth}{0.4pt}
-\vspace{-1.25mm} 
+\vspace{-1.25mm}
 
 \indent When optimizing discrete functions, it is often easier when the function is quadratic than if it is of higher degree. But notice that the cubic and quadratic functions:
 
@@ -218,7 +218,7 @@ b_1b_2 + b_2b_3 + b_3b_4 + 4b_1 -4b_1b_2 -4b_1b_3 & \hspace{5mm}\textrm{(quadrat
 \vspace{1mm}
 
 
-\noindent where each $b_i$ can either be 0 or 1, both never go below the value of -2, and all minima occur at $(b_1,b_2,b_3,b_4) = (1,1,1,0)$.  Therefore if we are interested in the ground state of a discrete function of degree $k$, we may optimize either function and get exactly the same result. { \textbf{Part \ref{partDiagonal}}} gives more than 40 different ways to do this, almost all of them published in the last 5 years. 
+\noindent where each $b_i$ can either be 0 or 1, both never go below the value of -2, and all minima occur at $(b_1,b_2,b_3,b_4) = (1,1,1,0)$.  Therefore if we are interested in the ground state of a discrete function of degree $k$, we may optimize either function and get exactly the same result. { \textbf{Part \ref{partDiagonal}}} gives more than 40 different ways to do this, almost all of them published in the last 5 years.
 
 %\vspace{15mm}
 
@@ -238,10 +238,10 @@ b\equiv\begin{pmatrix}1 & 0\\
                 \end{pmatrix},\, x\equiv\begin{pmatrix}0 & 1\\
 1 & 0\end{pmatrix},\,y\equiv\begin{pmatrix}0 & -\textrm{i}\\
                       \textrm{i} & 0
-                     \end{pmatrix},\,\openone\equiv\begin{pmatrix}1 & 0\\ 
+                     \end{pmatrix},\,\openone\equiv\begin{pmatrix}1 & 0\\
                                       0 & 1
                      \end{pmatrix}.  \label{eq:pauli}
-\end{equation}  
+\end{equation}
 
 \noindent Any Hermitian $2\times 2$ matrix can be written as a linear combination of the Pauli matrices, so we can therefore describe the Hamiltonian of any number of spin-$\nicefrac{1}{2}$ particles by a function of Pauli matrices acting on each particle, for instance:
 
@@ -257,7 +257,7 @@ x_1y_4 + x_2y_4 + x_3 & \hspace{5mm} \textrm{(quadratic)},\label{eq:intro_quantu
 
 Two-body physical interactions occur more naturally than many-body interactions so \textbf{Parts \ref{partTransverseIsing}-\ref{partGeneral}} give more than 30 different ways to quadratize general Hamiltonians (some of these methods may use $d\times d$ matrices instead of only the $2\times2$ matrices in Eq. \eqref{eq:pauli}, meaning that we can have types of qudits that are not qubits). All of these methods were published during the last 15 years.
 
-%A quantum computer whose Hamiltonian is at least quadratic in $x$ and $z$ can find this ground state with only polynomial runtime overhead over the best alternative algorithm to find that solution. 
+%A quantum computer whose Hamiltonian is at least quadratic in $x$ and $z$ can find this ground state with only polynomial runtime overhead over the best alternative algorithm to find that solution.
  The optimization problems of Eqs. \eqref{eq:intro_cubic}-\eqref{eq:intro_quadratic} are specific cases of the type in Eqs. \eqref{eq:intro_quantum_cubic}-\eqref{eq:intro_quantum_quadratic}, but with only $b$ matrices.
 
 \noindent\rule{\textwidth}{0.4pt}
@@ -322,7 +322,7 @@ Two-body physical interactions occur more naturally than many-body interactions 
 
 \newpage
 
-\part{{\normalsize{\underline{Diagonal Hamiltonians (pseudo-Boolean functions)}}}\label{partDiagonal}} 
+\part{{\normalsize{\underline{Diagonal Hamiltonians (pseudo-Boolean functions)}}}\label{partDiagonal}}
 
 \section{Methods that introduce ZERO auxiliary variables}
 
@@ -363,7 +363,7 @@ For highly connected systems (systems with a large number of non-zero coefficien
 \examplesec
 
 \begin{comment}
-Examples are difficult to illustrate in a paper, since they involve searching for patterns in exhaustive searches. 
+Examples are difficult to illustrate in a paper, since they involve searching for patterns in exhaustive searches.
 \end{comment}
 Consider the objective function:
 \vspace{-2mm}
@@ -401,7 +401,7 @@ The coefficient of $b_1 b_2$ was chosen as $6$ because $6 \ge \max \left( 4+b_{3
 An Excludable Local Configuration (ELC) is a partial assignment of variables that make it impossible to achieve the minimum.
 We can therefore add a term that corresponds to the energy of this ELC without changing the solution to the minimization problem.
 In practice we can eliminate all monomials with a variable in which a variable is set to 0, and reduce any variable set to 1.
-Given a general objective function we can try to find ELCs by enumerating solutions of a small subset of variables in the problem \cite{Ishikawa2014}. 
+Given a general objective function we can try to find ELCs by enumerating solutions of a small subset of variables in the problem \cite{Ishikawa2014}.
 
 \costsec
 \begin{itemize}
@@ -423,13 +423,13 @@ Given a general objective function we can try to find ELCs by enumerating soluti
 
 \conssec
 \begin{itemize}
-\item No known way to find ELCs except by `brute force', which scales exponentially with respect to $m$. 
+\item No known way to find ELCs except by `brute force', which scales exponentially with respect to $m$.
 \item ELCs do not always exist.
 \end{itemize}
 
 \examplesec
 
-Consider the objective function: 
+Consider the objective function:
 \begin{equation}
 H_{{\rm 3-local}}=b_{1}b_{2}+b_{2}b_{3}+b_{3}b_{4}-4b_{1}b_{2}b_{3}. \label{eq:ELCexample}
 \end{equation}
@@ -459,7 +459,7 @@ If a Groebner basis can be found such that all equations are quadratic, then qua
 \begin{comment}
 Nike, this is NOT true.
 Once we have the Groebner basis, we still need a single non-negative expression to minimize.
-This involves finding appropriate coefficients of the equations to add together (non-trivial and what they do in the 1Qbit paper) OR squaring each one, which gives a quartic. 
+This involves finding appropriate coefficients of the equations to add together (non-trivial and what they do in the 1Qbit paper) OR squaring each one, which gives a quartic.
 \end{comment}
 
 \begin{comment}
@@ -558,7 +558,7 @@ From this we can immediately read off the solutions $b_1=1$, $b_2=1-b_3$ and red
 \end{itemize}
 
 \begin{comment}
-To quadratize the objective function: 
+To quadratize the objective function:
 \begin{equation}
 H_{4{\rm -local}}=(z_{1}z_{2}-z_{3}z_{4}-1)^{2},
 \end{equation}
@@ -680,7 +680,7 @@ Usually slightly sub-exponential in the number of splits, as the number of probl
 
 \examplesec
 
-Consider the simple objective function 
+Consider the simple objective function
 \begin{equation}
 H=1+b_{1}b_{2}b_{5}+b_{1}b_{6}b_{7}b_{8}+b_{3}b_{4}b_{8}-b_{1}b_{3}b_{4}.
 \end{equation}
@@ -782,7 +782,7 @@ with $a=1$.
 
 
 
-\altnamesec 
+\altnamesec
 \begin{itemize}
 \item "Standard quadratization" of negative monomials \cite{Anthony2017}.
 \item $s_k(b,b_a)$ \cite{Anthony2017}
@@ -808,7 +808,7 @@ with $a=1$.
 % = b3ba - b1ba  +b1 -b1b3 - b2ba  +b2  -b2b3
 % = b1   + b2  -b1b3 -b2b3 - b1ba -b2ba +b3ba
 
-% This means the first sum only goes up to k-1, 
+% This means the first sum only goes up to k-1,
 % the second term goes up to k-1,
 % the third term goes up to k
 % I'm not sure if this is true for general k though !!!
@@ -869,7 +869,7 @@ with $a=1$.
 \end{align}
 
 
-\altnamesec 
+\altnamesec
 \begin{itemize}
 \item "Extended standard quadratization" of negative monomials (see Eqs. 25-26 of \cite{Anthony2017}).
 \item $s_k(b,b_a)^+$ \cite{Anthony2017}.
@@ -877,7 +877,7 @@ with $a=1$.
 
 \refsec
 \begin{itemize}
-\item 2014, First presentation: \cite{Anthony2014,Anthony2016}. 
+\item 2014, First presentation: \cite{Anthony2014,Anthony2016}.
 \item Further discussion: \cite{Anthony2017}.
 \end{itemize}
 
@@ -938,7 +938,7 @@ has the same unique minimum energy, and it occurs at the same place,
 with $a=1$.
 \end{comment}
 
-\altformsec 
+\altformsec
 \begin{align}
   - b_1 b_2 \dots b_k = 2 b_{a} \left(k - \frac12 - \sum_{i=1}^k b_i \right)
 \end{align}
@@ -950,7 +950,7 @@ with $a=1$.
 \end{align}
 where $C \geq 1$ is a constant. NTR-KZFD is a particular case of \eqref{eqn:NTR-ABCG-2-gen} where $C = 1$.
 
-%\altnamesec 
+%\altnamesec
 %\begin{itemize}
 %\item "Extended standard quadratization" of negative monomials \cite{Anthony2017}.
 %\item $s_k(b,b_a)^+$ \cite{Anthony2017}
@@ -958,7 +958,7 @@ where $C \geq 1$ is a constant. NTR-KZFD is a particular case of \eqref{eqn:NTR-
 
 \refsec
 \begin{itemize}
-%\item 2014, First presentation: \cite{Anthony2014,Anthony2017}. 
+%\item 2014, First presentation: \cite{Anthony2014,Anthony2017}.
 \item Discussion: \cite{Anthony2016}.
 \end{itemize}
 
@@ -1023,7 +1023,7 @@ For $\alpha > 1$ we can quadratize a degree-$k$ negative term with one auxiliary
 -b_1b_2\cdots b_k \rightarrow b_a + \alpha\sum_i^k \left(1-b_i\right)\left(1-b_a\right) - 1.
 \end{eqnarray}
 
-%The CCG-based quadratization algorithm is an iterative algorithm. The CCG (Constraint composite graph) is a combinatorial structure associated with an optimization problem posed as the weighted constraint satisfaction problem. 
+%The CCG-based quadratization algorithm is an iterative algorithm. The CCG (Constraint composite graph) is a combinatorial structure associated with an optimization problem posed as the weighted constraint satisfaction problem.
 
 %\begin{align}
 %f\left(b_{1},b_{2},\ldots,b_{n}\right)\rightarrow1+2\sum_{ij}b_{i}b_{j}-\sum_{i}b_{i}+4\sum_{2i}^{n-1}b_{a_{i}}\left(i-\sum_{j}^{n}b_{j}\right)
@@ -1032,7 +1032,7 @@ For $\alpha > 1$ we can quadratize a degree-$k$ negative term with one auxiliary
 \costsec
 \begin{itemize}
 \item 1 auxiliary variable to quadratize any degree-$k$ negative term.
-%\item 
+%\item
 %Each positive monomial of degree $i$ generates 2 auxiliary variables when it is reduced to the sum of a quadratic polynomial and a monomial of degree $i-1$, which can then be combined with existing monomials of degree $i-1$ if they are composed of the same variables. This combination of monomials can take place in each iteration, until the whole pseudo-Boolean function (PBF) becomes quadratic.
 %\item Same as Ishikawa's method, use 1 auxiliary variable for each negative monomial.
 %\item  For a $k$-local objective function, use a factor of $k$ less of auxiliary variables asymptotically compared to Ishikawa's method.
@@ -1061,10 +1061,10 @@ For $\alpha > 1$ we can quadratize a degree-$k$ negative term with one auxiliary
 \examplesec
 %
 %\begin{eqnarray}
-%b_1b_2\cdots b_k \rightarrow &\hspace{-7mm} b_1b_2\cdots b_{k-1} + b_{a_1} + \alpha_1 b_{a_2} + 
+%b_1b_2\cdots b_k \rightarrow &\hspace{-7mm} b_1b_2\cdots b_{k-1} + b_{a_1} + \alpha_1 b_{a_2} +
 %\alpha_2 \sum_i^{k-1}\left(1-b_i\right)\left(1-b_{a_1}\right) + \\
 %& \alpha_2\left(1-b_k\right)\left(1-b_{a_2}\right) +
-%\alpha_2\left(1-b_{a_2}\right)\left(1-b_{a_1}\right) - 
+%\alpha_2\left(1-b_{a_2}\right)\left(1-b_{a_1}\right) -
 %\alpha_1\left(1-b_k\right) - 1  .
 %\end{eqnarray}
 %
@@ -1115,7 +1115,7 @@ Using a ternary variable $t_q \in {-1,0,1}$ we have:
 \costsec
 
 \begin{itemize}
-\item 1 auxiliary ternary variable 
+\item 1 auxiliary ternary variable
 \end{itemize}
 
 \prossec
@@ -1133,7 +1133,7 @@ Using a ternary variable $t_q \in {-1,0,1}$ we have:
 
 \examplesec
 \begin{eqnarray}
--b_{1}b_{2}b_{3}&= \min_{b_a} b_a  -b_1 + b_2 + b_3   -b_1b_2 - b_1b_3 + b_1 
+-b_{1}b_{2}b_{3}&= \min_{b_a} b_a  -b_1 + b_2 + b_3   -b_1b_2 - b_1b_3 + b_1
 \end{eqnarray}
 
 \altformsec
@@ -1153,7 +1153,7 @@ Using a ternary variable $t_q \in {-1,0,1}$ we have:
 
 \summarysec
 
-Extra binary or ternary variable is added to ensure that the energy of the even parity sector is zero and the energy of the odd sector is higher: 
+Extra binary or ternary variable is added to ensure that the energy of the even parity sector is zero and the energy of the odd sector is higher:
 
 %-z_1z_2z_3z_4\rightarrow 16\,t_a^2+4\,t_a\,\sum_{i=1}^4 z_i+2\,\sum_{i=1}^4\sum_{j>i}^4z_i\,z_j+4.
 
@@ -1262,7 +1262,7 @@ b_{1}b_{2}b_{3}b_{4} & \mapsto & b_{2}b_{3}b_{4}-\bar{b}_{1}b_{2}b_{3}b_{4}\\
 
 \summarysec
 
-This method re-writes a positive monomial using symmetric polynomials, so all possible quadratic terms are produced and they are all non-submodular: 
+This method re-writes a positive monomial using symmetric polynomials, so all possible quadratic terms are produced and they are all non-submodular:
 \begin{equation}
 %b_{1}...b_{k} = \min_{b_{a_1}, \ldots, b_{a_{n_k}}} \left( \sum_{i=1}^{n_{k}}b_{a_{i}}\left(c_{i,d}\left(-\sum_{j=1}^{k}b_{j}+2i\right)-1\right)+\sum_{i<j}b_{i}b_{j} \right)
 b_{1}...b_{k} \rightarrow  \left( \sum_{i=1}^{n_{k}}b_{a_{i}}\left(c_{i,d}\left(-\sum_{j=1}^{k}b_{j}+2i\right)-1\right)+\sum_{i<j}b_{i}b_{j} \right)
@@ -1307,10 +1307,10 @@ b_{1}b_{2}\ldots b_{k}&\rightarrow\sum_{i}b_{i}+\sum_{ij}b_{i}b_{j}+\sum_{2i}b_{
                       &\rightarrow\sum_{i}b_{i}+2\sum_{2i}b_{a_{2i}}\left(2i-1\right)+\sum_{ij}b_{i}b_{j}-\sum_{2i,j}b_{j}b_{a_{2i}}
 \end{align}
 
-\altnamesec 
+\altnamesec
 \begin{itemize}
 \item "Ishikawa's Symmetric Reduction" \cite{Gallagher2011}.
-\item "Ishikawa Reduction" 
+\item "Ishikawa Reduction"
 \item "Ishikawa" %[colloquial].
 \end{itemize}
 
@@ -1327,7 +1327,7 @@ b_{1}b_{2}\ldots b_{k}&\rightarrow\sum_{i}b_{i}+\sum_{ij}b_{i}b_{j}+\sum_{2i}b_{
 %Here again, the objective function can be quadratized by independently han-
 %dling its symmetric constituents.
 
-\subsection{PTR-BCR-1 (Boros, Crama, and Rodr\'{i}guez-Heck, 2018)}
+\subsection{PTR-ABCG (Anthony, Boros, Crama, Gruber, 2014)}
 
 \summarysec
 
@@ -1347,7 +1347,7 @@ b_{1}b_{2}\ldots b_{k} \rightarrow \sum_{i}b_{i}+\sum_{2i-1}\left(4i-3\right)b_{
 \prossec
 \begin{itemize}
 \item Same as for Ishikawa Reduction.
-%\item Reproduces 
+%\item Reproduces
 \end{itemize}
 
 \conssec
@@ -1365,17 +1365,17 @@ b_{1}b_{2}\ldots b_{k}&\rightarrow\sum_{i}b_{i}+\sum_{ij}b_{i}b_{j}+\sum_{2i-1}b
 
 \refsec
 \begin{itemize}
-\item Original paper: \cite{Boros2018QuadratizationsOS}.
+\item Original paper (Theorem 4.3): \cite{Anthony2014}.
 \end{itemize}
 
 \newpage
 
 
-\subsection{PTR-BCR-2 (Boros, Crama, and Rodr\'{i}guez-Heck, 2018)}
+\subsection{PTR-BCR-1 (Boros, Crama, and Rodr\'{i}guez-Heck, 2018)}
 
 \summarysec
 
-Let $\lceil \frac{k}{4} \rceil \le m \le \lceil \frac{k}{2} \rceil$, 
+Let $\lceil \frac{k}{4} \rceil \le m \le \lceil \frac{k}{2} \rceil$,
 
 \begin{align}
 \begin{gathered}
@@ -1437,7 +1437,7 @@ b_1 b_2 b_3 b_4 \rightarrow  \frac{1}{2}
 
 \newpage
 
-\subsection{PTR-BCR-3 (Boros, Crama, and Rodr\'{i}guez-Heck, 2018)} 
+\subsection{PTR-BCR-2 (Boros, Crama, and Rodr\'{i}guez-Heck, 2018)}
 
 \summarysec
 
@@ -1512,7 +1512,7 @@ b_{1}b_{2}\ldots b_{k}	\rightarrow\left(2^{m}-k+\sum_{i}b_{i}-\sum_{i}2^{i-1}b_{
 \newpage
 
 
-\subsection{PTR-BCR-4 (Boros, Crama, and Rodr\'{i}guez-Heck, 2018)} 
+\subsection{PTR-BCR-3 (Boros, Crama, and Rodr\'{i}guez-Heck, 2018)}
 
 \summarysec
 
@@ -1575,7 +1575,7 @@ b_1 \ldots b_k &= \min_{b'_1, \ldots b'_n} \frac{1}{2} \left( N + X - \sum^n_{i=
 
 \newpage
 
-\subsection{PTR-BCR-5 (Boros, Crama, and Rodr\'{i}guez-Heck, 2018)}
+\subsection{PTR-BCR-4 (Boros, Crama, and Rodr\'{i}guez-Heck, 2018)}
 
 \summarysec
 
@@ -1837,7 +1837,7 @@ z_1z_2z_3 \rightarrow (1 + 4t_a + z_1 + z_2 + z_3)^2 -1.
 \costsec
 
 \begin{itemize}
-\item 1 auxiliary ternary variable 
+\item 1 auxiliary ternary variable
 \end{itemize}
 
 \prossec
@@ -1855,7 +1855,7 @@ z_1z_2z_3 \rightarrow (1 + 4t_a + z_1 + z_2 + z_3)^2 -1.
 
 \examplesec
 \begin{eqnarray}
--b_{1}b_{2}b_{3}&= \min_{b_a} b_a  -b_1 + b_2 + b_3   -b_1b_2 - b_1b_3 + b_1 
+-b_{1}b_{2}b_{3}&= \min_{b_a} b_a  -b_1 + b_2 + b_3   -b_1b_2 - b_1b_3 + b_1
 \end{eqnarray}
 
 \altformsec
@@ -1875,7 +1875,7 @@ z_1z_2z_3 \rightarrow (1 + 4t_a + z_1 + z_2 + z_3)^2 -1.
 
 \summarysec
 
-Extra binary or ternary variable is added to ensure that the energy of the even parity sector is zero and the energy of the odd sector is higher: 
+Extra binary or ternary variable is added to ensure that the energy of the even parity sector is zero and the energy of the odd sector is higher:
 
 \begin{equation}
 z_1z_2z_3z_4\rightarrow 16\,t_a^2+4\,t_a\,\sum_{i=1}^4 z_i+2\,\sum_{i=1}^4\sum_{j>i}^4z_i\,z_j+4.
@@ -1883,7 +1883,7 @@ z_1z_2z_3z_4\rightarrow 16\,t_a^2+4\,t_a\,\sum_{i=1}^4 z_i+2\,\sum_{i=1}^4\sum_{
 
 \costsec
 \begin{itemize}
-\item 1 auxiliary ternary variable 
+\item 1 auxiliary ternary variable
 \end{itemize}
 
 \prossec
@@ -1932,14 +1932,14 @@ z_1z_2z_3z_4\rightarrow 16\,t_a^2+4\,t_a\,\sum_{i=1}^4 z_i+2\,\sum_{i=1}^4\sum_{
 For $\alpha_1 \ge \alpha_2 > 1$ we can reduce a degree-$k$ positive term to a degree-$(k-1)$ positive term, plus some extra terms which are at most quadratic:
 
 \begin{eqnarray}
-b_1b_2\cdots b_k \rightarrow &\hspace{-7mm} b_1b_2\cdots b_{k-1} + b_{a_1} + \alpha_1 b_{a_2} + 
+b_1b_2\cdots b_k \rightarrow &\hspace{-7mm} b_1b_2\cdots b_{k-1} + b_{a_1} + \alpha_1 b_{a_2} +
 \alpha_2 \sum_i^{k-1}\left(1-b_i\right)\left(1-b_{a_1}\right) + \label{eq: ptryxkkgeneral1}\\
 & \alpha_2\left(1-b_k\right)\left(1-b_{a_2}\right) +
-\alpha_2\left(1-b_{a_2}\right)\left(1-b_{a_1}\right) - 
+\alpha_2\left(1-b_{a_2}\right)\left(1-b_{a_1}\right) -
 \alpha_1\left(1-b_k\right) - 1  . \label{eq: ptryxkkgeneral2}
 \end{eqnarray}
 
-%The CCG-based quadratization algorithm is an iterative algorithm. The CCG (Constraint composite graph) is a combinatorial structure associated with an optimization problem posed as the weighted constraint satisfaction problem. 
+%The CCG-based quadratization algorithm is an iterative algorithm. The CCG (Constraint composite graph) is a combinatorial structure associated with an optimization problem posed as the weighted constraint satisfaction problem.
 
 %\begin{align}
 %f\left(b_{1},b_{2},\ldots,b_{n}\right)\rightarrow1+2\sum_{ij}b_{i}b_{j}-\sum_{i}b_{i}+4\sum_{2i}^{n-1}b_{a_{i}}\left(i-\sum_{j}^{n}b_{j}\right)
@@ -1978,10 +1978,10 @@ b_1b_2\cdots b_k \rightarrow &\hspace{-7mm} b_1b_2\cdots b_{k-1} + b_{a_1} + \al
 \examplesec
 %
 %\begin{eqnarray}
-%b_1b_2\cdots b_k \rightarrow &\hspace{-7mm} b_1b_2\cdots b_{k-1} + b_{a_1} + \alpha_1 b_{a_2} + 
+%b_1b_2\cdots b_k \rightarrow &\hspace{-7mm} b_1b_2\cdots b_{k-1} + b_{a_1} + \alpha_1 b_{a_2} +
 %\alpha_2 \sum_i^{k-1}\left(1-b_i\right)\left(1-b_{a_1}\right) + \\
 %& \alpha_2\left(1-b_k\right)\left(1-b_{a_2}\right) +
-%\alpha_2\left(1-b_{a_2}\right)\left(1-b_{a_1}\right) - 
+%\alpha_2\left(1-b_{a_2}\right)\left(1-b_{a_1}\right) -
 %\alpha_1\left(1-b_k\right) - 1  .
 %\end{eqnarray}
 %
@@ -2019,7 +2019,7 @@ b_{1}b_{2}b_{3} + b_{1}b_{3} - b_{2} \rightarrow &\hspace{-2mm}  b_1b_2 + b_{a_1
 
 \summarysec
 
-Auxilliary qubits can be made to ``count'' the number of logical qubits in the $1$ configuration. By applying single qubit terms to the auxilliary qubits, the spectrum of \emph{any} permutation symmetric objective function can be reproduced. 
+Auxilliary qubits can be made to ``count'' the number of logical qubits in the $1$ configuration. By applying single qubit terms to the auxilliary qubits, the spectrum of \emph{any} permutation symmetric objective function can be reproduced.
 
 \costsec
 \begin{itemize}
@@ -2045,7 +2045,7 @@ Auxilliary qubits can be made to ``count'' the number of logical qubits in the $
 A  $4$ qubit gadget guarantees that the number of auxillary bits in the $-1$ state is equal to the number of logical bits in the $1$ state
 %
 %\begin{equation}
-%H_{4-count}=  \sum_{i=2}^4 \sum_{j =1}^{i-1} z_i z_j -\frac{1}{2} \sum_{i=1}^4  z_i +  \sum_{i=1}^4 \sum_{j=1}^4 z_i z_{a_j} +   \sum_{i=1}^4  (2\,i-4+\frac{1}{2}) z_{a_i}. 
+%H_{4-count}=  \sum_{i=2}^4 \sum_{j =1}^{i-1} z_i z_j -\frac{1}{2} \sum_{i=1}^4  z_i +  \sum_{i=1}^4 \sum_{j=1}^4 z_i z_{a_j} +   \sum_{i=1}^4  (2\,i-4+\frac{1}{2}) z_{a_i}.
 %\end{equation}
 %
 \begin{equation}
@@ -2066,7 +2066,7 @@ H_{2-\rm{local}}=-b_{a_4}+ \lambda H_{4-\rm{count}}.
 %
 where $\lambda$ is a large number.
 
-For the spectrum of 
+For the spectrum of
 %
 \begin{align}
 z_1z_2z_3z_4=16\,b_1b_2b_3b_4-8\,(b_1b_2b_3+b_1b_2b_4+b_1b_3b_4+b_2b_3b_4)+\nonumber \\
@@ -2146,7 +2146,7 @@ The first expression is highly non-submodular while the second is entirely submo
 
 \section{Methods that quadratize MULTIPLE terms with the SAME auxiliaries (Case 1: Symmetric Function Reductions, SFR)}
 
-A symmetric function is one where if we switch any of the variable names (for example $b_1 \rightarrow b_5 \rightarrow b_8 \rightarrow b_1$), the function's output is unaffected. 
+A symmetric function is one where if we switch any of the variable names (for example $b_1 \rightarrow b_5 \rightarrow b_8 \rightarrow b_1$), the function's output is unaffected.
 
 \subsection{SFR-ABCG-1 (Anthony, Boros, Crama, Gruber, 2014)}
 
@@ -2210,7 +2210,7 @@ Any $n$-variable symmetric function $f\left(b_1,b_2,\ldots b_n\right)\equiv f(b)
 \begin{align}
 %f(b) \rightarrow \alpha+\alpha^{b}\sum_{i}b_{i}+\alpha^{b_{a,1}}\sum_{i}^{m-1}b_{a_{i}}+\alpha^{b_{a,2}}b_{a_{m}}+\alpha^{bb}\sum_{ij}b_{i}b_{j}+\alpha^{bb_{a,1}}\sum_{i}\sum_{j}^{m-1}b_{i}b_{a_{j}}+\alpha^{bb_{a,2}}\sum_{i}b_{i}b_{a_{m}}+\alpha^{b_{a}b_{a}}\sum_{i,j}^{m-1}b_{a_{i}}b_{a_{j}},
 \hspace{-5mm}
-f(b) \rightarrow       
+f(b) \rightarrow
 \alpha
 +\alpha^{b}            \hspace{-0.5mm}    \sum_{i}                                b_{i}
 +\alpha_1^{b_{a}}      \hspace{-1.0mm}    \sum_{i}^{m-1}                          b_{a_{i}}
@@ -2218,7 +2218,7 @@ f(b) \rightarrow
 +\alpha^{bb}           \hspace{-0.5mm}    \sum_{ij}                               b_{i}b_{j}
 +\alpha_1^{bb_{a}}     \hspace{-0.5mm}    \sum_{i} \hspace{-1.5mm}\sum_{j}^{m-1}  b_{i}b_{a_{j}}
 +\alpha_2^{bb_{a}}     \hspace{-0.5mm}    \sum_{i}b_{i}                           b_{a_{m}}
-+\alpha_1^{b_{a}b_{a}} \hspace{-1.2mm}    \sum_{ij}^{m-1}                         b_{a_{i}}b_{a_{j}} 
++\alpha_1^{b_{a}b_{a}} \hspace{-1.2mm}    \sum_{ij}^{m-1}                         b_{a_{i}}b_{a_{j}}
 +\alpha_2^{b_{a}b_{a}} \hspace{-1.2mm}    \sum_{i}^{m-1}                          b_{a_{i}}b_{a_{m}},
 \end{align}
 }
@@ -2242,7 +2242,7 @@ f(b) \rightarrow
 
 \costsec
 \begin{itemize}
-\item $m=\lceil \textrm{log}_2 c \rceil + 1$ auxiliary variables. 
+\item $m=\lceil \textrm{log}_2 c \rceil + 1$ auxiliary variables.
 \item $n^2 + m^2$ non-submodular quadratic terms (all possible quadratic terms involving only non-auxiliary or only auxiliary variables).
 \item $m$ non-submodular linear terms (all possible linear terms involving auxiliaries).
 \end{itemize}
@@ -2260,11 +2260,11 @@ f(b) \rightarrow
 
 \examplesec
 
-For $n = 4$ and $c = 2$, we have $m = 2$, and 
+For $n = 4$ and $c = 2$, we have $m = 2$, and
 \begin{eqnarray}
-%	& &\hspace{-10mm}(b_1 b_2\!\! \!+ \!\!\!b_1 b_3\!\! \!+\! \!\!b_1 b_4\!\! \!+\!\!\! b_2 b_3\!\! \!+\!\!\! b_2 b_4\! \!\!+\!\!\! b_3 b_4)  
+%	& &\hspace{-10mm}(b_1 b_2\!\! \!+ \!\!\!b_1 b_3\!\! \!+\! \!\!b_1 b_4\!\! \!+\!\!\! b_2 b_3\!\! \!+\!\!\! b_2 b_4\! \!\!+\!\!\! b_3 b_4)
 %\!\!	\!-\!\!\! 3(b_1 b_2 b_3\!\! \!+\!\!\! b_1 b_2 b_4\!\! \!+\!\!\! b_1 b_3 b_4\!\! \!+\!\!\! b_2 b_3 b_4)\!\! \!\\&& +\!\!\! 6 b_1 b_2 b_3 b_4 \to  \left(-3\!\! \!\!+\!\!\!\! b_1\!\!\!+\!\!b_2\! \!\!\!+\!\!\! \!b_3\!\! \!\!+\!\!\! \!b_4\!\! \!\!-\!\!\! \!b_{a_1}\!\! \!\!+\!\!\!\! 3 b_{a_2}\right)^2
-	& &\hspace{-13mm}(b_1 b_2 \!+ \!b_1 b_3 \!+\!b_1 b_4 \!+\! b_2 b_3 \!+\! b_2 b_4\!+\! b_3 b_4)  
+	& &\hspace{-13mm}(b_1 b_2 \!+ \!b_1 b_3 \!+\!b_1 b_4 \!+\! b_2 b_3 \!+\! b_2 b_4\!+\! b_3 b_4)
 \!	-\! 3(b_1 b_2 b_3\!+\! b_1 b_2 b_4 \!+\! b_1 b_3 b_4 \!+\! b_2 b_3 b_4) \! +\! 6 b_1 b_2 b_3 b_4 \\ &&\to  \left(-3+ b_1+b_2+ b_3+ b_4-b_{a_1}+ 3 b_{a_2}\right)^2
 \end{eqnarray}
 using the alternate form below.
@@ -2291,7 +2291,7 @@ Any $n$-variable symmetric function $f\left(b_1,b_2,\ldots b_n\right)\equiv f(b)
 {\scriptsize
 \begin{align}
 \hspace{-5mm}
-f(b) \rightarrow       
+f(b) \rightarrow
 \alpha
 +\alpha^{b}            \hspace{-0.5mm}    \sum_{i}                                b_{i}
 +\alpha_1^{b_{a}}      \hspace{-1.0mm}    \sum_{i}^{m-1}                          b_{a_{i}}
@@ -2299,7 +2299,7 @@ f(b) \rightarrow
 +\alpha^{bb}           \hspace{-0.5mm}    \sum_{ij}                               b_{i}b_{j}
 +\alpha_1^{bb_{a}}     \hspace{-0.5mm}    \sum_{i} \hspace{-1.5mm}\sum_{j}^{m-1}  b_{i}b_{a_{j}}
 +\alpha_2^{bb_{a}}     \hspace{-0.5mm}    \sum_{i}b_{i}                           b_{a_{m}}
-+\alpha_1^{b_{a}b_{a}} \hspace{-1.2mm}    \sum_{ij}^{m-1}                         b_{a_{i}}b_{a_{j}} 
++\alpha_1^{b_{a}b_{a}} \hspace{-1.2mm}    \sum_{ij}^{m-1}                         b_{a_{i}}b_{a_{j}}
 +\alpha_2^{b_{a}b_{a}} \hspace{-1.2mm}    \sum_{i}^{m-1}                          b_{a_{i}}b_{a_{m}},
 \end{align}
 }
@@ -2340,9 +2340,9 @@ f(b) \rightarrow
 
 \examplesec
 
-For $n = 4$ and $c = 2$, we have $m = 2$, and 
+For $n = 4$ and $c = 2$, we have $m = 2$, and
 \begin{eqnarray}
-	& &\hspace{-19mm}(b_1 b_2 +b_1 b_3 \!+\! b_1 b_4 \!+\! b_2 b_3 \!+\! b_2 b_4 \!+\! b_3 b_4)  
+	& &\hspace{-19mm}(b_1 b_2 +b_1 b_3 \!+\! b_1 b_4 \!+\! b_2 b_3 \!+\! b_2 b_4 \!+\! b_3 b_4)
 	\!-\! 3(b_1 b_2 b_3 \!+\! b_1 b_2 b_4 \!+\! b_1 b_3 b_4 \!+\! b_2 b_3 b_4) \!+\! 6 b_1 b_2 b_3 b_4 \\
 	&\to&  \left(1 \!-\! b_1 \!-\!b_2 \!-\! b_3 \!-\! b_4 \!-\! b_{a_1}\! +\! 3 b_{a_2}\right)^2
 \end{eqnarray}
@@ -2371,7 +2371,7 @@ Any $n$-variable symmetric function $f\left(b_1,b_2,\ldots b_n\right)\equiv f(b)
 {\scriptsize
 \begin{align}
 \hspace{-5mm}
-f(b) \rightarrow       
+f(b) \rightarrow
 \alpha
 +\alpha^{b}            \hspace{-0.5mm}    \sum_{i}                                b_{i}
 +\alpha_1^{b_{a}}      \hspace{-1.0mm}    \sum_{i}^{m-1}                          b_{a_{i}}
@@ -2379,7 +2379,7 @@ f(b) \rightarrow
 +\alpha^{bb}           \hspace{-0.5mm}    \sum_{ij}                               b_{i}b_{j}
 +\alpha_1^{bb_{a}}     \hspace{-0.5mm}    \sum_{i} \hspace{-1.5mm}\sum_{j}^{m-1}  b_{i}b_{a_{j}}
 +\alpha_2^{bb_{a}}     \hspace{-0.5mm}    \sum_{i}b_{i}                           b_{a_{m}}
-+\alpha_1^{b_{a}b_{a}} \hspace{-1.2mm}    \sum_{ij}^{m-1}                         b_{a_{i}}b_{a_{j}} 
++\alpha_1^{b_{a}b_{a}} \hspace{-1.2mm}    \sum_{ij}^{m-1}                         b_{a_{i}}b_{a_{j}}
 +\alpha_2^{b_{a}b_{a}} \hspace{-1.2mm}    \sum_{i}^{m-1}                          b_{a_{i}}b_{a_{m}},
 \end{align}
 }
@@ -2403,7 +2403,7 @@ f(b) \rightarrow
 
 \costsec
 \begin{itemize}
-\item $m=\lceil \textrm{log}_2 c \rceil$ auxiliary variables. 
+\item $m=\lceil \textrm{log}_2 c \rceil$ auxiliary variables.
 \item $n^2 + m^2$ non-submodular quadratic terms (all possible quadratic terms involving only non-auxiliary or only auxiliary variables).
 \item $m$ non-submodular linear terms (all possible linear terms involving auxiliaries).
 \end{itemize}
@@ -2421,9 +2421,9 @@ f(b) \rightarrow
 
 \examplesec
 
-For $n = 4$ and $c = 2$, we have $m = 1$, and 
+For $n = 4$ and $c = 2$, we have $m = 1$, and
 \begin{eqnarray}
-	& &\hspace{-19mm}(b_1 b_2 \!+\!b_1 b_3 \!+\! b_1 b_4 \!+\! b_2 b_3 \!+\! b_2 b_4 \!+\! b_3 b_4)  
+	& &\hspace{-19mm}(b_1 b_2 \!+\!b_1 b_3 \!+\! b_1 b_4 \!+\! b_2 b_3 \!+\! b_2 b_4 \!+\! b_3 b_4)
 	\!-\! 3(b_1 b_2 b_3 \!+\! b_1 b_2 b_4 \!+\! b_1 b_3 b_4 \!+\! b_2 b_3 b_4) \!+\! 6 b_1 b_2 b_3 b_4 \\
 	&\to&  \binom{-3+b_1 + b_2 + b_3 + b_4 + 3b_{a_1}}{2}
 \end{eqnarray}
@@ -2439,7 +2439,7 @@ f\left(b_{1},b_{2},\ldots,b_{n}\right)&\rightarrow \binom{-(c+1)+\sum_{i}b_{i}-\
 
 \refsec
 \begin{itemize}
-\item 2018, original paper (Theorem 2): \cite{Boros2018QuadratizationsOS}.
+\item 2018, original paper (Theorem 2): \cite{Boros2018QuadratizationsOS} and (Theorem 7): \cite{Boros2018boundsPaper}.
 % ELISABETH'S PDF FROM 1ST EMAIL TO NIKE SAYS THIS IS A CASE OF THEOREM 1, NOT THEOREM 2. SAME WITH SFR-BCR-4, AND 3,4 CAN BOTH BE COMBINED INTO THEOREM 7 OF OF [26], WHICH I HAVE DONE IN SFR-BCR-8.
 \end{itemize}
 
@@ -2454,7 +2454,7 @@ Any $n$-variable symmetric function $f\left(b_1,b_2,\ldots b_n\right)\equiv f(b)
 {\scriptsize
 \begin{align}
 \hspace{-5mm}
-f(b) \rightarrow       
+f(b) \rightarrow
 \alpha
 +\alpha^{b}            \hspace{-0.5mm}    \sum_{i}                                b_{i}
 +\alpha_1^{b_{a}}      \hspace{-1.0mm}    \sum_{i}^{m-1}                          b_{a_{i}}
@@ -2462,7 +2462,7 @@ f(b) \rightarrow
 +\alpha^{bb}           \hspace{-0.5mm}    \sum_{ij}                               b_{i}b_{j}
 +\alpha_1^{bb_{a}}     \hspace{-0.5mm}    \sum_{i} \hspace{-1.5mm}\sum_{j}^{m-1}  b_{i}b_{a_{j}}
 +\alpha_2^{bb_{a}}     \hspace{-0.5mm}    \sum_{i}b_{i}                           b_{a_{m}}
-+\alpha_1^{b_{a}b_{a}} \hspace{-1.2mm}    \sum_{ij}^{m-1}                         b_{a_{i}}b_{a_{j}} 
++\alpha_1^{b_{a}b_{a}} \hspace{-1.2mm}    \sum_{ij}^{m-1}                         b_{a_{i}}b_{a_{j}}
 +\alpha_2^{b_{a}b_{a}} \hspace{-1.2mm}    \sum_{i}^{m-1}                          b_{a_{i}}b_{a_{m}},
 \end{align}
 }
@@ -2505,9 +2505,9 @@ f(b) \rightarrow
 
 \examplesec
 
-For $n = 4$ and $c = 2$, we have $m = 1$, and 
+For $n = 4$ and $c = 2$, we have $m = 1$, and
 \begin{eqnarray}
-	& &\hspace{-19mm}(b_1 b_2 \!+\!b_1 b_3 \!+\! b_1 b_4 \!+\! b_2 b_3 \!+\! b_2 b_4 \!+\! b_3 b_4)  
+	& &\hspace{-19mm}(b_1 b_2 \!+\!b_1 b_3 \!+\! b_1 b_4 \!+\! b_2 b_3 \!+\! b_2 b_4 \!+\! b_3 b_4)
 	\!-\! 3(b_1 b_2 b_3 \!+\! b_1 b_2 b_4 \!+\! b_1 b_3 b_4 \!+\! b_2 b_3 b_4) \!+\! 6 b_1 b_2 b_3 b_4 \\
 	&\to&  \binom{1 - b_1 - b_2 - b_3 - b_4 + 3b_{a_1}}{2}
 \end{eqnarray}
@@ -2520,7 +2520,7 @@ f\left(b_{1},b_{2},\ldots,b_{n}\right)& \rightarrow \binom{(c-1)-\sum_{i}b_{i}-\
 
 \refsec
 \begin{itemize}
-\item 2018, original paper (Theorem 2): \cite{Boros2018QuadratizationsOS}.
+\item 2018, original paper (Theorem 2): \cite{Boros2018QuadratizationsOS} and (Theorem 7): \cite{Boros2018boundsPaper}.
 \end{itemize}
 
 \newpage
@@ -2872,7 +2872,7 @@ The first expression is highly non-submodular while the second is entirely submo
 
 \summarysec
 
-For a symmetric function such that $f\left(|c|\right)=0$ for $c>n$, then with with $\max\left( \lceil \log(c)\rceil , \lceil \log(n-c)\rceil  \right)$ auxiliary variables, we have:
+For a symmetric function such that $f\left(|c|\right)=0$ for $c>n$, then with $\max\left( \lceil \log(c)\rceil , \lceil \log(n-c)\rceil  \right)$ auxiliary variables, we have:
 
 \begin{align}
 f\left(b_{1},b_{2},\ldots,b_{n}\right)\rightarrow1+2\sum_{ij}b_{i}b_{j}-\sum_{i}b_{i}+4\sum_{2i}^{n-1}b_{a_{i}}\left(i-\sum_{j}^{n}b_{j}\right)
@@ -3148,7 +3148,7 @@ b_{1}b_{2}b_{3}+b_{1}b_{2}b_{4}\mapsto b_{3}b_a+b_{4}b_a+2b_{1}b_{2}-4b_{1}b_a-4
 \begin{itemize}
 \item Original paper: \cite{Rosenberg1975}
 \item Re-discovered in the context of diagonal quantum Hamiltonians: \cite{Biamonte2008a}.
-\item Used in: \cite{Perdomo2008, Bian2013}. %Perdomo2013 is protein folding problem, Bian2013 is Ramsey number problem. 
+\item Used in: \cite{Perdomo2008, Bian2013}. %Perdomo2013 is protein folding problem, Bian2013 is Ramsey number problem.
 \end{itemize}
 
 \newpage
@@ -3161,7 +3161,7 @@ We consider a set $C$ of variables which can occur in multiple terms throughout 
 Each application `rips out' this common component from each term \cite{Fix2011,Boros2014}.
 
 %\begin{enumerate}
-%\item $\alpha_{H}>0$ 
+%\item $\alpha_{H}>0$
 %\begin{equation}
 %\sum_{H\in\mathcal{H}}\alpha_{H}\prod_{j\in H}b_{j}=\min_{b_a}\left(\sum_{H\in\mathcal{H}}\alpha_{H}\right)b_a\prod_{j\in C}b_{j}+\sum_{H\in\mathcal{H}}\alpha_{H}(1-b_a)\prod_{j\in H\setminus C}b_{j}
 %\end{equation}
@@ -3220,10 +3220,10 @@ Each application `rips out' this common component from each term \cite{Fix2011,B
 %Let $\mathcal{H}$ be a function, where $C \subseteq H$ for each $H\in\mathcal{H}$ and each term has a coefficient $\alpha_{H}$.
 %The algorithm comes in 2 parts: when all $\alpha_{H}>0$ and when all $\alpha_{H}<0$. Combining the 2 gives the final method:
 
-%Each term $i$ of the objective function will involve some variables $b_{j_i}$ 
+%Each term $i$ of the objective function will involve some variables $b_{j_i}$
 
 %\begin{enumerate}
-%\item $\alpha_{H}>0$ 
+%\item $\alpha_{H}>0$
 \begin{equation}
 \sum_{H}\alpha_H\prod_{j\in H} b_{j} \rightarrow \sum_{H}\alpha_{H}b_a\prod_{j\in C}b_{j}+\sum_{H}\alpha_{H}(1-b_a)\prod_{j\in H\setminus C}b_{j}.
 \end{equation}
@@ -3421,7 +3421,7 @@ For computer image problems, it can be used with the above methods to optimize m
 %%\noindent where $\lambda$ is a large positive number.
 %
 \begin{comment}
-These techniques will transform $k$-local functions to 2-local functions that not only have the same ground state as the $k$-local function, but also the entire input/output spectrum of the $k$-local functions will be preserved in the low-lying energy space of the corresponding 2-local function (which also has higher energy states due to the auxiliary variables added). 
+These techniques will transform $k$-local functions to 2-local functions that not only have the same ground state as the $k$-local function, but also the entire input/output spectrum of the $k$-local functions will be preserved in the low-lying energy space of the corresponding 2-local function (which also has higher energy states due to the auxiliary variables added).
 \end{comment}
 %
 %
@@ -3455,7 +3455,7 @@ These techniques will transform $k$-local functions to 2-local functions that no
 % P(b_{a_k},b_i,b_j)=3b_{a_k}+b_ib_j -2b_ib_{a_k}-2b_jb_{a_k}
 %\end{equation}
 % will yield an energy of $E=0$ iff $b_{a_k}=b_ib_j$, and $E>0$ otherwise. We first reduce the order of the polynomial by $1$ by applying this penalty term with a large positive prefactor $\lambda$.
-%\begin{equation} 
+%\begin{equation}
 %H_{3-\rm{local}}=b_1b_2b_{a_1} +\lambda(3b_{a_1}-2b_{a_1}(b_3+b_4)+b_3b_4)
 %\end{equation}
 % Performing the same trick again yields a $2$-local Hamiltonian:
@@ -3469,7 +3469,7 @@ These techniques will transform $k$-local functions to 2-local functions that no
 %\begin{itemize}
 %\item .
 %%\item Paper on underlying mathematical principles \cite{Boros2002}.  Does the gadget really appear there?
-%\item Used in: \cite{Perdomo2008, Bian2013}. %Perdomo2013 is protein folding problem, Bian2013 is Ramsey number problem. 
+%\item Used in: \cite{Perdomo2008, Bian2013}. %Perdomo2013 is protein folding problem, Bian2013 is Ramsey number problem.
 %%\item Variation of these techniques used to prove unviersality of the Ising model \cite{DelasCuevasGemmaandCubitt2016}. Can the "variation of techniques" not be in their own sections?
 %\end{itemize}
 
@@ -3524,12 +3524,12 @@ H_2(b_1,b_{\neg1})=2\,b_1b_{\neg1}-b_i-b_{\neg 1}+1.
 z_1z_2z_3 \rightarrow & \alpha\left(\sum_{i=1}^3 H_2(b_i,b_{\neg i})+\sum_{i=1}^{2^3} H_2(b_{a_i},b_{\neg a_i})+ H_2(b_{a_{4,1}},b_{a_{4,2}})+H_1(b_{a_{1,1}},b_{a_{1,2}},b_{\neg a_1})+H_1(b_{a_1},b_{a_{1,3}},b_{a_{4,1}}) ~+\right.  \\
  & H_1(b_{1},b_{2},b_{\neg a_2})+H_1(b_{a_2},b_{3},b_{a_{4,2}}+H_1(b_{1},b_{2},b_{\neg a_3})+H_1(b_{a_3},b_{a_{1,3}},b_{a_{4,1}})+H_1(b_{a_{1,1}},b_{a_{1,2}},b_{\neg a_4})~+ \\
  &H_1(b_{a_4},b_{3},b_{a_{4,2}}) +  H_1(b_{1},b_{a_{1,2}},b_{\neg a_5})+H_1(b_{a_5},b_{3},b_{a_{4,1}})+H_1(b_{a_{1,1}},b_{2},b_{\neg a_6})+H_1(b_{a_6},b_{a_{1,3}},b_{a_{4,2}})~+ \\
- & \left.H_1(b_{1},b_{2},b_{\neg a_7})+H_1(b_{a_7},b_{a_{1,3}},b_{a_{4,1}})+H_1(b_{a_{1,1}},b_{ a_{1,2}},b_{\neg a_8})+H_1(b_{a_8},b_{3},b_{a_{4,2}})\right) 
+ & \left.H_1(b_{1},b_{2},b_{\neg a_7})+H_1(b_{a_7},b_{a_{1,3}},b_{a_{4,1}})+H_1(b_{a_{1,1}},b_{ a_{1,2}},b_{\neg a_8})+H_1(b_{a_8},b_{3},b_{a_{4,2}})\right)
 -2\,b_{a_{4,1}}+1.
 %\end{gathered}
 \end{align}
 }
-Each of the next four lines assigns a value to the flag variable $b_{a_{4,1}}$ for a state and $b_{a_{4,2}}$, for instance the leftmost two terms of the second line enforce that $b_{a_{4,1}}=0$ if $(b_1,b_2,b_3)=(0,0,0)$, while the right two terms enforce that $b_{a_{4,1}}=1$ if $(b_1,b_2,b_3)=(1,1,1)$. Because there are $2^3=8$ possible bitstrings for $(b_1,b_2,b_3)$, and each term to enforce a flag state requires two instances of $H_1$ (and two auxilliary variables), a total of $16$ instances are required as well as $16$ auxilliary variables.  
+Each of the next four lines assigns a value to the flag variable $b_{a_{4,1}}$ for a state and $b_{a_{4,2}}$, for instance the leftmost two terms of the second line enforce that $b_{a_{4,1}}=0$ if $(b_1,b_2,b_3)=(0,0,0)$, while the right two terms enforce that $b_{a_{4,1}}=1$ if $(b_1,b_2,b_3)=(1,1,1)$. Because there are $2^3=8$ possible bitstrings for $(b_1,b_2,b_3)$, and each term to enforce a flag state requires two instances of $H_1$ (and two auxilliary variables), a total of $16$ instances are required as well as $16$ auxilliary variables.
 
 
 \refsec
@@ -3604,38 +3604,38 @@ Each of the next four lines assigns a value to the flag variable $b_{a_{4,1}}$ f
 \newpage
 
 % \subsection{Chained Three Body Parity Operators}
-% 
+%
 % \summarysec
-% 
-% Goal: Guarantee that $z_{a_{k}}=z_iz_j$ can be chained together to make large product terms consisting of $z$. 
+%
+% Goal: Guarantee that $z_{a_{k}}=z_iz_j$ can be chained together to make large product terms consisting of $z$.
 % %Recall that products of $b$ correspond to parity check or ${\sc xor}$ operations, while products of $b$ correspond to logical ${\sc and}$ operations.
 % The penalty term $P(z_{a_k},z_i,z_j)= \mp z_{a_k}z_iz_j$ guarantees that $z_{a_k}=\pm z_iz_j$. The 3-local term can be made from gadgets.
-% 
-% This method was originally only used to reproduce the ground state of high locality terms, but states of the "wrong" parity ($q_k=\mp z_iz_j$) will all have the same energy as well, so it reproduces the full spectrum. 
-%  
-% 
+%
+% This method was originally only used to reproduce the ground state of high locality terms, but states of the "wrong" parity ($q_k=\mp z_iz_j$) will all have the same energy as well, so it reproduces the full spectrum.
+%
+%
 % \costsec
 % \begin{itemize}
-% \item The best known gadget for a 3-local Ising term uses one auxilliary qubit. Based on this gadget an $n\ge4$ body Ising term can be made using $3+2(n-4)$ auxilliary qubits. 
+% \item The best known gadget for a 3-local Ising term uses one auxilliary qubit. Based on this gadget an $n\ge4$ body Ising term can be made using $3+2(n-4)$ auxilliary qubits.
 % \end{itemize}
-% 
+%
 % \prossec
 % \begin{itemize}
 % \item Natural transmon implementation \cite{Leib2016}.
 % \item Chain like structure means that long range connectivity not required.
 % \end{itemize}
-% 
+%
 % \conssec
 % \begin{itemize}
 % \item Does not preserve degeneracy, ground state will retain orginal degeneracy, but excited states will have degeneracy multipled by $n-3$
 % \item Not very symmetric.
 % \end{itemize}
-% 
+%
 % \vspace{-1mm}
-% 
+%
 % \examplesec
 % \vspace{-4mm}
-% 
+%
 % \begin{align}
 % \begin{gathered}
 % H_\textrm{5-local} = z_1z_2z_3z_4z_5 =32\,b_1b_2b_3b_4b_5\nonumber \\
@@ -3645,91 +3645,91 @@ Each of the next four lines assigns a value to the flag variable $b_{a_{4,1}}$ f
 % +2(b_1+b_2+b_3+b_4+b_5)-1
 % \end{gathered}
 % \end{align}
-% 
+%
 % The full spectrum of $\pm z_1z_2z_3=\pm(8\,b_1b_2b_3-4\,b_1b_2-4\,b_2b_3+2\,b_1+2\,b_2+2\,b_3-1) $ is reproduced by:
-% 
+%
 % %\begin{equation}
 % %P_\pm(z_1,z_2,z_3;\lambda)=\lambda\left(z_1z_2+z_2z_3+z_3z_1+2z_a(z_1+z_2+z_3)\right)\mp (z_1+z_2+z_3 +2z_a).
 % %\end{equation}
-% 
+%
 % \begin{align}
 % P_\pm(b_1,b_2,b_3;\lambda)=\lambda\left(4\,(b_1b_2+b_2b_3+b_3b_1)+8\,b_a(b_1+b_2+b_3)-12\,b_a-4\,(b_1+b_2+b_3)+3\right)\nonumber \\
 % \mp (2\,b_1+2\,b_2+2\,b_3 +4\,b_a-5).
 % \end{align}
-% 
+%
 % This can be written more compactly in terms of $z$:
-% 
+%
 % \begin{equation}
 % P_\pm(z_1,z_2,z_3;\lambda)=\lambda\left(z_1z_2+z_2z_3+z_3z_1+2z_a(z_1+z_2+z_3)\right)\mp (z_1+z_2+z_3 +2z_a).
 % \end{equation}
-% 
+%
 % Using three copies of this 3-local gadget as a building block, and using two additional auxilliary variables, the spectrum of the 5-local term $z_1z_2z_3z_4z_5$ can be reproduced by the following Hamiltonian
-% 
+%
 % \begin{equation}
 % H_{2-\rm{local}}=P_+(b_1,b_2,b_{a_1};\lambda)+P_+(b_{a_1},b_3,b_{a_2};\lambda)+P_+(b_{a_2},b_4,b_5;\lambda).
 % \end{equation}
-% 
+%
 % \refsec
 % \begin{itemize}
 % \item Original proposal with transmon implementation: \cite{Leib2016}.
 % \end{itemize}
-% 
+%
 % \newpage
 
 % \subsection{Multibody Operators in PAQC}
-% 
+%
 % \summarysec
-% 
+%
 % Logical (qu)bits are mapped onto a highly non-local logical space of a Hamiltonian. These methods allow for high order terms to be directly implemented, but also require high locality terms to be implemented. While these architectures are not strictly a mapping from devices with high locality to two local ones, they may be built upon any gadget which has the same ground state manifold as $\prod_iz_i$. %In other words, PAQC schemes can reprduce the entire spectrum of a Hamiltonian, even if the gadgets which they are built on top of do not.
-% 
+%
 % Physical qubits describe relative parities of logical qubits. Not all configurations of these qubits will be mathematically allowed, so a constraint Hamiltonian must be applied.
-% 
+%
 % \costsec
 % \begin{itemize}
-% \item In the original (Lechner-Hauke-Zoller) scheme \cite{Lechner2015}, an $n$ body PAQC constraint requires a $2n$ local gadget which reproduces only the ground state manifold of $\prod_i^{2n}z_i$. 
+% \item In the original (Lechner-Hauke-Zoller) scheme \cite{Lechner2015}, an $n$ body PAQC constraint requires a $2n$ local gadget which reproduces only the ground state manifold of $\prod_i^{2n}z_i$.
 % \item Cost is more complicated to compute (but often lower) for other schemes.
 % \end{itemize}
-% 
+%
 % \prossec
 % \begin{itemize}
 % \item Connection to stablizers allows for novel decoding \cite{Pastawski2016,Albash2016}.
 % \item Natural Rydberg atom based implementation \cite{Glaetzle2017}.
 % \item Some implementations are highly symmetric, which may be good for quantum simulations.
 % \end{itemize}
-% 
+%
 % \conssec
 % \begin{itemize}
 % \item Requires other gadgets to implement.
 % \item Numerics suggest poor performance in some cases \cite{Albash2016}.
 % \end{itemize}
-% 
+%
 % \examplesec
-% 
+%
 % %Rather than considering a mapping which maps qubit values directly, let us consider a mapping which maps physical qubits to the relative parity of paris of logical qubits. If we consider only the relative parity pairs of qubits, we observe that there will be $n(n-1)$ such parity values, but not all of these parity values correspond to physically realizable configurations, for instance it is not mathematically possible for to have $z_1z_2=-1$, $z_2z_3=1$ and $z_1z_3=1$ simultaneously. We therefore need to add constraints to gaurantee that only mathematically consistant configurations are allowed. If we consider four qubits, these constraints are realized in the ground state manifold of the three qubit LHZ constraint Hamiltonian:
-% 
+%
 % Let us start with the LHZ constraint Hamiltonian, which constrains qubits describing 2-body parity terms to take only mathematically allowed values:
-% 
+%
 % \begin{equation}
 % H_{\rm{LHZ}}=-z_{1,2}z_{1,3}z_{2,3}-z_{1,3}z_{1,4}z_{2,4}z_{2,3}-z_{2,3}z_{2,4}z_{3,4}. \label{eq:LHZ4}
 % \end{equation}
-% 
+%
 % %Two local coupling between logical qubits in this state can therefore be achieved by introducing single qubit variables corresponding to each coupling, for instance adding a term $m\,z_{1,2}$ will intrduce a coupling between logical qubits $1$ and $2$ of strength $m$. If we want to add the four body constraint $z_1z_2z_3z_4$, we must add an additional physical qubit $z_{1,2,3,4}$ which is constrained to match the parity of $z_1z_2z_3z_4$. To accomplish this, we note that this total parity has to match $z_{1,2}z_{3,4}$, the Hamiltonian with added four body coupling of strength $m$ therefore takes the form:
-% 
+%
 % To add a four body term, we need to add a single qubit which couples to $z_{1,2}$ and $z_{3,4}$, single body constraints on this qubit correspond to a $4$ body constraint on the logical qubits.
-% 
-% 
-% 
+%
+%
+%
 % \begin{equation}
 % H_{4-\rm{local}}=m\,z_{1,2,3,4}+\lambda\,(H_{LHZ}-z_{1,2}z_{3,4}z_{1,2,3,4}),
 % \end{equation}
 % where $\lambda$ is a large postive number.
-% 
+%
 % If we instead wanted to create the three body coupling $z_1z_2z_3$ of strength $m$, we would have to add an additional variable $z_1$, since Eq. \ref{eq:LHZ4} only constrains the logical qubits up to global spin inversion. By noting that  $z_1z_2z_3=z_{1}z_{2,3}$ we see that such a three body Hamiltonian can take the form:
-% 
+%
 % \begin{equation}
 % H_{3-\rm{local}}=m\,z_{1,2,3}+\lambda\,(H_{LHZ}-z_{1}z_{2,3}z_{1,2,3}).
 % \end{equation}
-% 
+%
 % \refsec
 % \begin{itemize}
 % \item Original (LHZ) paper: \cite{Lechner2015}
@@ -3738,7 +3738,7 @@ Each of the next four lines assigns a value to the flag variable $b_{a_{4,1}}$ f
 % \item Rydberg Implementation of LHZ: \cite{Glaetzle2017}.
 % \item Performance and decoding of LHZ: \cite{Pastawski2016,Albash2016}.
 % \end{itemize}
-% 
+%
 % \newpage
 
 \subsection{Lower bounds for arbitrary functions (Anthony, Boros, Crama, Gruber, 2015)}
@@ -3799,7 +3799,7 @@ Split a any function $f$ into a symmetric part and anti-symmetric part:
 \begin{align}
 f\left(b_1,b_2,\ldots,b_n\right) &=  f_{\textrm{symmetric}} + f_{\textrm{anti-symmetric}}  ,\\
 f_{\textrm{symmetric}}                                 &\equiv \frac{1}{2}\left( f\left(b_1,b_2,\ldots,b_n\right) + f\left(1-b_1,1-b_2,\ldots,1-b_n\right)  \right) \\
-f_{\textrm{anti-symmetric}} &\equiv \frac{1}{2}\left( f\left(b_1,b_2,\ldots,b_n\right) - f\left(1-b_1,1-b_2,\ldots,1-b_n\right)  \right) 
+f_{\textrm{anti-symmetric}} &\equiv \frac{1}{2}\left( f\left(b_1,b_2,\ldots,b_n\right) - f\left(1-b_1,1-b_2,\ldots,1-b_n\right)  \right)
 \end{align}
 
 \noindent  We can now use any of the methods described only for symmetric functions, on the symmetric part, and use the (perhaps less powerful) general methods on the anti-symmetric part.
@@ -3858,7 +3858,7 @@ The Ising Hamiltonian with a transverse field in the $x$ direction is possible t
 
 \begin{align}
 H = \sum_i \left( \alpha_i^{(z)} z_i + \alpha_i^{(x)} x_i\right) + \sum_{ij}\left(\alpha_{ij}^{(zz)} z_iz_j  \right).
-\end{align}	
+\end{align}
 
 %\section*{i}  This doesn't help to make subsection be labeled as A instead of  C. strange.
 \subsection{ZZZ-TI-CBBK: Transvese Ising from ZZZ, by Cao, Babbush, Biamonte, and Kais (2015)}
@@ -3867,7 +3867,7 @@ There is only one reduction in the literature for reducing a Hamiltonian term to
 
 %\begin{small}
 \begin{align}
-\alpha z_{i}z_{j}z_{k}\rightarrow\alpha^{I}+\alpha_{i}^{z}z_{i}+\alpha_{j}^{z}z_{j}+\alpha_{k}^{z}z_{k}+\alpha_{a}^{z}z_{a}+\alpha_{a}^{x}x_{a}+\alpha_{ia}^{zz}z_{i}z_{a}+\alpha_{ja}^{zz}z_{j}z_{a}+\alpha_{ka}^{zz}z_{k}z_{a} \label{eq:ZZZ-TI-CBBK} 
+\alpha z_{i}z_{j}z_{k}\rightarrow\alpha^{I}+\alpha_{i}^{z}z_{i}+\alpha_{j}^{z}z_{j}+\alpha_{k}^{z}z_{k}+\alpha_{a}^{z}z_{a}+\alpha_{a}^{x}x_{a}+\alpha_{ia}^{zz}z_{i}z_{a}+\alpha_{ja}^{zz}z_{j}z_{a}+\alpha_{ka}^{zz}z_{k}z_{a} \label{eq:ZZZ-TI-CBBK}
 \end{align}
 %\end{small}
 
@@ -3889,7 +3889,7 @@ Including all coefficients and factorizing, we get:
 \begin{align}
 \alpha z_iz_jz_k \rightarrow & \left( \Delta + \frac{\alpha \Delta^4}{6}^{\nicefrac{1}{5}} \left(z_i+z_j+z_k \right)  \right)\left( \frac{1-z_a}{2}\right) + \frac{\alpha \Delta^4}{6}^{\nicefrac{1}{5}}  x_a\\
 &+ \left( \left(\frac{\alpha}{6}\right)^{\nicefrac{2}{5}} \Delta^{\nicefrac{3}{5}} - \left( \frac{7\alpha}{6} + \left(\frac{\alpha}{6} \right)^{\nicefrac{3}{5}} \Delta^{\nicefrac{2}{5}} \right)\left(z_i + z_j + z_k \right)        \right)\left(\frac{1+z_a}{2} \right)
-\end{align} 
+\end{align}
 
 
 The low-lying spectrum (eigenvalues \textbf{\textit{and}} eigenvectors) of the right side of Eq. \eqref{eq:ZZZ-TI-CBBK} will match those of the left side to within a spectral error of $\epsilon$ as long as $\Delta = \mathcal{O}\left(\epsilon^{-5}\right)$.
@@ -3962,8 +3962,8 @@ The low-lying spectrum (eigenvalues \textbf{\textit{and}} eigenvectors) of the r
 %
 %\footnotesize
 %\begin{align}
-%z_1z_2 +  y_1x_2z_3 \mapsto \alpha_1z_1 + \alpha_2z_2 + \alpha_3z_3 + \alpha_4z_4 + \alpha_5x_1 + \alpha_6x_2 + \alpha_7x_3 + \alpha_8x_4 + \alpha_9z_1z_1 + \alpha_{10}z_1z_2 + \cdots + \alpha_{72}z_4x_4 
-%\end{align} 
+%z_1z_2 +  y_1x_2z_3 \mapsto \alpha_1z_1 + \alpha_2z_2 + \alpha_3z_3 + \alpha_4z_4 + \alpha_5x_1 + \alpha_6x_2 + \alpha_7x_3 + \alpha_8x_4 + \alpha_9z_1z_1 + \alpha_{10}z_1z_2 + \cdots + \alpha_{72}z_4x_4
+%\end{align}
 %\normalsize
 %
 %{\color{red} This should be easy to optimize in MATLAB, assuming that 1 auxiliary qubit is enough. Most $\alpha$ are probably 0 because the characteristic polynomial of the left side is of degree 8, so there's far more unknowns than equations. We can then put numerical values above, in place of the $\alpha$'s}.
@@ -3974,8 +3974,8 @@ The low-lying spectrum (eigenvalues \textbf{\textit{and}} eigenvectors) of the r
 %
 %\footnotesize
 %\begin{align}
-%z_1z_2 +  y_1x_2z_3 \mapsto \alpha_1z_1 + \alpha_2z_2 + \alpha_3z_3 + \alpha_4z_4 + \alpha_5x_1 + \alpha_6x_2 + \alpha_7x_3 + \alpha_8x_4 + \alpha_9z_1z_1 + \alpha_{10}z_1z_2 + \cdots + \alpha_{72}z_4x_4 
-%\end{align} 
+%z_1z_2 +  y_1x_2z_3 \mapsto \alpha_1z_1 + \alpha_2z_2 + \alpha_3z_3 + \alpha_4z_4 + \alpha_5x_1 + \alpha_6x_2 + \alpha_7x_3 + \alpha_8x_4 + \alpha_9z_1z_1 + \alpha_{10}z_1z_2 + \cdots + \alpha_{72}z_4x_4
+%\end{align}
 %\normalsize
 %
 %{\color{red} This should be even easier to optimize in MATLAB}.
@@ -3988,7 +3988,7 @@ The low-lying spectrum (eigenvalues \textbf{\textit{and}} eigenvectors) of the r
 %
 %\noindent where one can choose $A$ and $B$ according to whether preserving the eigenvalues ($A$) or the eigenvectrs ($B$) is more important.
 %
-%The more auxiliary qubits included in the 2-local Hamiltonian, the more parameters that can be optimized in attempt to make the ground state arbitrarily close to the orginal ground state.  
+%The more auxiliary qubits included in the 2-local Hamiltonian, the more parameters that can be optimized in attempt to make the ground state arbitrarily close to the orginal ground state.
 %
 %\prossec
 %
@@ -4005,7 +4005,7 @@ The low-lying spectrum (eigenvalues \textbf{\textit{and}} eigenvectors) of the r
 %
 %\refsec
 %\begin{itemize}
-%\item In June 2017 Ref. https://arxiv.org/pdf/1706.03637.pdf was posted on arXiv but it is not clear to me why they have the constraint (7d), the definiion of their matrix norm in (7c) doesn't seem to be given as far as I can see, and their (7a) uses a square while (7d) uses an absolute value which means that one of them is being treated more preferentially than the other, even when they say they are (think they are) using "equal weights". 
+%\item In June 2017 Ref. https://arxiv.org/pdf/1706.03637.pdf was posted on arXiv but it is not clear to me why they have the constraint (7d), the definiion of their matrix norm in (7c) doesn't seem to be given as far as I can see, and their (7a) uses a square while (7d) uses an absolute value which means that one of them is being treated more preferentially than the other, even when they say they are (think they are) using "equal weights".
 %\end{itemize}
 %
 %\end{comment}
@@ -4060,7 +4060,7 @@ s_{a_{ij}1}^{xy}	&=\left(x_{a1_{ij}}x_{a2_{ij}}+y_{a1_{ij}}y_{a2_{ij}}\right)\\
 s_{a_{ij}2}^{xy}	&=\left(x_{a1_{ij}}x_{a2_{ij}}-y_{a1_{ij}}y_{a2_{ij}}\right)
 \end{align}
 
-\subsection*{NP-OY (Ocko \& Yoshida, 2011) [Continued]} 
+\subsection*{NP-OY (Ocko \& Yoshida, 2011) [Continued]}
 \noindent We can write the 4-body Hamiltonian on qubits as a 2-body Hamiltonian on ququits:
 
 {\scriptsize
@@ -4090,7 +4090,7 @@ H_{2\textrm{-body}}	=-\sum_{ij}\left(\alpha\left(s_{ij1ij2}^{zz}s_{ij3ij4}^{zz}+
 \item Only two auxiliaries required for each pair $ij$.
 \item 8-body to 2-body transformation can be accomplished in 1 step, rather than a 1B1 gadget which would take 6 steps or an SD + $(3\rightarrow2)$ gadget combination which would take 4 steps.
 \end{itemize}
- 
+
 \conssec
 \begin{itemize}
 \item Increase in dimention from working with only 2-level systems (spin-1/2 particles or $2\times2$ matrices) to working with 4-level systems (spin-3/2 particles).
@@ -4112,21 +4112,21 @@ H_{2\textrm{-body}}	=-\sum_{ij}\left(\alpha\left(s_{ij1ij2}^{zz}s_{ij3ij4}^{zz}+
 
 % CAN'T THIS BE DONE FO THE CASE WHERE THE \THETA IN EQ. 30 OF THEIR PAPER IS A SUM OF TERMS RATHER THAN JUST 1 TERM?
 
-%Non-locality from the original Hamiltonian, is transfered into a unitary transformation operator, which when applied to a $k$-local Hamiltonian, can reduce the $k$-locality of high order terms at the expense of increasing the $k$-locality of other terms which were chosen to be at most $(k-2)-$local. 
+%Non-locality from the original Hamiltonian, is transfered into a unitary transformation operator, which when applied to a $k$-local Hamiltonian, can reduce the $k$-locality of high order terms at the expense of increasing the $k$-locality of other terms which were chosen to be at most $(k-2)-$local.
 
 \summarysec
 
 Determine the $k$-local term, $H_{k-\rm{local}}$, whose degree we wish to reduce, and factor it into two commuting factors: $H_{k^\prime-\rm{local}}H_{(k-k^\prime)-\rm{local}}$, where $k^\prime$ can be as low as 0. Separate all terms that are at most $(k-1)$-local into ones that commmute with one of these factors (it does not matter which one, but without loss of generality we assume it to be the $(k-k^\prime)$-local one)  and ones that anti-commute with it:
 
 \begin{align}
-%H_{k-\rm{local}} + H_{(k-1)\rm{-local}}^{\rm{commuting}} + H_{(k-1)\rm{-local}}^{\rm{anti-commuting}} 
+%H_{k-\rm{local}} + H_{(k-1)\rm{-local}}^{\rm{commuting}} + H_{(k-1)\rm{-local}}^{\rm{anti-commuting}}
  H_{ <k \rm{-local}}^{\rm{commuting}} +H_{ <k \rm{-local}}^{\rm{anti-commuting}}  + \alpha H_{k^\prime-\rm{local}}H_{(k-k^\prime)-\rm{local}}
 \end{align}
-	
+
 \noindent Introduce one auxiliary qubit labeled by $a$ and the Hamiltonian:
 
 \begin{align}
-\alpha x_aH_{k^\prime-\rm{local}} +  H_{ <k \rm{-local}}^{\rm{commuting}} + z_aH_{ <k \rm{-local}}^{\rm{anti-commuting}} 
+\alpha x_aH_{k^\prime-\rm{local}} +  H_{ <k \rm{-local}}^{\rm{commuting}} + z_aH_{ <k \rm{-local}}^{\rm{anti-commuting}}
 \end{align}
 
 \noindent no longer contains $H_{k-\rm{local}}$ but $H_{<k-{\rm{local}}}^{\rm{anti-commuting}}$ is now one degree higher.
@@ -4161,7 +4161,7 @@ Determine the $k$-local term, $H_{k-\rm{local}}$, whose degree we wish to reduce
 %example comes from Table VII of original Subasi paper
 \begin{align}
 \vspace{-1mm}
-4z_5 -3 x_1 + 2z_1y_2x_5 + 9x_1x_2x_3x_4 -x_1y_2z_3x_5 \rightarrow 9x_{a_{1}} + 4z_{a_2}z_5   -3z_{a_3}x_1  -z_{a_3}x_{a_2}   +2x_{a_3}x_5  
+4z_5 -3 x_1 + 2z_1y_2x_5 + 9x_1x_2x_3x_4 -x_1y_2z_3x_5 \rightarrow 9x_{a_{1}} + 4z_{a_2}z_5   -3z_{a_3}x_1  -z_{a_3}x_{a_2}   +2x_{a_3}x_5
 \end{align}
 
 \refsec
@@ -4204,7 +4204,7 @@ H_{{\rm 2-local}}      &=\nicefrac{1}{2}\left(2\lambda_{6,a_{8}} + x_{1}\lambda_
 \costsec
 \begin{itemize}
 \item 6 auxiliary qutrits and 4 auxiliary qubits
-\item 2 quartic, 4 cubic, and 2 quadratic terms becomes 27 quadratic terms and 5 linear terms in the Pauli-GellMann basis. 
+\item 2 quartic, 4 cubic, and 2 quadratic terms becomes 27 quadratic terms and 5 linear terms in the Pauli-GellMann basis.
 \end{itemize}
 
 \prossec
@@ -4280,7 +4280,7 @@ y_{a_{4}}\lambda_{5,a_{13}}+x_{a_{2}}\lambda_{4,a_{15}}+y_{a_{2}}\lambda_{5,a_{1
 \costsec
 \begin{itemize}
 \item 16 auxiliary qubits.
-%\item 2 quartic, 4 cubic, and 2 quadratic terms becomes 27 quadratic terms and 5 linear terms in the Pauli-GellMann basis. 
+%\item 2 quartic, 4 cubic, and 2 quadratic terms becomes 27 quadratic terms and 5 linear terms in the Pauli-GellMann basis.
 \end{itemize}
 
 \prossec
@@ -4328,7 +4328,7 @@ The first gadgets for arbitrary Hamiltonians acting on some number of qubits, we
 %\end{align}
 
 \begin{align}
-\prod_i^3 \sum_j \alpha_{ij}s_{i} \rightarrow \alpha + \alpha_i^{ss} \sum_i \left(\sum_j \alpha_{ij}s_{ij}\right)^2 + \alpha_i^{sx}\sum_i \sum_j \alpha_{ij} s_{ij}x_{a_i} + \alpha^{zz} \sum_{ij} z_{a_i}z_{a_j} 
+\prod_i^3 \sum_j \alpha_{ij}s_{i} \rightarrow \alpha + \alpha_i^{ss} \sum_i \left(\sum_j \alpha_{ij}s_{ij}\right)^2 + \alpha_i^{sx}\sum_i \sum_j \alpha_{ij} s_{ij}x_{a_i} + \alpha^{zz} \sum_{ij} z_{a_i}z_{a_j}
 \end{align}
 
 
@@ -4339,7 +4339,7 @@ The first gadgets for arbitrary Hamiltonians acting on some number of qubits, we
 \alpha^{zz} &= -  \frac{1}{24\Delta}
 \end{align}
 
-\noindent The result will be a 2-local Hamiltonian whose low-lying spectrum is equivalent to the spectrum of $H_{3-\rm{local}}$ to within $\epsilon$ as long as $\Delta=\Theta\left(\epsilon^{-3}\right)$. 
+\noindent The result will be a 2-local Hamiltonian whose low-lying spectrum is equivalent to the spectrum of $H_{3-\rm{local}}$ to within $\epsilon$ as long as $\Delta=\Theta\left(\epsilon^{-3}\right)$.
 
 \costsec
 
@@ -4348,7 +4348,7 @@ The first gadgets for arbitrary Hamiltonians acting on some number of qubits, we
 \item $\Delta =\Theta\left(\epsilon^{-3}\right)$
 \end{itemize}
 
-\prossec 
+\prossec
 \begin{itemize}
 \item Very few auxiliary qubits needed
 \end{itemize}
@@ -4356,8 +4356,8 @@ The first gadgets for arbitrary Hamiltonians acting on some number of qubits, we
 \conssec
 \begin{itemize}
 \item Will not work for Hamiltonians that do not factorize appropriately.
-\end{itemize}  
-               
+\end{itemize}
+
 %\examplesec
 %
 %{\tiny
@@ -4382,7 +4382,7 @@ The first gadgets for arbitrary Hamiltonians acting on some number of qubits, we
 
 \summarysec
 
- For any 3-local term (product of Pauli matrices $s_i$) in the Hamiltonian, we can define \textit{one} auxiliary qubit labeled by $a$  and  make the transformation:                                                                                                                                      
+ For any 3-local term (product of Pauli matrices $s_i$) in the Hamiltonian, we can define \textit{one} auxiliary qubit labeled by $a$  and  make the transformation:
 %Group all $3$-local terms together and express their sum as a sum of products of commuting matrices $s_{ij}$:
 
 %\begin{align}
@@ -4390,7 +4390,7 @@ The first gadgets for arbitrary Hamiltonians acting on some number of qubits, we
 %\end{align}
 
 \begin{align}
-a\prod_i^3 s_{i} \rightarrow \alpha + \alpha^s s_3 + \alpha^z z_a +\alpha^{ss} \left(s_1 + s_2 \right)^2 + \alpha^{sz}s_3z_a  +  + \alpha^{sx}\left(s_1x_a + s_2x_a  \right) 
+a\prod_i^3 s_{i} \rightarrow \alpha + \alpha^s s_3 + \alpha^z z_a +\alpha^{ss} \left(s_1 + s_2 \right)^2 + \alpha^{sz}s_3z_a  +  + \alpha^{sx}\left(s_1x_a + s_2x_a  \right)
 \end{align}
 
 %{\scriptsize
@@ -4404,12 +4404,12 @@ a\prod_i^3 s_{i} \rightarrow \alpha + \alpha^s s_3 + \alpha^z z_a +\alpha^{ss} \
 %\alpha^s    &= \alpha\left(\frac{1}{4\Delta^{\nicefrac{2}{3}}} - 1 \right) \\
 %\alpha^z    &= \alpha\left(\frac{1}{4\Delta^{\nicefrac{2}{3}}} - 1 \right) \\
 %\alpha^{ss} &= \frac{1}{\Delta^{\nicefrac{1}{3}}} \\
-%\alpha^{sz} &= \frac{\alpha}{4\Delta^{\nicefrac{2}{3}}} \\ 
+%\alpha^{sz} &= \frac{\alpha}{4\Delta^{\nicefrac{2}{3}}} \\
 %\alpha^{sx} &=  \frac{1}{\Delta^{\nicefrac{2}{3}}} \\
 \end{align}
 %}
 
-\noindent The result will be a 2-local Hamiltonian whose low-lying spectrum is equivalent to the spectrum of $H_{3-\rm{local}}$ to within $\epsilon$ as long as $\Delta=\Theta\left(\epsilon^{-3}\right)$. 
+\noindent The result will be a 2-local Hamiltonian whose low-lying spectrum is equivalent to the spectrum of $H_{3-\rm{local}}$ to within $\epsilon$ as long as $\Delta=\Theta\left(\epsilon^{-3}\right)$.
 
 \costsec
 
@@ -4429,9 +4429,9 @@ a\prod_i^3 s_{i} \rightarrow \alpha + \alpha^s s_3 + \alpha^z z_a +\alpha^{ss} \
 \begin{itemize}
 \item
 \item
-\end{itemize}  
+\end{itemize}
 \end{comment}
-               
+
 \examplesec
 
 % NOTE WE CAN CHANGE THE 1,2,3 (BECAUSE THINGS COMMUTE) SO WE MIGHT BE ABLE TO  DO THIS IN A WAY IN WHICH THERE'S FEWER INDEPENDENT COEFFICIENTS TO DEFINE. ESPECIALLY WHEN LOOKING WHAT WHICH 2-LOCAL TERMS WERE ALREADY IN THE ORIGINAL HAMILTONIAN!!
@@ -4463,7 +4463,7 @@ x_1z_2y_3 - 3x_1x_2y_4 + z_1x_2 &\rightarrow \alpha +  \alpha^z(z_{a_1} + z_{a_2
 %\end{align}
 
 \begin{align}
-\prod_i^3 s_{i} \rightarrow \alpha   + \alpha_i^{ss} \sum_i s_i^2 + \alpha_i^{sx}\sum_i  s_ix_{a_i} + \alpha^{zz} \sum_{ij} z_{a_i}z_{a_j} 
+\prod_i^3 s_{i} \rightarrow \alpha   + \alpha_i^{ss} \sum_i s_i^2 + \alpha_i^{sx}\sum_i  s_ix_{a_i} + \alpha^{zz} \sum_{ij} z_{a_i}z_{a_j}
 \end{align}
 
 \begin{align}
@@ -4473,7 +4473,7 @@ x_1z_2y_3 - 3x_1x_2y_4 + z_1x_2 &\rightarrow \alpha +  \alpha^z(z_{a_1} + z_{a_2
 \alpha^{zz} &=  \frac{1}{24\Delta}
 \end{align}
 
-\noindent The result will be a 2-local Hamiltonian whose low-lying spectrum is equivalent to the spectrum of $H_{3-\rm{local}}$ to within $\epsilon$ as long as $\Delta=\Theta\left(\epsilon^{-3}\right)$. 
+\noindent The result will be a 2-local Hamiltonian whose low-lying spectrum is equivalent to the spectrum of $H_{3-\rm{local}}$ to within $\epsilon$ as long as $\Delta=\Theta\left(\epsilon^{-3}\right)$.
 
 \costsec
 
@@ -4493,9 +4493,9 @@ x_1z_2y_3 - 3x_1x_2y_4 + z_1x_2 &\rightarrow \alpha +  \alpha^z(z_{a_1} + z_{a_2
 \begin{itemize}
 \item
 \item
-\end{itemize}  
+\end{itemize}
 \end{comment}
-               
+
 \examplesec
 
 {\tiny
@@ -4531,7 +4531,7 @@ x_1z_2y_3 - 3x_1x_2y_4 + z_1x_2 \rightarrow \alpha   + \alpha^{zx}_{2a_{12}}z_2x
 
 {\footnotesize
 \begin{align}
-a\prod_i^3 s_{i} \rightarrow \alpha   + \alpha_1^{s} s_1^2 + \alpha_2^s s_2^2 + \alpha_3^s s_3 + \alpha_a^z z_a + \alpha_{12}^{ss} s_1s_2 + \alpha_{13}^{ss} s_1^2s_3 + \alpha_{23}^{ss} s_2^2s_3 + \alpha_{3a}^{sz} s_3z_a + \alpha_{1a}^{sx}s_1x_a+\alpha_{2a}^{sx}s_2x_a   
+a\prod_i^3 s_{i} \rightarrow \alpha   + \alpha_1^{s} s_1^2 + \alpha_2^s s_2^2 + \alpha_3^s s_3 + \alpha_a^z z_a + \alpha_{12}^{ss} s_1s_2 + \alpha_{13}^{ss} s_1^2s_3 + \alpha_{23}^{ss} s_2^2s_3 + \alpha_{3a}^{sz} s_3z_a + \alpha_{1a}^{sx}s_1x_a+\alpha_{2a}^{sx}s_2x_a
 \end{align}
 }
 
@@ -4558,11 +4558,11 @@ a\prod_i^3 s_{i} \rightarrow \alpha   + \alpha_1^{s} s_1^2 + \alpha_2^s s_2^2 + 
 %\alpha^{ss}_{13} &= \alpha\frac{1}{2}\\
 %\alpha^{ss}_{23} &= \alpha\frac{1}{2} \\
 %\alpha^{sz}_{3a} &= \frac{\alpha^{1/3}\Delta^{2/3}}{2} \\
-%\alpha^{sx}_{1a} &= -\frac{\alpha^{1/3}\Delta^{2/3}}{\sqrt{2}} \\ 
-%\alpha^{sx}_{2a} &= \frac{\alpha^{1/3}\Delta^{2/3}}{\sqrt{2}} 
+%\alpha^{sx}_{1a} &= -\frac{\alpha^{1/3}\Delta^{2/3}}{\sqrt{2}} \\
+%\alpha^{sx}_{2a} &= \frac{\alpha^{1/3}\Delta^{2/3}}{\sqrt{2}}
 \end{align}
 
-\noindent A $k$-local Hamiltonian with a 3-local term replaced by this 2-local Hamiltonian will have an equivalent low-lying spectrum to within $\epsilon$ as long as $\Delta=\Omega\left(\epsilon^{-3}\right)$. 
+\noindent A $k$-local Hamiltonian with a 3-local term replaced by this 2-local Hamiltonian will have an equivalent low-lying spectrum to within $\epsilon$ as long as $\Delta=\Omega\left(\epsilon^{-3}\right)$.
 
 \costsec
 
@@ -4583,9 +4583,9 @@ a\prod_i^3 s_{i} \rightarrow \alpha   + \alpha_1^{s} s_1^2 + \alpha_2^s s_2^2 + 
 \begin{itemize}
 \item
 \item
-\end{itemize}  
+\end{itemize}
 \end{comment}
-               
+
 \examplesec
 
 
@@ -4617,7 +4617,7 @@ a\prod_i^3 s_{i} \rightarrow \alpha   + \alpha_1^{s} s_1^2 + \alpha_2^s s_2^2 + 
 %
 %{\footnotesize
 %\begin{align}
-%\prod_i^3 s_{i} \rightarrow \alpha^I + \alpha_1^{s} s_1^2 + \alpha_2^s s_2^2 + \alpha_3^s s_3 + \alpha_a^z z_a + \alpha_{12}^{ss} s_1s_2 + \alpha_{13}^{ss} s_1^2s_3 + \alpha_{23}^{ss} s_2^2s_3 + \alpha_{3a}^{sz} s_3z_a + \alpha_{1a}^{sx}s_1x_a+\alpha_{2a}^{sx}s_2x_a   
+%\prod_i^3 s_{i} \rightarrow \alpha^I + \alpha_1^{s} s_1^2 + \alpha_2^s s_2^2 + \alpha_3^s s_3 + \alpha_a^z z_a + \alpha_{12}^{ss} s_1s_2 + \alpha_{13}^{ss} s_1^2s_3 + \alpha_{23}^{ss} s_2^2s_3 + \alpha_{3a}^{sz} s_3z_a + \alpha_{1a}^{sx}s_1x_a+\alpha_{2a}^{sx}s_2x_a
 %\end{align}
 %}
 %
@@ -4631,11 +4631,11 @@ a\prod_i^3 s_{i} \rightarrow \alpha   + \alpha_1^{s} s_1^2 + \alpha_2^s s_2^2 + 
 %\alpha^{ss}_{13} &= \frac{1}{2}\\
 %\alpha^{ss}_{23} &= \frac{1}{2} \\
 %\alpha^{sz}_{3a} &= \frac{\Delta^{2/3}}{2} \\
-%\alpha^{sx}_{1a} &= \frac{\Delta^{2/3}}{\sqrt{2}} \\ 
-%\alpha^{sx}_{2a} &= \frac{\Delta^{2/3}}{\sqrt{2}} 
+%\alpha^{sx}_{1a} &= \frac{\Delta^{2/3}}{\sqrt{2}} \\
+%\alpha^{sx}_{2a} &= \frac{\Delta^{2/3}}{\sqrt{2}}
 %\end{align}
 %
-%\noindent A $k$-local Hamiltonian with a 3-local term replaced by this 2-local Hamiltonian will have an equivalent low-lying spectrum to within $\epsilon$ as long as $\Delta=\Omega\left(\epsilon^{-3}\right)$. 
+%\noindent A $k$-local Hamiltonian with a 3-local term replaced by this 2-local Hamiltonian will have an equivalent low-lying spectrum to within $\epsilon$ as long as $\Delta=\Omega\left(\epsilon^{-3}\right)$.
 %
 %\costsec
 %
@@ -4656,9 +4656,9 @@ a\prod_i^3 s_{i} \rightarrow \alpha   + \alpha_1^{s} s_1^2 + \alpha_2^s s_2^2 + 
 %\begin{itemize}
 %\item
 %\item
-%\end{itemize}  
+%\end{itemize}
 %\end{comment}
-%               
+%
 %\examplesec
 %
 %%{\tiny
@@ -4684,7 +4684,7 @@ We wish to reduce the $k$-local term:
 H_{k-\rm{local}} = \alpha \prod_j^k s_{j} .  \label{eq:klocalInKempeMethod}
 \end{align}
 
-\noindent 
+\noindent
 
 Define one auxiliary qubit labeled by $a$ and make the transformation:
 
@@ -4713,9 +4713,9 @@ H_{k-{\rm local}} \rightarrow &-\left(\frac{\alpha}{2}\right)^{\nicefrac{1}{3}}\
 \begin{itemize}
 \item
 \item
-\end{itemize}  
+\end{itemize}
 \end{comment}
-               
+
 \examplesec
 
 \refsec
@@ -4738,7 +4738,7 @@ H_{k-\rm{local}} \rightarrow &	\left(\Delta+\left(\frac{\alpha}{2}\right)^{\nice
 &	+\left(\frac{\alpha}{2}\right)^{\nicefrac{1}{3}}\Delta^{\nicefrac{3}{4}}\left(\prod_j^{k-2} s_{j}-{\rm sgn}(\alpha) s_{k-1}\right)x_{a}+{\rm sgn}(\alpha)\sqrt[3]{2}\alpha^{\nicefrac{2}{3}}\left(\Delta^{\nicefrac{1}{2}}+\Delta^{\nicefrac{3}{2}}\right)\prod_j^{k-1}s_j.
 \end{align}
 
-\noindent The result is $(k-1)$-local and its low-lying spectrum is the same as that of  $H_{k-\rm{local}}$ when $\Delta$ is large enough. 
+\noindent The result is $(k-1)$-local and its low-lying spectrum is the same as that of  $H_{k-\rm{local}}$ when $\Delta$ is large enough.
 
 \costsec
 \begin{itemize}
@@ -4757,9 +4757,9 @@ H_{k-\rm{local}} \rightarrow &	\left(\Delta+\left(\frac{\alpha}{2}\right)^{\nice
 \begin{itemize}
 \item
 \item
-\end{itemize}  
+\end{itemize}
 \end{comment}
-               
+
 \examplesec
 
 \refsec
@@ -4803,13 +4803,13 @@ The resulting Hamiltonian has a degree of 1 larger than the degree of whichever 
 
 \conssec
 \begin{itemize}
-\item Requires the ability to factor $k$-local terms into non-overlapping subspaces that are at most $\left(k-2\right)$-local in order to reduce $k$-locality. This is not possible for $z_1x_2x_3 + z_2z_3x_4$, for example. 
+\item Requires the ability to factor $k$-local terms into non-overlapping subspaces that are at most $\left(k-2\right)$-local in order to reduce $k$-locality. This is not possible for $z_1x_2x_3 + z_2z_3x_4$, for example.
 \item $\Delta$ needs to be rather large.
 \item Cannot reduce 3-local to 2-local unless we generalize to a factor of 3 non-overlapping subspaces instead of 2. Needs to be combined with $3-\rightarrow2$ gadgets, for example.
 \item A lot of work may be needed to find the optimal reduction, since each $k$-local term can be factored in many ways, and some of these ways may affect the ability to reduce other $k$-local terms.
 %\item Only beneficial for $k\ge5$.
-\end{itemize}  
-               
+\end{itemize}
+
 \examplesec
 
 \refsec
@@ -4847,13 +4847,13 @@ The resulting Hamiltonian has a degree of 1 larger than the degree of whichever 
 %
 %\conssec
 %\begin{itemize}
-%\item Requires the ability to factor $k$-local terms into non-overlapping subspaces that are at most $\left(k-2\right)$-local in order to reduce $k$-locality. This is not possible for $z_1x_2x_3 + z_2z_3x_4$, for example. 
+%\item Requires the ability to factor $k$-local terms into non-overlapping subspaces that are at most $\left(k-2\right)$-local in order to reduce $k$-locality. This is not possible for $z_1x_2x_3 + z_2z_3x_4$, for example.
 %\item $\Delta$ needs to be rather large.
 %\item Cannot reduce 3-local to 2-local unless we generalize to a factor of 3 non-overlapping subspaces instead of 2. Needs to be combined with $3-\rightarrow2$ gadgets, for example.
 %\item A lot of work may be needed to find the optiml reduction, since each $k$-local term can be factored in many ways, and some of these ways may affect the ability to reduce other $k$-local terms.
 %%\item Only beneficial for $k\ge5$.
-%\end{itemize}  
-%               
+%\end{itemize}
+%
 %\examplesec
 %
 %\refsec
@@ -4894,13 +4894,13 @@ H_{k-\rm{local}} = \alpha H_{1,(\nicefrac{k}{2})-\rm{local}}H_{2,(\nicefrac{k}{2
 \conssec
 \begin{itemize}
 \item Only beneficial for $k\ge5$.
-\end{itemize}  
-               
+\end{itemize}
+
 \examplesec
 
 \refsec
 \begin{itemize}
-\item Original paper: \cite{Cao2015}. 
+\item Original paper: \cite{Cao2015}.
 \end{itemize}
 
 \newpage
@@ -4913,10 +4913,10 @@ For a sum of terms that are $k$-local, with each term $j$ written as a product $
 
 
 
-% $A_{a_j}$ and $B_{b_j}$ with $j=1,2,\cdots,M$, introduce two sets of ancilla qubits: 
-%one set being the ``core ancilla qubits", which consists of $C$ qubits that are all-to-all connected via the Hamiltonian $H_\mathcal{C}$, 
-%the second set being the ``direct ancilla qubits", which are qubits that couple the $A_{a_j}$ and $B_{b_j}$ of each $k$-local term with the core ancilla qubits. 
-%For each term $j$ we introduce $R$ direct ancilla qubits, labelling them as $a_{d_{ij}}$ with $i=1,2,\cdots,R$. 
+% $A_{a_j}$ and $B_{b_j}$ with $j=1,2,\cdots,M$, introduce two sets of ancilla qubits:
+%one set being the ``core ancilla qubits", which consists of $C$ qubits that are all-to-all connected via the Hamiltonian $H_\mathcal{C}$,
+%the second set being the ``direct ancilla qubits", which are qubits that couple the $A_{a_j}$ and $B_{b_j}$ of each $k$-local term with the core ancilla qubits.
+%For each term $j$ we introduce $R$ direct ancilla qubits, labelling them as $a_{d_{ij}}$ with $i=1,2,\cdots,R$.
 %Specifically, we accomplish the following transformation:
 
 \begin{equation}
@@ -4926,14 +4926,14 @@ For a sum of terms that are $k$-local, with each term $j$ written as a product $
 \end{array}
 \end{equation}
 
-If we would like the spectrum of the RHS to be close to that of the LHS, with a difference of $O(\epsilon)$, then for any $d\in(0,1)$ we can choose 
+If we would like the spectrum of the RHS to be close to that of the LHS, with a difference of $O(\epsilon)$, then for any $d\in(0,1)$ we can choose
 \begin{align}
 \label{eq:RC}
 	N_{\rm{direct}} & \in \Omega\left( \max\left\{
-			\epsilon^{-\frac{2}{d}}, 
+			\epsilon^{-\frac{2}{d}},
 			\left(\frac{\|H_\text{else}\|^2}{2M^4 \max_j|a_j|}\right)^{\frac{1}{d}},
 			\left(M^3 \epsilon^{-2} \right)^{\frac{1}{1-d}}
-		\right\}\right),\\ 
+		\right\}\right),\\
         \label{eq:CC}
         N_{\rm{core}} & \in \Omega \left( M^3 N_{\rm{direct}}^d \,\epsilon^{-1}\right), \\
         \alpha_{j}, \alpha & \in O(\epsilon) \label{eq:eps}
@@ -4947,7 +4947,7 @@ If we would like the spectrum of the RHS to be close to that of the LHS, with a 
 \conssec
 \begin{itemize}
 \item Uses poly$(\epsilon^{-1})$ ancilla qubits (See Equations \ref{eq:RC} and \ref{eq:CC}).
-\item The construction only describes the asymptotic scaling of the parameters rather than concrete assignments of them. 
+\item The construction only describes the asymptotic scaling of the parameters rather than concrete assignments of them.
 More work is needed for finding tight non-asymptotic error bounds in perturbative expansion.
 \end{itemize}
 
@@ -4955,7 +4955,7 @@ More work is needed for finding tight non-asymptotic error bounds in perturbativ
 
 \refsec
 \begin{itemize}
-\item Original paper: \cite{Cao2015a}. 
+\item Original paper: \cite{Cao2015a}.
 \end{itemize}
 
 \newpage
@@ -4976,8 +4976,8 @@ More work is needed for finding tight non-asymptotic error bounds in perturbativ
 %%\begin{itemize}
 %%\item
 %%\item
-%%\end{itemize}  
-%               
+%%\end{itemize}
+%
 %\examplesec
 %
 %\refsec
@@ -4988,10 +4988,10 @@ More work is needed for finding tight non-asymptotic error bounds in perturbativ
 %\subsubsection{Perturbation theory}\label{sec:perturbation}
 %In our notation the spin-1/2 Pauli operators will be represented as $\{X,Y,Z\}$ with subscript indicating which spin-1/2 particle (qubit) it acts on. For example $X_2$ is a Pauli operator $X=|0\rangle\langle{1}|+|1\rangle\langle{0}|$ acting on the qubit labelled as $2$.
 %
-%In the literature there are different formulations of the perturbation theory that are adopted when constructing and analyzing the gadgets. This adds to the challenge faced in comparing the physical resources required among the various proposed constructions. 
-%For example, Jordan and Farhi \cite{JF08} use a formulation due to Bloch, while Bravyi et al.\ use a formulation based on the Schrieffer-Wolff transformation \cite{BDLT08}. Here we employ the formulation used in \cite{KKR06,OT06}. For a review on various formulations of perturbation theory, refer to \cite{BDL11}. 
+%In the literature there are different formulations of the perturbation theory that are adopted when constructing and analyzing the gadgets. This adds to the challenge faced in comparing the physical resources required among the various proposed constructions.
+%For example, Jordan and Farhi \cite{JF08} use a formulation due to Bloch, while Bravyi et al.\ use a formulation based on the Schrieffer-Wolff transformation \cite{BDLT08}. Here we employ the formulation used in \cite{KKR06,OT06}. For a review on various formulations of perturbation theory, refer to \cite{BDL11}.
 %
-%A gadget Hamiltonian $\tilde{H}=H+V$ consists of a penalty Hamiltonian $H$, which applies an energy gap onto an ancilla space, and a perturbation $V$. To explain in further detail how the low-lying sector of the gadget Hamiltonian $\tilde{H}$ approximates the entire spectrum of a certain target Hamiltonian $H_\text{targ}$ with  error $\epsilon$, we set up the following notations: let $\lambda_j$ and $|\psi_j\rangle$ be the $j^\text{th}$ eigenvalue and eigenvector of $H$ and similarly define $\tilde\lambda_j$ and $|\tilde\psi_j\rangle$  as those of $\tilde{H}$, assuming all the eigenvalues are labelled in a weakly increasing order ($\lambda_1\le\lambda_2\le\cdots$, same for $\tilde{\lambda}_j$). Using a cutoff value $\lambda_*$, let $\mathcal{L}_-=\text{span}\{|\psi_j\rangle|\forall j:\lambda_j\le\lambda_*\}$ be the low energy subspace and $\mathcal{L}_+=\text{span}\{|\psi_j\rangle|\forall j:\lambda_j>\lambda_*\}$ be the high energy subspace. Let ${\Pi_-}$ and ${\Pi_+}$ be the orthogonal projectors onto the subspaces $\mathcal{L}_-$ and $\mathcal{L}_+$ respectively. For an operator $O$ we define the partitions of $O$ into the subspaces as $O_-={\Pi_-}O{\Pi_-}$, $O_+={\Pi_+}O{\Pi_+}$, $O_{-+}={\Pi_-}O{\Pi_+}$ and $O_{+-}={\Pi_+}O{\Pi_-}$.  
+%A gadget Hamiltonian $\tilde{H}=H+V$ consists of a penalty Hamiltonian $H$, which applies an energy gap onto an ancilla space, and a perturbation $V$. To explain in further detail how the low-lying sector of the gadget Hamiltonian $\tilde{H}$ approximates the entire spectrum of a certain target Hamiltonian $H_\text{targ}$ with  error $\epsilon$, we set up the following notations: let $\lambda_j$ and $|\psi_j\rangle$ be the $j^\text{th}$ eigenvalue and eigenvector of $H$ and similarly define $\tilde\lambda_j$ and $|\tilde\psi_j\rangle$  as those of $\tilde{H}$, assuming all the eigenvalues are labelled in a weakly increasing order ($\lambda_1\le\lambda_2\le\cdots$, same for $\tilde{\lambda}_j$). Using a cutoff value $\lambda_*$, let $\mathcal{L}_-=\text{span}\{|\psi_j\rangle|\forall j:\lambda_j\le\lambda_*\}$ be the low energy subspace and $\mathcal{L}_+=\text{span}\{|\psi_j\rangle|\forall j:\lambda_j>\lambda_*\}$ be the high energy subspace. Let ${\Pi_-}$ and ${\Pi_+}$ be the orthogonal projectors onto the subspaces $\mathcal{L}_-$ and $\mathcal{L}_+$ respectively. For an operator $O$ we define the partitions of $O$ into the subspaces as $O_-={\Pi_-}O{\Pi_-}$, $O_+={\Pi_+}O{\Pi_+}$, $O_{-+}={\Pi_-}O{\Pi_+}$ and $O_{+-}={\Pi_+}O{\Pi_-}$.
 %
 %With the definitions above, one can turn to perturbation theory to approximate $\tilde{H}_-$ using $H$ and $V$. We now consider the operator-valued resolvent $\tilde{G}(z)=(z\openone-\tilde H)^{-1}$. Similarly one would define $G(z)=(z\openone-H)^{-1}$. Note that $\tilde{G}^{-1}(z)-G^{-1}(z)=-V$ so that this allows an expansion in powers of $V$ as \begin{equation}\label{eq:G_expand}
 %\tilde{G}=(G^{-1}-V)^{-1}=G(\openone-VG)^{-1}=G+GVG+GVGVG+GVGVGVG+\cdots.
@@ -5031,8 +5031,8 @@ More work is needed for finding tight non-asymptotic error bounds in perturbativ
 %\begin{itemize}
 %\item More auxiliary qubits.
 %\item More terms.
-%\end{itemize}  
-%               
+%\end{itemize}
+%
 %\examplesec
 %
 %\refsec
@@ -5055,23 +5055,23 @@ More work is needed for finding tight non-asymptotic error bounds in perturbativ
 %%\begin{itemize}
 %%\item
 %%\item
-%%\end{itemize}  
-%               
+%%\end{itemize}
+%
 %\examplesec
 %
 %\refsec
 
 \begin{comment}
 \subsection{3-body Gadget from local X: Cao et al.~2013}
-Cao et al.~2013 produced two new gadgets and also generally improved the known constructions for several typical gadgets.  
+Cao et al.~2013 produced two new gadgets and also generally improved the known constructions for several typical gadgets.
 
 \summarysec  ~In general, terms in perturbative gadgets involve mixed couplings (e.g. $X_i Z_j$). Although such couplings can be realized by certain gadget constructions \cite{BL07},
-%\yudong{Here ``creation gadgets" is changed to ``certain gadget constructions".} 
+%\yudong{Here ``creation gadgets" is changed to ``certain gadget constructions".}
 physical couplings of this type are difficult to realize in an experimental setting. However, there has been significant progress towards experimentally implementing Ising models with transverse fields of the type \cite{2006cond.mat..8253H}:
 \begin{equation}\label{eq:dwave}
 H_{ZZ}=\sum_i\delta_iX_i+\sum_ih_iZ_i+\sum_{i,j}J_{ij} Z_iZ_j.
 \end{equation}
-Accordingly, an interesting question is whether we can approximate 3-body terms such as $\alpha \cdot Z_i\otimes Z_j\otimes Z_k$ using a Hamiltonian of this form. This turns out to be possible by employing a perturbative calculation which considers terms up to $5^\text{th}$ order. 
+Accordingly, an interesting question is whether we can approximate 3-body terms such as $\alpha \cdot Z_i\otimes Z_j\otimes Z_k$ using a Hamiltonian of this form. This turns out to be possible by employing a perturbative calculation which considers terms up to $5^\text{th}$ order.
 
 
 \costsec
@@ -5086,8 +5086,8 @@ Accordingly, an interesting question is whether we can approximate 3-body terms 
 %\begin{itemize}
 %\item Requires $\Delta=\Theta\left(\epsilon^{-5}\right)$
 %\item
-%\end{itemize}  
-               
+%\end{itemize}
+
 \examplesec
 
 
@@ -5137,7 +5137,7 @@ V_+=\left(H_\text{else}+{\mu}(Z_1+Z_2+Z_3)+O(\Delta^{1/5})\right)\otimes|1\rangl
 \noindent{}Using this simplification as well as the expressions for $V_-$, $V_{-+}$ and $V_{+-}$ in Eq.\ \ref{eq:V_proj_fifth}, the self energy expansion Eq.\ \ref{eq:self_energy_fifth} up to $5^\text{th}$ order becomes
 \begin{equation}\label{eq:self_energy_fifth2}
 \begin{array}{ccl}
-\Sigma_-(z) & = & \displaystyle 
+\Sigma_-(z) & = & \displaystyle
 \underbrace{\left(H_\text{else}+\frac{6\mu^5}{\Delta^4}Z_1Z_2Z_3\right)\otimes|0\rangle\langle{0}|_w}_\text{$H_\text{eff}$}+\underbrace{\left(\frac{1}{\Delta}+\frac{1}{z-\Delta}\right){\mu}^2{\openone}\otimes|0\rangle\langle{0}|_w}_\text{$E_1$} \\[0.1in]
 & + & \displaystyle\underbrace{\left(\frac{1}{(z-\Delta)^2}-\frac{1}{\Delta^2}\right)\mu^3(Z_1+Z_2+Z_3)\otimes|0\rangle\langle{0}|_w}_\text{$E_2$}+\underbrace{\left(\frac{1}{\Delta^3}+\frac{1}{(z-\Delta)^3}\right)\cdot \mu^4\cdot(Z_1+Z_2+Z_3)^2\otimes|0\rangle\langle{0}|_w}_\text{$E_3$} \\[0.1in]
 & + & \displaystyle \underbrace{\left(\frac{1}{(z-\Delta)^4}-\frac{1}{\Delta^4}\right)7{\mu}^5(Z_1+Z_2+Z_3)\otimes|0\rangle\langle{0}|_w}_\text{$E_4$}+\underbrace{\frac{{\mu}^2}{(z-\Delta)^2}\cdot\frac{{\mu}^4}{\Delta^3}(Z_1+Z_2+Z_3)^2\otimes|0\rangle\langle{0}|_w}_\text{$E_6$} \\[0.1in]
@@ -5150,9 +5150,9 @@ V_+=\left(H_\text{else}+{\mu}(Z_1+Z_2+Z_3)+O(\Delta^{1/5})\right)\otimes|1\rangl
 \|\Sigma_-(z)-H_\text{targ}\otimes|0\rangle\langle{0}|_w\| & \le & \Theta(\Delta^{-1/5})
 \end{array}
 \end{equation}
-\noindent{}if we only consider the dominant dependence on $\Delta$ and regard $\|H_\text{else}\|$ as a given constant. To guarantee that $\|\Sigma_-(z)-H_\text{targ}\otimes|0\rangle\langle{0}|_w\|\le\epsilon$, we let the right hand side of Eq.\ \ref{eq:error_total_fifth} to be $\le\epsilon$, which translates to $\Delta=\Theta(\epsilon^{-5})$. 
+\noindent{}if we only consider the dominant dependence on $\Delta$ and regard $\|H_\text{else}\|$ as a given constant. To guarantee that $\|\Sigma_-(z)-H_\text{targ}\otimes|0\rangle\langle{0}|_w\|\le\epsilon$, we let the right hand side of Eq.\ \ref{eq:error_total_fifth} to be $\le\epsilon$, which translates to $\Delta=\Theta(\epsilon^{-5})$.
 
-This $\Theta(\epsilon^{-5})$ scaling is numerically illustrated (Fig.\ \ref{fig:ZZZ_fifth_Delta_eps}a). Although in principle the $5^\text{th}$ order gadget can be implemented on a Hamiltonian of form Eq.\ \ref{eq:dwave}, for a small range of $\alpha$, the minimum $\Delta$ needed is already large (Fig.\ \ref{fig:ZZZ_fifth_Delta_eps}b), rendering it challenging to demonstrate the gadget experimentally with current resources. However, this is the only currently known gadget realizable with a transverse Ising model that is able to address the case where $H_\text{else}$ is not necessarily diagonal. 
+This $\Theta(\epsilon^{-5})$ scaling is numerically illustrated (Fig.\ \ref{fig:ZZZ_fifth_Delta_eps}a). Although in principle the $5^\text{th}$ order gadget can be implemented on a Hamiltonian of form Eq.\ \ref{eq:dwave}, for a small range of $\alpha$, the minimum $\Delta$ needed is already large (Fig.\ \ref{fig:ZZZ_fifth_Delta_eps}b), rendering it challenging to demonstrate the gadget experimentally with current resources. However, this is the only currently known gadget realizable with a transverse Ising model that is able to address the case where $H_\text{else}$ is not necessarily diagonal.
 
 
 \begin{figure}
@@ -5175,10 +5175,10 @@ Here we do not reduce $k$ by one order at a time (1B1 reduction) or by $\nicefra
 
 \subsection{PD-JF (Jordan \& Farhi, 2008)}
 
-\summarysec 
+\summarysec
 
 Express a sum of $k$-local terms as a sum of products of Pauli matrices $s_{ij}$, and define $k$ auxiliary qubits laelled by $a_{ij}$ for each term $i$, and make the transformmation:
- 
+
 \begin{equation}
 \sum_i \alpha_i \prod_{j}^k s_{ij} \rightarrow \frac{-k(-\epsilon)^k}{(k-1)!} \sum_i \frac{1}{2}\left( k^2 - \sum_{jl}^k  z_{a_{ij}} z_{a_{il}} \right) + \epsilon \left( \alpha_i s_{i1}x_{i1} +  \sum_{j}^k s_{ij}x_{ij} \right) -f(\epsilon)\Pi,
 \end{equation}
@@ -5186,11 +5186,11 @@ Express a sum of $k$-local terms as a sum of products of Pauli matrices $s_{ij}$
 % there is some P_+ operator in JF's Eq. 14
 % Above Eq. 8 of JF, tthere's an H_+ which we might need to care about. i.e project the whole of the baove equation onto one subspeace.
 
-\noindent for some polynomial $f(\lambda)$. The result is a 2-local Hamiltonian with the same low-lying spectrum to within $\epsilon^{k+1}$ for sufficiently smmall $\epsilon$.  
+\noindent for some polynomial $f(\lambda)$. The result is a 2-local Hamiltonian with the same low-lying spectrum to within $\epsilon^{k+1}$ for sufficiently smmall $\epsilon$.
 
 \costsec
 \begin{itemize}
-\item Number of auxiliary qubits is $tk$ for $t$ terms. 
+\item Number of auxiliary qubits is $tk$ for $t$ terms.
 \item Unknown requirement for $\epsilon$.
 \end{itemize}
 
@@ -5217,12 +5217,12 @@ Express a sum of $k$-local terms as a sum of products of Pauli matrices $s_{ij}$
 
 \subsection{PD-BFBD (Brell, Flammia, Bartlett, Doherty, 2011)}
 
-\summarysec 
+\summarysec
 
 The 4-body Hamiltonian:
 
 \begin{eqnarray}
-H_{\textrm{4-local}} = -\sum_{ij}\left( z_{4i+1,j}z_{4i+2,j}z_{4i+3,j}z_{4i+4,j} + x_{4i+3,j}x_{4i+4,j}x_{4i+6,j}x_{4i+4,j+1}  \right) 
+H_{\textrm{4-local}} = -\sum_{ij}\left( z_{4i+1,j}z_{4i+2,j}z_{4i+3,j}z_{4i+4,j} + x_{4i+3,j}x_{4i+4,j}x_{4i+6,j}x_{4i+4,j+1}  \right)
 \end{eqnarray}
 
 \noindent is transformed into the 2-body Hamiltonian:
@@ -5231,7 +5231,7 @@ H_{\textrm{4-local}} = -\sum_{ij}\left( z_{4i+1,j}z_{4i+2,j}z_{4i+3,j}z_{4i+4,j}
 H_{\textrm{2-local}} &= -\sum_{ij} \left( x_{8i+4,j}x_{8i+6,j} + x_{8i+3,j+1}x_{8i+5,j+1} + z_{8i+4,j}z_{8i+3,j+1} + z_{8i+6,j}z_{8i+5,j+1} +  \right.\\
 &=   - \lambda\left( x_{8i+1,j}x_{8i+3,j} + x_{8i+2,j}x_{8i+4,j} + x_{8i+5,j}x_{8i+6} + x_{8i+7}x_{8i+8}\right. \\
 &= \left.\left.      z_{8i+1,j}z_{8i+3,j} + z_{8i+2,j}z_{8i+4,j} + z_{8i+5,j}z_{8i+6} + z_{8i+7}z_{8i+8} \right)\right) \
-\end{align} 
+\end{align}
 
 % there is some P_+ operator in JF's Eq. 14
 % Above Eq. 8 of JF, tthere's an H_+ which we might need to care about. i.e project the whole of the baove equation onto one subspeace.
@@ -5279,7 +5279,7 @@ H_{\textrm{2-local}} &= -\sum_{ij} \left( x_{8i+4,j}x_{8i+6,j} + x_{8i+3,j+1}x_{
 \section{Transformations from ternary to binary variables}
 
 \begin{eqnarray}
-H_{\textrm{ternary}} = -\lambda (z_1\,z_2+z_1-z_2)   
+H_{\textrm{ternary}} = -\lambda (z_1\,z_2+z_1-z_2)
 \end{eqnarray}
 
 In this implementation the variable $\frac{1}{2}(z_1+z_2)$ plays the role of $t$, assuming $\lambda$ is large and positive. For instance, when coupled to a binary variable $t\, z_3\rightarrow \frac{1}{2}(z_1+z_2)\,z_3$.
@@ -5304,7 +5304,7 @@ In this implementation the variable $\frac{1}{2}(z_1+z_2)$ plays the role of $t$
 %level quantum mechanics tells us that any physical system's state
 %(wavefunction, $\psi_{n}$) is an eigenvector of a Hamiltonian and
 %the eigenvalue $E_{n}$ is just the energy associated with being in
-%the $n^{{\rm th}}$ energy level: 
+%the $n^{{\rm th}}$ energy level:
 %\begin{equation}
 %H\psi_{n}=E_{n}\psi_{n}.\label{eq:TISE}
 %\end{equation}
@@ -5342,7 +5342,7 @@ H = (1-z_{12})(1-z_{13})(1-z_{23})+\ldots+(1-z_{23})(1-z_{24})(1-z_{34})+ z_{12}
 
 \begin{comment}
 We should assume there are no 3-independent sets, so we have deductions:
-$(1-z_{ij})(1-z_{ik})(1-z_{jk})=0$, for each $i,j,k$. 
+$(1-z_{ij})(1-z_{ik})(1-z_{jk})=0$, for each $i,j,k$.
 \end{comment}
 See \cite{Okada2015} for full details of how we arrive at this Hamiltonian.
 
@@ -5382,12 +5382,12 @@ This review has only focused on $k-$local to $2-$local transformations where $k>
 \begin{itemize}
 \item Gadgetization of any $2-$local Hamiltonian into $\{\openone,z,x,zz,xx\}$ or $\{\openone,z,x,zx\}$ \cite{Biamonte2008}. Used for the proof that $xx + zz$ or $xz$ is universal is enough for universal quantum computation. In other words, \textit{any} computation can be transformed into a problem of finding the ground state of a $2-$local Hamiltonian containing terms from $\{\openone,z,x,zz,xx\}$ or from $\{\openone,z,x,zx\}$ with real coefficients, and the ground state can be found by adiabatic quantum computing with only polynomial time and space overhead over the best alternative algorithm for the problem.
 
-\item Transformation of any $2-$local Hamiltonian into $\{\openone,z,x,zz,xx+yy\}$, without any perturbative gadgets, and only requiring the qubits to be connected in an almost 2D lattice \cite{Lloyd2016}. 
+\item Transformation of any $2-$local Hamiltonian into $\{\openone,z,x,zz,xx+yy\}$, without any perturbative gadgets, and only requiring the qubits to be connected in an almost 2D lattice \cite{Lloyd2016}.
 
 
 \item "Cross gadget", "fork gadget", and "triangle gadget" described in \cite{Oliveira2008}.
 \item Gadgetizeation of a $2-$local Hamiltonian with very strong couplings, into a $2-$local Hamiltonian with strengths in $\mathcal{O}\left( \nicefrac{1}{\textrm{poly}\left( \epsilon^{-1},n\right)}  \right)$, and $\textrm{poly}\left( \epsilon^{-1},n  \right)$ auxiliary qubits and $\textrm{poly}\left( \epsilon^{-1},n  \right)$ new quadratic terms. \cite{Cao2015a}.
-\item $yy$ creation gadget: Simulation of $yy$ terms  using $\{\openone,z,x,zz,xx\}$, with coupling strength restriction defined according to $\Delta = \Theta\left(\epsilon^{-4}\right)$ \cite{Cao2015}. % they do not even say they need \openone, but maybe they are ignoring it due to causing a constant shift. 
+\item $yy$ creation gadget: Simulation of $yy$ terms  using $\{\openone,z,x,zz,xx\}$, with coupling strength restriction defined according to $\Delta = \Theta\left(\epsilon^{-4}\right)$ \cite{Cao2015}. % they do not even say they need \openone, but maybe they are ignoring it due to causing a constant shift.
 \end{itemize}
 
 \subsection{Minor-embedding quadratic functions for different graphs}
@@ -5423,8 +5423,8 @@ This review has only focused on $k-$local to $2-$local transformations where $k>
 \item Hubbard-Stratonovich transformation \cite{Stratonovich1957,Hubbard1959} is used to derive Eq. 10a, 10b, and 10c of \cite{Hirsch1983}, in which the exponential of a quadratic equals the trace/integral of an exponential of something linear. In the case where the number operator is written as a product of two operators, this means a 4-body operator in the exponent becomes a 2-body operator in the exponent.
 %\item Verma-Lewis paper
 %\item Aritanan Gruber's thesis on quadratization \cite{}.
-% 25:30 of Lechner's 2016 AQC talk mentions another paper that can do 4-local to 2-local with 1 auxiliary using 5 connections (better than Ishikawa which requires 15?). 
-% LHZ can do k-local to 4-local (?) with maybe (N choose k) auxiliaries. (N choose 2) for 2-local, (N choose 3) for 3-local, etc. look into 
+% 25:30 of Lechner's 2016 AQC talk mentions another paper that can do 4-local to 2-local with 1 auxiliary using 5 connections (better than Ishikawa which requires 15?).
+% LHZ can do k-local to 4-local (?) with maybe (N choose k) auxiliaries. (N choose 2) for 2-local, (N choose 3) for 3-local, etc. look into
 % Lechner's talk says that Rocchetto's scheme can add k-locals to LHZ lattice by sacrificing not being able to do all-2-all
 % Gruber's review paper with Boros
 % The other things in the LyX file
@@ -5443,7 +5443,7 @@ This review has only focused on $k-$local to $2-$local transformations where $k>
 \item Presentation by Northrop Grumman about a $zzz$ coupler \cite{Strand2017} and associated patent \cite{Ferguson2017,Ferguson2018}.
 \item Presentaiton that included discussion about engineering multi-qubit interactions \cite{Kerman2018}, presentation by the same lab about the design and experimental demonstration of a $zzzz$ coupling \cite{Menke2019}, and associated patent \cite{Kerman2018a,Kerman2019,Kerman2019a}.
 \item Design of an effective $zzzz$ coupling without any auxiliary logical qubits \cite{Schondorf2018}.
-\item Design of a tunable $zzz$ coupling with 2 auxiliary qubits in which all $zz$ couplings are cancelled, and its experimental demonstration \cite{Melanson2019}. 
+\item Design of a tunable $zzz$ coupling with 2 auxiliary qubits in which all $zz$ couplings are cancelled, and its experimental demonstration \cite{Melanson2019}.
 \end{itemize}
 
 \newpage
@@ -5456,7 +5456,7 @@ This review has only focused on $k-$local to $2-$local transformations where $k>
 \begin{itemize}
 \item Richard was the original creator and maintaner of the Git repository.
 \item Richard created the Tex commands used throughout the document, and contributed majorly to the overall layout.
-\item Richard wrote the original versions of the following sections: (1) Deduc-Reduc, (2) ELC Reduction, (3) Groebner Bases, (4) Split Reduction, (5) NTR-KZFD, (6) NTR-GBP, (7) PTR, (8) PTR-Ishikawa, (9) PTR-KZ, (10) PTR-GBP, (11) Bit flipping, (12) RBS, and (13) FGBZ. 
+\item Richard wrote the original versions of the following sections: (1) Deduc-Reduc, (2) ELC Reduction, (3) Groebner Bases, (4) Split Reduction, (5) NTR-KZFD, (6) NTR-GBP, (7) PTR, (8) PTR-Ishikawa, (9) PTR-KZ, (10) PTR-GBP, (11) Bit flipping, (12) RBS, and (13) FGBZ.
 \item Richard also wrote the "Further Example" of Deduc-Reduc in the Appendix.
 % need to check some of these, for example, was NTR-KZFD there in the original version?, which Boros 2018 ones did he actually add? I know there was one  I told him to add from Wikipedia and he didn't add much so I had to do things.
 \end{itemize}
@@ -5481,22 +5481,22 @@ This review has only focused on $k-$local to $2-$local transformations where $k>
 \item Yudong wrote the first version of the following section: (1) PSD-CN.
 \end{itemize}
 
-\subsection*{Daniel Nagaj} 
+\subsection*{Daniel Nagaj}
 \begin{itemize}
 \item Daniel provided a .tex document to Nike in May 2018 which helped Nike to write the following sections: (1) NP-Nagaj-1, (2) NP-Nagaj-2. The document that Daniel provided made it easier for Nike to write these sections than the original papers.
 \end{itemize}
 
-\subsection*{Aritanan Gruber} 
+\subsection*{Aritanan Gruber}
 \begin{itemize}
 \item Aritanan informed us in August 2015 of what we ended up making the following sections: (1) PTR-Ishikawa. % and much more, look through the emails.
 \end{itemize}
 
-\subsection*{Charles Herrmann} 
+\subsection*{Charles Herrmann}
 \begin{itemize}
 \item Charles informed us in May 2018 of the papers which contained results which became the following sections: (1) PTR-BCR-1,  (2) PTR-BCR-2, (3) PTR-BCR-3, (4) PTR-BCR-4, (5) SFR-BCR-1, (6) SFR-BCR-2, (7) SFR-BCR-3, (8) SFR-BCR-4, (9) SFR-BCR-5, (10) SFR-BCR-6. % need to read emails to get the other things.
 \end{itemize}
 
-\subsection*{Elisabeth Rodriguez-Heck} 
+\subsection*{Elisabeth Rodriguez-Heck}
 \begin{itemize}
 \item Elisabeth provided us with a 2-page PDF document with valuable comments on the entire Book.
 \item Elisabeth also pointed us to what became the following section: (1) ABCG Reduction.
@@ -5511,11 +5511,11 @@ This review has only focused on $k-$local to $2-$local transformations where $k>
 \subsection*{Andreas Soteriou}
 \begin{itemize}
 \item Andreas found typos on the opening page in the arXiv version which surprisingly no one else found (or pointed out), and he diligently fixed them.
-\item Andreas created the example involving $x$,$y$, and $z$ presented on the opening page in the September 2019 version (I plan to have this example further improved at a later time). 
-\item Andreas added the minimum and maximum coefficient ranges into the cost section for PTR-BCR-4. 
+\item Andreas created the example involving $x$,$y$, and $z$ presented on the opening page in the September 2019 version (I plan to have this example further improved at a later time).
+\item Andreas added the minimum and maximum coefficient ranges into the cost section for PTR-BCR-4.
 \end{itemize}
 
-\subsection*{Jacob Biamonte} 
+\subsection*{Jacob Biamonte}
 \begin{itemize}
 \item Jacob made valuable edits during a proof-reading of the book.
 \end{itemize}
@@ -5524,14 +5524,14 @@ This review has only focused on $k-$local to $2-$local transformations where $k>
 
 \newpage
 
-\section*{Acknowledgments} 
+\section*{Acknowledgments}
 \begin{itemize} % check when Toby helped us with the bit-flipping stuff
 \item It is with immense pleasure that we thank Emile Okada of Cambridge University, who during his first year of udnergraduate study, worked with Nike Dattani and Richard Tanburn on quadratization of pseudo-boolean functions for quantum annealing, and in the first half of 2015 played a role in the development of the Deduc-Reduc and Split-Reduc and Groebner bases methods presented in this review.
 \item We thank Gernot Schaller of University of Berlin, who in December 2014 provided Nike Dattani with insights into his quadratization methods mentioned in this review paper, as well as for sharnig his Mathematica code which could be used to generate such quadratization formulas and others.
 \item We thank Mohammad Amin of D-Wave for pointing Nike Dattani to the paper \cite{Bian2013} on determining Ramsey numbers on the D-Wave device, which contained what we call in this review "Reduction by substitution", later found through Ishikawa's paper to be from the much older 1970s paper by Rozenberg.
 \item We thank Catherine McGeoch of Amherst University and D-Wave, for helpful discussions with Nike Dattani in December 2014 about how to map quadratic pseudo-Boolean optimization problems onto the chimera graph of the D-Wave hardware and for pointing us to the important references of Vicky Choi. While chimerization is very different from quadratization, understanding that roughly $n^2$ variables would be needed to map a quadratic function of $n$ variables, helped Nike Dattani and Richard Tanburn to appreciate how impotrant it is to be able to quadratize with as few variables as possible, and having this in mind throughout our studies helped inspire us in our goals towards "optimal quadratization".
 \item We thank Aritanan Gruber and Endre Boros of Rutgers University, who in August 2015 shared with Nike Dattani and Richard Tanburn some of their wisdom about sub-modularity, and Aritanan Gruber for pointing us to the then very recent paper of Hiroshi Ishikawa on what we call in this review "ELC reductions", which was also a valuable paper due to the references in it. We also thank him for helping us in our quest to determine whether or not "deduc-reduc" was a re-discovery by Richard, Emile, and Nike, or perhaps a novel quadratization scheme.
-\item We thank Toby Cathcart-Burn of Oxford University, who during the third year of undergraduate study, worked with Nike Dattani and Richard Tanburn and in Autumn 2015 and Winter 2016 helped us gain insights about the application of deduc-reduc and bit flipping to the problem of determining Ramsey numbers via discrete optimization, and for insights into the trade-offs between Ishikawa's symmetric reduction and reduction by substitution. 
+\item We thank Toby Cathcart-Burn of Oxford University, who during the third year of undergraduate study, worked with Nike Dattani and Richard Tanburn and in Autumn 2015 and Winter 2016 helped us gain insights about the application of deduc-reduc and bit flipping to the problem of determining Ramsey numbers via discrete optimization, and for insights into the trade-offs between Ishikawa's symmetric reduction and reduction by substitution.
 \item  We thank Hiroshi Ishikawa of Waseda University, who Nike Dattani had the memorable opportunity to visit in November 2015, and through discussions about the computer vision problem and neural network problem (two examples of real-world discrete optimization problems that benefit from quadratization), provided insights about the role of quadratization for calculations on classical computers. In particular, solving the computer vision problem in which he had experience solving on classical computers, was very different from the integer factoring problem and Ramsey number problem which we had been attempting to quadratize for D-Wave and NMR devices. He taught us that far more total (original plus auxiliary) variables can be tolerated on classical computers than on D-Wave machines or NMR systems, and approximate solutions to the optimization problems are acceptable (unlike for the factorization and Ramsey number problems in which we were interested). This gave us more insight into what trade-offs one might wish to prioritize when quadratizing optially. We also thank him for helping us in our quest to determine whether or not "deduc-reduc" was a re-discovery by Richard, Emile, and Nike, or perhaps a novel quadratization scheme.
 \item We thank Salil Bedkihal for informing Nike of the paper by Hirsch which uses the Hubbard-Stratonovich transformation, now mentioned in the "Further References" section.
 \item Last but indubitably not least, we thank Jacob Biamonte of Skolkovo Institute of Technology, who Nike Dattani enjoyed visiting in Hangzhou in January 2017 and meeting at Harvard University in April 2018. Jacob provided us plenty of insights about perturbative gadgets, made valuable comments on early versions of our manuscript, and has been a major supporter of this review paper since the idea was presented to him in December 2016. At many points during the preparation of this review, we had prioritized other commitments and put preparation of this review aside. Jake's frequent encouragement was often what got us working on this review again. Without him, we are not certain this paper would have been completed by this time (or ever!).
@@ -5540,7 +5540,7 @@ This review has only focused on $k-$local to $2-$local transformations where $k>
 %Ojas Metha
 %Peng, Du, Li, Ke, Chen?  Osaka City University
 %Alex McCaskey, since in recent times I've been working hard on this to give him something easy to work with ???
-% Courtney Brell from the Toric codes. 
+% Courtney Brell from the Toric codes.
 % Terhal
 % Ocko
 % Nagaj
@@ -5583,7 +5583,7 @@ This review has only focused on $k-$local to $2-$local transformations where $k>
 %If by "simply pairing" you mean x1x2x3x4 -> y1y2, where y1=x1x2 and y2=x3x4, I can see how it halves the number of extra qubits, and how it introduces the quartic term a*y1y2. I can also see that the cubic term introduced has negative coefficient, so can be quadratized with only 1 qubit.
 %
 %...
-% 
+%
 %and similar pairing can be used to modify the penalty function given in the appendix to replace a cubic(quartic) with a single variable using only cubic(quartic) terms.
 
 %%%%%%%%%%%%% MUST ADD CITATION TO KEMPE REGEV KITAEV !!!!!!11
