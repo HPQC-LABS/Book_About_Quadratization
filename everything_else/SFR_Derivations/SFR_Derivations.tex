@@ -2,7 +2,7 @@
 \usepackage{geometry}
 \usepackage{amsmath}
 \usepackage{amsfonts}
-
+\usepackage{comment}
 \usepackage{hyperref}
 \hypersetup{
  bookmarks=true,                % show bookmarks bar?
@@ -57,12 +57,12 @@ A_k(X,y,z) = X - (k-2^l)z - (k+1)(1-z) - \sum_{j}2^jy_j.
 After substituting for X, and collecting the terms, the equation for SFR-BCR-1 becomes
 \begin{equation}
 \label{eq:Ak1}
-A_k(X,y,z) = -(1+k) +\sum_i x_i - \sum_{j}2^jy_j + (1+2^l).
+A_k(X,y,z) = -(1+k) +\sum_i x_i - \sum_{j}2^jy_j + (1+2^l)z.
 \end{equation}
 Similarly for SFR-BCR-2 we have
 \begin{equation}
 \label{eq:Ak2}
-A_{n-k}({n-X},y,z) = -(1-k) +\sum_i x_i - \sum_{j}2^jy_j + (1+2^l).
+A_{n-k}({n-X},y,z) = -(1-k) +\sum_i x_i - \sum_{j}2^jy_j + (1+2^l)z.
 \end{equation}
 For the  two cases
 (top/bottom = SFR-BCR-1/SFR-BCR-2),
@@ -377,29 +377,74 @@ Beginning with the quadratization of f:
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{comment}
+  \subsection{SFR-BCR-8} THIS WAS JUST SFR-BCR-3/4 FOUND IN THE OTHER PAPER
+
+  Take the quadratization of the exact k-out-of-n function $f_{=k}$:
+  \\(Theorem 7, \cite{Boros2018boundsPaper})
+
+  \begin{equation}
+  \begin{split}
+    \left.
+    G_k(x,y,z)
+    \right.
+    &= \frac{1}{2}A_k(x,y,z)(A_k(x,y,z)-1)\\
+    &= \frac{1}{2}\left(A_k(x,y,z)^2-A_k(x,y,z)\right)
+  \end{split}
+  \end{equation}
+
+  \noindent Where
+  \begin{equation}
+    A_k(X,y,z) = |x| - (k-2^l)z - (k+1)(1-z) - \sum_{j}^{l-1}2^jy_j.
+  \end{equation}
+
+
+  \noindent We have $A_k(x,y,z)^2$ from \eqref{eq:alpha12} and $A_k(x,y,z)$ from \eqref{eq:Ak1}, thus when we substitute the two equations and collect like terms we end with
+  \begin{equation}
+  \begin{split}
+    \left.
+    G_k(x,y,z)
+    \right.
+    &=\underbrace{\frac{1}{2}(k^2+3k+2)}_{\alpha}
+    + \underbrace{-\frac{1}{2}(2k+3)}_{\alpha^{b}} \sum_i x_i
+    + \sum_j \underbrace{(k+2)2^{j-1}}_{\alpha^{b_{a,1}}}y_j
+    + \underbrace{\frac{1}{2}(1+2^l)(2^l-2k-2)}_{\alpha^{b_{a,2}}}z \\
+    &+ \underbrace{\frac{1}{2}}_{\alpha^{bb}} \sum_{i,i'} x_ix_{i'}
+    + \sum_{i,j} \underbrace{-2^{j}}_{\alpha^{bb_{a,1}}}x_iy_j
+    + \underbrace{(1+2^l)}_{\alpha^{bb_{a,2}}}\sum_i x_iz \\
+    &+ \sum_{j,j'} \underbrace{2^{j+j'-1}}_{\alpha^{b_ab_{a,1}}}y_jy_{j'}
+    + \sum_j \underbrace{-(1+2^l)2^{j}}_{\alpha^{b_ab_{a,2}}} y_j z
+  \end{split}
+  \end{equation}
+
+  The coefficients are
+  \begin{subequations}
+  \begin{align}
+  \alpha &= \frac{1}{2}(k^2+3k+2), \\
+  %
+  \alpha^{b} &= -\frac{1}{2}(2k+3), \\
+  \alpha^{b_{a,1}} &= (k+2)2^{j-1}, \\
+  \alpha^{b_{a,2}} &= \frac{1}{2}(1+2^l)(2^l-2k-2), \\
+  %
+  \alpha^{bb} &= \frac{1}{2}, \\
+  \alpha^{bb_{a,1}} &= -2^{j}, \\
+  \alpha^{bb_{a,2}} &= (1+2^l), \\
+  \alpha^{b_ab_{a,1}} &= 2^{j+j'-1}, \\
+  \alpha^{b_ab_{a,2}} &= -(1+2^l)2^{j}.
+  \end{align}
+  \end{subequations}
+
+  Dictionary: \\
+  $l\mapsto m$,\\
+  $x_i\mapsto b_i$, \\
+  $y_j\mapsto b_{a_j}$,\\
+  $z\mapsto b_{a_m}$,\\
+  $k\mapsto c$.
+\end{comment}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 \subsection{SFR-BCR-8}
-
-Take the quadratization of the exact k-out-of-n function $f_{=k}$:
-\\(Theorem 7, \cite{Boros2018boundsPaper})
-
-\begin{equation}
-  G_k(x,y,z) = \frac{1}{2}A_k(x,y,z)(A_k(x,y,z)-1)
-\end{equation}
-
-\noindent Where
-\begin{equation}
-  A_k(X,y,z) = |x| - (k-2^l)z - (k+1)(1-z) - \sum_{j}^{l-1}2^jy_j.
-\end{equation}
-
-
-\noindent Finally, we end with the equation
-\begin{equation}
-  g(x,y) = 1 + 2\sum_{ij}x_ix_j - \sum_{i} x_i + 4\sum_{2i}^{n-1}y_i\Big(i - \sum_{j} x_j\Big)
-\end{equation}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{SFR-BCR-9}
 
 Take the quadratization of the at least k-out-of-n function $f_{\geq k}$:
 \\(Theorem 8, \cite{Boros2018boundsPaper})
@@ -408,15 +453,72 @@ Take the quadratization of the at least k-out-of-n function $f_{\geq k}$:
   G_k(x,y,z) = \frac{1}{2}A_k(x,y,z)(A_k(x,y,z)-1) + (1-z)
 \end{equation}
 
-\noindent Where
+\noindent With our results from SFR-BCR-8 and adding $(1+z)$ we get\\
+\small
 \begin{equation}
-  A_k(X,y,z) = |x| - (k-2^l)z - (k+1)(1-z) - \sum_{j}^{l-1}2^jy_j.
+\begin{split}
+  \left.
+  G_k(x,y,z)
+  \right.
+  &=\underbrace{\frac{1}{2}(k^2+3k+4)}_{\alpha}
+  + \underbrace{-\frac{1}{2}(2k+3)}_{\alpha^{b}} \sum_i x_i
+  + \sum_j \underbrace{(k+2)2^{j-1}}_{\alpha^{b_{a,1}}}y_j
+  + \underbrace{\frac{1}{2}((1+2^l)(2^l-2k-2)-2)}_{\alpha^{b_{a,2}}}z \\
+  &+ \underbrace{\frac{1}{2}}_{\alpha^{bb}} \sum_{i,i'} x_ix_{i'}
+  + \sum_{i,j} \underbrace{-2^{j}}_{\alpha^{bb_{a,1}}}x_iy_j
+  + \underbrace{(1+2^l)}_{\alpha^{bb_{a,2}}}\sum_i x_iz \\
+  &+ \sum_{j,j'} \underbrace{2^{j+j'-1}}_{\alpha^{b_ab_{a,1}}}y_jy_{j'}
+  + \sum_j \underbrace{-(1+2^l)2^{j}}_{\alpha^{b_ab_{a,2}}} y_j z
+\end{split}
+\end{equation}
+\normalsize
+The coefficients are
+\begin{subequations}
+\begin{align}
+\alpha &= \frac{1}{2}(k^2+3k+4), \\
+%
+\alpha^{b} &= -\frac{1}{2}(2k+3), \\
+\alpha^{b_{a,1}} &= (k+2)2^{j-1}, \\
+\alpha^{b_{a,2}} &= \frac{1}{2}((1+2^l)(2^l-2k-2)-2), \\
+%
+\alpha^{bb} &= \frac{1}{2}, \\
+\alpha^{bb_{a,1}} &= -2^{j}, \\
+\alpha^{bb_{a,2}} &= (1+2^l), \\
+\alpha^{b_ab_{a,1}} &= 2^{j+j'-1}, \\
+\alpha^{b_ab_{a,2}} &= -(1+2^l)2^{j}.
+\end{align}
+\end{subequations}
+
+Dictionary: \\
+$l\mapsto m$,\\
+$x_i\mapsto b_i$, \\
+$y_j\mapsto b_{a_j}$,\\
+$z\mapsto b_{a_m}$,\\
+$k\mapsto c$.
+
+\subsection{SFR-BCR-9}
+
+\noindent We begin with the equation for the x-symmetric quadratization of $f_k(x)$
+\\(Lemma 2 Eqn 7, \cite{Boros2018QuadratizationsOS})
+\begin{equation}
+  G(X,y) = \alpha X^2 + X\left(\beta + \sum_{j=1}^m \gamma_jy_j\right) + \left[\sum_{1\leq i < j \leq m} \delta_{ij}y_iy_j + \sum_{j=1}^m \epsilon_jy_j+\phi\right]
 \end{equation}
 
-\noindent Finally, we end with the equation
+\noindent Using the relationship $X = \sum_i^nx_i$ and rearranging, we get
 \begin{equation}
-  g(x,y) = 1 + 2\sum_{ij}x_ix_j - \sum_{i} x_i + 4\sum_{2i}^{n-1}y_i\Big(i - \sum_{j} x_j\Big)
+\begin{split}
+  \left.
+  G(X,y)
+  \right.
+  &= \alpha\sum_{i,j}^mx_ix_j + \sum_i^mx_i\left(\beta + \sum_{j=1}^m \gamma_jy_j\right) + \left[\sum_{1\leq i < j \leq m} \delta_{ij}y_iy_j + \sum_{j=1}^m \epsilon_jy_j+\phi\right]\\
+  &= \alpha\sum_{i,j}^mx_ix_j + \beta\sum_i^mx_i + \sum_{1,j=1}^m \gamma_jx_iy_j + \sum_{ij}^m \delta_{ij}y_iy_j + \sum_{j=1}^m \epsilon_jy_j+\phi
+\end{split}
 \end{equation}
+
+Dictionary: \\
+$x_i\mapsto b_i$, \\
+$y_j\mapsto b_{a_j}$\\
+
 
 \bibliography{SFRBibliography}
 
