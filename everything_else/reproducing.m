@@ -275,7 +275,7 @@ alpha_z = a*((1/(4*(delta)^(2/3))) - 1);
 alpha_y = a*((1/(4*(delta)^(2/3))) - 1);
 alpha_12_zx = 1/(delta^(2/3));
 alpha_zx = 1/(delta^(2/3));
-alpha_11_xx = 1/(delta^(2/3));
+alpha_11_xx = 1/(delta^(1/3));
 alpha_xx = 1/(delta^(2/3));
 alpha_yz = a/(4*delta^(2/3));
 
