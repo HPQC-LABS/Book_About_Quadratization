@@ -34,6 +34,20 @@ LHS=min(reshape(-b1.*b2.*b3.*b4.*b5.*b6,2,[]));
 RHS=min(reshape((6 - 1 - b1 - b2 - b3 - b4 - b5 - b6).*ba,2,[]));
 isequal(LHS,RHS);
 
+%% PTR_BG Pg: 17, Eqn 50
+
+b = dec2bin(2^6-1:-1:0)-'0';
+b1=b(:,1);b2=b(:,2);b3=b(:,3);b4=b(:,4);ba1=b(:,5);ba2=b(:,6);
+LHS = b1.*b2.*b3.*b4;
+RHS = ba1.*(2+ b1 -b2 - b3 - b4) + ba2.*(1 + b2 - b3 - b4) + b3.*b4;
+
+%% PTR-BCR-1: Pg. 20, Eqns 59
+
+b = dec2bin(2^5-1:-1:0)-'0';
+b1=b(:,1);b2=b(:,2);b3=b(:,3);b4=b(:,4);ba1=b(:,5);
+LHS = b1.*b2.*b3.*b4;
+RHS = 1/2*(b1 + b2 + b3 + b4 - 2*ba1).*(b1 + b2 + b3 + b4 - 2*ba1 - 1);
+
 %% NTR-GBP: -b1b2b3 = min_ba(ba - b1 + b2 + b3 - b1b2 - b1b3 + b1)
 
 b= dec2bin(2^4-1:-1:0)-'0';
