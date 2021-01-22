@@ -259,6 +259,27 @@ RHS = 9*xa1 + 4*za2*z5 - 3*za3*x1 - za3*xa2 + 2*xa3*x5;
 
 max(eig(LHS)-eig(RHS))<1e-13; % gives 1.
 
+%% P(3->2)-DC1
+
+x = [0 1 ; 1 0]; y = [0 -1i ; 1i 0]; z = [1 0 ; 0 -1];
+x1 = kron(x,eye(32)); x2 = kron(kron(eye(2),x),eye(16));
+xa1 = kron(kron(eye(8),x),eye(4)); xa2 = kron(kron(eye(16),x),eye(2)); xa3 = kron(eye(32),x);
+y3 = kron(kron(eye(4),y),eye(8));
+z1 = kron(z,eye(32)); z2 = kron(kron(eye(2),z),eye(16));
+za1 = kron(kron(eye(8),z),eye(4)); za2 = kron(kron(eye(16),z),eye(2)); za3 = kron(eye(32),z);
+
+for delta = 1:1e2:1e3
+alpha = 1/(8*delta);
+alpha_ss = 1/(6*(delta)^(1/3));
+alpha_sx = -1/(6*(delta)^(2/3));
+alpha_zz = -1/(24*delta);
+
+LHS = (x1 + x2)*(z1 + z2)*y3;
+RHS = alpha + alpha_ss*x1*x2 + alpha_ss*z1*z2 + alpha_ss*y3 + alpha_sx*(x1 + x2)*xa1 + alpha_sx*(z1 + z2)*xa2 + alpha_sx*y3*xa3 + alpha_zz*(za1*za2 + za1*za3 + za2*za3);
+
+min(eig(LHS))-min(eig(RHS))
+end
+
 %% P(3->2)-DC2
 
 x = [0 1 ; 1 0]; y = [0 -1i ; 1i 0]; z = [1 0 ; 0 -1];
