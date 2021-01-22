@@ -4426,7 +4426,7 @@ The first gadgets for arbitrary Hamiltonians acting on some number of qubits, we
 \costsec
 
 \begin{itemize}
-\item 1 auxiliary qubit for each group of 3-local terms that can be factored into three 1-local factors. %\eqref{eq:klocalInKempeMethod}.
+\item 3 auxiliary qubits for each group of 3-local terms that can be factored into three 1-local factors. %\eqref{eq:klocalInKempeMethod}.
 \item $\Delta =\Theta\left(\epsilon^{-3}\right)$
 \end{itemize}
 
@@ -4440,14 +4440,14 @@ The first gadgets for arbitrary Hamiltonians acting on some number of qubits, we
 \item Will not work for Hamiltonians that do not factorize appropriately.
 \end{itemize}
 
-%\examplesec
-%
-%{\tiny
-%\begin{align}
-%x_1z_2y_3 - 3x_1x_2y_4 + z_1x_2 \rightarrow \alpha^I + \alpha^{zx}_{2a_{12}}z_2x_{a_12}+ \alpha^{xx}_{12} x_1x_2 + \alpha^{xx}_{1a_{11}}x_1x_{a_{11}} + \alpha^{xx}_{1a_{21}}x_1x_{a_{21}}  + \alpha^{xx}_{2a_{22}}x_2x_{a_{22}} + \alpha^{yz}_{3a_{13}}y_3x_{a_{13}} + \alpha_{4a_{23}}^{yx}y_4x_{a_{23} }
-%\end{align}
-%}
-%
+\examplesec
+
+{\footnotesize
+ \begin{align}
+ \left(x_1+x_2\right)\left(z_1+z_2\right)y_3 \rightarrow & \alpha + \alpha^{xx}_{12}x_1x_2 + \alpha^{zz}_{12}z_1z_2 + \alpha^{yy}_{3}y_3 + \alpha^{xx}\left(x_1x_{a_{1}}  + x_2x_{a_{1}}\right) + \alpha^{zx}\left(z_1x_{a_{2}} + z_2x_{a_{2}}\right)\\
+ &+ \alpha^{yx}y_3x_{a_{3}} + \alpha^{zz}\left(z_{a_{1}}z_{a_{2}} + z_{a_{1}}z_{a_{3}} + z_{a_{2}}z_{a_{3}}\right)
+ \end{align}
+ }
 
 \refsec
 
