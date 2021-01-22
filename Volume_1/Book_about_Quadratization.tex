@@ -1405,8 +1405,9 @@ b_{1}b_{2}\cdots b_{k}	\rightarrow\alpha^{b}\sum_{i}b_{i}+\alpha^{b_{a,1}}\sum_{
 %%%%%%
 
 \costsec
-
-$\lceil \frac{k}{4} \rceil$ auxiliary qubits per positive monomial.
+  \begin{itemize}
+  \item $\lceil \frac{k}{4} \rceil$ to $\lceil \frac{k}{2} \rceil$ auxiliary qubits per positive monomial.
+\end{itemize}
 
 \prossec
 \begin{itemize}
@@ -2915,6 +2916,87 @@ The first expression is highly non-submodular while the second is entirely submo
 \refsec
 \begin{itemize}
 \item 2018, original paper (Theorem 8): \cite{Boros2018boundsPaper}.
+\end{itemize}
+
+\newpage
+
+
+\subsection{SFR-BCR-10 (Boros, Crama,  Rodr\'{i}guez-Heck, 2018)}
+
+\summarysec
+
+For a non-concave symmetric function such that $f\left(x\right)=r\left(X\right)$ for $n\geq 3$, then with $m$ auxiliary variables where $m \geq \log{(n)}-1$,  we have:
+
+\begin{align}
+f\left(b_{1},b_{2},\ldots,b_{n}\right)\rightarrow\alpha\sum_{i,j}b_ib_j + \beta\sum_ib_i + \sum_i\sum_{j}^m \gamma_jb_ib_{a_j} + \sum_{i,j}^m \delta_{ij}b_{a_i}b_{a_j} + \sum_{j=1}^m \epsilon_jb_{a_j}+\phi
+\end{align}
+
+\costsec
+\begin{itemize}
+\item A minimum of $\log{(n)}-1$ auxiliary variables.
+
+\end{itemize}
+
+\prossec
+\begin{itemize}
+\item Logarithmic number of auxiliary variables
+\end{itemize}
+
+\conssec
+\begin{itemize}
+\item Only works for a special class of functions
+\end{itemize}
+
+\examplesec
+\\%%Need to create an example, help would be appreciated for the numerous variables involved
+
+%\altformsec
+
+
+\refsec
+\begin{itemize}
+\item Original paper (Theorem 3 / Lemma 2): \cite{Boros2018boundsPaper}.
+\end{itemize}
+
+\newpage
+
+\subsection{SFR-ABCG-4 (Anthony, Boros, Crama,  Gruber, 2016)}
+
+\summarysec
+
+For an arbitrary y-linear quadratization of the parity function, with $m$ auxiliary variables where $m>\sqrt{\frac{n}{4}-1}$, we have:
+
+\begin{align}
+f\left(b_{1},b_{2},\ldots,b_{n}\right)\rightarrow q(b_{1},b_{2},\ldots,b_{n}) + \sum_i^ma_i(b_{1},b_{2},\ldots,b_{n})b_{a_i}
+\end{align}
+where $q(b)$, and $a(b)$ are any arbitrary quadratic, and linear function respectively.
+
+\costsec
+\begin{itemize}
+\item Greater than $\sqrt{\frac{n}{4}-1}$ auxiliary variables.
+\end{itemize}
+
+\prossec
+\\
+
+\conssec
+\\
+
+\examplesec
+\\For $n = 4$ and $m = 1$
+\begin{align}
+b_1b_2b_3b_4\rightarrow b_1b_2 + b_a(b_3-1)
+\end{align}
+
+
+\altformsec
+\begin{align}
+f\left(b_{1},b_{2},\ldots,b_{n}\right)\rightarrow q(b_{1},b_{2},\ldots,b_{n}) + \sum_i^m\left(\ell_i(b_{1},b_{2},\ldots,b_{n})-\alpha_i)b_{a_i}\right)
+\end{align}
+
+\refsec
+\begin{itemize}
+\item 2014, original paper Definition 1.1, and Theorem 5.6: \cite{Anthony2014}.
 \end{itemize}
 
 \newpage
