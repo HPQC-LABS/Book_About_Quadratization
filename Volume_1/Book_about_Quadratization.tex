@@ -2530,7 +2530,7 @@ f\left(b_{1},b_{2},\ldots,b_{n}\right)& \rightarrow \binom{(c-1)-\sum_{i}b_{i}-\
 
 \summarysec
 
-For an $n$-variable symmetric function that is a function of the sum of all variables $f\left(b_1,b_2,\ldots b_n\right) =  f(\sum b_i)$, for some large value of $\lambda > \textrm{max}(f)$, and $\lceil \sqrt{n+1}\rceil$:
+For an $n$-variable symmetric function that is the sum of all variables $f\left(b_1,b_2,\ldots b_n\right) =  f(\sum b_i)$, with some large value of $\lambda > \textrm{max}(f)$, such that $f\left(|c|\right) = 0$ for $c > n$, using  $\lceil \sqrt{n+1}\rceil$ auxiliary variables, we have:
 
 {\footnotesize
 \begin{align}
@@ -2540,20 +2540,6 @@ f\left(\sum b_i \right) \rightarrow  \sum_{ij}^{m}f\left((i-1)\left(m+1\right)+(
 \end{gathered}
 \end{align}
 }
-
-\noindent where:
-
-\begin{align}
-\begin{pmatrix}\alpha & \alpha^{bb}\\
-\alpha^{b} & \alpha^{bb_{a,1}}\\
-\alpha^{b_{a,1}} & \alpha^{bb_{a,2}}\\
-\alpha^{b_{a,2}} & \alpha^{b_{a}b_{a}}
-\end{pmatrix}=\begin{pmatrix}(c+1)^{2} & 1\\
--2(c+1) & -2^{i}\\
-2(c+1) & -2\left(2m-2^{m-1}+1\right)\\
-2(c+1)\left(2c-2^{m-1}+1\right) & 2^{i+j-2}
-\end{pmatrix}.
-\end{align}
 
 \costsec
 \begin{itemize}
@@ -2762,63 +2748,8 @@ The first expression is highly non-submodular while the second is entirely submo
 
 \newpage
 
+
 \subsection{SFR-BCR-7 (Boros, Crama,  Rodr\'{i}guez-Heck, 2018)}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%
-% ELISABETH SAYS THAT THIS IS THE SAME AS SFR-BCR-5. THEOREM 6 IN [26] IS THE SAME AS THEOREM 9 IN [17], AND THERE IS SOME ERROR IN THE [17] VERSION WHICH WAS CORRECTED IN [26] SO THATS WHY THEY LOOKED DIFFERENT.
-%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\summarysec
-
-For a symmetric function such that $f\left(|c|\right)=0$ for $c>n$, then with with $2\lceil \sqrt{n+1}\rceil$ auxiliary variables, we have:
-
-\begin{align}
-f\left(b_{1},b_{2},\ldots,b_{n}\right)\rightarrow1+2\sum_{ij}b_{i}b_{j}-\sum_{i}b_{i}+4\sum_{2i}^{n-1}b_{a_{i}}\left(i-\sum_{j}^{n}b_{j}\right)
-\end{align}
-
-\costsec
-\begin{itemize}
-\item $m=\lceil \sqrt{n+1}\rceil$ auxiliary variables.
-\item $\lfloor 0.5n\rfloor$ non-submodular linear terms. % needs to be fixed
-\item $ n^2$ non-submodular quadratic terms. % needs to be fixed
-\end{itemize}
-
-\prossec
-\begin{itemize}
-\item Smaller number of auxiliary variables than the most naive methods. % needs to be fixed
-\item Fewer non-submodular linear terms than in the analogous quadratization for its complement (the parity function). % needs to be fixed
-\end{itemize}
-
-\conssec
-\begin{itemize}
-\item Only works for a special class of functions
-\item Introduces many linear and even more quadratic non-submodular terms (everything is non-submodular except for $0.5n^2$ quadratic terms involving the auxiliaries with the non-auxiliaries, and all $n$ linear terms involving only the non-auxiliaries).% needs to be fixed
-\item non-submodular terms can be rather large compared to the submodular terms (about $4n$ times as big).% needs to be fixed
-\end{itemize}
-
-\examplesec
-
-By bit-flipping $b_2$ and $b_4$, i.e. substituting $b_2 = 1 - \bar{b}_{2}$ and $b_4 = 1 - \bar{b}_{4}$, we see that:
-\begin{eqnarray}
-H & = & 3b_{1}b_{2}+b_{2}b_{3}+2b_{1}b_{4}-4b_{2}b_{4}\protect\\
- & = & -3b_{1}\bar{b}_{2}-\bar{b}_{2}b_{3}-2b_{1}\bar{b}_{4}-\bar{b}_{2}\bar{b}_{4}+5b_{1}+b_{3}+4\bar{b}_{2}+4\bar{b}_{4}-4.
-\end{eqnarray}
-The first expression is highly non-submodular while the second is entirely submodular.
-
-%\altformsec
-%\begin{align}
-%f\left(b_{1},b_{2},\ldots,b_{n}\right)& \rightarrow \binom{\frac{1}{2}\left(\left(c-1\right)-\sum_{i}b_{i}-\left(2(n-c)-2^{m-1}+1\right)b_{a_{m}}-\sum_{i}^{m-1}2^{i-1}b_{a_{i}}\right)}{2}
-%\end{align}
-
-\refsec
-\begin{itemize}
-\item 2018, original paper (Theorem 6): \cite{Boros2018boundsPaper}.
-\end{itemize}
-
-\newpage
-
-\subsection{SFR-BCR-8 (Boros, Crama,  Rodr\'{i}guez-Heck, 2018)}
 
 \summarysec
 
@@ -2869,14 +2800,48 @@ The first expression is highly non-submodular while the second is entirely submo
 
 \newpage
 
-\subsection{SFR-BCR-9 (Boros, Crama,  Rodr\'{i}guez-Heck, 2018)}
+\subsection{SFR-BCR-8 (Boros, Crama,  Rodr\'{i}guez-Heck, 2018)}
 
 \summarysec
 
-For a symmetric function such that $f\left(|c|\right)=0$ for $c>n$, then with $\max\left( \lceil \log(c)\rceil , \lceil \log(n-c)\rceil  \right)$ auxiliary variables, we have:
+For the at least k-out-of-n function $f_{\geq k}$, using $\max\left( \lceil \log(c)\rceil , \lceil \log(n-c)\rceil  \right)$ auxiliary variables, we have:
+
+{\normalsize
+\begin{equation}
+\hspace{-2mm}
+\begin{split}
+  \left.
+  f(b_1,b_2,\dots,b_n)
+  \right.
+  &\rightarrow
+  \alpha
+  +\alpha^{b}            \hspace{-0.5mm}    \sum_{i}                                b_{i}
+  +\alpha_1^{b_{a,1}}      \hspace{-1.0mm}    \sum_{i}^{m-1}                          b_{a_{i}}
+  +\alpha_2^{b_{a,2}}                                                                 b_{a_{m}}
+  +\alpha^{bb}           \hspace{-0.5mm}    \sum_{ij}                               b_{i}b_{j}
+  +\alpha_1^{bb_{a,1}}     \hspace{-0.5mm}    \sum_{i} \hspace{-1.5mm}\sum_{j}^{m-1}  b_{i}b_{a_{j}}\\
+  &+\alpha_2^{bb_{a,2}}     \hspace{-0.5mm}    \sum_{i}b_{i}                           b_{a_{m}}
+  +\alpha_1^{b_{a}b_{a,1}} \hspace{-1.2mm}    \sum_{ij}^{m-1}                         b_{a_{i}}b_{a_{j}}
+  +\alpha_2^{b_{a}b_{a,2}} \hspace{-1.2mm}    \sum_{i}^{m-1}                          b_{a_{i}}b_{a_{m}},
+\end{split}
+\end{equation}
+}
+
+\noindent where:
 
 \begin{align}
-f\left(b_{1},b_{2},\ldots,b_{n}\right)\rightarrow1+2\sum_{ij}b_{i}b_{j}-\sum_{i}b_{i}+4\sum_{2i}^{n-1}b_{a_{i}}\left(i-\sum_{j}^{n}b_{j}\right)
+\begin{pmatrix}
+\alpha           & \alpha^{bb}\\
+\alpha^{b}       & \alpha_1^{bb_{a}}\\
+\alpha_1^{b_{a}} & \alpha_2^{bb_{a}}\\
+\alpha_2^{b_{a}} & \alpha_1^{b_{a}b_{a}}\\
+\cdot            & \alpha_2^{b_{a}b_{a}}
+\end{pmatrix}=\begin{pmatrix}\frac{1}{2}(c^2+3c+4) & \frac{1}{2}\\
+-\frac{1}{2}(2c+3) & -2^{i}\\
+(c+2)2^{i-1} &-\left(1+2^{m}\right)\\
+\frac{1}{2}\left((1+2^m)(2^m-2c-2)-2\right) & 2^{i+j-1}\\
+\cdot  & - \left(1+2^{m}\right)2^{i}
+\end{pmatrix}.
 \end{align}
 
 \costsec
@@ -2921,7 +2886,7 @@ The first expression is highly non-submodular while the second is entirely submo
 \newpage
 
 
-\subsection{SFR-BCR-10 (Boros, Crama,  Rodr\'{i}guez-Heck, 2018)}
+\subsection{SFR-BCR-9 (Boros, Crama,  Rodr\'{i}guez-Heck, 2018)}
 
 \summarysec
 
