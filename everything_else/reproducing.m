@@ -41,12 +41,33 @@ b1=b(:,1);b2=b(:,2);b3=b(:,3);b4=b(:,4);ba1=b(:,5);ba2=b(:,6);
 LHS = b1.*b2.*b3.*b4;
 RHS = ba1.*(2+ b1 -b2 - b3 - b4) + ba2.*(1 + b2 - b3 - b4) + b3.*b4;
 
+%% PTR_Ishikawa Pg. 18, Eqn 52 
+
+b = dec2bin(2^5-1:-1:0)-'0';
+b1=b(:,1);b2=b(:,2);b3=b(:,3);b4=b(:,4);ba=b(:,5);
+LHS = b1.*b2.*b3.*b4;
+RHS = ba.*(3 - 2*b1 - 2*b2 - 2*b3 - 2*b4) + b1.*b2 + b1.*b3 + b1.*b4 + b2.*b3 + b2.*b4 +  b3.*b4;
+
 %% PTR-BCR-1: Pg. 20, Eqns 59
 
 b = dec2bin(2^5-1:-1:0)-'0';
 b1=b(:,1);b2=b(:,2);b3=b(:,3);b4=b(:,4);ba1=b(:,5);
 LHS = b1.*b2.*b3.*b4;
 RHS = 1/2*(b1 + b2 + b3 + b4 - 2*ba1).*(b1 + b2 + b3 + b4 - 2*ba1 - 1);
+
+%% PTR-BCR-3 Pg. 22, Eqns 65 
+
+b = dec2bin(2^5-1:-1:0)-'0';
+b1=b(:,1);b2=b(:,2);b3=b(:,3);b4=b(:,4);ba=b(:,5);
+LHS = b1.*b2.*b3.*b4;
+RHS = 1/2*(b1 + b2 + b3 + b4 - 2*ba).*(b1 + b2 + b3 + b4 - 2*ba - 1);
+
+%% SFR-ABCG-4 Pg. __, Eqns __ 
+
+b = dec2bin(2^5-1:-1:0)-'0';
+b1=b(:,1);b2=b(:,2);b3=b(:,3);b4=b(:,4);ba1=b(:,5);
+LHS = b1.*b2.*b3.*b4;
+RHS = b4.*b2 + ba.*(b3-1);
 
 %% NTR-GBP: -b1b2b3 = min_ba(ba - b1 + b2 + b3 - b1b2 - b1b3 + b1)
 
