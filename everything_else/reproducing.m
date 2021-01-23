@@ -322,7 +322,7 @@ alpha_xx = 1/(delta^(2/3));
 alpha_yz = a/(4*delta^(2/3));
 
 LHS = x1*z2*y3 - 3*x1*x2*y4 + z1*x2;
-RHS = alpha + alpha_z*(za1 + za2) + alpha_y*(y3 + y4) + alpha_12_zx*z1*x2 + alpha_zx*z2*xa1 + alpha_11_xx*x1*x2 + alpha_xx*(x1*xa1 + x1*xa2 + x2*xa2) + alpha_yz*(y3*za1 + y4*za2);
+RHS = alpha + alpha_z*(za1 + za2) + alpha_y*(y3 + y4) + alpha_12_zx*z1*x2 + alpha_zx*z2*xa1 + alpha_11_xx*x1*x2 + alpha_xx*(x1*xa1 + x1*xa2 + x2*xa2) + alpha_yz*(y3*za1 + y4*za2) + 0.482582936542672*eye(64);
 
 min(eig(LHS))-min(eig(RHS))
 end
