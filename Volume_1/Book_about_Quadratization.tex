@@ -4408,11 +4408,11 @@ The first gadgets for arbitrary Hamiltonians acting on some number of qubits, we
 \examplesec
 
 {\footnotesize
- \begin{align}
- \left(x_1+x_2\right)\left(z_1+z_2\right)y_3 \rightarrow & \alpha + \alpha^{xx}_{12}x_1x_2 + \alpha^{zz}_{12}z_1z_2 + \alpha^{yy}_{3}y_3 + \alpha^{xx}\left(x_1x_{a_{1}}  + x_2x_{a_{1}}\right) + \alpha^{zx}\left(z_1x_{a_{2}} + z_2x_{a_{2}}\right)\\
- &+ \alpha^{yx}y_3x_{a_{3}} + \alpha^{zz}\left(z_{a_{1}}z_{a_{2}} + z_{a_{1}}z_{a_{3}} + z_{a_{2}}z_{a_{3}}\right)
- \end{align}
- }
+\begin{align}
+\left(x_1+3x_2\right)\left(z_1+z_2\right)y_3 \rightarrow & \alpha + \alpha^{xx}_{12}\left(x_1 + 3x_2\right)^2 + \alpha^{zz}_{12}\left(z_1 + z_2\right)^2 + \alpha^{yy}_{3}y_3^2 + \alpha^{xx}\left(x_1x_{a_{1}}  + 3x_2x_{a_{1}}\right)\\
+& + \alpha^{zx}\left(z_1x_{a_{2}} + z_2x_{a_{2}}\right) + \alpha^{yx}y_3x_{a_{3}} + \alpha^{zz}\left(z_{a_{1}}z_{a_{2}} + z_{a_{1}}z_{a_{3}} + z_{a_{2}}z_{a_{3}}\right)
+\end{align}
+}
 
 \refsec
 
@@ -4515,10 +4515,10 @@ x_1z_2y_3 - 3x_1x_2y_4 + z_1x_2 &\rightarrow \alpha +  \alpha^z(z_{a_1} + z_{a_2
 \end{align}
 
 \begin{align}
-\alpha      &= -\frac{1}{8\Delta} \\
-\alpha^{ss} &= -\frac{1}{6\Delta^{\nicefrac{1}{3}}} \\
-\alpha^{sx} &=  \frac{1}{6\Delta^{\nicefrac{2}{3}}} \\
-\alpha^{zz} &=  \frac{1}{24\Delta}
+\alpha      &= -\frac{1}{8}\Delta \\
+\alpha^{ss} &= -\frac{1}{6}\Delta^{\nicefrac{1}{3}}\\
+\alpha^{sx} &=  \frac{1}{6}\Delta^{\nicefrac{2}{3}} \\
+\alpha^{zz} &=  \frac{1}{24}\Delta
 \end{align}
 
 \noindent The result will be a 2-local Hamiltonian whose low-lying spectrum is equivalent to the spectrum of $H_{3-\rm{local}}$ to within $\epsilon$ as long as $\Delta=\Theta\left(\epsilon^{-3}\right)$.
@@ -4527,7 +4527,7 @@ x_1z_2y_3 - 3x_1x_2y_4 + z_1x_2 &\rightarrow \alpha +  \alpha^z(z_{a_1} + z_{a_2
 
 \begin{itemize}
 \item 3 auxiliary qubits for each 3-local term. %\eqref{eq:klocalInKempeMethod}.
-\item $\Delta =\Omega\left(\epsilon^{-3}\right)$
+\item $\Delta =\Theta\left(\epsilon^{-3}\right)$
 \end{itemize}
 
 \begin{comment}
@@ -4548,7 +4548,8 @@ x_1z_2y_3 - 3x_1x_2y_4 + z_1x_2 &\rightarrow \alpha +  \alpha^z(z_{a_1} + z_{a_2
 
 {\tiny
 \begin{align}
-x_1z_2y_3 - 3x_1x_2y_4 + z_1x_2 \rightarrow \alpha   + \alpha^{zx}_{2a_{12}}z_2x_{a_12}+ \alpha^{xx}_{12} x_1x_2 + \alpha^{xx}_{1a_{11}}x_1x_{a_{11}} + \alpha^{xx}_{1a_{21}}x_1x_{a_{21}}  + \alpha^{xx}_{2a_{22}}x_2x_{a_{22}} + \alpha^{yz}_{3a_{13}}y_3x_{a_{13}} + \alpha_{4a_{23}}^{yx}y_4x_{a_{23} }
+z_1x_2 - x_1z_2y_3 - 3x_1x_2y_4 &\rightarrow z_1x_2 - 4\alpha - \alpha^{ss}_{1}\left(x_1^2 + z_2^2 + y_3^2\right) - 3\alpha^{ss}_{2}\left(x_1^2 + x_2^2 + y_4^2\right) - \alpha^{sx}_{1}\left(x_1x_{a_{11}} + z_2x_{a_12}+  y_3x_{a_{13}}\right) - 3\alpha^{sx}_{2}\left(x_1x_{a_{21}} + x_2x_{a_{22}} + y_4x_{a_{23}}\right)\\
+& - \alpha^{zz}_{1}\left(z_{a_{11}}z_{a_{12}} + z_{a_{11}}z_{a_{13}} + z_{a_{12}}z_{a_{13}}\right) - 3\alpha^{zz}_{2}\left(z_{a_{21}}z_{a_{22}} + z_{a_{21}}z_{a_{23}} + z_{a_{22}}z_{a_{23}}\right)
 \end{align}
 }
 
@@ -4556,7 +4557,7 @@ x_1z_2y_3 - 3x_1x_2y_4 + z_1x_2 \rightarrow \alpha   + \alpha^{zx}_{2a_{12}}z_2x
 
 {\footnotesize
 \begin{equation}
--6s_1s_2s_3 = \frac{3\Delta}{4} - \frac{\Delta}{4}\left( z_{a_1}z_{a_2} + z_{a_1}z_{a_3} + z_{a_2}z_{a_3}\right) + \Delta^{\nicefrac{1}{3}}\left( s_1^2 + s_2^2 + s_3^2 \right)  -\Delta^{\nicefrac{2}{3}}\left(s_1x_{a_1} + s_2x_{a_2} + s_3x_{a_3} \right)
+-6s_1s_2s_3 = \frac{3\Delta}{4} + \Delta^{\nicefrac{1}{3}}\left( s_1^2 + s_2^2 + s_3^2 \right) - \Delta^{\nicefrac{2}{3}}\left(s_1x_{a_1} + s_2x_{a_2} + s_3x_{a_3} \right) - \frac{\Delta}{4}\left( z_{a_1}z_{a_2} + z_{a_1}z_{a_3} + z_{a_2}z_{a_3}\right)
 \end{equation}
 }
 
@@ -4564,7 +4565,7 @@ x_1z_2y_3 - 3x_1x_2y_4 + z_1x_2 \rightarrow \alpha   + \alpha^{zx}_{2a_{12}}z_2x
 
 \begin{itemize}
 \item Original paper on arXiv (Eq. 13): \cite{Kempe2004a}
-\item Journal publication two years later: \cite{Kempe2006}
+\item Journal publication two years later (Eq. 6.2): \cite{Kempe2006}
 % there's also a conference paper published in 2005 proceedings: FSTTC 2004: Foundations of Software Technology and Theoretical Computer Science (Springer Berlin Heidelberg, Berlin, Heidelberg, 2005) pp. 372-383
 \end{itemize}
 
