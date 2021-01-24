@@ -5,7 +5,7 @@ b1=b(:,1);b2=b(:,2);b3=b(:,3);b4=b(:,4);
 LHS=b1.*b2 + b2.*b3 + b3.*b4 - 4*b1.*b2.*b3;
 RHS=b1.*b2 + b2.*b3 + b3.*b4 + 4*b1 - 4*b1.*b2 - 4*b1.*b3;
 
-%% Pg. 1, Eqs 4-5 
+%% Pg. 1, Eqs 4-5
 
 x = [0 1 ; 1 0]; y = [0 -1i ; 1i 0]; z = [1 0 ; 0 -1];
 x1 = kron(x, eye(8)); x2 = kron(kron(eye(2), x), eye(4)); x3 = kron(kron(eye(4), x), eye(2)); x4 = kron(eye(8), x);
@@ -41,7 +41,7 @@ b1=b(:,1);b2=b(:,2);b3=b(:,3);b4=b(:,4);ba1=b(:,5);ba2=b(:,6);
 LHS = b1.*b2.*b3.*b4;
 RHS = ba1.*(2+ b1 -b2 - b3 - b4) + ba2.*(1 + b2 - b3 - b4) + b3.*b4;
 
-%% PTR_Ishikawa Pg. 18, Eqn 52 
+%% PTR_Ishikawa Pg. 18, Eqn 52
 
 b = dec2bin(2^5-1:-1:0)-'0';
 b1=b(:,1);b2=b(:,2);b3=b(:,3);b4=b(:,4);ba=b(:,5);
@@ -55,14 +55,14 @@ b1=b(:,1);b2=b(:,2);b3=b(:,3);b4=b(:,4);ba1=b(:,5);
 LHS = b1.*b2.*b3.*b4;
 RHS = 1/2*(b1 + b2 + b3 + b4 - 2*ba1).*(b1 + b2 + b3 + b4 - 2*ba1 - 1);
 
-%% PTR-BCR-3 Pg. 22, Eqns 65 
+%% PTR-BCR-3 Pg. 22, Eqns 65
 
 b = dec2bin(2^5-1:-1:0)-'0';
 b1=b(:,1);b2=b(:,2);b3=b(:,3);b4=b(:,4);ba=b(:,5);
 LHS = b1.*b2.*b3.*b4;
 RHS = 1/2*(b1 + b2 + b3 + b4 - 2*ba).*(b1 + b2 + b3 + b4 - 2*ba - 1);
 
-%% SFR-ABCG-4 Pg. __, Eqns __ 
+%% SFR-ABCG-4 Pg. __, Eqns __
 
 b = dec2bin(2^5-1:-1:0)-'0';
 b1=b(:,1);b2=b(:,2);b3=b(:,3);b4=b(:,4);ba1=b(:,5);
@@ -97,7 +97,7 @@ RHS=4*za*(z1+z2+z3+z4)+2*(z1*z2+z1*z3+z1*z4+z2*z3+z2*z4+z3*z4)+8;
 
 [diag(LHS) diag(RHS)];
 
-%% PTR-RBL, k=5, middle of LHZ (not stated to be true in paper, so testing it). 
+%% PTR-RBL, k=5, middle of LHZ (not stated to be true in paper, so testing it).
 
 z1 = kron(z,eye(32));
 z2 = kron(kron(eye(2),z),eye(16));
@@ -186,7 +186,7 @@ RHSa=min(reshape(2*ba1.*b1 + b2.*b3 + b2.*b4 + 2*ba2 - ba2.*ba1 - ba2.*b2 - ba2.
 RHSb=min(reshape(2*ba1.*b1 + b2.*b3 + b2.*b4 + 4*ba2 - 2*ba2.*ba1 - 2*ba2.*b2 - ba2.*b3 - ba2.*b4,4,[]));
 isequal(LHS,RHSa,RHSb);
 
-%% Pairwise Covers: 5*b1b2b3b4 + 4*b1b2b4 - 3*b1b3 - 2*b2b3b4 
+%% Pairwise Covers: 5*b1b2b3b4 + 4*b1b2b4 - 3*b1b3 - 2*b2b3b4
 %%                  = min_ba(5*ba1ba2 + 4*b1ba2 - 3*ba1 - 2*b3ba2 + 8*(ba1(3 - 2*b1 - 2*b3) + b1b3) + 11*(ba2(3 - 2*b2 - 2*b4) + b2b4))
 
 b=dec2bin(2^6-1:-1:0)-'0';
@@ -327,7 +327,7 @@ RHS = alpha + alpha_z*(za1 + za2) + alpha_y*(y3 + y4) + alpha_12_zx*z1*x2 + alph
 min(eig(LHS))-min(eig(RHS))
 end
 
-%%P(3->2)-KKR 
+%% P(3->2)-KKR, example.
 
 x = [0 1;1 0]; y = [0 -1i;1i 0]; z = [1 0;0 -1];
 z1 = kron(z,eye(512));z2 = kron(kron(eye(2),z),eye(256));
@@ -336,7 +336,7 @@ xa_11 = kron(kron(eye(16),x),eye(32)); xa_12 = kron(kron(eye(32),x),eye(16)); xa
 xa_21 = kron(kron(eye(128),x),eye(4)); xa_22 = kron(kron(eye(256),x),eye(2)); xa_23 = kron(eye(512),x);
 y3 = kron(kron(eye(4),y),eye(128));y4 = kron(kron(eye(8),y),eye(64));
 
-for delta = 1:100:1000
+for delta = 1:1e2:1e3
 alpha = -(1/(8*delta));
 alpha_ss = -(1/(6*delta^(1/3)));
 alpha_sx = 1/(6*delta^(2/3));
@@ -346,4 +346,26 @@ LHS = x1*z2*y3 - 3*x1*x2*y4 + z1*x2;
 RHS = alpha + alpha_sx*z2*xa_12 + alpha_ss*x1*x2 + alpha_sx*x1*xa_11 + alpha_sx*x1*xa_21 + alpha_sx*x2*xa_22 + alpha_sx*y3*xa_13 + alpha_sx*y4*xa_23;
 
 min(eig(LHS))-min(eig(RHS))
+end
+
+%% P(3->2)-KKR, Alternative Form (i.e. original from KKR paper, near Eq. 13 on the arXiv version).
+
+x = [0 1 ; 1 0]; y = [0 -1i ; 1i 0]; z = [1 0 ; 0 -1];
+x1 = kron(x,eye(32));
+xa1 = kron(kron(eye(8),x),eye(4)); xa2 = kron(kron(eye(16),x),eye(2)); xa3 = kron(eye(32),x);
+y3 = kron(kron(eye(4),y),eye(8));
+z2 = kron(kron(eye(2),z),eye(16));
+za1 = kron(kron(eye(8),z),eye(4)); za2 = kron(kron(eye(16),z),eye(2)); za3 = kron(eye(32),z);
+
+for delta = 1:1e10:1e11
+
+alpha = (3/4)*(delta);
+alpha_ss = (delta)^(1/3);
+alpha_sx = -(delta)^(2/3);
+alpha_zz = -(1/4)*(delta);
+
+LHS = -6*x1*z2*y3;
+RHS = alpha*eye(64) + 3*alpha_ss*eye(64) + alpha_sx*(x1*xa1 + z2*xa2 + y3*xa3) + alpha_zz*(za1*za2 + za1*za3 + za2*za3);
+
+abs(min(eig(LHS))-min(eig(RHS)))
 end
