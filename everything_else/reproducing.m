@@ -327,7 +327,7 @@ RHS = alpha + alpha_z*(za1 + za2) + alpha_y*(y3 + y4) + alpha_12_zx*z1*x2 + alph
 min(eig(LHS))-min(eig(RHS))
 end
 
-%%P(3->2)-KKR
+%% P(3->2)-KKR, example.
 
 x = [0 1;1 0]; y = [0 -1i;1i 0]; z = [1 0;0 -1];
 z1 = kron(z,eye(512));z2 = kron(kron(eye(2),z),eye(256));
@@ -348,7 +348,7 @@ RHS = alpha + alpha_sx*z2*xa_12 + alpha_ss*x1*x2 + alpha_sx*x1*xa_11 + alpha_sx*
 min(eig(LHS))-min(eig(RHS))
 end
 
-%%%  Test for KKR: Delta in Denominator
+%% P(3->2)-KKR, Alternative Form (i.e. original from KKR paper, near Eq. 13 on the arXiv version).
 
 x = [0 1 ; 1 0]; y = [0 -1i ; 1i 0]; z = [1 0 ; 0 -1];
 x1 = kron(x,eye(32));
@@ -357,30 +357,7 @@ y3 = kron(kron(eye(4),y),eye(8));
 z2 = kron(kron(eye(2),z),eye(16));
 za1 = kron(kron(eye(8),z),eye(4)); za2 = kron(kron(eye(16),z),eye(2)); za3 = kron(eye(32),z);
 
-for delta = 1:1e2:1e3
-
-alpha = 3/(4*(delta));
-alpha_ss = 1/((delta)^(1/3));
-alpha_sx = -1/((delta)^(2/3));
-alpha_zz = -1/(4*(delta));
-
-LHS = -6*x1*z2*y3;
-RHS = alpha + alpha_ss*(x1^2 + z2^2 + y3^2) + alpha_sx*(x1*xa1 + z2*xa2 + y3*xa3) + alpha_zz*(za1*za2 + za1*za3 + za2*za3);
-
-min(eig(LHS))-min(eig(RHS))
-
-end
-
-%% Test for KKR: Delta in Numerator
-
-x = [0 1 ; 1 0]; y = [0 -1i ; 1i 0]; z = [1 0 ; 0 -1];
-x1 = kron(x,eye(32));
-xa1 = kron(kron(eye(8),x),eye(4)); xa2 = kron(kron(eye(16),x),eye(2)); xa3 = kron(eye(32),x);
-y3 = kron(kron(eye(4),y),eye(8));
-z2 = kron(kron(eye(2),z),eye(16));
-za1 = kron(kron(eye(8),z),eye(4)); za2 = kron(kron(eye(16),z),eye(2)); za3 = kron(eye(32),z);
-
-for delta = 1:1e2:1e3
+for delta = 1:1e10:1e11
 
 alpha = (3/4)*(delta);
 alpha_ss = (delta)^(1/3);
@@ -388,8 +365,7 @@ alpha_sx = -(delta)^(2/3);
 alpha_zz = -(1/4)*(delta);
 
 LHS = -6*x1*z2*y3;
-RHS = alpha + alpha_ss*(x1^2 + z2^2 + y3^2) + alpha_sx*(x1*xa1 + z2*xa2 + y3*xa3) + alpha_zz*(za1*za2 + za1*za3 + za2*za3);
+RHS = alpha*eye(64) + 3*alpha_ss*eye(64) + alpha_sx*(x1*xa1 + z2*xa2 + y3*xa3) + alpha_zz*(za1*za2 + za1*za3 + za2*za3);
 
-min(eig(LHS))-min(eig(RHS))
-
+abs(min(eig(LHS))-min(eig(RHS)))
 end
