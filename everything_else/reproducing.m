@@ -15,6 +15,15 @@ LHS = x1*y2*z3*y4 + y1*x2*z3*y4 + x1*x2*y3;
 RHS = x1*y4 + x2*y4 + x3;
 max(eig(LHS)-eig(RHS))<1e-13; % gives 1
 
+[VL EL] = eig(LHS); [VR ER] = eig(RHS);
+[DL indL] = sort(diag(EL)); [DR indR] = sort(diag(ER));
+VL = VL(:,indL); EL = EL(indL,indL); VR = VR(:,indR); ER = ER(indR,indR); % sorted eigenvalues in ascending order and corresponding eigenvectors
+
+for col = 1:1:length(VL) % compare eigenvectors and eigenvalues
+V_diff(1,col) = sqrt(dot((VL(:,col)-VR(:,col)),(VL(:,col)-VR(:,col))));
+E_diff(1,col) = sqrt(dot((EL(:,col)-ER(:,col)),(EL(:,col)-ER(:,col))));
+end
+
 %% Pg. 6, Eqs 8 and 10
 
 LHS=b1.*b2 + b2.*b3 + b3.*b4 - 4*b1.*b2.*b3;
@@ -310,16 +319,15 @@ y3 = kron(kron(eye(4),y),eye(8)); y4 = kron(kron(eye(8),y),eye(4));
 z1 = kron(z,eye(32)); z2 = kron(kron(eye(2),z),eye(16));
 za1 = kron(kron(eye(16),z),eye(2)); za2 = kron(eye(32),z);
 
-a = 1;
 for delta = 1:1e2:1e3
 alpha = -1/(2*delta);
-alpha_z = a*((1/(4*(delta)^(2/3))) - 1);
-alpha_y = a*((1/(4*(delta)^(2/3))) - 1);
+alpha_z = (1/(4*(delta)^(2/3))) - 1;
+alpha_y = (1/(4*(delta)^(2/3))) - 1;
 alpha_12_zx = 1/(delta^(2/3));
 alpha_zx = 1/(delta^(2/3));
 alpha_11_xx = 1/(delta^(1/3));
 alpha_xx = 1/(delta^(2/3));
-alpha_yz = a/(4*delta^(2/3));
+alpha_yz = 1/(4*delta^(2/3));
 
 LHS = x1*z2*y3 - 3*x1*x2*y4 + z1*x2;
 RHS = alpha + alpha_z*(za1 + za2) + alpha_y*(y3 + y4) + alpha_12_zx*z1*x2 + alpha_zx*z2*xa1 + alpha_11_xx*x1*x2 + alpha_xx*(x1*xa1 + x1*xa2 + x2*xa2) + alpha_yz*(y3*za1 + y4*za2) + 0.482582936542672*eye(64);
@@ -346,7 +354,7 @@ alpha_sx = (1/6)*(delta)^(2/3);
 alpha_zz = (1/24)*(delta);
 
 LHS = z1*x2 - x1*z2*y3 - 3*x1*x2*y4;
-RHS = z1*x2 - 4*alpha*eye(1024) - 12*alpha_ss*eye(1024) - alpha_sx*(x1*xa_11 + z2*xa_12 + y3*xa_13) - alpha_zz*(za_11*za_12 + za_11*za_13 + za_12*za_13) - 3*alpha_sx*(x1*xa_21 + x2*xa_22 + y4*xa_23) - 3*alpha_zz*(za_21*za_22 + za_21*za_23 + za_22*za_23);
+RHS = z1*x2 - 4*alpha*eye(1024) - 12*alpha_ss*eye(1024) - alpha_sx*(x1*xa_11 + z2*xa_12 + y3*xa_13) - 3*alpha_sx*(x1*xa_21 + x2*xa_22 + y4*xa_23) - alpha_zz*(za_11*za_12 + za_11*za_13 + za_12*za_13) - 3*alpha_zz*(za_21*za_22 + za_21*za_23 + za_22*za_23);
 
 abs(min(eig(LHS))-min(eig(RHS)))
 end
