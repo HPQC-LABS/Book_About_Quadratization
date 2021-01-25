@@ -4511,7 +4511,7 @@ x_1z_2y_3 - 3x_1x_2y_4 + z_1x_2 &\rightarrow \alpha +  \alpha^z(z_{a_1} + z_{a_2
 %\end{align}
 
 \begin{align}
-\prod_i^3 s_{i} \rightarrow \alpha   + \alpha_i^{ss} \sum_i s_i^2 + \alpha_i^{sx}\sum_i  s_ix_{a_i} + \alpha^{zz} \sum_{ij} z_{a_i}z_{a_j}
+\prod_i^3 s_{i} \rightarrow \alpha   + \alpha^{ss} \sum_i s_i^2 + \alpha^{sx}\sum_i  s_ix_{a_i} + \alpha^{zz} \sum_{ij} z_{a_i}z_{a_j}
 \end{align}
 
 \begin{align}
@@ -4522,6 +4522,10 @@ x_1z_2y_3 - 3x_1x_2y_4 + z_1x_2 &\rightarrow \alpha +  \alpha^z(z_{a_1} + z_{a_2
 \end{align}
 
 \noindent The result will be a 2-local Hamiltonian whose low-lying spectrum is equivalent to the spectrum of $H_{3-\rm{local}}$ to within $\epsilon$ as long as $\Delta=\Theta\left(\epsilon^{-3}\right)$.
+
+\notessec
+
+For a term on the right-hand-side (the quadratic Hamiltonian) such as $x_1x_2$ or $x_2x_{a_3}$ the choice of whether to use $\alpha^{ss}$ or $\alpha^{sx}$ may seem ambiguous since we would get $xx$ in both cases by seting $s=x$, however the defining formula for this quadratization shows that $\alpha^{ss}$ is to be used when both $x$ operators are acting on logical qubits, whereas $\alpha^{sx}$ is only used when one of the qubits is an auxiliary qubit.
 
 \costsec
 
@@ -4546,10 +4550,10 @@ x_1z_2y_3 - 3x_1x_2y_4 + z_1x_2 &\rightarrow \alpha +  \alpha^z(z_{a_1} + z_{a_2
 
 \examplesec
 
-{\tiny
+{\scriptsize
 \begin{align}
-z_1x_2 - x_1z_2y_3 - 3x_1x_2y_4 &\rightarrow z_1x_2 - 4\alpha - \alpha^{ss}_{1}\left(x_1^2 + z_2^2 + y_3^2\right) - 3\alpha^{ss}_{2}\left(x_1^2 + x_2^2 + y_4^2\right) - \alpha^{sx}_{1}\left(x_1x_{a_{11}} + z_2x_{a_12}+  y_3x_{a_{13}}\right) - 3\alpha^{sx}_{2}\left(x_1x_{a_{21}} + x_2x_{a_{22}} + y_4x_{a_{23}}\right)\\
-& - \alpha^{zz}_{1}\left(z_{a_{11}}z_{a_{12}} + z_{a_{11}}z_{a_{13}} + z_{a_{12}}z_{a_{13}}\right) - 3\alpha^{zz}_{2}\left(z_{a_{21}}z_{a_{22}} + z_{a_{21}}z_{a_{23}} + z_{a_{22}}z_{a_{23}}\right)
+z_1x_2 - x_1z_2y_3 - 3x_1x_2y_4 \rightarrow & z_1x_2 - 4\alpha - 12\alpha^{ss} - \alpha^{sx}\left(x_1x_{a_{11}} + z_2x_{a_{12}}+  y_3x_{a_{13}}\right) - 3\alpha^{sx}\left(x_1x_{a_{21}} + x_2x_{a_{22}} + y_4x_{a_{23}}\right)\\
+& - \alpha^{zz}\left(z_{a_{11}}z_{a_{12}} + z_{a_{11}}z_{a_{13}} + z_{a_{12}}z_{a_{13}}\right) - 3\alpha^{zz}\left(z_{a_{21}}z_{a_{22}} + z_{a_{21}}z_{a_{23}} + z_{a_{22}}z_{a_{23}}\right)
 \end{align}
 }
 
