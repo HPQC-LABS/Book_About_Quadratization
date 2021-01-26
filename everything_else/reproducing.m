@@ -19,9 +19,9 @@ max(eig(LHS)-eig(RHS))<1e-13; % gives 1
 [DL, indL] = sort(diag(EL)); [DR, indR] = sort(diag(ER));
 VL = VL(:,indL); EL = EL(indL,indL); VR = VR(:,indR); ER = ER(indR,indR); % sorted eigenvalues in ascending order and corresponding eigenvectors
 
-for col = 1:1:length(VL) % compare eigenvectors and eigenvalues
-V_diff(1,col) = sqrt(dot((VL(:,col)-VR(:,col)),(VL(:,col)-VR(:,col))));
-E_diff(1,col) = sqrt(dot((EL(:,col)-ER(:,col)),(EL(:,col)-ER(:,col))));
+for col = 1:1:size(VL,2) % compare eigenvectors and eigenvalues
+V_diff(col,1) = sqrt(dot((VL(:,col)-VR(:,col)),(VL(:,col)-VR(:,col))));
+E_diff(col,1) = sqrt(dot((EL(:,col)-ER(:,col)),(EL(:,col)-ER(:,col))));
 end
 
 max(E_diff); % 3.1e-15, full energy spectrum reproduced
@@ -292,6 +292,19 @@ RHS = 9*xa1 + 4*za2*z5 - 3*za3*x1 - za3*xa2 + 2*xa3*x5;
 
 max(eig(LHS)-eig(RHS))<1e-13; % gives 1.
 
+[VL, EL] = eig(LHS); [VR, ER] = eig(RHS);
+[DL, indL] = sort(diag(EL)); [DR, indR] = sort(diag(ER));
+VL = VL(:,indL); EL = EL(indL,indL); VR = VR(:,indR); ER = ER(indR,indR);
+VL = VL(:,1:8:end); EL = EL(:,1:8:end); VR = VR(:,1:8:end); ER = ER(:,1:8:end); % reduce repeats due to auxiliary qubits
+
+for col = 1:1:size(VL,2) % compare eigenvectors and eigenvalues
+V_diff(col,1) = sqrt(dot((VL(:,col)-VR(:,col)),(VL(:,col)-VR(:,col))));
+E_diff(col,1) = sqrt(dot((EL(:,col)-ER(:,col)),(EL(:,col)-ER(:,col))));
+end
+
+max(E_diff); % 1.1546e-14
+min(V_diff); % 1.3632
+
 %% P(3->2)-DC1
 
 x = [0 1 ; 1 0]; y = [0 -1i ; 1i 0]; z = [1 0 ; 0 -1];
@@ -312,6 +325,18 @@ RHS = alpha*eye(64) + alpha_ss*(6*x1*x2 + 2*z1*z2) + 12*alpha_ss*eye(64) + alpha
 
 min(eig(LHS))-min(eig(RHS))
 end
+
+[VL, EL] = eig(LHS); [VR, ER] = eig(RHS);
+[DL, indL] = sort(diag(EL)); [DR, indR] = sort(diag(ER));
+VL = VL(:,indL); EL = EL(indL,indL); VR = VR(:,indR); ER = ER(indR,indR);
+VL = VL(:,1:8:end); EL = EL(:,1:8:end); VR = VR(:,1:8:end); ER = ER(:,1:8:end);
+
+for col = 1:1:size(VL,2)
+V_diff(col,1) = sqrt(dot((VL(:,col)-VR(:,col)),(VL(:,col)-VR(:,col))));
+E_diff(col,1) = sqrt(dot((EL(:,col)-ER(:,col)),(EL(:,col)-ER(:,col))));
+end
+
+min(V_diff); % 1.4142
 
 %% P(3->2)-DC2
 
@@ -338,6 +363,18 @@ RHS = alpha + alpha_z*(za1 + za2) + alpha_y*(y3 + y4) + alpha_12_zx*z1*x2 + alph
 min(eig(LHS))-min(eig(RHS))
 end
 
+[VL, EL] = eig(LHS); [VR, ER] = eig(RHS);
+[DL, indL] = sort(diag(EL)); [DR, indR] = sort(diag(ER));
+VL = VL(:,indL); EL = EL(indL,indL); VR = VR(:,indR); ER = ER(indR,indR);
+VL = VL(:,1:4:end); EL = EL(:,1:4:end); VR = VR(:,1:4:end); ER = ER(:,1:4:end);
+
+for col = 1:1:size(VL,2)
+V_diff(col,1) = sqrt(dot((VL(:,col)-VR(:,col)),(VL(:,col)-VR(:,col))));
+E_diff(col,1) = sqrt(dot((EL(:,col)-ER(:,col)),(EL(:,col)-ER(:,col))));
+end
+
+min(V_diff); % 1.2708
+
 %% P(3->2)-KKR, example.
 
 x = [0 1;1 0]; y = [0 -1i;1i 0]; z = [1 0;0 -1];
@@ -362,6 +399,18 @@ RHS = z1*x2 - 4*alpha*eye(1024) - 12*alpha_ss*eye(1024) - alpha_sx*(x1*xa_11 + z
 abs(min(eig(LHS))-min(eig(RHS)))
 end
 
+[VL, EL] = eig(LHS); [VR, ER] = eig(RHS);
+[DL, indL] = sort(diag(EL)); [DR, indR] = sort(diag(ER));
+VL = VL(:,indL); EL = EL(indL,indL); VR = VR(:,indR); ER = ER(indR,indR);
+VL = VL(:,1:64:end); EL = EL(:,1:64:end); VR = VR(:,1:64:end); ER = ER(:,1:64:end);
+
+for col = 1:1:size(VL,2)
+V_diff(col,1) = sqrt(dot((VL(:,col)-VR(:,col)),(VL(:,col)-VR(:,col))));
+E_diff(col,1) = sqrt(dot((EL(:,col)-ER(:,col)),(EL(:,col)-ER(:,col))));
+end
+
+min(V_diff); % 1.3954
+
 %% P(3->2)-KKR, Alternative Form (i.e. original from KKR paper, near Eq. 13 on the arXiv version).
 
 x = [0 1 ; 1 0]; y = [0 -1i ; 1i 0]; z = [1 0 ; 0 -1];
@@ -383,3 +432,15 @@ RHS = alpha*eye(64) + 3*alpha_ss*eye(64) + alpha_sx*(x1*xa1 + z2*xa2 + y3*xa3) +
 
 abs(min(eig(LHS))-min(eig(RHS)))
 end
+
+[VL, EL] = eig(LHS); [VR, ER] = eig(RHS);
+[DL, indL] = sort(diag(EL)); [DR, indR] = sort(diag(ER));
+VL = VL(:,indL); EL = EL(indL,indL); VR = VR(:,indR); ER = ER(indR,indR);
+VL = VL(:,1:8:end); EL = EL(:,1:8:end); VR = VR(:,1:8:end); ER = ER(:,1:8:end);
+
+for col = 1:1:size(VL,2)
+V_diff(col,1) = sqrt(dot((VL(:,col)-VR(:,col)),(VL(:,col)-VR(:,col))));
+E_diff(col,1) = sqrt(dot((EL(:,col)-ER(:,col)),(EL(:,col)-ER(:,col))));
+end
+
+min(V_diff); % 1.3576
