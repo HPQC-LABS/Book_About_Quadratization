@@ -15,14 +15,17 @@ LHS = x1*y2*z3*y4 + y1*x2*z3*y4 + x1*x2*y3;
 RHS = x1*y4 + x2*y4 + x3;
 max(eig(LHS)-eig(RHS))<1e-13; % gives 1
 
-[VL EL] = eig(LHS); [VR ER] = eig(RHS);
-[DL indL] = sort(diag(EL)); [DR indR] = sort(diag(ER));
+[VL, EL] = eig(LHS); [VR, ER] = eig(RHS);
+[DL, indL] = sort(diag(EL)); [DR, indR] = sort(diag(ER));
 VL = VL(:,indL); EL = EL(indL,indL); VR = VR(:,indR); ER = ER(indR,indR); % sorted eigenvalues in ascending order and corresponding eigenvectors
 
 for col = 1:1:length(VL) % compare eigenvectors and eigenvalues
 V_diff(1,col) = sqrt(dot((VL(:,col)-VR(:,col)),(VL(:,col)-VR(:,col))));
 E_diff(1,col) = sqrt(dot((EL(:,col)-ER(:,col)),(EL(:,col)-ER(:,col))));
 end
+
+max(E_diff); % 3.1e-15, full energy spectrum reproduced
+min(V_diff); % 1.28,      no states reproduced
 
 %% Pg. 6, Eqs 8 and 10
 
