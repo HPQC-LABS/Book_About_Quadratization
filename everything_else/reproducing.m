@@ -444,3 +444,35 @@ E_diff(col,1) = sqrt(dot((EL(:,col)-ER(:,col)),(EL(:,col)-ER(:,col))));
 end
 
 min(V_diff); % 1.3576
+
+%% III.D 15-term, 5-variable, degree-4 function
+%% blue
+b=dec2bin(2^5-1:-1:0)-'0';
+b1=b(:,1);b2=b(:,2);b3=b(:,3);b4=b(:,4);ba1=b(:,5);
+LHS=min(reshape(5*b1.*b2.*b3.*b4 - 3*b1.*b2.*b3 - b1.*b2.*b4 - b1.*b3.*b4 - 2*b2.*b3.*b4,2,[]));
+RHS=min(reshape(b1.*b2 + b1.*b3 + 3*b1.*b4 + 2*b2.*b4 + 2*b3.*b4 - 5*b1.*ba1 - 4*b2.*ba1 - 4*b3.*ba1 - 6*b4.*ba1 + 8*ba1,2,[]))
+isequal(LHS,RHS)
+%% red
+b=dec2bin(2^5-1:-1:0)-'0';
+b1=b(:,1);b2=b(:,2);b3=b(:,3);b5=b(:,4);ba2=b(:,5);
+LHS=min(reshape(4*b1.*b2.*b3.*b5 - 5*b1.*b2.*b5 - b1.*b3.*b5 - b2.*b3.*b5,2,[]));
+RHS=min(reshape(-3*b1 + 6*b2 - 3*b3 + 5*b5 - 5*b1.*b2 + 3*b1.*b3 - 5*b1.*b5 - b2.*b3 - b3.*b5 + 8*b1.*ba2 - 6*b2.*ba2 + 4*b3.*ba2 - 5*b5.*ba2 - 3*ba2 + 3,2,[]));
+isequal(LHS,RHS)
+%% purple
+b=dec2bin(2^5-1:-1:0)-'0';
+b1=b(:,1);b2=b(:,2);b4=b(:,3);b5=b(:,4);ba3=b(:,5);
+LHS=min(reshape(3*b1.*b2.*b4.*b5 - b1.*b4.*b5 - 4*b2.*b4.*b5,2,[]));
+RHS=min(reshape(b1 + 4*b2 + 3*b1.*b2 - b1.*b4 - b1.*b5 - 4*b2.*b4 - 4*b2.*b5 - 4*b1.*ba3 - 7*b2.*ba3 + 5*b4.*ba3 + 5*b5.*ba3 + 3*ba3,2,[]));
+isequal(LHS,RHS)
+%% green
+b=dec2bin(2^5-1:-1:0)-'0';
+b1=b(:,1);b3=b(:,2);b4=b(:,3);b5=b(:,4);ba4=b(:,5);
+LHS=min(reshape(2*b1.*b3.*b4.*b5 - 3*b3.*b4.*b5,2,[]));
+RHS=min(reshape(2*b1.*ba4 - 3*b3.*ba4 - 3*b4.*ba4 - 3*b5.*ba4 + 6*ba4,2,[]));
+isequal(LHS,RHS)
+%% orange
+b=dec2bin(2^5-1:-1:0)-'0';
+b2=b(:,1);b2=b(:,2);b4=b(:,3);b5=b(:,4);ba5=b(:,5);
+LHS=min(reshape(b2.*b3.*b4.*b5,2,[]));
+RHS=min(reshape(b2.*b3 + b2.*b4 + b2.*b5 + b3.*b4 + b3.*b5 + b4.*b5 + 3*ba5 - 2*b2.*ba5 - 2*b3.*ba5 - 2*b4.*ba5 - 2*b5.*ba5,2,[]));
+isequal(LHS,RHS)
