@@ -4444,15 +4444,15 @@ a\prod_i^3 s_{i} \rightarrow \alpha + \alpha^s s_3 + \alpha^z z_a +\alpha^{ss} \
 \begin{align}
 \begin{pmatrix}\alpha & \alpha^{s} & \alpha^{z}\\
 \alpha^{ss} & \alpha^{sz} & \alpha^{sx}
-\end{pmatrix}=\begin{pmatrix}-\frac{1}{2\Delta} & a\left(\frac{1}{4\Delta^{\nicefrac{2}{3}}}-1\right) & a\left(\frac{1}{4\Delta^{\nicefrac{2}{3}}}-1\right)\\
-\frac{1}{\Delta^{\nicefrac{1}{3}}} & \frac{a}{4\Delta^{\nicefrac{2}{3}}} & \frac{1}{\Delta^{\nicefrac{2}{3}}}
+\end{pmatrix}=\begin{pmatrix}\frac{\Delta}{2} & a\left(\frac{\Delta^{\nicefrac{2}{3}}}{4}-1\right) & \frac{\Delta}{2} \\
+\Delta^{\nicefrac{1}{3}} & \frac{a\Delta^{\nicefrac{2}{3}}}{4} & \Delta^{\nicefrac{2}{3}}
 \end{pmatrix}
-%\alpha      &= -\frac{1}{2\Delta} \\
-%\alpha^s    &= \alpha\left(\frac{1}{4\Delta^{\nicefrac{2}{3}}} - 1 \right) \\
-%\alpha^z    &= \alpha\left(\frac{1}{4\Delta^{\nicefrac{2}{3}}} - 1 \right) \\
-%\alpha^{ss} &= \frac{1}{\Delta^{\nicefrac{1}{3}}} \\
-%\alpha^{sz} &= \frac{\alpha}{4\Delta^{\nicefrac{2}{3}}} \\
-%\alpha^{sx} &=  \frac{1}{\Delta^{\nicefrac{2}{3}}} \\
+%\alpha      &= \frac{\Delta}{2} \\
+%\alpha^s    &= a\left(\frac{\Delta^{\nicefrac{2}{3}}}{4}-1\right) \\
+%\alpha^z    &= \frac{\Delta}{2} \\
+%\alpha^{ss} &= \Delta^{\nicefrac{1}{3}} \\
+%\alpha^{sz} &= \frac{a\Delta^{\nicefrac{2}{3}}}{4} \\
+%\alpha^{sx} &= \Delta^{\nicefrac{2}{3}} \\
 \end{align}
 %}
 
@@ -4483,10 +4483,10 @@ a\prod_i^3 s_{i} \rightarrow \alpha + \alpha^s s_3 + \alpha^z z_a +\alpha^{ss} \
 
 % NOTE WE CAN CHANGE THE 1,2,3 (BECAUSE THINGS COMMUTE) SO WE MIGHT BE ABLE TO  DO THIS IN A WAY IN WHICH THERE'S FEWER INDEPENDENT COEFFICIENTS TO DEFINE. ESPECIALLY WHEN LOOKING WHAT WHICH 2-LOCAL TERMS WERE ALREADY IN THE ORIGINAL HAMILTONIAN!!
 
-{\small
+{\footnotesize
 \begin{align}
-x_1z_2y_3 - 3x_1x_2y_4 + z_1x_2 &\rightarrow \alpha +  \alpha^z(z_{a_1} + z_{a_2}) + \alpha^y(y_3 + y_4) +\alpha^{zx}_{12}z_1x_2+   \alpha^{zx}z_2x_{a_1} +\alpha^{xx}_{11} x_1x_2\\
-&   +  \alpha^{xx}\left( x_1x_{a_1} + x_1x_{a_2} + x_2x_{a_2} \right)  + \alpha^{yz}\left( y_3z_{a_1} + y_4z_{a_2}  \right)
+x_1z_2y_3 - 3x_1x_2y_4 + z_1x_2 &\rightarrow 2\alpha + \alpha^{y}_{1}y_3 + \alpha^{y}_{2}y_4 +  \alpha^z(z_{a_1} + z_{a_2}) + \alpha^{xz}_{12}(x_1 + z_2)^2 +\alpha^{xx}_{12} (x_1 + x_2)^2\\
+&    + \alpha^{yz}_{1}y_3z_{a_1} + \alpha^{yz}_{2}y_4z_{a_2} + \alpha^{zx}z_2x_{a_1} + \alpha^{xx}\left( x_1x_{a_1} + x_1x_{a_2} + x_2x_{a_2} \right) + z_1x_2
 \end{align}
 }
 
