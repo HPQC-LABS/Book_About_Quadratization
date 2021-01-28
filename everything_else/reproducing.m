@@ -5,7 +5,7 @@ b1=b(:,1);b2=b(:,2);b3=b(:,3);b4=b(:,4);
 LHS=b1.*b2 + b2.*b3 + b3.*b4 - 4*b1.*b2.*b3;
 RHS=b1.*b2 + b2.*b3 + b3.*b4 + 4*b1 - 4*b1.*b2 - 4*b1.*b3;
 
-%% Pg. 1, Eqs 4-5
+%% Pg. 1, Eqs 4-5 (Also used for abstract for 2019 AQC paper).
 
 x = [0 1 ; 1 0]; y = [0 -1i ; 1i 0]; z = [1 0 ; 0 -1];
 x1 = kron(x, eye(8)); x2 = kron(kron(eye(2), x), eye(4)); x3 = kron(kron(eye(4), x), eye(2)); x4 = kron(eye(8), x);
@@ -323,7 +323,7 @@ alpha_zz = -1/(24*delta);
 LHS = (x1 + 3*x2)*(z1 + z2)*y3;
 RHS = alpha*eye(64) + alpha_ss*(6*x1*x2 + 2*z1*z2) + 12*alpha_ss*eye(64) + alpha_sx*(x1 + 3*x2)*xa1 + alpha_sx*(z1 + z2)*xa2 + alpha_sx*y3*xa3 + alpha_zz*(za1*za2 + za1*za3 + za2*za3);
 
-min(eig(LHS))-min(eig(RHS))
+min(eig(LHS))-min(eig(RHS));
 end
 
 [VL, EL] = eig(LHS); [VR, ER] = eig(RHS);
@@ -366,7 +366,7 @@ alpha_sx = delta^(2/3);
 LHS = x1*z2*y3 - 3*x1*x2*y4 + z1*x2;
 RHS = z1*x2 + (2*alpha)*eye(64) + alpha_s1*y3 + alpha_s2*y4 + alpha_z*(za1 + za2) + alpha_ss*((x1 + z2)^2 + (x1 + x2)^2) + alpha_sx*(x1*xa1 + z2*xa1 + x1*xa2 + x2*xa2) + alpha_sz1*y3*za1 + alpha_sz2*y4*za2;
 
-abs(min(eig(LHS))-min(eig(RHS)))
+abs(min(eig(LHS))-min(eig(RHS)));
 end
 
 [VL, EL] = eig(LHS); [VR, ER] = eig(RHS);
@@ -402,7 +402,7 @@ alpha_zz = (1/24)*(delta);
 LHS = z1*x2 - x1*z2*y3 - 3*x1*x2*y4;
 RHS = z1*x2 - 4*alpha*eye(1024) - 12*alpha_ss*eye(1024) - alpha_sx*(x1*xa_11 + z2*xa_12 + y3*xa_13) - 3*alpha_sx*(x1*xa_21 + x2*xa_22 + y4*xa_23) - alpha_zz*(za_11*za_12 + za_11*za_13 + za_12*za_13) - 3*alpha_zz*(za_21*za_22 + za_21*za_23 + za_22*za_23);
 
-abs(min(eig(LHS))-min(eig(RHS)))
+abs(min(eig(LHS))-min(eig(RHS)));
 end
 
 [VL, EL] = eig(LHS); [VR, ER] = eig(RHS);
