@@ -251,28 +251,33 @@ isequal(LHS, RHS);
 
 z = [1 0; 0 -1];
 x = [0 1;1 0];
-zi = kron(z,eye(2^3));
-zj = kron(kron(eye(2),z),eye(2^2));
-zk = kron(kron(eye(2^2),z),eye(2));
-za = kron(eye(2^3),z);
-xa = kron(eye(2^3),x);
+zi = kron(z,eye(8));
+zj = kron(kron(eye(2),z),eye(4));
+zk = kron(kron(eye(4),z),eye(2));
+za = kron(eye(8),z);
+xa = kron(eye(8),x);
 
 alpha = 1;
 
-for delta=1:100:1000;
-alpha_I = (delta + ((alpha/6)^(2/5))*(delta^(3/5)))/2;
-alpha_zi = -(((alpha*7/6)+((alpha/6)^(3/5))*(delta^(2/5)))-((alpha*delta^4)/6)^(1/5))/2;
+for delta = 1:1e10:1e11   
+alpha_I = (1/2)*(delta + ((alpha/6)^(2/5))*(delta^(3/5)) + 6*((alpha/6)^(4/5))*(delta^(1/5)) );
+alpha_zi = (-1/2)*(( ((7/6)*alpha) + ( ((alpha/6)^(3/5))*(delta^(2/5))) ) - ( (alpha/6)*(delta^4) )^(1/5));
 alpha_zj = alpha_zi;
 alpha_zk = alpha_zi;
-alpha_za = (delta - ((alpha/6)^(2/5))*(delta^(3/5)))/2;
-alpha_xa = ((alpha*delta^4)/6)^(1/5);
-alpha_zzia = -(((alpha*7/6)+((alpha/6)^(3/5))*(delta^(2/5)))+((alpha*delta^4)/6)^(1/5))/2;
+alpha_za = (-1/2)*( delta - (((alpha/6)^(2/5))*(delta^(3/5))) );
+alpha_xa = ( (alpha/6)*(delta^4) )^(1/5);
+alpha_zzia = (-1/2)*( ( (7/6)*alpha + ((alpha/6)^(3/5))*(delta^(2/5)) ) + ( (alpha/6)*(delta^4) )^(1/5) );
 alpha_zzja = alpha_zzia;
 alpha_zzka = alpha_zzja;
+alpha_zzij = 2*((alpha/6)^(4/5))*((delta)^(1/5));
+alpha_zzik = alpha_zzij;
+alpha_zzjk = alpha_zzij;
 
 LHS = alpha*zi*zj*zk;
-RHS = alpha_I + alpha_zi*zi + alpha_zj*zj + alpha_zk*zk + alpha_za*za + alpha_xa*xa + alpha_zzia*zi*za + alpha_zzja*zj*za + alpha_zzka*zk*za;
-min(eig(LHS))-min(eig(RHS));
+RHS = alpha_I*eye(16) + alpha_zi*zi + alpha_zj*zj + alpha_zk*zk + alpha_za*za + alpha_xa*xa + alpha_zzia*zi*za + alpha_zzja*zj*za + alpha_zzka*zk*za + alpha_zzij*zi*zj + alpha_zzik*zi*zk + alpha_zzjk*zj*zk;
+RHS_alt = ( delta*eye(16) + ((alpha*(delta^4)/6)^(1/5))*(zi + zj + zk))*((1*eye(16) - za)/2) + (alpha*delta^4/6)^(1/5)*xa + ( ((alpha/6)^(2/5)*(delta^(3/5)))*eye(16) - (((alpha/6)^(3/5)*(delta^(2/5))) + (7*alpha/6))*(zi + zj + zk) )*((1*eye(16) + za)/2)  + ((alpha/6)^(4/5)*(delta^(1/5)))*(3*eye(16) + 2*zi*zj + 2*zi*zk + 2*zj*zk);
+
+min(eig(LHS)) - min(eig(RHS))
 end
 
 %% NP - SJ (4z5 - 3x1 + 2*z1*y2*x5 + 9*x1*x2*x3*x4 - x1*y2*z3*x5 -> 9*xa1 + 4*za2*z5 - 3*za3*x1 - za3*xa2 + 2*xa3*x5)
