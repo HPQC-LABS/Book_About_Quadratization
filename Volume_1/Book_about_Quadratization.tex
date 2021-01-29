@@ -3912,22 +3912,19 @@ H = \sum_i \left( \alpha_i^{(z)} z_i + \alpha_i^{(x)} x_i\right) + \sum_{ij}\lef
 
 There is only one reduction in the literature for reducing a Hamiltonian term to the transverse Ising Hamiltonian, and it works on 3-local $zzz$ terms, by introducing an auxiliary qubit with label $a$:
 
-%\begin{small}
+{\scriptsize
 \begin{align}
-\alpha z_{i}z_{j}z_{k}\rightarrow\alpha^{I}+\alpha_{i}^{z}z_{i}+\alpha_{j}^{z}z_{j}+\alpha_{k}^{z}z_{k}+\alpha_{a}^{z}z_{a}+\alpha_{a}^{x}x_{a}+\alpha_{ia}^{zz}z_{i}z_{a}+\alpha_{ja}^{zz}z_{j}z_{a}+\alpha_{ka}^{zz}z_{k}z_{a} \label{eq:ZZZ-TI-CBBK}
+\alpha z_{i}z_{j}z_{k}\rightarrow\alpha^{I}+\alpha_{i}^{z}z_{i}+\alpha_{j}^{z}z_{j}+\alpha_{k}^{z}z_{k}+\alpha_{a}^{z}z_{a}+\alpha_{a}^{x}x_{a}+\alpha_{ia}^{zz}z_{i}z_{a}+\alpha_{ja}^{zz}z_{j}z_{a}+\alpha_{ka}^{zz}z_{k}z_{a}+\alpha_{ij}^{zz}z_{i}z_{j}+\alpha_{ik}^{zz}z_{i}z_{k}+\alpha_{jk}^{zz}z_{j}z_{k} \label{eq:ZZZ-TI-CBBK}
 \end{align}
-%\end{small}
+}
 
 \begin{tabular}{rcl}
-$\alpha^{I}$ & = & $\frac{1}{2}\left(\Delta\textcolor{red}{\ensuremath{+}}\left(\frac{\alpha}{6}\right)^{\nicefrac{2}{5}}\Delta^{\nicefrac{3}{5}}\right)$\tabularnewline
-$\alpha_{i}^{z}$ & = & $-\frac{1}{2}\left(\left(\frac{7\alpha}{6}+\left(\frac{\alpha}{6}\right)^{\nicefrac{3}{5}}\Delta^{\nicefrac{2}{5}}\right)\textcolor{red}{\ensuremath{-}}\left(\frac{\alpha\Delta^{4}}{6}\right)^{\nicefrac{1}{5}}\right)$\tabularnewline
-$\alpha_{j}^{z}$ & = & $\alpha_{i}^{(z)}$\tabularnewline
-$\alpha_{k}^{z}$ & = & $\alpha_{i}^{(z)}$\tabularnewline
-$\alpha_{a}^{z}$ & = & $\frac{1}{2}\left(\Delta\textcolor{red}{\ensuremath{-}}\left(\frac{\alpha}{6}\right)^{\nicefrac{2}{5}}\Delta^{\nicefrac{3}{5}}\right)$\tabularnewline
+$\alpha^{I}$ & = & $\frac{1}{2}\left(\Delta\textcolor{red}{\ensuremath{+}}\left(\frac{\alpha}{6}\right)^{\nicefrac{2}{5}}\Delta^{\nicefrac{3}{5}}+6\left(\frac{\alpha}{6}\right)^{\nicefrac{4}{5}}\Delta^{\nicefrac{1}{5}}\right)$\tabularnewline
+$\alpha_{i}^{z}$ & = & $\alpha_{j}^{z} = \alpha_{k}^{z} = -\frac{1}{2}\left(\left(\frac{7\alpha}{6}+\left(\frac{\alpha}{6}\right)^{\nicefrac{3}{5}}\Delta^{\nicefrac{2}{5}}\right)\textcolor{red}{\ensuremath{-}}\left(\frac{\alpha\Delta^{4}}{6}\right)^{\nicefrac{1}{5}}\right)$\tabularnewline
+$\alpha_{a}^{z}$ & = & $-\frac{1}{2}\left(\Delta\textcolor{red}{\ensuremath{-}}\left(\frac{\alpha}{6}\right)^{\nicefrac{2}{5}}\Delta^{\nicefrac{3}{5}}\right)$\tabularnewline
 $\alpha_{a}^{x}$ & = & $\left(\frac{\alpha\Delta^{4}}{6}\right)^{\nicefrac{1}{5}}$\tabularnewline
-$\alpha_{ia}^{zz}$ & = & $-\frac{1}{2}\left(\left(\frac{7\alpha}{6}+\left(\frac{\alpha}{6}\right)^{\nicefrac{3}{5}}\Delta^{\nicefrac{2}{5}}\right)\textcolor{red}{\ensuremath{+}}\left(\frac{\alpha\Delta^{4}}{6}\right)^{\nicefrac{1}{5}}\right)$\tabularnewline
-$\alpha_{ja}^{zz}$ & = & $\alpha_{ia}^{(zz)}$\tabularnewline
-$\alpha_{ka}^{zz}$ & = & $\alpha_{ja}^{(zz)}$\tabularnewline
+$\alpha_{ia}^{zz}$ & = & $\alpha_{ja}^{zz} = \alpha_{ka}^{zz} = -\frac{1}{2}\left(\left(\frac{7\alpha}{6}+\left(\frac{\alpha}{6}\right)^{\nicefrac{3}{5}}\Delta^{\nicefrac{2}{5}}\right)\textcolor{red}{\ensuremath{+}}\left(\frac{\alpha\Delta^{4}}{6}\right)^{\nicefrac{1}{5}}\right)$\tabularnewline
+$\alpha_{ij}^{zz}$ & = & $\alpha_{ik}^{zz} = \alpha_{jk}^{zz} = 2\left(\frac{\alpha}{6}\right)^{\nicefrac{4}{5}}\Delta^{\nicefrac{1}{5}}$\tabularnewline
 \end{tabular}
 
 
@@ -3947,8 +3944,9 @@ $\alpha_{ka}^{zz}$ & = & $\alpha_{ja}^{(zz)}$\tabularnewline
 Including all coefficients and factorizing, we get:
 
 \begin{align}
-\alpha z_iz_jz_k \rightarrow & \left( \Delta + \frac{\alpha \Delta^4}{6}^{\nicefrac{1}{5}} \left(z_i+z_j+z_k \right)  \right)\left( \frac{1-z_a}{2}\right) + \frac{\alpha \Delta^4}{6}^{\nicefrac{1}{5}}  x_a\\
-&+ \left( \left(\frac{\alpha}{6}\right)^{\nicefrac{2}{5}} \Delta^{\nicefrac{3}{5}} - \left( \frac{7\alpha}{6} + \left(\frac{\alpha}{6} \right)^{\nicefrac{3}{5}} \Delta^{\nicefrac{2}{5}} \right)\left(z_i + z_j + z_k \right)        \right)\left(\frac{1+z_a}{2} \right)
+\alpha z_iz_jz_k \rightarrow & \left( \Delta + \left(\frac{\alpha \Delta^4}{6}\right)^{\nicefrac{1}{5}} \left(z_i+z_j+z_k \right)  \right)\left( \frac{1-z_a}{2}\right) + \left(\left(\frac{\alpha\Delta^4}{6}\right)^{\nicefrac{1}{5}}\right)  x_a\\
+&+ \left( \left(\frac{\alpha}{6}\right)^{\nicefrac{2}{5}} \Delta^{\nicefrac{3}{5}} - \left( \frac{7\alpha}{6} + \left(\frac{\alpha}{6} \right)^{\nicefrac{3}{5}} \Delta^{\nicefrac{2}{5}} \right)\left(z_i + z_j + z_k \right)        \right)\left(\frac{1+z_a}{2} \right)\\
+&+ \left(\left(\frac{\alpha}{6}\right)^{\nicefrac{4}{5}}\Delta^{\nicefrac{1}{5}}\right)\left(3 + 2z_{i}z_{j} + 2z_{i}z_{k} + 2z_{j}z_{k}\right)
 \end{align}
 
 
@@ -3964,7 +3962,7 @@ The low-lying spectrum (eigenvalues \textbf{\textit{and}} eigenvectors) of the r
 
 \refsec
 \begin{itemize}
-\item Original paper: \cite{Cao2015}.
+\item Original paper (Eq. 53-54): \cite{Cao2015}.
 \end{itemize}
 
 
