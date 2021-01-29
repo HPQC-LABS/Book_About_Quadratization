@@ -4380,7 +4380,7 @@ The transformation presented above was for the case of $U_{2-\textrm{local}}={\r
 
 The first gadgets for arbitrary Hamiltonians acting on some number of qubits, were designed to reproduce the spectrum of a 3-local Hamiltonian in the low-lying spectrum of a 2-local Hamiltonian.
 
-\subsection{P$(3\rightarrow2)$-DC  (Duan, Chen, 2011)} %The paper says "the terms in the product have to commute, but it's not clear if they mean each of the 3 terms of the product, or just the terms inside those terms, which would be much better.
+\subsection{P$(3\rightarrow2)$-DC1  (Duan, Chen, 2011)} %The paper says "the terms in the product have to commute, but it's not clear if they mean each of the 3 terms of the product, or just the terms inside those terms, which would be much better.
 
 % THERE IS A NEGATIVE SIGN DIFFERENCE FROM KKR, WHICH CAN'T BE ABSORVED INTO ANYTHING FOR THE SAME REASON WHY WE CAN'T ABSORB THE 6. IT'S BECAUSE THE 2-LOCAL HAMILTONIAN WILL HAVE TO ATTAIN THE NEGATIVE SIGN TOO, WHICH WE DON'T WANT BECAUSE WE JUST WANT TO WRITE THE 2-LOCAL TO 2-LOCAL TRANSFORMATION WITHOUT H_2LOCAL BEING PART OF THE FORUMA. NEGATING H_2LOCAL WOULD BE PART OF THE FORMULA OTHERWISE.
 
@@ -4399,10 +4399,10 @@ The first gadgets for arbitrary Hamiltonians acting on some number of qubits, we
 
 
 \begin{align}
-\alpha    &= \frac{1}{8\Delta} \\
-\alpha^{ss} &= \frac{1}{6\Delta^{\nicefrac{1}{3}}} \\
-\alpha^{sx} &= - \frac{1}{6\Delta^{\nicefrac{2}{3}}} \\
-\alpha^{zz} &= -  \frac{1}{24\Delta}
+\alpha    &= \frac{1}{8}\Delta \\
+\alpha^{ss} &= \frac{1}{6}\Delta^{\nicefrac{1}{3}} \\
+\alpha^{sx} &= - \frac{1}{6}\Delta^{\nicefrac{2}{3}} \\
+\alpha^{zz} &= -  \frac{1}{24}\Delta
 \end{align}
 
 \noindent The result will be a 2-local Hamiltonian whose low-lying spectrum is equivalent to the spectrum of $H_{3-\rm{local}}$ to within $\epsilon$ as long as $\Delta=\Theta\left(\epsilon^{-3}\right)$.
@@ -4428,8 +4428,8 @@ The first gadgets for arbitrary Hamiltonians acting on some number of qubits, we
 
 {\footnotesize
 \begin{align}
-\left(x_1+3x_2\right)\left(z_1+z_2\right)y_3 \rightarrow & \alpha + \alpha^{xx}_{12}\left(x_1 + 3x_2\right)^2 + \alpha^{zz}_{12}\left(z_1 + z_2\right)^2 + \alpha^{yy}_{3}y_3^2 + \alpha^{xx}\left(x_1x_{a_{1}}  + 3x_2x_{a_{1}}\right)\\
-& + \alpha^{zx}\left(z_1x_{a_{2}} + z_2x_{a_{2}}\right) + \alpha^{yx}y_3x_{a_{3}} + \alpha^{zz}\left(z_{a_{1}}z_{a_{2}} + z_{a_{1}}z_{a_{3}} + z_{a_{2}}z_{a_{3}}\right)
+\left(x_1+3x_2\right)z_3y_4 + z_1x_2 \rightarrow & \alpha + \alpha^{xx}_{12}\left(x_1 + 3x_2\right)^2 + \alpha^{zz}_{3}z_3^2 + \alpha^{yy}_{4}y_4^2 + \alpha^{xx}\left(x_1x_{a_{1}}  + 3x_2x_{a_{1}}\right)\\
+& + \alpha^{zx}z_3x_{a_{2}} + \alpha^{yx}y_4x_{a_{3}} + \alpha^{zz}\left(z_{a_{1}}z_{a_{2}} + z_{a_{1}}z_{a_{3}} + z_{a_{2}}z_{a_{3}}\right) + z_1x_2
 \end{align}
 }
 
