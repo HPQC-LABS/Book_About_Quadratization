@@ -280,6 +280,18 @@ RHS_alt = ( delta*eye(16) + ((alpha*(delta^4)/6)^(1/5))*(zi + zj + zk))*((1*eye(
 min(eig(LHS)) - min(eig(RHS))
 end
 
+[VL, EL] = eig(LHS); [VR, ER] = eig(RHS);
+[DL, indL] = sort(diag(EL)); [DR, indR] = sort(diag(ER));
+VL = VL(:,indL); EL = EL(indL,indL); VR = VR(:,indR); ER = ER(indR,indR);
+VL = VL(:,1:8:end); EL = EL(:,1:8:end); VR = VR(:,1:8:end); ER = ER(:,1:8:end);
+
+for col = 1:1:size(VL,2)
+V_diff(col,1) = sqrt(dot((VL(:,col)-VR(:,col)),(VL(:,col)-VR(:,col))));
+E_diff(col,1) = sqrt(dot((EL(:,col)-ER(:,col)),(EL(:,col)-ER(:,col))));
+end
+
+min(V_diff); % 1.3345
+
 %% NP - SJ (4z5 - 3x1 + 2*z1*y2*x5 + 9*x1*x2*x3*x4 - x1*y2*z3*x5 -> 9*xa1 + 4*za2*z5 - 3*za3*x1 - za3*xa2 + 2*xa3*x5)
 x = [0 1;1 0];
 y = [0 -1i;1i 0];
