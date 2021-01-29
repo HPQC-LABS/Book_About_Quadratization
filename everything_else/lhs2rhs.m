@@ -9,7 +9,8 @@ function [LHS, RHS] = lhs2rhs(operators,name_of_quadratization)
     S = cell(n);
     x = [0 1 ; 1 0]; y = [0 -1i ; 1i 0]; z = [1 0 ; 0 -1];
 
-    if strcmp(name_of_quadratization, 'P(3->2)-DC2') % n == 3
+    if strcmp(name_of_quadratization, 'P(3->2)-DC2')
+        assert(n == 3, 'P(3->2)-DC2 requires a 3-local term, please only give 3 operators.');
         for ind = 1:n
             if operators(ind) == 'x'
                 S{ind} = kron(kron(eye(2^(ind-1)),x),eye(2^(n+1-ind)));
@@ -32,7 +33,8 @@ function [LHS, RHS] = lhs2rhs(operators,name_of_quadratization)
         LHS = S{1}*S{2}*S{3};
         RHS = alpha*eye(16) + alpha_s*S{3} + alpha_z*za + alpha_ss*((S{1} + S{2})^2) + alpha_sx*(S{1}*xa + S{2}*xa) + alpha_sz*za*S{3};
 
-    elseif strcmp(name_of_quadratization, 'P(3->2)-KKR') % n == 3
+    elseif strcmp(name_of_quadratization, 'P(3->2)-KKR')
+        assert(n == 3, 'P(3->2)-KKR requires a 3-local term, please only give 3 operators.');
         for ind = 1:n
             if operators(ind) == 'x'
                 S{ind} = kron(kron(eye(2^(ind-1)),x),eye(2^(n+3-ind)));
@@ -54,7 +56,8 @@ function [LHS, RHS] = lhs2rhs(operators,name_of_quadratization)
         LHS = S{1}*S{2}*S{3};
         RHS = alpha*eye(2^(n+3)) + alpha_ss*(S{1}^2 + S{2}^2 + S{3}^2) + alpha_sx*(S{1}*xa1 + S{2}*xa2 + S{3}*xa3) + alpha_zz*(za1*za2 + za1*za3 + za2*za3);
 
-    elseif strcmp(name_of_quadratization, 'P(3->2)-DC1') % n == 3
+    elseif strcmp(name_of_quadratization, 'P(3->2)-DC1')
+        assert(n == 3, 'P(3->2)-DC1 requires a 3-local term, please only give 3 operators.');
         for ind = 1:n
             if operators(ind) == 'x'
                 S{ind} = kron(kron(eye(2^(ind-1)),x),eye(2^(n+3-ind)));
@@ -64,8 +67,8 @@ function [LHS, RHS] = lhs2rhs(operators,name_of_quadratization)
                 S{ind} = kron(kron(eye(2^(ind-1)),z),eye(2^(n+3-ind)));
             end
         end
-        xa1 = kron(kron(eye(2^n),x),eye(4)); xa2 = kron(kron(eye(2^(n+1)),x),eye(2)); xa3 = kron(eye(2^(n+2)),x);
-        za1 = kron(kron(eye(2^n),z),eye(4)); za2 = kron(kron(eye(2^(n+1)),z),eye(2)); za3 = kron(eye(2^(n+2)),z);
+        xa1 = kron(kron(eye(8),x),eye(4)); xa2 = kron(kron(eye(16),x),eye(2)); xa3 = kron(eye(32),x);
+        za1 = kron(kron(eye(8),z),eye(4)); za2 = kron(kron(eye(16),z),eye(2)); za3 = kron(eye(32),z);
 
         delta = 1e10;
         alpha = (1/8)*delta;
@@ -77,7 +80,7 @@ function [LHS, RHS] = lhs2rhs(operators,name_of_quadratization)
         RHS = alpha*eye(2^(n+3)) + alpha_ss*(S{1}^2 + S{2}^2 + S{3}^2) + alpha_sx*(S{1}*xa1 + S{2}*xa2 + S{3}*xa3) + alpha_zz*(za1*za2 + za1*za3 + za2*za3);
 
     else
-        disp('wrong input');
+        disp('cannot find this method');
         LHS = []; RHS = [];
     end
 
