@@ -9,7 +9,7 @@ function [LHS, RHS] = lhs2rhs(operators,name_of_quadratization)
     S = cell(n);
     x = [0 1 ; 1 0]; y = [0 -1i ; 1i 0]; z = [1 0 ; 0 -1];
 
-    if strcmp(name_of_quadratization, 'P(3->2)-DC2')
+    if strcmp(name_of_quadratization, 'P(3->2)-DC2') || strcmp(name_of_quadratization, 'P(3->2)DC2')
         assert(n == 3, 'P(3->2)-DC2 requires a 3-local term, please only give 3 operators.');
         for ind = 1:n
             if operators(ind) == 'x'
@@ -33,7 +33,7 @@ function [LHS, RHS] = lhs2rhs(operators,name_of_quadratization)
         LHS = S{1}*S{2}*S{3};
         RHS = alpha*eye(16) + alpha_s*S{3} + alpha_z*za + alpha_ss*((S{1} + S{2})^2) + alpha_sx*(S{1}*xa + S{2}*xa) + alpha_sz*za*S{3};
 
-    elseif strcmp(name_of_quadratization, 'P(3->2)-KKR')
+    elseif strcmp(name_of_quadratization, 'P(3->2)-KKR') || strcmp(name_of_quadratization, 'P(3->2)KKR')
         assert(n == 3, 'P(3->2)-KKR requires a 3-local term, please only give 3 operators.');
         for ind = 1:n
             if operators(ind) == 'x'
@@ -56,7 +56,7 @@ function [LHS, RHS] = lhs2rhs(operators,name_of_quadratization)
         LHS = S{1}*S{2}*S{3};
         RHS = alpha*eye(2^(n+3)) + alpha_ss*(S{1}^2 + S{2}^2 + S{3}^2) + alpha_sx*(S{1}*xa1 + S{2}*xa2 + S{3}*xa3) + alpha_zz*(za1*za2 + za1*za3 + za2*za3);
 
-    elseif strcmp(name_of_quadratization, 'P(3->2)-DC1')
+    elseif strcmp(name_of_quadratization, 'P(3->2)-DC1') || strcmp(name_of_quadratization, 'P(3->2)DC1')
         assert(n == 3, 'P(3->2)-DC1 requires a 3-local term, please only give 3 operators.');
         for ind = 1:n
             if operators(ind) == 'x'
@@ -83,6 +83,4 @@ function [LHS, RHS] = lhs2rhs(operators,name_of_quadratization)
         disp('cannot find this method');
         LHS = []; RHS = [];
     end
-
-
 end
