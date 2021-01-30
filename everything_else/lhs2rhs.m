@@ -1,11 +1,12 @@
-function [LHS, RHS] = lhs2rhs(operators,name_of_quadratization)
+function [LHS, RHS] = lhs2rhs(operators, delta, name_of_quadratization)
 % test DC1, DC2, and KKR
 % operators shold be in the form of 'xyz'
 %
-% e.g.    [LHS, RHS] = lhs2rhs('xyz','P(3->2)-DC2')
-%         refers to quadratize x1*y2*z3 using P(3->2)-DC2
+% e.g.    [LHS, RHS] = lhs2rhs('xyz',10,'P(3->2)-DC2')
+%         refers to quadratize x1*y2*z3 using P(3->2)-DC2 with delta = 1e10
 
     n = strlength(operators);
+    delta = 10^(delta);
     S = cell(n);
     x = [0 1 ; 1 0]; y = [0 -1i ; 1i 0]; z = [1 0 ; 0 -1];
 
@@ -22,7 +23,6 @@ function [LHS, RHS] = lhs2rhs(operators,name_of_quadratization)
         end
         xa = kron(eye(8),x); za = kron(eye(8),z);
 
-        delta = 1e10;
         alpha = (1/2)*delta;
         alpha_s = ((1/4)*(delta^(2/3)) - 1);
         alpha_z = (1/2)*delta;
@@ -47,7 +47,6 @@ function [LHS, RHS] = lhs2rhs(operators,name_of_quadratization)
         xa1 = kron(kron(eye(8),x),eye(4)); xa2 = kron(kron(eye(16),x),eye(2)); xa3 = kron(eye(32),x);
         za1 = kron(kron(eye(8),z),eye(4)); za2 = kron(kron(eye(16),z),eye(2)); za3 = kron(eye(32),z);
 
-        delta = 1e10;
         alpha = -(1/8)*(delta);    % or they should be the same as DC1 (need to be tested)
         alpha_ss = -(1/6)*(delta)^(1/3);
         alpha_sx = (1/6)*(delta)^(2/3);
@@ -70,7 +69,6 @@ function [LHS, RHS] = lhs2rhs(operators,name_of_quadratization)
         xa1 = kron(kron(eye(8),x),eye(4)); xa2 = kron(kron(eye(16),x),eye(2)); xa3 = kron(eye(32),x);
         za1 = kron(kron(eye(8),z),eye(4)); za2 = kron(kron(eye(16),z),eye(2)); za3 = kron(eye(32),z);
 
-        delta = 1e10;
         alpha = (1/8)*delta;
         alpha_ss = (1/6)*(delta)^(1/3);
         alpha_sx = (-1/6)*(delta)^(2/3);
