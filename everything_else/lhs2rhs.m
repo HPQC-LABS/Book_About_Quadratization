@@ -46,13 +46,35 @@ function [LHS, RHS] = lhs2rhs(operators, Delta, name_of_quadratization)
         xa1 = kron(kron(eye(8),x),eye(4)); xa2 = kron(kron(eye(16),x),eye(2)); xa3 = kron(eye(32),x);
         za1 = kron(kron(eye(8),z),eye(4)); za2 = kron(kron(eye(16),z),eye(2)); za3 = kron(eye(32),z);
 
-        alpha = -(1/8)*(Delta);    % or they should be the same as DC1 (need to be tested)
+        alpha = -(1/8)*(Delta);
         alpha_ss = -(1/6)*(Delta)^(1/3);
         alpha_sx = (1/6)*(Delta)^(2/3);
         alpha_zz = (1/24)*(Delta);
 
         LHS = S{1}*S{2}*S{3};
         RHS = alpha*eye(2^(n+3)) + alpha_ss*(S{1}^2 + S{2}^2 + S{3}^2) + alpha_sx*(S{1}*xa1 + S{2}*xa2 + S{3}*xa3) + alpha_zz*(za1*za2 + za1*za3 + za2*za3);
+
+    elseif strcmp(name_of_quadratization, 'P(3->2)KKR-A')
+        assert(n == 3, 'P(3->2)KKR-A requires a 3-local term, please only give 3 operators.');
+        for ind = 1:n
+            if operators(ind) == 'x'
+                S{ind} = kron(kron(eye(2^(ind-1)),x),eye(2^(n+3-ind)));
+            elseif operators(ind) == 'y'
+                S{ind} = kron(kron(eye(2^(ind-1)),y),eye(2^(n+3-ind)));
+            elseif operators(ind) == 'z'
+                S{ind} = kron(kron(eye(2^(ind-1)),z),eye(2^(n+3-ind)));
+            end
+        end
+        xa1 = kron(kron(eye(8),x),eye(4)); xa2 = kron(kron(eye(16),x),eye(2)); xa3 = kron(eye(32),x);
+        za1 = kron(kron(eye(8),z),eye(4)); za2 = kron(kron(eye(16),z),eye(2)); za3 = kron(eye(32),z);
+
+        alpha = (3/4)*(Delta);
+        alpha_ss = (Delta)^(1/3);
+        alpha_sx = -(Delta)^(2/3);
+        alpha_zz = -(1/4)*(Delta);
+
+        LHS = -6*S{1}*S{2}*S{3};
+        RHS = alpha*eye(64) + 3*alpha_ss*eye(64) + alpha_sx*(S{1}*xa1 + S{2}*xa2 + S{3}*xa3) + alpha_zz*(za1*za2 + za1*za3 + za2*za3);
 
     elseif strcmp(name_of_quadratization, 'P(3->2)-DC1') || strcmp(name_of_quadratization, 'P(3->2)DC1')
         assert(n == 3, 'P(3->2)-DC1 requires a 3-local term, please only give 3 operators.');
@@ -116,27 +138,73 @@ end
 %% test: P(3->2)DC2    also tested ('xxx',1e13,'P(3->2)DC2') ('xzx',1e10,'P(3->2)DC2') successfully
 % [LHS RHS] = lhs2rhs('zxx',1e10,'P(3->2)DC2');
 % [VR, ER] = eig(RHS); [VL, EL] = eig(LHS);
-
+%
 %% Because the sign of eigenvectors does not matter, we set any non-zero elements in the vectors to 1.
 % ER = round(ER(:,1:8)); VR = +(round(VR(:,1:8)) ~= 0); VL = +(VL ~= 0);
-
+%
 %% It is divided into two parts as the ground state and the first excited state to ensure the eigenvalues (energy) match.
 %% Sort VL one by one through finding the eigenvector that is closest to VR.
 % for ind_R = 1:4
-%    for ind_L = 1:8
-%      dist(ind_L,ind_R) = sqrt(dot((VR(:,ind_R)-VL(:,ind_L)),(VR(:,ind_R)-VL(:,ind_L))));
-%    end
-%    [dist(size(VL,2)+1,ind_R), ind] = min(dist(1:8,ind_R)); S_VL(:,ind_R) = VL(:,ind); S_EL(:,ind_R) = sum(EL(:,ind));
+%   for ind_L = 1:8
+%     dist(ind_L,ind_R) = norm(VR(:,ind_R)-VL(:,ind_L));
+%   end
+%   [dist(size(VL,2)+1,ind_R), ind] = min(dist(1:8,ind_R)); S_VL(:,ind_R) = VL(:,ind); S_EL(:,ind_R) = sum(EL(:,ind));
 % end
-
+%
 % for ind_R = 5:8
-%    for ind_L = 9:16
-%       dist(ind_L,ind_R) = sqrt(dot((VR(:,ind_R)-VL(:,ind_L)),(VR(:,ind_R)-VL(:,ind_L))));
-%    end
-%    [dist(size(VL,2)+1,ind_R), ind] = min(dist(9:16,ind_R)); S_VL(:,ind_R) = VL(:,ind+8); S_EL(:,ind_R) = sum(EL(:,ind+8));
+%   for ind_L = 9:16
+%      dist(ind_L,ind_R) = norm(VR(:,ind_R)-VL(:,ind_L));
+%   end
+%   [dist(size(VL,2)+1,ind_R), ind] = min(dist(9:16,ind_R)); S_VL(:,ind_R) = VL(:,ind+8); S_EL(:,ind_R) = sum(EL(:,ind+8));
 % end
-
+%
 % dist = transpose(dist(size(dist,1),:));
 % isequal(S_VL,VR);
 % isequal(S_EL,sum(ER));
 %% dist returns a zero vector because the eigenvectors are reproduced nicely, and S_EL is the corresponding eigenvalues of S_VL.
+
+%% !! test: KKR-A/P(3->2)DC1    failed every time for any Delta input (dist >= 1)
+%% Delta cannot get higher than 1e15, otherwise eigenvalues will not match
+
+% i = 1;
+% for Delta = 1:1e14:1e15
+%   [LHS RHS] = lhs2rhs('zzz',Delta,'P(3->2)KKR-A');
+%   [VR, ER] = eig(RHS); [VL, EL] = eig(LHS);
+%   ER = round(ER(:,1:16)); VR = +(round(VR(:,1:16)) ~= 0); VL = +(VL ~= 0);
+%   for ind_R = 1:8
+%     for ind_L = 1:32
+%       dist(ind_L,ind_R) = norm(VR(:,ind_R)-VL(:,ind_L));
+%     end
+%     [dist(size(VL,2)+1,ind_R), ind] = min(dist(1:32,ind_R)); S_VL(:,ind_R) = VL(:,ind); S_EL(:,ind_R) = sum(EL(:,ind));
+%   end
+%   for ind_R = 9:16
+%     for ind_L = 33:64
+%         dist(ind_L,ind_R) = norm(VR(:,ind_R)-VL(:,ind_L));
+%     end
+%     [dist(size(VL,2)+1,ind_R), ind] = min(dist(33:64,ind_R)); S_VL(:,ind_R) = VL(:,ind+32); S_EL(:,ind_R) = sum(EL(:,ind+32));
+%   end
+%   total_dist(:,i) = transpose(dist(size(dist,1),:));
+%   i = i + 1;
+%  end
+
+%% !! failed test: KKR   dist >= 1 (separate because ground energy is in different columns)
+% i = 1;
+% for Delta = 1:1e14:1e15
+%   [LHS RHS] = lhs2rhs('zzz',Delta,'P(3->2)KKR');
+%   [VR, ER] = eig(RHS); [VL, EL] = eig(LHS);
+%   ER = round(ER(:,49:64)); VR = +(round(VR(:,49:64)) ~= 0); VL = +(VL ~= 0);
+%   for ind_R = 1:8
+%     for ind_L = 1:32
+%        dist(ind_L,ind_R) = norm(VR(:,ind_R)-VL(:,ind_L));
+%      end
+%     [dist(size(VL,2)+1,ind_R), ind] = min(dist(1:32,ind_R)); S_VL(:,ind_R) = VL(:,ind); S_EL(:,ind_R) = sum(EL(:,ind));
+%   end
+%   for ind_R = 9:16
+%    for ind_L = 33:64
+%        dist(ind_L,ind_R) = norm(VR(:,ind_R)-VL(:,ind_L));
+%    end
+%   [dist(size(VL,2)+1,ind_R), ind] = min(dist(33:64,ind_R)); S_VL(:,ind_R) = VL(:,ind+32); S_EL(:,ind_R) = sum(EL(:,ind+32));
+%   end
+% total_dist(:,i) = transpose((dist(size(dist,1),:)));
+% i = i + 1;
+% end
