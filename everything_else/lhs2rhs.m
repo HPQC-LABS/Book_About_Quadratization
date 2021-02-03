@@ -140,7 +140,7 @@ end
 % [VR, ER] = eig(RHS); [VL, EL] = eig(LHS);
 %
 %% Because the sign of eigenvectors does not matter, we set any non-zero elements in the vectors to 1.
-% ER = round(ER(:,1:8)); VR = +(round(VR(:,1:8)) ~= 0); VL = +(VL ~= 0);
+%  ER = round(ER(:,1:8)); VR = uplus(ne(round(VR(:,1:8)),0)); VL = uplus(ne(VL,0));
 %
 %% It is divided into two parts as the ground state and the first excited state to ensure the eigenvalues (energy) match.
 %% Sort VL one by one through finding the eigenvector that is closest to VR.
