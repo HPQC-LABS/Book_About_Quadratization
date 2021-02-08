@@ -4954,7 +4954,7 @@ H_{k-\rm{local}} = \alpha H_{1,(\nicefrac{k}{2})-\rm{local}}H_{2,(\nicefrac{k}{2
 \noindent Define one qubit $a$ and make the following Hamiltonian is $( \nicefrac{k}{2} )$-local:
 
 \begin{align}
-\Delta \frac{1-z_a}{2} + |\alpha|\frac{1+z_a}{2} + \sqrt{|\alpha|\Delta /2}\left({\rm sgn}(\alpha) H_{1,(\nicefrac{k}	{2}-\rm{local})} - H_{2,(\nicefrac{k}{2}-\rm{local})}\right)x_a
+\Delta \frac{1-z_a}{2} + |\alpha|\frac{1+z_a}{2} + \sqrt{\frac{|\alpha|\Delta}{2}}\left({\rm sgn}(\alpha) H_{1,(\nicefrac{k}	{2}-\rm{local})} - H_{2,(\nicefrac{k}{2}-\rm{local})}\right)x_a
 \end{align}
 
 \noindent The result is a $( \nicefrac{k}{2})$-local Hamiltonian with the same low-lying spectrum as $H_{k-\rm{local}}$ for large enough $\Delta$. The disadvantage is that $\Delta$ has to be larger.
@@ -4975,6 +4975,9 @@ H_{k-\rm{local}} = \alpha H_{1,(\nicefrac{k}{2})-\rm{local}}H_{2,(\nicefrac{k}{2
 \end{itemize}
 
 \examplesec
+\begin{align}
+5x_{1}z_{2}y_{3}z_{4}x_{5}y_{6} \rightarrow & \Delta \frac{1-z_{a}}{2} + 5\frac{1+z_{a}}{2} + \sqrt{\frac{5\Delta}{2}}\left(x_{1}z_{2}y_{3} - z_{4}x_{5}y_{6}\right)x_{a}
+\end{align}
 
 \refsec
 \begin{itemize}
