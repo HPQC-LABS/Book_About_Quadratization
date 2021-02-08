@@ -469,6 +469,41 @@ end
 
 min(V_diff); % 1.3576
 
+%% PSD-CBBK: Example
+x = [0 1 ; 1 0]; y = [0 -1i ; 1i 0]; z = [1 0 ; 0 -1];
+
+alpha = 5;
+x1 = kron(x,eye(64));
+z2 = kron(kron(eye(2),z),eye(32));
+y3 = kron(kron(eye(4),y),eye(16));
+z4 = kron(kron(eye(8),z),eye(8));
+x5 = kron(kron(eye(16),x),eye(4));
+y6 = kron(kron(eye(32),y),eye(2));
+
+A = x1*z2*y3; B = z4*x5*y6;
+
+za = kron(eye(64),z);
+xa = kron(eye(64),x);
+
+for delta = 1:1e5:1e6
+    LHS = alpha*A*B;
+    RHS = (delta)*((1*eye(128) - za)/2) + abs(alpha)*((1*eye(128) + za)/2) + sqrt( abs(alpha)*delta/2 )*( sign(alpha)*A - B)*xa;
+    
+    abs(min(eig(LHS))-min(eig(RHS)))
+end
+
+[VL, EL] = eig(LHS); [VR, ER] = eig(RHS);
+[DL, indL] = sort(diag(EL)); [DR, indR] = sort(diag(ER));
+VL = VL(:,indL); EL = EL(indL,indL); VR = VR(:,indR); ER = ER(indR,indR);
+VL = VL(:,1:4:end); EL = EL(:,1:4:end); VR = VR(:,1:4:end); ER = ER(:,1:4:end);
+
+for col = 1:1:size(VL,2)
+V_diff(col,1) = sqrt(dot((VL(:,col)-VR(:,col)),(VL(:,col)-VR(:,col))));
+E_diff(col,1) = sqrt(dot((EL(:,col)-ER(:,col)),(EL(:,col)-ER(:,col))));
+end
+
+min(V_diff); % 1.2948
+
 %% III.D 15-term, 5-variable, degree-4 function
 %% blue
 b=dec2bin(2^5-1:-1:0)-'0';

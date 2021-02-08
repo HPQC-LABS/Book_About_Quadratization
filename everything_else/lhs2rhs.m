@@ -1,5 +1,5 @@
 function [LHS, RHS] = lhs2rhs(operators, Delta, name_of_quadratization)
-% test DC1, DC2, KKR, and ZZZ-TI-CBBK
+% test P(3->2)-DC1, P-(3->2)DC2, P-(3->2)KKR, ZZZ-TI-CBBK, and PSD-CBBK
 % operators shold be in the form of 'xyz'
 %
 % e.g.    [LHS, RHS] = lhs2rhs('xyz',1e10,'P(3->2)-DC2')
@@ -124,6 +124,35 @@ function [LHS, RHS] = lhs2rhs(operators, Delta, name_of_quadratization)
 
         LHS = S{1}*S{2}*S{3};
         RHS = alpha_I*eye(16) + alpha_zi*S{1} + alpha_zj*S{2} + alpha_zk*S{3} + alpha_za*za + alpha_xa*xa + alpha_zzia*S{1}*za + alpha_zzja*S{2}*za + alpha_zzka*S{3}*za + alpha_zzij*S{1}*S{2} + alpha_zzik*S{1}*S{3} + alpha_zzjk*S{2}*S{3};
+        
+    elseif strcmp(name_of_quadratization, 'PSD-CBBK')
+        assert(n >= 5, 'PSD-CBBK requires at least a 5-local term, please give at least 5 operators.');
+        for ind = 1:n
+            if operators(ind) == 'x'
+                S{ind} = kron(kron(eye(2^(ind-1)),x),eye(2^(n+1-ind)));
+            elseif operators(ind) == 'y'
+                S{ind} = kron(kron(eye(2^(ind-1)),y),eye(2^(n+1-ind)));
+            elseif operators(ind) == 'z'
+                S{ind} = kron(kron(eye(2^(ind-1)),z),eye(2^(n+1-ind)));
+            end
+        end
+        
+        alpha = 1;
+        n_a = ceil(n/2);
+        
+        A = eye(2^(n+1)); B = eye(2^(n+1));
+        for ind = 1:n_a
+            A = A*S{ind};
+        end
+        
+        for ind = n_a + 1:n
+            B = B*S{ind};
+        end
+        za = kron(eye(2^n),z);
+        xa = kron(eye(2^n),x);
+        
+        LHS = alpha*A*B;
+        RHS = (Delta)*((1*eye(2^(n+1)) - za)/2) + abs(alpha)*((1*eye(2^(n+1)) + za)/2) + sqrt( abs(alpha)*Delta/2 )*(sign(alpha)*A - B)*xa;
 
     else
         disp('cannot find this method');
