@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2021.1.27)  8 FEB 2021 13:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2021.1.27)  9 FEB 2021 15:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1389,72 +1389,85 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 4599.
 
-[66] [67] [68] [69] [70] [71] [72] [73]
+[66]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 5355.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\@@underline' on input line 5355.
+(hyperref)                removing `math shift' on input line 4687.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\hbox' on input line 5355.
+(hyperref)                removing `\rightarrow' on input line 4687.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\mathsurround' on input line 5355.
+(hyperref)                removing `math shift' on input line 4687.
+
+[67] [68] [69] [70] [71] [72] [73] [74]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 5419.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\z@' on input line 5355.
+(hyperref)                removing `\@@underline' on input line 5419.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 5355.
-
-[74] [75]
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 5458.
+(hyperref)                removing `\hbox' on input line 5419.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\rightarrow' on input line 5458.
+(hyperref)                removing `\mathsurround' on input line 5419.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 5458.
+(hyperref)                removing `\z@' on input line 5419.
 
-[76] [77]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 5522.
+(hyperref)                removing `math shift' on input line 5419.
 
+[75] [76]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 5522.
 
-[78] [79] [80] [81] (./Book_about_Quadratization.bbl [82]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\rightarrow' on input line 5522.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 5522.
+
+[77] [78]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 5586.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 5586.
+
+[79] [80] [81] [82] (./Book_about_Quadratization.bbl [83]
 Underfull \hbox (badness 1616) in paragraph at lines 120--125
 []\T1/ppl/m/n/10.95 (+20) Nike Dat-tani, [][]\T1/ppl/m/it/10.95 (+20) Quadra-ti
 -za-tion in dis-crete op-ti-miza-tion and quan-tum me-chan-ics[][] \T1/ppl/m/n/
 10.95 (+20) (2019)
  []
 
-[83] [84] [85] [86]
+[84] [85] [86] [87]
 Overfull \hbox (0.6339pt too wide) in paragraph at lines 917--923
 []\T1/ppl/m/n/10.95 (-20) M. Schöndorf and F. K. Wilhelm, ``Non-pairwise intera
 ctions induced by virtual transitions,''
  []
 
-[87]) [88] (./Book_about_Quadratization.aux) ) 
+[88]) [89] (./Book_about_Quadratization.aux) ) 
 Here is how much of TeX's memory you used:
- 19920 strings out of 479304
- 324104 string characters out of 5871219
- 836358 words of memory out of 5000000
- 35792 multiletter control sequences out of 15000+600000
+ 19931 strings out of 479304
+ 324243 string characters out of 5871219
+ 836380 words of memory out of 5000000
+ 35793 multiletter control sequences out of 15000+600000
  487485 words of font info for 458 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  126i,21n,130p,1304b,761s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1489,10 +1502,10 @@ dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2020/texmf-dist
 w/palatino/uplbi8a.pfb><c:/texlive/2020/texmf-dist/fonts/type1/urw/palatino/upl
 r8a.pfb><c:/texlive/2020/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb><c:/tex
 live/2020/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on Book_about_Quadratization.pdf (88 pages, 585906 bytes).
+Output written on Book_about_Quadratization.pdf (89 pages, 592322 bytes).
 PDF statistics:
- 1839 PDF objects out of 2073 (max. 8388607)
- 1696 compressed objects within 17 object streams
- 506 named destinations out of 1000 (max. 500000)
- 93033 words of extra memory for PDF output out of 106986 (max. 10000000)
+ 1859 PDF objects out of 2073 (max. 8388607)
+ 1714 compressed objects within 18 object streams
+ 516 named destinations out of 1000 (max. 500000)
+ 93041 words of extra memory for PDF output out of 106986 (max. 10000000)
 

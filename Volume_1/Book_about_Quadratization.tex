@@ -4682,6 +4682,63 @@ a\prod_i^3 s_{i} \rightarrow \alpha   + \alpha_1^{s} s_1^2 + \alpha_2^s s_2^2 + 
 %
 \newpage
 
+
+
+\subsection{P$(3\rightarrow2)$-CBBK (Cao, Babbush, Biamonte, Kais, 2015)}
+
+\summarysec
+
+ For any 3-local term which is a product of 1-local  matrices $s_i$, we can define one auxiliary qubit labeled by $a$  and  make the transformation:
+
+{\small
+\begin{align}
+\alpha \prod_i^3 s_{i} \rightarrow & \left(\Delta + \left(\frac{\alpha}{2}\right)^{\nicefrac{1}{3}}\Delta^{\nicefrac{1}{2}}s_{3}\right)\left(\frac{1-z_{a}}{2}\right) + \left(\frac{\alpha}{2}\right)^{\nicefrac{1}{3}}\Delta^{\nicefrac{3}{4}}({\rm sgn}(\alpha)s_{1} + s_{2})x_{a} \\
+& + \left(\frac{\alpha}{2}\right)^{\nicefrac{2}{3}}\Delta^{\nicefrac{1}{2}}\left({\rm sgn}^2(\alpha)+1\right)\left(\frac{1+z_{a}}{2}\right)
++ 2 {\rm sgn}(\alpha)\left(\frac{\alpha}{2}\right)^{\nicefrac{2}{3}}\Delta^{\nicefrac{1}{2}}s_{1}s_{2} \\
+& - \frac{\alpha}{2}({\rm sgn}^2(\alpha)+1)s_{3}\left(\frac{1+z_{a}}{2}\right) \\
+& - 2{\rm sgn}^2(\alpha)\left(\frac{\alpha}{2}\right)^{\nicefrac{4}{3}}\left(({\rm sgn}^2(\alpha)+1)\left(\frac{1+z_{a}}{2}\right)+2{\rm sgn}(\alpha)s_{1}s_{2}\right)
+\end{align}
+}
+
+\costsec
+\begin{itemize}
+\item 1 auxiliary qubit for each 3-local term.
+\item $\Delta = \Theta\left(\epsilon^{-3}\right)$.
+\end{itemize}
+
+\begin{comment}
+
+\prossec
+\begin{itemize}
+\item
+\item
+\end{itemize}
+
+\conssec
+\begin{itemize}
+\item
+\item
+\end{itemize}
+
+\end{comment}
+
+\examplesec
+\begin{align}
+3x_{1}z_{2}y_{3} \rightarrow & \left(\Delta + \left(\frac{3}{2}\right)^{\nicefrac{1}{3}}\Delta^{\nicefrac{1}{2}}y_{3}\right)\left(\frac{1-z_{a}}{2}\right) 
++ \left(\frac{3}{2}\right)^{\nicefrac{1}{3}}\Delta^{\nicefrac{3}{4}}(x_{1} + z_{2})x_{a} \\
+& + \left(\frac{3}{2}\right)^{\nicefrac{2}{3}}\Delta^{\nicefrac{1}{2}}(1+z_{a})
++ 2 \left(\frac{3}{2}\right)^{\nicefrac{2}{3}}\Delta^{\nicefrac{1}{2}}x_{1}z_{2}
+- 3y_{3}\left(\frac{1+z_{a}}{2}\right) \\
+& - 2\left(\frac{3}{2}\right)^{\nicefrac{4}{3}}\left(1+z_{a}+2x_{1}z_{2}\right)
+\end{align}
+
+\refsec
+\begin{itemize}
+\item Original paper (Eq. 28-29): \cite{Cao2015}.
+\end{itemize}
+
+\newpage
+
 %\subsection{$(3\rightarrow2)$-BDLT (Bravyi, DiVincenzo, Loss, Terhal, 2008)}
 %
 %\summarysec
@@ -4859,9 +4916,11 @@ Instead of recursively reducing $k$-local to $(k-1)$-local one reduction at a ti
 We factor a $k$-local term into a product of three factors: operators $H_1,H_2$ acting on non-overlapping spaces, and scalar $\alpha$. Then introduce an auxiliary qubit labelled by $a$ and make the transformation:
 %We factor a $k$-local term into a product of two factors $H_1,H_2$ acting on non-overlapping spaces, then introduce an auxiliary qubit labelled by $a$ and make the transformation:
 
+{\scriptsize
 \begin{align}
-H_{k-\rm{local}} \rightarrow \Delta \frac{1-z_a}{2} +  \frac{\alpha}{2}H_1^2   + \frac{\alpha}{2}H_2^2  +    \sqrt{\frac{\alpha\Delta}{2}}\left(  - H_1 + H_2   \right)x_a.
+H_{k-\rm{local}} \rightarrow \Delta \left(\frac{1-z_a}{2}\right) +  \frac{\alpha}{2}H_1^2   + \frac{\alpha}{2}H_2^2  +    \sqrt{\frac{\alpha\Delta}{2}}\left(  - H_1 + H_2   \right)x_a.
 \end{align}
+}
 
 The resulting Hamiltonian has a degree of 1 larger than the degree of whichever factor  $H_1$ or $H_2$ has a larger degree, and the low-lying spectrum is equivalent to the original one to within $\mathcal{O}\left(\alpha\epsilon\right)$ for sufficiently large $\Delta$.
 
@@ -4889,6 +4948,11 @@ The resulting Hamiltonian has a degree of 1 larger than the degree of whichever 
 \end{itemize}
 
 \examplesec
+{\scriptsize
+\begin{align}
+3x_{1}z_{2}y_{3}z_{4}x_{5}y_{6} \rightarrow & \Delta \left(\frac{1 - z_{a}}{2}\right) + \frac{3}{2}(x_{1}z_{2}y_{3})^{2} + \frac{3}{2}(z_{4}x_{5}y_{6})^{2} + \sqrt{ \frac{3\Delta}{2} }(-x_{1}z_{2}y_{3} + z_{4}x_{5}y_{6})x_{a}
+\end{align}
+}
 
 \refsec
 \begin{itemize}
@@ -4954,7 +5018,7 @@ H_{k-\rm{local}} = \alpha H_{1,(\nicefrac{k}{2})-\rm{local}}H_{2,(\nicefrac{k}{2
 \noindent Define one qubit $a$ and make the following Hamiltonian is $( \nicefrac{k}{2} )$-local:
 
 \begin{align}
-\Delta \frac{1-z_a}{2} + |\alpha|\frac{1+z_a}{2} + \sqrt{\frac{|\alpha|\Delta}{2}}\left({\rm sgn}(\alpha) H_{1,(\nicefrac{k}	{2}-\rm{local})} - H_{2,(\nicefrac{k}{2}-\rm{local})}\right)x_a
+\Delta \left(\frac{1-z_a}{2}\right) + |\alpha|\left(\frac{1+z_a}{2}\right) + \sqrt{\frac{|\alpha|\Delta}{2}}\left({\rm sgn}(\alpha) H_{1,(\nicefrac{k}	{2}-\rm{local})} - H_{2,(\nicefrac{k}{2}-\rm{local})}\right)x_a
 \end{align}
 
 \noindent The result is a $( \nicefrac{k}{2})$-local Hamiltonian with the same low-lying spectrum as $H_{k-\rm{local}}$ for large enough $\Delta$. The disadvantage is that $\Delta$ has to be larger.
@@ -4976,12 +5040,12 @@ H_{k-\rm{local}} = \alpha H_{1,(\nicefrac{k}{2})-\rm{local}}H_{2,(\nicefrac{k}{2
 
 \examplesec
 \begin{align}
-5x_{1}z_{2}y_{3}z_{4}x_{5}y_{6} \rightarrow & \Delta \frac{1-z_{a}}{2} + 5\frac{1+z_{a}}{2} + \sqrt{\frac{5\Delta}{2}}\left(x_{1}z_{2}y_{3} - z_{4}x_{5}y_{6}\right)x_{a}
+5x_{1}z_{2}y_{3}z_{4}x_{5}y_{6} \rightarrow & \Delta \left(\frac{1-z_{a}}{2}\right) + 5\left(\frac{1+z_{a}}{2}\right) + \sqrt{\frac{5\Delta}{2}}\left(x_{1}z_{2}y_{3} - z_{4}x_{5}y_{6}\right)x_{a}
 \end{align}
 
 \refsec
 \begin{itemize}
-\item Original paper: \cite{Cao2015}.
+\item Original paper (Eq. 4): \cite{Cao2015}.
 \end{itemize}
 
 \newpage
