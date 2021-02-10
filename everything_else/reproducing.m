@@ -469,6 +469,75 @@ end
 
 min(V_diff); % 1.3576
 
+%% P(3->2)-CBBK: Example
+x = [0 1 ; 1 0]; y = [0 -1i ; 1i 0]; z = [1 0 ; 0 -1];
+
+alpha = 3;
+x1 = kron(x,eye(8));
+z2 = kron(kron(eye(2),z),eye(4));
+y3 = kron(kron(eye(4),y),eye(2));
+
+za = kron(eye(8),z);
+xa = kron(eye(8),x);
+
+for Delta = 1:1e10:1e11
+LHS = alpha*x1*z2*y3;
+RHS = (Delta*eye(16) + ((3/2)^(1/3))*(Delta^(1/2))*y3)*((1*eye(16) - za)/2) + ((3/2)^(1/3))*(Delta^(3/4))*(x1 + z2)*xa ...
+    + ((3/2)^(2/3))*(Delta^(1/2))*(1*eye(16) + za) + 2*((3/2)^(2/3))*(Delta^(1/2))*x1*z2 ...
+    - 3*y3*((1*eye(16) + za)/2) - 2*((3/2)^(4/3))*( 1*eye(16) + za + 2*x1*z2 );
+
+abs(min(eig(LHS))-min(eig(RHS)))
+end
+
+[VL, EL] = eig(LHS); [VR, ER] = eig(RHS);
+[DL, indL] = sort(diag(EL)); [DR, indR] = sort(diag(ER));
+VL = VL(:,indL); EL = EL(indL,indL); VR = VR(:,indR); ER = ER(indR,indR);
+VL = VL(:,1:4:end); EL = EL(:,1:4:end); VR = VR(:,1:4:end); ER = ER(:,1:4:end);
+
+for col = 1:1:size(VL,2)
+V_diff(col,1) = sqrt(dot((VL(:,col)-VR(:,col)),(VL(:,col)-VR(:,col))));
+E_diff(col,1) = sqrt(dot((EL(:,col)-ER(:,col)),(EL(:,col)-ER(:,col))));
+end
+
+min(V_diff); % 1.4142
+
+%% PSD-OT: Example
+x = [0 1 ; 1 0]; y = [0 -1i ; 1i 0]; z = [1 0 ; 0 -1];
+
+alpha = 3;
+x1 = kron(x,eye(64));
+z2 = kron(kron(eye(2),z),eye(32));
+y3 = kron(kron(eye(4),y),eye(16));
+z4 = kron(kron(eye(8),z),eye(8));
+x5 = kron(kron(eye(16),x),eye(4));
+y6 = kron(kron(eye(32),y),eye(2));
+
+A = x1*z2*y3; B = z4*x5*y6;
+
+za = kron(eye(64),z);
+xa = kron(eye(64),x);
+
+delta_array = [];
+ans_array = [];
+
+for delta = 1:1e6:1e7
+    LHS = alpha*x1*z2*y3*z4*x5*y6;
+    RHS = delta*((1*eye(128) - za)/2) + (alpha/2)*(A^2 + B^2) + sqrt( alpha*delta/2 )*(-A + B)*xa;   
+end
+
+
+[VL, EL] = eig(LHS); [VR, ER] = eig(RHS);
+[DL, indL] = sort(diag(EL)); [DR, indR] = sort(diag(ER));
+VL = VL(:,indL); EL = EL(indL,indL); VR = VR(:,indR); ER = ER(indR,indR);
+VL = VL(:,1:16:end); EL = EL(:,1:16:end); VR = VR(:,1:16:end); ER = ER(:,1:16:end);
+
+for col = 1:1:size(VL,2)
+V_diff(col,1) = sqrt(dot((VL(:,col)-VR(:,col)),(VL(:,col)-VR(:,col))));
+E_diff(col,1) = sqrt(dot((EL(:,col)-ER(:,col)),(EL(:,col)-ER(:,col))));
+end
+
+min(V_diff); % 0.7113
+
 %% PSD-CBBK: Example
 x = [0 1 ; 1 0]; y = [0 -1i ; 1i 0]; z = [1 0 ; 0 -1];
 

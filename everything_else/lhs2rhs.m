@@ -1,5 +1,6 @@
 function [LHS, RHS] = lhs2rhs(operators, Delta, name_of_quadratization)
-% test P(3->2)-DC1, P-(3->2)DC2, P-(3->2)KKR, ZZZ-TI-CBBK, and PSD-CBBK
+% test P(3->2)-DC1, P-(3->2)DC2, P-(3->2)KKR, ZZZ-TI-CBBK, PSD-CBBK,
+% PSD-OT, and PSD-CBBK
 % operators shold be in the form of 'xyz'
 %
 % e.g.    [LHS, RHS] = lhs2rhs('xyz',1e10,'P(3->2)-DC2')
@@ -153,6 +154,60 @@ function [LHS, RHS] = lhs2rhs(operators, Delta, name_of_quadratization)
         
         LHS = alpha*A*B;
         RHS = (Delta)*((1*eye(2^(n+1)) - za)/2) + abs(alpha)*((1*eye(2^(n+1)) + za)/2) + sqrt( abs(alpha)*Delta/2 )*(sign(alpha)*A - B)*xa;
+        
+    elseif strcmp(name_of_quadratization, 'PSD-OT')
+        assert(n >= 4, 'PSD-OT requires at least a 4-local term, please give at least 4 operators.');
+        for ind = 1:n
+            if operators(ind) == 'x'
+                S{ind} = kron(kron(eye(2^(ind-1)),x),eye(2^(n+1-ind)));
+            elseif operators(ind) == 'y'
+                S{ind} = kron(kron(eye(2^(ind-1)),y),eye(2^(n+1-ind)));
+            elseif operators(ind) == 'z'
+                S{ind} = kron(kron(eye(2^(ind-1)),z),eye(2^(n+1-ind)));
+            end
+        end
+        
+        A = eye(2^(n+1)); B = eye(2^(n+1));
+        alpha = 1;
+        n_a = ceil(n/2);
+        
+        for ind = 1:n_a
+            A = A*S{ind};
+        end
+        
+        for ind = n_a + 1:n
+            B = B*S{ind};
+        end
+        za = kron(eye(2^n),z);
+        xa = kron(eye(2^n),x);
+        
+        LHS = alpha*A*B;
+        RHS = Delta*((1*eye(2^(n+1)) - za)/2) + (alpha/2)*(A^2 + B^2) + sqrt( alpha*Delta/2 )*(-A + B)*xa;
+        
+    elseif strcmp(name_of_quadratization, 'P(3->2)CBBK') || strcmp(name_of_quadratization, 'P(3->2)-CBBK')
+        assert(n == 3, 'P(3->2)-CBBK requires a 3-local term, please only give 3 operators.');
+        for ind = 1:n
+            if operators(ind) == 'x'
+                S{ind} = kron(kron(eye(2^(ind-1)),x),eye(2^(n+1-ind)));
+            elseif operators(ind) == 'y'
+                S{ind} = kron(kron(eye(2^(ind-1)),y),eye(2^(n+1-ind)));
+            elseif operators(ind) == 'z'
+                S{ind} = kron(kron(eye(2^(ind-1)),z),eye(2^(n+1-ind)));
+            end
+        end
+        
+        za = kron(eye(8),z);
+        xa = kron(eye(8),x);
+        
+        alpha = 1;
+        kappa = sign(alpha)*((alpha/2)^(1/3))*(Delta^(3/4));
+        lambda = ((alpha/2)^(1/3))*(Delta^(3/4));
+        mu = ((alpha/2)^(1/3))*(Delta^(1/2));
+        
+        LHS = alpha*S{1}*S{2}*S{3};
+        RHS = (Delta*eye(16) + mu*S{3})*((1*eye(16) - za)/2) + (kappa*S{1} + lambda*S{2})*xa ...
+        + (1/Delta)*(kappa^2 + lambda^2)*((1*eye(16) + za)/2) + (2*kappa*lambda/Delta)*S{1}*S{2} - (1/(Delta^2))*(kappa^2 + lambda^2)*mu*S{3}*((1*eye(16) + za)/2) ...
+        - (2*kappa*lambda/(Delta^3))*sign(alpha)*( (kappa^2 + lambda^2)*((1*eye(16) + za)/2) + (2*kappa*lambda*S{1})*S{2} );
 
     else
         disp('cannot find this method');
