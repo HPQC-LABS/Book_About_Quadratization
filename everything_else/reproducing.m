@@ -469,6 +469,38 @@ end
 
 min(V_diff); % 1.3576
 
+%% P(3->2)-OT: Example
+x = [0 1 ; 1 0]; y = [0 -1i ; 1i 0]; z = [1 0 ; 0 -1];
+
+a = 3;
+y1 = kron(y,eye(8));
+z2 = kron(kron(eye(2),z),eye(4));
+x3 = kron(kron(eye(4),x),eye(2));
+
+za = kron(eye(8),z);
+xa = kron(eye(8),x);
+
+for delta = 1:1e3:1e4
+    LHS = a*y1*z2*x3;
+    RHS = (delta/2)*eye(16) + ((delta^(1/3))*(a^(2/3))/2)*(y1)^2 + ((delta^(1/3))*(a^(2/3))/2)*(z2)^2- ((delta^(2/3))*(a^(1/3))/2)*x3 ...
+        - (delta/2)*za - ((delta^(1/3))*(a^(2/3)))*y1*z2 + (a/2)*(y1^2)*x3 + (a/2)*(z2^2)*x3 + (delta^(2/3))*(a^(1/3)/2)*x3*za ...
+        - ((delta^(2/3))*(a^(1/3))/sqrt(2))*y1*xa + ((delta^(2/3))*(a^(1/3))/sqrt(2))*z2*xa;
+    
+    abs(min(eig(LHS))-min(eig(RHS)))
+end
+
+[VL, EL] = eig(LHS); [VR, ER] = eig(RHS);
+[DL, indL] = sort(diag(EL)); [DR, indR] = sort(diag(ER));
+VL = VL(:,indL); EL = EL(indL,indL); VR = VR(:,indR); ER = ER(indR,indR);
+VL = VL(:,1:4:end); EL = EL(:,1:4:end); VR = VR(:,1:4:end); ER = ER(:,1:4:end);
+
+for col = 1:1:size(VL,2)
+V_diff(col,1) = sqrt(dot((VL(:,col)-VR(:,col)),(VL(:,col)-VR(:,col))));
+E_diff(col,1) = sqrt(dot((EL(:,col)-ER(:,col)),(EL(:,col)-ER(:,col))));
+end
+
+min(V_diff); % 1.4142
+
 %% P(3->2)-CBBK: Example
 x = [0 1 ; 1 0]; y = [0 -1i ; 1i 0]; z = [1 0 ; 0 -1];
 

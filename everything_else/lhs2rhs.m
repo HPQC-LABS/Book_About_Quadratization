@@ -208,6 +208,27 @@ function [LHS, RHS] = lhs2rhs(operators, Delta, name_of_quadratization)
         RHS = (Delta*eye(16) + mu*S{3})*((1*eye(16) - za)/2) + (kappa*S{1} + lambda*S{2})*xa ...
         + (1/Delta)*(kappa^2 + lambda^2)*((1*eye(16) + za)/2) + (2*kappa*lambda/Delta)*S{1}*S{2} - (1/(Delta^2))*(kappa^2 + lambda^2)*mu*S{3}*((1*eye(16) + za)/2) ...
         - (2*kappa*lambda/(Delta^3))*sign(alpha)*( (kappa^2 + lambda^2)*((1*eye(16) + za)/2) + (2*kappa*lambda*S{1})*S{2} );
+    
+    elseif strcmp(name_of_quadratization, 'P(3->2)-OT') || strcmp(name_of_quadratization, 'P(3->2)OT')
+        assert(n == 3, 'P(3->2)-OT requires a 3-local term, please only give 3 operators.');
+        for ind = 1:n
+            if operators(ind) == 'x'
+                S{ind} = kron(kron(eye(2^(ind-1)),x),eye(2^(n+1-ind)));
+            elseif operators(ind) == 'y'
+                S{ind} = kron(kron(eye(2^(ind-1)),y),eye(2^(n+1-ind)));
+            elseif operators(ind) == 'z'
+                S{ind} = kron(kron(eye(2^(ind-1)),z),eye(2^(n+1-ind)));
+            end
+        end
+        
+        a = 1;
+        za = kron(eye(8),z);
+        xa = kron(eye(8),x);
+        
+        LHS = a*S{1}*S{2}*S{3};
+        RHS = (Delta/2)*eye(16) + ((Delta^(1/3))*(a^(2/3))/2)*(S{1})^2 + ((Delta^(1/3))*(a^(2/3))/2)*(S{2})^2- ((Delta^(2/3))*(a^(1/3))/2)*S{3} ...
+            - (Delta/2)*za - ((Delta^(1/3))*(a^(2/3)))*S{1}*S{2} + (a/2)*(S{1}^2)*S{3} + (a/2)*(S{2}^2)*S{3} + (Delta^(2/3))*(a^(1/3)/2)*S{3}*za ...
+            - ((Delta^(2/3))*(a^(1/3))/sqrt(2))*S{1}*xa + ((Delta^(2/3))*(a^(1/3))/sqrt(2))*S{2}*xa;
 
     else
         disp('cannot find this method');
