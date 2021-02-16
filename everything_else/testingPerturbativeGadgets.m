@@ -52,10 +52,7 @@ delta_required(delta_required == 0) = nan;
 
 % DC1: zzz still failed, max(min(dist)) always equals to 1.4142 even when all 16 energies match
 % KKR: failed for vectors comparison as well
-% DC2: We have tested zzz (3.46e12), zzx(1.52e12), zzy (1.22e12), zxz (1.84e12), zyz (1.833e12), xzz (1.735e12), yzz (1.668e12)
-%     xxx(nan), xxz (2.06375e12), xxy(nan), xzx(nan), xyx(nan), zxx (6.769e12), yxx(nan)
-%     yyy(nan), zyy (6.5480e12), xyy(nan), yzy(nan), yxy(nan), yyx(nan), yyz(nan)
-%     xzy(nan), xyz(nan), zxy (6.0378e12), zyx (5.46549e12), yxz(nan), yzx(nan) for all eigenvectors and eigenvalues to match.
+% DC2: We have tested all s1s2s3 combinations for all eigenvectors and eigenvalues to match (results in google sheet).
 
 
 %% Alternative: use euclidean distance to find matching eigenvectors
