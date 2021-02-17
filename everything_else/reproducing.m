@@ -473,18 +473,51 @@ min(V_diff); % 1.3576
 x = [0 1 ; 1 0]; y = [0 -1i ; 1i 0]; z = [1 0 ; 0 -1];
 
 a = 3;
-y1 = kron(y,eye(8));
-z2 = kron(kron(eye(2),z),eye(4));
-x3 = kron(kron(eye(4),x),eye(2));
+b = 4;
 
-za = kron(eye(8),z);
-xa = kron(eye(8),x);
+y1 = kron(y,eye(16));
+z1 = kron(z,eye(16));
 
-for delta = 1:1e3:1e4
-    LHS = a*y1*z2*x3;
-    RHS = (delta/2)*eye(16) + ((delta^(1/3))*(a^(2/3))/2)*(y1)^2 + ((delta^(1/3))*(a^(2/3))/2)*(z2)^2- ((delta^(2/3))*(a^(1/3))/2)*x3 ...
-        - (delta/2)*za - ((delta^(1/3))*(a^(2/3)))*y1*z2 + (a/2)*(y1^2)*x3 + (a/2)*(z2^2)*x3 + (delta^(2/3))*(a^(1/3)/2)*x3*za ...
-        - ((delta^(2/3))*(a^(1/3))/sqrt(2))*y1*xa + ((delta^(2/3))*(a^(1/3))/sqrt(2))*z2*xa;
+x2 = kron(kron(eye(2),x),eye(8));
+y2 = kron(kron(eye(2),y),eye(8));
+z2 = kron(kron(eye(2),z),eye(8));
+
+x3 = kron(kron(eye(4),x),eye(4));
+y3 = kron(kron(eye(4),y),eye(4));
+
+za1 = kron(kron(eye(8),z),eye(2));
+xa1 = kron(kron(eye(8),x),eye(2));
+
+za2 = kron(eye(16),z);
+xa2 = kron(eye(16),x);
+
+for delta = 1:1e9:1e10
+    alpha = (delta/2);
+    alpha_y1 = ((delta^(1/3))*(a^(2/3))/2);
+    alpha_z2 = ((delta^(1/3))*(a^(2/3))/2);
+    alpha_x3 = -((delta^(2/3))*(a^(1/3))/2);
+    alpha_za = -(delta/2);
+    alpha_y1_z2 = -((delta^(1/3))*(a^(2/3)));
+    alpha_y1_x3 = (a/2);
+    alpha_z2_x3 = (a/2);
+    alpha_x3_za = (delta^(2/3))*(a^(1/3)/2);
+    alpha_y1_xa = -((delta^(2/3))*(a^(1/3))/sqrt(2));
+    alpha_z2_xa = ((delta^(2/3))*(a^(1/3))/sqrt(2));
+    
+    alpha_z1 = ((delta^(1/3))*(b^(2/3))/2);
+    alpha_x2 = ((delta^(1/3))*(b^(2/3))/2);
+    alpha_y3 = -((delta^(2/3))*(b^(1/3))/2);
+    alpha_z1_x2 = -((delta^(1/3))*(b^(2/3)));
+    alpha_z1_y3 = (b/2);
+    alpha_x2_y3 = (b/2);
+    alpha_y3_za = (delta^(2/3))*(b^(1/3)/2);
+    alpha_z1_xa = -((delta^(2/3))*(b^(1/3))/sqrt(2));
+    alpha_x2_xa = ((delta^(2/3))*(b^(1/3))/sqrt(2));
+    
+    LHS = a*y1*z2*x3 + b*z1*x2*y3 - z1*y2;
+    RHS = 2*alpha*eye(32) + alpha_y1*(y1)^2 + alpha_z1*(z1)^2 + alpha_z2*(z2)^2 + alpha_x2*(x2)^2 + alpha_x3*x3 + alpha_y3*y3 ...
+        + alpha_za*(za1 + za2) + alpha_y1_z2*y1*z2 + alpha_z1_x2*z1*x2 + alpha_y1_x3*(y1^2)*x3 + alpha_z1_y3*(z1^2)*y3 + alpha_z2_x3*(z2^2)*x3 + alpha_x2_y3*(x2^2)*y3 ...
+        + alpha_x3_za*x3*za1 + alpha_y3_za*y3*za2 + alpha_y1_xa*y1*xa1 + alpha_z1_xa*z1*xa2 + alpha_z2_xa*z2*xa1 + alpha_x2_xa*x2*xa2 - z1*y2;
     
     abs(min(eig(LHS))-min(eig(RHS)))
 end
@@ -499,24 +532,52 @@ V_diff(col,1) = sqrt(dot((VL(:,col)-VR(:,col)),(VL(:,col)-VR(:,col))));
 E_diff(col,1) = sqrt(dot((EL(:,col)-ER(:,col)),(EL(:,col)-ER(:,col))));
 end
 
-min(V_diff); % 1.4142
+min(V_diff); % 1.3672
 
 %% P(3->2)-CBBK: Example
 x = [0 1 ; 1 0]; y = [0 -1i ; 1i 0]; z = [1 0 ; 0 -1];
 
-alpha = 3;
-x1 = kron(x,eye(8));
-z2 = kron(kron(eye(2),z),eye(4));
-y3 = kron(kron(eye(4),y),eye(2));
+a = 3;
+b = 2;
+x1 = kron(x,eye(32));
+y1 = kron(y,eye(32));
+z1 = kron(z,eye(32));
 
-za = kron(eye(8),z);
-xa = kron(eye(8),x);
+x2 = kron(kron(eye(2),x),eye(16));
+y2 = kron(kron(eye(2),y),eye(16));
+z2 = kron(kron(eye(2),z),eye(16));
 
-for Delta = 1:1e10:1e11
-LHS = alpha*x1*z2*y3;
-RHS = (Delta*eye(16) + ((3/2)^(1/3))*(Delta^(1/2))*y3)*((1*eye(16) - za)/2) + ((3/2)^(1/3))*(Delta^(3/4))*(x1 + z2)*xa ...
-    + ((3/2)^(2/3))*(Delta^(1/2))*(1*eye(16) + za) + 2*((3/2)^(2/3))*(Delta^(1/2))*x1*z2 ...
-    - 3*y3*((1*eye(16) + za)/2) - 2*((3/2)^(4/3))*( 1*eye(16) + za + 2*x1*z2 );
+y3 = kron(kron(eye(4),y),eye(8));
+
+z4 = kron(kron(eye(8),z),eye(4));
+
+za1 = kron(kron(eye(16),z),eye(2));
+xa1 = kron(kron(eye(16),x),eye(2));
+
+za2 = kron(eye(32),z);
+xa2 = kron(eye(32),x);
+
+for Delta = 1:1e11:1e12
+    alpha_I1 = Delta/2 + (1/2)*(a/2)^(2/3)*Delta^(1/2)*( (sign(a)^2) + 1 ) - (sign(a)^2)*((a/2)^(4/3))* ((sign(a)^2) + 1);
+    alpha_y3 = (1/2)*(a/2)^(1/3)*(Delta^(1/2)) - (a/4)*( (sign(a)^2) + 1 );
+    alpha_za1 = (-Delta/2) + (1/2)*(a/2)^(2/3)*Delta^(1/2)*( (sign(a)^2) + 1 ) - (sign(a)^2)*((a/2)^(4/3))* ((sign(a)^2) + 1);
+    alpha_x1_z2 = 2*sign(a)*((a/2)^(2/3))*(Delta^(1/2)) - 4*sign(a)*((a/2)^(4/3));
+    alpha_y3_za = (-1/2)*(a/2)^(1/3)*(Delta^(1/2)) - (a/4)*( (sign(a)^2) + 1 );
+    alpha_x1_xa = sign(a)*(a/2)^(1/3)*(Delta^(3/4));
+    alpha_z2_xa = (a/2)^(1/3)*(Delta^(3/4));
+    
+    alpha_I2 = Delta/2 + (1/2)*(b/2)^(2/3)*Delta^(1/2)*( (sign(b)^2) + 1 ) - (sign(b)^2)*((b/2)^(4/3))* ((sign(b)^2) + 1);
+    alpha_z4 = (1/2)*(b/2)^(1/3)*(Delta^(1/2)) - (b/4)*( (sign(b)^2) + 1 );
+    alpha_za2 = (-Delta/2) + (1/2)*(b/2)^(2/3)*Delta^(1/2)*( (sign(b)^2) + 1 ) - (sign(b)^2)*((b/2)^(4/3))* ((sign(b)^2) + 1);
+    alpha_y1_x2 = 2*sign(b)*((b/2)^(2/3))*(Delta^(1/2)) - 4*sign(b)*((b/2)^(4/3));
+    alpha_z4_za = (-1/2)*(b/2)^(1/3)*(Delta^(1/2)) - (b/4)*( (sign(b)^2) + 1 );
+    alpha_y1_xa = sign(b)*(b/2)^(1/3)*(Delta^(3/4));
+    alpha_x2_xa = (b/2)^(1/3)*(Delta^(3/4));
+    
+LHS = a*x1*z2*y3 + b*y1*x2*z4 - z1*x2;
+
+RHS = alpha_I1*eye(64) + alpha_I2*eye(64) + alpha_y3*y3 + alpha_z4*z4 + alpha_za1*za1 + alpha_za2*za2 + alpha_x1_z2*x1*z2 + alpha_y1_x2*y1*x2 ...
+    + alpha_y3_za*y3*za1 + alpha_z4_za*z4*za2 + alpha_x1_xa*x1*xa1 + alpha_y1_xa*y1*xa2 + alpha_z2_xa*z2*xa1 + alpha_x2_xa*x2*xa2 - z1*x2;
 
 abs(min(eig(LHS))-min(eig(RHS)))
 end
@@ -531,7 +592,7 @@ V_diff(col,1) = sqrt(dot((VL(:,col)-VR(:,col)),(VL(:,col)-VR(:,col))));
 E_diff(col,1) = sqrt(dot((EL(:,col)-ER(:,col)),(EL(:,col)-ER(:,col))));
 end
 
-min(V_diff); % 1.4142
+min(V_diff); % 1.3694
 
 %% PSD-OT: Example
 x = [0 1 ; 1 0]; y = [0 -1i ; 1i 0]; z = [1 0 ; 0 -1];
