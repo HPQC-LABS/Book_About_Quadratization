@@ -4397,10 +4397,15 @@ The first gadgets for arbitrary Hamiltonians acting on some number of qubits, we
 
 
 \begin{align}
-\alpha    &= \frac{1}{8}\Delta \\
-\alpha^{ss} &= \frac{1}{6}\Delta^{\nicefrac{1}{3}} \\
-\alpha^{sx} &= - \frac{1}{6}\Delta^{\nicefrac{2}{3}} \\
-\alpha^{zz} &= -  \frac{1}{24}\Delta
+\begin{pmatrix} \alpha & \alpha^{ss} \\
+\alpha^{sx} & \alpha^{zz}
+\end{pmatrix} = \begin{pmatrix} \frac{\Delta}{8} & \frac{\Delta^{\nicefrac{1}{3}}}{6} \\[2mm]
+-\frac{\Delta^{\nicefrac{2}{3}}}{6} & -\frac{\Delta}{24}
+\end{pmatrix}
+% \alpha    &= \frac{1}{8}\Delta \\
+% \alpha^{ss} &= \frac{1}{6}\Delta^{\nicefrac{1}{3}} \\
+% \alpha^{sx} &= - \frac{1}{6}\Delta^{\nicefrac{2}{3}} \\
+% \alpha^{zz} &= -  \frac{1}{24}\Delta
 \end{align}
 
 \noindent The result will be a 2-local Hamiltonian whose low-lying spectrum is equivalent to the spectrum of $H_{3-\rm{local}}$ to within $\epsilon$ as long as $\Delta=\Theta\left(\epsilon^{-3}\right)$.
@@ -4461,7 +4466,7 @@ a\prod_i^3 s_{i} \rightarrow \alpha + \alpha^s s_3 + \alpha^z z_a +\alpha^{ss} \
 \begin{align}
 \begin{pmatrix}\alpha & \alpha^{s} & \alpha^{z}\\
 \alpha^{ss} & \alpha^{sz} & \alpha^{sx}
-\end{pmatrix}=\begin{pmatrix}\frac{\Delta}{2} & a\left(\frac{\Delta^{\nicefrac{2}{3}}}{4}-1\right) & \frac{\Delta}{2} \\
+\end{pmatrix}=\begin{pmatrix}\frac{\Delta}{2} & a\left(\frac{\Delta^{\nicefrac{2}{3}}}{4}-1\right) & \frac{\Delta}{2} \\[2mm]
 \Delta^{\nicefrac{1}{3}} & \frac{a\Delta^{\nicefrac{2}{3}}}{4} & \Delta^{\nicefrac{2}{3}}
 \end{pmatrix}
 %\alpha      &= \frac{\Delta}{2} \\
@@ -4532,10 +4537,15 @@ x_1z_2y_3 - 3x_1x_2y_4 + z_1x_2 &\rightarrow 2\alpha + \alpha^{y}_{1}y_3 + \alph
 \end{align}
 
 \begin{align}
-\alpha      &= -\frac{1}{8}\Delta \\
-\alpha^{ss} &= -\frac{1}{6}\Delta^{\nicefrac{1}{3}}\\
-\alpha^{sx} &=  \frac{1}{6}\Delta^{\nicefrac{2}{3}} \\
-\alpha^{zz} &=  \frac{1}{24}\Delta
+\begin{pmatrix} \alpha & \alpha^{ss} \\
+\alpha^{sx} & \alpha^{zz}
+\end{pmatrix} = \begin{pmatrix} -\frac{\Delta}{8} & -\frac{\Delta^{\nicefrac{1}{3}}}{6} \\[2mm]
+\frac{\Delta^{\nicefrac{2}{3}}}{6} & \frac{\Delta}{24}
+\end{pmatrix}
+% \alpha      &= -\frac{1}{8}\Delta \\
+% \alpha^{ss} &= -\frac{1}{6}\Delta^{\nicefrac{1}{3}}\\
+% \alpha^{sx} &=  \frac{1}{6}\Delta^{\nicefrac{2}{3}} \\
+% \alpha^{zz} &=  \frac{1}{24}\Delta
 \end{align}
 
 \noindent The result will be a 2-local Hamiltonian whose low-lying spectrum is equivalent to the spectrum of $H_{3-\rm{local}}$ to within $\epsilon$ as long as $\Delta=\Theta\left(\epsilon^{-3}\right)$.
@@ -4614,17 +4624,17 @@ a\prod_i^3 s_{i} \rightarrow \alpha   + \alpha_1^{s} s_1^2 + \alpha_2^s s_2^2 + 
 }
 
 \begin{align}
-\begin{pmatrix}\alpha & \alpha_{12}^{ss}\\
-\alpha_{1}^{s} & \alpha_{13}^{ss}\\
-\alpha_{2}^{s} & \alpha_{23}^{ss}\\
-\alpha_{3}^{s} & \alpha_{3a}^{sz}\\
-\alpha_{a}^{z} & \alpha_{1a}^{sx}\\
+\begin{pmatrix}\alpha & \alpha_{12}^{ss}\\[2mm]
+\alpha_{1}^{s} & \alpha_{13}^{ss}\\[2mm]
+\alpha_{2}^{s} & \alpha_{23}^{ss}\\[2mm]
+\alpha_{3}^{s} & \alpha_{3a}^{sz}\\[2mm]
+\alpha_{a}^{z} & \alpha_{1a}^{sx}\\[2mm]
  \textrm{N/A} & \alpha_{2a}^{sx}
-\end{pmatrix}&=\begin{pmatrix}\frac{\Delta}{2} & -\Delta^{1/3}a^{2/3}\\
-\frac{a^{2/3}\Delta^{1/3}}{2} & \frac{a}{2}\\
-\frac{a^{2/3}\Delta^{1/3}}{2} & \frac{a}{2}\\
--\frac{a^{1/3}\Delta^{2/3}}{2} & \frac{a^{1/3}\Delta^{2/3}}{2}\\
--\frac{\Delta}{2} & -\frac{a^{1/3}\Delta^{2/3}}{\sqrt{2}}\\
+\end{pmatrix}&=\begin{pmatrix}\frac{\Delta}{2} & -\Delta^{1/3}a^{2/3}\\[2mm]
+\frac{a^{2/3}\Delta^{1/3}}{2} & \frac{a}{2}\\[2mm]
+\frac{a^{2/3}\Delta^{1/3}}{2} & \frac{a}{2}\\[2mm]
+-\frac{a^{1/3}\Delta^{2/3}}{2} & \frac{a^{1/3}\Delta^{2/3}}{2}\\[2mm]
+-\frac{\Delta}{2} & -\frac{a^{1/3}\Delta^{2/3}}{\sqrt{2}}\\[2mm]
 \textrm{N/A} & \frac{a^{1/3}\Delta^{2/3}}{\sqrt{2}}
 \end{pmatrix}.
 %\alpha      &= \frac{\Delta}{2} \\
