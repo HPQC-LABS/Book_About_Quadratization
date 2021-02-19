@@ -1,5 +1,5 @@
 function [LHS, RHS] = lhs2rhs(operators, Delta, name_of_quadratization)
-% test P(3->2)-DC1, P-(3->2)DC2, P-(3->2)KKR, ZZZ-TI-CBBK, PSD-CBBK,
+% test P(3->2)-DC1, P-(3->2)DC2, P-(3->2)KKR, P(3->2)-OT, P(3->2)-CBBK, ZZZ-TI-CBBK, PSD-CBBK,
 % PSD-OT, and PSD-CBBK
 % operators shold be in the form of 'xyz'
 %
@@ -202,14 +202,17 @@ function [LHS, RHS] = lhs2rhs(operators, Delta, name_of_quadratization)
         za = kron(eye(8),z);
         xa = kron(eye(8),x);
 
-        kappa = sign(coefficient)*((coefficient/2)^(1/3))*(Delta^(3/4));
-        lambda = ((coefficient/2)^(1/3))*(Delta^(3/4));
-        mu = ((coefficient/2)^(1/3))*(Delta^(1/2));
-
+        alpha = Delta/2 + (1/2)*(coefficient/2)^(2/3)*Delta^(1/2)*( (sign(coefficient)^2) + 1 ) - (sign(coefficient)^2)*((coefficient/2)^(4/3))* ((sign(coefficient)^2) + 1);
+        alpha_s3 = (1/2)*(coefficient/2)^(1/3)*(Delta^(1/2)) - (coefficient/4)*( (sign(coefficient)^2) + 1 );
+        alpha_za = (-Delta/2) + (1/2)*(coefficient/2)^(2/3)*Delta^(1/2)*( (sign(coefficient)^2) + 1 ) - (sign(coefficient)^2)*((coefficient/2)^(4/3))* ((sign(coefficient)^2) + 1);
+        alpha_s1_s2 = 2*sign(coefficient)*((coefficient/2)^(2/3))*(Delta^(1/2)) - 4*sign(coefficient)*((coefficient/2)^(4/3));
+        alpha_s3_za = (-1/2)*(coefficient/2)^(1/3)*(Delta^(1/2)) - (coefficient/4)*( (sign(coefficient)^2) + 1 );
+        alpha_s1_xa = sign(coefficient)*(coefficient/2)^(1/3)*(Delta^(3/4));
+        alpha_s2_xa = (coefficient/2)^(1/3)*(Delta^(3/4));
+        
         LHS = coefficient*S{1}*S{2}*S{3};
-        RHS = (Delta*eye(16) + mu*S{3})*((1*eye(16) - za)/2) + (kappa*S{1} + lambda*S{2})*xa ...
-        + (1/Delta)*(kappa^2 + lambda^2)*((1*eye(16) + za)/2) + (2*kappa*lambda/Delta)*S{1}*S{2} - (1/(Delta^2))*(kappa^2 + lambda^2)*mu*S{3}*((1*eye(16) + za)/2) ...
-        - (2*kappa*lambda/(Delta^3))*sign(coefficient)*( (kappa^2 + lambda^2)*((1*eye(16) + za)/2) + (2*kappa*lambda*S{1})*S{2} );
+        RHS = alpha*eye(16) + alpha_s3*S{3} + alpha_za*za + alpha_s3_za*S{3}*za ...
+            + alpha_s1_xa*S{1}*xa + alpha_s2_xa*S{2}*xa + alpha_s1_s2*S{1}*S{2};
 
     elseif strcmp(name_of_quadratization, 'P(3->2)-OT') || strcmp(name_of_quadratization, 'P(3->2)OT')
         assert(n == 3, 'P(3->2)-OT requires a 3-local term, please only give 3 operators.');
@@ -226,11 +229,25 @@ function [LHS, RHS] = lhs2rhs(operators, Delta, name_of_quadratization)
         za = kron(eye(8),z);
         xa = kron(eye(8),x);
 
+        alpha = (Delta/2);
+        alpha_s1 = ((Delta^(1/3))*(coefficient^(2/3))/2);
+        alpha_s2 = ((Delta^(1/3))*(coefficient^(2/3))/2);
+        alpha_s3 = -((Delta^(2/3))*(coefficient^(1/3))/2);
+        alpha_za = -(Delta/2);
+    
+        alpha_s1_s2 = -((Delta^(1/3))*(coefficient^(2/3)));
+        alpha_s1_s3 = (coefficient/2);
+        alpha_s2_s3 = (coefficient/2);
+    
+        alpha_s3_za = (Delta^(2/3))*(coefficient^(1/3)/2);
+    
+        alpha_s1_xa = -((Delta^(2/3))*(coefficient^(1/3))/sqrt(2));
+        alpha_s2_xa = ((Delta^(2/3))*(coefficient^(1/3))/sqrt(2));
+        
         LHS = coefficient*S{1}*S{2}*S{3};
-        RHS = (Delta/2)*eye(16) + ((Delta^(1/3))*(coefficient^(2/3))/2)*(S{1})^2 + ((Delta^(1/3))*(coefficient^(2/3))/2)*(S{2})^2- ((Delta^(2/3))*(coefficient^(1/3))/2)*S{3} ...
-            - (Delta/2)*za - ((Delta^(1/3))*(coefficient^(2/3)))*S{1}*S{2} + (coefficient/2)*(S{1}^2)*S{3} + (coefficient/2)*(S{2}^2)*S{3} + (Delta^(2/3))*(coefficient^(1/3)/2)*S{3}*za ...
-            - ((Delta^(2/3))*(coefficient^(1/3))/sqrt(2))*S{1}*xa + ((Delta^(2/3))*(coefficient^(1/3))/sqrt(2))*S{2}*xa;
-
+        RHS = alpha*eye(16) + alpha_s1*(S{1})^2 + alpha_s2*(S{2})^2 + alpha_s3*S{3} ...
+        + alpha_za*za + alpha_s1_s2*S{1}*S{2} + alpha_s1_s3*(S{1}^2)*S{3} + alpha_s2_s3*(S{2}^2)*S{3} + alpha_s3_za*S{3}*za ...
+        + alpha_s1_xa*S{1}*xa + alpha_s2_xa*S{2}*xa;
     else
         disp('cannot find this method');
         LHS = []; RHS = [];
