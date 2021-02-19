@@ -666,6 +666,71 @@ end
 
 min(V_diff); % 1.2948
 
+%% P1B1-OT (Example, Incomplete)
+x = [0 1 ; 1 0]; y = [0 -1i ; 1i 0]; z = [1 0 ; 0 -1];
+
+alpha = 1;
+x1 = kron(x,eye(32));
+z2 = kron(kron(eye(2),z),eye(16));
+y3 = kron(kron(eye(4),y),eye(8));
+y4 = kron(kron(eye(8),y),eye(4));
+z5 = kron(kron(eye(16),z),eye(2));
+
+
+s1 = x1; s2 = z2; s3 = y3; s4 = y4; s5 = z5;
+
+za = kron(eye(32),z);
+xa = kron(eye(32),x);
+r = 2/3;
+
+delta_array = [];
+ans_array = [];
+
+
+for delta = 1:1e6:1e7
+   LHS = alpha*x1*z2*y3;
+   RHS = (delta*eye(64) - ((alpha/2)^(1/3))*(delta^(2-2*r))*s3)*((1*eye(64) - za)/2) ...
+       + ((alpha/2)^(1/3))*((delta^r)/(2^(1/2)))*(-s1 + s2)*xa ... 
+       + (1/2*delta)*(alpha/2)^(2/3)*((delta^r)*(-s2 + s1))^2 + (alpha/4)*delta^(-r)*(s1^2 + s2^2)*s3;
+   
+   delta_array = [delta_array, delta];
+   ans_array = [ans_array, abs(min(eig(LHS))-min(eig(RHS)))];
+end
+[delta_array ; ans_array];
+
+%% P1B1-CBBK (Example, Incomplete)
+x = [0 1 ; 1 0]; y = [0 -1i ; 1i 0]; z = [1 0 ; 0 -1];
+
+alpha = 3;
+x1 = kron(x,eye(16));
+y1 = kron(y,eye(16));
+
+x2 = kron(kron(eye(2),x),eye(8));
+z2 = kron(kron(eye(2),z),eye(8));
+
+y3 = kron(kron(eye(4),y),eye(4));
+y4 = kron(kron(eye(8),y),eye(2));
+
+
+s1 = x1; s2 = z2; s3 = y3; s4 = y4;
+
+za = kron(eye(16),z);
+xa = kron(eye(16),x);
+
+delta_array = [];
+ans_array = [];
+
+for delta = 1:1e5:1e6
+   LHS = alpha*s1*s2*s3*s4 + y1*x2;
+   RHS = (delta*eye(32) + ((alpha/2)^(3/2))*(delta^(1/2))*s4)*((1*eye(32) - za)/2) ...
+       - ((alpha^(2/3))/2)*(1 + (sign(alpha)^2))*( ((2*alpha)^(2/3))*(sign(alpha)^2)*eye(32) + (alpha^(1/3))*s4 - (2^(1/3))*(delta^(1/2))*eye(32) )*((1*eye(32) + za)/2) ...
+       + ((alpha/2)^(1/3))*(delta^(3/4))*(s1*s2 - sign(alpha)*s3)*xa + sign(alpha)*(2^(1/3))*(alpha^(2/3))*(delta^(1/2) + delta^(3/2))*(s1*s2*s3) + y1*x2;
+   
+   delta_array = [delta_array, delta];
+   ans_array = [ans_array, min(eig(LHS))-min(eig(RHS))];
+end
+[delta_array ; ans_array];
+
 %% III.D 15-term, 5-variable, degree-4 function
 %% blue
 b=dec2bin(2^5-1:-1:0)-'0';
