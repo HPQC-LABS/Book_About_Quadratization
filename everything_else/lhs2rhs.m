@@ -12,7 +12,7 @@ function [LHS, RHS] = lhs2rhs(operators, Delta, name_of_quadratization)
     else
       coefficient = 1;
     end
-    n = strlength(operators);
+    n = length(operators);
     S = cell(n);
     x = [0 1 ; 1 0]; y = [0 -1i ; 1i 0]; z = [1 0 ; 0 -1];
 
@@ -63,6 +63,7 @@ function [LHS, RHS] = lhs2rhs(operators, Delta, name_of_quadratization)
 
     elseif strcmp(name_of_quadratization, 'P(3->2)KKR-A') % no coefficient needed
         assert(n == 3, 'P(3->2)KKR-A requires a 3-local term, please only give 3 operators.');
+        assert(isequal(coefficient,1), 'Cannot change the coefficient of P(3->2)KKR-A');
         for ind = 1:n
             if operators(ind) == 'x'
                 S{ind} = kron(kron(eye(2^(ind-1)),x),eye(2^(n+3-ind)));
