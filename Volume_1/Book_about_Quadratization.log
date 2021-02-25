@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2021.1.27)  17 FEB 2021 11:12
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2021.1.27)  25 FEB 2021 16:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1405,49 +1405,49 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 [67] [68] [69] [70] [71] [72] [73] [74]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 5454.
+(hyperref)                removing `math shift' on input line 5459.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\@@underline' on input line 5454.
+(hyperref)                removing `\@@underline' on input line 5459.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\hbox' on input line 5454.
+(hyperref)                removing `\hbox' on input line 5459.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\mathsurround' on input line 5454.
+(hyperref)                removing `\mathsurround' on input line 5459.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\z@' on input line 5454.
+(hyperref)                removing `\z@' on input line 5459.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 5454.
+(hyperref)                removing `math shift' on input line 5459.
 
 [75] [76]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 5557.
+(hyperref)                removing `math shift' on input line 5562.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\rightarrow' on input line 5557.
+(hyperref)                removing `\rightarrow' on input line 5562.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 5557.
+(hyperref)                removing `math shift' on input line 5562.
 
 [77] [78]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 5621.
+(hyperref)                removing `math shift' on input line 5626.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 5621.
+(hyperref)                removing `math shift' on input line 5626.
 
 [79] [80] [81] [82] (./Book_about_Quadratization.bbl [83]
 Underfull \hbox (badness 1616) in paragraph at lines 120--125
@@ -1464,9 +1464,9 @@ ctions induced by virtual transitions,''
 
 [88]) [89] (./Book_about_Quadratization.aux) ) 
 Here is how much of TeX's memory you used:
- 19928 strings out of 479304
- 324201 string characters out of 5871219
- 839380 words of memory out of 5000000
+ 19930 strings out of 479304
+ 324229 string characters out of 5871219
+ 837380 words of memory out of 5000000
  35793 multiletter control sequences out of 15000+600000
  487485 words of font info for 458 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1502,10 +1502,10 @@ dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2020/texmf-dist
 w/palatino/uplbi8a.pfb><c:/texlive/2020/texmf-dist/fonts/type1/urw/palatino/upl
 r8a.pfb><c:/texlive/2020/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb><c:/tex
 live/2020/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on Book_about_Quadratization.pdf (89 pages, 594383 bytes).
+Output written on Book_about_Quadratization.pdf (89 pages, 595304 bytes).
 PDF statistics:
- 1856 PDF objects out of 2073 (max. 8388607)
- 1711 compressed objects within 18 object streams
- 513 named destinations out of 1000 (max. 500000)
+ 1858 PDF objects out of 2073 (max. 8388607)
+ 1713 compressed objects within 18 object streams
+ 515 named destinations out of 1000 (max. 500000)
  93041 words of extra memory for PDF output out of 106986 (max. 10000000)
 

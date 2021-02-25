@@ -4727,11 +4727,9 @@ $\alpha^{sx}_{2a}$ & = & $\left(\frac{a}{2}\right)^{\nicefrac{1}{3}}\Delta^{\nic
 
 {\small
 \begin{align}
-a \prod_i^3 s_{i} \rightarrow & \left(\Delta + \left(\frac{a}{2}\right)^{\nicefrac{1}{3}}\Delta^{\nicefrac{1}{2}}s_{3}\right)\left(\frac{1-z_{a}}{2}\right) + \left(\frac{a}{2}\right)^{\nicefrac{1}{3}}\Delta^{\nicefrac{3}{4}}({\rm sgn}(a)s_{1} + s_{2})x_{a} \\
-& + \left(\frac{a}{2}\right)^{\nicefrac{2}{3}}\Delta^{\nicefrac{1}{2}}\left({\rm sgn}^2(a)+1\right)\left(\frac{1+z_{a}}{2}\right)
-+ 2 {\rm sgn}(a)\left(\frac{a}{2}\right)^{\nicefrac{2}{3}}\Delta^{\nicefrac{1}{2}}s_{1}s_{2} \\
-& - \frac{a}{2}({\rm sgn}^2(a)+1)s_{3}\left(\frac{1+z_{a}}{2}\right) \\
-& - 2{\rm sgn}^2(a)\left(\frac{a}{2}\right)^{\nicefrac{4}{3}}\left(({\rm sgn}^2(a)+1)\left(\frac{1+z_{a}}{2}\right)+2{\rm sgn}(a)s_{1}s_{2}\right)
+a \prod_i^3 s_{i} \rightarrow & \left(\Delta + \left(\frac{a}{2}\right)^{\nicefrac{1}{3}}\Delta^{\nicefrac{1}{2}}s_{3}\right)\left(\frac{1-z_{a}}{2}\right) \\
+& - \frac{a^{\nicefrac{2}{3}}}{2}({\rm sgn}^2(a) + 1)\left((2a)^{\nicefrac{2}{3}}{\rm sgn}^2(a) + a^{\nicefrac{1}{3}}s_{3} - \sqrt[3]{2}\Delta^{\nicefrac{1}{2}}\right)\left(\frac{1 + z_{a}}{2}\right) \\
+& + \left(\frac{a}{2}\right)^{\nicefrac{1}{3}}\Delta^{\nicefrac{3}{4}}({\rm sgn}(a)s_{1} + s_{2})x_{a} + {\rm sgn}(a)\left(\sqrt[3]{2}a^{\nicefrac{2}{3}}\Delta^{\nicefrac{1}{2}} - 4\left(\frac{a}{2}\right)^{\nicefrac{4}{3}}\right)s_{1}s_{2}
 \end{align}
 }
 
@@ -4902,11 +4900,13 @@ H_{k-{\rm local}} \rightarrow &-\left(\frac{\alpha}{2}\right)^{\nicefrac{1}{3}}\
 
 Define one auxiliary qubit labeled by $a$ and make the transformation:
 
+
 \begin{align}
-H_{k-\rm{local}} \rightarrow &	\left(\Delta+\left(\frac{\alpha}{2}\right)^{\nicefrac{3}{2}}\Delta^{\nicefrac{1}{2}}s_{k}\right)\left(\frac{1-z_{a}}{2}\right) \\
-& - \frac{\alpha^{\nicefrac{2}{3}}}{2}\left(1+{\rm sgn^{2}\alpha}\right)\left(\left(2\alpha\right)^{\nicefrac{2}{3}}{\rm sgn}^{2}\alpha+\alpha^{\nicefrac{1}{3}}s_{k}-\sqrt[3]{2}\Delta^{\nicefrac{1}{2}}\right)\left(\frac{1+z_{a}}{2}\right) \\
-&	+\left(\frac{\alpha}{2}\right)^{\nicefrac{1}{3}}\Delta^{\nicefrac{3}{4}}\left(\prod_j^{k-2} s_{j}-{\rm sgn}(\alpha) s_{k-1}\right)x_{a}+{\rm sgn}(\alpha)\sqrt[3]{2}\alpha^{\nicefrac{2}{3}}\left(\Delta^{\nicefrac{1}{2}}+\Delta^{\nicefrac{3}{2}}\right)\prod_j^{k-1}s_j.
+H_{k-\rm{local}} \rightarrow &	\left(\Delta+\left(\frac{\alpha}{2}\right)^{\nicefrac{1}{3}}\Delta^{\nicefrac{1}{2}}s_{k}\right)\left(\frac{1-z_{a}}{2}\right) + \left(\frac{\alpha}{2}\right)^{\nicefrac{1}{3}}\Delta^{\nicefrac{3}{4}}\left({\rm sgn}(\alpha)\prod_j^{k-2} s_{j} + s_{k-1}\right)x_{a} \\
+& - \frac{\alpha^{\nicefrac{2}{3}}}{2}\left(1 + {\rm sgn^{2}\alpha}\right)\left(\left(2\alpha\right)^{\nicefrac{2}{3}}{\rm sgn}^{2}\alpha + \alpha^{\nicefrac{1}{3}}s_{k} - \sqrt[3]{2}\Delta^{\nicefrac{1}{2}}\right)\left(\frac{1 + z_{a}}{2}\right) \\
+& + {\rm sgn}(\alpha)\left(\sqrt[3]{2}\alpha^{\nicefrac{2}{3}}\Delta^{\nicefrac{1}{2}} - 4\left(\frac{\alpha}{2}\right)^{\nicefrac{4}{3}}\right)\prod_j^{k-1}s_j
 \end{align}
+
 
 \noindent The result is $(k-1)$-local and its low-lying spectrum is the same as that of  $H_{k-\rm{local}}$ when $\Delta$ is large enough.
 
@@ -4931,6 +4931,11 @@ H_{k-\rm{local}} \rightarrow &	\left(\Delta+\left(\frac{\alpha}{2}\right)^{\nice
 \end{comment}
 
 \examplesec
+\begin{align}
+3x_{1}z_{2}y_{3}y_{4}x_{5} - z_{1}x_{3} \rightarrow & \left(\Delta + \left(\frac{3}{2}\right)^{\nicefrac{1}{3}}\Delta^{\nicefrac{1}{3}}x_{5}\right) \left(\frac{1 - z_{a}}{2}\right) + \left(\frac{3}{2}\right)^{\nicefrac{1}{3}}\Delta^{\nicefrac{3}{4}}(x_{1}z_{2}y_{3} + y_{4})x_{a} \\
+& - 3^{\nicefrac{2}{3}}\left(6^{\nicefrac{2}{3}} + 3^{\nicefrac{1}{3}}x_{5} - \sqrt[3]{2}\Delta^{\nicefrac{1}{2}}\right)\left(\frac{1 + z_{a}}{2}\right) \\
+& + \left(3^{\nicefrac{2}{3}}\sqrt[3]{2}\Delta^{\nicefrac{1}{2}} - 4\left(\frac{3}{2}\right)^{\nicefrac{4}{3}}\right)x_{1}z_{2}y_{3}y_{4} - z_{1}x_{3}
+\end{align}
 
 \refsec
 \begin{itemize}
