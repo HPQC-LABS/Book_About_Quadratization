@@ -731,6 +731,43 @@ for delta = 1:1e5:1e6
 end
 [delta_array ; ans_array];
 
+%% PSD-CN (Incomplete Example)
+x = [0 1 ; 1 0]; y = [0 -1i ; 1i 0]; z = [1 0 ; 0 -1];
+
+a_1 = 2;
+
+x1 = kron(eye(64),x);
+y2 = kron(kron(eye(2),y),eye(32));
+z3 = kron(kron(eye(4),z),eye(16));
+y4 = kron(kron(eye(8),y),eye(8));
+
+H_11 = x1*y2;
+H_21 = z3*y4;
+
+a_2 = 3;
+y1 = kron(eye(64),y);
+x2 = kron(kron(eye(2),x),eye(32));
+x3 = kron(kron(eye(4),x),eye(16));
+z4 = kron(kron(eye(8),z),eye(8));
+
+H_12 = y1*x2;
+H_22 = z3*y4;
+
+za_11 = kron(kron(eye(16),z),eye(4));
+xa_11 = kron(kron(eye(16),x),eye(4));
+za_1 = kron(kron(eye(32),z),eye(2));
+
+array = [];
+
+for delta = 1:10:1000
+alpha = delta/2;
+alpha_1 = sqrt((a_1*delta)/(2*1));
+
+LHS = a_1*H_11*H_21;
+RHS_book = alpha*(eye(128) - za_11*za_1 + alpha_1*xa_11*(H_11 - H_21)) + alpha*(eye(128) - za_1 + (1 - za_1*za_1));
+array = [array , abs(min(eig(LHS))-min(eig(RHS_book)))];
+end
+
 %% III.D 15-term, 5-variable, degree-4 function
 %% blue
 b=dec2bin(2^5-1:-1:0)-'0';
