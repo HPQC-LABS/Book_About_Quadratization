@@ -698,38 +698,47 @@ for delta = 1:1e6:1e7
 end
 [delta_array ; ans_array];
 
-%% P1B1-CBBK (Example, Incomplete)
+%% P1B1-CBBK Example
 x = [0 1 ; 1 0]; y = [0 -1i ; 1i 0]; z = [1 0 ; 0 -1];
 
-alpha = 3;
-x1 = kron(x,eye(16));
-y1 = kron(y,eye(16));
+a = 3;
+x1 = kron(x,eye(32));
+z2 = kron(kron(eye(2),z),eye(16));
+y3 = kron(kron(eye(4),y),eye(8));
+y4 = kron(kron(eye(8),y),eye(4));
+x5 = kron(kron(eye(16),x),eye(2));
 
-x2 = kron(kron(eye(2),x),eye(8));
-z2 = kron(kron(eye(2),z),eye(8));
+z1 = kron(z,eye(32));
+x3 = kron(kron(eye(4),x),eye(8));
 
-y3 = kron(kron(eye(4),y),eye(4));
-y4 = kron(kron(eye(8),y),eye(2));
+za = kron(eye(32),z);
+xa = kron(eye(32),x);
 
+s1 = x1; s2 = z2; s3 = y3; s4 = y4; s5 = x5;
 
-s1 = x1; s2 = z2; s3 = y3; s4 = y4;
+I_size = 64;
 
-za = kron(eye(16),z);
-xa = kron(eye(16),x);
+for Delta = 1:1e9:1e10
+LHS = a*s1*s2*s3*s4*s5 - z1*x3;
+RHS = (Delta*eye(I_size) + ((a/2)^(1/3))*(Delta^(1/2))*s5)*((1*eye(I_size) - za)/2) ...
+    + ((a/2)^(1/3))*(Delta^(3/4))*(sign(a)*s1*s2*s3 + s4)*xa ...
+    + ((a^(2/3))/2)*( (sign(a)^2) + 1 )*((2^(1/3))*(Delta^(1/2))*eye(I_size) - (a^(1/3))*s5 - (sign(a)^2)*((2*a)^(2/3))*eye(I_size))*((1*eye(I_size) + za)/2) ...
+    + sign(a)*((a^(2/3))*(2^(1/3))*(Delta^(1/2)) - 4*((a/2)^(4/3)))*s1*s2*s3*s4 - z1*x3;
 
-delta_array = [];
-ans_array = [];
-
-for delta = 1:1e5:1e6
-   LHS = alpha*s1*s2*s3*s4 + y1*x2;
-   RHS = (delta*eye(32) + ((alpha/2)^(3/2))*(delta^(1/2))*s4)*((1*eye(32) - za)/2) ...
-       - ((alpha^(2/3))/2)*(1 + (sign(alpha)^2))*( ((2*alpha)^(2/3))*(sign(alpha)^2)*eye(32) + (alpha^(1/3))*s4 - (2^(1/3))*(delta^(1/2))*eye(32) )*((1*eye(32) + za)/2) ...
-       + ((alpha/2)^(1/3))*(delta^(3/4))*(s1*s2 - sign(alpha)*s3)*xa + sign(alpha)*(2^(1/3))*(alpha^(2/3))*(delta^(1/2) + delta^(3/2))*(s1*s2*s3) + y1*x2;
-   
-   delta_array = [delta_array, delta];
-   ans_array = [ans_array, min(eig(LHS))-min(eig(RHS))];
+abs(min(eig(LHS))-min(eig(RHS)))
 end
-[delta_array ; ans_array];
+
+[VL, EL] = eig(LHS); [VR, ER] = eig(RHS);
+[DL, indL] = sort(diag(EL)); [DR, indR] = sort(diag(ER));
+VL = VL(:,indL); EL = EL(indL,indL); VR = VR(:,indR); ER = ER(indR,indR);
+VL = VL(:,1:4:end); EL = EL(:,1:4:end); VR = VR(:,1:4:end); ER = ER(:,1:4:end);
+
+for col = 1:1:size(VL,2)
+V_diff(col,1) = sqrt(dot((VL(:,col)-VR(:,col)),(VL(:,col)-VR(:,col))));
+E_diff(col,1) = sqrt(dot((EL(:,col)-ER(:,col)),(EL(:,col)-ER(:,col))));
+end
+
+min(V_diff); % 1.3401
 
 %% PSD-CN (Incomplete Example)
 x = [0 1 ; 1 0]; y = [0 -1i ; 1i 0]; z = [1 0 ; 0 -1];
