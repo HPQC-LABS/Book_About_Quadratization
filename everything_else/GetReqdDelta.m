@@ -1,7 +1,7 @@
 function delta_required = GetReqdDelta(operators,Delta_lower_bound,Delta_increment,Delta_upper_bound,name_of_quadratization,tol,k)
 
 delta_required = Delta_lower_bound*ones(1,6);                   % create a default row for the table which contains the result of testDelta()
-test_times = (Delta_upper_bound - Delta_lower_bound)/Delta_increment;
+test_times = round((Delta_upper_bound - Delta_lower_bound)/Delta_increment);
 parfor i = 0:test_times
   Delta = Delta_lower_bound + Delta_increment*i;                 % set the value of Delta indirectly because i can only increase by 1
   delta_required_for1 = testDelta(operators,Delta,name_of_quadratization,tol,k);    % test the requirements that each Delta meets
