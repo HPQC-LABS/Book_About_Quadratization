@@ -5108,9 +5108,9 @@ H_{k-\rm{local}} = \alpha H_{1,(\nicefrac{k}{2})-\rm{local}}H_{2,(\nicefrac{k}{2
 
 \summarysec
 
-For a sum of terms that are $k$-local, with each term $j$ written as a product $H_{1j}H_{2j}$, introduce $N_{\rm core}$ `core' auxiliary qubits labeled by $a_i$ and $N_{\rm direct}$ `direct' auxiliary qubits labeled by $a_{ij}$ for each term $j$. Make all core auxiliary qubits couple to all others, and make the direct auxiliary qubits couple each $H_{1j}$ and $H_{2j}$ to the core auxiliary qubits.
+For a sum of terms that are $k$-local, with each term $j$ written as a product $H_{1j}H_{2j}$, introduce $N_{\rm core}$ `core' auxiliary qubits labeled by $a_i$ and $N_{\rm direct}$ `direct' auxiliary qubits labeled by $a_{ij}$ for each term $j$. Make all core auxiliary qubits couple to all others, and make the direct auxiliary qubits couple each $H_{1j}$ and $H_{2j}$ to the core auxiliary qubits, as follows:
 
-
+\vspace{-6mm}
 
 % $A_{a_j}$ and $B_{b_j}$ with $j=1,2,\cdots,M$, introduce two sets of ancilla qubits:
 %one set being the ``core ancilla qubits", which consists of $C$ qubits that are all-to-all connected via the Hamiltonian $H_\mathcal{C}$,
@@ -5119,10 +5119,10 @@ For a sum of terms that are $k$-local, with each term $j$ written as a product $
 %Specifically, we accomplish the following transformation:
 
 \begin{equation}
-\begin{array}{ccl}
-\displaystyle
-\sum_{j}a_j H_{1j} H_{2j} & \rightarrow & \alpha \sum_{ij} \left(1-z_{a_{ij}} z_{a_i} + \alpha_{j}x_{a_{ij}}  \left(H_{1j}  - H_{2j}\right)  \right) + \alpha \sum_i\left(1-z_{a_i} + \sum_{j}\left(1-z_{a_i} z_{a_j}\right)\right)  \\
-\end{array}
+%\begin{array}{ccl}
+%\displaystyle
+\hspace{-3mm} \sum_{j}a_j H_{1j} H_{2j} \! \rightarrow \!  \alpha \sum_{ij}\! \left(1-z_{a_{ij}} z_{a_i} + \alpha_{j}x_{a_{ij}} \! \left(H_{1j}  - H_{2j}\right) \! \right) + \alpha \sum_i\!\left(1-z_{a_i} + \sum_{j}\left(1-z_{a_i} z_{a_j}\right)\!\right)\!.  \!\!\\
+%\end{array}
 \end{equation}
 
 If we would like the spectrum of the RHS to be close to that of the LHS, with a difference of $O(\epsilon)$, then for any $d\in(0,1)$ we can choose
@@ -5135,8 +5135,8 @@ If we would like the spectrum of the RHS to be close to that of the LHS, with a 
 		\right\}\right),\\
         \label{eq:CC}
         N_{\rm{core}} & \in \Omega \left( M^3 N_{\rm{direct}}^d \,\epsilon^{-1}\right), \\
-        \alpha_{j}, \alpha & \in O(\epsilon) \label{eq:eps}
-\end{align}.
+        \alpha_{j}, \alpha & \in O(\epsilon). \label{eq:eps}
+\end{align}
 
 \prossec
 \begin{itemize}
