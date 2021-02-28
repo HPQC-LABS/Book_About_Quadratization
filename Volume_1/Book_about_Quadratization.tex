@@ -1212,7 +1212,7 @@ Extra binary or ternary variable is added to ensure that the energy of the even 
 
 By considering the negated literals $\bar{b}_{i}=1-b_{i}$, we recursively apply NTR-KZFD to $b_{1}b_{2}\ldots b_{k}=-\bar{b}_{1}b_{2}\ldots b_{k}+b_{2}b_{3}\ldots b_{k}$.
 The final identity is:
-\begin{equation}
+\begin{equation}\label{eq:PTR-BG}
 b_{1}b_{2}\ldots b_{k}\rightarrow \left(\sum_{i=1}^{k-2}b_{a_{i}}(k-i-1+b_{i}-\sum_{j=i+1}^{k}b_{j})\right)+b_{k-1}b_{k}
 %b_{1}b_{2}\ldots b_{k}=\min_{b_a}\left(\sum_{i=1}^{k-2}b_{a_{i}}(k-i-1+b_{i}-\sum_{j=i+1}^{k}b_{j})\right)+b_{k-1}b_{k}
 \end{equation}
@@ -1238,6 +1238,12 @@ b_{1}b_{2}\ldots b_{k}\rightarrow \left(\sum_{i=1}^{k-2}b_{a_{i}}(k-i-1+b_{i}-\s
 %b_{1}b_{2}b_{3}b_{4} & = & \min_{b_a}{b_{a_{1}}(2+b_{1}-b_{2}-b_{3}-b_{4})+b_{a_{2}}(1+b_{2}-b_{3}-b_{4})}+b_{3}b_{4}
 b_{1}b_{2}b_{3}b_{4} & \rightarrow {b_{a_{1}}(2+b_{1}-b_{2}-b_{3}-b_{4})+b_{a_{2}}(1+b_{2}-b_{3}-b_{4})}+b_{3}b_{4}
 \end{eqnarray}
+
+\notessec
+\begin{itemize}
+\item Based on the way Eq. \eqref{eq:PTR-BG} is written, the gadget graph will have an extra edge between the last two logical qubits, and a missing edge between the first logical qubit and second auxiliary qubit (for the $k=4$ case), but a slightly different graph is also possible.
+\end{itemize}
+
 
 \refsec
 \begin{itemize}
