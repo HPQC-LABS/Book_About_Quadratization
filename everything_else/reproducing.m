@@ -46,14 +46,15 @@ LHS=min(reshape(-b1.*b2.*b3.*b4.*b5.*b6,2,[]));
 RHS=min(reshape((6 - 1 - b1 - b2 - b3 - b4 - b5 - b6).*ba,2,[]));
 isequal(LHS,RHS);
 
-%% PTR_BG Pg: 17, Eqn 50
+%% PTR-BG.
 
 b = dec2bin(2^6-1:-1:0)-'0';
 b1=b(:,1);b2=b(:,2);b3=b(:,3);b4=b(:,4);ba1=b(:,5);ba2=b(:,6);
-LHS = b1.*b2.*b3.*b4;
-RHS = ba1.*(2+ b1 -b2 - b3 - b4) + ba2.*(1 + b2 - b3 - b4) + b3.*b4;
+LHS=min(reshape(b1.*b2.*b3.*b4,4,[]));
+RHS=min(reshape(ba1.*(2+ b1 -b2 - b3 - b4) + ba2.*(1 + b2 - b3 - b4) + b3.*b4,4,[]));
+isequal(LHS,RHS); % Gives 1, verified by Nike on 28 Feb 2021.
 
-%% PTR_Ishikawa Pg. 18, Eqn 52
+%% PTR-Ishikawa Pg. 18, Eqn 52
 
 b = dec2bin(2^5-1:-1:0)-'0';
 b1=b(:,1);b2=b(:,2);b3=b(:,3);b4=b(:,4);ba=b(:,5);
