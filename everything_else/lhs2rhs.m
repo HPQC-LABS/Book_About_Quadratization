@@ -1,6 +1,6 @@
 function [LHS, RHS] = lhs2rhs(operators, Delta, name_of_quadratization)
 % test P(3->2)-DC1, P-(3->2)DC2, P-(3->2)KKR, P(3->2)-OT, P(3->2)-CBBK, ZZZ-TI-CBBK,
-% P1B1-CBBK, PSD-OT, and PSD-CBBK
+% P1B1-OT, P1B1-CBBK, PSD-OT, and PSD-CBBK
 % operators shold be in the form of 'xyz'
 %
 % e.g.    [LHS, RHS] = lhs2rhs('xyz',1e10,'P(3->2)-DC2')
@@ -266,26 +266,54 @@ function [LHS, RHS] = lhs2rhs(operators, Delta, name_of_quadratization)
         xa = kron(eye(2^n),x);
         I_size = 2^(n+1);
         
-        string_LHS = eye(2^(n+1));
+        prod_LHS = eye(2^(n+1)); prod_A = eye(2^(n+1)); prod_B = eye(2^(n+1));
         for k = 1:n
-            string_LHS = string_LHS*S{k};
+            prod_LHS = prod_LHS*S{k};
         end
         
-        string_A = eye(2^(n+1));
-        for k = 1:n-2
-            string_A = string_A*S{k};
+        for k = 1:(n-2)
+            prod_A = prod_A*S{k};
         end
         
-        string_B = eye(2^(n+1));
-        for k = 1:n-1
-            string_B = string_B*S{k};
+        for k = 1:(n-1)
+            prod_B = prod_B*S{k};
         end
         
-        LHS = coefficient*string_LHS;
+        LHS = coefficient*prod_LHS;
         RHS = (Delta*eye(I_size) + ((coefficient/2)^(1/3))*(Delta^(1/2))*S{n})*((1*eye(I_size) - za)/2) ...
-            + ((coefficient/2)^(1/3))*(Delta^(3/4))*(sign(coefficient)*string_A + S{n-1})*xa ...
+            + ((coefficient/2)^(1/3))*(Delta^(3/4))*(sign(coefficient)*prod_A + S{n-1})*xa ...
             + ((coefficient^(2/3))/2)*( (sign(coefficient)^2) + 1 )*((2^(1/3))*(Delta^(1/2))*eye(I_size) - (coefficient^(1/3))*S{n} - (sign(coefficient)^2)*((2*coefficient)^(2/3))*eye(I_size))*((1*eye(I_size) + za)/2) ...
-            + sign(coefficient)*((coefficient^(2/3))*(2^(1/3))*(Delta^(1/2)) - 4*((coefficient/2)^(4/3)))*string_B;
+            + sign(coefficient)*((coefficient^(2/3))*(2^(1/3))*(Delta^(1/2)) - 4*((coefficient/2)^(4/3)))*prod_B;
+        
+    elseif strcmp(name_of_quadratization, 'P1B1-OT')
+        assert(n >= 3, 'P1B1-CBBK requires at least a 3-local term, please give at leasst 3 terms.');
+        for ind = 1:n
+            if operators(ind) == 'x'
+                S{ind} = kron(kron(eye(2^(ind-1)),x),eye(2^(n+1-ind)));
+            elseif operators(ind) == 'y'
+                S{ind} = kron(kron(eye(2^(ind-1)),y),eye(2^(n+1-ind)));
+            elseif operators(ind) == 'z'
+                S{ind} = kron(kron(eye(2^(ind-1)),z),eye(2^(n+1-ind)));
+            end
+        end
+        
+        za = kron(eye(2^n),z);
+        xa = kron(eye(2^n),x);
+        I_size = 2^(n+1);
+        
+        prod_LHS = eye(I_size); prod_A = eye(I_size);
+        for k = 1:n
+            prod_LHS = prod_LHS*S{k};
+        end
+        
+        for k = 1:(n-2)
+            prod_A = prod_A*S{k};
+        end
+        
+        LHS = coefficient*prod_LHS;
+        RHS = (Delta*eye(I_size) - (Delta^(2/3))*(coefficient^(1/3))*S{n})*((1*eye(I_size) - za)/2) ...
+        + ((Delta^(2/3))*(coefficient^(1/3))/sqrt(2))*(-prod_A + S{n-1})*xa ...
+        + ((Delta^(1/3))*(coefficient^(2/3))/2)*(-prod_A + S{n-1})^2 + (coefficient/2)*((prod_A)^2 + (S{n-1})^2)*S{n};
     
     else
         disp('cannot find this method');

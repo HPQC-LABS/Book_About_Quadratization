@@ -667,37 +667,49 @@ end
 
 min(V_diff); % 1.2948
 
-%% P1B1-OT (Example, Incomplete)
+%% P1B1-OT: Example
 x = [0 1 ; 1 0]; y = [0 -1i ; 1i 0]; z = [1 0 ; 0 -1];
 
-alpha = 1;
-x1 = kron(x,eye(32));
+a = 3;
+
+y1 = kron(y,eye(32));
+z1 = kron(z,eye(32));
+
+y2 = kron(kron(eye(2),y),eye(16));
 z2 = kron(kron(eye(2),z),eye(16));
+
+x3 = kron(kron(eye(4),x),eye(8));
 y3 = kron(kron(eye(4),y),eye(8));
-y4 = kron(kron(eye(8),y),eye(4));
-z5 = kron(kron(eye(16),z),eye(2));
 
+x4 = kron(kron(eye(8),x),eye(4));
 
-s1 = x1; s2 = z2; s3 = y3; s4 = y4; s5 = z5;
+y5 = kron(kron(eye(16),y),eye(2));
 
 za = kron(eye(32),z);
 xa = kron(eye(32),x);
-r = 2/3;
 
-delta_array = [];
-ans_array = [];
+I_size = 64;
 
-
-for delta = 1:1e6:1e7
-   LHS = alpha*x1*z2*y3;
-   RHS = (delta*eye(64) - ((alpha/2)^(1/3))*(delta^(2-2*r))*s3)*((1*eye(64) - za)/2) ...
-       + ((alpha/2)^(1/3))*((delta^r)/(2^(1/2)))*(-s1 + s2)*xa ... 
-       + (1/2*delta)*(alpha/2)^(2/3)*((delta^r)*(-s2 + s1))^2 + (alpha/4)*delta^(-r)*(s1^2 + s2^2)*s3;
-   
-   delta_array = [delta_array, delta];
-   ans_array = [ans_array, abs(min(eig(LHS))-min(eig(RHS)))];
+for delta = 1:1e3:1e4
+    LHS = a*y1*z2*x3*x4*y5;
+    RHS = (delta*eye(I_size) - (delta^(2/3))*(a^(1/3))*y5)*((1*eye(I_size) - za)/2) ...
+        + ((delta^(2/3))*(a^(1/3))/sqrt(2))*(-y1*z2*x3 + x4)*xa ...
+        + ((delta^(1/3))*(a^(2/3))/2)*(-y1*z2*x3 + x4)^2 + (a/2)*((y1*z2*x3)^2 + (x4)^2)*y5;
+    
+    abs(min(eig(LHS))-min(eig(RHS)))
 end
-[delta_array ; ans_array];
+
+[VL, EL] = eig(LHS); [VR, ER] = eig(RHS);
+[DL, indL] = sort(diag(EL)); [DR, indR] = sort(diag(ER));
+VL = VL(:,indL); EL = EL(indL,indL); VR = VR(:,indR); ER = ER(indR,indR);
+VL = VL(:,1:4:end); EL = EL(:,1:4:end); VR = VR(:,1:4:end); ER = ER(:,1:4:end);
+
+for col = 1:1:size(VL,2)
+V_diff(col,1) = sqrt(dot((VL(:,col)-VR(:,col)),(VL(:,col)-VR(:,col))));
+E_diff(col,1) = sqrt(dot((EL(:,col)-ER(:,col)),(EL(:,col)-ER(:,col))));
+end
+
+min(V_diff); % 1.4142
 
 %% P1B1-CBBK Example
 x = [0 1 ; 1 0]; y = [0 -1i ; 1i 0]; z = [1 0 ; 0 -1];
