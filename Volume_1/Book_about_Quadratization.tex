@@ -5124,12 +5124,14 @@ For a sum of terms that are $k$-local, with each term $j$ written as a product $
 %For each term $j$ we introduce $R$ direct ancilla qubits, labelling them as $a_{d_{ij}}$ with $i=1,2,\cdots,R$.
 %Specifically, we accomplish the following transformation:
 
+{\small
 \begin{equation}
 %\begin{array}{ccl}
 %\displaystyle
-\hspace{-3mm} \sum_{j}a_j H_{1j} H_{2j} \! \rightarrow \!  \alpha \sum_{ij}\! \left(1-z_{a_{ij}} z_{a_i} + \alpha_{j}x_{a_{ij}} \! \left(H_{1j}  - H_{2j}\right) \! \right) + \alpha \sum_i\!\left(1-z_{a_i} + \sum_{j}\left(1-z_{a_i} z_{a_j}\right)\!\right)\!.  \!\!\\
+\hspace{-3mm} \sum_{j}a_j H_{1j} H_{2j} \! \rightarrow \!   \sum_{ij}\! \left( \alpha ( 1-z_{a_{ij}} z_{a_i} ) + \alpha_{j}x_{a_{ij}} \! \left(H_{1j}  - H_{2j}\right) \! \right) + \alpha \sum_i\!\left(1-z_{a_i} + \sum_{j}\left(1-z_{a_i} z_{a_j}\right)\!\right)\!  \!\!\\
 %\end{array}
 \end{equation}
+}
 
 If we would like the spectrum of the RHS to be close to that of the LHS, with a difference of $O(\epsilon)$, then for any $d\in(0,1)$ we can choose
 \begin{align}
@@ -5160,7 +5162,7 @@ More work is needed for finding tight non-asymptotic error bounds in perturbativ
 
 \refsec
 \begin{itemize}
-\item Original paper: \cite{Cao2015a}.
+\item Original paper (Eq. 13): \cite{Cao2015a}.
 \end{itemize}
 
 \newpage
