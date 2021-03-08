@@ -753,58 +753,61 @@ end
 
 min(V_diff); % 1.3401
 
-%% PSD-CN (Incomplete Example)
+%% PSD-CN: Example
 x = [0 1 ; 1 0]; y = [0 -1i ; 1i 0]; z = [1 0 ; 0 -1];
 
-a_1 = 2;
+a_1 = 3;
 
-x1 = kron(x,eye(512));
-y2 = kron(kron(eye(2),y),eye(256));
-z3 = kron(kron(eye(4),z),eye(128));
-y4 = kron(kron(eye(8),y),eye(64));
+x1 = kron(kron(eye(1),x),eye(1024));
+y2 = kron(kron(eye(2),y),eye(512));
+z3 = kron(kron(eye(4),z),eye(256));
+y4 = kron(kron(eye(8),y),eye(128));
 
-H_11 = x1*y2;
-H_21 = z3*y4;
+H_1j = x1*y2;
+H_2j = z3*y4;
 
-a_2 = 3;
-y1 = kron(y,eye(512));
-x2 = kron(kron(eye(2),x),eye(256));
-x3 = kron(kron(eye(4),x),eye(128));
-z4 = kron(kron(eye(8),z),eye(64));
+za_11 = kron(kron(eye(16),z),eye(64));
+za_12 = kron(kron(eye(32),z),eye(32));
+za_13 = kron(kron(eye(64),z),eye(16));
+za_14 = kron(kron(eye(128),z),eye(8));
 
-H_12 = y1*x2;
-H_22 = z3*y4;
+xa_11 = kron(kron(eye(16),x),eye(64));
+xa_12 = kron(kron(eye(32),x),eye(32));
+xa_13 = kron(kron(eye(64),x),eye(16));
+xa_14 = kron(kron(eye(128),x),eye(8));
 
-za_11 = kron(kron(eye(16),z),eye(32));
-za_12 = kron(kron(eye(32),z),eye(16));
-za_21 = kron(kron(eye(64),z),eye(8));
-za_22 = kron(kron(eye(128),z),eye(4));
+za_1 = kron(kron(eye(256),z),eye(4));
+za_2 = kron(kron(eye(512),z),eye(2));
+za_3 = kron(kron(eye(1024),z),eye(1));
 
-za_1 = kron(kron(eye(256),z),eye(2));
-za_2 = kron(kron(eye(512),z),eye(1));
+I_size = 2048;
 
-xa_11 = kron(kron(eye(16),x),eye(32));
-xa_12 = kron(kron(eye(32),x),eye(16));
-xa_21 = kron(kron(eye(64),x),eye(8));
-xa_22 = kron(kron(eye(128),x),eye(4));
+R = 4;
+C = 3;
 
-array = [];
-I_size = 1024;
-
-for delta = 1:10:100
-alpha = delta/2;
-alpha_1 = sqrt((a_1*delta*2)/(2*2));
-alpha_2 = sqrt((a_2*delta*2)/(2*2));
-
-LHS = a_1*H_11*H_21 + a_2*H_12*H_22;
-RHS = (alpha*(eye(I_size) - za_11*za_1) + alpha_1*xa_11*(H_11 - H_21)) ... % i = 1, j = 1
-    + (alpha*(eye(I_size) - za_12*za_2) + alpha_1*xa_12*(H_11 - H_21)) ... % i = 2, j = 1
-    + (alpha*(eye(I_size) - za_21*za_1) + alpha_2*xa_21*(H_12 - H_22)) ... % i = 1, j = 2
-    + (alpha*(eye(I_size) - za_22*za_2) + alpha_2*xa_22*(H_12 - H_22)) ... % i = 2, j = 2
-    + alpha*(eye(I_size) - za_1 + (1 - za_1*za_1) + (1 - za_1*za_2)) ...
-    + alpha*(eye(I_size) - za_2 + (1 - za_2*za_1) + (1 - za_2*za_2));
-array = [array , abs(min(eig(LHS))-min(eig(RHS)))];
+for delta = 1:1e5:1e6
+    beta = sqrt((a_1*delta)/(2*R));
+    J = delta/C;
+    
+    LHS = a_1*H_1j*H_2j;
+    RHS = (J/2)*( (eye(I_size) - za_11*za_1) + (eye(I_size) - za_12*za_1) + (eye(I_size) - za_13*za_1) + (eye(I_size) - za_14*za_1) + (eye(I_size) - za_11*za_2)  + (eye(I_size) - za_12*za_2) + (eye(I_size) - za_13*za_2) + (eye(I_size) - za_14*za_2) + (eye(I_size) - za_11*za_3)  + (eye(I_size) - za_12*za_3) + (eye(I_size) - za_13*za_3) + (eye(I_size) - za_14*za_3) ) ...
+        + (J/2)*( (eye(I_size) - za_1) + (eye(I_size) - za_2) + (eye(I_size) - za_3) ) + (J/2)*( (eye(I_size) - za_1*za_1) + (eye(I_size) - za_1*za_2) + (eye(I_size) - za_1*za_3) + (eye(I_size) - za_2*za_1) + (eye(I_size) - za_2*za_2) + (eye(I_size) - za_2*za_3) + (eye(I_size) - za_3*za_1) + (eye(I_size) - za_3*za_2) + (eye(I_size) - za_3*za_3) ) ...
+        + beta*( (H_1j - H_2j)*xa_11 + (H_1j - H_2j)*xa_12 + (H_1j - H_2j)*xa_13 + (H_1j - H_2j)*xa_14 ) + a_1*eye(I_size);
+    abs(min(eig(LHS))-min(eig(RHS)))
 end
+
+[VL, EL] = eig(LHS); [VR, ER] = eig(RHS);
+[DL, indL] = sort(diag(EL)); [DR, indR] = sort(diag(ER));
+VL = VL(:,indL); EL = EL(indL,indL); VR = VR(:,indR); ER = ER(indR,indR);
+VL = VL(:,1:4:end); EL = EL(:,1:4:end); VR = VR(:,1:4:end); ER = ER(:,1:4:end);
+
+for col = 1:1:size(VL,2)
+V_diff(col,1) = sqrt(dot((VL(:,col)-VR(:,col)),(VL(:,col)-VR(:,col))));
+E_diff(col,1) = sqrt(dot((EL(:,col)-ER(:,col)),(EL(:,col)-ER(:,col))));
+end
+
+min(V_diff); % 1.2864
+
 %% III.D 15-term, 5-variable, degree-4 function
 %% blue
 b=dec2bin(2^5-1:-1:0)-'0';
