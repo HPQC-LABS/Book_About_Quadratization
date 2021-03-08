@@ -787,11 +787,11 @@ C = 3;
 
 for delta = 1:1e5:1e6
     beta = sqrt((a_1*delta)/(2*R));
-    J = delta/C;
+    alpha = delta/(2*C);
     
     LHS = a_1*H_1j*H_2j;
-    RHS = (J/2)*( (eye(I_size) - za_11*za_1) + (eye(I_size) - za_12*za_1) + (eye(I_size) - za_13*za_1) + (eye(I_size) - za_14*za_1) + (eye(I_size) - za_11*za_2)  + (eye(I_size) - za_12*za_2) + (eye(I_size) - za_13*za_2) + (eye(I_size) - za_14*za_2) + (eye(I_size) - za_11*za_3)  + (eye(I_size) - za_12*za_3) + (eye(I_size) - za_13*za_3) + (eye(I_size) - za_14*za_3) ) ...
-        + (J/2)*( (eye(I_size) - za_1) + (eye(I_size) - za_2) + (eye(I_size) - za_3) ) + (J/2)*( (eye(I_size) - za_1*za_1) + (eye(I_size) - za_1*za_2) + (eye(I_size) - za_1*za_3) + (eye(I_size) - za_2*za_1) + (eye(I_size) - za_2*za_2) + (eye(I_size) - za_2*za_3) + (eye(I_size) - za_3*za_1) + (eye(I_size) - za_3*za_2) + (eye(I_size) - za_3*za_3) ) ...
+    RHS = alpha*( (eye(I_size) - za_11*za_1) + (eye(I_size) - za_12*za_1) + (eye(I_size) - za_13*za_1) + (eye(I_size) - za_14*za_1) + (eye(I_size) - za_11*za_2)  + (eye(I_size) - za_12*za_2) + (eye(I_size) - za_13*za_2) + (eye(I_size) - za_14*za_2) + (eye(I_size) - za_11*za_3)  + (eye(I_size) - za_12*za_3) + (eye(I_size) - za_13*za_3) + (eye(I_size) - za_14*za_3) ) ...
+        + alpha*( (eye(I_size) - za_1) + (eye(I_size) - za_2) + (eye(I_size) - za_3) ) + alpha*( (eye(I_size) - za_1*za_1) + (eye(I_size) - za_1*za_2) + (eye(I_size) - za_1*za_3) + (eye(I_size) - za_2*za_1) + (eye(I_size) - za_2*za_2) + (eye(I_size) - za_2*za_3) + (eye(I_size) - za_3*za_1) + (eye(I_size) - za_3*za_2) + (eye(I_size) - za_3*za_3) ) ...
         + beta*( (H_1j - H_2j)*xa_11 + (H_1j - H_2j)*xa_12 + (H_1j - H_2j)*xa_13 + (H_1j - H_2j)*xa_14 ) + a_1*eye(I_size);
     abs(min(eig(LHS))-min(eig(RHS)))
 end
