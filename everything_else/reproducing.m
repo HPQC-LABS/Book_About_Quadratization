@@ -758,41 +758,32 @@ x = [0 1 ; 1 0]; y = [0 -1i ; 1i 0]; z = [1 0 ; 0 -1];
 
 a_1 = 3;
 
-x1 = kron(kron(eye(1),x),eye(1024));
-y2 = kron(kron(eye(2),y),eye(512));
-z3 = kron(kron(eye(4),z),eye(256));
-y4 = kron(kron(eye(8),y),eye(128));
+x1 = kron(kron(eye(1),x),eye(32));
+y2 = kron(kron(eye(2),y),eye(16));
+z3 = kron(kron(eye(4),z),eye(8));
+y4 = kron(kron(eye(8),y),eye(4));
 
 H_1j = x1*y2;
 H_2j = z3*y4;
 
-za_11 = kron(kron(eye(16),z),eye(64));
-za_12 = kron(kron(eye(32),z),eye(32));
-za_13 = kron(kron(eye(64),z),eye(16));
-za_14 = kron(kron(eye(128),z),eye(8));
+za_11 = kron(kron(eye(16),z),eye(2));
+xa_11 = kron(kron(eye(16),x),eye(2));
 
-xa_11 = kron(kron(eye(16),x),eye(64));
-xa_12 = kron(kron(eye(32),x),eye(32));
-xa_13 = kron(kron(eye(64),x),eye(16));
-xa_14 = kron(kron(eye(128),x),eye(8));
+za_1 = kron(kron(eye(32),z),eye(1));
 
-za_1 = kron(kron(eye(256),z),eye(4));
-za_2 = kron(kron(eye(512),z),eye(2));
-za_3 = kron(kron(eye(1024),z),eye(1));
+I_size = 64;
 
-I_size = 2048;
-
-R = 4;
-C = 3;
+R = 1;
+C = 1;
 
 for delta = 1:1e5:1e6
     beta = sqrt((a_1*delta)/(2*R));
     alpha = delta/(2*C);
     
     LHS = a_1*H_1j*H_2j;
-    RHS = alpha*( (eye(I_size) - za_11*za_1) + (eye(I_size) - za_12*za_1) + (eye(I_size) - za_13*za_1) + (eye(I_size) - za_14*za_1) + (eye(I_size) - za_11*za_2)  + (eye(I_size) - za_12*za_2) + (eye(I_size) - za_13*za_2) + (eye(I_size) - za_14*za_2) + (eye(I_size) - za_11*za_3)  + (eye(I_size) - za_12*za_3) + (eye(I_size) - za_13*za_3) + (eye(I_size) - za_14*za_3) ) ...
-        + alpha*( (eye(I_size) - za_1) + (eye(I_size) - za_2) + (eye(I_size) - za_3) ) + alpha*( (eye(I_size) - za_1*za_1) + (eye(I_size) - za_1*za_2) + (eye(I_size) - za_1*za_3) + (eye(I_size) - za_2*za_1) + (eye(I_size) - za_2*za_2) + (eye(I_size) - za_2*za_3) + (eye(I_size) - za_3*za_1) + (eye(I_size) - za_3*za_2) + (eye(I_size) - za_3*za_3) ) ...
-        + beta*( (H_1j - H_2j)*xa_11 + (H_1j - H_2j)*xa_12 + (H_1j - H_2j)*xa_13 + (H_1j - H_2j)*xa_14 ) + a_1*eye(I_size);
+    RHS = alpha*( (eye(I_size) - za_11*za_1) ) ...
+        + alpha*( (eye(I_size) - za_1) ) + alpha*( (eye(I_size) - za_1*za_1) ) ...
+        + beta*( (H_1j - H_2j)*xa_11 ) + a_1*eye(I_size);
     abs(min(eig(LHS))-min(eig(RHS)))
 end
 
@@ -806,7 +797,7 @@ V_diff(col,1) = sqrt(dot((VL(:,col)-VR(:,col)),(VL(:,col)-VR(:,col))));
 E_diff(col,1) = sqrt(dot((EL(:,col)-ER(:,col)),(EL(:,col)-ER(:,col))));
 end
 
-min(V_diff); % 1.2864
+min(V_diff); % 1.4142
 
 %% III.D 15-term, 5-variable, degree-4 function
 %% blue

@@ -313,29 +313,20 @@ function [LHS, RHS] = lhs2rhs(coefficient,operators,Delta, name_of_quadratizatio
         assert(n >= 3, 'PSD-CN requires at least a 3-local term, please give at least 3 terms.')
         for ind = 1:n
             if operators(ind) == 'x'
-                S{ind} = kron(kron(eye(2^(ind-1)),x),eye(2^(n+7-ind)));
+                S{ind} = kron(kron(eye(2^(ind-1)),x),eye(2^(n+2-ind)));
             elseif operators(ind) == 'y'
-                S{ind} = kron(kron(eye(2^(ind-1)),y),eye(2^(n+7-ind)));
+                S{ind} = kron(kron(eye(2^(ind-1)),y),eye(2^(n+2-ind)));
             elseif operators(ind) == 'z'
-                S{ind} = kron(kron(eye(2^(ind-1)),z),eye(2^(n+7-ind)));
+                S{ind} = kron(kron(eye(2^(ind-1)),z),eye(2^(n+2-ind)));
             end
         end
         
-        za_11 = kron(kron(eye(2^(n+0)),z),eye(64));
-        za_12 = kron(kron(eye(2^(n+1)),z),eye(32));
-        za_13 = kron(kron(eye(2^(n+2)),z),eye(16));
-        za_14 = kron(kron(eye(2^(n+3)),z),eye(8));
+        za_11 = kron(kron(eye(2^(n+0)),z),eye(2));
+        xa_11 = kron(kron(eye(2^(n+0)),x),eye(2));
 
-        xa_11 = kron(kron(eye(2^(n+0)),x),eye(64));
-        xa_12 = kron(kron(eye(2^(n+1)),x),eye(32));
-        xa_13 = kron(kron(eye(2^(n+2)),x),eye(16));
-        xa_14 = kron(kron(eye(2^(n+3)),x),eye(8));
+        za_1 = kron(kron(eye(2^(n+1)),z),eye(1));
 
-        za_1 = kron(kron(eye(2^(n+4)),z),eye(4));
-        za_2 = kron(kron(eye(2^(n+5)),z),eye(2));
-        za_3 = kron(kron(eye(2^(n+6)),z),eye(1));
-        
-        I_size = 2^(n+7);
+        I_size = 2^(n+2);
         H_1j = eye(I_size); H_2j = eye(I_size);
         
         for k = 1:ceil(n/2)
@@ -346,13 +337,13 @@ function [LHS, RHS] = lhs2rhs(coefficient,operators,Delta, name_of_quadratizatio
             H_2j = H_2j*S{k};
         end
         
-        beta = sqrt((coefficient*Delta)/8);
-        alpha = Delta/6;
+        R = 1; C = 1;
+        beta = sqrt((coefficient*Delta)/(2*R)); alpha = Delta/(2*C);
         
         LHS = coefficient*H_1j*H_2j;
-        RHS = alpha*( (eye(I_size) - za_11*za_1) + (eye(I_size) - za_12*za_1) + (eye(I_size) - za_13*za_1) + (eye(I_size) - za_14*za_1) + (eye(I_size) - za_11*za_2)  + (eye(I_size) - za_12*za_2) + (eye(I_size) - za_13*za_2) + (eye(I_size) - za_14*za_2) + (eye(I_size) - za_11*za_3)  + (eye(I_size) - za_12*za_3) + (eye(I_size) - za_13*za_3) + (eye(I_size) - za_14*za_3) ) ...
-        + alpha*( (eye(I_size) - za_1) + (eye(I_size) - za_2) + (eye(I_size) - za_3) ) + alpha*( (eye(I_size) - za_1*za_1) + (eye(I_size) - za_1*za_2) + (eye(I_size) - za_1*za_3) + (eye(I_size) - za_2*za_1) + (eye(I_size) - za_2*za_2) + (eye(I_size) - za_2*za_3) + (eye(I_size) - za_3*za_1) + (eye(I_size) - za_3*za_2) + (eye(I_size) - za_3*za_3) ) ...
-        + beta*( (H_1j - H_2j)*xa_11 + (H_1j - H_2j)*xa_12 + (H_1j - H_2j)*xa_13 + (H_1j - H_2j)*xa_14 ) + coefficient*eye(I_size);
+        RHS = alpha*( (eye(I_size) - za_11*za_1) ) ...
+        + alpha*( (eye(I_size) - za_1) ) + alpha*( (eye(I_size) - za_1*za_1) ) ...
+        + beta*( (H_1j - H_2j)*xa_11 ) + coefficient*eye(I_size);
 
     else
         disp('cannot find this method');
