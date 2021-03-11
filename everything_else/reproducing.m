@@ -799,6 +799,53 @@ end
 
 min(V_diff); % 1.4142
 
+%% PD-CK (Example, not working as intended)
+x = [0 1 ; 1 0]; y = [0 -1i ; 1i 0]; z = [1 0 ; 0 -1];
+
+a_1 = 0.1;
+a_2 = 0.2;
+
+x1 = kron(kron(eye(1),x),eye(1024));
+x2 = kron(kron(eye(2),x),eye(512));
+x3 = kron(kron(eye(4),x),eye(256));
+y4 = kron(kron(eye(8),y),eye(128));
+z5 = kron(kron(eye(16),z),eye(64));
+
+za_11 = kron(kron(eye(32),z),eye(32));
+xa_11 = kron(kron(eye(32),x),eye(32));
+
+za_12 = kron(kron(eye(64),z),eye(16));
+xa_12 = kron(kron(eye(64),x),eye(16));
+
+za_13 = kron(kron(eye(128),z),eye(8));
+xa_13 = kron(kron(eye(128),x),eye(8));
+
+
+za_21 = kron(kron(eye(256),z),eye(4));
+xa_21 = kron(kron(eye(256),x),eye(4));
+
+za_22 = kron(kron(eye(512),z),eye(2));
+xa_22 = kron(kron(eye(512),x),eye(2));
+
+za_23 = kron(kron(eye(1024),z),eye(1));
+xa_23 = kron(kron(eye(1024),x),eye(1));
+
+I_size = 2048;
+
+array = [];
+
+for delta = 1:1e6:1e7
+    mu_1 = ((a_1/6)^(1/3))*(delta^(2/3));
+    mu_2 = ((a_2*(delta^2)/6)^(1/3));
+    
+    LHS = a_1*x1*x2*x3;
+    RHS = (delta/4)*(3*eye(I_size) - za_11*za_12 - za_12*za_13 - za_11*za_13) ...
+        + (delta/4)*(3*eye(I_size) - za_21*za_22 - za_22*za_23 - za_11*za_13) ...
+        + mu_1*(x1*xa_11 + x2*xa_12 + x3*xa_13);
+        + mu_2*(x2*xa_21 + y4*xa_22 + z5*xa_23);
+    array = [array, abs(min(eig(LHS))-min(eig(RHS)))];
+end
+
 %% III.D 15-term, 5-variable, degree-4 function
 %% blue
 b=dec2bin(2^5-1:-1:0)-'0';
