@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2021.1.27)  10 MAR 2021 17:19
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2021.1.27)  11 MAR 2021 10:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1415,13 +1415,7 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 4787.
 
-[68] [69] [70] [71] [72] [73] [74] [75]
-Overfull \hbox (20.56358pt too wide) in paragraph at lines 5567--5568
-[]\T1/ppl/m/n/12 (-20) Original pa-per (Eq. 4-5, Ex-am-ple on Eq. 44-45): https
-://arxiv.org/pdf/1709.02705.pdf 
- []
-
-[76]
+[68] [69] [70] [71] [72] [73] [74] [75] [76]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 5572.
@@ -1475,56 +1469,56 @@ Underfull \hbox (badness 1616) in paragraph at lines 120--125
 10.95 (+20) (2019)
  []
 
-[86] [87] [88] [89]
-Overfull \hbox (0.6339pt too wide) in paragraph at lines 917--923
+[86] [87] [88] [89] [90]
+Overfull \hbox (0.6339pt too wide) in paragraph at lines 926--932
 []\T1/ppl/m/n/10.95 (-20) M. Schöndorf and F. K. Wilhelm, ``Non-pairwise intera
 ctions induced by virtual transitions,''
  []
 
-[90]) [91] (./Book_about_Quadratization.aux) ) 
+) [91] (./Book_about_Quadratization.aux) ) 
 Here is how much of TeX's memory you used:
- 19950 strings out of 479304
- 324478 string characters out of 5871219
- 837545 words of memory out of 5000000
- 35796 multiletter control sequences out of 15000+600000
- 487485 words of font info for 458 fonts, out of 8000000 for 9000
+ 19957 strings out of 479304
+ 324559 string characters out of 5871219
+ 837617 words of memory out of 5000000
+ 35799 multiletter control sequences out of 15000+600000
+ 487644 words of font info for 460 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  126i,21n,130p,1304b,761s stack positions out of 5000i,500n,10000p,200000b,80000s
-{c:/texlive/2020/texmf-dist/fonts
-/enc/dvips/mnsymbol/MnSymbolD.enc}{c:/texlive/2020/texmf-dist/fonts/enc/dvips/m
-nsymbol/MnSymbolE.enc}{c:/texlive/2020/texmf-dist/fonts/enc/dvips/mnsymbol/MnSy
-mbolS.enc}{c:/texlive/2020/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolC.enc}{c
-:/texlive/2020/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolF.enc}{c:/texlive/20
-20/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolA.enc}{c:/texlive/2020/texmf-dis
-t/fonts/enc/dvips/base/8r.enc}<c:/texlive/2020/texmf-dist/fonts/type1/public/mn
-symbol/MnSymbol10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/mnsymbol/M
-nSymbol12.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/mnsymbol/MnSymbol5
-.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/mnsymbol/MnSymbol6.pfb><c:/
-texlive/2020/texmf-dist/fonts/type1/public/mnsymbol/MnSymbol7.pfb><c:/texlive/2
-020/texmf-dist/fonts/type1/public/mnsymbol/MnSymbol8.pfb><c:/texlive/2020/texmf
--dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2020/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2020/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmmi5.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmmi6.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mmi7.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><
-c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive
-/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2020/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2020/texmf-dist/font
-s/type1/public/amsfonts/cm/cmr6.pfb><c:/texlive/2020/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmr7.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmr8.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10
-.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb><c:/
-texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl8.pfb><c:/texlive/20
-20/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb><c:/texlive/2020/texmf-
-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2020/texmf-dist
-/fonts/type1/urw/palatino/uplb8a.pfb><c:/texlive/2020/texmf-dist/fonts/type1/ur
-w/palatino/uplbi8a.pfb><c:/texlive/2020/texmf-dist/fonts/type1/urw/palatino/upl
-r8a.pfb><c:/texlive/2020/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb><c:/tex
-live/2020/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on Book_about_Quadratization.pdf (91 pages, 617463 bytes).
+{c:/texlive/2020/texmf-dist/fonts/enc
+/dvips/mnsymbol/MnSymbolD.enc}{c:/texlive/2020/texmf-dist/fonts/enc/dvips/mnsym
+bol/MnSymbolE.enc}{c:/texlive/2020/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbol
+S.enc}{c:/texlive/2020/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolC.enc}{c:/te
+xlive/2020/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolF.enc}{c:/texlive/2020/t
+exmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolA.enc}{c:/texlive/2020/texmf-dist/fo
+nts/enc/dvips/base/8r.enc}<c:/texlive/2020/texmf-dist/fonts/type1/public/mnsymb
+ol/MnSymbol10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/mnsymbol/MnSym
+bol12.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/mnsymbol/MnSymbol5.pfb
+><c:/texlive/2020/texmf-dist/fonts/type1/public/mnsymbol/MnSymbol6.pfb><c:/texl
+ive/2020/texmf-dist/fonts/type1/public/mnsymbol/MnSymbol7.pfb><c:/texlive/2020/
+texmf-dist/fonts/type1/public/mnsymbol/MnSymbol8.pfb><c:/texlive/2020/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2020/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2020/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmmi5.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmmi6.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7
+.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/t
+exlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/202
+0/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2020/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2020/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmr6.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmr7.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmr8.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb
+><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb><c:/texl
+ive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl8.pfb><c:/texlive/2020/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb><c:/texlive/2020/texmf-dist
+/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2020/texmf-dist/fon
+ts/type1/urw/palatino/uplb8a.pfb><c:/texlive/2020/texmf-dist/fonts/type1/urw/pa
+latino/uplbi8a.pfb><c:/texlive/2020/texmf-dist/fonts/type1/urw/palatino/uplr8a.
+pfb><c:/texlive/2020/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb><c:/texlive
+/2020/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
+Output written on Book_about_Quadratization.pdf (91 pages, 617685 bytes).
 PDF statistics:
- 1897 PDF objects out of 2073 (max. 8388607)
- 1750 compressed objects within 18 object streams
- 532 named destinations out of 1000 (max. 500000)
+ 1902 PDF objects out of 2073 (max. 8388607)
+ 1755 compressed objects within 18 object streams
+ 533 named destinations out of 1000 (max. 500000)
  93057 words of extra memory for PDF output out of 106986 (max. 10000000)
 

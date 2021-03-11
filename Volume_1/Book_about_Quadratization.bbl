@@ -6,7 +6,7 @@
 %Control: page (1) range
 %Control: year (0) verbatim
 %Control: production of eprint (0) enabled
-\begin{thebibliography}{80}%
+\begin{thebibliography}{81}%
 \makeatletter
 \providecommand \@ifxundefined [1]{%
  \@ifx{#1\undefined}
@@ -470,6 +470,19 @@
   {http://www.maths.lth.se/vision/publdb/reports/pdf/kahl-strandmark-iccv-11.pdf}
   {\bibfield  {journal} {\bibinfo  {journal} {International Conference on
   Computer Vision}\ } (\bibinfo {year} {2011})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Cao}\ \emph {et~al.}(2015)\citenamefont {Cao},
+  \citenamefont {Babbush}, \citenamefont {Biamonte},\ and\ \citenamefont
+  {Kais}}]{Cao2015}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Yudong}\ \bibnamefont
+  {Cao}}, \bibinfo {author} {\bibfnamefont {Ryan}\ \bibnamefont {Babbush}},
+  \bibinfo {author} {\bibfnamefont {Jacob}\ \bibnamefont {Biamonte}}, \ and\
+  \bibinfo {author} {\bibfnamefont {Sabre}\ \bibnamefont {Kais}},\ }\bibfield
+  {title} {\enquote {\bibinfo {title} {{Hamiltonian gadgets with reduced
+  resource requirements}},}\ }\href {\doibase 10.1103/PhysRevA.91.012315}
+  {\bibfield  {journal} {\bibinfo  {journal} {Physical Review A}\ }\textbf
+  {\bibinfo {volume} {91}},\ \bibinfo {pages} {012315} (\bibinfo {year}
+  {2015})}\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Ocko}\ and\ \citenamefont
   {Yoshida}(2011)}]{Ocko2011}%
   \BibitemOpen
@@ -570,19 +583,6 @@
   10.1103/PhysRevLett.101.070503} {\bibfield  {journal} {\bibinfo  {journal}
   {Physical Review Letters}\ }\textbf {\bibinfo {volume} {101}},\ \bibinfo
   {pages} {070503} (\bibinfo {year} {2008})}\BibitemShut {NoStop}%
-\bibitem [{\citenamefont {Cao}\ \emph {et~al.}(2015)\citenamefont {Cao},
-  \citenamefont {Babbush}, \citenamefont {Biamonte},\ and\ \citenamefont
-  {Kais}}]{Cao2015}%
-  \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Yudong}\ \bibnamefont
-  {Cao}}, \bibinfo {author} {\bibfnamefont {Ryan}\ \bibnamefont {Babbush}},
-  \bibinfo {author} {\bibfnamefont {Jacob}\ \bibnamefont {Biamonte}}, \ and\
-  \bibinfo {author} {\bibfnamefont {Sabre}\ \bibnamefont {Kais}},\ }\bibfield
-  {title} {\enquote {\bibinfo {title} {{Hamiltonian gadgets with reduced
-  resource requirements}},}\ }\href {\doibase 10.1103/PhysRevA.91.012315}
-  {\bibfield  {journal} {\bibinfo  {journal} {Physical Review A}\ }\textbf
-  {\bibinfo {volume} {91}},\ \bibinfo {pages} {012315} (\bibinfo {year}
-  {2015})}\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Cao}\ and\ \citenamefont {Nagaj}(2015)}]{Cao2015a}%
   \BibitemOpen
   \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Yudong}\ \bibnamefont
@@ -614,6 +614,15 @@
   {\doibase 10.1088/1367-2630/13/5/053039} {\bibfield  {journal} {\bibinfo
   {journal} {New Journal of Physics}\ }\textbf {\bibinfo {volume} {13}},\
   \bibinfo {pages} {053039} (\bibinfo {year} {2011})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Yudong~Cao}(2017)}]{Cao2017}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Sabre~Kais}\
+  \bibnamefont {Yudong~Cao}},\ }\bibfield  {title} {\enquote {\bibinfo {title}
+  {Efficient optimization of perturbative gadgets},}\ }\href
+  {https://arxiv.org/abs/1709.02705} {\bibfield  {journal} {\bibinfo  {journal}
+  {Quantum Information and Computation}\ }\textbf {\bibinfo {volume} {17}}
+  (\bibinfo {year} {2017})},\ \Eprint {http://arxiv.org/abs/1709.02705}
+  {arXiv:1709.02705} \BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Biamonte}\ and\ \citenamefont
   {Love}(2008)}]{Biamonte2008}%
   \BibitemOpen
