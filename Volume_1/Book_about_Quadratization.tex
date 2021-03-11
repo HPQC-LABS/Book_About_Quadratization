@@ -5215,8 +5215,7 @@ More work is needed for finding tight non-asymptotic error bounds in perturbativ
 
 \examplesec
 \begin{align}
-3x_{1}y_{2}z_{3}y_{4} \rightarrow & \frac{\Delta}{6}\sum_{i = 1}^{3}\sum_{j = 1}^{4}(1 - z_{a_{1j}}z_{a_{i}}) + \frac{\Delta}{6}\sum_{i = 1}^{3}\left(1 - z_{a_{i}} + \sum_{k = 1}^{3}(1 - z_{a_{i}}z_{a_{k}})\right) \\
-& + \sqrt{\frac{3\Delta}{8}}\sum_{j = 1}^{4}((x_{1}y_{2} - z_{3}y_{4})x_{a_{1j}}) + 3
+3x_{1}y_{2}z_{3}y_{4} \rightarrow & \frac{\Delta}{2}(1 - z_{a_{11}}z_{a_{1}}) + \frac{\Delta}{2}(1 - z_{a_{1}} + 1 - z_{a_{1}}z_{a_{1}}) + \sqrt{\frac{3\Delta}{2}}(x_{1}y_{2} - z_{3}y_{4})x_{a_{11}} + 3
 \end{align}
 
 \refsec
@@ -5534,6 +5533,39 @@ H_{\textrm{2-local}} &= -\sum_{ij} \left( x_{8i+4,j}x_{8i+6,j} + x_{8i+3,j+1}x_{
 
 \newpage
 
+\subsection{PD-CK (Cao, Kais, 2016)}
+
+\summarysec
+
+ Given a sum of $m$ $k$-local terms, we can define $k$ auxiliary qubits for each $k$-local term and make the following transformation:
+\begin{align}
+\sum_{i = 1}^{m}a_{i}\prod_{j = 1}^{k}s_{ij} \rightarrow & \sum_{i}\sum_{1 \leq s < t \leq k}\frac{\Delta}{2(k-1)}(1 - z_{a_{is}}z_{a_{it}}) + \sum_{i}\sum_{j}\lambda_{ij}s_{ij}x_{ij}
+\end{align}
+
+ The result is 2-local and its low-lying spectrum will be the same as the $k$-local Hamiltonian when $\Delta$ is large enough.
+
+\costsec
+\begin{itemize}
+\item $k$ auxiliary qubits for each $k$-local term, for a total of $km$ auxiliary qubits.
+\item $\Delta = O(\epsilon^{-k})$
+\end{itemize}
+
+\prossec
+
+\conssec
+
+\examplesec
+{\scriptsize
+\begin{align}
+a_{1}x_{1}x_{2}x_{3} + a_{2}x_{2}y_{4}z_{5} \rightarrow & \frac{\Delta}{4}(3 - z_{a_{11}}z_{a_{12}} - z_{a_{12}}z_{a_{13}} - z_{a_{11}}z_{a_{13}}) + \frac{\Delta}{4}(3 - z_{a_{21}}z_{a_{22}} - z_{a_{22}}z_{a_{23}} - z_{a_{21}}z_{a_{23}}) \\
+& + \left(\frac{a_{1}}{6}\right)^{\nicefrac{1}{3}}\Delta^{\nicefrac{2}{3}}(x_{1}x_{a_{11}} + x_{2}x_{a_{12}} + x_{3}x_{a_{13}}) + \left(\frac{a_{2}}{6}\right)^{\nicefrac{1}{3}}\Delta^{\nicefrac{2}{3}}(y_{4}x_{a_{21}} + x_{2}x_{a_{22}} + z_{5}x_{a_{23}})
+\end{align}
+}
+
+\refsec
+\begin{itemize}
+\item Original paper (Eq. 4-5, Example on Eq. 44-45): https://arxiv.org/pdf/1709.02705.pdf
+\end{itemize}
 
 
 \newpage
@@ -5596,6 +5628,8 @@ In this implementation the variable $\frac{1}{2}(z_1+z_2)$ plays the role of $t$
 %encodes the desired computation.
 %
 \newpage
+
+
 \section{Further Examples}
 
 \examplesec \label{subsec:Example_Ramsey_deduc_reduc}
