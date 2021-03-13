@@ -799,6 +799,71 @@ end
 
 min(V_diff); % 1.4142
 
+%% P(3->2)-CBBK2 (Incomplete Example)
+x = [0 1 ; 1 0]; y = [0 -1i ; 1i 0]; z = [1 0 ; 0 -1];
+
+a_1 = 3;
+a_2 = 2;
+x1 = kron(x,eye(32));
+y1 = kron(y,eye(32));
+z1 = kron(z,eye(32));
+
+x2 = kron(kron(eye(2),x),eye(16));
+y2 = kron(kron(eye(2),y),eye(16));
+z2 = kron(kron(eye(2),z),eye(16));
+
+y3 = kron(kron(eye(4),y),eye(8));
+
+z4 = kron(kron(eye(8),z),eye(4));
+
+za1 = kron(kron(eye(16),z),eye(2));
+xa1 = kron(kron(eye(16),x),eye(2));
+
+za2 = kron(eye(32),z);
+xa2 = kron(eye(32),x);
+I_size = 64;
+
+s_11_12 = 0; s_12_12 = 0;
+if ( ~isequal(x1*y1 - y1*x1,0*eye(I_size)) && isequal(z2*x2 - x2*z2, 0*eye(I_size)) ) || ( isequal(x1*y1 - y1*x1,0*eye(I_size)) && ~isequal(z2*x2 - x2*z2, 0*eye(I_size)) )
+    s_11_12 = 1;
+else
+    s_11_12 = 0;
+end
+
+if ~isequal(x1*x2 - x2*x1, 0*eye(I_size)) || ~isequal(y1*z2 - z2*y1,0*eye(I_size))
+    s_12_12 = 1;
+else
+    s_12_12 = 0;
+end
+
+s_1_12 = s_11_12 + s_12_12;
+
+if ( ~isequal(x1*y1 - y1*x1,0*eye(I_size)) && ~isequal(z2*x2 - x2*z2, 0*eye(I_size)) )
+    s_2_12 = 1;
+else
+    s_2_12 = 0;
+end
+
+
+for delta = 1:1e2:1e3
+    LHS = a_1*x1*z2*y3 + a_2*y1*x2*z4 - z1*x2;
+    RHS = (delta*eye(I_size) + (( abs(a_1)/2 )^(1/3))*(delta^(1/2))*y3)*((eye(I_size) - za1)/2) ...
+        + ((abs(a_1)/2)^(1/3))*(delta^(3/4))*(sign(a_1)*x1 + z2) ...
+        + ((abs(a_1)/2)^(1/3))*(delta^(1/2))*(sign(a_1)*x1 + z2)^2 ...
+        + ((abs(a_1)/2)^(2/3))*(sign(a_1)^2 + 1)*y3 ...
+        - ((abs(a_1)/2)^(4/3))*(sign(a_1)*x1 + z2)^4 ...
+        + (delta*eye(I_size) + (( abs(a_2)/2 )^(1/3))*(delta^(1/2))*z4)*((eye(I_size) - za2)/2) ...
+        + ((abs(a_2)/2)^(1/3))*(delta^(3/4))*(sign(a_2)*y1 + x2) ...
+        + ((abs(a_2)/2)^(1/3))*(delta^(1/2))*(sign(a_2)*y1 + x2)^2 ...
+        + ((abs(a_2)/2)^(2/3))*(sign(a_2)^2 + 1)*z4 ...
+        - ((abs(a_2)/2)^(4/3))*(sign(a_2)*y1 + x2)^4 ...
+        - s_1_12*(sign(a_1)^2)*(sign(a_2)^2)*((1/2)^(4/3))*(abs(a_1)^(2/3))*(abs(a_2)^(2/3))*eye(I_size) ...
+        - s_2_12*( 2*(sign(a_1)^2)*(sign(a_2)^2)*((1/2)^(4/3))*(abs(a_1)^(2/3))*(abs(a_2)^(2/3)) ...
+        - 2*sign(a_1)*sign(a_2)*((abs(a_1)/2)^(2/3))*((abs(a_2)/2)^(2/3))*x1*y1*z2*x2 );
+    
+    abs(min(eig(LHS))-min(eig(RHS)))
+end
+
 %% PD-CK (Example, not working as intended)
 x = [0 1 ; 1 0]; y = [0 -1i ; 1i 0]; z = [1 0 ; 0 -1];
 
@@ -836,12 +901,12 @@ array = [];
 
 for delta = 1:1e6:1e7
     mu_1 = ((a_1/6)^(1/3))*(delta^(2/3));
-    mu_2 = ((a_2*(delta^2)/6)^(1/3));
+    mu_2 = ((a_2/6)^(1/3))*(delta^(2/3));
     
-    LHS = a_1*x1*x2*x3;
+    LHS = a_1*x1*x2*x3 + a_2*x2*y4*z5;
     RHS = (delta/4)*(3*eye(I_size) - za_11*za_12 - za_12*za_13 - za_11*za_13) ...
         + (delta/4)*(3*eye(I_size) - za_21*za_22 - za_22*za_23 - za_11*za_13) ...
-        + mu_1*(x1*xa_11 + x2*xa_12 + x3*xa_13);
+        + mu_1*(x1*xa_11 + x2*xa_12 + x3*xa_13) ...
         + mu_2*(x2*xa_21 + y4*xa_22 + z5*xa_23);
     array = [array, abs(min(eig(LHS))-min(eig(RHS)))];
 end
