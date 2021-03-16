@@ -926,7 +926,7 @@ end
 
 min(V_diff); % 1.3646
 
-%% PD-CK (Example, not working as intended)
+%% PD-CK: Example
 x = [0 1 ; 1 0]; y = [0 -1i ; 1i 0]; z = [1 0 ; 0 -1];
 
 a_1 = 0.1;
@@ -959,19 +959,29 @@ xa_23 = kron(kron(eye(1024),x),eye(1));
 
 I_size = 2048;
 
-array = [];
-
-for delta = 1:1e6:1e7
-    mu_1 = ((a_1/6)^(1/3))*(delta^(2/3));
-    mu_2 = ((a_2/6)^(1/3))*(delta^(2/3));
+for delta = 1:1e5:1e6
+    mu_1 = (a_1)^(1/3);
+    mu_2 = (a_2)^(1/3);
     
     LHS = a_1*x1*x2*x3 + a_2*x2*y4*z5;
     RHS = (delta/4)*(3*eye(I_size) - za_11*za_12 - za_12*za_13 - za_11*za_13) ...
         + (delta/4)*(3*eye(I_size) - za_21*za_22 - za_22*za_23 - za_11*za_13) ...
         + mu_1*(x1*xa_11 + x2*xa_12 + x3*xa_13) ...
-        + mu_2*(x2*xa_21 + y4*xa_22 + z5*xa_23);
-    array = [array, abs(min(eig(LHS))-min(eig(RHS)))];
+        + mu_2*(x2*xa_21 + y4*xa_22 + z5*xa_23) - (a_1 + a_2)*eye(I_size);
+    abs(min(eig(LHS))-min(eig(RHS)))
 end
+
+[VL, EL] = eig(LHS); [VR, ER] = eig(RHS);
+[DL, indL] = sort(diag(EL)); [DR, indR] = sort(diag(ER));
+VL = VL(:,indL); EL = EL(indL,indL); VR = VR(:,indR); ER = ER(indR,indR);
+VL = VL(:,1:4:end); EL = EL(:,1:4:end); VR = VR(:,1:4:end); ER = ER(:,1:4:end);
+
+for col = 1:1:size(VL,2)
+V_diff(col,1) = sqrt(dot((VL(:,col)-VR(:,col)),(VL(:,col)-VR(:,col))));
+E_diff(col,1) = sqrt(dot((EL(:,col)-ER(:,col)),(EL(:,col)-ER(:,col))));
+end
+
+min(V_diff); % 1.3669
 
 %% III.D 15-term, 5-variable, degree-4 function
 %% blue

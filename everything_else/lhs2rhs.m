@@ -1,6 +1,6 @@
 function [LHS, RHS] = lhs2rhs(coefficient,operators,Delta, name_of_quadratization)
-% test P(3->2)-DC1, P-(3->2)DC2, P-(3->2)KKR, P(3->2)-OT, P(3->2)-CBBK, ZZZ-TI-CBBK,
-% P1B1-OT, P1B1-CBBK, PSD-OT, PSD-CBBK, PSD-CN, and PD-JF
+% test P(3->2)-DC1, P-(3->2)DC2, P-(3->2)KKR, P(3->2)-OT, P(3->2)-CBBK, P(3->2)-CBBK2, ZZZ-TI-CBBK,
+% P1B1-OT, P1B1-CBBK, PSD-OT, PSD-CBBK, PSD-CN, PD-JF, and PD-CK
 % operators shold be in the form of 'xyz'
 %
 % e.g.    [LHS, RHS] = lhs2rhs(-1,'xyz',1e10,'P(3->2)-DC2')
@@ -391,6 +391,73 @@ function [LHS, RHS] = lhs2rhs(coefficient,operators,Delta, name_of_quadratizatio
             LHS = LHS*S{k};
         end
         RHS = (1/2)*Z_total + (1/Delta)*(X_total) - coefficient*eye(I_size);
+        
+    elseif strcmp(name_of_quadratization, 'P(3->2)-CBBK2') || strcmp(name_of_quadratization, 'P(3->2)CBBK2')
+        assert(n == 3, 'P(3->2)-CBBK2 requires a 3-local term, please only give 3 operators.');
+        for ind = 1:n
+            if operators(ind) == 'x'
+                S{ind} = kron(kron(eye(2^(ind-1)),x),eye(2^(n+1-ind)));
+            elseif operators(ind) == 'y'
+                S{ind} = kron(kron(eye(2^(ind-1)),y),eye(2^(n+1-ind)));
+            elseif operators(ind) == 'z'
+                S{ind} = kron(kron(eye(2^(ind-1)),z),eye(2^(n+1-ind)));
+            end
+        end
+
+        za = kron(eye(8),z);
+        xa = kron(eye(8),x);
+        I_size = 16;
+        
+        LHS = coefficient*S{1}*S{2}*S{3};
+        RHS = (Delta*eye(I_size) + (( abs(coefficient)/2 )^(1/3))*(Delta^(1/2))*S{3})*((eye(I_size) - za)/2) ...
+        + ((abs(coefficient)/2)^(1/3))*(Delta^(3/4))*(sign(coefficient)*S{1} + S{2})*xa ...
+        + ((abs(coefficient)/2)^(2/3))*(Delta^(1/2))*(sign(coefficient)*S{1} + S{2})^2 ...
+        - (abs(coefficient)/2)*(sign(coefficient)^2 + 1)*S{3} ...
+        - ((abs(coefficient)/2)^(4/3))*(sign(coefficient)*S{1} + S{2})^4;
+    
+    elseif strcmp(name_of_quadratization, 'PD-CK')
+        assert(n >= 3, 'PD-CK requires at least a 3-local term, please give at least 3 terms.');
+        for ind = 1:n
+            if operators(ind) == 'x'
+                S{ind} = kron(kron(eye(2^(ind-1)),x),eye(2^(2*n-ind)));
+            elseif operators(ind) == 'y'
+                S{ind} = kron(kron(eye(2^(ind-1)),y),eye(2^(2*n-ind)));
+            elseif operators(ind) == 'z'
+                S{ind} = kron(kron(eye(2^(ind-1)),z),eye(2^(2*n-ind)));
+            end
+        end
+        
+        for ind = 1:n
+            ZA{ind} = kron(kron(eye(2^(n-1+ind)),z),eye(2^(n-ind)));
+            XA{ind} = kron(kron(eye(2^(n-1+ind)),x),eye(2^(n-ind)));
+        end
+        I_size = 2^(2*n);
+        index = 0;
+        for j = 2:n
+            for i = 1:j - 1
+                index = index + 1;
+                Zcouple{index} = ZA{i}*ZA{j};
+            end
+        end
+        
+        for ind = 1:n
+            Xcouple{ind} = S{ind}*XA{ind};
+        end
+        
+        Z_total = index*eye(I_size); X_total = 0*eye(I_size);
+        for k = 1:index
+            Z_total = Z_total - Zcouple{k};
+        end
+        
+        for k = 1:n
+            X_total = X_total + Xcouple{k};
+        end
+        
+        LHS = coefficient*eye(I_size);
+        for k = 1:n
+            LHS = LHS*S{k};
+        end
+        RHS = (Delta/(2*(n - 1)))*(Z_total) + (coefficient^(1/n))*(X_total) - coefficient*(I_size);
 
     else
         disp('cannot find this method');
