@@ -803,7 +803,7 @@ min(V_diff); % 1.4142
 x = [0 1 ; 1 0]; y = [0 -1i ; 1i 0]; z = [1 0 ; 0 -1];
 
 a_1 = 3;
-a_2 = 2;
+a_2 = 5;
 x1 = kron(x,eye(32));
 y1 = kron(y,eye(32));
 z1 = kron(z,eye(32));
@@ -845,7 +845,7 @@ else
 end
 
 
-for delta = 1:1e5:1e6
+for delta = 1:1e6:1e7
     LHS = a_1*x1*z2*y3 + a_2*y1*x2*z4 - z1*x2;
     RHS = (delta*eye(I_size) + (( abs(a_1)/2 )^(1/3))*(delta^(1/2))*y3)*((eye(I_size) - za1)/2) ...
         + ((abs(a_1)/2)^(1/3))*(delta^(3/4))*(sign(a_1)*x1 + z2)*xa1 ...
@@ -859,7 +859,7 @@ for delta = 1:1e5:1e6
         - ((abs(a_2)/2)^(4/3))*(sign(a_2)*y1 + x2)^4 ...
         - s_1_12*(sign(a_1)^2)*(sign(a_2)^2)*((1/2)^(4/3))*(abs(a_1)^(2/3))*(abs(a_2)^(2/3))*eye(I_size) ...
         - s_2_12*( 2*(sign(a_1)^2)*(sign(a_2)^2)*((1/2)^(4/3))*(abs(a_1)^(2/3))*(abs(a_2)^(2/3))*eye(I_size) ...
-        - 2*sign(a_1)*sign(a_2)*((abs(a_1)/2)^(2/3))*((abs(a_2)/2)^(2/3))*x1*y1*z2*x2 );
+        - 2*sign(a_1)*sign(a_2)*((abs(a_1)/2)^(2/3))*((abs(a_2)/2)^(2/3))*x1*y1*z2*x2 ) - z1*x2;
     
     abs(min(eig(LHS))-min(eig(RHS)))
 end
@@ -874,7 +874,7 @@ V_diff(col,1) = sqrt(dot((VL(:,col)-VR(:,col)),(VL(:,col)-VR(:,col))));
 E_diff(col,1) = sqrt(dot((EL(:,col)-ER(:,col)),(EL(:,col)-ER(:,col))));
 end
 
-min(V_diff); % 1.2478
+min(V_diff); % 1.3748
 
 %% PD-CK (Example, not working as intended)
 x = [0 1 ; 1 0]; y = [0 -1i ; 1i 0]; z = [1 0 ; 0 -1];
