@@ -1,27 +1,23 @@
-function [LHS, RHS] = lhs2rhs(coefficient,operators,Delta, name_of_quadratization)
-% test P(3->2)-DC1, P-(3->2)DC2, P-(3->2)KKR, P(3->2)-OT, P(3->2)-CBBK, P(3->2)-CBBK2, ZZZ-TI-CBBK,
+function [LHS, RHS] = lhs2rhs(coefficient,S,Delta, name_of_quadratization)
+% test P(3->2)-DC1, P-(3->2)DC2, P-(3->2)KKR, P(3->2)-OT, P(3->2)-CBBK, P(3->2)CBBK2, ZZZ-TI-CBBK,
 % P1B1-OT, P1B1-CBBK, PSD-OT, PSD-CBBK, PSD-CN, PD-JF, and PD-CK
-% operators shold be in the form of 'xyz'
+% S needs to be defined before using this function
+% S should be a cell array in which S{1} is a matrix of an operator
 %
-% e.g.    [LHS, RHS] = lhs2rhs(-1,'xyz',1e10,'P(3->2)-DC2')
-%         refers to quadratize -x1*y2*z3 using P(3->2)-DC2 with Delta = 1e10
+% e.g.    S = [S1; S2; S3];
+%         [LHS, RHS] = lhs2rhs(-1,S,1e10,'P(3->2)-DC2')
+%         refers to quadratize -S1*S2*S3 using P(3->2)-DC2 with Delta = 1e10
 
-    n = length(operators);
-    S = cell(n);
+
+    S = cat(3,S{:});    % concatenates S{1} S{2} ... S{n} along dimension 3, for which S{n} is a matrix of an operator, and S(:,:,1) is equal to S{1}
+    n = size(S,3);      % number of operators
     x = [0 1 ; 1 0]; y = [0 -1i ; 1i 0]; z = [1 0 ; 0 -1];
 
     if strcmp(name_of_quadratization, 'P(3->2)-DC2') || strcmp(name_of_quadratization, 'P(3->2)DC2')
         assert(n == 3, 'P(3->2)-DC2 requires a 3-local term, please only give 3 operators.');
-        for ind = 1:n
-            if operators(ind) == 'x'
-                S{ind} = kron(kron(eye(2^(ind-1)),x),eye(2^(n+1-ind)));
-            elseif operators(ind) == 'y'
-                S{ind} = kron(kron(eye(2^(ind-1)),y),eye(2^(n+1-ind)));
-            elseif operators(ind) == 'z'
-                S{ind} = kron(kron(eye(2^(ind-1)),z),eye(2^(n+1-ind)));
-            end
-        end
-        xa = kron(eye(8),x); za = kron(eye(8),z);
+
+ %      testing calculate s1s2s3 outside of the function to improve the code
+        xa = kron(eye(8),x); za = kron(eye(8),z);   % it might need further improved
 
         alpha = (1/2)*Delta;
         alpha_s = coefficient*((1/4)*(Delta^(2/3)) - 1);
@@ -30,8 +26,9 @@ function [LHS, RHS] = lhs2rhs(coefficient,operators,Delta, name_of_quadratizatio
         alpha_sz = coefficient*(1/4)*(Delta^(2/3));
         alpha_sx = Delta^(2/3);
 
-        LHS = coefficient*S{1}*S{2}*S{3};
-        RHS = alpha*eye(16) + alpha_s*S{3} + alpha_z*za + alpha_ss*((S{1} + S{2})^2) + alpha_sx*(S{1}*xa + S{2}*xa) + alpha_sz*za*S{3};
+        LHS = coefficient*S(:,:,1)*S(:,:,2)*S(:,:,3);
+        RHS = alpha*eye(16) + alpha_s*S(:,:,3) + alpha_sx*xa*(S(:,:,1) + S(:,:,2)) + alpha_sz*za*S(:,:,3) + alpha_z*za + 2*alpha_ss*(eye(16) + S(:,:,1)*S(:,:,2));   % we only use x,y,z here, for which S^2 = I
+        % original RHS = alpha*eye(16) + alpha_s*S(:,:,3) + alpha_sx*xa*S(:,:,1) + alpha_sx*xa*S(:,:,2) + alpha_sz*za*S(:,:,3) + alpha_z*za + alpha_ss*((S(:,:,1) + S(:,:,2))^2);
 
     elseif strcmp(name_of_quadratization, 'P(3->2)-KKR') || strcmp(name_of_quadratization, 'P(3->2)KKR')
         assert(n == 3, 'P(3->2)-KKR requires a 3-local term, please only give 3 operators.');
@@ -308,7 +305,7 @@ function [LHS, RHS] = lhs2rhs(coefficient,operators,Delta, name_of_quadratizatio
         RHS = (Delta*eye(I_size) - (Delta^(2/3))*(coefficient^(1/3))*S{n})*((1*eye(I_size) - za)/2) ...
         + ((Delta^(2/3))*(coefficient^(1/3))/sqrt(2))*(-prod_A + S{n-1})*xa ...
         + ((Delta^(1/3))*(coefficient^(2/3))/2)*(-prod_A + S{n-1})^2 + (coefficient/2)*((prod_A)^2 + (S{n-1})^2)*S{n};
-    
+
     elseif strcmp(name_of_quadratization, 'PSD-CN')
         assert(n >= 3, 'PSD-CN requires at least a 3-local term, please give at least 3 terms.');
         for ind = 1:n
@@ -320,7 +317,7 @@ function [LHS, RHS] = lhs2rhs(coefficient,operators,Delta, name_of_quadratizatio
                 S{ind} = kron(kron(eye(2^(ind-1)),z),eye(2^(n+2-ind)));
             end
         end
-        
+
         za_11 = kron(kron(eye(2^(n+0)),z),eye(2));
         xa_11 = kron(kron(eye(2^(n+0)),x),eye(2));
 
@@ -328,23 +325,23 @@ function [LHS, RHS] = lhs2rhs(coefficient,operators,Delta, name_of_quadratizatio
 
         I_size = 2^(n+2);
         H_1j = eye(I_size); H_2j = eye(I_size);
-        
+
         for k = 1:ceil(n/2)
            H_1j = H_1j*S{k};
         end
-        
+
         for k = ceil(n/2)+1:n
             H_2j = H_2j*S{k};
         end
-        
+
         R = 1; C = 1;
         beta = sqrt((coefficient*Delta)/(2*R)); alpha = Delta/(2*C);
-        
+
         LHS = coefficient*H_1j*H_2j;
         RHS = alpha*( (eye(I_size) - za_11*za_1) ) ...
         + alpha*( (eye(I_size) - za_1) ) + alpha*( (eye(I_size) - za_1*za_1) ) ...
         + beta*( (H_1j - H_2j)*xa_11 ) + coefficient*eye(I_size);
-    
+
     elseif strcmp(name_of_quadratization, 'PD-JF')
         assert(n >= 3, 'PD-JF requires at least a 3-local term, please give at least 3 terms.');
         for ind = 1:n
@@ -356,13 +353,13 @@ function [LHS, RHS] = lhs2rhs(coefficient,operators,Delta, name_of_quadratizatio
                 S{ind} = kron(kron(eye(2^(ind-1)),z),eye(2^(2*n-ind)));
             end
         end
-        
+
         for ind = 1:n
             ZA{ind} = kron(kron(eye(2^(n-1+ind)),z),eye(2^(n-ind)));
             XA{ind} = kron(kron(eye(2^(n-1+ind)),x),eye(2^(n-ind)));
         end
         I_size = 2^(2*n);
-        
+
         index = 0;
         for j = 2:n
             for i = 1:j - 1
@@ -370,28 +367,28 @@ function [LHS, RHS] = lhs2rhs(coefficient,operators,Delta, name_of_quadratizatio
                 Zcouple{index} = ZA{i}*ZA{j};
             end
         end
-        
-        
+
+
         for ind = 1:n
             Xcouple{ind} = S{ind}*XA{ind};
         end
         Xcouple{1} = Xcouple{1}*coefficient;
-        
+
         Z_total = index*eye(I_size); X_total = 0*eye(I_size);
         for k = 1:index
             Z_total = Z_total - Zcouple{k};
         end
-        
+
         for k = 1:n
             X_total = X_total + Xcouple{k};
         end
-        
+
         LHS = coefficient*eye(I_size);
         for k = 1:n
             LHS = LHS*S{k};
         end
         RHS = (1/2)*Z_total + (1/Delta)*(X_total) - coefficient*eye(I_size);
-        
+
     elseif strcmp(name_of_quadratization, 'P(3->2)-CBBK2') || strcmp(name_of_quadratization, 'P(3->2)CBBK2')
         assert(n == 3, 'P(3->2)-CBBK2 requires a 3-local term, please only give 3 operators.');
         for ind = 1:n
@@ -407,14 +404,14 @@ function [LHS, RHS] = lhs2rhs(coefficient,operators,Delta, name_of_quadratizatio
         za = kron(eye(8),z);
         xa = kron(eye(8),x);
         I_size = 16;
-        
+
         LHS = coefficient*S{1}*S{2}*S{3};
         RHS = (Delta*eye(I_size) + (( abs(coefficient)/2 )^(1/3))*(Delta^(1/2))*S{3})*((eye(I_size) - za)/2) ...
         + ((abs(coefficient)/2)^(1/3))*(Delta^(3/4))*(sign(coefficient)*S{1} + S{2})*xa ...
         + ((abs(coefficient)/2)^(2/3))*(Delta^(1/2))*(sign(coefficient)*S{1} + S{2})^2 ...
         - (abs(coefficient)/2)*(sign(coefficient)^2 + 1)*S{3} ...
         - ((abs(coefficient)/2)^(4/3))*(sign(coefficient)*S{1} + S{2})^4;
-    
+
     elseif strcmp(name_of_quadratization, 'PD-CK')
         assert(n >= 3, 'PD-CK requires at least a 3-local term, please give at least 3 terms.');
         for ind = 1:n
@@ -426,7 +423,7 @@ function [LHS, RHS] = lhs2rhs(coefficient,operators,Delta, name_of_quadratizatio
                 S{ind} = kron(kron(eye(2^(ind-1)),z),eye(2^(2*n-ind)));
             end
         end
-        
+
         for ind = 1:n
             ZA{ind} = kron(kron(eye(2^(n-1+ind)),z),eye(2^(n-ind)));
             XA{ind} = kron(kron(eye(2^(n-1+ind)),x),eye(2^(n-ind)));
@@ -439,20 +436,20 @@ function [LHS, RHS] = lhs2rhs(coefficient,operators,Delta, name_of_quadratizatio
                 Zcouple{index} = ZA{i}*ZA{j};
             end
         end
-        
+
         for ind = 1:n
             Xcouple{ind} = S{ind}*XA{ind};
         end
-        
+
         Z_total = index*eye(I_size); X_total = 0*eye(I_size);
         for k = 1:index
             Z_total = Z_total - Zcouple{k};
         end
-        
+
         for k = 1:n
             X_total = X_total + Xcouple{k};
         end
-        
+
         LHS = coefficient*eye(I_size);
         for k = 1:n
             LHS = LHS*S{k};
