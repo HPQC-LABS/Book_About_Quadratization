@@ -5453,13 +5453,18 @@ Here we do not reduce $k$ by one order at a time (1B1 reduction) or by $\nicefra
 Express a sum of $k$-local terms as a sum of products of Pauli matrices $s_{ij}$, and define $k$ auxiliary qubits laelled by $a_{ij}$ for each term $i$, and make the transformmation:
 
 \begin{equation}
-\sum_i \alpha_i \prod_{j}^k s_{ij} \rightarrow \frac{-k(-\epsilon)^k}{(k-1)!} \sum_i \frac{1}{2}\left( k^2 - \sum_{jl}^k  z_{a_{ij}} z_{a_{il}} \right) + \epsilon \left( \alpha_i s_{i1}x_{i1} +  \sum_{j}^k s_{ij}x_{ij} \right) -f(\epsilon)\Pi,
+\sum_i \alpha_i \prod_{j}^k s_{ij} \rightarrow \frac{1}{2} \sum_{i} \sum_{1 \leq j < l \leq k} \left( 1 - z_{a_{ij}} z_{a_{il}} \right) + \epsilon \sum_{i} \left( \alpha_i s_{i1}x_{i1} +  \sum_{j = 2}^k s_{ij}x_{ij} \right) - \sum_{i}\alpha_{i},
 \end{equation}
 
 % there is some P_+ operator in JF's Eq. 14
 % Above Eq. 8 of JF, tthere's an H_+ which we might need to care about. i.e project the whole of the baove equation onto one subspeace.
 
-\noindent for some polynomial $f(\lambda)$. The result is a 2-local Hamiltonian with the same low-lying spectrum to within $\epsilon^{k+1}$ for sufficiently smmall $\epsilon$.
+\noindent The result is a 2-local Hamiltonian with the same low-lying spectrum to within $\epsilon^{k+1}$ for sufficiently small $\epsilon$.
+
+\notessec
+\begin{itemize}
+\item $ - \sum_{i}\alpha_{i}$ term not in original paper.
+\end{itemize}
 
 \costsec
 \begin{itemize}
@@ -5480,10 +5485,14 @@ Express a sum of $k$-local terms as a sum of products of Pauli matrices $s_{ij}$
 \end{itemize}
 
 \examplesec
+\begin{align}
+3x_{1}y_{2}z_{3} + 5y_{1}z_{2}y_{4} \rightarrow & \frac{1}{2}(6 - z_{a_{11}}z_{a_{12}} - z_{a_{11}}z_{a_{13}} - z_{a_{12}}z_{a_{13}} - z_{a_{21}}z_{a_{22}} - z_{a_{21}}z_{a_{23}} - z_{a_{22}}z_{a_{23}}) \\
+& + \epsilon (3x_{1}x_{a_{11}} + y_{2}x_{a_{12}} + z_{3}x_{a_{13}} + 5y_{1}x_{a_{21}} + z_{2}x_{a_{22}} + y_{4}x_{a_{23}}) - 8
+\end{align}
 
 \refsec
 \begin{itemize}
-\item Original paper \cite{Jordan2008}.
+\item Original paper (Eq. 4-6): \cite{Jordan2008}.
 \end{itemize}
 
 \newpage
