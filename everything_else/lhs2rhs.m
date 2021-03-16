@@ -1,6 +1,6 @@
 function [LHS, RHS] = lhs2rhs(coefficient,operators,Delta, name_of_quadratization)
 % test P(3->2)-DC1, P-(3->2)DC2, P-(3->2)KKR, P(3->2)-OT, P(3->2)-CBBK, ZZZ-TI-CBBK,
-% P1B1-OT, P1B1-CBBK, PSD-OT, PSD-CBBK, and PSD-CN
+% P1B1-OT, P1B1-CBBK, PSD-OT, PSD-CBBK, PSD-CN, and PD-JF
 % operators shold be in the form of 'xyz'
 %
 % e.g.    [LHS, RHS] = lhs2rhs(-1,'xyz',1e10,'P(3->2)-DC2')
@@ -310,7 +310,7 @@ function [LHS, RHS] = lhs2rhs(coefficient,operators,Delta, name_of_quadratizatio
         + ((Delta^(1/3))*(coefficient^(2/3))/2)*(-prod_A + S{n-1})^2 + (coefficient/2)*((prod_A)^2 + (S{n-1})^2)*S{n};
     
     elseif strcmp(name_of_quadratization, 'PSD-CN')
-        assert(n >= 3, 'PSD-CN requires at least a 3-local term, please give at least 3 terms.')
+        assert(n >= 3, 'PSD-CN requires at least a 3-local term, please give at least 3 terms.');
         for ind = 1:n
             if operators(ind) == 'x'
                 S{ind} = kron(kron(eye(2^(ind-1)),x),eye(2^(n+2-ind)));
@@ -344,6 +344,53 @@ function [LHS, RHS] = lhs2rhs(coefficient,operators,Delta, name_of_quadratizatio
         RHS = alpha*( (eye(I_size) - za_11*za_1) ) ...
         + alpha*( (eye(I_size) - za_1) ) + alpha*( (eye(I_size) - za_1*za_1) ) ...
         + beta*( (H_1j - H_2j)*xa_11 ) + coefficient*eye(I_size);
+    
+    elseif strcmp(name_of_quadratization, 'PD-JF')
+        assert(n >= 3, 'PD-JF requires at least a 3-local term, please give at least 3 terms.');
+        for ind = 1:n
+            if operators(ind) == 'x'
+                S{ind} = kron(kron(eye(2^(ind-1)),x),eye(2^(2*n-ind)));
+            elseif operators(ind) == 'y'
+                S{ind} = kron(kron(eye(2^(ind-1)),y),eye(2^(2*n-ind)));
+            elseif operators(ind) == 'z'
+                S{ind} = kron(kron(eye(2^(ind-1)),z),eye(2^(2*n-ind)));
+            end
+        end
+        
+        for ind = 1:n
+            ZA{ind} = kron(kron(eye(2^(n-1+ind)),z),eye(2^(n-ind)));
+            XA{ind} = kron(kron(eye(2^(n-1+ind)),x),eye(2^(n-ind)));
+        end
+        I_size = 2^(2*n);
+        
+        index = 0;
+        for j = 2:n
+            for i = 1:j - 1
+                index = index + 1;
+                Zcouple{index} = ZA{i}*ZA{j};
+            end
+        end
+        
+        
+        for ind = 1:n
+            Xcouple{ind} = S{ind}*XA{ind};
+        end
+        Xcouple{1} = Xcouple{1}*coefficient;
+        
+        Z_total = index*eye(I_size); X_total = 0*eye(I_size);
+        for k = 1:index
+            Z_total = Z_total - Zcouple{k};
+        end
+        
+        for k = 1:n
+            X_total = X_total + Xcouple{k};
+        end
+        
+        LHS = coefficient*eye(I_size);
+        for k = 1:n
+            LHS = LHS*S{k};
+        end
+        RHS = (1/2)*Z_total + (1/Delta)*(X_total) - coefficient*eye(I_size);
 
     else
         disp('cannot find this method');

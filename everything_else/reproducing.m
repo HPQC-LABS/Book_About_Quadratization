@@ -876,6 +876,56 @@ end
 
 min(V_diff); % 1.3748
 
+%% PD-JF: Example
+x = [0 1 ; 1 0]; y = [0 -1i ; 1i 0]; z = [1 0 ; 0 -1];
+
+a1 = 3;
+x1 = kron(kron(eye(1),x),eye(512));
+y2 = kron(kron(eye(2),y),eye(256));
+z3 = kron(kron(eye(4),z),eye(128));
+
+a2 = 5;
+y1 = kron(kron(eye(1),y),eye(512));
+z2 = kron(kron(eye(2),z),eye(256));
+y4 = kron(kron(eye(8),y),eye(64));
+
+za11 = kron(kron(eye(16),z),eye(32));
+za12 = kron(kron(eye(32),z),eye(16));
+za13 = kron(kron(eye(64),z),eye(8));
+
+xa11 = kron(kron(eye(16),x),eye(32));
+xa12 = kron(kron(eye(32),x),eye(16));
+xa13 = kron(kron(eye(64),x),eye(8));
+
+za21 = kron(kron(eye(128),z),eye(4));
+za22 = kron(kron(eye(256),z),eye(2));
+za23 = kron(kron(eye(512),z),eye(1));
+
+xa21 = kron(kron(eye(128),x),eye(4));
+xa22 = kron(kron(eye(256),x),eye(2));
+xa23 = kron(kron(eye(512),z),eye(1));
+
+I_size = 1024;
+
+for delta = 1:1e7:1e8
+    LHS = a1*x1*y2*z3 + a2*y1*z2*y4;
+    RHS = (1/2)*(6*eye(I_size) - za11*za12 - za11*za13 - za12*za13 - za21*za22 - za21*za23 - za22*za23) ...
+        + (1/delta)*(a1*x1*xa11 + y2*xa12 + z3*xa13 + a2*y1*xa21 + z2*xa22 + y4*xa23) - (a1 + a2)*eye(I_size);
+    abs(min(eig(LHS))-min(eig(RHS)))
+end
+
+[VL, EL] = eig(LHS); [VR, ER] = eig(RHS);
+[DL, indL] = sort(diag(EL)); [DR, indR] = sort(diag(ER));
+VL = VL(:,indL); EL = EL(indL,indL); VR = VR(:,indR); ER = ER(indR,indR);
+VL = VL(:,1:4:end); EL = EL(:,1:4:end); VR = VR(:,1:4:end); ER = ER(:,1:4:end);
+
+for col = 1:1:size(VL,2)
+V_diff(col,1) = sqrt(dot((VL(:,col)-VR(:,col)),(VL(:,col)-VR(:,col))));
+E_diff(col,1) = sqrt(dot((EL(:,col)-ER(:,col)),(EL(:,col)-ER(:,col))));
+end
+
+min(V_diff); % 1.3646
+
 %% PD-CK (Example, not working as intended)
 x = [0 1 ; 1 0]; y = [0 -1i ; 1i 0]; z = [1 0 ; 0 -1];
 
