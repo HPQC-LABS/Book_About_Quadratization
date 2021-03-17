@@ -1,23 +1,20 @@
-function [LHS, RHS] = lhs2rhs(coefficient,S,Delta, name_of_quadratization)
+function [LHS, RHS] = lhs2rhs(coefficient,S,NeededM,Delta,name_of_quadratization)
 % test P(3->2)-DC1, P-(3->2)DC2, P-(3->2)KKR, P(3->2)-OT, P(3->2)-CBBK, P(3->2)CBBK2, ZZZ-TI-CBBK,
 % P1B1-OT, P1B1-CBBK, PSD-OT, PSD-CBBK, PSD-CN, PD-JF, and PD-CK
-% S needs to be defined before using this function
-% S should be a cell array in which S{1} is a matrix of an operator
+% S needs to be defined before using this function, and it should be a cell array in which S{1} is a matrix of an operator
+% NeededM needs to be defined before using this function, and it should be a cell array that contains matrices which are not affected by Delta value
 %
-% e.g.    S = [S1; S2; S3];
-%         [LHS, RHS] = lhs2rhs(-1,S,1e10,'P(3->2)-DC2')
+% e.g.    S = {S1; S2; S3}; NeededM = {xa;za;LHS};
+%         [LHS, RHS] = lhs2rhs(-1,S,NeededM,1e10,'P(3->2)-DC2')
 %         refers to quadratize -S1*S2*S3 using P(3->2)-DC2 with Delta = 1e10
 
-
-    S = cat(3,S{:});    % concatenates S{1} S{2} ... S{n} along dimension 3, for which S{n} is a matrix of an operator, and S(:,:,1) is equal to S{1}
-    n = size(S,3);      % number of operators
-    x = [0 1 ; 1 0]; y = [0 -1i ; 1i 0]; z = [1 0 ; 0 -1];
+    n = size(S,1);      % number of operators
 
     if strcmp(name_of_quadratization, 'P(3->2)-DC2') || strcmp(name_of_quadratization, 'P(3->2)DC2')
         assert(n == 3, 'P(3->2)-DC2 requires a 3-local term, please only give 3 operators.');
 
- %      testing calculate s1s2s3 outside of the function to improve the code
-        xa = kron(eye(8),x); za = kron(eye(8),z);   % it might need further improved
+        xa = NeededM{1}; za = NeededM{2}; I = NeededM{3};
+        S1 = S{1}; S2 = S{2}; S3 = S{3};
 
         alpha = (1/2)*Delta;
         alpha_s = coefficient*((1/4)*(Delta^(2/3)) - 1);
@@ -26,9 +23,9 @@ function [LHS, RHS] = lhs2rhs(coefficient,S,Delta, name_of_quadratization)
         alpha_sz = coefficient*(1/4)*(Delta^(2/3));
         alpha_sx = Delta^(2/3);
 
-        LHS = coefficient*S(:,:,1)*S(:,:,2)*S(:,:,3);
-        RHS = alpha*eye(16) + alpha_s*S(:,:,3) + alpha_sx*xa*(S(:,:,1) + S(:,:,2)) + alpha_sz*za*S(:,:,3) + alpha_z*za + 2*alpha_ss*(eye(16) + S(:,:,1)*S(:,:,2));   % we only use x,y,z here, for which S^2 = I
-        % original RHS = alpha*eye(16) + alpha_s*S(:,:,3) + alpha_sx*xa*S(:,:,1) + alpha_sx*xa*S(:,:,2) + alpha_sz*za*S(:,:,3) + alpha_z*za + alpha_ss*((S(:,:,1) + S(:,:,2))^2);
+        LHS = NeededM{end};
+        RHS = alpha*I + alpha_s*S3 + alpha_sx*xa*S1 + alpha_sx*xa*S2 + alpha_sz*za*S3 + alpha_z*za + 2*alpha_ss*I + 2*alpha_ss*S1*S2;        % we only use x,y,z here, for which S^2 = I
+        % original RHS = alpha*eye(16) + alpha_s*S3 + alpha_sx*xa*S1 + alpha_sx*xa*S2 + alpha_sz*za*S3 + alpha_z*za + alpha_ss*((S1 + S2)^2);
 
     elseif strcmp(name_of_quadratization, 'P(3->2)-KKR') || strcmp(name_of_quadratization, 'P(3->2)KKR')
         assert(n == 3, 'P(3->2)-KKR requires a 3-local term, please only give 3 operators.');
