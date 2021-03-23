@@ -327,7 +327,7 @@ function [LHS, RHS] = lhs2rhs(coefficient,S,NeededM,Delta,name_of_quadratization
         for k = 1:n
             LHS = LHS*S{k};
         end
-        RHS = (Delta/(2*(n - 1)))*(Z_total) + (coefficient^(1/n))*(X_total) - coefficient*(I_size);
+        RHS = (Delta/(2*(n - 1)))*(Z_total) + (coefficient^(1/n))*(X_total) - coefficient*eye(I_size);
 
     else
         disp('cannot find this method');
