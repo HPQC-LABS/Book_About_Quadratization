@@ -53,7 +53,7 @@ if strcmp(input_choice,"all_cubics") || strcmp(input_choice,"27_comb")     % tes
       if isempty(ind_evecs) == 0        % matching eigenvectors exist
         L = L(:,ind_evecs);
         % [~,index] = unique(L','rows','first');
-        [index] = UniqueRows(L');                                               % faster unique function
+        [index] = UniqueRows(L');                                               % faster unique function (https://www.mathworks.com/matlabcentral/fileexchange/77329-fast-unique-rows-method-with-unit-and-performance-tests)
         sorted_L = L(:,sort(index));                                            % remove repeated eigenvectors while maintaining the order
         R = R(:,ind_evecs);
         sorted_R = R(:,sort(index));
