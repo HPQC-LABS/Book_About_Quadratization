@@ -966,10 +966,10 @@ z_8i_8_j  = sparse(kron(kron(eye(2^13),z),eye(2^0)));
 
 LHS = sparse(-(z_4i_1_j*z_4i_2_j*z_4i_3_j*z_4i_4_j + x_4i_3_j*x_4i_4_j*x_4i_6_j*x_4i_4_j1));
 
-for delta = 1:1e4:1e5
-RHS = sparse(-(x_8i_4_j*x_8i_6_j + x_8i_3_j1*z_8i_5_j1 ...
+for delta = 1:1e7:1e8
+RHS = sparse(-(x_8i_4_j*x_8i_6_j + x_8i_3_j1*x_8i_5_j1 + z_8i_4_j*z_8i_3_j1 + z_8i_6_j*z_8i_5_j1 ...
     + (1/delta)*( x_8i_1_j*x_8i_3_j1 + x_8i_2_j*x_8i_4_j + x_8i_5_j1*x_8i_7_j + x_8i_6_j*x_8i_8_j ...
-    + z_8i_1_j*z_8i_3_j1 + z_8i_2_j*z_8i_4_j + z_8i_5_j1*z_8i_7_j + z_8i_6_j*z_8i_8_j )));
+    + z_8i_1_j*z_8i_3_j1 + z_8i_2_j*z_8i_4_j + z_8i_5_j1*z_8i_7_j + z_8i_6_j*z_8i_8_j ))) + 0.828427124746191*speye(2^14);
 
 abs(eigs(LHS, 1, 'smallestreal')-eigs(RHS, 1, 'smallestreal'))
 end
