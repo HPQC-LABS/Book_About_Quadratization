@@ -926,6 +926,54 @@ end
 
 min(V_diff); % 1.3646
 
+%% PD-BFBD: Example
+x = [0 1 ; 1 0]; y = [0 -1i ; 1i 0]; z = [1 0 ; 0 -1];
+
+z_4i_1_j  = sparse(kron(kron(eye(2^0),z),eye(2^13)));
+z_4i_2_j  = sparse(kron(kron(eye(2^1),z),eye(2^12)));
+z_4i_3_j  = sparse(kron(kron(eye(2^2),z),eye(2^11)));
+z_4i_4_j  = sparse(kron(kron(eye(2^3),z),eye(2^10)));
+
+x_4i_3_j  = sparse(kron(kron(eye(2^2),x),eye(2^11)));
+x_4i_4_j  = sparse(kron(kron(eye(2^3),x),eye(2^10)));
+x_4i_6_j  = sparse(kron(kron(eye(2^4),x),eye(2^9)));
+x_4i_4_j1 = sparse(kron(kron(eye(2^5),x),eye(2^8)));
+
+x_8i_4_j  = sparse(kron(kron(eye(2^6),x),eye(2^7)));
+z_8i_4_j  = sparse(kron(kron(eye(2^6),z),eye(2^7)));
+
+x_8i_6_j  = sparse(kron(kron(eye(2^7),x),eye(2^6)));
+z_8i_6_j  = sparse(kron(kron(eye(2^7),z),eye(2^6)));
+
+x_8i_3_j1 = sparse(kron(kron(eye(2^8),x),eye(2^5)));
+z_8i_3_j1 = sparse(kron(kron(eye(2^8),z),eye(2^5)));
+
+x_8i_5_j1 = sparse(kron(kron(eye(2^9),x),eye(2^4)));
+z_8i_5_j1 = sparse(kron(kron(eye(2^9),z),eye(2^4)));
+
+x_8i_1_j  = sparse(kron(kron(eye(2^10),x),eye(2^3)));
+z_8i_1_j  = sparse(kron(kron(eye(2^10),z),eye(2^3)));
+
+x_8i_2_j  = sparse(kron(kron(eye(2^11),x),eye(2^2)));
+z_8i_2_j  = sparse(kron(kron(eye(2^11),z),eye(2^2)));
+
+x_8i_7_j  = sparse(kron(kron(eye(2^12),x),eye(2^1)));
+z_8i_7_j  = sparse(kron(kron(eye(2^12),z),eye(2^1)));
+
+x_8i_8_j  = sparse(kron(kron(eye(2^13),x),eye(2^0)));
+z_8i_8_j  = sparse(kron(kron(eye(2^13),z),eye(2^0)));
+
+
+LHS = sparse(-(z_4i_1_j*z_4i_2_j*z_4i_3_j*z_4i_4_j + x_4i_3_j*x_4i_4_j*x_4i_6_j*x_4i_4_j1));
+
+for delta = 1:1e4:1e5
+RHS = sparse(-(x_8i_4_j*x_8i_6_j + x_8i_3_j1*z_8i_5_j1 ...
+    + (1/delta)*( x_8i_1_j*x_8i_3_j1 + x_8i_2_j*x_8i_4_j + x_8i_5_j1*x_8i_7_j + x_8i_6_j*x_8i_8_j ...
+    + z_8i_1_j*z_8i_3_j1 + z_8i_2_j*z_8i_4_j + z_8i_5_j1*z_8i_7_j + z_8i_6_j*z_8i_8_j )));
+
+abs(eigs(LHS, 1, 'smallestreal')-eigs(RHS, 1, 'smallestreal'))
+end
+
 %% PD-CK: Example
 x = [0 1 ; 1 0]; y = [0 -1i ; 1i 0]; z = [1 0 ; 0 -1];
 
