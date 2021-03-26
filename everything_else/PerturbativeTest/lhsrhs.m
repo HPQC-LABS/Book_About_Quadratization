@@ -146,7 +146,7 @@ function [LHS, RHS] = lhsrhs(coefficient,S,NeededM,Delta,name_of_quadratization)
         RHS41 = (coefficient/2)*(I);
         RHS4 = (coefficient/2)*(B^2);
         RHS5 = B - A;
-        RHS5 = sqrt( coefficient*Delta/2 )*(RHS5)*xa;
+        RHS6 = sqrt( coefficient*Delta/2 )*(RHS5)*xa;
         RHS = RHS1 + RHS2 + RHS3 + RHS4 + RHS6;
 
     elseif strcmp(name_of_quadratization, 'P(3->2)CBBK') || strcmp(name_of_quadratization, 'P(3->2)-CBBK')
