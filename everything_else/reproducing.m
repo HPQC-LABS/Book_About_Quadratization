@@ -393,6 +393,32 @@ end
 max(E_diff); % 1.1546e-14
 min(V_diff); % 1.3632
 
+%% NP-Nagaj-1: Feynman Hamiltonian and H_4-local
+x = [0 1 ; 1 0]; y = [0 -1i ; 1i 0]; z = [1 0 ; 0 -1];
+
+x1 = kron(kron(eye(2^0),x),eye(2^3));
+y1 = kron(kron(eye(2^0),y),eye(2^3));
+z1 = kron(kron(eye(2^0),z),eye(2^3));
+
+x2 = kron(kron(eye(2^1),x),eye(2^2));
+y2 = kron(kron(eye(2^1),y),eye(2^2));
+z2 = kron(kron(eye(2^1),z),eye(2^2));
+
+x3 = kron(kron(eye(2^2),x),eye(2^1));
+y3 = kron(kron(eye(2^2),y),eye(2^1));
+z3 = kron(kron(eye(2^2),z),eye(2^1));
+
+x4 = kron(kron(eye(2^3),x),eye(2^0));
+y4 = kron(kron(eye(2^3),y),eye(2^0));
+z4 = kron(kron(eye(2^3),z),eye(2^0));
+
+U_2_local = (1/2)*(eye(2^4) + z3 + x4 - z3*x4);
+
+E_194 = (1/4)*(x1*x2 - 1i*y1*x2 + 1i*x1*y2 + y1*y2)*U_2_local + (1/4)*(x1*x2 + 1i*y1*x2 - 1i*x1*y2 + y1*y2)*conj(transpose(U_2_local));
+E_195 = (1/4)*(x1*x2 + y1*y2 + x1*x2*z3 + x1*x2*x4 + y1*y2*z3 + y1*y2*x4 - x1*x2*z3*x4 - y1*y2*z3*x4);
+
+isequal(E_194, E_195)
+
 %% P(3->2)-DC1
 
 x = [0 1 ; 1 0]; y = [0 -1i ; 1i 0]; z = [1 0 ; 0 -1];
