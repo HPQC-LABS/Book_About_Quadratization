@@ -521,6 +521,109 @@ end
 
 min(V_diff); % 1.4122
 
+%% NP-Nagaj-2
+x = [0 1 ; 1 0]; y = [0 -1i ; 1i 0]; z = [1 0 ; 0 -1];
+
+x1 = kron(kron(speye(2^0),x),speye(2^19));
+y1 = kron(kron(speye(2^0),y),speye(2^19));
+z1 = kron(kron(speye(2^0),z),speye(2^19));
+
+x2 = kron(kron(speye(2^1),x),speye(2^18));
+y2 = kron(kron(speye(2^1),y),speye(2^18));
+z2 = kron(kron(speye(2^1),z),speye(2^18));
+
+x3 = kron(kron(speye(2^2),x),speye(2^17));
+y3 = kron(kron(speye(2^2),y),speye(2^17));
+z3 = kron(kron(speye(2^2),z),speye(2^17));
+
+x4 = kron(kron(speye(2^3),x),speye(2^16));
+y4 = kron(kron(speye(2^3),y),speye(2^16));
+z4 = kron(kron(speye(2^3),z),speye(2^16));
+
+xa1 = kron(kron(speye(2^4),x),speye(2^15));
+ya1 = kron(kron(speye(2^4),y),speye(2^15));
+za1 = kron(kron(speye(2^4),z),speye(2^15));
+
+xa2 = kron(kron(speye(2^5),x),speye(2^14));
+ya2 = kron(kron(speye(2^5),y),speye(2^14));
+za2 = kron(kron(speye(2^5),z),speye(2^14));
+
+xa3 = kron(kron(speye(2^6),x),speye(2^13));
+ya3 = kron(kron(speye(2^6),y),speye(2^13));
+za3 = kron(kron(speye(2^6),z),speye(2^13));
+
+xa4 = kron(kron(speye(2^7),x),speye(2^12));
+ya4 = kron(kron(speye(2^7),y),speye(2^12));
+za4 = kron(kron(speye(2^7),z),speye(2^12));
+
+xa5 = kron(kron(speye(2^8),x),speye(2^11));
+ya5 = kron(kron(speye(2^8),y),speye(2^11));
+za5 = kron(kron(speye(2^8),z),speye(2^11));
+
+xa6 = kron(kron(speye(2^9),x),speye(2^10));
+ya6 = kron(kron(speye(2^9),y),speye(2^10));
+za6 = kron(kron(speye(2^9),z),speye(2^10));
+
+xa7 = kron(kron(speye(2^10),x),speye(2^9));
+ya7 = kron(kron(speye(2^10),y),speye(2^9));
+za7 = kron(kron(speye(2^10),z),speye(2^9));
+
+xa8 = kron(kron(speye(2^11),x),speye(2^8));
+ya8 = kron(kron(speye(2^11),y),speye(2^8));
+za8 = kron(kron(speye(2^11),z),speye(2^8));
+
+xa9 = kron(kron(speye(2^12),x),speye(2^7));
+ya9 = kron(kron(speye(2^12),y),speye(2^7));
+za9 = kron(kron(speye(2^12),z),speye(2^7));
+
+xa10 = kron(kron(speye(2^13),x),speye(2^6));
+ya10 = kron(kron(speye(2^13),y),speye(2^6));
+za10 = kron(kron(speye(2^13),z),speye(2^6));
+
+xa11 = kron(kron(speye(2^14),x),speye(2^5));
+ya11 = kron(kron(speye(2^14),y),speye(2^5));
+za11 = kron(kron(speye(2^14),z),speye(2^5));
+
+xa12 = kron(kron(speye(2^15),x),speye(2^4));
+ya12 = kron(kron(speye(2^15),y),speye(2^4));
+za12 = kron(kron(speye(2^15),z),speye(2^4));
+
+xa13 = kron(kron(speye(2^16),x),speye(2^3));
+ya13 = kron(kron(speye(2^16),y),speye(2^3));
+za13 = kron(kron(speye(2^16),z),speye(2^3));
+
+xa14 = kron(kron(speye(2^17),x),speye(2^2));
+ya14 = kron(kron(speye(2^17),y),speye(2^2));
+za14 = kron(kron(speye(2^17),z),speye(2^2));
+
+xa15 = kron(kron(speye(2^18),x),speye(2^1));
+ya15 = kron(kron(speye(2^18),y),speye(2^1));
+za15 = kron(kron(speye(2^18),z),speye(2^1));
+
+xa16 = kron(kron(speye(2^19),x),speye(2^0));
+ya16 = kron(kron(speye(2^19),y),speye(2^0));
+za16 = kron(kron(speye(2^19),z),speye(2^0));
+
+LHS = (1/4)*(x1*x2 + y1*y2 + x1*x2*z3 + x1*x2*x4 + y1*y2*z3 + y1*y2*x4 - x1*x2*z3*x4 - y1*y2*z3*x4);
+RHS = (1/4)*(za5 - za6 - za5*z3 + za6*z3 + za9 - za10 - za9*z3 + za10*z3 + za11 - za12 + za11*z3 - za12*z3 + za15 - za16 + za15*z3 - za16*z3) ...
+    + (1/2)*(za7*x3 - za8*x3 + za13 - za14) ...
+    + (1/(2*sqrt(2)))*(x1*xa5 + y1*ya5 + x1*xa6 + y1*ya6 - xa5*xa1 - ya5*ya1 + xa6*xa1 + ya6*ya1 + xa1*xa7 + ya1*ya7 + xa1*xa8 + ya1*ya8 ...
+    - xa7*xa2 - ya7*ya2 + xa8*xa2 + ya8*ya2 + xa2*xa9 + ya2*ya9 + xa2*xa10 + ya2*ya10 - xa9*x2 - ya9*y2 + xa10*x2 + ya10*y2 ...
+    + x1*xa11 + y1*ya11 + x1*xa12 + y1*ya12 - xa11*xa3 - ya11*ya3 + xa12*xa3 + ya12*ya3 + xa3*xa13 + ya3*ya13 + xa3*xa14 + ya3*ya14 ...
+    - xa13*xa4 - ya13*ya4 + xa14*xa4 + ya14*ya4 + xa4*xa15 + ya4*ya15 + xa4*xa16 + ya4*ya16 - xa15*x2 - ya15*y2 + xa16*x2 + ya16*y2);
+
+[VL, EL] = eigs(LHS, 16, 'smallestreal'); [VR, ER] = eigs(RHS, 16, 'smallestreal');
+[DL, indL] = sort(diag(EL)); [DR, indR] = sort(diag(ER));
+VL = VL(:,indL); EL = EL(indL,indL); VR = VR(:,indR); ER = ER(indR,indR);
+VL = VL(:,1:4:end); EL = EL(:,1:4:end); VR = VR(:,1:4:end); ER = ER(:,1:4:end);
+
+for col = 1:1:size(VL,2)
+V_diff(col,1) = sqrt(dot((VL(:,col)-VR(:,col)),(VL(:,col)-VR(:,col))));
+E_diff(col,1) = sqrt(dot((EL(:,col)-ER(:,col)),(EL(:,col)-ER(:,col))));
+end
+
+min(V_diff); % 1.4144
+
 %% P(3->2)-DC1
 
 x = [0 1 ; 1 0]; y = [0 -1i ; 1i 0]; z = [1 0 ; 0 -1];
