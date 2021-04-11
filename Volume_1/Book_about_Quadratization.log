@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2021.1.27)  8 APR 2021 12:48
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2021.1.27)  11 APR 2021 11:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1312,14 +1312,14 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 3998.
 
 [58] [59] [60]
-Overfull \hbox (44.93135pt too wide) in paragraph at lines 4296--4297
+Overfull \hbox (44.93135pt too wide) in paragraph at lines 4297--4298
 []\T1/ppl/m/n/12 (-20) The trans-for-ma-tion pre-sented above was for the case 
 of $\OML/cmm/m/it/12 U[] \U/MnSymbolD/m/n/12 ^^@ [] ^^A [] []$\T1/ppl/m/n/12 (-
 20) ,
  []
 
 [61]
-Overfull \hbox (44.93135pt too wide) in paragraph at lines 4374--4375
+Overfull \hbox (44.93135pt too wide) in paragraph at lines 4375--4376
 []\T1/ppl/m/n/12 (-20) The trans-for-ma-tion pre-sented above was for the case 
 of $\OML/cmm/m/it/12 U[] \U/MnSymbolD/m/n/12 ^^@ [] ^^A [] []$\T1/ppl/m/n/12 (-
 20) ,
@@ -1328,139 +1328,139 @@ of $\OML/cmm/m/it/12 U[] \U/MnSymbolD/m/n/12 ^^@ [] ^^A [] []$\T1/ppl/m/n/12 (-
 [62]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 4384.
+(hyperref)                removing `math shift' on input line 4385.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\rightarrow' on input line 4384.
+(hyperref)                removing `\rightarrow' on input line 4385.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 4384.
+(hyperref)                removing `math shift' on input line 4385.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 4388.
+(hyperref)                removing `math shift' on input line 4389.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\rightarrow' on input line 4388.
+(hyperref)                removing `\rightarrow' on input line 4389.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 4388.
+(hyperref)                removing `math shift' on input line 4389.
 
 [63]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 4457.
+(hyperref)                removing `math shift' on input line 4458.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\rightarrow' on input line 4457.
+(hyperref)                removing `\rightarrow' on input line 4458.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 4457.
+(hyperref)                removing `math shift' on input line 4458.
 
 [64]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 4531.
+(hyperref)                removing `math shift' on input line 4532.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\rightarrow' on input line 4531.
+(hyperref)                removing `\rightarrow' on input line 4532.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 4531.
+(hyperref)                removing `math shift' on input line 4532.
 
 [65]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 4616.
+(hyperref)                removing `math shift' on input line 4617.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\rightarrow' on input line 4616.
+(hyperref)                removing `\rightarrow' on input line 4617.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 4616.
+(hyperref)                removing `math shift' on input line 4617.
 
 [66]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 4717.
+(hyperref)                removing `math shift' on input line 4718.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\rightarrow' on input line 4717.
+(hyperref)                removing `\rightarrow' on input line 4718.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 4717.
+(hyperref)                removing `math shift' on input line 4718.
 
 [67]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 4788.
+(hyperref)                removing `math shift' on input line 4789.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\rightarrow' on input line 4788.
+(hyperref)                removing `\rightarrow' on input line 4789.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 4788.
+(hyperref)                removing `math shift' on input line 4789.
 
 [68] [69] [70] [71] [72] [73] [74] [75] [76]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 5590.
+(hyperref)                removing `math shift' on input line 5591.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\@@underline' on input line 5590.
+(hyperref)                removing `\@@underline' on input line 5591.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\hbox' on input line 5590.
+(hyperref)                removing `\hbox' on input line 5591.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\mathsurround' on input line 5590.
+(hyperref)                removing `\mathsurround' on input line 5591.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\z@' on input line 5590.
+(hyperref)                removing `\z@' on input line 5591.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 5590.
+(hyperref)                removing `math shift' on input line 5591.
 
 [77] [78]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 5695.
+(hyperref)                removing `math shift' on input line 5696.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\rightarrow' on input line 5695.
+(hyperref)                removing `\rightarrow' on input line 5696.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 5695.
+(hyperref)                removing `math shift' on input line 5696.
 
 [79] [80]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 5759.
+(hyperref)                removing `math shift' on input line 5760.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 5759.
+(hyperref)                removing `math shift' on input line 5760.
 
 [81] [82] [83] [84] (./Book_about_Quadratization.bbl [85]
 Underfull \hbox (badness 1616) in paragraph at lines 120--125
@@ -1477,8 +1477,8 @@ ctions induced by virtual transitions,''
 
 ) [91] (./Book_about_Quadratization.aux) ) 
 Here is how much of TeX's memory you used:
- 19963 strings out of 479304
- 324645 string characters out of 5871219
+ 19964 strings out of 479304
+ 324659 string characters out of 5871219
  844576 words of memory out of 5000000
  35799 multiletter control sequences out of 15000+600000
  487644 words of font info for 460 fonts, out of 8000000 for 9000
@@ -1515,10 +1515,10 @@ ts/type1/urw/palatino/uplb8a.pfb><c:/texlive/2020/texmf-dist/fonts/type1/urw/pa
 latino/uplbi8a.pfb><c:/texlive/2020/texmf-dist/fonts/type1/urw/palatino/uplr8a.
 pfb><c:/texlive/2020/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb><c:/texlive
 /2020/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on Book_about_Quadratization.pdf (91 pages, 619738 bytes).
+Output written on Book_about_Quadratization.pdf (91 pages, 619757 bytes).
 PDF statistics:
- 1909 PDF objects out of 2073 (max. 8388607)
- 1762 compressed objects within 18 object streams
- 539 named destinations out of 1000 (max. 500000)
+ 1910 PDF objects out of 2073 (max. 8388607)
+ 1763 compressed objects within 18 object streams
+ 540 named destinations out of 1000 (max. 500000)
  93057 words of extra memory for PDF output out of 106986 (max. 10000000)
 
