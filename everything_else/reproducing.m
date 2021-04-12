@@ -361,7 +361,7 @@ RHS = sparse(J*(-z_111*z_112*z_113*z_114 - z_014*z_111 - z_112*z_103 - z_114*z_2
     - (t/2)*((x_a112 + z_a111*x_a112)*x_113*x_114 + (x_a111*x_a112 + y_a111*y_a112)*x_122*x_124 ...
     + (x_a112 - z_a111*x_a112)*x_221*x_222 + (x_a111*x_a112 - y_a111*y_a112)*x_211*x_213 ));
 
-abs(eigs(LHS, 1, 'smallestreal')-eigs(RHS, 1, 'smallestreal'))
+abs(eigs(LHS, 1, 'smallestreal')-eigs(RHS, 1, 'smallestreal')) % 0.0087
 
 [VL, EL] = eigs(LHS, 64, 'smallestreal'); [VR, ER] = eigs(RHS, 64, 'smallestreal');
 [DL, indL] = sort(diag(EL)); [DR, indR] = sort(diag(ER));
@@ -512,7 +512,7 @@ RHS = (1/2)*(kron(x1,lam_1a5) + kron(y1,lam_2a5) + kron(lam_6a5,eye(2^8)) - kron
     + kron(xa3,lam_1a9) + kron(ya3,lam_2a9) + 2*kron(lam_6a9,eye(2^8)) + kron(lam_5a9,ya4) + kron(lam_4a9,xa4) + kron(xa4,lam_1a10) + kron(ya4,lam_2a10) ...
     + kron(lam_6a10,eye(2^8)) + kron(lam_6a10,z3) + kron(lam_5a10,y2) + kron(lam_4a10,x2) ) + 6.764818490514657*speye(186624);
 
-eigs(LHS, 1, 'smallestreal')-eigs(RHS, 1, 'smallestreal')
+eigs(LHS, 1, 'smallestreal')-eigs(RHS, 1, 'smallestreal') % -1.9984e-15
 
 [VL, EL] = eigs(LHS, 256, 'smallestreal'); [VR, ER] = eigs(RHS, 256, 'smallestreal');
 [DL, indL] = sort(diag(EL)); [DR, indR] = sort(diag(ER));
@@ -617,7 +617,7 @@ RHS = (1/4)*(za5 - za6 - za5*z3 + za6*z3 + za9 - za10 - za9*z3 + za10*z3 + za11 
     + x1*xa11 + y1*ya11 + x1*xa12 + y1*ya12 - xa11*xa3 - ya11*ya3 + xa12*xa3 + ya12*ya3 + xa3*xa13 + ya3*ya13 + xa3*xa14 + ya3*ya14 ...
     - xa13*xa4 - ya13*ya4 + xa14*xa4 + ya14*ya4 + xa4*xa15 + ya4*ya15 + xa4*xa16 + ya4*ya16 - xa15*x2 - ya15*y2 + xa16*x2 + ya16*y2) + 8.211261928531997*speye(2^20);
 
-eigs(LHS, 1, 'smallestreal')-eigs(RHS, 1, 'smallestreal')
+eigs(LHS, 1, 'smallestreal')-eigs(RHS, 1, 'smallestreal') % 2.9088e-14
 
 [VL, EL] = eigs(LHS, 32, 'smallestreal'); [VR, ER] = eigs(RHS, 32, 'smallestreal');
 [DL, indL] = sort(diag(EL)); [DR, indR] = sort(diag(ER));
