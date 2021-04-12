@@ -384,15 +384,22 @@ x1 = kron(x,eye(128));x2 = kron(kron(eye(2),x),eye(64));x3 = kron(kron(eye(4),x)
 xa1 = kron(kron(eye(32),x),eye(4));xa2 = kron(kron(eye(64),x),eye(2));xa3 = kron(eye(128),x);
 y2 = kron(kron(eye(2),y),eye(64));
 z1 = kron(z,eye(128));z3 = kron(kron(eye(4),z),eye(32));z5 = kron(kron(eye(16),z),eye(8));
+za1 = kron(kron(eye(32),z),eye(4));
 za2 = kron(kron(eye(64),z),eye(2));
 za3 = kron(eye(128),z);
 
 LHS = 4*z5 - 3*x1 + 2*z1*y2*x5 + 9*x1*x2*x3*x4 - x1*y2*z3*x5;
 RHS = 9*xa1 + 4*za2*z5 - 3*za3*x1 - za3*xa2 + 2*xa3*x5;
 
-max(eig(LHS)-eig(RHS))<1e-13; % gives 1.
+max(eig(LHS)-eig(RHS))<1e-13 % gives 1.
 
-[VL, EL] = eig(LHS); [VR, ER] = eig(RHS);
+U_a1 = ((eye(256) + za1)/2) + ((eye(256) - za1)/2)*x1*x2*x3*x4;
+U_a2 = ((eye(256) + za2)/2) + ((eye(256) - za2)/2)*z5;
+U_a3 = ((eye(256) + za3)/2) + ((eye(256) - za3)/2)*x1;
+
+RHS_a = U_a1*U_a2*U_a3*RHS;
+
+[VL, EL] = eig(LHS); [VR, ER] = eig(RHS_a);
 [DL, indL] = sort(diag(EL)); [DR, indR] = sort(diag(ER));
 VL = VL(:,indL); EL = EL(indL,indL); VR = VR(:,indR); ER = ER(indR,indR);
 VL = VL(:,1:8:end); EL = EL(:,1:8:end); VR = VR(:,1:8:end); ER = ER(:,1:8:end); % reduce repeats due to auxiliary qubits
@@ -402,8 +409,7 @@ V_diff(col,1) = sqrt(dot((VL(:,col)-VR(:,col)),(VL(:,col)-VR(:,col))));
 E_diff(col,1) = sqrt(dot((EL(:,col)-ER(:,col)),(EL(:,col)-ER(:,col))));
 end
 
-max(E_diff); % 1.1546e-14
-min(V_diff); % 1.3632
+min(V_diff); % 1.2770
 
 %% NP-Nagaj-1: Feynman Hamiltonian and H_4-local
 x = [0 1 ; 1 0]; y = [0 -1i ; 1i 0]; z = [1 0 ; 0 -1];
