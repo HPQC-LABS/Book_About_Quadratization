@@ -350,7 +350,7 @@ z_a122 = sparse(kron(kron(speye(2^17),z),speye(2^0)));
 
 I = speye(2^18);
 
-U = 0.005; t = 0.375*U; J = 0.09*U;
+U = 3; t = 0.375*U; J = 0.09*U;
 
 LHS = sparse(-J*(x_113*x_122*x_114*x_124*x_211*x_221*x_213*x_222 + z_111*z_112*z_113*z_114 + z_014*z_111 + z_112*z_103 + z_114*z_211 + z_113*z_122));
 
@@ -359,11 +359,11 @@ RHS = sparse(J*(-z_111*z_112*z_113*z_114 - z_014*z_111 - z_112*z_103 - z_114*z_2
     + (I + z_a111 - z_a112 + z_a111*z_a112) * (I - z_a211 - z_a212 - z_a211*z_a212)) ...
     - (U/2)*(z_a111 + z_a112 + z_a111*z_a112 - I) ...
     - (t/2)*((x_a112 + z_a111*x_a112)*x_113*x_114 + (x_a111*x_a112 + y_a111*y_a112)*x_122*x_124 ...
-    + (x_a112 - z_a111*x_a112)*x_221*x_222 + (x_a111*x_a112 - y_a111*y_a112)*x_211*x_213 ));
+    + (x_a112 - z_a111*x_a112)*x_221*x_222 + (x_a111*x_a112 - y_a111*y_a112)*x_211*x_213 )) + 5.218055837657829*I;
 
-abs(eigs(LHS, 1, 'smallestreal')-eigs(RHS, 1, 'smallestreal')) % 0.0087
+abs(eigs(LHS, 1, 'smallestreal')-eigs(RHS, 1, 'smallestreal')) % 2.0428e-14
 
-[VL, EL] = eigs(LHS, 64, 'smallestreal'); [VR, ER] = eigs(RHS, 64, 'smallestreal');
+[VL, EL] = eigs(LHS, 128, 'smallestreal'); [VR, ER] = eigs(RHS, 128, 'smallestreal');
 [DL, indL] = sort(diag(EL)); [DR, indR] = sort(diag(ER));
 VL = VL(:,indL); EL = EL(indL,indL); VR = VR(:,indR); ER = ER(indR,indR);
 VL = VL(:,1:4:end); EL = EL(:,1:4:end); VR = VR(:,1:4:end); ER = ER(:,1:4:end);
@@ -373,7 +373,7 @@ V_diff(col,1) = sqrt(dot((VL(:,col)-VR(:,col)),(VL(:,col)-VR(:,col))));
 E_diff(col,1) = sqrt(dot((EL(:,col)-ER(:,col)),(EL(:,col)-ER(:,col))));
 end
 
-min(V_diff); % 1.4116
+min(V_diff); % 1.4013
 
 %% NP - SJ (4z5 - 3x1 + 2*z1*y2*x5 + 9*x1*x2*x3*x4 - x1*y2*z3*x5 -> 9*xa1 + 4*za2*z5 - 3*za3*x1 - za3*xa2 + 2*xa3*x5)
 x = [0 1;1 0];
