@@ -1,13 +1,22 @@
 function [LHS, RHS] = lhsrhs(coefficient,S,NeededM,Delta,name_of_quadratization)
-% This function should only be called from FindReqdDelta.m
-% test P(3->2)-DC1, P-(3->2)DC2, P-(3->2)KKR, P(3->2)-OT, P(3->2)-CBBK, P(3->2)CBBK2, ZZZ-TI-CBBK,
-% P1B1-OT, P1B1-CBBK, PSD-OT, PSD-CBBK, PSD-CN, PD-JF, and PD-CK
-% S needs to be defined before using this function, and it should be a cell array in which S{1} is a matrix of an operator
-% NeededM needs to be defined before using this function, and it should be a cell array that contains matrices which are not affected by Delta value
+% LHS is the Hermitian (n-local term) that needs to be quadratized
+% RHS is the result of quadratization, which can be used for further purpose
 %
-% e.g.    S = {S1; S2; S3}; NeededM = {xa;za;LHS};
+% Perturbative gadgets included: P(3->2)-DC1, P-(3->2)DC2, P-(3->2)KKR, P(3->2)-OT, P(3->2)-CBBK, ZZZ-TI-CBBK,
+% P1B1-OT, P1B1-CBBK, PSD-OT, PSD-CBBK, PSD-CN, PD-JF, P(3->2)-CBBK2, and PD-CK
+%
+% Based on info from Book Of Quardratization Perterbative Gadgets Section
+%
+% This function should only be called from FindReqdDelta.m
+% While a similar funciton lhs2rhs.m is independent
+%
+% S and NeededM need to be defined before using this function
+%   S - a cell array in which S{1} is a matrix of an operator
+%   NeededM - a cell array that contains matrices which are not affected by Delta
+%
+% e.g.    S = {S1; S2; S3}; NeededM = {xa;za;A;B;LHS};
 %         [LHS, RHS] = lhsrhs(-1,S,NeededM,1e10,'P(3->2)-DC2')
-%         refers to quadratize -S1*S2*S3 using P(3->2)-DC2 with Delta = 1e10
+%         refers to quadratize -S1*S2*S3 using P(3->2)-DC2 for Delta = 1e10
 
 
     n = size(S,1);      % number of operators
@@ -47,7 +56,7 @@ function [LHS, RHS] = lhsrhs(coefficient,S,NeededM,Delta,name_of_quadratization)
         alpha_ss = -(1/6)*(Delta)^(1/3);
         alpha_sx = (1/6)*(Delta)^(2/3);
         alpha_zz = (1/24)*(Delta);
- %      have not add coefficient
+        % have not add coefficient
         LHS = NeededM{end};
         RHS = alpha*I + alpha_ss*(S1^2 + S2^2 + S3^2) + alpha_sx*(S1*xa1 + S2*xa2 + S3*xa3) + alpha_zz*(za1*za2 + za1*za3 + za2*za3);
 
@@ -80,7 +89,7 @@ function [LHS, RHS] = lhsrhs(coefficient,S,NeededM,Delta,name_of_quadratization)
         LHS = NeededM{end};
         RHS = alpha*eye(2^(n+3)) + alpha_ss*(S1^2 + S2^2 + S3^2) + alpha_sx*(S1*xa1 + S2*xa2 + S3*xa3) + alpha_zz*(za1*za2 + za1*za3 + za2*za3);
 
-   elseif strcmp(name_of_quadratization, 'ZZZ-TI-CBBK')
+    elseif strcmp(name_of_quadratization, 'ZZZ-TI-CBBK')
         assert(n == 3, 'ZZZ-TI-CBBK requires a 3-local term, please only give 3 operators.');
 
         xa = NeededM{1}; za = NeededM{2}; I = NeededM{3};
@@ -111,12 +120,12 @@ function [LHS, RHS] = lhsrhs(coefficient,S,NeededM,Delta,name_of_quadratization)
         A = NeededM{end - 2};
         B = NeededM{end - 1};
 
-%        for ind = 1:n_a
-%            A = A*S{ind};
-%        end
-%        for ind = n_a + 1:n
-%            B = B*S{ind};
-%        end
+        % for ind = 1:n_a
+        %     A = A*S{ind};
+        % end
+        % for ind = n_a + 1:n
+        %     B = B*S{ind};
+        % end
 
         LHS = NeededM{end};
         RHS = (Delta)*((1*I - za)/2) + abs(coefficient)*((1*I + za)/2) + sqrt( abs(coefficient)*Delta/2 )*(sign(coefficient)*A - B)*xa;
@@ -129,14 +138,14 @@ function [LHS, RHS] = lhsrhs(coefficient,S,NeededM,Delta,name_of_quadratization)
         xa = NeededM{1}; za = NeededM{2}; I = NeededM{3};
         A = NeededM{end - 2};
         B = NeededM{end - 1};
-%        A = I; B = I;
-%        for ind = 1:n_a
-%            A = A*S{ind};
-%        end
+        %    A = I; B = I;
+        %    for ind = 1:n_a
+        %        A = A*S{ind};
+        %    end
 
-%        for ind = n_a + 1:n
-%            B = B*S{ind};
-%        end
+        %    for ind = n_a + 1:n
+        %        B = B*S{ind};
+        %    end
 
         LHS = NeededM{end};
         RHS1 = 1/2*Delta*(1*I);
@@ -233,12 +242,12 @@ function [LHS, RHS] = lhsrhs(coefficient,S,NeededM,Delta,name_of_quadratization)
         za_11 = NeededM{1}; xa_11 = NeededM{2}; za_1 = NeededM{3}; I = NeededM{4};
         H_1j = NeededM{end - 2}; H_2j = NeededM{end - 1};
 
-%        for k = 1:ceil(n/2)
-%           H_1j = H_1j*S{k};
-%        end
-%        for k = ceil(n/2)+1:n
-%            H_2j = H_2j*S{k};
-%        end
+        %  for k = 1:ceil(n/2)
+        %     H_1j = H_1j*S{k};
+        %  end
+        %  for k = ceil(n/2)+1:n
+        %     H_2j = H_2j*S{k};
+        %  end
 
         R = 1; C = 1;
         beta = sqrt((coefficient*Delta)/(2*R)); alpha = Delta/(2*C);
@@ -300,3 +309,5 @@ function [LHS, RHS] = lhsrhs(coefficient,S,NeededM,Delta,name_of_quadratization)
         LHS = []; RHS = [];
     end
   end
+
+end
