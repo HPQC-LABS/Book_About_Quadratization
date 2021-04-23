@@ -715,7 +715,6 @@ end
 min(V_diff); % 1.2708
 
 %% P(3->2)-KKR, example.
-
 x = [0 1;1 0]; y = [0 -1i;1i 0]; z = [1 0;0 -1];
 z1 = kron(z,eye(512));z2 = kron(kron(eye(2),z),eye(256));
 x1 = kron(x,eye(512));x2 = kron(kron(eye(2),x),eye(256));
@@ -725,17 +724,22 @@ xa_21 = kron(kron(eye(128),x),eye(4)); xa_22 = kron(kron(eye(256),x),eye(2)); xa
 za_11 = kron(kron(eye(16),z),eye(32)); za_12 = kron(kron(eye(32),z),eye(16)); za_13 = kron(kron(eye(64),z),eye(8));
 za_21 = kron(kron(eye(128),z),eye(4)); za_22 = kron(kron(eye(256),z),eye(2)); za_23 = kron(eye(512),z);
 
-for delta = 1:1e8:1e9
+I_size = 1024;
+a = -1;
 
-alpha = -(1/8)*(delta);
-alpha_ss = -(1/6)*(delta)^(1/3);
-alpha_sx = (1/6)*(delta)^(2/3);
-alpha_zz = (1/24)*(delta);
+for delta = 1:1e7:1e8
+    
+alpha = (3/4)*(delta);
+alpha_ss = (delta)^(1/3);
+alpha_sx = -(delta)^(2/3);
+alpha_zz = -(1/4)*(delta);
 
-LHS = z1*x2 - x1*z2*y3 - 3*x1*x2*y4;
-RHS = z1*x2 - 4*alpha*eye(1024) - 12*alpha_ss*eye(1024) - alpha_sx*(x1*xa_11 + z2*xa_12 + y3*xa_13) - 3*alpha_sx*(x1*xa_21 + x2*xa_22 + y4*xa_23) - alpha_zz*(za_11*za_12 + za_11*za_13 + za_12*za_13) - 3*alpha_zz*(za_21*za_22 + za_21*za_23 + za_22*za_23);
+LHS = z1*x2 - 6*x1*z2*y3 - 6*x1*x2*y4;
+RHS = z1*x2 + 2*alpha*eye(I_size) + alpha_ss*(2*x1^2 + z2^2 + y3^2 + x2^2 + y4^2) ...
+    + alpha_sx*(x1*xa_11 + z2*xa_12 + y3*xa_13 + x1*xa_21 + x2*xa_22 + y4*xa_23) ...
+    + alpha_zz*(za_11*za_12 + za_11*za_13 + za_12*za_13 + za_21*za_22 + za_21*za_23 + za_22*za_23);
 
-abs(min(eig(LHS))-min(eig(RHS)));
+abs(min(eig(LHS))-min(eig(RHS)))
 end
 
 [VL, EL] = eig(LHS); [VR, ER] = eig(RHS);
@@ -748,7 +752,7 @@ V_diff(col,1) = sqrt(dot((VL(:,col)-VR(:,col)),(VL(:,col)-VR(:,col))));
 E_diff(col,1) = sqrt(dot((EL(:,col)-ER(:,col)),(EL(:,col)-ER(:,col))));
 end
 
-min(V_diff); % 1.3954
+min(V_diff); % 1.3920
 
 %% P(3->2)-KKR, Alternative Form (i.e. original from KKR paper, near Eq. 13 on the arXiv version).
 
