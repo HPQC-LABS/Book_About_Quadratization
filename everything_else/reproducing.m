@@ -727,17 +727,17 @@ za_21 = kron(kron(eye(128),z),eye(4)); za_22 = kron(kron(eye(256),z),eye(2)); za
 I_size = 1024;
 a = -1;
 
-for delta = 1:1e7:1e8
+for delta = 1:1e10:1e11
     
 alpha = (3/4)*(delta);
 alpha_ss = (delta)^(1/3);
 alpha_sx = -(delta)^(2/3);
 alpha_zz = -(1/4)*(delta);
 
-LHS = z1*x2 - 6*x1*z2*y3 - 6*x1*x2*y4;
+LHS = z1*x2 - 5*x1*z2*y3 + 8*x1*x2*y4;
 RHS = z1*x2 + 2*alpha*eye(I_size) + alpha_ss*(2*x1^2 + z2^2 + y3^2 + x2^2 + y4^2) ...
     + alpha_sx*(x1*xa_11 + z2*xa_12 + y3*xa_13 + x1*xa_21 + x2*xa_22 + y4*xa_23) ...
-    + alpha_zz*(za_11*za_12 + za_11*za_13 + za_12*za_13 + za_21*za_22 + za_21*za_23 + za_22*za_23);
+    + alpha_zz*(za_11*za_12 + za_11*za_13 + za_12*za_13 + za_21*za_22 + za_21*za_23 + za_22*za_23) - 0.779475460407596*eye(I_size);
 
 abs(min(eig(LHS))-min(eig(RHS)))
 end
@@ -752,7 +752,7 @@ V_diff(col,1) = sqrt(dot((VL(:,col)-VR(:,col)),(VL(:,col)-VR(:,col))));
 E_diff(col,1) = sqrt(dot((EL(:,col)-ER(:,col)),(EL(:,col)-ER(:,col))));
 end
 
-min(V_diff); % 1.3920
+min(V_diff); % 1.3932
 
 %% P(3->2)-KKR, Alternative Form (i.e. original from KKR paper, near Eq. 13 on the arXiv version).
 
