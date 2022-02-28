@@ -27,11 +27,15 @@ end
 max(E_diff); % 3.1e-15, full energy spectrum reproduced
 min(V_diff); % 1.28,      no states reproduced
 
+%% Pg. 5, Deduc-Reduc: Eqs. 6-7.
 %% Pg. 6, Eqs 8 and 10
 
 LHS=b1.*b2 + b2.*b3 + b3.*b4 - 4*b1.*b2.*b3;
 RHS=b1.*b2 + b2.*b3 + b3.*b4 + 4*b1 - 4*b1.*b2 - 4*b1.*b3;
 
+%% Pg. 7, Groebner bases, Eqs. 11-12 (not easy for a first-time contributor)
+%% Pg. 8, Dattani 2018, Eqs. 13-18 (not easy for a first-time contributor)
+%% Pg. 9, Split-Reduc, Eqs. 19-23.
 %% Pg. 10, Eqs 25-26
 
 b= dec2bin(2^7-1:-1:0)-'0';
@@ -46,7 +50,13 @@ LHS=min(reshape(-b1.*b2.*b3.*b4.*b5.*b6,2,[]));
 RHS=min(reshape((6 - 1 - b1 - b2 - b3 - b4 - b5 - b6).*ba,2,[]));
 isequal(LHS,RHS);
 
-%% PTR-BG.
+%% Pg. 11, NTR-ABCG Eq. 30-32
+%% Pg. 12, NTR-ABCG-2 Eq. 34 needs a quadratized version of the equation to be added
+%% Pg. 13, NTR-GBP Eq 37-41
+%% Pg. 14, NTR-YXKK Eq. 42-43
+%% Pg. 15, NTR-RBL Eq. Eq. 44-46
+%% Pg. 16, NTR-LHZ Eq. 47-48
+%% Pg. 17, PTR-BG. Eq. 50
 
 b = dec2bin(2^6-1:-1:0)-'0';
 b1=b(:,1);b2=b(:,2);b3=b(:,3);b4=b(:,4);ba1=b(:,5);ba2=b(:,6);
@@ -54,21 +64,23 @@ LHS=min(reshape(b1.*b2.*b3.*b4,4,[]));
 RHS=min(reshape(ba1.*(2+ b1 -b2 - b3 - b4) + ba2.*(1 + b2 - b3 - b4) + b3.*b4,4,[]));
 isequal(LHS,RHS); % Gives 1, verified by Nike on 28 Feb 2021.
 
-%% PTR-Ishikawa Pg. 18, Eqn 52
+%% Pg. 18, PTR-Ishikawa, Eqn 52
 
 b = dec2bin(2^5-1:-1:0)-'0';
 b1=b(:,1);b2=b(:,2);b3=b(:,3);b4=b(:,4);ba=b(:,5);
 LHS = b1.*b2.*b3.*b4;
 RHS = ba.*(3 - 2*b1 - 2*b2 - 2*b3 - 2*b4) + b1.*b2 + b1.*b3 + b1.*b4 + b2.*b3 + b2.*b4 +  b3.*b4;
 
-%% PTR-BCR-1: Pg. 20, Eqns 59
+%% Pg. 19, No example given yet!
+%% Pg. 20, PTR-BCR-1: Eqns 59
 
 b = dec2bin(2^5-1:-1:0)-'0';
 b1=b(:,1);b2=b(:,2);b3=b(:,3);b4=b(:,4);ba1=b(:,5);
 LHS = b1.*b2.*b3.*b4;
 RHS = 1/2*(b1 + b2 + b3 + b4 - 2*ba1).*(b1 + b2 + b3 + b4 - 2*ba1 - 1);
 
-%% PTR-BCR-3 Pg. 22, Eqns 65
+%% Pg. 21, PTR-BCR-2, Eqns 62
+%% Pg. 22, PTR-BCR-3, Eqns 65
 
 b = dec2bin(2^5-1:-1:0)-'0';
 b1=b(:,1);b2=b(:,2);b3=b(:,3);b4=b(:,4);ba=b(:,5);
@@ -91,7 +103,6 @@ RHSa = min(reshape(ba.*(-b1 + b2 + b3) - b1.*b2 - b1.*b3 + b1,2,[]));
 RHSb = min(reshape(ba.*(-b2 + b1 + b3) - b1.*b2 - b2.*b3 + b2,2,[]));
 RHSc = min(reshape(ba.*(-b3 + b1 + b2) - b2.*b3 - b1.*b3 + b3,2,[]));
 isequal(LHS,RHSa,RHSb,RHSc);
-
 
 %%
 
