@@ -54,6 +54,14 @@ RHS=min(reshape((6 - 1 - b1 - b2 - b3 - b4 - b5 - b6).*ba,2,[]));
 isequal(LHS,RHS);
 
 %% Pg. 11, NTR-ABCG Eq. 30-32
+
+b = dec2bin(2^7-1:-1:0)-'0'; %included for clarity; repeated from previous cell
+b1=b(:,1);b2=b(:,2);b3=b(:,3);b4=b(:,4);b5=b(:,5);b6=b(:,6);ba = b(:,7);
+
+LHS = (6-1)*bk.*ba-( b1.*(ba+bk-1)+b2.*(ba+bk-1)+b3.*(ba+bk-1)+b4.*(ba+bk-1)+b5.*(ba+bk-1)+b6.*(ba+bk-1));
+RHS = (6-2)*bk.*ba-(b1.*(ba+bk-1)+b2.*(ba+bk-1)+b3.*(ba+bk-1)+b4.*(ba+bk-1)+b5.*(ba+bk-1));
+isequal(LHS,RHS);
+
 %% Pg. 12, NTR-ABCG-2 Eq. 34 needs a quadratized version of the equation to be added
 %% Pg. 13, NTR-GBP Eq 37-41
 %% Pg. 14, NTR-YXKK Eq. 42-43
