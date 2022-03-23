@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2022.3.21)  21 MAR 2022 20:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2022.3.21)  23 MAR 2022 16:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1420,9 +1420,9 @@ Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 5893.
 Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 5893.
  ) 
 Here is how much of TeX's memory you used:
- 18705 strings out of 494333
- 306227 string characters out of 6168093
- 576751 words of memory out of 5000000
+ 18706 strings out of 494333
+ 306240 string characters out of 6168093
+ 576737 words of memory out of 5000000
  21031 multiletter control sequences out of 15000+600000
  83811 words of font info for 372 fonts, out of 8000000 for 9000
  309 hyphenation exceptions out of 8191
@@ -1459,10 +1459,10 @@ symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplb
 r/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texl
 ive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-di
 st/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on Book_about_Quadratization.pdf (91 pages, 620291 bytes).
+Output written on Book_about_Quadratization.pdf (91 pages, 620367 bytes).
 PDF statistics:
- 1913 PDF objects out of 2073 (max. 8388607)
- 1766 compressed objects within 18 object streams
- 541 named destinations out of 1000 (max. 500000)
+ 1914 PDF objects out of 2073 (max. 8388607)
+ 1767 compressed objects within 18 object streams
+ 542 named destinations out of 1000 (max. 500000)
  51585 words of extra memory for PDF output out of 51595 (max. 10000000)
 
