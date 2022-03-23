@@ -57,6 +57,57 @@ isequal(LHS,RHS);
 %% Pg. 12, NTR-ABCG-2 Eq. 34 needs a quadratized version of the equation to be added
 %% Pg. 13, NTR-GBP Eq 37-41
 %% Pg. 14, NTR-YXKK Eq. 42-43
+
+% Page 14 NTR-YXKK equation 42
+% Verification for when k=6 and alpha=0.001, 0.5, 1, 2, 15
+b= dec2bin(2^7 -1:-1:0) - '0';
+b1=b(:,1);b2=b(:,2);b3=b(:,3);b4=b(:,4);b5=b(:,5);b6=b(:,6);ba=b(:,7);
+LHS=min(reshape(-b1.*b2.*b3.*b4.*b5.*b6,2,[]));
+
+% alpha=0.001
+RHS=min(reshape(ba - 1 + 0.001*((1-b1).*(1-ba) + (1-b2).*(1-ba) + ...
+    (1-b3).*(1-ba) + (1-b4).*(1-ba) + (1-b5).*(1-ba) + ...
+    (1-b6).*(1-ba)), 2, []));
+
+isequal(LHS,RHS);
+
+% alpha=0.5
+RHS=min(reshape(ba - 1 + 0.5*((1-b1).*(1-ba) + (1-b2).*(1-ba) + ...
+    (1-b3).*(1-ba) + (1-b4).*(1-ba) + (1-b5).*(1-ba) + ...
+    (1-b6).*(1-ba)), 2, []));
+
+isequal(LHS,RHS);
+
+% alpha=1
+RHS=min(reshape(ba - 1 + 1*((1-b1).*(1-ba) + (1-b2).*(1-ba) + ...
+    (1-b3).*(1-ba) + (1-b4).*(1-ba) + (1-b5).*(1-ba) + ...
+    (1-b6).*(1-ba)), 2, []));
+
+isequal(LHS,RHS);
+
+% alpha=2
+RHS=min(reshape(ba - 1 + 2*((1-b1).*(1-ba) + (1-b2).*(1-ba) + ...
+    (1-b3).*(1-ba) + (1-b4).*(1-ba) + (1-b5).*(1-ba) + ...
+    (1-b6).*(1-ba)), 2, []));
+
+isequal(LHS,RHS);
+
+% alpha=15
+RHS=min(reshape(ba - 1 + 15*((1-b1).*(1-ba) + (1-b2).*(1-ba) + ...
+    (1-b3).*(1-ba) + (1-b4).*(1-ba) + (1-b5).*(1-ba) + ...
+    (1-b6).*(1-ba)), 2, []));
+
+isequal(LHS,RHS);
+
+% Equation 44
+
+b= dec2bin(2^6 -1:-1:0) - '0';
+b1=b(:,1);b2=b(:,2);b3=b(:,3);b4=b(:,4);b5=b(:,5);ba=b(:,6);
+LHS=min(reshape(-b1.*b2.*b3.*b4.*b5 + 5*b1.*b4 - b3, 2, []));
+RHS=min(reshape(ba + 9 -10*ba  - 2*b1 - 2*b2 - 2*b3 - 2*b4 - 2*b5 + ...
+    2*b1.*ba +2*b2.*ba +2*b3.*ba + 2*b4.*ba + 2*b5.*ba +5*b1.*b4 - b3,  2, []));
+
+isequal(LHS,RHS);
 %% Pg. 15, NTR-RBL Eq. Eq. 44-46
 %% Pg. 16, NTR-LHZ Eq. 47-48
 %% Pg. 17, PTR-BG. Eq. 50
