@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.7) (preloaded format=pdflatex 2020.9.21)  23 MAR 2022 23:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.7) (preloaded format=pdflatex 2020.9.21)  23 MAR 2022 23:28
 entering extended mode
 **./Book_about_Quadratization.tex
 (Book_about_Quadratization.tex
@@ -1135,76 +1135,76 @@ Package microtype Info: Loading generic protrusion settings for font family
 [21] [22] [23] [24]
 Package microtype Info: Fixing zero fontdimen6 for font `OMX/MnSymbolE/m/n/10.9
 5'
-(microtype)             (new value: 10.95pt) on input line 1757.
+(microtype)             (new value: 10.95pt) on input line 1761.
 Package microtype Info: Fixing zero fontdimen6 for font `U/MnSymbolA/m/n/10.95'
 
-(microtype)             (new value: 10.95pt) on input line 1757.
+(microtype)             (new value: 10.95pt) on input line 1761.
 Package microtype Info: Fixing zero fontdimen6 for font `U/MnSymbolB/m/n/10.95'
 
-(microtype)             (new value: 10.95pt) on input line 1757.
+(microtype)             (new value: 10.95pt) on input line 1761.
 Package microtype Info: Fixing zero fontdimen6 for font `U/MnSymbolC/m/n/10.95'
 
-(microtype)             (new value: 10.95pt) on input line 1757.
+(microtype)             (new value: 10.95pt) on input line 1761.
 Package microtype Info: Fixing zero fontdimen6 for font `U/MnSymbolD/m/n/10.95'
 
-(microtype)             (new value: 10.95pt) on input line 1757.
+(microtype)             (new value: 10.95pt) on input line 1761.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1757.
+(hyperref)                removing `math shift' on input line 1761.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1757.
+(hyperref)                removing `math shift' on input line 1761.
 
 [25] [26]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1835.
+(hyperref)                removing `math shift' on input line 1839.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\rightarrow' on input line 1835.
+(hyperref)                removing `\rightarrow' on input line 1839.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1835.
+(hyperref)                removing `math shift' on input line 1839.
 
 [27]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1882.
+(hyperref)                removing `math shift' on input line 1886.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\rightarrow' on input line 1882.
+(hyperref)                removing `\rightarrow' on input line 1886.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1882.
+(hyperref)                removing `math shift' on input line 1886.
 
 [28] [29] [30] [31] [32]
-Overfull \hbox (9.93767pt too wide) detected at line 2231
+Overfull \hbox (9.93767pt too wide) detected at line 2235
 []
  []
 
 [33]
-Overfull \hbox (9.93767pt too wide) detected at line 2312
+Overfull \hbox (9.93767pt too wide) detected at line 2316
 []
  []
 
 [34]
-Overfull \hbox (9.93767pt too wide) detected at line 2392
+Overfull \hbox (9.93767pt too wide) detected at line 2396
 []
  []
 
 [35]
-Overfull \hbox (9.93767pt too wide) detected at line 2475
+Overfull \hbox (9.93767pt too wide) detected at line 2479
 []
  []
 
 [36] [37] [38] [39] [40]
-Overfull \hbox (54.36577pt too wide) in paragraph at lines 2763--2764
+Overfull \hbox (54.36577pt too wide) in paragraph at lines 2767--2768
 []\T1/ppl/m/n/12 (-20) For a sym-met-ric func-tion such that $\OML/cmm/m/it/12 
 f [] \U/MnSymbolD/m/n/12   \OT1/cmr/m/n/12 0$ \T1/ppl/m/n/12 (-20) for $\OML/cm
 m/m/it/12 c \U/MnSymbolD/m/n/12 A \OML/cmm/m/it/12 n$\T1/ppl/m/n/12 (-20) , the
@@ -1212,167 +1212,155 @@ n with with $[] []$
  []
 
 [41] [42]
-Underfull \hbox (badness 10000) in paragraph at lines 2922--2924
+Underfull \hbox (badness 10000) in paragraph at lines 2926--2928
 
  []
 
 [43]
-Underfull \hbox (badness 10000) in paragraph at lines 2951--2953
+Underfull \hbox (badness 10000) in paragraph at lines 2955--2957
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2954--2956
+Underfull \hbox (badness 10000) in paragraph at lines 2958--2960
 
  []
 
 [44] [45] [46] [47]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 3107.
+(hyperref)                removing `math shift' on input line 3111.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 3107.
+(hyperref)                removing `math shift' on input line 3111.
 
 [48] [49] [50] [51] [52] [53] [54] [55] [56]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 3909.
+(hyperref)                removing `math shift' on input line 3913.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\@@underline' on input line 3909.
+(hyperref)                removing `\@@underline' on input line 3913.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\hbox' on input line 3909.
+(hyperref)                removing `\hbox' on input line 3913.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 3909.
+(hyperref)                removing `math shift' on input line 3913.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 3909.
+(hyperref)                removing `math shift' on input line 3913.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 3909.
+(hyperref)                removing `math shift' on input line 3913.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 3909.
+(hyperref)                removing `math shift' on input line 3913.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\mathsurround' on input line 3909.
+(hyperref)                removing `\mathsurround' on input line 3913.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\z@' on input line 3909.
+(hyperref)                removing `\z@' on input line 3913.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 3909.
+(hyperref)                removing `math shift' on input line 3913.
 
 Package microtype Info: Fixing zero fontdimen6 for font `OMX/MnSymbolE/m/n/24.8
 8'
-(microtype)             (new value: 24.88pt) on input line 3909.
+(microtype)             (new value: 24.88pt) on input line 3913.
 Package microtype Info: Fixing zero fontdimen6 for font `OMX/MnSymbolE/m/n/20.7
 4'
-(microtype)             (new value: 20.74pt) on input line 3909.
+(microtype)             (new value: 20.74pt) on input line 3913.
 Package microtype Info: Fixing zero fontdimen6 for font `OMX/MnSymbolE/m/n/17.2
 8'
-(microtype)             (new value: 17.28pt) on input line 3909.
+(microtype)             (new value: 17.28pt) on input line 3913.
 Package microtype Info: Fixing zero fontdimen6 for font `U/MnSymbolA/m/n/24.88'
 
-(microtype)             (new value: 24.88pt) on input line 3909.
+(microtype)             (new value: 24.88pt) on input line 3913.
 Package microtype Info: Fixing zero fontdimen6 for font `U/MnSymbolA/m/n/20.74'
 
-(microtype)             (new value: 20.74pt) on input line 3909.
+(microtype)             (new value: 20.74pt) on input line 3913.
 Package microtype Info: Fixing zero fontdimen6 for font `U/MnSymbolA/m/n/17.28'
 
-(microtype)             (new value: 17.28pt) on input line 3909.
+(microtype)             (new value: 17.28pt) on input line 3913.
 Package microtype Info: Fixing zero fontdimen6 for font `U/MnSymbolB/m/n/24.88'
 
-(microtype)             (new value: 24.88pt) on input line 3909.
+(microtype)             (new value: 24.88pt) on input line 3913.
 Package microtype Info: Fixing zero fontdimen6 for font `U/MnSymbolB/m/n/20.74'
 
-(microtype)             (new value: 20.74pt) on input line 3909.
+(microtype)             (new value: 20.74pt) on input line 3913.
 Package microtype Info: Fixing zero fontdimen6 for font `U/MnSymbolB/m/n/17.28'
 
-(microtype)             (new value: 17.28pt) on input line 3909.
+(microtype)             (new value: 17.28pt) on input line 3913.
 Package microtype Info: Fixing zero fontdimen6 for font `U/MnSymbolC/m/n/24.88'
 
-(microtype)             (new value: 24.88pt) on input line 3909.
+(microtype)             (new value: 24.88pt) on input line 3913.
 Package microtype Info: Fixing zero fontdimen6 for font `U/MnSymbolC/m/n/20.74'
 
-(microtype)             (new value: 20.74pt) on input line 3909.
+(microtype)             (new value: 20.74pt) on input line 3913.
 Package microtype Info: Fixing zero fontdimen6 for font `U/MnSymbolC/m/n/17.28'
 
-(microtype)             (new value: 17.28pt) on input line 3909.
+(microtype)             (new value: 17.28pt) on input line 3913.
 Package microtype Info: Fixing zero fontdimen6 for font `U/MnSymbolD/m/n/24.88'
 
-(microtype)             (new value: 24.88pt) on input line 3909.
+(microtype)             (new value: 24.88pt) on input line 3913.
 Package microtype Info: Fixing zero fontdimen6 for font `U/MnSymbolD/m/n/20.74'
 
-(microtype)             (new value: 20.74pt) on input line 3909.
+(microtype)             (new value: 20.74pt) on input line 3913.
 Package microtype Info: Fixing zero fontdimen6 for font `U/MnSymbolD/m/n/17.28'
 
-(microtype)             (new value: 17.28pt) on input line 3909.
+(microtype)             (new value: 17.28pt) on input line 3913.
 [57]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 3999.
+(hyperref)                removing `math shift' on input line 4003.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\@@underline' on input line 3999.
+(hyperref)                removing `\@@underline' on input line 4003.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\hbox' on input line 3999.
+(hyperref)                removing `\hbox' on input line 4003.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\mathsurround' on input line 3999.
+(hyperref)                removing `\mathsurround' on input line 4003.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\z@' on input line 3999.
+(hyperref)                removing `\z@' on input line 4003.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 3999.
+(hyperref)                removing `math shift' on input line 4003.
 
 [58] [59] [60]
-Overfull \hbox (44.93135pt too wide) in paragraph at lines 4298--4299
+Overfull \hbox (44.93135pt too wide) in paragraph at lines 4302--4303
 []\T1/ppl/m/n/12 (-20) The trans-for-ma-tion pre-sented above was for the case 
 of $\OML/cmm/m/it/12 U[] \U/MnSymbolD/m/n/12   []  [] []$\T1/ppl/m/n/12 (-20) 
 ,
  []
 
 [61]
-Overfull \hbox (44.93135pt too wide) in paragraph at lines 4376--4377
+Overfull \hbox (44.93135pt too wide) in paragraph at lines 4380--4381
 []\T1/ppl/m/n/12 (-20) The trans-for-ma-tion pre-sented above was for the case 
 of $\OML/cmm/m/it/12 U[] \U/MnSymbolD/m/n/12   []  [] []$\T1/ppl/m/n/12 (-20) 
 ,
  []
 
 [62]
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 4386.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\rightarrow' on input line 4386.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 4386.
-
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 4390.
@@ -1385,117 +1373,129 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 4390.
 
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 4394.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\rightarrow' on input line 4394.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 4394.
+
 [63]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 4459.
+(hyperref)                removing `math shift' on input line 4463.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\rightarrow' on input line 4459.
+(hyperref)                removing `\rightarrow' on input line 4463.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 4459.
+(hyperref)                removing `math shift' on input line 4463.
 
 [64]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 4533.
+(hyperref)                removing `math shift' on input line 4537.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\rightarrow' on input line 4533.
+(hyperref)                removing `\rightarrow' on input line 4537.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 4533.
+(hyperref)                removing `math shift' on input line 4537.
 
 [65]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 4619.
+(hyperref)                removing `math shift' on input line 4623.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\rightarrow' on input line 4619.
+(hyperref)                removing `\rightarrow' on input line 4623.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 4619.
+(hyperref)                removing `math shift' on input line 4623.
 
 [66]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 4720.
+(hyperref)                removing `math shift' on input line 4724.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\rightarrow' on input line 4720.
+(hyperref)                removing `\rightarrow' on input line 4724.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 4720.
+(hyperref)                removing `math shift' on input line 4724.
 
 [67]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 4791.
+(hyperref)                removing `math shift' on input line 4795.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\rightarrow' on input line 4791.
+(hyperref)                removing `\rightarrow' on input line 4795.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 4791.
+(hyperref)                removing `math shift' on input line 4795.
 
 [68] [69] [70] [71] [72] [73] [74] [75] [76]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 5593.
+(hyperref)                removing `math shift' on input line 5597.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\@@underline' on input line 5593.
+(hyperref)                removing `\@@underline' on input line 5597.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\hbox' on input line 5593.
+(hyperref)                removing `\hbox' on input line 5597.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\mathsurround' on input line 5593.
+(hyperref)                removing `\mathsurround' on input line 5597.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\z@' on input line 5593.
+(hyperref)                removing `\z@' on input line 5597.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 5593.
+(hyperref)                removing `math shift' on input line 5597.
 
 [77] [78]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 5698.
+(hyperref)                removing `math shift' on input line 5702.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\rightarrow' on input line 5698.
+(hyperref)                removing `\rightarrow' on input line 5702.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 5698.
+(hyperref)                removing `math shift' on input line 5702.
 
 [79] [80]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 5762.
+(hyperref)                removing `math shift' on input line 5766.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 5762.
+(hyperref)                removing `math shift' on input line 5766.
 
 [81] [82] [83] [84] (Book_about_Quadratization.bbl [85]
 Underfull \hbox (badness 1616) in paragraph at lines 120--125
@@ -1511,64 +1511,70 @@ ctions induced by virtual transitions,''
  []
 
 ) [91]
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 5890.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 5890.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 5894.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 5894.
  (Book_about_Quadratization.aux)
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 5890.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 5894.
 
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 21047 strings out of 481199
- 350628 string characters out of 2906064
- 804796 words of memory out of 3000000
+ 21050 strings out of 481199
+ 350668 string characters out of 2906064
+ 806948 words of memory out of 3000000
  35291 multiletter control sequences out of 15000+200000
  619186 words of font info for 461 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  69i,21n,82p,1306b,745s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Users/Eric/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/mnsymbol/MnSymbo
-lD.enc}{C:/Users/Eric/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/mnsymbol/Mn
-SymbolE.enc}{C:/Users/Eric/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/mnsymb
-ol/MnSymbolS.enc}{C:/Users/Eric/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/m
-nsymbol/MnSymbolC.enc}{C:/Users/Eric/AppData/Local/Programs/MiKTeX/fonts/enc/dv
-ips/mnsymbol/MnSymbolF.enc}{C:/Users/Eric/AppData/Local/Programs/MiKTeX/fonts/e
-nc/dvips/mnsymbol/MnSymbolA.enc}{C:/Users/Eric/AppData/Local/Programs/MiKTeX/fo
-nts/enc/dvips/base/8r.enc}<C:/Users/Eric/AppData/Local/Programs/MiKTeX/fonts/ty
-pe1/public/mnsymbol/MnSymbol10.pfb><C:/Users/Eric/AppData/Local/Programs/MiKTeX
-/fonts/type1/public/mnsymbol/MnSymbol12.pfb><C:/Users/Eric/AppData/Local/Progra
-ms/MiKTeX/fonts/type1/public/mnsymbol/MnSymbol5.pfb><C:/Users/Eric/AppData/Loca
-l/Programs/MiKTeX/fonts/type1/public/mnsymbol/MnSymbol6.pfb><C:/Users/Eric/AppD
-ata/Local/Programs/MiKTeX/fonts/type1/public/mnsymbol/MnSymbol7.pfb><C:/Users/E
-ric/AppData/Local/Programs/MiKTeX/fonts/type1/public/mnsymbol/MnSymbol8.pfb><C:
-/Users/Eric/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10
-.pfb><C:/Users/Eric/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/c
-m/cmmi12.pfb><C:/Users/Eric/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
-sfonts/cm/cmmi5.pfb><C:/Users/Eric/AppData/Local/Programs/MiKTeX/fonts/type1/pu
-blic/amsfonts/cm/cmmi6.pfb><C:/Users/Eric/AppData/Local/Programs/MiKTeX/fonts/t
-ype1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Eric/AppData/Local/Programs/MiKTeX/
-fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Eric/AppData/Local/Programs/
-MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Eric/AppData/Local/Pr
-ograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Eric/AppData/L
-ocal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/Eric/App
-Data/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/Er
-ic/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Us
-ers/Eric/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb>
-<C:/Users/Eric/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cms
-l10.pfb><C:/Users/Eric/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfont
-s/cm/cmsl12.pfb><C:/Users/Eric/AppData/Local/Programs/MiKTeX/fonts/type1/public
-/amsfonts/cm/cmsl8.pfb><C:/Users/Eric/AppData/Local/Programs/MiKTeX/fonts/type1
-/public/amsfonts/cm/cmtt12.pfb><C:/Users/Eric/AppData/Local/Programs/MiKTeX/fon
-ts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/Eric/AppData/Local/Progra
-ms/MiKTeX/fonts/type1/urw/palatino/uplb8a.pfb><C:/Users/Eric/AppData/Local/Prog
-rams/MiKTeX/fonts/type1/urw/palatino/uplbi8a.pfb><C:/Users/Eric/AppData/Local/P
+pdfTeX warning (dest): name{equation.5.148} has been referenced but does not 
+exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{equation.3.49} has been referenced but does not exi
+st, replaced by a fixed one
+
+{C:/Users/Eric/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/mnsymbol/MnSymbolD
+.enc}{C:/Users/Eric/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/mnsymbol/MnSy
+mbolE.enc}{C:/Users/Eric/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/mnsymbol
+/MnSymbolS.enc}{C:/Users/Eric/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/mns
+ymbol/MnSymbolC.enc}{C:/Users/Eric/AppData/Local/Programs/MiKTeX/fonts/enc/dvip
+s/mnsymbol/MnSymbolF.enc}{C:/Users/Eric/AppData/Local/Programs/MiKTeX/fonts/enc
+/dvips/mnsymbol/MnSymbolA.enc}{C:/Users/Eric/AppData/Local/Programs/MiKTeX/font
+s/enc/dvips/base/8r.enc}<C:/Users/Eric/AppData/Local/Programs/MiKTeX/fonts/type
+1/public/mnsymbol/MnSymbol10.pfb><C:/Users/Eric/AppData/Local/Programs/MiKTeX/f
+onts/type1/public/mnsymbol/MnSymbol12.pfb><C:/Users/Eric/AppData/Local/Programs
+/MiKTeX/fonts/type1/public/mnsymbol/MnSymbol5.pfb><C:/Users/Eric/AppData/Local/
+Programs/MiKTeX/fonts/type1/public/mnsymbol/MnSymbol6.pfb><C:/Users/Eric/AppDat
+a/Local/Programs/MiKTeX/fonts/type1/public/mnsymbol/MnSymbol7.pfb><C:/Users/Eri
+c/AppData/Local/Programs/MiKTeX/fonts/type1/public/mnsymbol/MnSymbol8.pfb><C:/U
+sers/Eric/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.p
+fb><C:/Users/Eric/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
+cmmi12.pfb><C:/Users/Eric/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsf
+onts/cm/cmmi5.pfb><C:/Users/Eric/AppData/Local/Programs/MiKTeX/fonts/type1/publ
+ic/amsfonts/cm/cmmi6.pfb><C:/Users/Eric/AppData/Local/Programs/MiKTeX/fonts/typ
+e1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Eric/AppData/Local/Programs/MiKTeX/fo
+nts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Eric/AppData/Local/Programs/Mi
+KTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Eric/AppData/Local/Prog
+rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Eric/AppData/Loc
+al/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/Eric/AppDa
+ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/Eric
+/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/User
+s/Eric/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C
+:/Users/Eric/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsl1
+0.pfb><C:/Users/Eric/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/
+cm/cmsl12.pfb><C:/Users/Eric/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
+msfonts/cm/cmsl8.pfb><C:/Users/Eric/AppData/Local/Programs/MiKTeX/fonts/type1/p
+ublic/amsfonts/cm/cmtt12.pfb><C:/Users/Eric/AppData/Local/Programs/MiKTeX/fonts
+/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/Eric/AppData/Local/Programs
+/MiKTeX/fonts/type1/urw/palatino/uplb8a.pfb><C:/Users/Eric/AppData/Local/Progra
+ms/MiKTeX/fonts/type1/urw/palatino/uplbi8a.pfb><C:/Users/Eric/AppData/Local/Pro
+grams/MiKTeX/fonts/type1/urw/palatino/uplr8a.pfb><C:/Users/Eric/AppData/Local/P
 rograms/MiKTeX/fonts/type1/urw/palatino/uplr8a.pfb><C:/Users/Eric/AppData/Local
-/Programs/MiKTeX/fonts/type1/urw/palatino/uplr8a.pfb><C:/Users/Eric/AppData/Loc
-al/Programs/MiKTeX/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on Book_about_Quadratization.pdf (91 pages, 834170 bytes).
+/Programs/MiKTeX/fonts/type1/urw/palatino/uplri8a.pfb>
+Output written on Book_about_Quadratization.pdf (91 pages, 834657 bytes).
 PDF statistics:
- 1894 PDF objects out of 2073 (max. 8388607)
- 541 named destinations out of 1000 (max. 500000)
+ 1897 PDF objects out of 2073 (max. 8388607)
+ 544 named destinations out of 1000 (max. 500000)
  93057 words of extra memory for PDF output out of 106986 (max. 10000000)
 
