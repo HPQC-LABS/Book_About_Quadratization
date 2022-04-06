@@ -150,7 +150,7 @@ RHS = 1/2*(b1 + b2 + b3 + b4 - 2*ba1).*(b1 + b2 + b3 + b4 - 2*ba1 - 1);
 b = dec2bin(2^6-1:-1:0)-'0';
 b1=b(:,1);b2=b(:,2);b3=b(:,3);b4=b(:,4);ba1=b(:,5);ba2=b(:,6);
 LHS = min(reshape(b1.*b2.*b3.*b4, 4, []));
-RHS = min(reshape((b1 + b2 + b3 + b4 - ba1 - 2*ba2).*(b1 + b2 + b3 + b4 - ba1 - 2*ba2), 4, []));
+RHS = min(reshape((b1 + b2 + b3 + b4 - ba1 - 2*ba2).^2, 4, []));
 isequal(LHS,RHS); % Gives 1, confirmed by Nike on 6 April.
 
 %% Pg. 24, PTR-KZ (needs an example!)
