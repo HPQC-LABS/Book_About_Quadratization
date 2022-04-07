@@ -63,6 +63,10 @@ LHS = min(-2 * b1.*b2.*b3.*b4.*b5.*b6 + b5.*b6);
 RHS = min(2 * ((2 * 6 - 1) * ba - 2 * (b1.*ba + b2.*ba + b3.*ba + b4.*ba + b5.*ba + b6.*ba)) + b5.*b6);
 isequal(LHS, RHS);
 
+% retesting, for equation 36, using expanded version
+RHS = min(22 * ba - 4 * b1.*ba - 4 * b2.*ba - 4*b3.*ba - 4*b4.*ba - 4*b5.*ba - 4*b6.*ba + b5.*b6)
+isequal(LHS, RHS);
+
 %% Pg. 13, NTR-GBP: -b1b2b3 = min_ba(ba - b1 + b2 + b3 - b1b2 - b1b3 + b1)
 
 b= dec2bin(2^4-1:-1:0)-'0';
