@@ -55,6 +55,17 @@ isequal(LHS,RHS);
 
 %% Pg. 11, NTR-ABCG Eq. 30-32
 %% Pg. 12, NTR-ABCG-2 Eq. 34 needs a quadratized version of the equation to be added
+b = dec2bin(2^7-1:-1:0)-'0';
+b1=b(:,1);b2=b(:,2);b3=b(:,3);b4=b(:,4);b5=b(:,5);b6=b(:,6);ba=b(:,7);
+
+LHS = min(-2 * b1.*b2.*b3.*b4.*b5.*b6 + b5.*b6);
+% so, as per before, we can rewrite b1b2...b6 in terms of equation.33, we just need to quadratize the b1...b6 portion
+RHS = min(2 * ((2 * 6 - 1) * ba - 2 * (b1.*ba + b2.*ba + b3.*ba + b4.*ba + b5.*ba + b6.*ba)) + b5.*b6);
+isequal(LHS, RHS);
+
+% retesting, for equation 36, using expanded version
+RHS = min(22 * ba - 4 * b1.*ba - 4 * b2.*ba - 4*b3.*ba - 4*b4.*ba - 4*b5.*ba - 4*b6.*ba + b5.*b6)
+isequal(LHS, RHS);
 
 %% Pg. 13, NTR-GBP: -b1b2b3 = min_ba(ba - b1 + b2 + b3 - b1b2 - b1b3 + b1)
 
