@@ -918,7 +918,9 @@ For a negative term $-b_{1}b_{2}...b_{k}$, introduce a single auxiliary variable
 \examplesec
 
 \begin{align}
-H_{{\rm 6-local}} & =-2b_{1}b_{2}b_{3}b_{4}b_{5}b_{6} + b_5b_6,
+H_{{\rm 6-local}} &=-2b_{1}b_{2}b_{3}b_{4}b_{5}b_{6} + b_5b_6 \\
+H_{{\rm 2-local}} &=2((2(6) - 1)b_a - 2(\sum_{i = 1}^{6} b_{i}b_a)) + b_5b_6\\
+&= 22b_a - 4b_1b_a - 4b_2b_a - 4b_3b_a - 4b_4b_a - 4b_5b_a - 4b_6b_a + b_5b_6
 \end{align}
 has a unique minimum energy of -1 when all $b_i=1$.
 
@@ -1071,10 +1073,8 @@ For $\alpha > 1$ we can quadratize a degree-$k$ negative term with one auxiliary
 %
 \begin{align}
 -b_{1}b_{2}b_{3}b_{4}b_{5}+{5}b_{1}b_{4} - b_{3} &\rightarrow  b_a +{2}\sum_{i=1}^{5}(1-b_i)(1-b_a) -{1}+{5}b_{1}b_{4} - b_{3}\\
-\begin{split}
-&\rightarrow b_a +{9} - {10}b_a - {2}b_{1} - {2}b_{2} - {2}b_{3} - {2}b_{4} - {2}b_{5} \\
+&\rightarrow b_a +{9} - {10}b_a - {2}b_{1} - {2}b_{2} - {2}b_{3} - {2}b_{4} - {2}b_{\,5} \\
 &\quad + {2}b_{1}b_a+ {2}b_{2}b_a + {2}b_{3}b_a + {2}b_{4}b_a + {2}b_{5}b_a+ {5}b_{1}b_{4} - b_{3}
-\end{split}
 \end{align}
 
 %Each degree-\(d\) monomial in the PBF \(f(\vec x)\) in one reduction step is substituted as:
