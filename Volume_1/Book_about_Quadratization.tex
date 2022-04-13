@@ -1593,7 +1593,7 @@ b_1 \ldots b_k &= \min_{b'_1, \ldots b'_n} \frac{1}{2} \left( N + X - \sum^n_{i=
 %Suppose we have a monomial $b_1b_2b_3 \ldots b_k$.
 This is a more general form of the previous reduction, PTR-BCR-4, in which $k=2^{m+1}$:
 \begin{align}
-b_1 \ldots b_k &\rightarrow  \sum_{ij}b_ib_j + \sum_{ij}^m 2^{i+j}b_{a_i}b_{a_j} - \sum_i \sum_j^m 2^{j+1}b_ib_{a_i}.
+b_1 \ldots b_k &\rightarrow  \sum_{ij}b_ib_j + \sum_{ij}^m 2^{i+j}b_{a_i}b_{a_j} - \sum_i \sum_j^m 2^{j+1}b_ib_{a_j}.
 \end{align}
 
 \costsec
@@ -1619,7 +1619,12 @@ $\log(n)$ auxiliary qubits per positive monomial.
 \begin{eqnarray}
 %b_1 b_2 b_3 b_4 = \min_{b_{a_1}, b_{a_2}} \frac{1}{2}
 b_1 b_2 b_3 b_4 \rightarrow
-\left( b_1 + b_2 + b_3 + b_4 - 2b_a \right)^2
+\left( b_1 + b_2 + b_3 + b_4 - b_{a_1} - 2b_{a_2} \right)^2
+\end{eqnarray}
+
+\begin{eqnarray}
+b_1 b_2 b_3 b_4 \rightarrow
+\sum_{i=1}^{4}\sum_{j=1}^{4}b_ib_j + \sum_{i=0}^{1}\sum_{j=0}^{1} 2^{i+j}b_{a_i}b_{a_j} - \sum_{i=1}^{4}\sum_{j=0}^{1} 2^{j+1}b_ib_{a_j}
 \end{eqnarray}
 
 \altformsec
