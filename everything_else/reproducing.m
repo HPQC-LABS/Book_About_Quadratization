@@ -165,7 +165,33 @@ LHS = min(reshape(b1.*b2.*b3.*b4, 4, []));
 RHS = min(reshape((b1 + b2 + b3 + b4 - ba1 - 2*ba2).^2, 4, []));
 isequal(LHS,RHS); % Gives 1, confirmed by Nike on 6 April.
 
-% k = 8, Eq. 73
+% Eq. 73
+b = dec2bin(2^6-1:-1:0)-'0';
+LHS = ones(2^6,1);
+for i = 1:4
+    LHS = LHS.*b(:,i);
+end
+LHS = min(reshape(LHS, 4, []));
+RHS = zeros(2^6,1);
+for i = 1:4
+    for j = 1:4
+        RHS = RHS + b(:,i).*b(:,j);
+    end
+end
+for i = 5:6
+    for j = 5:6
+        RHS = RHS + 2^(i+j-10)*b(:,i).*b(:,j);
+    end
+end
+for i = 1:4
+    for j = 5:6
+        RHS = RHS - 2^(j-4)*b(:,i).*b(:,j);
+    end
+end
+RHS = min(reshape(RHS, 4, []));
+isequal(LHS, RHS);
+
+% k = 8, Eq. 74
 b = dec2bin(2^11-1:-1:0)-'0';
 LHS = ones(2^11,1);
 for i = 1:8
