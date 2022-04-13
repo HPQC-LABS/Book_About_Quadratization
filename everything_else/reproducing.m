@@ -158,11 +158,53 @@ RHS = 1/2*(b1 + b2 + b3 + b4 - 2*ba1).*(b1 + b2 + b3 + b4 - 2*ba1 - 1);
 %% Pg. 22, PTR-BCR-3 (example appears to be the same as PTR-BCR-1, and may have to be redone)
 %% Pg. 23, PTR-BCR-4 
 
+% Eq. 72
 b = dec2bin(2^6-1:-1:0)-'0';
 b1=b(:,1);b2=b(:,2);b3=b(:,3);b4=b(:,4);ba1=b(:,5);ba2=b(:,6);
 LHS = min(reshape(b1.*b2.*b3.*b4, 4, []));
 RHS = min(reshape((b1 + b2 + b3 + b4 - ba1 - 2*ba2).^2, 4, []));
 isequal(LHS,RHS); % Gives 1, confirmed by Nike on 6 April.
+
+% k = 8, Eq. 73
+b = dec2bin(2^11-1:-1:0)-'0';
+LHS = ones(2^11,1);
+for i = 1:8
+    LHS = LHS.*b(:,i);
+end
+LHS = min(reshape(LHS, 8, []));
+RHS = zeros(2^11,1);
+for i=1:8
+    RHS = RHS + b(:,i);
+end
+RHS = RHS - b(:,9) - 2*b(:,10) - 4*b(:,11);
+RHS = min(reshape(RHS.^2, 8, []));
+isequal(LHS, RHS);
+
+% k = 8, Eq. 71
+b = dec2bin(2^11-1:-1:0)-'0';
+LHS = ones(2^11,1);
+for i = 1:8
+    LHS = LHS.*b(:,i);
+end
+LHS = min(reshape(LHS, 8, []));
+RHS = zeros(2^11,1);
+for i = 1:8
+    for j = 1:8
+        RHS = RHS + b(:,i).*b(:,j);
+    end
+end
+for i = 9:11
+    for j = 9:11
+        RHS = RHS + 2^(i+j-18)*b(:,i).*b(:,j);
+    end
+end
+for i = 1:8
+    for j = 9:11
+        RHS = RHS - 2^(j-8)*b(:,i).*b(:,j);
+    end
+end
+RHS = min(reshape(RHS, 8, []));
+isequal(LHS, RHS);
 
 %% Pg. 24, PTR-KZ (needs an example!)
 %% PTR-KZ: b1b2b3 = min_ba(1 − (ba + b1 + b2 + b3) + ba (b1 + b2 + b3) + b1b2 + b1b3 + b2b3)
