@@ -5,7 +5,7 @@ b1=b(:,1);b2=b(:,2);b3=b(:,3);b4=b(:,4);
 LHS=b1.*b2 + b2.*b3 + b3.*b4 - 4*b1.*b2.*b3;
 RHS=b1.*b2 + b2.*b3 + b3.*b4 + 4*b1 - 4*b1.*b2 - 4*b1.*b3;
 
-%% Pg. 1, Eqs 4-5 (Also used for abstract for 2019 AQC paper).
+%% Pg. 1, Eqs 4-5 (Also used for abstract for 2019 AQC paper)
 
 x = [0 1 ; 1 0]; y = [0 -1i ; 1i 0]; z = [1 0 ; 0 -1];
 x1 = kron(x, eye(8)); x2 = kron(kron(eye(2), x), eye(4)); x3 = kron(kron(eye(4), x), eye(2)); x4 = kron(eye(8), x);
@@ -249,6 +249,19 @@ isequal(LHS,RHS);
 
 %% Pg. 30, PTR-CZW
 %% Pg. 31, Bit-flipping
+
+%% Using bit flipping to deal with large positive terms by making them negative
+%%    then using IIA
+b = dec2bin(2^6-1:-1:0) - '0';
+b1 = b(:,1); b2 = b(:,2); b3 = b(:,3); b4 = b(:,4); ba1 = b(:,5); ba2 = b(:,6);
+
+b1_bar = 1-b1; b2_bar = 1-b2;
+
+LHS = min(reshape(b1.*b2.*b3.*b4,4,[]));
+RHS = min(reshape(b3.*b4 + 2*ba1 - ba1.*b2_bar - ba1.*b3 - ba1.*b4 + 3*ba2 - ba2.*b1_bar - ba2.*b2 - ba2.*b3 - ba2.*b4,4,[]));
+
+isequal(LHS,RHS);
+
 %% Pg. 32, SFR-ABCG-1
 
 %% Pg. 33, SFR-BCR-1: (b1b2 + b1b3 + b1b4 + b2b3 + b2b4 + b3b4) − 3(b1b2b3 + b1b2b4 + b1b3b4 + b2b3b4) + 6b1b2b3b4 -> (−3 + b1 + b2 + b3 + b4 − ba1 + 3ba2)^2
