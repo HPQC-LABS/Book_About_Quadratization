@@ -156,6 +156,11 @@ RHS = 1/2*(b1 + b2 + b3 + b4 - 2*ba1).*(b1 + b2 + b3 + b4 - 2*ba1 - 1);
 
 %% Pg. 21, PTR-BCR-2
 %% Pg. 22, PTR-BCR-3 (example appears to be the same as PTR-BCR-1, and may have to be redone)
+b = dec2bin(2^5-1:-1:0)-'0';
+b1=b(:,1);b2=b(:,2);b3=b(:,3);b4=b(:,4);ba=b(:,5);
+LHS = min(b1.*b2.*b3.*b4);
+RHS = min(1/2*(b1 + b2 + b3 + b4 - 2*ba).*(b1 + b2 + b3 + b4 - 2*ba - 1));
+isequal(LHS, RHS);
 %% Pg. 23, PTR-BCR-4 
 %% Pg. 24, PTR-KZ (needs an example!)
 %% PTR-KZ: b1b2b3 = min_ba(1 − (ba + b1 + b2 + b3) + ba (b1 + b2 + b3) + b1b2 + b1b3 + b2b3)
