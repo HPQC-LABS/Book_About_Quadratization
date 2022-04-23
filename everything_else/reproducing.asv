@@ -190,8 +190,10 @@ isequal(LHS,RHS) % answer is 1
 b= dec2bin(2^4-1:-1:0)-'0';
 b1=b(:,1);b2=b(:,2);b3=b(:,3);ba=b(:,4);
 LHS = min(reshape(-1*b1.*b2.*b3,2,[]));
-RHS = min(reshape((ba -b1 + b2 + b3) - b1.*b2 - b1.*b3 + b1,2,[]));
-isequal(LHS,RHS)
+RHSa = min(reshape((ba. -b1 + b2 + b3) - b1.*b2 - b1.*b3 + b1,2,[]));
+RHSb = min(reshape(ba.*(-b2 + b1 + b3) - b1.*b2 - b2.*b3 + b2,2,[]));
+RHSc = min(reshape(ba.*(-b3 + b1 + b2) - b2.*b3 - b1.*b3 + b3,2,[]));
+isequal(LHS,RHSa,RHSb,RHSc);
 %% Pg. 28, PTR-RBL-(4->2)
 
 %% PTR-RBL, k=4, middle of LHZ
