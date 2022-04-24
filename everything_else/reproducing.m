@@ -187,6 +187,18 @@ RHS = min(reshape(ba - b2.*ba - b3.*ba + b1.*ba +b2.*b3,2,[]));
 isequal(LHS,RHS) % answer is 1
 
 %% Pg. 27, PTR-RBL
+z=[1 0; 0 -1];
+t=[-1,0,1];
+z1 = kron(z,eye(8));
+z2 = kron(kron(eye(2),z),eye(4));
+z3 = kron(kron(eye(4),z),eye(2));
+ta = t(:,1);
+LHS1 = z1*z2*z3;
+RHS1 = (1+4*ta+z1+z2+z3)^2 - 1;
+
+[diag(LHS1) diag(RHS2)];
+
+
 b= dec2bin(2^4-1:-1:0)-'0';
 b1=b(:,1);b2=b(:,2);b3=b(:,3);ba=b(:,4);
 LHS = min(reshape(-1*b1.*b2.*b3,2,[]));
