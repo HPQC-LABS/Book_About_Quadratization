@@ -350,12 +350,12 @@ isequal(LHS,RHS);
 %% Pg. 56, Decomposition into symmetric and anti-symmetric parts
 
 b = dec2bin(2^4-1:-1:0)-'0';
-b1 = b(:,1); b2 = b(:,2); b3 = b(:,3); b4 = b(:,4)
+b1 = b(:,1); b2 = b(:,2); b3 = b(:,3); b4 = b(:,4);
 
 f=b1.*b2 + b2.*b3 + b3.*b4 - 4*b1.*b2.*b3;
 
-f_sym = (1/2)*(f + f.')
-f_anti = (1/2)*(f - f.')
+f_sym = (1/2)*(f + f.');
+f_anti = (1/2)*(f - f.');
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 QUANTUM GADGETS
