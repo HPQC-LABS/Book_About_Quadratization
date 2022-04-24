@@ -164,7 +164,16 @@ LHS=min(reshape(b1.*b2.*b3,2,[]));
 RHS=min(reshape(1 - (b4+b1+b2+b3) + b4.*(b1+b2+b3) +b1.*b2+b1.*b3+b2.*b3,2,[]));
 isequal(LHS,RHS);
 
-%% Pg. 25, PTR-KZ (needs in example!)
+%% Pg. 25, PTR-KZ: z1z2z3 = 3 + (z1 + z2 + z3 + 2*za) + 2 za (z1 + z2 + z3) + z1z2 + z1z3 + z2z3
+z = [1 0; 0 -1];
+z1 = kron(z, eye(8));
+z2 = kron(kron(eye(2), z), eye(4));
+z3 = kron(kron(eye(4), z), eye(2));
+za = kron(eye(8), z);
+LHS = min(reshape(diag(z1*z2*z3),2,[]));
+RHS = min(reshape(diag(3*eye(16)+(z1+z2+z3+2*za)+2*za*(z1+z2+z3)+z1*z2+z1*z3+z2*z3),2,[]));
+isequal(LHS, RHS)
+
 %% PTR-GBP: b1b2b3 = min_ba(ba - b2ba - b3ba +b1ba +b2b3)
 
 LHS = min(reshape(b1.*b2.*b3,2,[]));
