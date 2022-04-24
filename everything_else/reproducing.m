@@ -349,32 +349,12 @@ isequal(LHS,RHS);
 %% Pg. 55, SCM-BCR
 %% Pg. 56, Decomposition into symmetric and anti-symmetric parts
 
-% Anh Mai - Attempt for Topic: "Decomposition into symmetric and anti-symmetric parts"
-
-% Credit: Eric Huang: reproducing.m, 
-% Dr: Dattani:Book_About_Quadratization,
-% Kahl and Strandmark, "Generalized Roof Duality for Pseudo-Boolean Optimization,” International Conference on Computer Vision (2011).
-
-% Idea: Decompose a quadratic equation into symmetric and skew-symmetric parts. 
-% For example, A is matrix. 
-% Symmetric: A = Transpose(A).
-% Skew-symmetric: - A = Transpose(A)
-
-%Setting up the coefficients using Eric Huang's setup
 b = dec2bin(2^4-1:-1:0)-'0';
-b1 = b(:,1)
-b2 = b(:,2)
-b3 = b(:,3)
-b4 = b(:,4)
+b1 = b(:,1); b2 = b(:,2); b3 = b(:,3); b4 = b(:,4)
 
-% Take quadratic function as an example (Eq. 2 from the book)
-% f = f_sym + f_anti
 f=b1.*b2 + b2.*b3 + b3.*b4 - 4*b1.*b2.*b3;
 
-% f_sym = (1/2)*(f(b) + transpose f(b))
 f_sym = (1/2)*(f + f.')
-
-% f_anti = (1/2)*(f(b) - transpose f(b))
 f_anti = (1/2)*(f - f.')
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
