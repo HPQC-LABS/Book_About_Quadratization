@@ -1764,7 +1764,7 @@ b_{1}b_{2}b_{3} & \rightarrow 1  - \left( b_a + b_1 + b_2 + b_3 \right) + b_a \l
 The formula is almost the same as in the version of PTR-KZ on the previous page (which is written in terms of $b$), but with a factor of 2, a change of sign for the linear terms, and a slight change in the constant term. This formula can be obtained directly from the PTR-KZ quadratization formula in terms of $b$, by starting with $8b_1b_2b_3$ on the left-side, making the substitution $b_i \rightarrow (1+z_i)/2$, and removing all terms that appear on both sides of the equation. The result is:
 
 \begin{align}
-\pm z_1z_2z_3 &\rightarrow 3 \pm \left( z_1 +  z_2 + z_3 + z_a \right) + 2z_a \left(z_1 + z_2 +z_3 \right) +  z_1z_2 + z_1z_3 + z_2z_3.
+\pm z_1z_2z_3 &\rightarrow 3 \pm \left( z_1 +  z_2 + z_3 + 2z_a \right) + 2z_a \left(z_1 + z_2 +z_3 \right) +  z_1z_2 + z_1z_3 + z_2z_3.
 \end{align}
 
 \costsec
@@ -1783,12 +1783,17 @@ The formula is almost the same as in the version of PTR-KZ on the previous page 
 \item Introduces all 6 possible non-submodular quadratic terms.
 \end{itemize}
 
+\examplesec
+\begin{align}
+z_1z_2z_3 - z_1z_2 - z_1 - z_2 \to 3+z_3+2z_a + 2z_a(z_1+z_2+z_3) + z_1z_3 + z_2z_3
+\end{align}
+
 \refsec
 
 \begin{itemize}
 \item 2004: published by Kolmogorov and Zabih in terms of $b$ variables: \cite{Kolmogorov2004}.
 \item 31 March 2016: published by Chancellor, Zohren, and Warburton in terms of $z$, and without the constant term: \cite{Chancellor2016b}.
-\item 8 April 2016: published independently by Leib, Zoller, and Lechner in terms of $z$, and without the constant term \cite{Leib2016a,Leib2016}.
+\item 8 April 2016: published independently by Leib, Zoller, and Lechner in terms of $z$, and without the constant term, see Eq.4 of \cite{Leib2016a,Leib2016}.
 \end{itemize}
 
 \newpage
