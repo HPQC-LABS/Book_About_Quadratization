@@ -166,25 +166,18 @@ isequal(LHS,RHS);
 
 %% Pg. 25, PTR-KZ: ±z1z2z3 = 3 ± (z1 + z2 + z3 + 2*za) + 2 za (z1 + z2 + z3) + z1z2 + z1z3 + z2z3
 z = [1 0; 0 -1];
-z1 = kron(z, eye(8));
-z2 = kron(kron(eye(2), z), eye(4));
-z3 = kron(kron(eye(4), z), eye(2));
-za = kron(eye(8), z);
-LHS = min(reshape(diag(z1*z2*z3),2,[]));
-RHS = min(reshape(diag(3*eye(16)+(z1+z2+z3+2*za)+2*za*(z1+z2+z3)+z1*z2+z1*z3+z2*z3),2,[]));
-LHS2 = min(reshape(diag(-1*z1*z2*z3), 2, []));
-RHS2 = min(reshape(diag(3*eye(16)-(z1+z2+z3+2*za)+2*za*(z1+z2+z3)+z1*z2+z1*z3+z2*z3),2,[]));
-isequal(LHS, RHS) & isequal(LHS2, RHS2);
+z1 = kron(z, eye(8));z2 = kron(kron(eye(2), z), eye(4));z3 = kron(kron(eye(4), z), eye(2));za = kron(eye(8), z);
+LHS_plus = min(reshape(diag(z1*z2*z3),2,[]));
+RHS_plus = min(reshape(diag(3*eye(16)+(z1+z2+z3+2*za)+2*za*(z1+z2+z3)+z1*z2+z1*z3+z2*z3),2,[]));
 
-%% PTR-KZ: Example
-z = [1 0; 0 -1];
-z1 = kron(z, eye(8));
-z2 = kron(kron(eye(2), z), eye(4));
-z3 = kron(kron(eye(4), z), eye(2));
-za = kron(eye(8), z);
+LHS_minus = min(reshape(diag(-1*z1*z2*z3),2,[]));
+RHS_minus = min(reshape(diag(3*eye(16)-(z1+z2+z3+2*za)+2*za*(z1+z2+z3)+z1*z2+z1*z3+z2*z3),2,[]));
+isequal(LHS_plus,RHS_plus) & isequal(LHS_minus, RHS_minus); % gives 1, confirmed by Nike on 26 April 2022.
+
+%% Example
 LHS = min(reshape(diag(z1*z2*z3 - z1*z2 - z1 - z2),2,[]));
 RHS = min(reshape(diag(3*eye(16)+z3+2*za+2*za*(z1+z2+z3)+z1*z3+z2*z3),2,[]));
-isequal(LHS, RHS);
+isequal(LHS, RHS); % gives 1, confirmed by Nike on 26 April 2022.
 
 %% PTR-GBP: b1b2b3 = min_ba(ba - b2ba - b3ba +b1ba +b2b3)
 
