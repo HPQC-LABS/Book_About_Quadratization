@@ -157,12 +157,20 @@ RHS = 1/2*(b1 + b2 + b3 + b4 - 2*ba1).*(b1 + b2 + b3 + b4 - 2*ba1 - 1);
 %% Pg. 21, PTR-BCR-2
 %% Pg. 22, PTR-BCR-3 (example appears to be the same as PTR-BCR-1, and may have to be redone)
 %% Pg. 23, PTR-BCR-4 
-%% Pg. 24, PTR-KZ (needs an example!)
-%% PTR-KZ: b1b2b3 = min_ba(1 − (ba + b1 + b2 + b3) + ba (b1 + b2 + b3) + b1b2 + b1b3 + b2b3)
+%% Pg. 24, PTR-KZ: b1b2b3 = min_ba(1 − (ba + b1 + b2 + b3) + ba (b1 + b2 + b3) + b1b2 + b1b3 + b2b3)
+
+b = dec2bin(2^4-1:-1:0)-'0';
+b1=b(:,1);b2=b(:,2);b3=b(:,3);ba=b(:,4);
 
 LHS=min(reshape(b1.*b2.*b3,2,[]));
-RHS=min(reshape(1 - (b4+b1+b2+b3) + b4.*(b1+b2+b3) +b1.*b2+b1.*b3+b2.*b3,2,[]));
+RHS=min(reshape(1 - (ba+b1+b2+b3) + ba.*(b1+b2+b3) +b1.*b2+b1.*b3+b2.*b3,2,[]));
 isequal(LHS,RHS);
+
+b = dec2bin(2^4-1:-1:0)-'0';
+b1=b(:,1);b2=b(:,2);b3=b(:,3);ba=b(:,4);
+LHS = min(reshape(b1.*b2.*b3+b1+b2+b3-b2.*b3,2,[]));
+RHS = min(reshape(1-ba+ba.*(b1+b2+b3)+b1.*b2+b1.*b3,2,[]));
+isequal(LHS, RHS);
 
 %% Pg. 25, PTR-KZ: ±z1z2z3 = 3 ± (z1 + z2 + z3 + 2*za) + 2 za (z1 + z2 + z3) + z1z2 + z1z3 + z2z3
 z = [1 0; 0 -1];
