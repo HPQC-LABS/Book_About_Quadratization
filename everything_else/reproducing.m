@@ -349,19 +349,19 @@ isequal(LHS,RHS);
 %% Pg. 55, SCM-BCR
 %% Pg. 56, Decomposition into symmetric and anti-symmetric parts
 
-b = dec2bin(2^4-1:-1:0)-'0';
-b1 = b(:,1); b2 = b(:,2); b3 = b(:,3); b4 = b(:,4);
+b = dec2bin(2^8-1:-1:0)-'0';
+b1 = b(:,1); b2 = b(:,2); b3 = b(:,3); b4 = b(:,4); ba = b(:,5); ba1 = b(:,6); ba2 = b(:,7); ba3 = b(:,8);
 
 f = b1 + 2*b1.*b2 - 4*b1.*b2.*b3 + 2*b1.*b2.*b3.*b4;
 
-f_sym = (1/2)*(f + (1 - f));
-f_anti = (1/2)*(f - (1 - f));
+f_new_symm = 2*(-5 + b1 + b2 + b3 + b4 - ba1 - 2*ba2 + 5*ba3).^2;
+f_new_anti = b1 + 2*b1.*b2 + 4*(2 - b1 - b2 - b3).*ba;
 
-f_new = f_sym + f_anti;
+f_new = f_new_anti + f_new_symm;
 
-LHS=min(reshape(f_new,[],4));
-RHS=min(reshape(f,[],4));
-isequal(LHS,RHS);
+LHS=min(reshape(f_new,16,[]))
+RHS=min(reshape(f,16,[]))
+isequal(LHS,RHS)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 QUANTUM GADGETS
