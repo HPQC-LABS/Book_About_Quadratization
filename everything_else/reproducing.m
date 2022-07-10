@@ -269,7 +269,7 @@ LHS=min(reshape(b1.*b2.*b3 + b1.*b3 - b2,4,[]));
 RHS=min(reshape(b1.*b2 + ba1 + 2*ba2 + 2*(1-b1).*(1-ba1) + 2*(1-b2).*(1-ba1) + 2*(1-b3).*(1-ba2) + 2*(1-ba2).*(1-ba1) - 2*(1-b3) - 1 + b1.*b3 - b2,4,[]));
 isequal(LHS,RHS);
 
-%% Pg. 30, PTR-CZW
+%%
 %% Pg. 31, Bit-flipping
 %% Pg. 32, SFR-ABCG-1
 
