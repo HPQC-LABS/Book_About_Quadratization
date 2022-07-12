@@ -3850,6 +3850,19 @@ b_{1}b_{2}\cdots b_{k}	\rightarrow \prod_{i=1}^{k-1}b_{i}-\prod_{i=1}^{k-1}b_{i}
 \item First turns one term into two terms, so might not be preferred when we wish to minimize the number of terms.
 \end{itemize}
 
+\examplesec
+\begin{eqnarray}
+b_{1}b_{2}b_{3}b_{4}b_{5} \rightarrow \prod_{i=1}^{4}b_{i}-\prod_{i=1}^{4}b_{i}(1-b_{5})
+\end{eqnarray}
+\item Using PTR-Ishikawa, we obtain the following quadratization for the positive term:
+\begin{eqnarray}
+b_{1}b_{2}b_{3}b_{4} \rightarrow  b_{a}(3-2b_{1}-2b_{2}-2b_{3}-2b_{4})+b_{1}b_{2}+b_{1}b_{3}+b_{1}b_{4}+b_{2}b_{3}+b_{2}b_{4}+b_{3}b_{4}
+\end{eqnarray}
+\item Using NTR-ABCG-2, we obtain the following quadratization for the negative term:
+\begin{eqnarray}
+b_{1}b_{2}b_{3}b_{4} \rightarrow 9b_{a}-2(b_{1}+2b_{2}+2b_{3}+2b_{4})b_{a}
+\end{eqnarray}
+
 \refsec
 \begin{itemize}
 \item Original paper: \cite{Boros2018QuadratizationsOS}.
