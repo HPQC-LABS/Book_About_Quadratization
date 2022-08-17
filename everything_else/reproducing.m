@@ -285,7 +285,7 @@ b3=b(:,3);
 b4=b(:,4);
 RHS=16*b1.*b2.*b3.*b4-8*(b1.*b2.*b3+b4.*b2.*b4+b1.*b3.*b4+b2.*b3.*b4);
 RHS=RHS+4*(b1.*b2+b1.*b3+b1.*b4+b2.*b3+b2.*b4+b3.*b4)-2*(b1+b2+b3+b4)+1;
-
+isequal(LHS,RHS);
 
 %% Pg. 31, Bit Flipping
 dec2bin(2^4-1 :-1 : 0)-'0';
@@ -304,17 +304,19 @@ isequal(LHS,RHS);
 %% LHS = f(b)  (define f(b) here)
 %% Requires a definition of i and j and an array of alpha and a values
 %% Pre-define the value of c
+%% 1 is a dummy assignment, i could be anything
 i = 1;
-%% I don't believe there is a way around this as the value of i is arbitrary
 bgenerate(i);
 j = 1;
-%% Apply results from the RHS of Bit Flipping to determine C
+%% It appears that bgenerate must be used here since we do not know the values of i
+%% Change the offset of the alpha vector by 1
 if (mod(i,2)==0)
-    c = min(alpha(2*j));
-else
     c = min(alpha(2*j+1));
+else
+    c = min(alpha(2*j));
 end
-RHS = -alpha(0)-alpha(0)*symsum(b(:,i),i)+a(2)*symsum(b(:,i).*b(:,j),i*j)+2*symsum((alpha(i)-c)*b(:,a(i))*(2*i-0.5-symsum(b(:,j),j)),i);
+RHS = -alpha(1)-alpha(1)*symsum(b(:,i),i)+a(2)*symsum(b(:,i).*b(:,j),i*j)+2*symsum((alpha(i)-c)*b(:,a(i))*(2*i-0.5-symsum(b(:,j),j)),i);
+
 
 
 %% Pg. 33, SFR-BCR-1: (b1b2 + b1b3 + b1b4 + b2b3 + b2b4 + b3b4) − 3(b1b2b3 + b1b2b4 + b1b3b4 + b2b3b4) + 6b1b2b3b4 -> (−3 + b1 + b2 + b3 + b4 − ba1 + 3ba2)^2
