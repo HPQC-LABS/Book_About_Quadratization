@@ -269,7 +269,7 @@ LHS=min(reshape(b1.*b2.*b3 + b1.*b3 - b2,4,[]));
 RHS=min(reshape(b1.*b2 + ba1 + 2*ba2 + 2*(1-b1).*(1-ba1) + 2*(1-b2).*(1-ba1) + 2*(1-b3).*(1-ba2) + 2*(1-ba2).*(1-ba1) - 2*(1-b3) - 1 + b1.*b3 - b2,4,[]));
 isequal(LHS,RHS);
 
-%% PG 30
+%% Pg. 30, PTR-CZW
 z=[1 0; 0 -1];
 z1 = kron(z,eye(16));
 z2 = kron(kron(eye(2),z),eye(8));
@@ -277,39 +277,44 @@ z3 = kron(kron(eye(4),z),eye(4));
 z4 = kron(kron(eye(8),z),eye(2));
 %% Alternatively, zlist = zgenerate(4);
 LHS=z1*z2*z3*z4;
-b=bgenerate(4);
-RHS=16*b(:,1).*b(:,2).*b(:,3).*b(:,4)-8*(b(:,1).*b(:,2).*b(:,3)+b(:,1).*b(:,2).*b(:,4)+b(:,1).*b(:,3).*b(:,4)+b(:,2).*b(:,3).*b(:,4));
-RHS=RHS+4*(b(:,1).*b(:,2)+b(:,1).*b(:,3)+b(:,1).*b(:,4)+b(:,2).*b(:,3)+b(:,2).*b(:,4)+b(:,3).*b(:,4))-2*(b(:,1)+b(:,2)+b(:,3)+b(:,4))+1;
+%% Alternatively, b = bgenerate(4);
+dec2bin(2^4-1 :-1 : 0)-'0';
+b1=b(:,1);
+b2=b(:,2);
+b3=b(:,3);
+b4=b(:,4);
+RHS=16*b1.*b2.*b3.*b4-8*(b1.*b2.*b3+b4.*b2.*b4+b1.*b3.*b4+b2.*b3.*b4);
+RHS=RHS+4*(b1.*b2+b1.*b3+b1.*b4+b2.*b3+b2.*b4+b3.*b4)-2*(b1+b2+b3+b4)+1;
 
 
-%% Bit Flipping
-b=bgenerate(4);
-%% We let b_ = 1-b
-LHS=3*b(:,1).*b(:,2)+b(:,2).*b(:,3)+2*b(:,1).*b(:,4)-4*b(:,2).*b(:,4);
-RHS=-3*b(:,1).*(1-b(:,2))-(1-b(:,2)).*b(:,3)-2*b(:,1).*(1-b(:,4))-(1-b(:,2)).*(1-b(:,4))+5*b(:,1)+b(:,3)+4*(1-b(:,2))+4*(1-b(:,4))-4;
+%% Pg. 31, Bit Flipping
+dec2bin(2^4-1 :-1 : 0)-'0';
+b1=b(:,1);
+b2=b(:,2);
+b3=b(:,3);
+b4=b(:,4);
+
+LHS=3*b1.*b2+b2.*b3+2*b1.*b4-4*b2.*b4;
+RHS=-3*b1.*(1-b2)-(1-b2).*b3-2*b1.*(1-b4)-(1-b2).*(1-b4)+5*b1+b3+4*(1-b2)+4*(1-b4)-4;
 isequal(LHS,RHS);
 
-%% PG 32
+%% Pg. 32, SFR-ABCG-1
 
 %% A symmetric function is unaffected by any permutation of its variables
 %% LHS = f(b)  (define f(b) here)
 %% Requires a definition of i and j and an array of alpha and a values
 %% Pre-define the value of c
 i = 1;
+%% I don't believe there is a way around this as the value of i is arbitrary
 bgenerate(i);
 j = 1;
 %% Apply results from the RHS of Bit Flipping to determine C
 if (mod(i,2)==0)
-    c = min(A(2*j));
+    c = min(alpha(2*j));
 else
-    c = min(A(2*j+1));
+    c = min(alpha(2*j+1));
 end
-RHS = -A(0)-A(0)*symsum(b(:,i),i)+a(2)*symsum(b(:,i).*b(:,j),i*j)+2*symsum((A(i)-c)*b(:,a(i))*(2*i-0.5-symsum(b(:,j),j)),i);
-%% a(2) is determined by http://eprints.lse.ac.uk/66580/1/__lse.ac.uk_storage_LIBRARY_Secondary_libfile_shared_repository_
-%% Content_Anthony%2C%20M_Quadratic%20reformulations%20of%20nonlinear%20binary_Anthony_Quadratic_reformulations_of_nonlinear_binary.pdf
-
-%% Apply results from finding C
-%% LHS = f(b)
+RHS = -alpha(0)-alpha(0)*symsum(b(:,i),i)+a(2)*symsum(b(:,i).*b(:,j),i*j)+2*symsum((alpha(i)-c)*b(:,a(i))*(2*i-0.5-symsum(b(:,j),j)),i);
 
 
 %% Pg. 33, SFR-BCR-1: (b1b2 + b1b3 + b1b4 + b2b3 + b2b4 + b3b4) − 3(b1b2b3 + b1b2b4 + b1b3b4 + b2b3b4) + 6b1b2b3b4 -> (−3 + b1 + b2 + b3 + b4 − ba1 + 3ba2)^2
