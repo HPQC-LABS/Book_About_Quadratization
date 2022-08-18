@@ -12,6 +12,5 @@ year = {2019}<br>
 
 <hr>
 
-The vast majority of this work was done by Nike Dattani. <br>
-Some contributions were also made by:<br>
+The vast majority of this work was done by Nike Dattani. Some contributions were also made by:<br><br>
 Richard Tanburn, Andreas Soteriou, Nicholas Chancellor, Szilard Szalay, Elisabeth Rodriguez-Heck, Hou Tin Chau, Ka Wa Yip, Yudong Cao, Daniel Nagaj, Ruby Kong, Tim Li, Matthew Charbonneau, Michael Hahn, John Kim, Eric Huang, Connor Baetz, Erika Bruulsema, Kathryn Waterman, Henry Liang, Arpit Arun Kumaar, Jacob Biamonte.
