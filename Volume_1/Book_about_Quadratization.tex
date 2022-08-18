@@ -2157,6 +2157,9 @@ H & = & 3b_{1}b_{2}+b_{2}b_{3}+2b_{1}b_{4}-4b_{2}b_{4}\protect\\
 \end{eqnarray}
 The first expression is highly non-submodular while the second is entirely submodular.
 
+More examples can be found by searching for "flipping" in \href{https://github.com/HPQC-LABS/Book_About_Quadratization/blob/master/everything_else/reproducing.m}{this file}.
+
+
 \refsec
 \begin{itemize}
 \item Original paper: \cite{Ishikawa2011}.
@@ -3832,7 +3835,7 @@ b_{1}b_{2}\cdots b_{k}	\rightarrow \prod_{i=1}^{k-1}b_{i}-\prod_{i=1}^{k-1}b_{i}
 \end{gathered}
 \end{align}
 
-\noindent We can use any of the PTR methods for even $k$ on the first term, and we can use any of the NTR methods on the second term. Can be generalized to split into different-degree factors when seeking an "optimum" quadratization. Can be generalized into more splits.
+\noindent We can use any of the PTR methods for even $k$ on the first term, any of the PTR methods for odd $k$ on the second part of the second term, and we can use any of the NTR methods on the first part of the second term. Can be generalized to split into different-degree factors when seeking an "optimum" quadratization. Can be generalized into more splits.
 
 \costsec
 \begin{itemize}
@@ -3851,17 +3854,20 @@ b_{1}b_{2}\cdots b_{k}	\rightarrow \prod_{i=1}^{k-1}b_{i}-\prod_{i=1}^{k-1}b_{i}
 \end{itemize}
 
 \examplesec
-\begin{eqnarray}
-b_{1}b_{2}b_{3}b_{4}b_{5} \rightarrow \prod_{i=1}^{4}b_{i}-\prod_{i=1}^{4}b_{i}(1-b_{5})
-\end{eqnarray}
-\item Using PTR-Ishikawa, we obtain the following quadratization for the positive term:
-\begin{eqnarray}
-b_{1}b_{2}b_{3}b_{4} \rightarrow  b_{a}(3-2b_{1}-2b_{2}-2b_{3}-2b_{4})+b_{1}b_{2}+b_{1}b_{3}+b_{1}b_{4}+b_{2}b_{3}+b_{2}b_{4}+b_{3}b_{4}
-\end{eqnarray}
-\item Using NTR-ABCG-2, we obtain the following quadratization for the negative term:
-\begin{eqnarray}
-b_{1}b_{2}b_{3}b_{4} \rightarrow 9b_{a}-2(b_{1}+2b_{2}+2b_{3}+2b_{4})b_{a}
-\end{eqnarray}
+
+\begin{align}
+b_1b_2b_3b_4b_5 \rightarrow \prod_{i=1}^{4}b_{i}-\prod_{i=1}^{4}b_{i}(1-b_{5})
+\end{align}
+
+% \item Using PTR-Ishikawa, we obtain the following quadratization for the positive term:
+% \begin{eqnarray}
+% b_{1}b_{2}b_{3}b_{4} \rightarrow  b_{a}(3-2b_{1}-2b_{2}-2b_{3}-2b_{4})+b_{1}b_{2}+b_{1}b_{3}+b_{1}b_{4}+b_{2}b_{3}+b_{2}b_{4}+b_{3}b_{4}
+% \end{eqnarray}
+
+% \item Using NTR-ABCG-2, we obtain the following quadratization for the negative term:
+% \begin{eqnarray}
+% b_{1}b_{2}b_{3}b_{4} \rightarrow 9b_{a}-2(b_{1}+2b_{2}+2b_{3}+2b_{4})b_{a}
+% \end{eqnarray}
 
 \refsec
 \begin{itemize}
