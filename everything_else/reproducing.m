@@ -5,7 +5,7 @@ b1=b(:,1);b2=b(:,2);b3=b(:,3);b4=b(:,4);
 LHS=b1.*b2 + b2.*b3 + b3.*b4 - 4*b1.*b2.*b3;
 RHS=b1.*b2 + b2.*b3 + b3.*b4 + 4*b1 - 4*b1.*b2 - 4*b1.*b3;
 
-%% Pg. 1, Eqs 4-5 (Also used for abstract for 2019 AQC paper).
+%% Pg. 1, Eqs 4-5 (Also used for abstract for 2019 AQC paper)
 
 x = [0 1 ; 1 0]; y = [0 -1i ; 1i 0]; z = [1 0 ; 0 -1];
 x1 = kron(x, eye(8)); x2 = kron(kron(eye(2), x), eye(4)); x3 = kron(kron(eye(4), x), eye(2)); x4 = kron(eye(8), x);
@@ -270,6 +270,7 @@ RHS=min(reshape(b1.*b2 + ba1 + 2*ba2 + 2*(1-b1).*(1-ba1) + 2*(1-b2).*(1-ba1) + 2
 isequal(LHS,RHS);
 
 %% Pg. 30, PTR-CZW  %% It does not yet show that b1b2b3b4 = H_2-count and that z1z2z3z4 = the other H_2-count.
+
 z=[1 0; 0 -1];
 z1 = kron(z,eye(8));
 z2 = kron(kron(eye(2),z),eye(4));
@@ -283,19 +284,48 @@ LHS=diag(z1*z2*z3*z4);
 RHS=16*b1.*b2.*b3.*b4 - 8*(b1.*b2.*b3 + b1.*b2.*b4 + b1.*b3.*b4 + b2.*b3.*b4) + 4*(b1.*b2 + b1.*b3 + b1.*b4 + b2.*b3 + b2.*b4 + b3.*b4)-2*(b1+b2+b3+b4)+1;
 isequal(LHS,RHS); % Gives 1!
 
-%% Pg. 31, Bit Flipping %% Done by Henry Liang. Not tested.
+%% Pg. 31, Bit-flipping
 
-b=dec2bin(2^4-1 :-1 : 0)-'0';
-b1=b(:,1);b2=b(:,2);b3=b(:,3);b4=b(:,4);
+% The penalty term 1-b1-b1_bar+2b1*b1_bar can be added to anything without changing the value
+b = dec2bin(2^1-1:-1:0) - '0';
+b1 = b(:,1);
+b1_bar = 1-b1; 
 
-LHS=3*b1.*b2+b2.*b3+2*b1.*b4-4*b2.*b4;
-RHS=-3*b1.*(1-b2)-(1-b2).*b3-2*b1.*(1-b4)-(1-b2).*(1-b4)+5*b1+b3+4*(1-b2)+4*(1-b4)-4;
-isequal(LHS,RHS); % Gives 0 because the RHS isn't actually using flipped variables.
+LHS = (1-b1-b1_bar).^2;
+RHS = 1-b1-b1_bar+2*b1.*b1_bar;
+isequal(LHS,RHS); % Gives 1. 
+
+% The penalty term bi*bi_bar can be added to anything without changing the values
+b = dec2bin(2^1-1:-1:0) - '0';
+b1 = b(:,1);
+b1_bar = 1-b1;
+
+LHS = b1.*b1_bar;
+RHS = 0*LHS
+isequal(LHS,RHS); % Gives 1, so RHS = 0.
+
+% Using bit flipping to deal with large positive terms by making them negative, then using then using IIA
+b = dec2bin(2^6-1:-1:0) - '0';
+b1 = b(:,1); b2 = b(:,2); b3 = b(:,3); b4 = b(:,4); ba1 = b(:,5); ba2 = b(:,6);
+b1_bar = 1-b1; b2_bar = 1-b2;
+
+LHS = min(reshape(b1.*b2.*b3.*b4,4,[]));
+RHS = min(reshape(b3.*b4 + 2*ba1 - ba1.*b2_bar - ba1.*b3 - ba1.*b4 + 3*ba2 - ba2.*b1_bar - ba2.*b2 - ba2.*b3 - ba2.*b4,4,[]));
+isequal(LHS,RHS); % Gives 1.
+
+% Bit flipping can be used to reduce the number of non-submodular (positive quadratic) terms in a quadratized expression
+b = dec2bin(2^4-1:-1:0) - '0';
+b1 = b(:,1); b2 = b(:,2); b3 = b(:,3); b4 = b(:,4);
+b2_bar = 1-b2; b4_bar = 1-b4;
+
+LHS = 3*b1.*b2 + b2.*b3 + 2*b1.*b4 - 4*b2.*b4;
+RHS = -3*b1.*b2_bar - b2_bar.*b3 - 2*b1.*b4_bar - 4*b2_bar.*b4_bar + 5*b1 + b3 + 4*b2_bar + 4*b4_bar - 4;
+isequal(LHS,RHS); % Gives 1.
 
 %% Pg. 32, SFR-ABCG-1 %% Done by Henry Liang. Not tested!
-%% Requires a definition of i and j and an array of alpha and a values Pre-define the value of c. 1 is a dummy assignment, i could be anything
 
-LHS = f(b)  
+LHS = f(b)  % Requires a definition of i and j and an array of alpha and a values Pre-define the value of c. 1 is a dummy assignment, i could be anything
+
 if (mod(i,2)==0); c = min(alpha(2*j+1));
 else;             c = min(alpha(2*j));   end
 RHS = -alpha(1)-alpha(1)*symsum(b(:,i),i)+a(2)*symsum(b(:,i).*b(:,j),i*j)+2*symsum((alpha(i)-c)*b(:,a(i))*(2*i-0.5-symsum(b(:,j),j)),i);
