@@ -269,37 +269,30 @@ LHS=min(reshape(b1.*b2.*b3 + b1.*b3 - b2,4,[]));
 RHS=min(reshape(b1.*b2 + ba1 + 2*ba2 + 2*(1-b1).*(1-ba1) + 2*(1-b2).*(1-ba1) + 2*(1-b3).*(1-ba2) + 2*(1-ba2).*(1-ba1) - 2*(1-b3) - 1 + b1.*b3 - b2,4,[]));
 isequal(LHS,RHS);
 
-%% Pg. 30, PTR-CZW  %% Done by Henry Liang. Not tested.
+%% Pg. 30, PTR-CZW  %% It does not yet show that b1b2b3b4 = H_2-count and that z1z2z3z4 = the other H_2-count.
 z=[1 0; 0 -1];
-z1 = kron(z,eye(16));
-z2 = kron(kron(eye(2),z),eye(8));
-z3 = kron(kron(eye(4),z),eye(4));
-z4 = kron(kron(eye(8),z),eye(2));
+z1 = kron(z,eye(8));
+z2 = kron(kron(eye(2),z),eye(4));
+z3 = kron(kron(eye(4),z),eye(2));
+z4 = kron(eye(8),z);
 
-dec2bin(2^4-1 :-1 : 0)-'0';
-b1=b(:,1);
-b2=b(:,2);
-b3=b(:,3);
-b4=b(:,4);
+b=dec2bin(2^4-1 :-1 : 0)-'0';
+b1=b(:,1);b2=b(:,2);b3=b(:,3);b4=b(:,4);
 
-LHS=z1*z2*z3*z4;
-RHS=16*b1.*b2.*b3.*b4-8*(b1.*b2.*b3+b4.*b2.*b4+b1.*b3.*b4+b2.*b3.*b4);
-RHS=RHS+4*(b1.*b2+b1.*b3+b1.*b4+b2.*b3+b2.*b4+b3.*b4)-2*(b1+b2+b3+b4)+1;
-isequal(LHS,RHS);
+LHS=diag(z1*z2*z3*z4);
+RHS=16*b1.*b2.*b3.*b4 - 8*(b1.*b2.*b3 + b1.*b2.*b4 + b1.*b3.*b4 + b2.*b3.*b4) + 4*(b1.*b2 + b1.*b3 + b1.*b4 + b2.*b3 + b2.*b4 + b3.*b4)-2*(b1+b2+b3+b4)+1;
+isequal(LHS,RHS); % Gives 1!
 
 %% Pg. 31, Bit Flipping %% Done by Henry Liang. Not tested.
 
-dec2bin(2^4-1 :-1 : 0)-'0';
-b1=b(:,1);
-b2=b(:,2);
-b3=b(:,3);
-b4=b(:,4);
+b=dec2bin(2^4-1 :-1 : 0)-'0';
+b1=b(:,1);b2=b(:,2);b3=b(:,3);b4=b(:,4);
 
 LHS=3*b1.*b2+b2.*b3+2*b1.*b4-4*b2.*b4;
 RHS=-3*b1.*(1-b2)-(1-b2).*b3-2*b1.*(1-b4)-(1-b2).*(1-b4)+5*b1+b3+4*(1-b2)+4*(1-b4)-4;
-isequal(LHS,RHS);
+isequal(LHS,RHS); % Gives 0 because the RHS isn't actually using flipped variables.
 
-%% Pg. 32, SFR-ABCG-1 %% Done by Henry Liang. Not tested.
+%% Pg. 32, SFR-ABCG-1 %% Done by Henry Liang. Not tested!
 %% Requires a definition of i and j and an array of alpha and a values Pre-define the value of c. 1 is a dummy assignment, i could be anything
 
 LHS = f(b)  
