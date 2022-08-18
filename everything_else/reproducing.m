@@ -325,6 +325,7 @@ isequal(LHS,RHS); % Gives 1.
 %% Pg. 32, SFR-ABCG-1 %% Done by Henry Liang. Not tested!
 
 LHS = f(b)  % Requires a definition of i and j and an array of alpha and a values Pre-define the value of c. 1 is a dummy assignment, i could be anything
+
 if (mod(i,2)==0); c = min(alpha(2*j+1));
 else;             c = min(alpha(2*j));   end
 RHS = -alpha(1)-alpha(1)*symsum(b(:,i),i)+a(2)*symsum(b(:,i).*b(:,j),i*j)+2*symsum((alpha(i)-c)*b(:,a(i))*(2*i-0.5-symsum(b(:,j),j)),i);

@@ -1743,6 +1743,11 @@ b_{1}b_{2}b_{3} & \rightarrow 1  - \left( b_a + b_1 + b_2 + b_3 \right) + b_a \l
 \item Introduces all 6 possible non-submodular quadratic terms.
 \end{itemize}
 
+\examplesec
+\begin{align}
+b_1b_2b_3 + b_1 + b_2 + b_3 - b_2b_3 \to 1 - b_a + b_a(b_1 + b_2 + b_3) + b_1b_2 + b_1b_3
+\end{align}
+
 \altnamesec
 \begin{itemize}
 \item "Reduction by Minimum Selection" \cite{Gallagher2011,Ishikawa2011}.
@@ -1764,7 +1769,7 @@ b_{1}b_{2}b_{3} & \rightarrow 1  - \left( b_a + b_1 + b_2 + b_3 \right) + b_a \l
 The formula is almost the same as in the version of PTR-KZ on the previous page (which is written in terms of $b$), but with a factor of 2, a change of sign for the linear terms, and a slight change in the constant term. This formula can be obtained directly from the PTR-KZ quadratization formula in terms of $b$, by starting with $8b_1b_2b_3$ on the left-side, making the substitution $b_i \rightarrow (1+z_i)/2$, and removing all terms that appear on both sides of the equation. The result is:
 
 \begin{align}
-\pm z_1z_2z_3 &\rightarrow 3 \pm \left( z_1 +  z_2 + z_3 + z_a \right) + 2z_a \left(z_1 + z_2 +z_3 \right) +  z_1z_2 + z_1z_3 + z_2z_3.
+\pm z_1z_2z_3 &\rightarrow 3 \pm \left( z_1 +  z_2 + z_3 + 2z_a \right) + 2z_a \left(z_1 + z_2 +z_3 \right) +  z_1z_2 + z_1z_3 + z_2z_3.
 \end{align}
 
 \costsec
@@ -1783,12 +1788,17 @@ The formula is almost the same as in the version of PTR-KZ on the previous page 
 \item Introduces all 6 possible non-submodular quadratic terms.
 \end{itemize}
 
+\examplesec
+\begin{align}
+z_1z_2z_3 - z_1z_2 - z_1 - z_2 \to 3+z_3+2z_a + 2z_a(z_1+z_2+z_3) + z_1z_3 + z_2z_3
+\end{align}
+
 \refsec
 
 \begin{itemize}
 \item 2004: published by Kolmogorov and Zabih in terms of $b$ variables: \cite{Kolmogorov2004}.
 \item 31 March 2016: published by Chancellor, Zohren, and Warburton in terms of $z$, and without the constant term: \cite{Chancellor2016b}.
-\item 8 April 2016: published independently by Leib, Zoller, and Lechner in terms of $z$, and without the constant term \cite{Leib2016a,Leib2016}.
+\item 8 April 2016: published independently by Leib, Zoller, and Lechner in terms of $z$, and without the constant term, see Eq.4 of \cite{Leib2016a,Leib2016}.
 \end{itemize}
 
 \newpage
@@ -3839,6 +3849,19 @@ b_{1}b_{2}\cdots b_{k}	\rightarrow \prod_{i=1}^{k-1}b_{i}-\prod_{i=1}^{k-1}b_{i}
 \begin{itemize}
 \item First turns one term into two terms, so might not be preferred when we wish to minimize the number of terms.
 \end{itemize}
+
+\examplesec
+\begin{eqnarray}
+b_{1}b_{2}b_{3}b_{4}b_{5} \rightarrow \prod_{i=1}^{4}b_{i}-\prod_{i=1}^{4}b_{i}(1-b_{5})
+\end{eqnarray}
+\item Using PTR-Ishikawa, we obtain the following quadratization for the positive term:
+\begin{eqnarray}
+b_{1}b_{2}b_{3}b_{4} \rightarrow  b_{a}(3-2b_{1}-2b_{2}-2b_{3}-2b_{4})+b_{1}b_{2}+b_{1}b_{3}+b_{1}b_{4}+b_{2}b_{3}+b_{2}b_{4}+b_{3}b_{4}
+\end{eqnarray}
+\item Using NTR-ABCG-2, we obtain the following quadratization for the negative term:
+\begin{eqnarray}
+b_{1}b_{2}b_{3}b_{4} \rightarrow 9b_{a}-2(b_{1}+2b_{2}+2b_{3}+2b_{4})b_{a}
+\end{eqnarray}
 
 \refsec
 \begin{itemize}
