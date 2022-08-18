@@ -13,4 +13,4 @@ year = {2019}<br>
 <hr>
 
 <b>Contributors to this project include:</b><br>
-Nike Dattani, Richard Tanburn, Andreas Soteriou, Nicholas Chancellor, Szilard Szalay, Elisabeth Rodriguez-Heck, Hou Tin Chau, Ka Wa Yip, Yudong Cao, Daniel Nagaj, Ruby Kong, Tim Li, Matthew Charbonneau, Michael Hahn, John Kim, Eric Huang, Erika Bruulsema, Kathryn Waterman, Jacob Biamonte.
+Nike Dattani, Richard Tanburn, Andreas Soteriou, Nicholas Chancellor, Szilard Szalay, Elisabeth Rodriguez-Heck, Hou Tin Chau, Ka Wa Yip, Yudong Cao, Daniel Nagaj, Ruby Kong, Tim Li, Matthew Charbonneau, Michael Hahn, John Kim, Eric Huang, Connor Baetz, Erika Bruulsema, Kathryn Waterman, Henry Liang, Arpit Arun Kumaar, Jacob Biamonte.
