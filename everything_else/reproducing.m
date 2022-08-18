@@ -250,50 +250,45 @@ isequal(LHS,RHS);
 %% Pg. 30, PTR-CZW
 %% Pg. 31, Bit-flipping
 
-%% Using the definition of b1_bar we can add a penalty term of 1-b1-b1_bar+2b1*b1_bar to anything without changing the value
+% The penalty term 1-b1-b1_bar+2b1*b1_bar can be added to anything without changing the value
+
 b = dec2bin(2^1-1:-1:0) - '0';
 b1 = b(:,1);
-
-b1_bar = 1-b1;
+b1_bar = 1-b1; 
 
 LHS = (1-b1-b1_bar).^2;
 RHS = 1-b1-b1_bar+2*b1.*b1_bar;
+isequal(LHS,RHS); % Gives 1. 
 
-isequal(LHS,RHS);
+% The penalty term bi*bi_bar can be added to anything without changing the values
 
-%% The penalty term bi*bi_bar can be added to anything without changing the values
 b = dec2bin(2^1-1:-1:0) - '0';
 b1 = b(:,1);
-
 b1_bar = 1-b1;
 
-LHS = 0*b1;
-RHS = b1.*b1_bar;
+LHS = b1.*b1_bar;
+RHS = 0*LHS
+isequal(LHS,RHS); % Gives 1, so RHS = 0.
 
-isequal(LHS,RHS);
+% Using bit flipping to deal with large positive terms by making them negative, then using then using IIA
 
-%% Using bit flipping to deal with large positive terms by making them negative
-%%    then using IIA
 b = dec2bin(2^6-1:-1:0) - '0';
 b1 = b(:,1); b2 = b(:,2); b3 = b(:,3); b4 = b(:,4); ba1 = b(:,5); ba2 = b(:,6);
-
 b1_bar = 1-b1; b2_bar = 1-b2;
 
 LHS = min(reshape(b1.*b2.*b3.*b4,4,[]));
 RHS = min(reshape(b3.*b4 + 2*ba1 - ba1.*b2_bar - ba1.*b3 - ba1.*b4 + 3*ba2 - ba2.*b1_bar - ba2.*b2 - ba2.*b3 - ba2.*b4,4,[]));
-
-isequal(LHS,RHS);
+isequal(LHS,RHS); % Gives 1.
 
 %% Bit flipping can be used to reduce the number of non-submodular (positive quadratic) terms in a quadratized expression
+
 b = dec2bin(2^4-1:-1:0) - '0';
 b1 = b(:,1); b2 = b(:,2); b3 = b(:,3); b4 = b(:,4);
-
 b2_bar = 1-b2; b4_bar = 1-b4;
 
 LHS = 3*b1.*b2 + b2.*b3 + 2*b1.*b4 - 4*b2.*b4;
 RHS = -3*b1.*b2_bar - b2_bar.*b3 - 2*b1.*b4_bar - 4*b2_bar.*b4_bar + 5*b1 + b3 + 4*b2_bar + 4*b4_bar - 4;
-
-isequal(LHS,RHS);
+isequal(LHS,RHS); % Gives 1.
 
 %% Pg. 32, SFR-ABCG-1
 
