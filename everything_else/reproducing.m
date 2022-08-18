@@ -304,7 +304,7 @@ LHS = b1.*b1_bar;
 RHS = 0*LHS
 isequal(LHS,RHS); % Gives 1, so RHS = 0.
 
-% Using bit flipping to deal with large positive terms by making them negative, then using then using IIA
+% Example: Using bit flipping to deal with large positive terms by making them negative, then using then using IIA
 b = dec2bin(2^6-1:-1:0) - '0';
 b1 = b(:,1); b2 = b(:,2); b3 = b(:,3); b4 = b(:,4); ba1 = b(:,5); ba2 = b(:,6);
 b1_bar = 1-b1; b2_bar = 1-b2;
@@ -313,7 +313,7 @@ LHS = min(reshape(b1.*b2.*b3.*b4,4,[]));
 RHS = min(reshape(b3.*b4 + 2*ba1 - ba1.*b2_bar - ba1.*b3 - ba1.*b4 + 3*ba2 - ba2.*b1_bar - ba2.*b2 - ba2.*b3 - ba2.*b4,4,[]));
 isequal(LHS,RHS); % Gives 1.
 
-% Bit flipping can be used to reduce the number of non-submodular (positive quadratic) terms in a quadratized expression
+% Example: Bit flipping can be used to reduce the number of non-submodular (positive quadratic) terms in a quadratized expression
 b = dec2bin(2^4-1:-1:0) - '0';
 b1 = b(:,1); b2 = b(:,2); b3 = b(:,3); b4 = b(:,4);
 b2_bar = 1-b2; b4_bar = 1-b4;
