@@ -58,13 +58,13 @@ isequal(LHS,RHS);
 b = dec2bin(2^7-1:-1:0)-'0';
 b1=b(:,1);b2=b(:,2);b3=b(:,3);b4=b(:,4);b5=b(:,5);b6=b(:,6);ba=b(:,7);
 
-LHS = min(-2 * b1.*b2.*b3.*b4.*b5.*b6 + b5.*b6);
+LHS = min(reshape(-2 * b1.*b2.*b3.*b4.*b5.*b6 + b5.*b6, 2, []));
 % so, as per before, we can rewrite b1b2...b6 in terms of equation.33, we just need to quadratize the b1...b6 portion
-RHS = min(2 * ((2 * 6 - 1) * ba - 2 * (b1.*ba + b2.*ba + b3.*ba + b4.*ba + b5.*ba + b6.*ba)) + b5.*b6);
+RHS = min(reshape(2 * ((2 * 6 - 1) * ba - 2 * (b1.*ba + b2.*ba + b3.*ba + b4.*ba + b5.*ba + b6.*ba)) + b5.*b6, 2, []));
 isequal(LHS, RHS);
 
 % retesting, for equation 36, using expanded version
-RHS = min(22 * ba - 4 * b1.*ba - 4 * b2.*ba - 4*b3.*ba - 4*b4.*ba - 4*b5.*ba - 4*b6.*ba + b5.*b6)
+RHS = min(reshape(22 * ba - 4 * b1.*ba - 4 * b2.*ba - 4*b3.*ba - 4*b4.*ba - 4*b5.*ba - 4*b6.*ba + b5.*b6, 2, []));
 isequal(LHS, RHS);
 
 %% Pg. 13, NTR-GBP: -b1b2b3 = min_ba(ba - b1 + b2 + b3 - b1b2 - b1b3 + b1)
@@ -157,14 +157,36 @@ RHS = 1/2*(b1 + b2 + b3 + b4 - 2*ba1).*(b1 + b2 + b3 + b4 - 2*ba1 - 1);
 %% Pg. 21, PTR-BCR-2
 %% Pg. 22, PTR-BCR-3 (example appears to be the same as PTR-BCR-1, and may have to be redone)
 %% Pg. 23, PTR-BCR-4 
-%% Pg. 24, PTR-KZ (needs an example!)
-%% PTR-KZ: b1b2b3 = min_ba(1 − (ba + b1 + b2 + b3) + ba (b1 + b2 + b3) + b1b2 + b1b3 + b2b3)
+%% Pg. 24, PTR-KZ: b1b2b3 = min_ba(1 − (ba + b1 + b2 + b3) + ba (b1 + b2 + b3) + b1b2 + b1b3 + b2b3)
+
+b = dec2bin(2^4-1:-1:0)-'0';
+b1=b(:,1);b2=b(:,2);b3=b(:,3);ba=b(:,4);
 
 LHS=min(reshape(b1.*b2.*b3,2,[]));
-RHS=min(reshape(1 - (b4+b1+b2+b3) + b4.*(b1+b2+b3) +b1.*b2+b1.*b3+b2.*b3,2,[]));
+RHS=min(reshape(1 - (ba+b1+b2+b3) + ba.*(b1+b2+b3) +b1.*b2+b1.*b3+b2.*b3,2,[]));
 isequal(LHS,RHS);
 
-%% Pg. 25, PTR-KZ (needs in example!)
+b = dec2bin(2^4-1:-1:0)-'0';
+b1=b(:,1);b2=b(:,2);b3=b(:,3);ba=b(:,4);
+LHS = min(reshape(b1.*b2.*b3+b1+b2+b3-b2.*b3,2,[]));
+RHS = min(reshape(1-ba+ba.*(b1+b2+b3)+b1.*b2+b1.*b3,2,[]));
+isequal(LHS, RHS);
+
+%% Pg. 25, PTR-KZ: ±z1z2z3 = 3 ± (z1 + z2 + z3 + 2*za) + 2 za (z1 + z2 + z3) + z1z2 + z1z3 + z2z3
+z = [1 0; 0 -1];
+z1 = kron(z, eye(8));z2 = kron(kron(eye(2), z), eye(4));z3 = kron(kron(eye(4), z), eye(2));za = kron(eye(8), z);
+LHS_plus = min(reshape(diag(z1*z2*z3),2,[]));
+RHS_plus = min(reshape(diag(3*eye(16)+(z1+z2+z3+2*za)+2*za*(z1+z2+z3)+z1*z2+z1*z3+z2*z3),2,[]));
+
+LHS_minus = min(reshape(diag(-1*z1*z2*z3),2,[]));
+RHS_minus = min(reshape(diag(3*eye(16)-(z1+z2+z3+2*za)+2*za*(z1+z2+z3)+z1*z2+z1*z3+z2*z3),2,[]));
+isequal(LHS_plus,RHS_plus) & isequal(LHS_minus, RHS_minus); % gives 1, confirmed by Nike on 26 April 2022.
+
+%% Example
+LHS = min(reshape(diag(z1*z2*z3 - z1*z2 - z1 - z2),2,[]));
+RHS = min(reshape(diag(3*eye(16)+z3+2*za+2*za*(z1+z2+z3)+z1*z3+z2*z3),2,[]));
+isequal(LHS, RHS); % gives 1, confirmed by Nike on 26 April 2022.
+
 %% PTR-GBP: b1b2b3 = min_ba(ba - b2ba - b3ba +b1ba +b2b3)
 
 LHS = min(reshape(b1.*b2.*b3,2,[]));
@@ -247,11 +269,24 @@ LHS=min(reshape(b1.*b2.*b3 + b1.*b3 - b2,4,[]));
 RHS=min(reshape(b1.*b2 + ba1 + 2*ba2 + 2*(1-b1).*(1-ba1) + 2*(1-b2).*(1-ba1) + 2*(1-b3).*(1-ba2) + 2*(1-ba2).*(1-ba1) - 2*(1-b3) - 1 + b1.*b3 - b2,4,[]));
 isequal(LHS,RHS);
 
-%% Pg. 30, PTR-CZW
+%% Pg. 30, PTR-CZW  %% It does not yet show that b1b2b3b4 = H_2-count and that z1z2z3z4 = the other H_2-count.
+
+z=[1 0; 0 -1];
+z1 = kron(z,eye(8));
+z2 = kron(kron(eye(2),z),eye(4));
+z3 = kron(kron(eye(4),z),eye(2));
+z4 = kron(eye(8),z);
+
+b=dec2bin(2^4-1 :-1 : 0)-'0';
+b1=b(:,1);b2=b(:,2);b3=b(:,3);b4=b(:,4);
+
+LHS=diag(z1*z2*z3*z4);
+RHS=16*b1.*b2.*b3.*b4 - 8*(b1.*b2.*b3 + b1.*b2.*b4 + b1.*b3.*b4 + b2.*b3.*b4) + 4*(b1.*b2 + b1.*b3 + b1.*b4 + b2.*b3 + b2.*b4 + b3.*b4)-2*(b1+b2+b3+b4)+1;
+isequal(LHS,RHS); % Gives 1!
+
 %% Pg. 31, Bit-flipping
 
 % The penalty term 1-b1-b1_bar+2b1*b1_bar can be added to anything without changing the value
-
 b = dec2bin(2^1-1:-1:0) - '0';
 b1 = b(:,1);
 b1_bar = 1-b1; 
@@ -261,7 +296,6 @@ RHS = 1-b1-b1_bar+2*b1.*b1_bar;
 isequal(LHS,RHS); % Gives 1. 
 
 % The penalty term bi*bi_bar can be added to anything without changing the values
-
 b = dec2bin(2^1-1:-1:0) - '0';
 b1 = b(:,1);
 b1_bar = 1-b1;
@@ -271,7 +305,6 @@ RHS = 0*LHS
 isequal(LHS,RHS); % Gives 1, so RHS = 0.
 
 % Using bit flipping to deal with large positive terms by making them negative, then using then using IIA
-
 b = dec2bin(2^6-1:-1:0) - '0';
 b1 = b(:,1); b2 = b(:,2); b3 = b(:,3); b4 = b(:,4); ba1 = b(:,5); ba2 = b(:,6);
 b1_bar = 1-b1; b2_bar = 1-b2;
@@ -280,8 +313,7 @@ LHS = min(reshape(b1.*b2.*b3.*b4,4,[]));
 RHS = min(reshape(b3.*b4 + 2*ba1 - ba1.*b2_bar - ba1.*b3 - ba1.*b4 + 3*ba2 - ba2.*b1_bar - ba2.*b2 - ba2.*b3 - ba2.*b4,4,[]));
 isequal(LHS,RHS); % Gives 1.
 
-%% Bit flipping can be used to reduce the number of non-submodular (positive quadratic) terms in a quadratized expression
-
+% Bit flipping can be used to reduce the number of non-submodular (positive quadratic) terms in a quadratized expression
 b = dec2bin(2^4-1:-1:0) - '0';
 b1 = b(:,1); b2 = b(:,2); b3 = b(:,3); b4 = b(:,4);
 b2_bar = 1-b2; b4_bar = 1-b4;
@@ -290,7 +322,12 @@ LHS = 3*b1.*b2 + b2.*b3 + 2*b1.*b4 - 4*b2.*b4;
 RHS = -3*b1.*b2_bar - b2_bar.*b3 - 2*b1.*b4_bar - 4*b2_bar.*b4_bar + 5*b1 + b3 + 4*b2_bar + 4*b4_bar - 4;
 isequal(LHS,RHS); % Gives 1.
 
-%% Pg. 32, SFR-ABCG-1
+%% Pg. 32, SFR-ABCG-1 %% Done by Henry Liang. Not tested!
+
+LHS = f(b)  % Requires a definition of i and j and an array of alpha and a values Pre-define the value of c. 1 is a dummy assignment, i could be anything
+if (mod(i,2)==0); c = min(alpha(2*j+1));
+else;             c = min(alpha(2*j));   end
+RHS = -alpha(1)-alpha(1)*symsum(b(:,i),i)+a(2)*symsum(b(:,i).*b(:,j),i*j)+2*symsum((alpha(i)-c)*b(:,a(i))*(2*i-0.5-symsum(b(:,j),j)),i);
 
 %% Pg. 33, SFR-BCR-1: (b1b2 + b1b3 + b1b4 + b2b3 + b2b4 + b3b4) − 3(b1b2b3 + b1b2b4 + b1b3b4 + b2b3b4) + 6b1b2b3b4 -> (−3 + b1 + b2 + b3 + b4 − ba1 + 3ba2)^2
 b= dec2bin(2^6-1:-1:0)-'0';
