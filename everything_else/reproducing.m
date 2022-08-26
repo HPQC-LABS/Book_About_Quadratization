@@ -158,40 +158,45 @@ RHS = 1/2*(b1 + b2 + b3 + b4 - 2*ba1).*(b1 + b2 + b3 + b4 - 2*ba1 - 1);
 %% Pg. 22, PTR-BCR-3 (example appears to be the same as PTR-BCR-1, and may have to be redone)
 %% Pg. 23, PTR-BCR-4 
 
-% Eq. 72
+% Equation 1 in Example section of PTR-BCR-4
 b = dec2bin(2^6-1:-1:0)-'0';
 b1=b(:,1);b2=b(:,2);b3=b(:,3);b4=b(:,4);ba1=b(:,5);ba2=b(:,6);
 LHS = min(reshape(b1.*b2.*b3.*b4, 4, []));
 RHS = min(reshape((b1 + b2 + b3 + b4 - ba1 - 2*ba2).^2, 4, []));
 isequal(LHS,RHS); % Gives 1, confirmed by Nike on 6 April.
 
-% Eq. 73
+% Equation 2 in Example section of PTR-BCR-4
 b = dec2bin(2^6-1:-1:0)-'0';
-LHS = ones(2^6,1);
-for i = 1:4
-    LHS = LHS.*b(:,i);
-end
-LHS = min(reshape(LHS, 4, []));
-RHS = zeros(2^6,1);
-for i = 1:4
-    for j = 1:4
-        RHS = RHS + b(:,i).*b(:,j);
-    end
-end
-for i = 5:6
-    for j = 5:6
-        RHS = RHS + 2^(i+j-10)*b(:,i).*b(:,j);
-    end
-end
-for i = 1:4
-    for j = 5:6
-        RHS = RHS - 2^(j-4)*b(:,i).*b(:,j);
-    end
-end
-RHS = min(reshape(RHS, 4, []));
+b1=b(:,1);b2=b(:,2);b3=b(:,3);b4=b(:,4);ba1=b(:,5);ba2=b(:,6);
+LHS = min(reshape(b1.*b2.*b3.*b4, 4, []));
+RHS = min(reshape(b1.*b1 + b1.*b2 + b1.*b3 + b1.*b4 + b2.*b1 + b2.*b2 + b2.*b3 + b2.*b4 + b3.*b1 + b3.*b2 + b3.*b3 + b3.*b4 + b4.*b1 + b4.*b2 + b4.*b3 + b4.*b4 + ba1.*ba1 + 2*ba1.*ba2 + 2*ba2.*ba1 + 4*ba2.*ba2 - 2*b1.*ba1 - 2*b2.*ba1 - 2*b3.*ba1 - 2*b4.*ba1 - 4*b1.*ba2 - 4*b2.*ba2 - 4*b3.*ba2 - 4*b4.*ba2, 4, []));
 isequal(LHS, RHS);
+% b = dec2bin(2^6-1:-1:0)-'0';
+% LHS = ones(2^6,1);
+% for i = 1:4
+%     LHS = LHS.*b(:,i);
+% end
+% LHS = min(reshape(LHS, 4, []));
+% RHS = zeros(2^6,1);
+% for i = 1:4
+%     for j = 1:4
+%         RHS = RHS + b(:,i).*b(:,j);
+%     end
+% end
+% for i = 5:6
+%     for j = 5:6
+%         RHS = RHS + 2^(i+j-10)*b(:,i).*b(:,j);
+%     end
+% end
+% for i = 1:4
+%     for j = 5:6
+%         RHS = RHS - 2^(j-4)*b(:,i).*b(:,j);
+%     end
+% end
+% RHS = min(reshape(RHS, 4, []));
+% isequal(LHS, RHS);
 
-% k = 8, Eq. 74
+% k = 8, Equation in Alternative forms section of PTR-BCR-4
 b = dec2bin(2^11-1:-1:0)-'0';
 LHS = ones(2^11,1);
 for i = 1:8
