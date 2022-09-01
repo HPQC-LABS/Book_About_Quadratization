@@ -53,23 +53,27 @@ LHS=min(reshape(-b1.*b2.*b3.*b4.*b5.*b6,2,[]));
 RHS=min(reshape((6 - 1 - b1 - b2 - b3 - b4 - b5 - b6).*ba,2,[]));
 isequal(LHS,RHS);
 
-%% Pg. 11, NTR-ABCG Eq. 30-32
-
+%% Pg. 11, NTR-ABCG Eq. 29-32
 b = dec2bin(2^7-1:-1:0)-'0'; %included for clarity; repeated from previous cell
 b1=b(:,1);b2=b(:,2);b3=b(:,3);b4=b(:,4);b5=b(:,5);b6=b(:,6);ba = b(:,7);
 
-LHS=min(reshape(-2.*b1.*b2.*b3.*b4.*b5.*b6+b5.*b6,2,[])); 
-RHS=min(reshape(2.*((6-2)*b6.*ba-(b1.*(ba+b6-1)+b2.*(ba+b6-1)+b3.*(ba+b6-1)+b4.*(ba+b6-1)+b5.*(ba+b6-1)))+b6.*b5, 2, [] )); % quadratized using RHS of Eq. 32
+LHS=min(reshape(-b1.*b2.*b3.*b4.*b5.*b6,2,[]));
+RHS=min(reshape(b1+b2+b3+b4+b5 - (b1+b2+b3+b4+b5).*b6-(b1+b2+b3+b4+b5+b6).*ba+(6-1).*b6.*ba,2,[]));
 isequal(LHS, RHS)
 
+LHS=min(reshape(-2.*b1.*b2.*b3.*b4.*b5.*b6+b5.*b6,2,[])); 
+RHSa=min(reshape(2.*(b1+b2+b3+b4+b5 - (b1+b2+b3+b4+b5).*b6-(b1+b2+b3+b4+b5+b6).*ba+(6-1).*b6.*ba) + b5.*b6,2,[])); % Quadratized using eq. 29
+RHSb=min(reshape(2.*((6-1)*b6.*ba-((b1+b2+b3+b4+b5+b6).*(ba+b6-1)))+b5.*b6, 2, [])); % Quadratized using eq. 30
+RHSc=min(reshape(2.*((6-2)*b6.*ba-(b1.*(ba+b6-1)+b2.*(ba+b6-1)+b3.*(ba+b6-1)+b4.*(ba+b6-1)+b5.*(ba+b6-1)))+b6.*b5, 2, [] )); % Quadratized using eq. 32
+isequal(LHS, RHSa, RHSb, RHSc)
+
 LHS=min(reshape(-b1.*b2.*b3.*b4.*b5.*b6,2,[]));
-RHS=min(reshape( (6-1)*b6.*ba-(b1.*(ba+b6-1)+b2.*(ba+b6-1)+b3.*(ba+b6-1)+b4.*(ba+b6-1)+b5.*(ba+b6-1)+b6.*(ba+b6-1)), 2, []));
+RHS=min(reshape((6-1)*b6.*ba-((b1+b2+b3+b4+b5+b6).*(ba+b6-1)), 2, []));
 isequal(LHS,RHS)
 
 LHS=min(reshape(-b1.*b2.*b3.*b4.*b5.*b6,2,[])); 
-RHS=min(reshape((6-2)*b6.*ba-(b1.*(ba+b6-1)+b2.*(ba+b6-1)+b3.*(ba+b6-1)+b4.*(ba+b6-1)+b5.*(ba+b6-1)), 2, [] ));
+RHS=min(reshape((6-2)*b6.*ba-((b1+b2+b3+b4+b5).*(ba+b6-1)), 2, [] ));
 isequal(LHS,RHS)
-
 %% Pg. 12, NTR-ABCG-2 Eq. 34 needs a quadratized version of the equation to be added
 %% Pg. 13, NTR-GBP Eq 37-41
 %% Pg. 14, NTR-YXKK Eq. 42-43
