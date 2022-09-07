@@ -5,7 +5,7 @@ b1=b(:,1);b2=b(:,2);b3=b(:,3);b4=b(:,4);
 LHS=b1.*b2 + b2.*b3 + b3.*b4 - 4*b1.*b2.*b3;
 RHS=b1.*b2 + b2.*b3 + b3.*b4 + 4*b1 - 4*b1.*b2 - 4*b1.*b3;
 
-%% Pg. 1, Eqs 4-5 (Also used for abstract for 2019 AQC paper).
+%% Pg. 1, Eqs 4-5 (Also used for abstract for 2019 AQC paper)
 
 x = [0 1 ; 1 0]; y = [0 -1i ; 1i 0]; z = [1 0 ; 0 -1];
 x1 = kron(x, eye(8)); x2 = kron(kron(eye(2), x), eye(4)); x3 = kron(kron(eye(4), x), eye(2)); x4 = kron(eye(8), x);
@@ -75,49 +75,19 @@ LHS=min(reshape(-b1.*b2.*b3.*b4.*b5.*b6,2,[]));
 RHS=min(reshape((6-2)*b6.*ba-((b1+b2+b3+b4+b5).*(ba+b6-1)), 2, [] ));
 isequal(LHS,RHS)
 %% Pg. 12, NTR-ABCG-2 Eq. 34 needs a quadratized version of the equation to be added
-%% Pg. 13, NTR-GBP Eq 37-41
-%% Pg. 14, NTR-YXKK Eq. 42-43
-%% Pg. 15, NTR-RBL Eq. Eq. 44-46
-%% Pg. 16, NTR-LHZ Eq. 47-48
-%% Pg. 17, PTR-BG. Eq. 50
+b = dec2bin(2^7-1:-1:0)-'0';
+b1=b(:,1);b2=b(:,2);b3=b(:,3);b4=b(:,4);b5=b(:,5);b6=b(:,6);ba=b(:,7);
 
-b = dec2bin(2^6-1:-1:0)-'0';
-b1=b(:,1);b2=b(:,2);b3=b(:,3);b4=b(:,4);ba1=b(:,5);ba2=b(:,6);
-LHS=min(reshape(b1.*b2.*b3.*b4,4,[]));
-RHS=min(reshape(ba1.*(2+ b1 -b2 - b3 - b4) + ba2.*(1 + b2 - b3 - b4) + b3.*b4,4,[]));
-isequal(LHS,RHS); % Gives 1, verified by Nike on 28 Feb 2021.
+LHS = min(reshape(-2 * b1.*b2.*b3.*b4.*b5.*b6 + b5.*b6, 2, []));
+% so, as per before, we can rewrite b1b2...b6 in terms of equation.33, we just need to quadratize the b1...b6 portion
+RHS = min(reshape(2 * ((2 * 6 - 1) * ba - 2 * (b1.*ba + b2.*ba + b3.*ba + b4.*ba + b5.*ba + b6.*ba)) + b5.*b6, 2, []));
+isequal(LHS, RHS);
 
-%% Pg. 18, PTR-Ishikawa, Eqn 52
+% retesting, for equation 36, using expanded version
+RHS = min(reshape(22 * ba - 4 * b1.*ba - 4 * b2.*ba - 4*b3.*ba - 4*b4.*ba - 4*b5.*ba - 4*b6.*ba + b5.*b6, 2, []));
+isequal(LHS, RHS);
 
-b = dec2bin(2^5-1:-1:0)-'0';
-b1=b(:,1);b2=b(:,2);b3=b(:,3);b4=b(:,4);ba=b(:,5);
-LHS = b1.*b2.*b3.*b4;
-RHS = ba.*(3 - 2*b1 - 2*b2 - 2*b3 - 2*b4) + b1.*b2 + b1.*b3 + b1.*b4 + b2.*b3 + b2.*b4 +  b3.*b4;
-
-%% Pg. 19, No example given yet!
-%% Pg. 20, PTR-BCR-1: Eqns 59
-
-b = dec2bin(2^5-1:-1:0)-'0';
-b1=b(:,1);b2=b(:,2);b3=b(:,3);b4=b(:,4);ba1=b(:,5);
-LHS = b1.*b2.*b3.*b4;
-RHS = 1/2*(b1 + b2 + b3 + b4 - 2*ba1).*(b1 + b2 + b3 + b4 - 2*ba1 - 1);
-
-%% Pg. 21, PTR-BCR-2, Eqns 62
-%% Pg. 22, PTR-BCR-3, Eqns 65
-
-b = dec2bin(2^5-1:-1:0)-'0';
-b1=b(:,1);b2=b(:,2);b3=b(:,3);b4=b(:,4);ba=b(:,5);
-LHS = b1.*b2.*b3.*b4;
-RHS = 1/2*(b1 + b2 + b3 + b4 - 2*ba).*(b1 + b2 + b3 + b4 - 2*ba - 1);
-
-%% SFR-ABCG-4 Pg. __, Eqns __
-
-b = dec2bin(2^5-1:-1:0)-'0';
-b1=b(:,1);b2=b(:,2);b3=b(:,3);b4=b(:,4);ba1=b(:,5);
-LHS = b1.*b2.*b3.*b4;
-RHS = b4.*b2 + ba.*(b3-1);
-
-%% NTR-GBP: -b1b2b3 = min_ba(ba - b1 + b2 + b3 - b1b2 - b1b3 + b1)
+%% Pg. 13, NTR-GBP: -b1b2b3 = min_ba(ba - b1 + b2 + b3 - b1b2 - b1b3 + b1)
 
 b= dec2bin(2^4-1:-1:0)-'0';
 b1=b(:,1);b2=b(:,2);b3=b(:,3);ba=b(:,4);
@@ -127,12 +97,142 @@ RHSb = min(reshape(ba.*(-b2 + b1 + b3) - b1.*b2 - b2.*b3 + b2,2,[]));
 RHSc = min(reshape(ba.*(-b3 + b1 + b2) - b2.*b3 - b1.*b3 + b3,2,[]));
 isequal(LHS,RHSa,RHSb,RHSc);
 
-%%
+%% Pg. 14, NTR-YXKK Eq. 42-43
 
-z=[1 0; 0 -1];
+% Page 14 NTR-YXKK equation 42
+% Verification for when k=6 and alpha=0.001, 0.5, 1, 2, 15
+b= dec2bin(2^7 -1:-1:0) - '0';
+b1=b(:,1);b2=b(:,2);b3=b(:,3);b4=b(:,4);b5=b(:,5);b6=b(:,6);ba=b(:,7);
+LHS=min(reshape(-b1.*b2.*b3.*b4.*b5.*b6,2,[]));
+
+% alpha=0.001
+RHS=min(reshape(ba - 1 + 0.001*((1-b1).*(1-ba) + (1-b2).*(1-ba) + ...
+    (1-b3).*(1-ba) + (1-b4).*(1-ba) + (1-b5).*(1-ba) + ...
+    (1-b6).*(1-ba)), 2, []));
+
+isequal(LHS,RHS);
+
+% alpha=0.5
+RHS=min(reshape(ba - 1 + 0.5*((1-b1).*(1-ba) + (1-b2).*(1-ba) + ...
+    (1-b3).*(1-ba) + (1-b4).*(1-ba) + (1-b5).*(1-ba) + ...
+    (1-b6).*(1-ba)), 2, []));
+
+isequal(LHS,RHS);
+
+% alpha=1
+RHS=min(reshape(ba - 1 + 1*((1-b1).*(1-ba) + (1-b2).*(1-ba) + ...
+    (1-b3).*(1-ba) + (1-b4).*(1-ba) + (1-b5).*(1-ba) + ...
+    (1-b6).*(1-ba)), 2, []));
+
+isequal(LHS,RHS);
+
+% alpha=2
+RHS=min(reshape(ba - 1 + 2*((1-b1).*(1-ba) + (1-b2).*(1-ba) + ...
+    (1-b3).*(1-ba) + (1-b4).*(1-ba) + (1-b5).*(1-ba) + ...
+    (1-b6).*(1-ba)), 2, []));
+
+isequal(LHS,RHS);
+
+% alpha=15
+RHS=min(reshape(ba - 1 + 15*((1-b1).*(1-ba) + (1-b2).*(1-ba) + ...
+    (1-b3).*(1-ba) + (1-b4).*(1-ba) + (1-b5).*(1-ba) + ...
+    (1-b6).*(1-ba)), 2, []));
+
+isequal(LHS,RHS);
+
+% Equation 44
+
+b= dec2bin(2^6 -1:-1:0) - '0';
+b1=b(:,1);b2=b(:,2);b3=b(:,3);b4=b(:,4);b5=b(:,5);ba=b(:,6);
+LHS=min(reshape(-b1.*b2.*b3.*b4.*b5 + 5*b1.*b4 - b3, 2, []));
+RHS=min(reshape(ba + 9 -10*ba  - 2*b1 - 2*b2 - 2*b3 - 2*b4 - 2*b5 + ...
+    2*b1.*ba +2*b2.*ba +2*b3.*ba + 2*b4.*ba + 2*b5.*ba +5*b1.*b4 - b3,  2, []));
+
+isequal(LHS,RHS);
+%% Pg. 15, NTR-RBL
+%% Pg. 16, NTR-LHZ
+%% Pg. 17, PTR-BG
+
+b = dec2bin(2^6-1:-1:0)-'0';
+b1=b(:,1);b2=b(:,2);b3=b(:,3);b4=b(:,4);ba1=b(:,5);ba2=b(:,6);
+LHS=min(reshape(b1.*b2.*b3.*b4,4,[]));
+RHS=min(reshape(ba1.*(2+ b1 -b2 - b3 - b4) + ba2.*(1 + b2 - b3 - b4) + b3.*b4,4,[]));
+isequal(LHS,RHS); % Gives 1, verified by Nike on 28 Feb 2021.
+
+%% Pg. 18, PTR-Ishikawa
+
+b = dec2bin(2^5-1:-1:0)-'0';
+b1=b(:,1);b2=b(:,2);b3=b(:,3);b4=b(:,4);ba=b(:,5);
+LHS = b1.*b2.*b3.*b4;
+RHS = ba.*(3 - 2*b1 - 2*b2 - 2*b3 - 2*b4) + b1.*b2 + b1.*b3 + b1.*b4 + b2.*b3 + b2.*b4 +  b3.*b4;
+
+%% Pg. 19, PTR-ABCG (No example given yet!)
+%% Pg. 20, PTR-BCR-1
+
+b = dec2bin(2^5-1:-1:0)-'0';
+b1=b(:,1);b2=b(:,2);b3=b(:,3);b4=b(:,4);ba1=b(:,5);
+LHS = b1.*b2.*b3.*b4;
+RHS = 1/2*(b1 + b2 + b3 + b4 - 2*ba1).*(b1 + b2 + b3 + b4 - 2*ba1 - 1);
+
+%% Pg. 21, PTR-BCR-2
+%% Pg. 22, PTR-BCR-3 (example appears to be the same as PTR-BCR-1, and may have to be redone)
+%% Pg. 23, PTR-BCR-4 
+%% Pg. 24, PTR-KZ: b1b2b3 = min_ba(1 − (ba + b1 + b2 + b3) + ba (b1 + b2 + b3) + b1b2 + b1b3 + b2b3)
+
+b = dec2bin(2^4-1:-1:0)-'0';
+b1=b(:,1);b2=b(:,2);b3=b(:,3);ba=b(:,4);
+
+LHS=min(reshape(b1.*b2.*b3,2,[]));
+RHS=min(reshape(1 - (ba+b1+b2+b3) + ba.*(b1+b2+b3) +b1.*b2+b1.*b3+b2.*b3,2,[]));
+isequal(LHS,RHS);
+
+b = dec2bin(2^4-1:-1:0)-'0';
+b1=b(:,1);b2=b(:,2);b3=b(:,3);ba=b(:,4);
+LHS = min(reshape(b1.*b2.*b3+b1+b2+b3-b2.*b3,2,[]));
+RHS = min(reshape(1-ba+ba.*(b1+b2+b3)+b1.*b2+b1.*b3,2,[]));
+isequal(LHS, RHS);
+
+%% Pg. 25, PTR-KZ: ±z1z2z3 = 3 ± (z1 + z2 + z3 + 2*za) + 2 za (z1 + z2 + z3) + z1z2 + z1z3 + z2z3
+z = [1 0; 0 -1];
+z1 = kron(z, eye(8));z2 = kron(kron(eye(2), z), eye(4));z3 = kron(kron(eye(4), z), eye(2));za = kron(eye(8), z);
+LHS_plus = min(reshape(diag(z1*z2*z3),2,[]));
+RHS_plus = min(reshape(diag(3*eye(16)+(z1+z2+z3+2*za)+2*za*(z1+z2+z3)+z1*z2+z1*z3+z2*z3),2,[]));
+
+LHS_minus = min(reshape(diag(-1*z1*z2*z3),2,[]));
+RHS_minus = min(reshape(diag(3*eye(16)-(z1+z2+z3+2*za)+2*za*(z1+z2+z3)+z1*z2+z1*z3+z2*z3),2,[]));
+isequal(LHS_plus,RHS_plus) & isequal(LHS_minus, RHS_minus); % gives 1, confirmed by Nike on 26 April 2022.
+
+%% Example
+LHS = min(reshape(diag(z1*z2*z3 - z1*z2 - z1 - z2),2,[]));
+RHS = min(reshape(diag(3*eye(16)+z3+2*za+2*za*(z1+z2+z3)+z1*z3+z2*z3),2,[]));
+isequal(LHS, RHS); % gives 1, confirmed by Nike on 26 April 2022.
+
+%% PTR-GBP: b1b2b3 = min_ba(ba - b2ba - b3ba +b1ba +b2b3)
+
+LHS = min(reshape(b1.*b2.*b3,2,[]));
+RHSa = min(reshape(b4 - b2.*b4 - b3.*b4 + b1.*b4 +b2.*b3,2,[]));
+RHSb = min(reshape(b4 - b1.*b4 - b3.*b4 + b2.*b4 + b1.*b3,2,[]));
+RHSc = min(reshape(b4 - b1.*b4 - b2.*b4 + b3.*b4 + b1.*b2,2,[]));
+isequal(LHS,RHSa,RHSb,RHSc);
+
+%% example eq. (?)
+LHS = min(reshape(b1.*b2.*b3 + b1.*b3 - b2,2,[]));
+RHS = min(reshape((b4 - b1.*b4 - b3.*b4 + b2.*b4 + 2*b1.*b3)-b2,2,[]));
+isequal(LHS,RHS);
+
+%% Pg. 26, PTR-GBP (mentioned here: https://proofassistants.stackexchange.com/q/1187/8)
+
+b=dec2bin(2^4-1:-1:0)-'0';
+b1=b(:,1);b2=b(:,2);b3=b(:,3);ba=b(:,4);
+LHS = min(reshape(b1.*b2.*b3,2,[]));
+RHS = min(reshape(ba - b2.*ba - b3.*ba + b1.*ba +b2.*b3,2,[]));
+isequal(LHS,RHS) % answer is 1
+
+%% Pg. 27, PTR-RBL
+%% Pg. 28, PTR-RBL-(4->2)
 
 %% PTR-RBL, k=4, middle of LHZ
-
+z=[1 0; 0 -1];
 z1 = kron(z,eye(16));
 z2 = kron(kron(eye(2),z),eye(8));
 z3 = kron(kron(eye(4),z),eye(4));
@@ -182,7 +282,109 @@ RHS=4*za+2*(z1+z2+z3+z4)+4*za*(z1+z2+z3+z4)+2*(z1*z2+z1*z3+z1*z4+z2*z3+z2*z4+z3*
 
 [diag(LHS) diag(RHS)];
 
-%% RBS-Rosenberg: b1b2b3 = min_ba(b1ba + b2b3 - 2*b2ba -2*b3ba + 3*ba) (Eq 150)
+%% pG. 29 PTR-YXKK: b1b2b3 + b1b3 − b2 -> b1b2 + ba1 + 2ba2 + 2(1 − b1)(1 − ba1) + 2(1 − b2)(1 − ba1) + 2(1 − b3)(1 − ba2) + 2(1 − ba2)(1 − ba1) − 2(1 − b3) − 1 + b1b3 − b2
+b=dec2bin(2^5-1:-1:0)-'0';
+b1=b(:,1); b2=b(:,2); b3=b(:,3); ba1=b(:,4); ba2=b(:,5);
+LHS=min(reshape(b1.*b2.*b3 + b1.*b3 - b2,4,[]));
+RHS=min(reshape(b1.*b2 + ba1 + 2*ba2 + 2*(1-b1).*(1-ba1) + 2*(1-b2).*(1-ba1) + 2*(1-b3).*(1-ba2) + 2*(1-ba2).*(1-ba1) - 2*(1-b3) - 1 + b1.*b3 - b2,4,[]));
+isequal(LHS,RHS);
+
+%% Pg. 30, PTR-CZW  %% It does not yet show that b1b2b3b4 = H_2-count and that z1z2z3z4 = the other H_2-count.
+
+z=[1 0; 0 -1];
+z1 = kron(z,eye(8));
+z2 = kron(kron(eye(2),z),eye(4));
+z3 = kron(kron(eye(4),z),eye(2));
+z4 = kron(eye(8),z);
+
+b=dec2bin(2^4-1 :-1 : 0)-'0';
+b1=b(:,1);b2=b(:,2);b3=b(:,3);b4=b(:,4);
+
+LHS=diag(z1*z2*z3*z4);
+RHS=16*b1.*b2.*b3.*b4 - 8*(b1.*b2.*b3 + b1.*b2.*b4 + b1.*b3.*b4 + b2.*b3.*b4) + 4*(b1.*b2 + b1.*b3 + b1.*b4 + b2.*b3 + b2.*b4 + b3.*b4)-2*(b1+b2+b3+b4)+1;
+isequal(LHS,RHS); % Gives 1!
+
+%% Pg. 31, Bit-flipping
+
+% The penalty term 1-b1-b1_bar+2b1*b1_bar can be added to anything without changing the value
+b = dec2bin(2^1-1:-1:0) - '0';
+b1 = b(:,1);
+b1_bar = 1-b1; 
+
+LHS = (1-b1-b1_bar).^2;
+RHS = 1-b1-b1_bar+2*b1.*b1_bar;
+isequal(LHS,RHS); % Gives 1. 
+
+% The penalty term bi*bi_bar can be added to anything without changing the values
+b = dec2bin(2^1-1:-1:0) - '0';
+b1 = b(:,1);
+b1_bar = 1-b1;
+
+LHS = b1.*b1_bar;
+RHS = 0*LHS
+isequal(LHS,RHS); % Gives 1, so RHS = 0.
+
+% Example: Using bit flipping to deal with large positive terms by making them negative, then using then using IIA
+b = dec2bin(2^6-1:-1:0) - '0';
+b1 = b(:,1); b2 = b(:,2); b3 = b(:,3); b4 = b(:,4); ba1 = b(:,5); ba2 = b(:,6);
+b1_bar = 1-b1; b2_bar = 1-b2;
+
+LHS = min(reshape(b1.*b2.*b3.*b4,4,[]));
+RHS = min(reshape(b3.*b4 + 2*ba1 - ba1.*b2_bar - ba1.*b3 - ba1.*b4 + 3*ba2 - ba2.*b1_bar - ba2.*b2 - ba2.*b3 - ba2.*b4,4,[]));
+isequal(LHS,RHS); % Gives 1.
+
+% Example: Bit flipping can be used to reduce the number of non-submodular (positive quadratic) terms in a quadratized expression
+b = dec2bin(2^4-1:-1:0) - '0';
+b1 = b(:,1); b2 = b(:,2); b3 = b(:,3); b4 = b(:,4);
+b2_bar = 1-b2; b4_bar = 1-b4;
+
+LHS = 3*b1.*b2 + b2.*b3 + 2*b1.*b4 - 4*b2.*b4;
+RHS = -3*b1.*b2_bar - b2_bar.*b3 - 2*b1.*b4_bar - 4*b2_bar.*b4_bar + 5*b1 + b3 + 4*b2_bar + 4*b4_bar - 4;
+isequal(LHS,RHS); % Gives 1.
+
+%% Pg. 32, SFR-ABCG-1 %% Done by Henry Liang. Not tested!
+
+LHS = f(b)  % Requires a definition of i and j and an array of alpha and a values Pre-define the value of c. 1 is a dummy assignment, i could be anything
+
+if (mod(i,2)==0); c = min(alpha(2*j+1));
+else;             c = min(alpha(2*j));   end
+RHS = -alpha(1)-alpha(1)*symsum(b(:,i),i)+a(2)*symsum(b(:,i).*b(:,j),i*j)+2*symsum((alpha(i)-c)*b(:,a(i))*(2*i-0.5-symsum(b(:,j),j)),i);
+
+%% Pg. 33, SFR-BCR-1: (b1b2 + b1b3 + b1b4 + b2b3 + b2b4 + b3b4) − 3(b1b2b3 + b1b2b4 + b1b3b4 + b2b3b4) + 6b1b2b3b4 -> (−3 + b1 + b2 + b3 + b4 − ba1 + 3ba2)^2
+b= dec2bin(2^6-1:-1:0)-'0';
+b1=b(:,1); b2=b(:,2); b3=b(:,3); b4=b(:,4); ba1=b(:,5); ba2=b(:,6);
+LHS= min(reshape( (b1.*b2 + b1.*b3 + b1.*b4 + b2.*b3 + b2.*b4 + b3.*b4) - 3*(b1.*b2.*b3 + b1.*b2.*b4 + b1.*b3.*b4 + b2.*b3.*b4) + 6*b1.*b2.*b3.*b4 ,4,[]));
+RHS= min(reshape( (-3 + b1 + b2 + b3 + b4 - ba1 + 3*ba2).^2 ,4,[]));
+isequal(LHS, RHS);
+
+%% Pg. 34, SFR-BCR-2: (b1b2 + b1b3 + b1b4 + b2b3 + b2b4 + b3b4)−3(b1b2b3 + b1b2b4 + b1b3b4 + b2b3b4) + 6b1b2b3b4 -> (1 − b1 − b2 − b3 − b4 − ba1 + 3ba2)^2
+b= dec2bin(2^6-1:-1:0)-'0';
+b1=b(:,1); b2=b(:,2); b3=b(:,3); b4=b(:,4); ba1=b(:,5); ba2=b(:,6);
+LHS= min(reshape( (b1.*b2 + b1.*b3 + b1.*b4 + b2.*b3 + b2.*b4 + b3.*b4) - 3*(b1.*b2.*b3 + b1.*b2.*b4 + b1.*b3.*b4 + b2.*b3.*b4) + 6*b1.*b2.*b3.*b4 ,4,[]));
+RHS= min(reshape( (1 - b1 - b2 - b3 - b4 - ba1 + 3*ba2).^2 ,4,[]));
+isequal(LHS, RHS);
+
+%% Pg. 35, SFR-BCR-3
+%% Pg. 36, SFR-BCR-4
+%% Pg. 37, SFR-BCR-5
+%% Pg. 38, SFR-BCR-6
+%% Pg. 39, SFR-ABCG-2
+%% Pg. 40, SFR-ABCG-3
+%% Pg. 41, SFR-BCR-7
+%% Pg. 42, SFR-BCR-8
+%% Pg. 43, SFR-BCR-9
+%% Pg. 44, SFR-ABCG-4
+
+b = dec2bin(2^5-1:-1:0)-'0';
+b1=b(:,1);b2=b(:,2);b3=b(:,3);b4=b(:,4);ba1=b(:,5);
+LHS = b1.*b2.*b3.*b4;
+RHS = b4.*b2 + ba.*(b3-1);
+
+%% Pg. 45, PFR-BCR-1
+%% Pg. 46, PFR-BCR-2
+
+
+%% Pg. 49, RBS-Rosenberg: b1b2b3 = min_ba(b1ba + b2b3 - 2*b2ba -2*b3ba + 3*ba) (Eq 150)
 
 b=[0 1];
 b1=kron(b,ones(1,8));
@@ -201,7 +403,7 @@ LHS=min(reshape(b1.*b2.*b3 + b1.*b2.*b4,2,[]));
 RHS=min(reshape(b3.*ba + b4.*ba + 2*b1.*b2 - 4*b1.*ba - 4*b2.*ba + 6*ba,2,[]));
 isequal(LHS,RHS);
 
-%% FGBZ for negative: -b1b2b3 - b1b2b4 = min_ba((1 - b1b2 - b3)ba1 + (1 - b1b2 - b4)ba1)  (Eqs 153-154)
+%% Pg. 50, FGBZ for negative: -b1b2b3 - b1b2b4 = min_ba((1 - b1b2 - b3)ba1 + (1 - b1b2 - b4)ba1)  (Eqs 153-154)
 
 b=dec2bin(2^6-1:-1:0)-'0';
 b1=b(:,1);b2=b(:,2);b3=b(:,3);b4=b(:,4);ba1=b(:,5);ba2=b(:,6);
@@ -217,7 +419,7 @@ RHSa=min(reshape(2*ba1 - b3.*ba1 - b4.*ba1 + 2*(2 - b1 - b2 - ba1).*ba2,4,[]));
 RHSb=min(reshape(2*ba1 - b3.*ba1 - b4.*ba1 + 4*ba2 - 2*b1.*ba2 - 2*b2.*ba2 - 2*ba1.*ba2,4,[]));
 isequal(LHS,RHSa,RHSb);
 
-%% FGBZ for positive: b1b2b3 + b1b2b4 = min_ba(2*ba1b1 + (1 - ba1)b2b3 + (1 - ba1)b2b4)  (Eqs 158-159)
+%% Pg. 51, FGBZ for positive: b1b2b3 + b1b2b4 = min_ba(2*ba1b1 + (1 - ba1)b2b3 + (1 - ba1)b2b4)  (Eqs 158-159)
 
 b=dec2bin(2^6-1:-1:0)-'0';
 b1=b(:,1);b2=b(:,2);b3=b(:,3);b4=b(:,4);ba1=b(:,5);ba2=b(:,6);
@@ -233,7 +435,7 @@ RHSa=min(reshape(2*ba1.*b1 + b2.*b3 + b2.*b4 + 2*ba2 - ba2.*ba1 - ba2.*b2 - ba2.
 RHSb=min(reshape(2*ba1.*b1 + b2.*b3 + b2.*b4 + 4*ba2 - 2*ba2.*ba1 - 2*ba2.*b2 - ba2.*b3 - ba2.*b4,4,[]));
 isequal(LHS,RHSa,RHSb);
 
-%% Pairwise Covers: 5*b1b2b3b4 + 4*b1b2b4 - 3*b1b3 - 2*b2b3b4
+%% Pg. 52, Pairwise Covers: 5*b1b2b3b4 + 4*b1b2b4 - 3*b1b3 - 2*b2b3b4
 %%                  = min_ba(5*ba1ba2 + 4*b1ba2 - 3*ba1 - 2*b3ba2 + 8*(ba1(3 - 2*b1 - 2*b3) + b1b3) + 11*(ba2(3 - 2*b2 - 2*b4) + b2b4))
 
 b=dec2bin(2^6-1:-1:0)-'0';
@@ -242,47 +444,15 @@ LHS=min(reshape(5*b1.*b2.*b3.*b4 + 4*b1.*b2.*b4 - 3*b1.*b3 - 2*b2.*b3.*b4,4,[]))
 RHS=min(reshape(5*ba1.*ba2 + 4*b1.*ba2 - 3*ba1 - 2*b3.*ba2 + 8*(ba1.*(3 - 2*b1 - 2*b3) + b1.*b3) + 11*(ba2.*(3 - 2*b2 - 2*b4) + b2.*b4),4,[]));
 isequal(LHS,RHS);
 
-%% PTR-KZ: b1b2b3 = min_ba(1 − (ba + b1 + b2 + b3) + ba (b1 + b2 + b3) + b1b2 + b1b3 + b2b3)
+%% Pg. 53, Flag-based SAT mapping
+%% Pg. 55, SCM-BCR
+%% Pg. 56, Decomposition into symmetric and anti-symmetric parts
 
-LHS=min(reshape(b1.*b2.*b3,2,[]));
-RHS=min(reshape(1 - (b4+b1+b2+b3) + b4.*(b1+b2+b3) +b1.*b2+b1.*b3+b2.*b3,2,[]));
-isequal(LHS,RHS);
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+QUANTUM GADGETS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%% PTR-GBP: b1b2b3 = min_ba(ba - b2ba - b3ba +b1ba +b2b3)
-
-LHS = min(reshape(b1.*b2.*b3,2,[]));
-RHSa = min(reshape(b4 - b2.*b4 - b3.*b4 + b1.*b4 +b2.*b3,2,[]));
-RHSb = min(reshape(b4 - b1.*b4 - b3.*b4 + b2.*b4 + b1.*b3,2,[]));
-RHSc = min(reshape(b4 - b1.*b4 - b2.*b4 + b3.*b4 + b1.*b2,2,[]));
-isequal(LHS,RHSa,RHSb,RHSc);
-
-%% example eq. (79)
-LHS = min(reshape(b1.*b2.*b3 + b1.*b3 - b2,2,[]));
-RHS = min(reshape((b4 - b1.*b4 - b3.*b4 + b2.*b4 + 2*b1.*b3)-b2,2,[]));
-isequal(LHS,RHS);
-
-%% PTR-YXKK: b1b2b3 + b1b3 − b2 -> b1b2 + ba1 + 2ba2 + 2(1 − b1)(1 − ba1) + 2(1 − b2)(1 − ba1) + 2(1 − b3)(1 − ba2) + 2(1 − ba2)(1 − ba1) − 2(1 − b3) − 1 + b1b3 − b2
-b=dec2bin(2^5-1:-1:0)-'0';
-b1=b(:,1); b2=b(:,2); b3=b(:,3); ba1=b(:,4); ba2=b(:,5);
-LHS=min(reshape(b1.*b2.*b3 + b1.*b3 - b2,4,[]));
-RHS=min(reshape(b1.*b2 + ba1 + 2*ba2 + 2*(1-b1).*(1-ba1) + 2*(1-b2).*(1-ba1) + 2*(1-b3).*(1-ba2) + 2*(1-ba2).*(1-ba1) - 2*(1-b3) - 1 + b1.*b3 - b2,4,[]));
-isequal(LHS,RHS);
-
-%% SFR-BCR-1: (b1b2 + b1b3 + b1b4 + b2b3 + b2b4 + b3b4) − 3(b1b2b3 + b1b2b4 + b1b3b4 + b2b3b4) + 6b1b2b3b4 -> (−3 + b1 + b2 + b3 + b4 − ba1 + 3ba2)^2
-b= dec2bin(2^6-1:-1:0)-'0';
-b1=b(:,1); b2=b(:,2); b3=b(:,3); b4=b(:,4); ba1=b(:,5); ba2=b(:,6);
-LHS= min(reshape( (b1.*b2 + b1.*b3 + b1.*b4 + b2.*b3 + b2.*b4 + b3.*b4) - 3*(b1.*b2.*b3 + b1.*b2.*b4 + b1.*b3.*b4 + b2.*b3.*b4) + 6*b1.*b2.*b3.*b4 ,4,[]));
-RHS= min(reshape( (-3 + b1 + b2 + b3 + b4 - ba1 + 3*ba2).^2 ,4,[]));
-isequal(LHS, RHS);
-
-%% SFR-BCR-2: (b1b2 + b1b3 + b1b4 + b2b3 + b2b4 + b3b4)−3(b1b2b3 + b1b2b4 + b1b3b4 + b2b3b4) + 6b1b2b3b4 -> (1 − b1 − b2 − b3 − b4 − ba1 + 3ba2)^2
-b= dec2bin(2^6-1:-1:0)-'0';
-b1=b(:,1); b2=b(:,2); b3=b(:,3); b4=b(:,4); ba1=b(:,5); ba2=b(:,6);
-LHS= min(reshape( (b1.*b2 + b1.*b3 + b1.*b4 + b2.*b3 + b2.*b4 + b3.*b4) - 3*(b1.*b2.*b3 + b1.*b2.*b4 + b1.*b3.*b4 + b2.*b3.*b4) + 6*b1.*b2.*b3.*b4 ,4,[]));
-RHS= min(reshape( (1 - b1 - b2 - b3 - b4 - ba1 + 3*ba2).^2 ,4,[]));
-isequal(LHS, RHS);
-
-%% ZZZ-TI-CBBK
+%% Pg. 57, ZZZ-TI-CBBK
 
 z = [1 0; 0 -1];
 x = [0 1;1 0];
